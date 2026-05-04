@@ -1,0 +1,958 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>TWF2026 みどころポータル | 主催店向け営業支援サイト</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto+Mono:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    /* ===========================================================
+       ブランドトークン (docs/style-guide.md より)
+       =========================================================== */
+    :root {
+      --red-500: #C8102E;
+      --red-700: #8B0B20;
+      --blue-500: #0066CC;
+      --orange-500: #FF6B35;
+      --gray-50: #FAFAFA;
+      --gray-100: #F4F4F5;
+      --gray-200: #E4E4E7;
+      --gray-400: #A1A1AA;
+      --gray-600: #52525B;
+      --gray-800: #2C2C2C;
+
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+      --shadow-card-hover: 0 12px 24px rgba(0,0,0,0.12);
+
+      --container-max: 1280px;
+
+      --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+                   "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      --font-mono: "Roboto Mono", "SFMono-Regular", monospace;
+    }
+
+    /* ===========================================================
+       基本リセット
+       =========================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: var(--blue-500); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    button { font-family: inherit; cursor: pointer; border: none; }
+
+    /* ===========================================================
+       共通: 赤の二重下線 (シグニチャ装飾)
+       =========================================================== */
+    .double-underline::after {
+      content: '';
+      display: block;
+      width: 120px;
+      height: 12px;
+      margin-top: 12px;
+      background:
+        linear-gradient(var(--red-500), var(--red-500)) top/100% 4px no-repeat,
+        linear-gradient(var(--red-500), var(--red-500)) bottom/100% 4px no-repeat;
+    }
+    .double-underline-center { text-align: center; }
+    .double-underline-center.double-underline::after { margin-left: auto; margin-right: auto; }
+
+    /* セクション共通の見出し */
+    .section-title {
+      display: inline-block;
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--gray-800);
+    }
+    .section-title-light { color: #fff; }
+
+    .section-header {
+      text-align: center;
+      padding-top: 56px;
+      margin-bottom: 32px;
+    }
+
+    /* ===========================================================
+       Section 1: Hero  ───────  100vh  /  暗(ガンメタ)
+       =========================================================== */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      min-height: 720px;
+      background: #2C2C2C url('../assets/raw/top-hero-pc.png') center / cover no-repeat;
+      overflow: hidden;
+    }
+    .hero::before {
+      /* テキスト視認性確保のため、左側に暗グラデを薄く掛ける */
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(105deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0) 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      width: 100%; height: 100%;
+      max-width: 1920px;
+      margin: 0 auto;
+      padding: 15vh 80px 64px;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero-title-block {
+      grid-row: 1; grid-column: 1 / span 2;
+      align-self: center;
+      max-width: 920px;
+    }
+    .hero-logo {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 240px;
+      height: auto;
+      z-index: 2;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,0.5));
+    }
+    .hero-h1 {
+      font-size: 72px;
+      font-weight: 900;
+      line-height: 1.1;
+      color: #fff;
+      letter-spacing: -0.02em;
+    }
+    .hero-h1 + .double-underline::after { margin-top: 16px; }
+    .hero-sub {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.6;
+    }
+    .hero-countdown {
+      grid-row: 2; grid-column: 1;
+      align-self: end;
+    }
+    .countdown-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      letter-spacing: 0.08em;
+      margin-bottom: 8px;
+    }
+    .countdown-display {
+      font-family: var(--font-mono);
+      font-feature-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      font-size: 48px;
+      font-weight: 900;
+      color: #fff;
+      line-height: 1;
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+    }
+    .countdown-display .num {
+      color: var(--orange-500);
+      font-size: 56px;
+    }
+    .countdown-display .unit {
+      font-size: 22px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-sans);
+      margin-right: 4px;
+    }
+    .hero-cta-wrap {
+      grid-row: 2; grid-column: 2;
+      align-self: end;
+      justify-self: end;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 28px;
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--red-500);
+      border-radius: 4px;
+      box-shadow: var(--shadow-md);
+      transition: background 150ms ease-out, box-shadow 150ms ease-out, transform 150ms ease-out;
+    }
+    .btn:hover {
+      background: var(--red-700);
+      box-shadow: var(--shadow-lg);
+      text-decoration: none;
+      transform: translateY(-2px);
+    }
+    .btn-blue { background: var(--blue-500); }
+    .btn-blue:hover { background: #004999; }
+
+    /* ===========================================================
+       Section 2: 主催店の使い方ガイド  ───────  16:7  /  明
+       =========================================================== */
+    .usage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 7;
+      background: var(--gray-50) url('../assets/raw/top-usage-pc.png') center / cover no-repeat;
+      overflow: hidden;
+    }
+    .usage .section-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      padding-top: 32px;
+      z-index: 2;
+    }
+    .usage-panels {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 20%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    .usage-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 24px;
+      text-align: center;
+      background: rgba(250,250,250,0.92);
+      border-right: 1px solid var(--gray-200);
+    }
+    .usage-panel:last-child { border-right: none; }
+    .usage-panel-label {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 4px;
+    }
+    .usage-panel-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+    .panel-1 .usage-panel-label { color: var(--blue-500); }
+    .panel-2 .usage-panel-label { color: var(--orange-500); }
+    .panel-3 .usage-panel-label { color: var(--red-500); }
+
+    /* ===========================================================
+       Section 3: 注目企画ピックアップ  ───────  16:9  /  暗(ガンメタ)
+       =========================================================== */
+    .pickup {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1a1a1a url('../assets/raw/top-pickup-pc.png') center / cover no-repeat;
+      overflow: hidden;
+    }
+    .pickup .section-header {
+      padding-top: 40px;
+      margin-bottom: 0;
+    }
+    .pickup-cards {
+      position: absolute;
+      bottom: 12%;
+      left: 0; right: 0;
+      padding: 0 80px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 24px;
+      max-width: 1920px;
+      margin: 0 auto;
+    }
+    .pickup-card {
+      position: relative;
+      padding: 18px 16px 16px;
+      background: rgba(44, 44, 44, 0.85);
+      border: 1px solid rgba(255, 107, 53, 0.35);
+      border-radius: 8px;
+      backdrop-filter: blur(2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      color: #fff;
+    }
+    .pickup-card-maker {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--orange-500);
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+    }
+    .pickup-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+      color: #fff;
+    }
+    .pickup-card-badge {
+      position: absolute;
+      top: -12px;
+      right: -8px;
+      width: 56px;
+      height: 56px;
+      background: url('../assets/extracted/badges/badge_001.png') center / contain no-repeat;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+    }
+
+    /* ===========================================================
+       Section 4: メーカー一覧  ───────  flex height  /  明
+       =========================================================== */
+    .makerlist {
+      position: relative;
+      width: 100%;
+      padding: 0 0 96px;
+      background: var(--gray-50) url('../assets/raw/top-makerlist-bg-pc.png') center / cover no-repeat;
+    }
+    .makerlist-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .search-bar {
+      position: relative;
+      max-width: 600px;
+      margin: 8px auto 48px;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 12px 16px;
+      box-shadow: var(--shadow-md);
+    }
+    .search-bar:focus-within { border-color: var(--blue-500); }
+    .search-bar svg { width: 20px; height: 20px; color: var(--gray-400); flex-shrink: 0; }
+    .search-bar input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 0 12px;
+      font-family: inherit;
+      font-size: 16px;
+      color: var(--gray-800);
+      background: transparent;
+    }
+    .search-bar input::placeholder { color: var(--gray-400); }
+
+    .maker-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+    .maker-card {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+      cursor: pointer;
+    }
+    .maker-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .maker-card-hero {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-color: var(--gray-100);
+      background-size: cover;
+      background-position: center;
+    }
+    .maker-card-body {
+      padding: 20px 18px 22px;
+    }
+    .maker-card-name {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+    .maker-card-cat {
+      font-size: 13px;
+      color: var(--gray-600);
+      margin-bottom: 14px;
+    }
+    .maker-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--blue-500);
+    }
+    .maker-card-link::after {
+      content: '→';
+      transition: transform 150ms ease-out;
+    }
+    .maker-card:hover .maker-card-link::after { transform: translateX(4px); }
+
+    /* カード4隅の装飾 (CSS background) */
+    .maker-card::before,
+    .maker-card::after,
+    .maker-card .corner-bl,
+    .maker-card .corner-br {
+      content: '';
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      pointer-events: none;
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 2;
+    }
+    .maker-card::before {
+      top: 6px; left: 6px;
+      background-image: url('../assets/extracted/card-frames/frame_001.png');
+    }
+    .maker-card::after {
+      top: 6px; right: 6px;
+      background-image: url('../assets/extracted/card-frames/frame_005.png');
+    }
+    .maker-card .corner-bl {
+      bottom: 6px; left: 6px;
+      background-image: url('../assets/extracted/card-frames/frame_009.png');
+    }
+    .maker-card .corner-br {
+      bottom: 6px; right: 6px;
+      background-image: url('../assets/extracted/card-frames/frame_013.png');
+    }
+
+    /* NEWバッジ (1社目だけお試し配置) */
+    .maker-card-new {
+      position: absolute;
+      top: -12px;
+      right: -10px;
+      width: 64px;
+      height: 64px;
+      background: url('../assets/extracted/new-badges/new_001.png') center / contain no-repeat;
+      filter: drop-shadow(0 3px 5px rgba(0,0,0,0.25));
+      z-index: 3;
+    }
+
+    /* hover glow (state_001.png) */
+    .maker-card .hover-glow {
+      position: absolute;
+      inset: -12px;
+      pointer-events: none;
+      background: url('../assets/extracted/card-states/state_001.png') center / cover no-repeat;
+      opacity: 0;
+      transition: opacity 200ms ease-out;
+      z-index: 0;
+    }
+    .maker-card:hover .hover-glow { opacity: 1; }
+
+    /* ===========================================================
+       Section 5: 当日セール特価  ───────  16:9  /  明
+       背景の honeycomb expo マップは「TWF会場の象徴」として装飾扱い
+       =========================================================== */
+    .sale {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-50) url('../assets/raw/top-route-pc.png') center / cover no-repeat;
+      overflow: hidden;
+    }
+    .sale .section-header {
+      padding-top: 40px;
+    }
+    .sale-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -38%);
+      width: 86%;
+      max-width: 920px;
+      text-align: center;
+    }
+    .sale-headline {
+      padding: 24px 32px;
+      background: rgba(250, 250, 250, 0.92);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--gray-800);
+      letter-spacing: -0.01em;
+      box-shadow: var(--shadow-md);
+    }
+    .sale-headline .accent { color: var(--red-500); }
+    .sale-sub {
+      margin-top: 24px;
+      padding: 18px 28px;
+      background: rgba(250, 250, 250, 0.92);
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: var(--gray-800);
+    }
+    .sale-sub-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+      gap: 10px;
+    }
+    .sale-sub-item + .sale-sub-item { margin-top: 6px; }
+    .sale-sub-icon {
+      flex-shrink: 0;
+      font-size: 22px;
+    }
+    .sale-cta-wrap {
+      margin-top: 28px;
+    }
+
+    /* ===========================================================
+       Section 6: 当日チェックリスト  ───────  16:9  /  明
+       =========================================================== */
+    .checklist {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1a1a1a url('../assets/raw/top-checklist-pc.png') center / cover no-repeat;
+      overflow: hidden;
+    }
+    .checklist .section-header {
+      padding-top: 40px;
+    }
+    .checklist-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -30%);
+      width: 60%;
+      max-width: 720px;
+      text-align: center;
+      color: var(--gray-800);
+    }
+    .checklist-text {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      color: #2C2C2C;
+      background: rgba(250,250,250,0.85);
+      padding: 16px 20px;
+      border-radius: 8px;
+    }
+
+    /* ===========================================================
+       Section 7: Footer  ───────  16:5 + content  /  暗(ガンメタ)
+       =========================================================== */
+    .footer {
+      position: relative;
+      width: 100%;
+      min-height: 320px;
+      background: #2C2C2C url('../assets/raw/top-footer-pc.png') center / cover no-repeat;
+      color: #fff;
+      padding: 64px 80px 48px;
+    }
+    .footer-inner {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .footer-brand {
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+    .footer-contact {
+      font-size: 14px;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-contact strong {
+      display: inline-block;
+      width: 48px;
+      color: var(--orange-500);
+      font-weight: 500;
+    }
+    .footer-right {
+      text-align: right;
+    }
+    .footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 12px 20px;
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.4);
+      border-radius: 4px;
+      color: #fff;
+      font-weight: 500;
+      transition: background 150ms ease-out, border-color 150ms ease-out;
+    }
+    .footer-link:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: var(--orange-500);
+      text-decoration: none;
+    }
+    .footer-meta {
+      margin-top: 16px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    .footer-meta-row {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+    }
+
+    /* ===========================================================
+       セクション間の区切り装飾 (dividers)
+       =========================================================== */
+    .section-divider {
+      position: relative;
+      width: 100%;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--gray-50);
+    }
+    .section-divider::after {
+      content: '';
+      width: 240px;
+      height: 16px;
+      background: url('../assets/extracted/dividers/divider_004.png') center / contain no-repeat;
+    }
+    .section-divider.dark { background: #2C2C2C; }
+
+    /* ===========================================================
+       Section 4: Phase 6 — 3-tier maker cards + legend
+       =========================================================== */
+    .maker-tier-legend {
+      max-width: 760px;
+      margin: -16px auto 32px;
+      display: flex;
+      gap: 18px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+    .tier-key {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .tier-key .dot {
+      width: 10px; height: 10px; border-radius: 50%;
+      display: inline-block;
+    }
+    .tier-key-a .dot { background: var(--red-500); }
+    .tier-key-b .dot { background: var(--blue-500); }
+    .tier-key-c .dot { background: var(--gray-400); }
+    .tier-key-total {
+      margin-left: 12px;
+      padding: 4px 12px;
+      background: var(--gray-100);
+      border-radius: 999px;
+      font-weight: 700;
+      color: var(--gray-800);
+    }
+
+    /* C-tier (情報準備中): no hero image, muted */
+    .maker-card[data-tier="C"] .maker-card-hero { display: none; }
+    .maker-card[data-tier="C"] {
+      background: rgba(255, 255, 255, 0.78);
+    }
+    .maker-card[data-tier="C"] .maker-card-name {
+      font-size: 18px;
+      color: var(--gray-600);
+    }
+    .maker-card[data-tier="C"] .maker-card-cat { color: var(--gray-400); }
+    .maker-card[data-tier="C"] .maker-card-link { color: var(--gray-400); }
+    .maker-card[data-tier="C"] .maker-card-link::after { content: ''; }
+
+    /* B-tier: pamphlet thumbnail tinted */
+    .maker-card[data-tier="B"] .maker-card-hero-pamphlet {
+      background-color: var(--gray-100);
+      filter: contrast(0.97);
+    }
+
+    /* tier indicator stripe on the left edge */
+    .maker-card[data-tier="A"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--red-500); }
+    .maker-card[data-tier="B"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--blue-500); }
+    .maker-card[data-tier="C"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--gray-400); }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       Section 1: Hero  /  ガンメタ暗  /  100vh
+       ============================================================ -->
+  <section class="hero">
+    <img class="hero-logo" src="../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
+    <div class="hero-inner">
+      <div class="hero-title-block">
+        <h1 class="hero-h1 double-underline">TWF2026 みどころポータル</h1>
+        <p class="hero-sub">
+          主催店のための営業支援ガイド<br />
+          2026年6月12-13日 幕張メッセ No.9ホール
+        </p>
+      </div>
+
+      <div class="hero-countdown">
+        <span class="countdown-label">COUNTDOWN TO TWF2026</span>
+        <div class="countdown-display" id="countdown">
+          <span>TWFまで</span>
+          <span class="num" id="cd-days">--</span><span class="unit">日</span>
+          <span class="num" id="cd-hours">--</span><span class="unit">時間</span>
+        </div>
+      </div>
+
+      <div class="hero-cta-wrap">
+        <a class="btn" href="#makerlist">サイトを見る ▶</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 2: 主催店の使い方ガイド  /  明  /  16:7
+       ============================================================ -->
+  <section class="usage">
+    <div class="section-header">
+      <h2 class="section-title double-underline double-underline-center">主催店の使い方ガイド</h2>
+    </div>
+    <div class="usage-panels">
+      <div class="usage-panel panel-1">
+        <div>
+          <div class="usage-panel-label">TWF前 / BEFORE</div>
+          <div class="usage-panel-text">チラシで興味喚起</div>
+        </div>
+      </div>
+      <div class="usage-panel panel-2">
+        <div>
+          <div class="usage-panel-label">TWF当日 / DURING</div>
+          <div class="usage-panel-text">一緒に来場</div>
+        </div>
+      </div>
+      <div class="usage-panel panel-3">
+        <div>
+          <div class="usage-panel-label">TWF後 / AFTER</div>
+          <div class="usage-panel-text">クロージング</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 3: 注目企画ピックアップ  /  ガンメタ暗  /  16:9
+       ============================================================ -->
+  <section class="pickup">
+    <div class="section-header">
+      <h2 class="section-title section-title-light double-underline double-underline-center">注目企画ピックアップ</h2>
+    </div>
+    <div class="pickup-cards">
+      <div class="pickup-card">
+        <div class="pickup-card-badge"></div>
+        <div class="pickup-card-maker">ダイヘン</div>
+        <div class="pickup-card-title">新型溶接ロボット<br />実演ステージ</div>
+      </div>
+      <div class="pickup-card">
+        <div class="pickup-card-badge"></div>
+        <div class="pickup-card-maker">重松製作所</div>
+        <div class="pickup-card-title">呼吸用保護具<br />試着ブース</div>
+      </div>
+      <div class="pickup-card">
+        <div class="pickup-card-badge"></div>
+        <div class="pickup-card-maker">日鉄溶接工業</div>
+        <div class="pickup-card-title">特殊溶接材料<br />サンプル配布</div>
+      </div>
+      <div class="pickup-card">
+        <div class="pickup-card-badge"></div>
+        <div class="pickup-card-maker">興研</div>
+        <div class="pickup-card-title">最新防塵マスク<br />フィッティング体験</div>
+      </div>
+      <div class="pickup-card">
+        <div class="pickup-card-badge"></div>
+        <div class="pickup-card-maker">特設ステージ</div>
+        <div class="pickup-card-title">業界トレンドセッション<br />両日開催</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 4: メーカー一覧  /  明  /  flex
+       ============================================================ -->
+  <section class="makerlist" id="makerlist">
+    <div class="makerlist-inner">
+      <div class="section-header">
+        <h2 class="section-title double-underline double-underline-center">出展メーカー一覧</h2>
+      </div>
+
+      <div class="search-bar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" placeholder="メーカー名・カテゴリで絞り込み" disabled />
+      </div>
+
+      <div class="maker-tier-legend">
+        <span class="tier-key tier-key-a"><span class="dot"></span>フル詳細 ({{ counts.A }}社)</span>
+        <span class="tier-key tier-key-b"><span class="dot"></span>パンフ簡易 ({{ counts.B }}社)</span>
+        <span class="tier-key tier-key-c"><span class="dot"></span>情報準備中 ({{ counts.C }}社)</span>
+        <span class="tier-key tier-key-total">合計 {{ makers|length }}社</span>
+      </div>
+
+      <div class="maker-grid">
+        {% for m in makers %}
+        <article class="maker-card maker-card-tier-{{ m.tier|lower }}" data-tier="{{ m.tier }}">
+          <div class="hover-glow"></div>
+          {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
+          {% if m.tier == 'A' %}
+          <div class="maker-card-hero" style="background-image: url('../assets/extracted/card-placeholders/placeholder_{{ '%03d' | format(m.placeholder_idx) }}.png');"></div>
+          {% elif m.tier == 'B' %}
+          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('../data/pamphlet_pages/page_{{ '%03d' | format(m.pamphlet_page) }}.png');"></div>
+          {% endif %}
+          <div class="maker-card-body">
+            <h3 class="maker-card-name">{{ m.display_name }}</h3>
+            <div class="maker-card-cat">No.{{ '%03d' | format(m.no) }}{% if m.category %} / {{ m.category }}{% endif %}</div>
+            <a href="m/{{ m.slug }}/" class="maker-card-link">{% if m.tier == 'A' %}詳細を見る{% elif m.tier == 'B' %}パンフを見る{% else %}情報準備中{% endif %}</a>
+          </div>
+          <span class="corner-bl"></span><span class="corner-br"></span>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 5: 当日セール特価  /  明  /  16:9
+       背景は top-route-pc.png (会場マップ) を装飾として継続使用
+       ============================================================ -->
+  <section class="sale">
+    <div class="section-header">
+      <h2 class="section-title double-underline double-underline-center">当日限定 セール特価</h2>
+    </div>
+    <div class="sale-content">
+      <div class="sale-headline">
+        <span class="accent">6/12-13</span> 当日限定の特別価格
+      </div>
+      <div class="sale-sub">
+        <div class="sale-sub-item">
+          <span class="sale-sub-icon">🎁</span>
+          <span>30万円以上のお買い上げで成約記念品進呈</span>
+        </div>
+        <div class="sale-sub-item">
+          <span class="sale-sub-icon">📺</span>
+          <span>来場抽選会で大型液晶テレビが当たるチャンス</span>
+        </div>
+      </div>
+      <div class="sale-cta-wrap">
+        <!-- TODO Phase 6: ../assets/raw/_official/26TWF_sale.pdf に差し替え -->
+        <a href="#" class="btn btn-blue">セール特価PDFを見る (準備中) ▼</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 6: 当日チェックリスト  /  明  /  16:9
+       ============================================================ -->
+  <section class="checklist">
+    <div class="section-header">
+      <h2 class="section-title section-title-light double-underline double-underline-center">当日チェックリスト印刷</h2>
+    </div>
+    <div class="checklist-content">
+      <p class="checklist-text">
+        当日の必携アイテム・確認事項をまとめたチェックリストをPDFで配布。<br />
+        印刷してクリップボードに挟んで持参すれば、現場で漏れなく動けます。
+      </p>
+      <a href="#" class="btn btn-blue">PDFをダウンロード ▼</a>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 7: Footer  /  ガンメタ暗
+       ============================================================ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">マツモト産業株式会社 京葉営業所</div>
+        <div class="footer-contact">
+          <div><strong>TEL</strong>047-358-1121</div>
+          <div><strong>FAX</strong>047-356-9022</div>
+          <div><strong>住所</strong>〒272-0141 千葉県市川市香取2-12-20</div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <a class="footer-link" href="https://mac-exe.co.jp/welding/welding_new/tokyo/" target="_blank" rel="noopener">
+          TWF2026 公式サイトはこちら ↗
+        </a>
+        <div class="footer-meta">
+          <div class="footer-meta-row">
+            <span>本サイトは京葉営業所が主催店向けに公開しています</span>
+          </div>
+          <div class="footer-meta-row" id="updated-at"></div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============================================================
+    // カウントダウン: TWF2026 = 2026-06-12 10:00 JST
+    // ============================================================
+    (function () {
+      const TARGET = new Date('2026-06-12T10:00:00+09:00');
+      const elDays = document.getElementById('cd-days');
+      const elHours = document.getElementById('cd-hours');
+
+      function update() {
+        const diff = TARGET.getTime() - Date.now();
+        if (diff <= 0) {
+          elDays.textContent = '0';
+          elHours.textContent = '0';
+          document.getElementById('countdown').innerHTML =
+            '<span style="font-size:36px;color:#FF6B35;">🎉 TWF2026 開幕中</span>';
+          return;
+        }
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        elDays.textContent = days;
+        elHours.textContent = hours;
+      }
+
+      update();
+      setInterval(update, 60 * 1000); // 1分毎更新
+
+      // フッター更新日時
+      const updated = document.getElementById('updated-at');
+      if (updated) {
+        const d = new Date();
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        updated.innerHTML = '<span>更新日: ' + y + '-' + m + '-' + day + '</span>';
+      }
+    })();
+  </script>
+</body>
+</html>

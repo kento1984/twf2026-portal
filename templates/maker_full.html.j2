@@ -1,0 +1,128 @@
+{% extends "_base.html.j2" %}
+
+{% block extra_css %}
+  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  .q-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid var(--red-500);
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+    padding: 24px 28px;
+  }
+  .q-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--red-500);
+    margin-bottom: 4px;
+  }
+  .q-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 12px;
+  }
+  .q-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--gray-800);
+    white-space: pre-wrap;
+  }
+
+  .attachments {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: var(--gray-100);
+    border-radius: 8px;
+  }
+  .attachments h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--gray-800);
+  }
+  .attachments ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .attachments li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--gray-800);
+  }
+  .attachments li::before {
+    content: '📄';
+    flex-shrink: 0;
+  }
+  .attach-path {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+  .attach-path code {
+    font-family: var(--font-mono);
+    background: rgba(0,0,0,0.04);
+    padding: 2px 6px;
+    border-radius: 3px;
+    word-break: break-all;
+  }
+
+  .reply-meta {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin-top: 4px;
+  }
+{% endblock %}
+
+{% block content %}
+  <header class="maker-header">
+    <span class="tier-badge tier-a">フル詳細</span>
+    <span class="maker-no">No.{{ '%03d' | format(maker.no) }}</span>
+    <h1>{{ maker.name }}</h1>
+    <div class="maker-meta">
+      {% if maker.category %}<span>カテゴリ: {{ maker.category }}</span>{% endif %}
+      {% if maker.reply_date %}<span>回答受信: {{ maker.reply_date }}</span>{% endif %}
+    </div>
+  </header>
+
+  <section class="q-list">
+    {% set qs = [
+      ('Q1', '企画概要', maker.q1),
+      ('Q2', '新製品・新技術', maker.q2),
+      ('Q3', 'ブースのみどころ', maker.q3),
+      ('Q4', 'セール企画・特典', maker.q4),
+      ('Q5', '配布資料・備考', maker.q5),
+    ] %}
+    {% for code, title, body in qs %}
+      {% if body %}
+      <article class="q-card">
+        <div class="q-label">{{ code }} / {{ title }}</div>
+        <h2 class="q-title">{{ title }}</h2>
+        <div class="q-body">{{ body }}</div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  {% if maker.attachments %}
+  <section class="attachments">
+    <h2>添付資料 ({{ maker.attachments | length }}件)</h2>
+    <ul>
+      {% for f in maker.attachments %}<li>{{ f }}</li>{% endfor %}
+    </ul>
+    {% if maker.attachment_dir %}
+    <p class="attach-path">保管先: <code>{{ maker.attachment_dir }}</code></p>
+    {% endif %}
+  </section>
+  {% endif %}
+{% endblock %}

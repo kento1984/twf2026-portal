@@ -1,0 +1,49 @@
+{% extends "_base.html.j2" %}
+
+{% block extra_css %}
+  .skeleton-msg {
+    padding: 32px;
+    background: #fff;
+    border: 1px dashed var(--gray-200);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--gray-600);
+    font-size: 16px;
+    line-height: 1.9;
+  }
+  .skeleton-msg strong {
+    display: block;
+    color: var(--gray-800);
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  .skeleton-meta {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+{% endblock %}
+
+{% block content %}
+  <header class="maker-header">
+    <span class="tier-badge tier-c">情報準備中</span>
+    <span class="maker-no">No.{{ '%03d' | format(maker.no) }}</span>
+    <h1>{{ maker.name }}</h1>
+    {% if maker.category %}
+    <div class="maker-meta"><span>カテゴリ: {{ maker.category }}</span></div>
+    {% endif %}
+  </header>
+
+  <div class="skeleton-msg">
+    <strong>{{ maker.name }} の詳細情報は準備中です。</strong>
+    メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。
+    <br /><br />
+    出展社No.{{ '%03d' | format(maker.no) }} としてTWF2026に出展されることは確定済みです。
+  </div>
+
+  <div class="skeleton-meta">
+    最新情報: マツモト産業㈱ 京葉営業所 / TEL 047-358-1121
+  </div>
+{% endblock %}

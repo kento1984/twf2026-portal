@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>旭産業㈱ | TWF2026 みどころポータル</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto+Mono:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --red-500: #C8102E;
+      --red-700: #8B0B20;
+      --blue-500: #0066CC;
+      --orange-500: #FF6B35;
+      --gray-50: #FAFAFA;
+      --gray-100: #F4F4F5;
+      --gray-200: #E4E4E7;
+      --gray-400: #A1A1AA;
+      --gray-600: #52525B;
+      --gray-800: #2C2C2C;
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+      --container-max: 1100px;
+      --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+                   "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      --font-mono: "Roboto Mono", "SFMono-Regular", monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue-500); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .topbar {
+      width: 100%;
+      background: var(--gray-800);
+      color: #fff;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-back {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .topbar-back:hover { color: #fff; text-decoration: none; }
+    .topbar-logo {
+      height: 36px;
+      width: auto;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+
+    .maker-page {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    .maker-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .maker-no {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-400);
+      letter-spacing: 0.1em;
+      align-self: center;
+    }
+    .maker-header h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.2;
+      flex: 1 1 100%;
+      margin-top: 4px;
+    }
+    .maker-meta {
+      width: 100%;
+      font-size: 14px;
+      color: var(--gray-600);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .maker-meta span + span::before {
+      content: '·';
+      margin-right: 16px;
+      color: var(--gray-200);
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      align-self: center;
+    }
+    .tier-badge.tier-a { background: var(--red-500); }
+    .tier-badge.tier-b { background: var(--blue-500); }
+    .tier-badge.tier-c { background: var(--gray-400); }
+
+  .skeleton-msg {
+    padding: 32px;
+    background: #fff;
+    border: 1px dashed var(--gray-200);
+    border-radius: 8px;
+    text-align: center;
+    color: var(--gray-600);
+    font-size: 16px;
+    line-height: 1.9;
+  }
+  .skeleton-msg strong {
+    display: block;
+    color: var(--gray-800);
+    font-weight: 700;
+    margin-bottom: 8px;
+    font-size: 18px;
+  }
+  .skeleton-meta {
+    margin-top: 24px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--gray-400);
+  }
+
+    .maker-footer {
+      margin-top: 64px;
+      padding: 24px 32px;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+    .maker-footer a { color: var(--gray-600); }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-back" href="../../index.html">← TOPへ戻る</a>
+    <img class="topbar-logo" src="../../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
+  </header>
+  <main class="maker-page">
+  <header class="maker-header">
+    <span class="tier-badge tier-c">情報準備中</span>
+    <span class="maker-no">No.003</span>
+    <h1>旭産業㈱</h1>
+  </header>
+
+  <div class="skeleton-msg">
+    <strong>旭産業㈱ の詳細情報は準備中です。</strong>
+    メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。
+    <br /><br />
+    出展社No.003 としてTWF2026に出展されることは確定済みです。
+  </div>
+
+  <div class="skeleton-meta">
+    最新情報: マツモト産業㈱ 京葉営業所 / TEL 047-358-1121
+  </div>
+  </main>
+  <footer class="maker-footer">
+    マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
+    <a href="../../index.html">TWF2026 みどころポータル トップ</a>
+  </footer>
+</body>
+</html>

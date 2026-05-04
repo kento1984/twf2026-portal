@@ -1,0 +1,44 @@
+{% extends "_base.html.j2" %}
+
+{% block extra_css %}
+  .pamphlet-note {
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: rgba(0, 102, 204, 0.06);
+    border-left: 4px solid var(--blue-500);
+    border-radius: 4px;
+    font-size: 14px;
+    color: var(--gray-800);
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+{% endblock %}
+
+{% block content %}
+  <header class="maker-header">
+    <span class="tier-badge tier-b">パンフ簡易</span>
+    <span class="maker-no">No.{{ '%03d' | format(maker.no) }}</span>
+    <h1>{{ maker.name }}</h1>
+    <div class="maker-meta">
+      {% if maker.category %}<span>カテゴリ: {{ maker.category }}</span>{% endif %}
+      <span>公式パンフレット p.{{ maker.pamphlet_page }}</span>
+    </div>
+  </header>
+
+  <p class="pamphlet-note">
+    本社からの個別回答はまだ届いていません。公式パンフレットの該当ページを以下に掲載しています。詳細回答が届き次第、フル詳細ページに自動で更新されます。
+  </p>
+
+  <div class="pamphlet-img-wrap">
+    <img src="../../../data/pamphlet_pages/page_{{ '%03d' | format(maker.pamphlet_page) }}.png" alt="公式パンフレット p.{{ maker.pamphlet_page }}" />
+  </div>
+{% endblock %}
