@@ -7,3 +7,6 @@ data/pamphlet_pages/
 
 # Local prototype screenshots (regenerable via scripts/screenshot_top.py)
 prototype/screenshots/
+
+# Phase 6 step 2: backup files written by excel_mapper.py (redundant with git history)
+*.bak
