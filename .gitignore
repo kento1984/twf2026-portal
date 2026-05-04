@@ -1,3 +1,9 @@
 ﻿.claude/
 # Playwright MCP screenshots (local debugging only)
 .playwright-mcp/
+
+# Phase 6: pamphlet page renders (~44 MB, regenerable via scripts/phase6_assets.py)
+data/pamphlet_pages/
+
+# Local prototype screenshots (regenerable via scripts/screenshot_top.py)
+prototype/screenshots/
