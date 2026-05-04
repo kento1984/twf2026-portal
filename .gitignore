@@ -1,1 +1,3 @@
 ﻿.claude/
+# Playwright MCP screenshots (local debugging only)
+.playwright-mcp/
