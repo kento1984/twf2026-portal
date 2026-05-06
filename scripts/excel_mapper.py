@@ -25,6 +25,7 @@ import re
 import shutil
 import sys
 import unicodedata
+from collections import Counter
 from datetime import datetime
 from pathlib import Path
 
@@ -46,6 +47,24 @@ COL = {
 
 LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳|㈴|㈵)")
 WS_RE = re.compile(r"\s+")
+
+# B列(回答状況)の先頭マーカー → 内部 status
+STATUS_MAP = {
+    "☑": "answered",     # 回答済
+    "◎": "partial",      # 部分回答
+    "▲": "partial",      # 一部
+    "✖": "unanswered",   # 未回答
+    "■": "skipped",      # 一括ダミー (集約対象外)
+    "★": "unknown",      # 不明
+}
+HAS_ANSWER_STATUSES = {"answered", "partial"}
+
+
+def classify_status(status: str) -> str:
+    s = (status or "").strip()
+    if not s:
+        return "unknown"
+    return STATUS_MAP.get(s[:1], "unknown")
 
 
 def normalize(name) -> str:
@@ -124,6 +143,7 @@ def init_details(makers: list[dict]) -> dict:
             "name_short": m.get("name_short", ""),
             "category": m.get("category", ""),
             "has_answer": False,
+            "status": "unknown",
             "reply_date": None,
             "q1": "", "q2": "", "q3": "", "q4": "", "q5": "",
             "attachments": [],
@@ -138,8 +158,15 @@ def merge(makers: list[dict], excel_rows: list[dict]):
     details = init_details(makers)
     matched: list[dict] = []
     unmatched: list[dict] = []
+    raw_status_counter: Counter = Counter()
+    classified_counter: Counter = Counter()
 
     for r in excel_rows:
+        raw_status = r.get("status", "")
+        classified = classify_status(raw_status)
+        raw_status_counter[raw_status] += 1
+        classified_counter[classified] += 1
+
         match = by_norm.get(normalize(r["name"]))
         if not match:
             csv_at_same_no = by_no.get(r["no"])
@@ -147,30 +174,50 @@ def merge(makers: list[dict], excel_rows: list[dict]):
                 "excel_no": r["no"],
                 "excel_name": r["name"],
                 "hint_csv_name": csv_at_same_no["name"] if csv_at_same_no else None,
-                "status": r["status"],
+                "status": raw_status,
+                "classified": classified,
             })
             continue
 
         no = int(match["no"])
         key = f"{no:03d}"
-        files_raw = r.get("attach_files_raw") or ""
-        files = [s.strip() for s in re.split(r"[\r\n]+", files_raw) if s.strip()]
-        details[key].update({
-            "has_answer": True,
-            "reply_date": fmt_dt(r["reply_dt"]),
-            "q1": r["q1"], "q2": r["q2"], "q3": r["q3"],
-            "q4": r["q4"], "q5": r["q5"],
-            "attachments": files,
-            "attachment_dir": r["attach_dir"] or None,
-        })
+
+        if classified == "skipped":
+            # ■ 一括ダミー — 名前が偶々一致しても details には反映しない
+            matched.append({
+                "excel_no": r["no"], "excel_name": r["name"],
+                "csv_no": no, "csv_name": match["name"],
+                "no_agrees": int(r["no"]) == no,
+                "status": raw_status, "classified": classified,
+            })
+            continue
+
+        if classified in HAS_ANSWER_STATUSES:
+            files_raw = r.get("attach_files_raw") or ""
+            files = [s.strip() for s in re.split(r"[\r\n]+", files_raw) if s.strip()]
+            details[key].update({
+                "has_answer": True,
+                "status": classified,
+                "reply_date": fmt_dt(r["reply_dt"]),
+                "q1": r["q1"], "q2": r["q2"], "q3": r["q3"],
+                "q4": r["q4"], "q5": r["q5"],
+                "attachments": files,
+                "attachment_dir": r["attach_dir"] or None,
+            })
+        else:
+            # unanswered / unknown — status だけ記録、回答系フィールドは触らない
+            details[key].update({
+                "has_answer": False,
+                "status": classified,
+            })
+
         matched.append({
-            "excel_no": r["no"],
-            "excel_name": r["name"],
-            "csv_no": no,
-            "csv_name": match["name"],
+            "excel_no": r["no"], "excel_name": r["name"],
+            "csv_no": no, "csv_name": match["name"],
             "no_agrees": int(r["no"]) == no,
+            "status": raw_status, "classified": classified,
         })
-    return details, matched, unmatched
+    return details, matched, unmatched, raw_status_counter, classified_counter
 
 
 def write_csv(makers: list[dict], details: dict) -> Path:
@@ -201,29 +248,41 @@ def main():
 
     makers = load_makers()
     excel_rows = load_excel(excel_path)
-    details, matched, unmatched = merge(makers, excel_rows)
+    details, matched, unmatched, raw_status_counter, classified_counter = merge(makers, excel_rows)
 
     print(f"CSV makers loaded:  {len(makers)}  ({CSV_PATH.relative_to(ROOT)})")
     print(f"Excel rows loaded:  {len(excel_rows)}  ({excel_path})")
     print(f"Matched:            {len(matched)}")
     print(f"Unmatched warnings: {len(unmatched)}")
     print()
+    print("--- Status breakdown (raw → classified) ---")
+    for raw, n in raw_status_counter.most_common():
+        cls = classify_status(raw)
+        print(f"  raw={raw!r:30s} → {cls:10s}  count={n}")
+    print()
+    print("--- Status aggregated ---")
+    for cls, n in classified_counter.most_common():
+        marker = "✓" if cls in HAS_ANSWER_STATUSES else " "
+        print(f"  {marker} {cls:10s}  {n}")
+    print()
     print("--- Matched ---")
-    print(f"{'ExNo':>4}  {'CsvNo':>5}  {'No?':>3}  Excel社名 -> CSV社名")
+    print(f"{'ExNo':>4}  {'CsvNo':>5}  {'No?':>4}  {'class':>11}  Excel社名 -> CSV社名")
     for m in matched:
         flag = "ok" if m["no_agrees"] else "DIFF"
-        print(f"{m['excel_no']:>4}  {m['csv_no']:>5}  {flag:>3}  {m['excel_name']!s} -> {m['csv_name']!s}")
+        print(f"{m['excel_no']:>4}  {m['csv_no']:>5}  {flag:>4}  {m['classified']:>11}  {m['excel_name']!s} -> {m['csv_name']!s}")
 
     if unmatched:
         print()
         print("--- Unmatched (warning) ---")
         for r in unmatched:
             hint = f" / CSV[No={r['excel_no']}]={r['hint_csv_name']!s}" if r["hint_csv_name"] else " / CSVに該当No.なし"
-            print(f"  excel No={r['excel_no']}  name={r['excel_name']!r}  status={r['status']}{hint}")
+            print(f"  excel No={r['excel_no']}  classified={r['classified']}  name={r['excel_name']!r}  status={r['status']}{hint}")
 
     answered = sum(1 for v in details.values() if v["has_answer"])
     print()
-    print(f"has_answer=true: {answered} / {len(details)}")
+    print(f"has_answer=true (CSV側): {answered} / {len(details)}")
+    print(f"  内訳: answered={sum(1 for v in details.values() if v['status'] == 'answered')} "
+          f"partial={sum(1 for v in details.values() if v['status'] == 'partial')}")
 
     if args.dry:
         print("[DRY] No files written.")

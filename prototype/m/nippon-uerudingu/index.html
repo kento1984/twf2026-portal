@@ -122,28 +122,86 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .skeleton-msg {
-    padding: 32px;
+  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  .q-card {
     background: #fff;
-    border: 1px dashed var(--gray-200);
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid var(--red-500);
     border-radius: 8px;
-    text-align: center;
-    color: var(--gray-600);
-    font-size: 16px;
-    line-height: 1.9;
+    box-shadow: var(--shadow-md);
+    padding: 24px 28px;
   }
-  .skeleton-msg strong {
-    display: block;
-    color: var(--gray-800);
+  .q-label {
+    font-size: 12px;
     font-weight: 700;
-    margin-bottom: 8px;
-    font-size: 18px;
+    letter-spacing: 0.12em;
+    color: var(--red-500);
+    margin-bottom: 4px;
   }
-  .skeleton-meta {
-    margin-top: 24px;
-    text-align: center;
+  .q-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-bottom: 12px;
+  }
+  .q-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--gray-800);
+    white-space: pre-wrap;
+  }
+
+  .attachments {
+    margin-top: 40px;
+    padding: 24px 28px;
+    background: var(--gray-100);
+    border-radius: 8px;
+  }
+  .attachments h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--gray-800);
+  }
+  .attachments ul {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .attachments li {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--gray-800);
+  }
+  .attachments li::before {
+    content: '📄';
+    flex-shrink: 0;
+  }
+  .attach-path {
+    margin-top: 12px;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+  .attach-path code {
+    font-family: var(--font-mono);
+    background: rgba(0,0,0,0.04);
+    padding: 2px 6px;
+    border-radius: 3px;
+    word-break: break-all;
+  }
+
+  .reply-meta {
     font-size: 13px;
-    color: var(--gray-400);
+    color: var(--gray-600);
+    margin-top: 4px;
   }
 
     .maker-footer {
@@ -164,21 +222,49 @@
   </header>
   <main class="maker-page">
   <header class="maker-header">
-    <span class="tier-badge tier-c">情報準備中</span>
+    <span class="tier-badge tier-a">フル詳細</span>
     <span class="maker-no">No.089</span>
     <h1>⽇本ウエルディング㈱</h1>
+    <div class="maker-meta">
+<span>回答受信: 2026-04-23 09:59</span>    </div>
   </header>
 
-  <div class="skeleton-msg">
-    <strong>⽇本ウエルディング㈱ の詳細情報は準備中です。</strong>
-    メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。
-    <br /><br />
-    出展社No.089 としてTWF2026に出展されることは確定済みです。
-  </div>
+  <section class="q-list">
+      <article class="q-card">
+        <div class="q-label">Q1 / 企画概要</div>
+        <h2 class="q-title">企画概要</h2>
+        <div class="q-body">FBL-1000CW実演</div>
+      </article>
+      <article class="q-card">
+        <div class="q-label">Q2 / 新製品・新技術</div>
+        <h2 class="q-title">新製品・新技術</h2>
+        <div class="q-body">新製品ではないですが他社はほぼ海外製ですがFBL-1000CWは国産になります。</div>
+      </article>
+      <article class="q-card">
+        <div class="q-label">Q3 / ブースのみどころ</div>
+        <h2 class="q-title">ブースのみどころ</h2>
+        <div class="q-body">FBL-1000CWはトーチが軽量のペンタイプになります。
+最近はガンタイプのファイバーレザーに不便を感じているユーザーの切替が多いです。</div>
+      </article>
+      <article class="q-card">
+        <div class="q-label">Q4 / セール企画・特典</div>
+        <h2 class="q-title">セール企画・特典</h2>
+        <div class="q-body">展示会特価</div>
+      </article>
+      <article class="q-card">
+        <div class="q-label">Q5 / 配布資料・備考</div>
+        <h2 class="q-title">配布資料・備考</h2>
+        <div class="q-body">添付あり( 点) / なし
+あり</div>
+      </article>
+  </section>
 
-  <div class="skeleton-meta">
-    最新情報: マツモト産業㈱ 京葉営業所 / TEL 047-358-1121
-  </div>
+  <section class="attachments">
+    <h2>添付資料 (1件)</h2>
+    <ul>
+<li>FBL-1000CWカタログ.pdf</li>    </ul>
+    <p class="attach-path">保管先: <code>attachments/日本ウエルディング株式会社/</code></p>
+  </section>
   </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
