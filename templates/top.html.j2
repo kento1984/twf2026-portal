@@ -135,41 +135,6 @@
       color: rgba(255,255,255,0.85);
       line-height: 1.6;
     }
-    .hero-countdown {
-      grid-row: 2; grid-column: 1;
-      align-self: end;
-    }
-    .countdown-label {
-      display: block;
-      font-size: 14px;
-      font-weight: 500;
-      color: rgba(255,255,255,0.7);
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-    .countdown-display {
-      font-family: var(--font-mono);
-      font-feature-settings: 'tnum';
-      font-variant-numeric: tabular-nums;
-      font-size: 48px;
-      font-weight: 900;
-      color: #fff;
-      line-height: 1;
-      display: flex;
-      align-items: baseline;
-      gap: 12px;
-    }
-    .countdown-display .num {
-      color: var(--orange-500);
-      font-size: 56px;
-    }
-    .countdown-display .unit {
-      font-size: 22px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.85);
-      font-family: var(--font-sans);
-      margin-right: 4px;
-    }
     .hero-cta-wrap {
       grid-row: 2; grid-column: 2;
       align-self: end;
@@ -196,54 +161,6 @@
     }
     .btn-blue { background: var(--blue-500); }
     .btn-blue:hover { background: #004999; }
-
-    /* ===========================================================
-       Section 2: 主催店の使い方ガイド  ───────  16:7  /  明
-       =========================================================== */
-    .usage {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 7;
-      background: var(--gray-50) url('../assets/raw/top-usage-pc.png') center / cover no-repeat;
-      overflow: hidden;
-    }
-    .usage .section-header {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      padding-top: 32px;
-      z-index: 2;
-    }
-    .usage-panels {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 20%;
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-    .usage-panel {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 24px;
-      text-align: center;
-      background: rgba(250,250,250,0.92);
-      border-right: 1px solid var(--gray-200);
-    }
-    .usage-panel:last-child { border-right: none; }
-    .usage-panel-label {
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      margin-bottom: 4px;
-    }
-    .usage-panel-text {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--gray-800);
-    }
-    .panel-1 .usage-panel-label { color: var(--blue-500); }
-    .panel-2 .usage-panel-label { color: var(--orange-500); }
-    .panel-3 .usage-panel-label { color: var(--red-500); }
 
     /* ===========================================================
        Section 3: 注目企画ピックアップ  ───────  16:9  /  暗(ガンメタ)
@@ -514,39 +431,6 @@
     }
 
     /* ===========================================================
-       Section 6: 当日チェックリスト  ───────  16:9  /  明
-       =========================================================== */
-    .checklist {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #1a1a1a url('../assets/raw/top-checklist-pc.png') center / cover no-repeat;
-      overflow: hidden;
-    }
-    .checklist .section-header {
-      padding-top: 40px;
-    }
-    .checklist-content {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -30%);
-      width: 60%;
-      max-width: 720px;
-      text-align: center;
-      color: var(--gray-800);
-    }
-    .checklist-text {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 24px;
-      color: #2C2C2C;
-      background: rgba(250,250,250,0.85);
-      padding: 16px 20px;
-      border-radius: 8px;
-    }
-
-    /* ===========================================================
        Section 7: Footer  ───────  16:5 + content  /  暗(ガンメタ)
        =========================================================== */
     .footer {
@@ -708,46 +592,8 @@
         </p>
       </div>
 
-      <div class="hero-countdown">
-        <span class="countdown-label">COUNTDOWN TO TWF2026</span>
-        <div class="countdown-display" id="countdown">
-          <span>TWFまで</span>
-          <span class="num" id="cd-days">--</span><span class="unit">日</span>
-          <span class="num" id="cd-hours">--</span><span class="unit">時間</span>
-        </div>
-      </div>
-
       <div class="hero-cta-wrap">
         <a class="btn" href="#makerlist">サイトを見る ▶</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       Section 2: 主催店の使い方ガイド  /  明  /  16:7
-       ============================================================ -->
-  <section class="usage">
-    <div class="section-header">
-      <h2 class="section-title double-underline double-underline-center">主催店の使い方ガイド</h2>
-    </div>
-    <div class="usage-panels">
-      <div class="usage-panel panel-1">
-        <div>
-          <div class="usage-panel-label">TWF前 / BEFORE</div>
-          <div class="usage-panel-text">チラシで興味喚起</div>
-        </div>
-      </div>
-      <div class="usage-panel panel-2">
-        <div>
-          <div class="usage-panel-label">TWF当日 / DURING</div>
-          <div class="usage-panel-text">一緒に来場</div>
-        </div>
-      </div>
-      <div class="usage-panel panel-3">
-        <div>
-          <div class="usage-panel-label">TWF後 / AFTER</div>
-          <div class="usage-panel-text">クロージング</div>
-        </div>
       </div>
     </div>
   </section>
@@ -863,22 +709,6 @@
   </section>
 
   <!-- ============================================================
-       Section 6: 当日チェックリスト  /  明  /  16:9
-       ============================================================ -->
-  <section class="checklist">
-    <div class="section-header">
-      <h2 class="section-title section-title-light double-underline double-underline-center">当日チェックリスト印刷</h2>
-    </div>
-    <div class="checklist-content">
-      <p class="checklist-text">
-        当日の必携アイテム・確認事項をまとめたチェックリストをPDFで配布。<br />
-        印刷してクリップボードに挟んで持参すれば、現場で漏れなく動けます。
-      </p>
-      <a href="#" class="btn btn-blue">PDFをダウンロード ▼</a>
-    </div>
-  </section>
-
-  <!-- ============================================================
        Section 7: Footer  /  ガンメタ暗
        ============================================================ -->
   <footer class="footer">
@@ -906,33 +736,8 @@
   </footer>
 
   <script>
-    // ============================================================
-    // カウントダウン: TWF2026 = 2026-06-12 10:00 JST
-    // ============================================================
+    // フッター更新日時
     (function () {
-      const TARGET = new Date('2026-06-12T10:00:00+09:00');
-      const elDays = document.getElementById('cd-days');
-      const elHours = document.getElementById('cd-hours');
-
-      function update() {
-        const diff = TARGET.getTime() - Date.now();
-        if (diff <= 0) {
-          elDays.textContent = '0';
-          elHours.textContent = '0';
-          document.getElementById('countdown').innerHTML =
-            '<span style="font-size:36px;color:#FF6B35;">🎉 TWF2026 開幕中</span>';
-          return;
-        }
-        const days = Math.floor(diff / 86400000);
-        const hours = Math.floor((diff % 86400000) / 3600000);
-        elDays.textContent = days;
-        elHours.textContent = hours;
-      }
-
-      update();
-      setInterval(update, 60 * 1000); // 1分毎更新
-
-      // フッター更新日時
       const updated = document.getElementById('updated-at');
       if (updated) {
         const d = new Date();
