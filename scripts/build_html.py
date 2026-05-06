@@ -33,6 +33,7 @@ TEMPLATES = ROOT / "templates"
 CSV_PATH = ROOT / "data" / "makers.csv"
 JSON_PATH = ROOT / "data" / "maker_details.json"
 SLUG_PATH = ROOT / "data" / "maker_slugs.json"
+PAMPHLET_INDEX_PATH = ROOT / "data" / "pamphlet_index.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
 
@@ -110,8 +111,19 @@ def tier_for(maker: dict) -> str:
     return "C"
 
 
-def merge_record(csv_row: dict, json_rec: dict) -> dict:
-    """Combine csv row + json detail into one record consumed by templates."""
+def load_pamphlet_index() -> dict:
+    """data/pamphlet_index.json を読んでメーカーNo(zero-padded 3桁)をキーとする dict を返す。
+    `_` で始まるキー (ドキュメント) は除外。
+    """
+    if not PAMPHLET_INDEX_PATH.exists():
+        return {}
+    with open(PAMPHLET_INDEX_PATH, encoding="utf-8") as f:
+        raw = json.load(f)
+    return {k: v for k, v in raw.items() if not k.startswith("_")}
+
+
+def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None) -> dict:
+    """Combine csv row + json detail (+ pamphlet index) into one record consumed by templates."""
     no = int(csv_row["no"])
     rec = dict(json_rec)  # has_answer, q1-q5, attachments, attachment_dir, reply_date, ...
     rec["no"] = no
@@ -120,10 +132,22 @@ def merge_record(csv_row: dict, json_rec: dict) -> dict:
     rec["category"] = csv_row.get("category", "")
     pp = csv_row.get("pamphlet_page", "")
     rec["pamphlet_page"] = int(pp) if pp.strip().isdigit() else (pp if pp else "")
+
+    # pamphlet_index.json から section/note/confidence を注入 (テンプレで「公式パンフレットより」表示に使用)
+    if pamphlet_idx is not None:
+        entry = pamphlet_idx.get(f"{no:03d}")
+        if entry:
+            rec["pamphlet_section"] = entry.get("section", "")
+            rec["pamphlet_note"] = entry.get("note", "")
+            rec["pamphlet_confidence"] = entry.get("confidence", "high")
+        else:
+            rec["pamphlet_section"] = ""
+            rec["pamphlet_note"] = ""
+            rec["pamphlet_confidence"] = ""
     return rec
 
 
-def render_pages(env, makers, details):
+def render_pages(env, makers, details, pamphlet_idx):
     tpl_for = {
         "A": env.get_template("maker_full.html.j2"),
         "B": env.get_template("maker_pamphlet.html.j2"),
@@ -132,7 +156,7 @@ def render_pages(env, makers, details):
     counts = Counter()
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"])
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx)
         rec["slug"] = m["__slug"]
         tier = tier_for(rec)
         rec["tier"] = tier
@@ -144,11 +168,11 @@ def render_pages(env, makers, details):
     return counts
 
 
-def render_top(env, makers, details, counts):
+def render_top(env, makers, details, counts, pamphlet_idx):
     cards = []
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"])
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx)
         rec["slug"] = m["__slug"]
         rec["tier"] = tier_for(rec)
         rec["display_name"] = (rec["name_short"] or rec["name"]).strip()
@@ -204,8 +228,10 @@ def main():
         lstrip_blocks=True,
     )
 
-    counts = render_pages(env, makers, details)
-    n_top = render_top(env, makers, details, counts)
+    pamphlet_idx = load_pamphlet_index()
+
+    counts = render_pages(env, makers, details, pamphlet_idx)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx)
 
     final_used = Counter(slugs.values())
     duplicates = sorted(s for s, c in final_used.items() if c > 1)

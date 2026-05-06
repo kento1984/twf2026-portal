@@ -122,28 +122,46 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .skeleton-msg {
-    padding: 32px;
-    background: #fff;
-    border: 1px dashed var(--gray-200);
-    border-radius: 8px;
-    text-align: center;
-    color: var(--gray-600);
-    font-size: 16px;
-    line-height: 1.9;
-  }
-  .skeleton-msg strong {
-    display: block;
+  .pamphlet-note {
+    margin-bottom: 24px;
+    padding: 16px 20px;
+    background: rgba(0, 102, 204, 0.06);
+    border-left: 4px solid var(--blue-500);
+    border-radius: 4px;
+    font-size: 14px;
     color: var(--gray-800);
-    font-weight: 700;
-    margin-bottom: 8px;
-    font-size: 18px;
   }
-  .skeleton-meta {
-    margin-top: 24px;
-    text-align: center;
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--blue-500);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
     font-size: 13px;
-    color: var(--gray-400);
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
   }
 
     .maker-footer {
@@ -164,20 +182,23 @@
   </header>
   <main class="maker-page">
   <header class="maker-header">
-    <span class="tier-badge tier-c">情報準備中</span>
+    <span class="tier-badge tier-b">パンフ簡易</span>
     <span class="maker-no">No.076</span>
     <h1>東横サポート㈲</h1>
+    <div class="maker-meta">
+<span>カテゴリ: 作業環境向上ブース</span>      <span>公式パンフレット p.2</span>
+    </div>
   </header>
 
-  <div class="skeleton-msg">
-    <strong>東横サポート㈲ の詳細情報は準備中です。</strong>
-    メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。
-    <br /><br />
-    出展社No.076 としてTWF2026に出展されることは確定済みです。
-  </div>
+  <p class="pamphlet-note">
+    本社からの個別回答はまだ届いていません。公式パンフレットの該当ページを以下に掲載しています。詳細回答が届き次第、フル詳細ページに自動で更新されます。
+  </p>
 
-  <div class="skeleton-meta">
-    最新情報: マツモト産業㈱ 京葉営業所 / TEL 047-358-1121
+  <div class="pamphlet-meta">
+<span class="pamphlet-section">作業環境向上ブース</span><span class="pamphlet-note-text">クールミストファン (濡れずに気化熱で涼しく)</span>  </div>
+
+  <div class="pamphlet-img-wrap">
+    <img src="../../../data/pamphlet_pages/page_002.png" alt="公式パンフレット p.2" />
   </div>
   </main>
   <footer class="maker-footer">

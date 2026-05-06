@@ -21,6 +21,27 @@
     width: 100%;
     height: auto;
   }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--blue-500);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
 {% endblock %}
 
 {% block content %}
@@ -37,6 +58,13 @@
   <p class="pamphlet-note">
     本社からの個別回答はまだ届いていません。公式パンフレットの該当ページを以下に掲載しています。詳細回答が届き次第、フル詳細ページに自動で更新されます。
   </p>
+
+  {% if maker.pamphlet_section or maker.pamphlet_note %}
+  <div class="pamphlet-meta">
+    {% if maker.pamphlet_section %}<span class="pamphlet-section">{{ maker.pamphlet_section }}</span>{% endif %}
+    {% if maker.pamphlet_note %}<span class="pamphlet-note-text">{{ maker.pamphlet_note }}</span>{% endif %}
+  </div>
+  {% endif %}
 
   <div class="pamphlet-img-wrap">
     <img src="../../../data/pamphlet_pages/page_{{ '%03d' | format(maker.pamphlet_page) }}.png" alt="公式パンフレット p.{{ maker.pamphlet_page }}" />

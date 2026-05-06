@@ -204,6 +204,63 @@
     margin-top: 4px;
   }
 
+  .pamphlet {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 2px solid var(--gray-200);
+  }
+  .pamphlet-h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--gray-800);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .pamphlet-h2::before {
+    content: '📕';
+    font-size: 20px;
+  }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--blue-500);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
     .maker-footer {
       margin-top: 64px;
       padding: 24px 32px;
@@ -226,7 +283,7 @@
     <span class="maker-no">No.039</span>
     <h1>サンコーミタチ㈱</h1>
     <div class="maker-meta">
-<span>回答受信: 2026-04-21 08:35</span>    </div>
+<span>カテゴリ: 切断・電動工具</span><span>回答受信: 2026-04-21 08:35</span>    </div>
   </header>
 
   <section class="q-list">
@@ -260,6 +317,16 @@
       </article>
   </section>
 
+
+  <section class="pamphlet">
+    <h2 class="pamphlet-h2">公式パンフレットより</h2>
+    <div class="pamphlet-meta">
+<span class="pamphlet-section">切断・電動工具</span><span class="pamphlet-note-text">チップソー切断機 MSC405A</span>    </div>
+    <div class="pamphlet-img-wrap">
+      <img src="../../../data/pamphlet_pages/page_003.png" alt="公式パンフレット p.3" />
+    </div>
+    <p class="pamphlet-page-link">公式パンフレット p.3 に掲載</p>
+  </section>
   </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /

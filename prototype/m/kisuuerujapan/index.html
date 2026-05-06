@@ -204,6 +204,63 @@
     margin-top: 4px;
   }
 
+  .pamphlet {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 2px solid var(--gray-200);
+  }
+  .pamphlet-h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--gray-800);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+  .pamphlet-h2::before {
+    content: '📕';
+    font-size: 20px;
+  }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--blue-500);
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img {
+    width: 100%;
+    height: auto;
+  }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
     .maker-footer {
       margin-top: 64px;
       padding: 24px 32px;
@@ -236,6 +293,7 @@
         <div class="q-body">添付あり(　点) / なし</div>
       </article>
   </section>
+
 
   </main>
   <footer class="maker-footer">
