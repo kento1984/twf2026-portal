@@ -56,7 +56,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 55,㈱スーパーツール,,,false,
 56,㈱スギヤス,,,false,
 57,㈱スズキッド,,,false,
-58,スリーエムジャパン㈱,,,false,
+58,スリーエムジャパン㈱,,,true,
 59,㈱ゼネテック,,,false,
 60,㈱セブンティ・エイト,,,true,
 61,象印チェンブロック㈱,,,false,
@@ -146,3 +146,4 @@ no,name,name_short,category,has_answer,pamphlet_page
 145,ロボットバンク㈱,,,false,
 146,ワーナーケミカル㈱,,,false,
 147,㈱ワキタ,,,false,
+148,三共㈱,,,true,

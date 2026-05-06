@@ -34,6 +34,7 @@ from openpyxl import load_workbook
 ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "data" / "makers.csv"
 JSON_PATH = ROOT / "data" / "maker_details.json"
+ALIAS_PATH = ROOT / "data" / "maker_aliases.json"
 DEFAULT_EXCEL = ROOT / "data" / "raw" / "answers.xlsx"
 
 # Excel layout (1-indexed columns, see twf2026_collector spec)
@@ -97,6 +98,21 @@ def load_makers() -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def load_aliases() -> dict[str, str]:
+    """data/maker_aliases.json を読んで {normalize(excel_name): normalize(csv_name)} を返す。
+    キーが '_' で始まるエントリはドキュメント扱いで無視する。
+    """
+    if not ALIAS_PATH.exists():
+        return {}
+    with open(ALIAS_PATH, encoding="utf-8") as f:
+        raw = json.load(f)
+    return {
+        normalize(k): normalize(v)
+        for k, v in raw.items()
+        if not k.startswith("_")
+    }
+
+
 def load_excel(path: Path) -> list[dict]:
     wb = load_workbook(path, data_only=True, read_only=True)
     ws = wb["回答集約"] if "回答集約" in wb.sheetnames else wb.active
@@ -155,11 +171,13 @@ def init_details(makers: list[dict]) -> dict:
 def merge(makers: list[dict], excel_rows: list[dict]):
     by_norm = {normalize(m["name"]): m for m in makers}
     by_no = {int(m["no"]): m for m in makers}
+    aliases = load_aliases()
     details = init_details(makers)
     matched: list[dict] = []
     unmatched: list[dict] = []
     raw_status_counter: Counter = Counter()
     classified_counter: Counter = Counter()
+    aliased: list[dict] = []
 
     for r in excel_rows:
         raw_status = r.get("status", "")
@@ -167,7 +185,18 @@ def merge(makers: list[dict], excel_rows: list[dict]):
         raw_status_counter[raw_status] += 1
         classified_counter[classified] += 1
 
-        match = by_norm.get(normalize(r["name"]))
+        norm_name = normalize(r["name"])
+        match = by_norm.get(norm_name)
+        if not match:
+            target_norm = aliases.get(norm_name)
+            if target_norm:
+                match = by_norm.get(target_norm)
+                if match:
+                    aliased.append({
+                        "excel_no": r["no"], "excel_name": r["name"],
+                        "csv_no": int(match["no"]), "csv_name": match["name"],
+                        "status": raw_status, "classified": classified,
+                    })
         if not match:
             csv_at_same_no = by_no.get(r["no"])
             unmatched.append({
@@ -217,7 +246,7 @@ def merge(makers: list[dict], excel_rows: list[dict]):
             "no_agrees": int(r["no"]) == no,
             "status": raw_status, "classified": classified,
         })
-    return details, matched, unmatched, raw_status_counter, classified_counter
+    return details, matched, unmatched, raw_status_counter, classified_counter, aliased
 
 
 def write_csv(makers: list[dict], details: dict) -> Path:
@@ -248,11 +277,11 @@ def main():
 
     makers = load_makers()
     excel_rows = load_excel(excel_path)
-    details, matched, unmatched, raw_status_counter, classified_counter = merge(makers, excel_rows)
+    details, matched, unmatched, raw_status_counter, classified_counter, aliased = merge(makers, excel_rows)
 
     print(f"CSV makers loaded:  {len(makers)}  ({CSV_PATH.relative_to(ROOT)})")
     print(f"Excel rows loaded:  {len(excel_rows)}  ({excel_path})")
-    print(f"Matched:            {len(matched)}")
+    print(f"Matched:            {len(matched)}  (うち alias 経由: {len(aliased)})")
     print(f"Unmatched warnings: {len(unmatched)}")
     print()
     print("--- Status breakdown (raw → classified) ---")
@@ -270,6 +299,12 @@ def main():
     for m in matched:
         flag = "ok" if m["no_agrees"] else "DIFF"
         print(f"{m['excel_no']:>4}  {m['csv_no']:>5}  {flag:>4}  {m['classified']:>11}  {m['excel_name']!s} -> {m['csv_name']!s}")
+
+    if aliased:
+        print()
+        print("--- Aliased (data/maker_aliases.json 経由) ---")
+        for a in aliased:
+            print(f"  excel No={a['excel_no']}  classified={a['classified']}  {a['excel_name']!s} -> CSV No={a['csv_no']} {a['csv_name']!s}")
 
     if unmatched:
         print()
