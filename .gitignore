@@ -10,3 +10,16 @@ prototype/screenshots/
 
 # Phase 6 step 2: backup files written by excel_mapper.py (redundant with git history)
 *.bak
+
+# Phase 7 step 5: attachments/ は Cloudflare Pages 配信用に同梱するが、
+# sync_attachments.py が許可した拡張子 (pdf/docx/xlsx/pptx) 以外は誤同梱を防ぐため除外。
+attachments/**/*.txt
+attachments/**/*.zip
+attachments/**/image[0-9][0-9][0-9].gif
+attachments/**/image[0-9][0-9][0-9].png
+attachments/**/image[0-9][0-9][0-9].jpg
+attachments/**/image[0-9][0-9][0-9].jpeg
+attachments/**/image[0-9][0-9][0-9].bmp
+
+# scripts/_inspect_excel.py 実行で出る一時ファイル
+inspect_output.txt

@@ -157,36 +157,65 @@
     background: var(--gray-100);
     border-radius: 8px;
   }
-  .attachments h2 {
-    font-size: 18px;
+  .attachments-h2 {
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin: 0 0 16px;
     color: var(--gray-800);
   }
-  .attachments ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .attachments li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    background: #fff;
+  .pdf-card {
+    margin-top: 20px;
     border: 1px solid var(--gray-200);
-    border-radius: 6px;
-    font-size: 14px;
-    color: var(--gray-800);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
   }
-  .attachments li::before {
-    content: '📄';
-    flex-shrink: 0;
+  .pdf-card:first-of-type {
+    margin-top: 0;
+  }
+  .pdf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .pdf-card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.45;
+    word-break: break-all;
+    flex: 1;
+  }
+  .pdf-download-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--blue-500);
+    color: #fff !important;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .pdf-download-btn:hover {
+    background: #004F9E;
+  }
+  .pdf-iframe {
+    border: none;
+    display: block;
+    width: 100%;
+    height: 700px;
+    background: var(--gray-100);
   }
   .attach-path {
-    margin-top: 12px;
+    margin-top: 16px;
     font-size: 12px;
     color: var(--gray-600);
   }
@@ -333,9 +362,14 @@
   </section>
 
   <section class="attachments">
-    <h2>添付資料 (1件)</h2>
-    <ul>
-<li>FBL-1000CWカタログ.pdf</li>    </ul>
+    <h2 class="attachments-h2">📎 添付資料 (1件)</h2>
+    <div class="pdf-card">
+      <div class="pdf-card-header">
+        <h3>📄 FBL-1000CWカタログ.pdf</h3>
+        <a href="../../../attachments/%E6%97%A5%E6%9C%AC%E3%82%A6%E3%82%A8%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FBL-1000CW%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+      </div>
+      <iframe src="../../../attachments/%E6%97%A5%E6%9C%AC%E3%82%A6%E3%82%A8%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FBL-1000CW%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" class="pdf-iframe" title="FBL-1000CWカタログ.pdf のプレビュー"></iframe>
+    </div>
     <p class="attach-path">保管先: <code>attachments/日本ウエルディング株式会社/</code></p>
   </section>
 

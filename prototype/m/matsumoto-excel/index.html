@@ -157,36 +157,65 @@
     background: var(--gray-100);
     border-radius: 8px;
   }
-  .attachments h2 {
-    font-size: 18px;
+  .attachments-h2 {
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin: 0 0 16px;
     color: var(--gray-800);
   }
-  .attachments ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .attachments li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    background: #fff;
+  .pdf-card {
+    margin-top: 20px;
     border: 1px solid var(--gray-200);
-    border-radius: 6px;
-    font-size: 14px;
-    color: var(--gray-800);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
   }
-  .attachments li::before {
-    content: '📄';
-    flex-shrink: 0;
+  .pdf-card:first-of-type {
+    margin-top: 0;
+  }
+  .pdf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .pdf-card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.45;
+    word-break: break-all;
+    flex: 1;
+  }
+  .pdf-download-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: var(--blue-500);
+    color: #fff !important;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.15s ease;
+  }
+  .pdf-download-btn:hover {
+    background: #004F9E;
+  }
+  .pdf-iframe {
+    border: none;
+    display: block;
+    width: 100%;
+    height: 700px;
+    background: var(--gray-100);
   }
   .attach-path {
-    margin-top: 12px;
+    margin-top: 16px;
     font-size: 12px;
     color: var(--gray-600);
   }
@@ -343,9 +372,21 @@ TEL:072-966-1151    FAX:072-966-1940
   </section>
 
   <section class="attachments">
-    <h2>添付資料 (2件)</h2>
-    <ul>
-<li>TWF特価企画チラシ【エクセル貿易】.pdf</li><li>ビルドプロ溶接テーブル【ALPHA16】.pdf</li>    </ul>
+    <h2 class="attachments-h2">📎 添付資料 (2件)</h2>
+    <div class="pdf-card">
+      <div class="pdf-card-header">
+        <h3>📄 TWF特価企画チラシ【エクセル貿易】.pdf</h3>
+        <a href="../../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/TWF%E7%89%B9%E4%BE%A1%E4%BC%81%E7%94%BB%E3%83%81%E3%83%A9%E3%82%B7%E3%80%90%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+      </div>
+      <iframe src="../../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/TWF%E7%89%B9%E4%BE%A1%E4%BC%81%E7%94%BB%E3%83%81%E3%83%A9%E3%82%B7%E3%80%90%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E3%80%91.pdf" class="pdf-iframe" title="TWF特価企画チラシ【エクセル貿易】.pdf のプレビュー"></iframe>
+    </div>
+    <div class="pdf-card">
+      <div class="pdf-card-header">
+        <h3>📄 ビルドプロ溶接テーブル【ALPHA16】.pdf</h3>
+        <a href="../../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%83%93%E3%83%AB%E3%83%89%E3%83%97%E3%83%AD%E6%BA%B6%E6%8E%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%80%90ALPHA16%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+      </div>
+      <iframe src="../../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%83%93%E3%83%AB%E3%83%89%E3%83%97%E3%83%AD%E6%BA%B6%E6%8E%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%80%90ALPHA16%E3%80%91.pdf" class="pdf-iframe" title="ビルドプロ溶接テーブル【ALPHA16】.pdf のプレビュー"></iframe>
+    </div>
     <p class="attach-path">保管先: <code>attachments/マツモト産業株式会社　エクセル貿易事業部/</code></p>
   </section>
 

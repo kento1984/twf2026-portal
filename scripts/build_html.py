@@ -25,6 +25,7 @@ import shutil
 import unicodedata
 from collections import Counter
 from pathlib import Path
+from urllib.parse import quote as urlquote
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -227,6 +228,8 @@ def main():
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    # 添付パス用 URL エンコード (日本語フォルダ名 + 全角空白 　 をブラウザで安全に開けるように)
+    env.filters["urlquote"] = lambda s: urlquote(str(s or ""), safe="")
 
     pamphlet_idx = load_pamphlet_index()
 

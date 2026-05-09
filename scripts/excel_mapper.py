@@ -185,6 +185,7 @@ def init_details(makers: list[dict]) -> dict:
             "q1": "", "q2": "", "q3": "", "q4": "", "q5": "",
             "attachments": [],
             "attachment_dir": None,
+            "company_dir": None,
         }
     return out
 
@@ -246,6 +247,14 @@ def merge(makers: list[dict], excel_rows: list[dict]):
             files_raw = r.get("attach_files_raw") or ""
             files_all = [s.strip() for s in re.split(r"[\r\n]+", files_raw) if s.strip()]
             files = [f for f in files_all if is_useful_attachment(f)]
+            attach_dir = r["attach_dir"] or None
+            # company_dir = "attachments/株式会社ナカトミ/" → "株式会社ナカトミ"
+            company_dir = None
+            if attach_dir:
+                cd = attach_dir.replace("\\", "/").rstrip("/")
+                if cd.startswith("attachments/"):
+                    cd = cd[len("attachments/"):]
+                company_dir = cd or None
             details[key].update({
                 "has_answer": True,
                 "status": classified,
@@ -253,7 +262,8 @@ def merge(makers: list[dict], excel_rows: list[dict]):
                 "q1": r["q1"], "q2": r["q2"], "q3": r["q3"],
                 "q4": r["q4"], "q5": r["q5"],
                 "attachments": files,
-                "attachment_dir": r["attach_dir"] or None,
+                "attachment_dir": attach_dir,
+                "company_dir": company_dir,
             })
         else:
             # unanswered / unknown — status だけ記録、回答系フィールドは触らない
