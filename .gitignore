@@ -34,3 +34,12 @@ data/_pdf_pages/
 !.env.example
 
 scripts/_*.py
+
+# Phase 1.0: Playwright 検証スクショ (毎回上書き再生成、追跡不要)
+verify-*.png
+
+# Phase 1.0: 前方針の残骸スクショ (二度と使わない)
+topics-banner-*.png
+
+# Phase 1.0: シルエット画像のリビジョン履歴 (柏原ローカル保管、commit対象外)
+prototype/assets/top-pickup-3spots-pc.v*.png
