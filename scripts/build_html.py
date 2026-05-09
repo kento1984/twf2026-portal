@@ -33,6 +33,7 @@ ROOT = Path(__file__).resolve().parents[1]
 TEMPLATES = ROOT / "templates"
 CSV_PATH = ROOT / "data" / "makers.csv"
 JSON_PATH = ROOT / "data" / "maker_details.json"
+REWRITES_PATH = ROOT / "data" / "maker_details_rewritten.json"
 SLUG_PATH = ROOT / "data" / "maker_slugs.json"
 PAMPHLET_INDEX_PATH = ROOT / "data" / "pamphlet_index.json"
 OUT_DIR = ROOT / "prototype"
@@ -123,8 +124,20 @@ def load_pamphlet_index() -> dict:
     return {k: v for k, v in raw.items() if not k.startswith("_")}
 
 
-def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None) -> dict:
-    """Combine csv row + json detail (+ pamphlet index) into one record consumed by templates."""
+def load_rewrites() -> dict:
+    """data/maker_details_rewritten.json を読み、{q1..q5}_rewritten / web_sources を返す。
+    元データ (maker_details.json) は不可侵。merge_record でこちらを優先表示。
+    """
+    if not REWRITES_PATH.exists():
+        return {}
+    with open(REWRITES_PATH, encoding="utf-8") as f:
+        raw = json.load(f)
+    return {k: v for k, v in raw.items() if not k.startswith("_")}
+
+
+def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None,
+                 rewrites: dict | None = None) -> dict:
+    """Combine csv row + json detail (+ pamphlet index + rewrites) into one record."""
     no = int(csv_row["no"])
     rec = dict(json_rec)  # has_answer, q1-q5, attachments, attachment_dir, reply_date, ...
     rec["no"] = no
@@ -145,10 +158,24 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
             rec["pamphlet_section"] = ""
             rec["pamphlet_note"] = ""
             rec["pamphlet_confidence"] = ""
+
+    # Phase 7 step-7: 客向けに書き直した Q1〜Q5 で上書き (元データ q1..q5 は破壊しないよう raw_qN に退避)
+    rec["is_rewritten"] = False
+    rec["web_sources"] = []
+    if rewrites is not None:
+        rw = rewrites.get(f"{no:03d}")
+        if rw:
+            rec["is_rewritten"] = True
+            rec["web_sources"] = rw.get("web_sources", []) or []
+            for q in ("q1", "q2", "q3", "q4", "q5"):
+                rkey = f"{q}_rewritten"
+                if rkey in rw:
+                    rec[f"raw_{q}"] = rec.get(q, "")
+                    rec[q] = rw[rkey]
     return rec
 
 
-def render_pages(env, makers, details, pamphlet_idx):
+def render_pages(env, makers, details, pamphlet_idx, rewrites):
     tpl_for = {
         "A": env.get_template("maker_full.html.j2"),
         "B": env.get_template("maker_pamphlet.html.j2"),
@@ -157,7 +184,7 @@ def render_pages(env, makers, details, pamphlet_idx):
     counts = Counter()
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites)
         rec["slug"] = m["__slug"]
         tier = tier_for(rec)
         rec["tier"] = tier
@@ -169,11 +196,11 @@ def render_pages(env, makers, details, pamphlet_idx):
     return counts
 
 
-def render_top(env, makers, details, counts, pamphlet_idx):
+def render_top(env, makers, details, counts, pamphlet_idx, rewrites):
     cards = []
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites)
         rec["slug"] = m["__slug"]
         rec["tier"] = tier_for(rec)
         rec["display_name"] = (rec["name_short"] or rec["name"]).strip()
@@ -232,9 +259,10 @@ def main():
     env.filters["urlquote"] = lambda s: urlquote(str(s or ""), safe="")
 
     pamphlet_idx = load_pamphlet_index()
+    rewrites = load_rewrites()
 
-    counts = render_pages(env, makers, details, pamphlet_idx)
-    n_top = render_top(env, makers, details, counts, pamphlet_idx)
+    counts = render_pages(env, makers, details, pamphlet_idx, rewrites)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites)
 
     final_used = Counter(slugs.values())
     duplicates = sorted(s for s, c in final_used.items() if c > 1)
