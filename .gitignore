@@ -32,3 +32,5 @@ data/_pdf_pages/
 .env
 .env.*
 !.env.example
+
+scripts/_*.py
