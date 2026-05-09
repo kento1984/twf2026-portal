@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1920, initial-scale=1" />
+  <title>作業環境向上ブース ＆ 初TWF出展いちおしメーカー | みどころ特集 | TWF2026 みどころポータル</title>
+  <meta name="description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報を主催店マツモト産業がまとめたポータルサイト。">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png">
+  <link rel="shortcut icon" href="../../assets/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="TWF2026 みどころポータル">
+  <meta property="og:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報">
+  <meta property="og:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+  <meta property="og:url" content="https://twf2026-portal.pages.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TWF2026 みどころポータル">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TWF2026 みどころポータル">
+  <meta name="twitter:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ">
+  <meta name="twitter:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto+Mono:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --red-500: #C8102E;
+      --red-700: #8B0B20;
+      --blue-500: #0066CC;
+      --orange-500: #FF6B35;
+      --gray-50: #FAFAFA;
+      --gray-100: #F4F4F5;
+      --gray-200: #E4E4E7;
+      --gray-400: #A1A1AA;
+      --gray-600: #52525B;
+      --gray-800: #2C2C2C;
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+      --container-max: 1100px;
+      --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+                   "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      --font-mono: "Roboto Mono", "SFMono-Regular", monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue-500); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .topbar {
+      width: 100%;
+      background: var(--gray-800);
+      color: #fff;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-back {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .topbar-back:hover { color: #fff; text-decoration: none; }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .topbar-logo {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+    .topbar-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.65);
+      font-weight: 600;
+      padding-left: 12px;
+      border-left: 1px solid rgba(255,255,255,0.25);
+      line-height: 1.2;
+    }
+
+    .maker-page {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    .maker-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .maker-no {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-400);
+      letter-spacing: 0.1em;
+      align-self: center;
+    }
+    .maker-header h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.2;
+      flex: 1 1 100%;
+      margin-top: 4px;
+    }
+    .maker-meta {
+      width: 100%;
+      font-size: 14px;
+      color: var(--gray-600);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .maker-meta span + span::before {
+      content: '·';
+      margin-right: 16px;
+      color: var(--gray-200);
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      align-self: center;
+    }
+    .tier-badge.tier-a { background: var(--red-500); }
+    .tier-badge.tier-b { background: var(--blue-500); }
+    .tier-badge.tier-c { background: var(--gray-400); }
+
+    /* ===== トピックページ (Phase 1.0 骨組み版) ===== */
+    .topic-wrap {
+      --accent: #0066CC;
+      --accent-dark: #003D7A;
+    }
+    .topic-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 40px;
+      padding-bottom: 40px;
+      margin-bottom: 48px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .topic-hero-text { align-self: center; }
+    .topic-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      margin-bottom: 16px;
+    }
+    .topic-title {
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+      color: var(--gray-800);
+      margin-bottom: 14px;
+    }
+    .topic-subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .topic-intro {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--gray-800);
+      margin-bottom: 22px;
+      max-width: 640px;
+    }
+    .topic-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-topic {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+      transition: transform 150ms, box-shadow 150ms, background 150ms;
+    }
+    .btn-topic:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn-topic-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: none;
+      padding: 9px 20px;
+    }
+    .btn-topic-outline:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .topic-hero-flyer {
+      align-self: start;
+      max-height: 460px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--gray-100);
+    }
+    .topic-hero-flyer img {
+      width: 100%;
+      height: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* セクション */
+    .topic-section { margin-bottom: 52px; }
+    .topic-section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topic-section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .topic-section-intro {
+      font-size: 13.5px;
+      color: var(--gray-600);
+      margin-bottom: 22px;
+      max-width: 720px;
+      line-height: 1.7;
+    }
+
+    /* 製品カード */
+    .topic-product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .topic-product-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+    }
+    .topic-product-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+    }
+    .tpc-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-100);
+      background-size: cover;
+      background-position: center;
+    }
+    .tpc-no-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .tpc-no-image::after {
+      content: '製品画像は準備中';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: 0.16em;
+    }
+    .tpc-body {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .tpc-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tpc-meta-no {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+    .tpc-meta-name {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .tpc-product {
+      font-size: 16.5px;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--gray-800);
+    }
+    .tpc-tagline {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.55;
+    }
+    .tpc-desc {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    .tpc-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tpc-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .tpc-badge-first { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+    .tpc-badge-new   { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
+    .tpc-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 4px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .tpc-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tpc-link-internal { color: var(--blue-500); }
+    .tpc-link-external { color: var(--gray-600); }
+    .tpc-link-external:hover { color: var(--accent); }
+
+    /* TOPに戻るCTA */
+    .topic-back-cta {
+      margin-top: 8px;
+      text-align: center;
+    }
+    .topic-back-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 26px;
+      background: var(--gray-800);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+    }
+    .topic-back-cta a:hover { background: #000; text-decoration: none; color: #fff; }
+
+    .maker-footer {
+      margin-top: 64px;
+      padding: 24px 32px;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+    .maker-footer a { color: var(--gray-600); }
+    .maker-footer-logo {
+      display: block;
+      margin: 0 auto 12px;
+      height: 32px;
+      width: auto;
+      opacity: 0.75;
+    }
+    .footer-organizer {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.04em;
+    }
+    .footer-twf-square {
+      height: 56px;
+      width: auto;
+      vertical-align: middle;
+      flex-shrink: 0;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-back" href="../../index.html">← TOPへ戻る</a>
+    <a class="topbar-brand" href="../../index.html" aria-label="TWF2026 みどころポータル トップへ">
+      <img class="topbar-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
+      <span class="topbar-subtitle">みどころポータル</span>
+    </a>
+  </header>
+  <main class="maker-page">
+<div class="topic-wrap">
+
+  <!-- ヒーロー -->
+  <section class="topic-hero">
+    <div class="topic-hero-text">
+      <span class="topic-eyebrow">🦺 みどころ3選 / TWF2026 メイン企画</span>
+      <h1 class="topic-title">作業環境向上ブース ＆ 初TWF出展いちおしメーカー</h1>
+      <p class="topic-subtitle">熱中症対策・粉じん計・ファイバーレーザー・防災 — 13製品が集結</p>
+      <p class="topic-intro">現場の熱中症対策、粉じん測定、最新のファイバーレーザー、防災製品まで「作業環境を向上させる」 8 製品 + 初 TWF 出展のいちおしメーカー 5 社、計 13 製品が集結。</p>
+      <div class="topic-cta-row">
+        <a class="btn-topic" href="/assets/topics/productivity-solutions-back.pdf" target="_blank" rel="noopener">📄 公式チラシをダウンロード</a>
+        <a class="btn-topic btn-topic-outline" href="../../index.html#makerlist">出展メーカー一覧へ</a>
+      </div>
+    </div>
+    <div class="topic-hero-flyer">
+      <img src="/assets/topics/productivity-solutions-back.png" alt="作業環境向上ブース ＆ 初TWF出展いちおしメーカー 公式チラシ" loading="lazy" />
+    </div>
+  </section>
+
+  <section class="topic-section">
+    <h2 class="topic-section-title">作業環境向上ブース</h2>
+<p class="topic-section-intro">現場の熱・粉じん・防災にまつわる 8 製品。実演・体験あり、参加無料の企画も。</p>    <div class="topic-product-grid">
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.058</span>
+            <span class="tpc-meta-name">スリーエムジャパン</span>
+          </div>
+          <div class="tpc-product">フルハーネスデモンストレーション</div>
+<div class="tpc-tagline">墜落防止実験 + 吊り下げ体験 (参加無料)</div>          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/3m-japan/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.033</span>
+            <span class="tpc-meta-name">神戸製鋼所</span>
+          </div>
+          <div class="tpc-product">AXELARC™ 新ワイヤ送給制御プロセス</div>
+<div class="tpc-tagline">建機向け、安定アーク × 低スパッタ (実演、参加無料)</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-new">🆕 新商品</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/kami-kou-tokoro/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.001</span>
+            <span class="tpc-meta-name">アカサカテック</span>
+          </div>
+          <div class="tpc-product">フォークリフト接近警報システム IPAS (UWB 技術)</div>
+<div class="tpc-tagline">UWB 技術でフォークリフト事故を防ぐ</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/akasakatekku/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.036</span>
+            <span class="tpc-meta-name">サイシュウテクノ</span>
+          </div>
+          <div class="tpc-product">大型冷風機 (現場の熱中症対策)</div>
+<div class="tpc-tagline">現場全体を冷やす大型冷風機</div>          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/saishuutekuno/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.075</span>
+            <span class="tpc-meta-name">東洋化学商会</span>
+          </div>
+          <div class="tpc-product">瞬間氷結スプレー CBA</div>
+<div class="tpc-tagline">現場の救急処置に、瞬間冷却</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/touyoukagaku-shoukai/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.034</span>
+            <span class="tpc-meta-name">五常</span>
+          </div>
+          <div class="tpc-product">電動台車 (乗れる電動台車)</div>
+<div class="tpc-tagline">乗れる電動台車で運搬の負荷ゼロへ</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/gojou/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.076</span>
+            <span class="tpc-meta-name">東横サポート</span>
+          </div>
+          <div class="tpc-product">クールミストファン</div>
+<div class="tpc-tagline">気化冷却で広範囲を涼しく</div>          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/touyoko-sapooto/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.139</span>
+            <span class="tpc-meta-name">LA・PITA</span>
+          </div>
+          <div class="tpc-product">防災セット (内閣府・防災推進協議会・防災安全協会認定)</div>
+<div class="tpc-tagline">三機関認定の本格防災セット</div>          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/la-pita/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2 class="topic-section-title">初TWF出展いちおしメーカー</h2>
+<p class="topic-section-intro">今回が初 TWF 出展となる注目の 5 社。フィットテスター、ファイバーレーザークリーナー、屋内遮熱シート、コードレス塗装機など、現場改善の新しい選択肢。</p>    <div class="topic-product-grid">
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.090</span>
+            <span class="tpc-meta-name">日本カノマックス</span>
+          </div>
+          <div class="tpc-product">マスクフィットテスター 3000-JG2、アネモマスターライト 6006-D0、ピエゾバランス式粉じん計 Model 3521</div>
+<div class="tpc-tagline">計測の専門メーカー、3 製品を一気に展示</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/nippon-kanomakkusu/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.028</span>
+            <span class="tpc-meta-name">KS・S</span>
+          </div>
+          <div class="tpc-product">ファイバーレーザークリーナー KZ-2000、ファイバーレーザーパイプ切断機 KCFX-3000 VX</div>
+<div class="tpc-tagline">クリーニング × パイプ切断、レーザー新世代</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/ks-s/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.102</span>
+            <span class="tpc-meta-name">BXテンパル</span>
+          </div>
+          <div class="tpc-product">屋内用遮熱シート はるクール</div>
+<div class="tpc-tagline">貼るだけで屋内が涼しくなる遮熱シート</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/bx-tenparu/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.021</span>
+            <span class="tpc-meta-name">オプティレーザーソリューションズ</span>
+          </div>
+          <div class="tpc-product">最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300</div>
+<div class="tpc-tagline">CW × Pulse、用途に応じて選べるレーザー</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/oputeireezaasoryuushonzu/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+      <article class="topic-product-card">
+        <div class="tpc-no-image"></div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.095</span>
+            <span class="tpc-meta-name">日本ワグナー・スプレーテック</span>
+          </div>
+          <div class="tpc-product">コードレス塗装機 SprayPack 18V、FC4000 18V</div>
+<div class="tpc-tagline">コードレスで現場の塗装を機動的に</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/nippon-wagunaa-supureetekku/">メーカー詳細 →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="topic-back-cta">
+    <a href="../../index.html">← TOPページに戻る</a>
+  </div>
+
+</div>
+  </main>
+  <footer class="maker-footer">
+    <img class="maker-footer-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
+    マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
+    <a href="../../index.html">TWF2026 みどころポータル トップ</a>
+    <div class="footer-organizer">
+      <img class="footer-twf-square" src="../../assets/twf-logo-square.png" alt="TWF" />
+      <span>主催: 東京ウェルディングフェスタ実行委員会</span>
+    </div>
+  </footer>
+</body>
+</html>

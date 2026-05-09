@@ -1,0 +1,353 @@
+{% extends "_base.html.j2" %}
+
+{% block title %}{{ topic.title }} | みどころ特集{% endblock %}
+
+{% block extra_css %}
+    /* ===== トピックページ (Phase 1.0 骨組み版) ===== */
+    .topic-wrap {
+      --accent: {{ topic.accent_color }};
+      --accent-dark: {{ topic.accent_color_dark }};
+    }
+    .topic-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+      gap: 40px;
+      padding-bottom: 40px;
+      margin-bottom: 48px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .topic-hero-text { align-self: center; }
+    .topic-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      margin-bottom: 16px;
+    }
+    .topic-title {
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1.22;
+      letter-spacing: -0.01em;
+      color: var(--gray-800);
+      margin-bottom: 14px;
+    }
+    .topic-subtitle {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--gray-600);
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .topic-intro {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--gray-800);
+      margin-bottom: 22px;
+      max-width: 640px;
+    }
+    .topic-cta-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .btn-topic {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 11px 22px;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 800;
+      box-shadow: var(--shadow-md);
+      transition: transform 150ms, box-shadow 150ms, background 150ms;
+    }
+    .btn-topic:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      text-decoration: none;
+      color: #fff;
+    }
+    .btn-topic-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: none;
+      padding: 9px 20px;
+    }
+    .btn-topic-outline:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+    .topic-hero-flyer {
+      align-self: start;
+      max-height: 460px;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      background: var(--gray-100);
+    }
+    .topic-hero-flyer img {
+      width: 100%;
+      height: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+
+    /* セクション */
+    .topic-section { margin-bottom: 52px; }
+    .topic-section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .topic-section-title::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 24px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .topic-section-intro {
+      font-size: 13.5px;
+      color: var(--gray-600);
+      margin-bottom: 22px;
+      max-width: 720px;
+      line-height: 1.7;
+    }
+
+    /* 製品カード */
+    .topic-product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .topic-product-card {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+    }
+    .topic-product-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+    }
+    .tpc-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-100);
+      background-size: cover;
+      background-position: center;
+    }
+    .tpc-no-image {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .tpc-no-image::after {
+      content: '製品画像は準備中';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.88);
+      letter-spacing: 0.16em;
+    }
+    .tpc-body {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex: 1;
+    }
+    .tpc-meta {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .tpc-meta-no {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.06em;
+      font-weight: 700;
+    }
+    .tpc-meta-name {
+      font-size: 13px;
+      color: var(--gray-600);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .tpc-product {
+      font-size: 16.5px;
+      font-weight: 800;
+      line-height: 1.4;
+      color: var(--gray-800);
+    }
+    .tpc-tagline {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1.55;
+    }
+    .tpc-desc {
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.75;
+    }
+    .tpc-badges {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .tpc-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .tpc-badge-first { background: #FEF3C7; color: #92400E; border: 1px solid #FCD34D; }
+    .tpc-badge-new   { background: #DCFCE7; color: #14532D; border: 1px solid #86EFAC; }
+    .tpc-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: auto;
+      padding-top: 4px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .tpc-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .tpc-link-internal { color: var(--blue-500); }
+    .tpc-link-external { color: var(--gray-600); }
+    .tpc-link-external:hover { color: var(--accent); }
+
+    /* TOPに戻るCTA */
+    .topic-back-cta {
+      margin-top: 8px;
+      text-align: center;
+    }
+    .topic-back-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 11px 26px;
+      background: var(--gray-800);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: var(--shadow-md);
+    }
+    .topic-back-cta a:hover { background: #000; text-decoration: none; color: #fff; }
+{% endblock %}
+
+{% block content %}
+<div class="topic-wrap">
+
+  <!-- ヒーロー -->
+  <section class="topic-hero">
+    <div class="topic-hero-text">
+      <span class="topic-eyebrow">{{ topic.icon }} みどころ3選 / TWF2026 メイン企画</span>
+      <h1 class="topic-title">{{ topic.title }}</h1>
+      <p class="topic-subtitle">{{ topic.subtitle }}</p>
+      <p class="topic-intro">{{ topic.intro }}</p>
+      <div class="topic-cta-row">
+        {% if topic.pdf_url %}
+        <a class="btn-topic" href="{{ topic.pdf_url }}" target="_blank" rel="noopener">📄 公式チラシをダウンロード</a>
+        {% endif %}
+        <a class="btn-topic btn-topic-outline" href="../../index.html#makerlist">出展メーカー一覧へ</a>
+      </div>
+    </div>
+    {% if topic.hero_image %}
+    <div class="topic-hero-flyer">
+      <img src="{{ topic.hero_image }}" alt="{{ topic.title }} 公式チラシ" loading="lazy" />
+    </div>
+    {% endif %}
+  </section>
+
+  {# 単一products と sections (work-environmentのみ) どちらにも対応 #}
+  {% set _blocks = topic.sections if topic.sections else [{"section_title": none, "section_intro": none, "products": topic.products}] %}
+  {% for blk in _blocks %}
+  <section class="topic-section">
+    {% if blk.section_title %}
+    <h2 class="topic-section-title">{{ blk.section_title }}</h2>
+    {% if blk.section_intro %}<p class="topic-section-intro">{{ blk.section_intro }}</p>{% endif %}
+    {% endif %}
+    <div class="topic-product-grid">
+      {% for p in blk.products %}
+      <article class="topic-product-card">
+        {% if p.image_url %}
+        <div class="tpc-image" style="background-image: url('{{ p.image_url }}');"></div>
+        {% else %}
+        <div class="tpc-no-image"></div>
+        {% endif %}
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.{{ '%03d' | format(p.maker_no) }}</span>
+            <span class="tpc-meta-name">{{ p.maker_name }}</span>
+          </div>
+          <div class="tpc-product">{{ p.product_name }}</div>
+          {% if p.tagline %}<div class="tpc-tagline">{{ p.tagline }}</div>{% endif %}
+          {% if p.description %}<div class="tpc-desc">{{ p.description }}</div>{% endif %}
+          {% if p.is_first_exhibit or p.is_new_product %}
+          <div class="tpc-badges">
+            {% if p.is_first_exhibit %}<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>{% endif %}
+            {% if p.is_new_product %}<span class="tpc-badge tpc-badge-new">🆕 新商品</span>{% endif %}
+          </div>
+          {% endif %}
+          <div class="tpc-links">
+            {% if p.maker_slug %}
+            <a class="tpc-link-internal" href="../../m/{{ p.maker_slug }}/">メーカー詳細 →</a>
+            {% endif %}
+            {% if p.official_url %}
+            <a class="tpc-link-external" href="{{ p.official_url }}" target="_blank" rel="noopener">公式ページ ↗</a>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% endfor %}
+
+  <div class="topic-back-cta">
+    <a href="../../index.html">← TOPページに戻る</a>
+  </div>
+
+</div>
+{% endblock %}

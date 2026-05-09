@@ -190,61 +190,107 @@
     .btn-blue:hover { background: #004999; }
 
     /* ===========================================================
-       Section 3: 注目企画ピックアップ  ───────  16:9  /  暗(ガンメタ)
+       Section 3: みどころ3選 ───── 16:9 / 暗(ガンメタ + 3スポット演出)
+       柏原生成の3スポット背景画像 (top-pickup-3spots-pc.png) と整合
        =========================================================== */
     .pickup {
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #1a1a1a url('assets/raw/top-pickup-pc.png') center / cover no-repeat;
+      background: #1a1a1a url('assets/top-pickup-3spots-pc.png') center / cover no-repeat;
       overflow: hidden;
     }
     .pickup .section-header {
       padding-top: 40px;
       margin-bottom: 0;
     }
+    .pickup-eyebrow {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      color: var(--orange-500);
+      margin-bottom: 10px;
+      text-align: center;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+    }
+    .pickup .section-title-light {
+      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    }
     .pickup-cards {
       position: absolute;
-      bottom: 12%;
+      bottom: 7%;
       left: 0; right: 0;
-      padding: 0 80px;
+      padding: 0 60px;
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 24px;
-      max-width: 1920px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1280px;
       margin: 0 auto;
     }
     .pickup-card {
       position: relative;
-      padding: 18px 16px 16px;
-      background: rgba(44, 44, 44, 0.85);
-      border: 1px solid rgba(255, 107, 53, 0.35);
-      border-radius: 8px;
-      backdrop-filter: blur(2px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      display: block;
+      padding: 22px 22px 20px;
+      background: rgba(18, 18, 18, 0.78);
+      border: 1px solid rgba(255, 107, 53, 0.45);
+      border-radius: 10px;
+      backdrop-filter: blur(3px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.5);
       color: #fff;
+      text-decoration: none;
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
     }
-    .pickup-card-maker {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--orange-500);
-      letter-spacing: 0.05em;
-      margin-bottom: 6px;
+    .pickup-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--orange-500);
+      box-shadow: 0 14px 36px rgba(255, 107, 53, 0.25), 0 6px 16px rgba(0,0,0,0.5);
+      text-decoration: none;
     }
     .pickup-card-title {
-      font-size: 15px;
-      font-weight: 700;
-      line-height: 1.4;
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.32;
       color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
     }
-    .pickup-card-badge {
-      position: absolute;
-      top: -12px;
-      right: -8px;
-      width: 56px;
-      height: 56px;
-      background: url('assets/extracted/badges/badge_001.png') center / contain no-repeat;
-      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
+    .pickup-card-icon {
+      display: inline-block;
+      margin-right: 4px;
+    }
+    .pickup-card-count {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--orange-500);
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    .pickup-card-keywords {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.55;
+      margin-bottom: 14px;
+      letter-spacing: 0.01em;
+    }
+    .pickup-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: rgba(255, 107, 53, 0.14);
+      border: 1px solid rgba(255, 107, 53, 0.55);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--orange-500);
+      letter-spacing: 0.04em;
+      transition: background 150ms ease-out, color 150ms ease-out;
+    }
+    .pickup-card:hover .pickup-card-cta {
+      background: var(--orange-500);
+      color: #fff;
     }
 
     /* ===========================================================
@@ -730,38 +776,34 @@
   </section>
 
   <!-- ============================================================
-       Section 3: 注目企画ピックアップ  /  ガンメタ暗  /  16:9
+       Section 3: みどころ3選 (TWF2026 メイン企画)  /  ガンメタ暗  /  16:9
+       柏原方針: 既存5項目を 3コーナー (生産性/作業環境/実演セミナー) に置換
+       背景画像 = 柏原ChatGPT生成の3スポット版 top-pickup-3spots-pc.png
        ============================================================ -->
   <section class="pickup">
     <div class="section-header">
-      <h2 class="section-title section-title-light double-underline double-underline-center">注目企画ピックアップ</h2>
+      <span class="pickup-eyebrow">みどころ3選 / TWF2026 メイン企画</span>
+      <h2 class="section-title section-title-light double-underline double-underline-center">2大コーナー × 実演セミナー</h2>
     </div>
     <div class="pickup-cards">
-      <div class="pickup-card">
-        <div class="pickup-card-badge"></div>
-        <div class="pickup-card-maker">ダイヘン</div>
-        <div class="pickup-card-title">新型溶接ロボット<br />実演ステージ</div>
-      </div>
-      <div class="pickup-card">
-        <div class="pickup-card-badge"></div>
-        <div class="pickup-card-maker">重松製作所</div>
-        <div class="pickup-card-title">呼吸用保護具<br />試着ブース</div>
-      </div>
-      <div class="pickup-card">
-        <div class="pickup-card-badge"></div>
-        <div class="pickup-card-maker">日鉄溶接工業</div>
-        <div class="pickup-card-title">特殊溶接材料<br />サンプル配布</div>
-      </div>
-      <div class="pickup-card">
-        <div class="pickup-card-badge"></div>
-        <div class="pickup-card-maker">興研</div>
-        <div class="pickup-card-title">最新防塵マスク<br />フィッティング体験</div>
-      </div>
-      <div class="pickup-card">
-        <div class="pickup-card-badge"></div>
-        <div class="pickup-card-maker">特設ステージ</div>
-        <div class="pickup-card-title">業界トレンドセッション<br />両日開催</div>
-      </div>
+      <a class="pickup-card" href="topics/productivity-solutions/">
+        <div class="pickup-card-title"><span class="pickup-card-icon">🤖</span>生産性向上ソリューションコーナー</div>
+        <div class="pickup-card-count">11製品が集結</div>
+        <div class="pickup-card-keywords">協働ロボット・AMR・3Dレーダー・溶接カメラ</div>
+        <span class="pickup-card-cta">詳しく見る →</span>
+      </a>
+      <a class="pickup-card" href="topics/work-environment/">
+        <div class="pickup-card-title"><span class="pickup-card-icon">🦺</span>作業環境向上ブース ＆ いちおしメーカー</div>
+        <div class="pickup-card-count">13製品が集結</div>
+        <div class="pickup-card-keywords">熱中症対策・粉じん計・ファイバーレーザー・防災</div>
+        <span class="pickup-card-cta">詳しく見る →</span>
+      </a>
+      <a class="pickup-card" href="topics/seminars/">
+        <div class="pickup-card-title"><span class="pickup-card-icon">🎤</span>実演セミナー (参加無料)</div>
+        <div class="pickup-card-count">4社が会場で実演</div>
+        <div class="pickup-card-keywords">3M / 神戸製鋼所 / ダイヘン / 三菱電機</div>
+        <span class="pickup-card-cta">詳しく見る →</span>
+      </a>
     </div>
   </section>
 

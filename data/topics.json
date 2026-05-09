@@ -1,0 +1,391 @@
+{
+  "productivity-solutions": {
+    "slug": "productivity-solutions",
+    "title": "生産性向上ソリューションコーナー",
+    "subtitle": "協働ロボット・AMR・3Dレーダー・溶接カメラ — 11製品が会場で集結",
+    "icon": "🤖",
+    "accent_color": "#C8102E",
+    "accent_color_dark": "#8B0B20",
+    "hero_image": "/assets/topics/productivity-solutions-front.png",
+    "pdf_url": "/assets/topics/productivity-solutions-front.pdf",
+    "intro": "TWF2026 で初公開となる協働ロボット・AMR(自律走行搬送)・3D レーダー安全システム・溶接カメラなど、生産性向上に直結する 11 製品を 1 コーナーに集約。実機を目の前で確認できる絶好の機会です。",
+    "products": [
+      {
+        "maker_no": 66,
+        "maker_name": "ダイヘン",
+        "maker_slug": "daihen",
+        "product_name": "協働ロボットパッケージ (TIG/MAG兼用仕様)",
+        "tagline": "高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式",
+        "description": "ダイヘン独自の制御技術により、難易度の高い TIG ワイヤー溶接でも安定した高品質溶接を実現。1 台の架台に CO2・TIG 溶接機を搭載し、簡単な段取り替えで使い分けが可能。",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 106,
+        "maker_name": "ファナック",
+        "maker_slug": "fanakku",
+        "product_name": "安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)",
+        "tagline": "安全柵不要、ハンド交換ワンタッチ",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 114,
+        "maker_name": "フロニウスジャパン",
+        "maker_slug": "furoniusujapan",
+        "product_name": "TPS400i CMT低スパッタ溶接×協働ロボット",
+        "tagline": "CMT 低スパッタ × 協働ロボット連携",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 129,
+        "maker_name": "メサック",
+        "maker_slug": "mesakku",
+        "product_name": "スプレーガン×防爆協働ロボット",
+        "tagline": "防爆対応、塗装の自動化に",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": true,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 145,
+        "maker_name": "ロボットバンク",
+        "maker_slug": "robottobanku",
+        "product_name": "AMR 自律走行(協働)搬送ロボット StarLift",
+        "tagline": "AMR で工場内搬送を完全自律化",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": true,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 66,
+        "maker_name": "ダイヘン",
+        "maker_slug": "daihen",
+        "product_name": "協働ロボット × AiTran",
+        "tagline": "AGV 連携で搬送 → 溶接の完全自動化",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": true,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 59,
+        "maker_name": "ゼネテック",
+        "maker_slug": "zenetekku",
+        "product_name": "オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)",
+        "tagline": "オフライン教示で立ち上げ時間を大幅短縮",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": true,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 19,
+        "maker_name": "オートスイング (OTOS)",
+        "maker_slug": "ootosuingu-otos",
+        "product_name": "溶接カメラ Ray-X WGC-200/400",
+        "tagline": "高精度溶接カメラで遠隔監視",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 52,
+        "maker_name": "シンテック",
+        "maker_slug": "shintekku",
+        "product_name": "3arm 新しいバランスアームのカタチ",
+        "tagline": "3 アーム構造でバランスアーム新世代へ",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 35,
+        "maker_name": "小森安全機研究所",
+        "maker_slug": "komori-anzen-ki-kenkyuusho",
+        "product_name": "3D レーダー安全システム SRD シリーズ (世界初 SIL2/PLd 準拠)",
+        "tagline": "世界初の SIL2/PLd 準拠 3D レーダー",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": true,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 97,
+        "maker_name": "ノビテック",
+        "maker_slug": "nobitekku",
+        "product_name": "Cavitar Welding Camera",
+        "tagline": "溶融池をリアルタイム可視化",
+        "description": "",
+        "image_url": null,
+        "official_url": null,
+        "is_first_exhibit": false,
+        "is_new_product": false
+      }
+    ]
+  },
+
+  "work-environment": {
+    "slug": "work-environment",
+    "title": "作業環境向上ブース ＆ 初TWF出展いちおしメーカー",
+    "subtitle": "熱中症対策・粉じん計・ファイバーレーザー・防災 — 13製品が集結",
+    "icon": "🦺",
+    "accent_color": "#0066CC",
+    "accent_color_dark": "#003D7A",
+    "hero_image": "/assets/topics/productivity-solutions-back.png",
+    "pdf_url": "/assets/topics/productivity-solutions-back.pdf",
+    "intro": "現場の熱中症対策、粉じん測定、最新のファイバーレーザー、防災製品まで「作業環境を向上させる」 8 製品 + 初 TWF 出展のいちおしメーカー 5 社、計 13 製品が集結。",
+    "sections": [
+      {
+        "section_title": "作業環境向上ブース",
+        "section_intro": "現場の熱・粉じん・防災にまつわる 8 製品。実演・体験あり、参加無料の企画も。",
+        "products": [
+          {
+            "maker_no": 58,
+            "maker_name": "スリーエムジャパン",
+            "maker_slug": "3m-japan",
+            "product_name": "フルハーネスデモンストレーション",
+            "tagline": "墜落防止実験 + 吊り下げ体験 (参加無料)",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 33,
+            "maker_name": "神戸製鋼所",
+            "maker_slug": "kami-kou-tokoro",
+            "product_name": "AXELARC™ 新ワイヤ送給制御プロセス",
+            "tagline": "建機向け、安定アーク × 低スパッタ (実演、参加無料)",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": true
+          },
+          {
+            "maker_no": 1,
+            "maker_name": "アカサカテック",
+            "maker_slug": "akasakatekku",
+            "product_name": "フォークリフト接近警報システム IPAS (UWB 技術)",
+            "tagline": "UWB 技術でフォークリフト事故を防ぐ",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 36,
+            "maker_name": "サイシュウテクノ",
+            "maker_slug": "saishuutekuno",
+            "product_name": "大型冷風機 (現場の熱中症対策)",
+            "tagline": "現場全体を冷やす大型冷風機",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 75,
+            "maker_name": "東洋化学商会",
+            "maker_slug": "touyoukagaku-shoukai",
+            "product_name": "瞬間氷結スプレー CBA",
+            "tagline": "現場の救急処置に、瞬間冷却",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 34,
+            "maker_name": "五常",
+            "maker_slug": "gojou",
+            "product_name": "電動台車 (乗れる電動台車)",
+            "tagline": "乗れる電動台車で運搬の負荷ゼロへ",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 76,
+            "maker_name": "東横サポート",
+            "maker_slug": "touyoko-sapooto",
+            "product_name": "クールミストファン",
+            "tagline": "気化冷却で広範囲を涼しく",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 139,
+            "maker_name": "LA・PITA",
+            "maker_slug": "la-pita",
+            "product_name": "防災セット (内閣府・防災推進協議会・防災安全協会認定)",
+            "tagline": "三機関認定の本格防災セット",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          }
+        ]
+      },
+      {
+        "section_title": "初TWF出展いちおしメーカー",
+        "section_intro": "今回が初 TWF 出展となる注目の 5 社。フィットテスター、ファイバーレーザークリーナー、屋内遮熱シート、コードレス塗装機など、現場改善の新しい選択肢。",
+        "products": [
+          {
+            "maker_no": 90,
+            "maker_name": "日本カノマックス",
+            "maker_slug": "nippon-kanomakkusu",
+            "product_name": "マスクフィットテスター 3000-JG2、アネモマスターライト 6006-D0、ピエゾバランス式粉じん計 Model 3521",
+            "tagline": "計測の専門メーカー、3 製品を一気に展示",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 28,
+            "maker_name": "KS・S",
+            "maker_slug": "ks-s",
+            "product_name": "ファイバーレーザークリーナー KZ-2000、ファイバーレーザーパイプ切断機 KCFX-3000 VX",
+            "tagline": "クリーニング × パイプ切断、レーザー新世代",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 102,
+            "maker_name": "BXテンパル",
+            "maker_slug": "bx-tenparu",
+            "product_name": "屋内用遮熱シート はるクール",
+            "tagline": "貼るだけで屋内が涼しくなる遮熱シート",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 21,
+            "maker_name": "オプティレーザーソリューションズ",
+            "maker_slug": "oputeireezaasoryuushonzu",
+            "product_name": "最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300",
+            "tagline": "CW × Pulse、用途に応じて選べるレーザー",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 95,
+            "maker_name": "日本ワグナー・スプレーテック",
+            "maker_slug": "nippon-wagunaa-supureetekku",
+            "product_name": "コードレス塗装機 SprayPack 18V、FC4000 18V",
+            "tagline": "コードレスで現場の塗装を機動的に",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          }
+        ]
+      }
+    ]
+  },
+
+  "seminars": {
+    "slug": "seminars",
+    "title": "実演セミナー",
+    "subtitle": "目の前で実感、4 社による参加無料の実演",
+    "icon": "🎤",
+    "accent_color": "#FF6B35",
+    "accent_color_dark": "#C24A1A",
+    "hero_image": null,
+    "pdf_url": null,
+    "intro": "TWF2026 ではメーカー 4 社による実演セミナーを開催。墜落防止の吊り下げ体験から、最新の溶接プロセス、プラズマ切断、二次元ファイバレーザ加工まで、目の前で動く実機を見て・触れて・体感できます。すべて参加無料。",
+    "products": [
+      {
+        "maker_no": 58,
+        "maker_name": "スリーエムジャパン",
+        "maker_slug": "3m-japan",
+        "product_name": "フルハーネスデモンストレーション",
+        "tagline": "墜落防止実験 + 吊り下げ体験 (参加無料)",
+        "description": "高所作業の安全を支えるフルハーネスを、実際に装着・吊り下げて体感できる体験型デモンストレーション。",
+        "image_url": null,
+        "official_url": "https://www.3mcompany.jp/3M/ja_JP/fall-protection/training/",
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 33,
+        "maker_name": "神戸製鋼所",
+        "maker_slug": "kami-kou-tokoro",
+        "product_name": "AXELARC™ 新ワイヤ送給制御プロセス",
+        "tagline": "建機向け、安定アーク × 低スパッタの実演",
+        "description": "建設機械の溶接で求められる安定アークとスパッタ低減を、新ワイヤ送給制御プロセスで実現。実機実演で違いを体感できます。",
+        "image_url": null,
+        "official_url": "https://www.kobelco.co.jp/products/welding/axelarc/",
+        "is_first_exhibit": false,
+        "is_new_product": true
+      },
+      {
+        "maker_no": 66,
+        "maker_name": "ダイヘン",
+        "maker_slug": "daihen",
+        "product_name": "プラズマ切断パッケージ",
+        "tagline": "高速・高精度のプラズマ切断を実演",
+        "description": "薄板から厚板までの幅広い対応と、高速・高精度な切断を両立するパッケージ。会場で動く実機を確認できます。",
+        "image_url": null,
+        "official_url": "https://www.daihen-robot.com/items/plazma_cutting_pkg",
+        "is_first_exhibit": false,
+        "is_new_product": false
+      },
+      {
+        "maker_no": 123,
+        "maker_name": "三菱電機",
+        "maker_slug": "mitsubishidenki",
+        "product_name": "二次元ファイバレーザ加工機 ML3015GX-F60",
+        "tagline": "F60 のハイパワー × 高速ファイバレーザ加工",
+        "description": "60kW クラスのハイパワーファイバレーザで、厚板から薄板まで高速加工。実演で加工速度と仕上がりを確認できます。",
+        "image_url": null,
+        "official_url": "https://www.mitsubishielectric.co.jp/fa/products/faspec/point.page?kisyu=/laser&formNm=ML3015GX-F60",
+        "is_first_exhibit": false,
+        "is_new_product": false
+      }
+    ]
+  }
+}

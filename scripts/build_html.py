@@ -40,8 +40,10 @@ BRAND_PATH = ROOT / "data" / "maker_brand.json"
 STATUS_PATH = ROOT / "data" / "maker_status.json"
 PDF_EXTRACTS_PATH = ROOT / "data" / "pdf_extracts.json"
 PRODUCTS_PATH = ROOT / "data" / "maker_products.json"
+TOPICS_PATH = ROOT / "data" / "topics.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
+TOPICS_OUT = OUT_DIR / "topics"
 
 LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳)")
 
@@ -273,6 +275,25 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
     return len(cards)
 
 
+def render_topics(env):
+    """Phase 1.0: みどころ3選トピックページを生成。
+    data/topics.json を読み prototype/topics/{slug}/index.html を出力。
+    """
+    if not TOPICS_PATH.exists():
+        return 0
+    with open(TOPICS_PATH, encoding="utf-8") as f:
+        topics = json.load(f)
+    tpl = env.get_template("topic.html.j2")
+    rendered = 0
+    for slug, topic in topics.items():
+        out_dir = TOPICS_OUT / slug
+        out_dir.mkdir(parents=True, exist_ok=True)
+        html = tpl.render(topic=topic)
+        (out_dir / "index.html").write_text(html, encoding="utf-8")
+        rendered += 1
+    return rendered
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--clean", action="store_true", help="wipe prototype/m/ before render")
@@ -309,12 +330,14 @@ def main():
 
     counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
     n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
+    n_topics = render_topics(env)
 
     final_used = Counter(slugs.values())
     duplicates = sorted(s for s, c in final_used.items() if c > 1)
 
     print(f"Maker pages rendered: A={counts['A']}  B={counts['B']}  C={counts['C']}  total={sum(counts.values())}")
     print(f"TOP cards rendered:   {n_top}  -> {(OUT_DIR / 'index.html').relative_to(ROOT)}")
+    print(f"Topic pages rendered: {n_topics}  -> {TOPICS_OUT.relative_to(ROOT)}/{{slug}}/")
     print(f"Slugs total: {len(slugs)}")
     print(f"  generated this run: {len(generated)}")
     print(f"  collisions resolved (auto-suffix -No): {len(collisions)}")
