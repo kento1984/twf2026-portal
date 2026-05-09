@@ -11,10 +11,11 @@ from PIL import Image
 import io
 
 ROOT = Path(__file__).resolve().parents[1]
-OFFICIAL = ROOT / "assets" / "raw" / "_official"
+# Cloudflare Pages の Build output が prototype/ なので、配信対象アセットは prototype/ 配下に置く
+OFFICIAL = ROOT / "prototype" / "assets" / "raw" / "_official"
 PAMPHLET_PDF = OFFICIAL / "26TWF_pamphlet.pdf"
 MAKERLIST_PDF = OFFICIAL / "26TWF_MakerList.pdf"
-PAMPHLET_OUT = ROOT / "data" / "pamphlet_pages"
+PAMPHLET_OUT = ROOT / "prototype" / "data" / "pamphlet_pages"
 LOGO_OUT = OFFICIAL / "twf2026-logo.png"
 MAKERS_CSV = ROOT / "data" / "makers.csv"
 

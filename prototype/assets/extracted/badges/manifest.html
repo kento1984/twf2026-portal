@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8"><title>badges manifest</title>
+<style>
+body { font-family: system-ui, -apple-system, sans-serif; background:#1a1a1a; color:#eee; margin:0; padding:20px; }
+h1 { font-size: 18px; margin: 0 0 8px; }
+.summary { color:#aaa; margin-bottom: 16px; font-size: 13px; }
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
+.cell { background:#2a2a2a; border-radius:8px; padding:8px; }
+.img-wrap { background-image:
+  linear-gradient(45deg, #444 25%, transparent 25%),
+  linear-gradient(-45deg, #444 25%, transparent 25%),
+  linear-gradient(45deg, transparent 75%, #444 75%),
+  linear-gradient(-45deg, transparent 75%, #444 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+  border-radius:4px; padding:6px; display:flex; align-items:center; justify-content:center; min-height:160px; }
+.img-wrap img { max-width:100%; max-height:160px; object-fit:contain; }
+.meta { margin-top:8px; font-size: 12px; }
+.name { font-weight:600; word-break:break-all; }
+.size { color:#aaa; margin: 2px 0 6px; }
+.badge { display:inline-block; padding: 2px 8px; border-radius:4px; color:#fff; font-size: 11px; font-weight:600; }
+.msg { margin-top:6px; color:#fbbf24; font-size: 11px; }
+</style></head><body>
+<h1>badges | input: grid-badges.png | grid: 2x3</h1>
+<div class="summary">total: 6 | OK: 6</div>
+<div class="grid"><div class="cell"><div class="img-wrap"><img src="badge_001.png" alt="badge_001.png"/></div><div class="meta"><div class="name">badge_001.png</div><div class="size">296x382 | alpha=0.67</div><span class="badge" style="background:#22c55e">OK OK</span></div></div><div class="cell"><div class="img-wrap"><img src="badge_002.png" alt="badge_002.png"/></div><div class="meta"><div class="name">badge_002.png</div><div class="size">295x382 | alpha=0.63</div><span class="badge" style="background:#22c55e">OK OK</span></div></div><div class="cell"><div class="img-wrap"><img src="badge_003.png" alt="badge_003.png"/></div><div class="meta"><div class="name">badge_003.png</div><div class="size">300x382 | alpha=0.17</div><span class="badge" style="background:#22c55e">OK OK</span></div></div><div class="cell"><div class="img-wrap"><img src="badge_004.png" alt="badge_004.png"/></div><div class="meta"><div class="name">badge_004.png</div><div class="size">296x384 | alpha=0.67</div><span class="badge" style="background:#22c55e">OK OK</span></div></div><div class="cell"><div class="img-wrap"><img src="badge_005.png" alt="badge_005.png"/></div><div class="meta"><div class="name">badge_005.png</div><div class="size">296x382 | alpha=0.75</div><span class="badge" style="background:#22c55e">OK OK</span></div></div><div class="cell"><div class="img-wrap"><img src="badge_006.png" alt="badge_006.png"/></div><div class="meta"><div class="name">badge_006.png</div><div class="size">298x383 | alpha=0.72</div><span class="badge" style="background:#22c55e">OK OK</span></div></div></div>
+</body></html>

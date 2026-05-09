@@ -2,8 +2,9 @@
 # Playwright MCP screenshots (local debugging only)
 .playwright-mcp/
 
-# Phase 6: pamphlet page renders (~44 MB, regenerable via scripts/phase6_assets.py)
-data/pamphlet_pages/
+# Phase 6: pamphlet page renders は Cloudflare Pages へ同梱するため、
+# Phase 7 step-6 で prototype/data/pamphlet_pages/ に移動済み。git 同梱する。
+# (旧: data/pamphlet_pages/ を ignore していたが、新場所では同梱したいので除外しない)
 
 # Local prototype screenshots (regenerable via scripts/screenshot_top.py)
 prototype/screenshots/
@@ -11,15 +12,15 @@ prototype/screenshots/
 # Phase 6 step 2: backup files written by excel_mapper.py (redundant with git history)
 *.bak
 
-# Phase 7 step 5: attachments/ は Cloudflare Pages 配信用に同梱するが、
+# Phase 7 step 5/6: prototype/attachments/ は Cloudflare Pages 配信用に同梱するが、
 # sync_attachments.py が許可した拡張子 (pdf/docx/xlsx/pptx) 以外は誤同梱を防ぐため除外。
-attachments/**/*.txt
-attachments/**/*.zip
-attachments/**/image[0-9][0-9][0-9].gif
-attachments/**/image[0-9][0-9][0-9].png
-attachments/**/image[0-9][0-9][0-9].jpg
-attachments/**/image[0-9][0-9][0-9].jpeg
-attachments/**/image[0-9][0-9][0-9].bmp
+prototype/attachments/**/*.txt
+prototype/attachments/**/*.zip
+prototype/attachments/**/image[0-9][0-9][0-9].gif
+prototype/attachments/**/image[0-9][0-9][0-9].png
+prototype/attachments/**/image[0-9][0-9][0-9].jpg
+prototype/attachments/**/image[0-9][0-9][0-9].jpeg
+prototype/attachments/**/image[0-9][0-9][0-9].bmp
 
 # scripts/_inspect_excel.py 実行で出る一時ファイル
 inspect_output.txt

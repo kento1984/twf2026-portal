@@ -231,7 +231,7 @@
   <section class="attachments">
     <h2 class="attachments-h2">📎 添付資料 ({{ maker.attachments | length }}件)</h2>
     {% for f in maker.attachments %}
-      {% set href = "../../../attachments/" ~ (maker.company_dir | urlquote) ~ "/" ~ (f | urlquote) %}
+      {% set href = "../../attachments/" ~ (maker.company_dir | urlquote) ~ "/" ~ (f | urlquote) %}
       {% set is_pdf = f.lower().endswith('.pdf') %}
     <div class="pdf-card">
       <div class="pdf-card-header">
@@ -259,7 +259,7 @@
     </div>
     {% endif %}
     <div class="pamphlet-img-wrap">
-      <img src="../../../data/pamphlet_pages/page_{{ '%03d' | format(maker.pamphlet_page) }}.png" alt="公式パンフレット p.{{ maker.pamphlet_page }}" />
+      <img src="../../data/pamphlet_pages/page_{{ '%03d' | format(maker.pamphlet_page) }}.png" alt="公式パンフレット p.{{ maker.pamphlet_page }}" />
     </div>
     <p class="pamphlet-page-link">公式パンフレット p.{{ maker.pamphlet_page }} に掲載</p>
   </section>

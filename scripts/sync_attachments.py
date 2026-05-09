@@ -1,9 +1,9 @@
 """sync_attachments.py — TWF2026 集約Excelの添付フォルダをポータル配下にミラーする。
 
 集約Excel (twf2026_sender) が保存している添付ファイル群から、案内資料として意味ある
-拡張子のものだけを抽出して D:/repos/twf2026-portal/attachments/{会社名}/ に同梱する。
-コピー後の attachments/ は Cloudflare Pages から static として配信され、
-詳細ページの iframe / ダウンロードボタンから直接参照される。
+拡張子のものだけを抽出して D:/repos/twf2026-portal/prototype/attachments/{会社名}/ に同梱する。
+コピー後の prototype/attachments/ は Cloudflare Pages (Build output: prototype/) から
+static として配信され、詳細ページの iframe / ダウンロードボタンから直接参照される。
 
 探索順 (最初に見つかったものを使用):
   1. \\\\fileserver\\twf2026\\attachments\\        (社内ファイルサーバ)
@@ -29,7 +29,7 @@ from collections import Counter
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DEST = ROOT / "attachments"
+DEFAULT_DEST = ROOT / "prototype" / "attachments"
 
 CANDIDATE_SOURCES = [
     Path(r"\\fileserver\twf2026\attachments"),

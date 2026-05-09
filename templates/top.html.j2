@@ -95,7 +95,7 @@
       width: 100%;
       height: 100vh;
       min-height: 720px;
-      background: #2C2C2C url('../assets/raw/top-hero-pc.png') center / cover no-repeat;
+      background: #2C2C2C url('assets/raw/top-hero-pc.png') center / cover no-repeat;
       overflow: hidden;
     }
     .hero::before {
@@ -169,7 +169,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: #1a1a1a url('../assets/raw/top-pickup-pc.png') center / cover no-repeat;
+      background: #1a1a1a url('assets/raw/top-pickup-pc.png') center / cover no-repeat;
       overflow: hidden;
     }
     .pickup .section-header {
@@ -216,7 +216,7 @@
       right: -8px;
       width: 56px;
       height: 56px;
-      background: url('../assets/extracted/badges/badge_001.png') center / contain no-repeat;
+      background: url('assets/extracted/badges/badge_001.png') center / contain no-repeat;
       filter: drop-shadow(0 4px 6px rgba(0,0,0,0.4));
     }
 
@@ -227,7 +227,7 @@
       position: relative;
       width: 100%;
       padding: 0 0 96px;
-      background: var(--gray-50) url('../assets/raw/top-makerlist-bg-pc.png') center / cover no-repeat;
+      background: var(--gray-50) url('assets/raw/top-makerlist-bg-pc.png') center / cover no-repeat;
     }
     .makerlist-inner {
       max-width: var(--container-max);
@@ -330,19 +330,19 @@
     }
     .maker-card::before {
       top: 6px; left: 6px;
-      background-image: url('../assets/extracted/card-frames/frame_001.png');
+      background-image: url('assets/extracted/card-frames/frame_001.png');
     }
     .maker-card::after {
       top: 6px; right: 6px;
-      background-image: url('../assets/extracted/card-frames/frame_005.png');
+      background-image: url('assets/extracted/card-frames/frame_005.png');
     }
     .maker-card .corner-bl {
       bottom: 6px; left: 6px;
-      background-image: url('../assets/extracted/card-frames/frame_009.png');
+      background-image: url('assets/extracted/card-frames/frame_009.png');
     }
     .maker-card .corner-br {
       bottom: 6px; right: 6px;
-      background-image: url('../assets/extracted/card-frames/frame_013.png');
+      background-image: url('assets/extracted/card-frames/frame_013.png');
     }
 
     /* NEWバッジ (1社目だけお試し配置) */
@@ -352,7 +352,7 @@
       right: -10px;
       width: 64px;
       height: 64px;
-      background: url('../assets/extracted/new-badges/new_001.png') center / contain no-repeat;
+      background: url('assets/extracted/new-badges/new_001.png') center / contain no-repeat;
       filter: drop-shadow(0 3px 5px rgba(0,0,0,0.25));
       z-index: 3;
     }
@@ -362,7 +362,7 @@
       position: absolute;
       inset: -12px;
       pointer-events: none;
-      background: url('../assets/extracted/card-states/state_001.png') center / cover no-repeat;
+      background: url('assets/extracted/card-states/state_001.png') center / cover no-repeat;
       opacity: 0;
       transition: opacity 200ms ease-out;
       z-index: 0;
@@ -377,7 +377,7 @@
       position: relative;
       width: 100%;
       aspect-ratio: 16 / 9;
-      background: var(--gray-50) url('../assets/raw/top-route-pc.png') center / cover no-repeat;
+      background: var(--gray-50) url('assets/raw/top-route-pc.png') center / cover no-repeat;
       overflow: hidden;
     }
     .sale .section-header {
@@ -437,7 +437,7 @@
       position: relative;
       width: 100%;
       min-height: 320px;
-      background: #2C2C2C url('../assets/raw/top-footer-pc.png') center / cover no-repeat;
+      background: #2C2C2C url('assets/raw/top-footer-pc.png') center / cover no-repeat;
       color: #fff;
       padding: 64px 80px 48px;
     }
@@ -513,7 +513,7 @@
       content: '';
       width: 240px;
       height: 16px;
-      background: url('../assets/extracted/dividers/divider_004.png') center / contain no-repeat;
+      background: url('assets/extracted/dividers/divider_004.png') center / contain no-repeat;
     }
     .section-divider.dark { background: #2C2C2C; }
 
@@ -663,9 +663,9 @@
           <div class="hover-glow"></div>
           {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
           {% if m.tier == 'A' %}
-          <div class="maker-card-hero" style="background-image: url('../assets/extracted/card-placeholders/placeholder_{{ '%03d' | format(m.placeholder_idx) }}.png');"></div>
+          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_{{ '%03d' | format(m.placeholder_idx) }}.png');"></div>
           {% elif m.tier == 'B' %}
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('../data/pamphlet_pages/page_{{ '%03d' | format(m.pamphlet_page) }}.png');"></div>
+          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_{{ '%03d' | format(m.pamphlet_page) }}.png');"></div>
           {% endif %}
           <div class="maker-card-body">
             <h3 class="maker-card-name">{{ m.display_name }}</h3>
@@ -702,7 +702,7 @@
         </div>
       </div>
       <div class="sale-cta-wrap">
-        <!-- TODO Phase 6: ../assets/raw/_official/26TWF_sale.pdf に差し替え -->
+        <!-- TODO Phase 6: assets/raw/_official/26TWF_sale.pdf に差し替え -->
         <a href="#" class="btn btn-blue">セール特価PDFを見る (準備中) ▼</a>
       </div>
     </div>
