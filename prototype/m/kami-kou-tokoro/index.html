@@ -158,29 +158,496 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .skeleton-msg {
-    padding: 32px;
-    background: #fff;
-    border: 1px dashed var(--gray-200);
-    border-radius: 8px;
-    text-align: center;
-    color: var(--gray-600);
-    font-size: 16px;
-    line-height: 1.9;
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
   }
-  .skeleton-msg strong {
-    display: block;
-    color: var(--gray-800);
-    font-weight: 700;
-    margin-bottom: 8px;
-    font-size: 18px;
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #C8102E 0%, #8B0B20 100%);
   }
-  .skeleton-meta {
-    margin-top: 24px;
-    text-align: center;
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
     font-size: 13px;
-    color: var(--gray-400);
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
   }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #C8102E;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #C8102E;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #0066B3;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
+  .q-card {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #C8102E;
+    border-radius: 10px;
+    box-shadow: var(--shadow-md);
+    padding: 24px 28px;
+  }
+  .q-label {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: #C8102E;
+    margin-bottom: 4px;
+  }
+  .q-title {
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 12px;
+  }
+  .q-body {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--gray-800);
+    white-space: pre-wrap;
+  }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
+
+  /* === Attachments === */
+  .attachments {
+    margin-top: 24px;
+    padding: 24px 28px;
+    background: var(--gray-100);
+    border-radius: 10px;
+  }
+  .pdf-card {
+    margin-top: 18px;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pdf-card:first-of-type { margin-top: 0; }
+  .pdf-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 20px;
+    background: var(--gray-50);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .pdf-card-header h3 {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.45;
+    word-break: break-all;
+    flex: 1;
+  }
+  .pdf-download-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #C8102E;
+    color: #fff !important;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none !important;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+  }
+  .pdf-download-btn:hover { opacity: 0.85; }
+  .pdf-iframe {
+    border: none;
+    display: block;
+    width: 100%;
+    height: 700px;
+    background: var(--gray-100);
+  }
+  .attach-path {
+    margin-top: 16px;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+  .attach-path code {
+    font-family: var(--font-mono);
+    background: rgba(0,0,0,0.04);
+    padding: 2px 6px;
+    border-radius: 3px;
+    word-break: break-all;
+  }
+
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #C8102E;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+
+  /* === Editorial note === */
+  .editorial-note {
+    margin-top: 56px;
+    padding: 14px 18px;
+    background: var(--gray-50);
+    border: 1px dashed var(--gray-200);
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.7;
+    color: var(--gray-600);
+  }
+  .editorial-note .label {
+    font-weight: 700;
+    color: var(--gray-800);
+    margin-right: 6px;
+  }
+  .editorial-note ul {
+    margin: 6px 0 0 16px;
+    padding: 0;
+  }
+  .editorial-note ul li {
+    list-style: disc;
+    margin-top: 2px;
+    word-break: break-all;
+  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -227,23 +694,97 @@
     </a>
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-c">情報準備中</span>
-    <span class="maker-no">No.033</span>
-    <h1>㈱神戸製鋼所</h1>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.033</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+<span>溶接・電源</span>      </p>
+      <h1 class="maker-hero-name">㈱神戸製鋼所</h1>
+<p class="maker-hero-cat">世界初となる「慣性を活用した溶滴移行制御技術」により、短絡によらない規則的なドロップ移行を実現。極低スパッタ・深溶け込み・高能率の3つを同時に達成する次世代溶接プロセスを、ロボット溶接実演でその場で確認いただけます。</p>      <div class="maker-hero-badges">
+        <span class="badge badge-priority">実演あり</span>
+        <span class="badge badge-special">新商品 AXELARC™</span>
+      </div>
+      <a class="maker-hero-cta" href="https://www.kobelco.co.jp/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
-  <div class="skeleton-msg">
-    <strong>㈱神戸製鋼所 の詳細情報は準備中です。</strong>
-    メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。
-    <br /><br />
-    出展社No.033 としてTWF2026に出展されることは確定済みです。
-  </div>
+  <div class="maker-content-wrap">
 
-  <div class="skeleton-meta">
-    最新情報: マツモト産業㈱ 京葉営業所 / TEL 047-358-1121
-  </div>
-  </main>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">📌</span> みどころ</dt>
+          <dd>世界初となる「慣性を活用した溶滴移行制御技術」により、短絡によらない規則的なドロップ移行を実現。極低スパッタ・深溶け込み・高能率の3つを同時に達成する次世代溶接プロセスを、ロボット溶接実演でその場で確認いただけます。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>セール企画・特典は今回ございません。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
+          <dd>新ワイヤ送給制御プロセス AXELARC™ を用いた、炭酸ガスによる低スパッタ・高能率溶接が今回の新ワイヤ送給制御プロセスです。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>1点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+      </dl>
+    </section>
+
+
+
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">AXELARC™搭載溶接ロボットによる中厚板溶接の実演、NEW REGARC搭載「石松」によるREGARC溶接の実演を会場で実施します。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q2 / 新製品・新技術</div>
+          <h3 class="q-title">新製品・新技術</h3>
+          <div class="q-body">新ワイヤ送給制御プロセス AXELARC™ を用いた、炭酸ガスによる低スパッタ・高能率溶接が今回の新ワイヤ送給制御プロセスです。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q3 / ブースのみどころ</div>
+          <h3 class="q-title">ブースのみどころ</h3>
+          <div class="q-body">世界初となる「慣性を活用した溶滴移行制御技術」により、短絡によらない規則的なドロップ移行を実現。極低スパッタ・深溶け込み・高能率の3つを同時に達成する次世代溶接プロセスを、ロボット溶接実演でその場で確認いただけます。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">セール企画・特典は今回ございません。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">AXELARC™搭載 AX-1C のカタログを配布。新ワイヤ送給制御プロセスの仕様・適用範囲をご案内します。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (1件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 AX-1C_カタログ.pdf</h3>
+          <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/AX-1C_%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/AX-1C_%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" class="pdf-iframe" title="AX-1C_カタログ.pdf のプレビュー"></iframe>
+      </div>
+      <p class="attach-path">保管先: <code>attachments/株式会社神戸製鋼所/</code></p>
+    </section>
+
+
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+      <ul>
+<li><a href="https://www.kobelco.co.jp/products/welding/axelarc/" target="_blank" rel="noopener">https://www.kobelco.co.jp/products/welding/axelarc/</a></li>      </ul>
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     <img class="maker-footer-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /

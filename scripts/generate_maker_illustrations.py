@@ -48,6 +48,7 @@ PRODUCTS = {
     "016": "a roll forming machine and roll bender for sheet metal processing",
     "017": "precision sheet metal parts with a deburring machine",
     "020": "a portable hydraulic rebar cutter and a rebar bender",
+    "033": "an articulated industrial welding robot performing AXELARC welding on a thick steel plate, with bright orange welding sparks and intense arc light, low-spatter weld pool clearly visible",
     "039": "a disc grinder and various professional power tools",
     "040": "long oxygen cutting lances and thermal lance rods for steel cutting",
     "043": "a power nibbler and metal shear for sheet metal cutting",

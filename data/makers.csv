@@ -31,7 +31,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 30,現代綜合金属ジャパン㈱,,,false,
 31,工機ホールディングス㈱,,切断・電動工具,false,3
 32,興研㈱,,空調・環境・安全・保護具,false,4
-33,㈱神戸製鋼所,,,false,
+33,㈱神戸製鋼所,KOBELCO,溶接・電源,true,
 34,㈱五常,,安全・快適ソリューション,false,2
 35,㈱小森安全機研究所,,協働ロボット,false,2
 36,サイシュウテクノ㈱,,作業環境向上ブース,false,2

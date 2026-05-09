@@ -87,7 +87,9 @@
     "q3_rewritten": "「胴ベルトからフルハーネスへの切替検討中」「フルハーネス使用時の落下距離が気になる」「作業高さ2〜3mでのフルハーネスの正しい使い方・装着方法を知りたい」 — そんな方はぜひブースのデモをご覧ください。",
     "q4_rewritten": "添付チラシ裏面に詳細を記載。",
     "q5_rewritten": "落下デモ用キャンペーンチラシを配布。",
-    "web_sources": ["https://www.3mcompany.jp/3M/ja_JP/fall-protection/"]
+    "web_sources": [
+      "https://www.3mcompany.jp/3M/ja_JP/fall-protection/"
+    ]
   },
   "060": {
     "name": "㈱セブンティ・エイト",
@@ -120,7 +122,9 @@
     "q3_rewritten": "全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。",
     "q4_rewritten": "配布する2026夏チラシに参考価格を掲載。京葉エリア・さいたまエリア向けにも重点配布予定で、当日特価でご案内します。",
     "q5_rewritten": "2026東京ウェルディングフェスタ向け夏チラシ (表/裏) と2026夏カタログを配布。公式HP からもカタログのダウンロード・印刷が可能 (nakatomi-sangyo.com/catalog)。",
-    "web_sources": ["https://www.nakatomi-sangyo.com/aircon/"]
+    "web_sources": [
+      "https://www.nakatomi-sangyo.com/aircon/"
+    ]
   },
   "083": {
     "name": "日動工業㈱",
@@ -185,7 +189,10 @@
     "q3_rewritten": "ガス溶断・グラインダーに代わる「火花の出ない切断工具」として、超硬セーバーソーブレードをご提案。バイメタル刃比で最大100倍の長寿命、鉄・ステンレス・鋳鉄管・高張力鋼の切断に対応します。",
     "q4_rewritten": "",
     "q5_rewritten": "ボッシュ TWF2026 チラシ両面を配布 (紙版を当日持参)。",
-    "web_sources": ["https://bosch.co.jp/", "https://www.youtube.com/watch?v=l-gFC2t-urU"]
+    "web_sources": [
+      "https://bosch.co.jp/",
+      "https://www.youtube.com/watch?v=l-gFC2t-urU"
+    ]
   },
   "120": {
     "name": "マツモト機械㈱",
@@ -194,7 +201,10 @@
     "q3_rewritten": "溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。",
     "q4_rewritten": "チラシ「2026東京WF」掲載の特価商品をご用意。",
     "q5_rewritten": "ローリングアース EM-500、ロボメイト RNP-B、ワイヤ量検知器 WSE-CU の各カタログ + 2026東京WFチラシ、計4点を配布。",
-    "web_sources": ["https://www.mac-wels.co.jp/", "https://www.mac-wels.co.jp/robot_robomate.html"]
+    "web_sources": [
+      "https://www.mac-wels.co.jp/",
+      "https://www.mac-wels.co.jp/robot_robomate.html"
+    ]
   },
   "121": {
     "name": "マツモト産業㈱エクセル貿易事業部",
@@ -203,7 +213,9 @@
     "q3_rewritten": "ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。",
     "q4_rewritten": "TWF特価企画チラシをご参照ください。",
     "q5_rewritten": "TWF特価企画チラシ、ビルドプロ溶接テーブル「ALPHA16」カタログを配布。",
-    "web_sources": ["https://mac-exe.co.jp/texec/"]
+    "web_sources": [
+      "https://mac-exe.co.jp/texec/"
+    ]
   },
   "128": {
     "name": "明大㈱",
@@ -244,6 +256,19 @@
     "q3_rewritten": "展示用の油圧機器は分解品もあり、実物の構造を内部までご確認いただけます。70MPa〜400MPaクラスの超高圧油圧ポンプ・シリンダ・バルブを取り扱う理研機器の高圧制御技術をご紹介します。",
     "q4_rewritten": "",
     "q5_rewritten": "",
-    "web_sources": ["https://id-sankyo.co.jp/service-cat/riken/"]
+    "web_sources": [
+      "https://id-sankyo.co.jp/service-cat/riken/"
+    ]
+  },
+  "033": {
+    "name": "㈱神戸製鋼所",
+    "q1_rewritten": "AXELARC™搭載溶接ロボットによる中厚板溶接の実演、NEW REGARC搭載「石松」によるREGARC溶接の実演を会場で実施します。",
+    "q2_rewritten": "新ワイヤ送給制御プロセス AXELARC™ を用いた、炭酸ガスによる低スパッタ・高能率溶接が今回の新ワイヤ送給制御プロセスです。",
+    "q3_rewritten": "世界初となる「慣性を活用した溶滴移行制御技術」により、短絡によらない規則的なドロップ移行を実現。極低スパッタ・深溶け込み・高能率の3つを同時に達成する次世代溶接プロセスを、ロボット溶接実演でその場で確認いただけます。",
+    "q4_rewritten": "セール企画・特典は今回ございません。",
+    "q5_rewritten": "AXELARC™搭載 AX-1C のカタログを配布。新ワイヤ送給制御プロセスの仕様・適用範囲をご案内します。",
+    "web_sources": [
+      "https://www.kobelco.co.jp/products/welding/axelarc/"
+    ]
   }
 }

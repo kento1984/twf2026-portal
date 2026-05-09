@@ -553,19 +553,21 @@
   "033": {
     "no": 33,
     "name": "㈱神戸製鋼所",
-    "name_short": "",
-    "category": "",
-    "has_answer": false,
-    "status": "unknown",
-    "reply_date": null,
-    "q1": "",
-    "q2": "",
-    "q3": "",
-    "q4": "",
-    "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "name_short": "KOBELCO",
+    "category": "溶接・電源",
+    "has_answer": true,
+    "status": "answered",
+    "reply_date": "2026-04-28 17:34",
+    "q1": "デモンストレーション\n　・AXELARC™搭載溶接ロボット 中厚板でのAXELARC™溶接実演\n　・NEW REGARC搭載石松でのREGARC溶接実演",
+    "q2": "新ワイヤ送給制御プロセス (AXELARC™) を用いた炭酸ガスによる低スパッタ高能率溶接",
+    "q3": "新ワイヤ送給制御プロセス (AXELARC™) を用いたロボット溶接実演を行います。\n世界初の慣性を活用した溶滴移行制御技術により、短絡によらない規則的なドロップ移行を行い、\n「極低スパッタ」「深溶け込み」「高能率」の溶接を実現しました。",
+    "q4": "申し訳ありませんが、セール企画・特典はありません。",
+    "q5": "添付あり (1点)",
+    "attachments": [
+      "AX-1C_カタログ.pdf"
+    ],
+    "attachment_dir": "attachments/株式会社神戸製鋼所/",
+    "company_dir": "株式会社神戸製鋼所"
   },
   "034": {
     "no": 34,

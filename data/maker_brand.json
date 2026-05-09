@@ -309,5 +309,15 @@
     "source": "https://www.daihen.co.jp/",
     "notes": "溶接ロボット・電源装置・電気自動車充電器の総合電機メーカー (大阪)。コーポレートカラーはエレクトロニクスを連想させるブルー系で、Daihen ロゴでも一貫したブルー基調。アクセントは産業用警告色のアンバー。",
     "_group": "manual"
+  },
+  "033": {
+    "name": "㈱神戸製鋼所",
+    "primary": "#C8102E",
+    "secondary": "#8B0B20",
+    "accent": "#0066B3",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.kobelco.co.jp/",
+    "notes": "総合素材メーカーKOBELCO。溶接事業部門のコーポレートビジュアルでは赤系を主軸、サブにブルー (鉄鋼の青) を使う。AXELARC™、REGARCなどのプロダクトカラーも赤系統。暫定値、要公式ガイドライン確認。",
+    "_group": "manual"
   }
 }

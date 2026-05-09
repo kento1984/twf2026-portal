@@ -234,5 +234,18 @@
         "label": "最優先"
       }
     ]
+  },
+  "033": {
+    "name": "㈱神戸製鋼所",
+    "badges": [
+      {
+        "type": "priority",
+        "label": "実演あり"
+      },
+      {
+        "type": "special",
+        "label": "新商品 AXELARC™"
+      }
+    ]
   }
 }
