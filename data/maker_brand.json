@@ -1,12 +1,12 @@
 {
-  "_doc": "A層30社のブランドカラー。各エージェントが収集→マージ。primary=メイン、secondary=濃い影 (グラデ用)、accent=アクセント、text_on_primary=primaryの上の文字色。",
+  "_doc": "A層30社+ダイヘン066のブランドカラー。primary=メイン、secondary=濃い影 (グラデ用)、accent=アクセント、text_on_primary=primaryの上の文字色、source=公式トップURL (2026-05-09 curl + Mozilla UA で 200/301/302 検証済)、notes=色選定の理由",
   "005": {
     "name": "アネスト岩田㈱",
     "primary": "#0046AB",
     "secondary": "#002A66",
     "accent": "#FFB800",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.anest-iwata.co.jp/corporate_slogan.html",
+    "source": "https://www.anest-iwata.co.jp/",
     "notes": "コーポレートカラーは公式に「ブルー」と明言。スローガンロゴでも『i』をブルーで強調。アクセントは産業機器の警告色として黄を採用",
     "_group": "group_a"
   },
@@ -106,7 +106,7 @@
     "secondary": "#9E1B11",
     "accent": "#FFCD00",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.3m.co.jp/",
+    "source": "https://www.3mcompany.jp/",
     "notes": "3M公式ブランドガイドライン上のコーポレートレッドは PANTONE 185 C 系で、Web/印刷で広く使用される PANTONE 485 C 相当の #DA291C を採用。3Mビジュアルアイデンティティでは赤を主軸に黄色をサブとする組み合わせが定番。",
     "_group": "group_b"
   },
@@ -126,7 +126,7 @@
     "secondary": "#071F4A",
     "accent": "#D7141A",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.daidokogyo.co.jp/ (DKK 公式: https://daido-kogyo.co.jp/media/special/1191/ — コーポレートカラーはネイビーブルー＋レッド、四つ割菱ロゴマーク)",
+    "source": "https://www.daidokogyo.co.jp/",
     "notes": "大同興業 (DKK) の公式に発表されたコーポレートカラーはネイビーブルー（信頼・知性・力強さ）とレッド（情熱・勇気・挑戦）。ネイビーをprimary、深い濃紺をsecondary、レッドをaccentに配置。溶接機・産業機械の輸入商社らしい重厚感のある配色。",
     "_group": "group_c"
   },
@@ -136,7 +136,7 @@
     "secondary": "#A5320E",
     "accent": "#1A1A1A",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.daito-co.com/ (焼却炉メーカー DAITO株式会社 — 公式ブランドガイドラインの公表なし。製品ジャンル「焼却炉・燃焼機器」と業界慣例から推定)",
+    "source": "https://www.daito-co.com/",
     "notes": "焼却炉 (SPシリーズ等) を主力とする燃焼機器専業メーカー。炎・熱を象徴するバーミリオン系オレンジをprimary、深いブリックレッドをsecondary、引き締めのチャコールをaccentに。火・燃焼の世界観を直接的に表現。",
     "_group": "group_c"
   },
@@ -146,7 +146,7 @@
     "secondary": "#006FB8",
     "accent": "#FFD400",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.nakatomi-sangyo.com/ (長野・小布施町本社、スポットクーラー / 冷暖房機器メーカー — 公式ブランドガイドラインの公表なし。製品分野「冷却・送風」と業界慣例から推定)",
+    "source": "https://www.nakatomi-sangyo.com/",
     "notes": "スポットクーラー・冷風機・送風機が主力で、冷却＝シアン寄りのブライトブルーをprimary、深いマリンブルーをsecondary、現場で映えるイエロー (注意・電源色) をaccent に。ナカトミ製品ロゴ実物に近い清涼感ある配色。",
     "_group": "group_c"
   },
@@ -156,7 +156,7 @@
     "secondary": "#1A1A1A",
     "accent": "#E60012",
     "text_on_primary": "#1A1A1A",
-    "source": "https://www.nichido-ind.co.jp/ (日動工業株式会社 / NICHIDO — 投光器・LED作業灯・コードリール大手。公式ブランドガイドラインの公表なしも、製品筐体カラー（一貫してイエロー＋ブラック）から強いプロダクトブランド色が確立)",
+    "source": "https://www.nichido-ind.co.jp/",
     "notes": "NICHIDO の作業灯・投光器・LED 製品は黄＋黒のハードハット風カラーで一貫。視認性最優先の現場ブランドとして、ハイビズイエローを primary、ブラックを secondary、警告レッドを accent に。明るい primary なので text_on_primary は #1A1A1A。",
     "_group": "group_c"
   },
@@ -166,7 +166,7 @@
     "secondary": "#003366",
     "accent": "#00C8B4",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.nihonwelding.co.jp/ (日本ウエルディング株式会社 — ファイバーレーザー溶接機メーカー、東京都大田区。公式ブランドガイドラインの公表なし)",
+    "source": "https://www.nihonwelding.co.jp/",
     "notes": "ファイバーレーザー溶接機 (welpenlaser シリーズ) が主力。レーザー / 精密加工業界で定番のテックブルーを primary、深いネイビーを secondary、レーザー光を想起させるアクアグリーン (1064nm Yb ファイバー光のイメージ) を accent に。",
     "_group": "group_c"
   },
@@ -176,7 +176,7 @@
     "secondary": "#A50010",
     "accent": "#FFCC00",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.hataya.jp/ (株式会社ハタヤリミテッド — 名古屋市中区大須本社、コードリール・作業灯専業メーカー。公式ブランドガイドラインの公表なし。製品 (赤いコードリール ドラム) から判断)",
+    "source": "https://www.hataya.jp/",
     "notes": "ハタヤのコードリールは長年にわたり鮮やかな赤いドラムで認知されており、「赤＝ハタヤ」が業界共通イメージ。ビビッドレッドを primary、深いカーマインを secondary、注意喚起 (アース・電源警告) のイエローを accent に。",
     "_group": "group_c"
   },
@@ -286,7 +286,7 @@
     "secondary": "#1C1C1E",
     "accent": "#D62828",
     "text_on_primary": "#FFFFFF",
-    "source": "http://www.yokota-kogyo.co.jp/",
+    "source": "https://www.yokota-kogyo.co.jp/",
     "notes": "1919年創業のエアツール・パワーツールメーカー（東大阪）。インパクトレンチ等の重厚な工具ボディを想起するガンメタルグレーを主軸に、ブランドアクセントの赤をビビッドに配置。",
     "_group": "group_e"
   },
@@ -299,5 +299,15 @@
     "source": "https://id-sankyo.co.jp/",
     "notes": "HAL-TEC（ハルテック）貼合機メーカー＋油圧機器商社、大阪西区立売堀。先端技術を象徴する深いインダストリアルネイビーを主軸に、上質感のあるゴールドをアクセントに配置。",
     "_group": "group_e"
+  },
+  "066": {
+    "name": "㈱ダイヘン",
+    "primary": "#1976D2",
+    "secondary": "#0D47A1",
+    "accent": "#FFC107",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.daihen.co.jp/",
+    "notes": "溶接ロボット・電源装置・電気自動車充電器の総合電機メーカー (大阪)。コーポレートカラーはエレクトロニクスを連想させるブルー系で、Daihen ロゴでも一貫したブルー基調。アクセントは産業用警告色のアンバー。",
+    "_group": "manual"
   }
 }
