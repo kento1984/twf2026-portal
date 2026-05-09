@@ -377,38 +377,21 @@
     .maker-card:hover .maker-card-link::after { transform: translateX(4px); }
     .maker-card-link.is-link-block::before { content: ''; position: absolute; inset: 0; }
 
-    /* === A層 (フル詳細) — ブランドカラーグラデ + 略称タイポ ========= */
+    /* === A層 (フル詳細) — カスタムイラスト (gpt-image-1 生成) を全面表示 ===
+       hero に <img> を貼る。画像読み込み中・取得失敗時のフォールバックとして
+       同じグラデーション背景を残す。略称タイポは画像内に統合済み。 */
     .maker-card-tier-a .maker-card-hero {
       background: linear-gradient(135deg, var(--brand-primary, #C8102E) 0%, var(--brand-secondary, #8B0B20) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .maker-card-tier-a .maker-card-hero::before {
-      content: '';
+    .maker-card-illust {
       position: absolute;
       inset: 0;
-      background-image:
-        radial-gradient(circle at 75% 25%, rgba(255,255,255,0.16) 0%, transparent 55%),
-        repeating-linear-gradient(45deg, transparent 0 22px, rgba(255,255,255,0.05) 22px 23px);
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
     }
-    .maker-card-logo {
-      position: relative;
-      z-index: 2;
-      font-size: clamp(18px, 2.4vw, 28px);
-      font-weight: 900;
-      color: var(--brand-text, #fff);
-      letter-spacing: -0.01em;
-      text-align: center;
-      padding: 0 14px;
-      line-height: 1.05;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.18);
-      font-family: 'Roboto Mono', 'Noto Sans JP', sans-serif;
-      max-width: 90%;
-      word-break: keep-all;
-    }
-    .maker-card-logo.is-long { font-size: clamp(13px, 1.4vw, 18px); }
     .maker-card-badges {
       position: absolute;
       top: 8px;
@@ -796,7 +779,7 @@
                  data-search-text="⽇本ウエルディング㈱ NIPPON WELDING NIPPON WELDING ファイバーレーザー No.089 No089 ファイバーレーザー溶接機 FBL-1000CW を実演展示します。 他社が海外製主体の中で、FBL-1000CW は国産機。安心の品質とサポート体制が特長です。 FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。"
 style="--brand-primary: #005BAC; --brand-secondary: #003366; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo is-long">NIPPON WELDING</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/089.png" alt="⽇本ウエルディング㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -811,7 +794,7 @@ style="--brand-primary: #005BAC; --brand-secondary: #003366; --brand-text: #FFFF
                  data-search-text="富⼠電線販売㈱ FUJI WIRE FUJI WIRE  No.111 No111 WCT、SS-WCT を展示。 SS-WCT は従来の WCT より柔らかく、耐久性にも優れます。 消耗品のため、当日特価がブースの主役です。"
 style="--brand-primary: #003B8E; --brand-secondary: #D32F2F; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo is-long">FUJI WIRE</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/111.png" alt="富⼠電線販売㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -826,7 +809,7 @@ style="--brand-primary: #003B8E; --brand-secondary: #D32F2F; --brand-text: #FFFF
                  data-search-text="シャープマーケティングジャパン㈱ SHARP SHARP  No.049 No049 ブースのレイアウト案を準備しています (添付エクセル参照)。 アイススラリー冷蔵庫で暑熱対策。アイススラリーは「液体と氷が混じった飲める氷」で、現場の熱中症対策にも有効です。 夏物商材 (アイススラリー、ポータブルクーラー、リカバリーウェア)、理美容商材 (ドライヤー、美顔器など)、その他家電を幅広く展示。"
 style="--brand-primary: #E6000D; --brand-secondary: #A30009; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">SHARP</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/049.png" alt="シャープマーケティングジャパン㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -841,7 +824,7 @@ style="--brand-primary: #E6000D; --brand-secondary: #A30009; --brand-text: #FFFF
                  data-search-text="アネスト岩⽥㈱ ANEST IWATA ANEST IWATA  No.005 No005 タンクマウントタイプを中心に、パッケージレシプロとスクリュータイプのコンプレッサを稼働展示。実機の駆動音と振動感までその場でご確認いただけます。 スクリュータイプの吐出量とインバーター起動時の静音性を、レシプロタイプと並べて比較体感いただけます。用途に応じた最適な機種選定の参考に。 即売に力を入れて現品を多数出品。各コンプレッサの実サイズ感、設置スペースに対するイメージ、稼働時の音まで現場目線でご確認いただけます。"
 style="--brand-primary: #0046AB; --brand-secondary: #002A66; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo is-long">ANEST IWATA</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/005.png" alt="アネスト岩⽥㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-special">限定特典あり</span>            </div>
           </div>
@@ -856,7 +839,7 @@ style="--brand-primary: #0046AB; --brand-secondary: #002A66; --brand-text: #FFFF
                  data-search-text="⽇動⼯業㈱ NICHIDO NICHIDO  No.083 No083 高天井用照明、熱中症対策商品 (スポットクーラー・気化式冷風機など)、ハンディライト、設備小物関係を展示。  高天井用LED照明は、工場・倉庫・体育館・商業施設など天井の高い場所でムラのない明るさを実現。水銀灯比で大幅な省エネを達成し、電気代削減に貢献します。"
 style="--brand-primary: #FFD200; --brand-secondary: #1A1A1A; --brand-text: #1A1A1A;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">NICHIDO</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/083.png" alt="⽇動⼯業㈱ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">NICHIDO</h3>
@@ -869,7 +852,7 @@ style="--brand-primary: #FFD200; --brand-secondary: #1A1A1A; --brand-text: #1A1A
                  data-search-text="㈱ナカトミ NAKATOMI NAKATOMI  No.082 No082 SAC シリーズ (スポット冷風機・自動首振り対応) と SPC シリーズ (排熱ダクト付スポットクーラー) を中心に、夏向け冷却ソリューションを稼働展示。風量と冷感を実機で体感いただけます。 30周年記念モデル SAC-2500LTD / SAC-2900LTD、環境配慮型 R32 冷媒採用機種、全閉式ファンモーター搭載でホコリ・粉塵をシャットアウトする業務用モデルを展開。工場・倉庫の暑熱対策に。 全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。"
 style="--brand-primary: #00A0E9; --brand-secondary: #006FB8; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">NAKATOMI</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/082.png" alt="㈱ナカトミ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -884,7 +867,7 @@ style="--brand-primary: #00A0E9; --brand-secondary: #006FB8; --brand-text: #FFFF
                  data-search-text="⼤同興業㈱ DKK DKK  No.063 No063 両面スポット溶接機 ART-7902、片面スポット溶接機 UP10D、スタッド溶接機 CDi-1502、ベッセイクランプを各種実演予定。  溶接機は特別な付帯設備なく誰でも簡単に高品質な溶接が可能。クランプはドイツ製ベッセイ社の高品質品で扱いやすく長くご使用いただけます。"
 style="--brand-primary: #0B2F6B; --brand-secondary: #071F4A; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">DKK</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/063.png" alt="⼤同興業㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -899,7 +882,7 @@ style="--brand-primary: #0B2F6B; --brand-secondary: #071F4A; --brand-text: #FFFF
                  data-search-text="㈱セブンティ・エイト 78 78 切断・電動工具 No.060 No060 弊社製の溶接作業用工具を現物展示。手にとってご確認いただけます。 半自動溶接機の細口ノズル用スパッタ除去工具の新製品を展示。従来品より多種類のノズル除去に対応します。 実際に手にとっていただき、他社製品との違いを実感いただけます。"
 style="--brand-primary: #F5A623; --brand-secondary: #B87317; --brand-text: #1A1A1A;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">78</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/060.png" alt="㈱セブンティ・エイト 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-special">限定特典あり</span>            </div>
           </div>
@@ -914,7 +897,7 @@ style="--brand-primary: #F5A623; --brand-secondary: #B87317; --brand-text: #1A1A
                  data-search-text="㈱オグラ OGURA OGURA 切断・電動工具 No.020 No020 コードレスパンチャー、鉄筋カッター、鉄筋ベンダー等を展示。デモンストレーションも実施します。  他社メーカーにない独自製品をピンポイントでアピール。"
 style="--brand-primary: #E8351E; --brand-secondary: #9C1D0D; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">OGURA</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/020.png" alt="㈱オグラ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">OGURA</h3>
@@ -927,7 +910,7 @@ style="--brand-primary: #E8351E; --brand-secondary: #9C1D0D; --brand-text: #FFFF
                  data-search-text="ＤＡＩＴＯ㈱ DAITO DAITO  No.065 No065 SPⅡ-400M を展示。SPⅡシリーズは廃プラスチックも燃やせる売れ筋焼却炉で、サイズが法規制対象外のため面倒な届出・許可なしに設置・使用できる (一部地域除く) ことが強み。当日ブースで燃焼実演を行い、想像以上の燃焼力をご覧いただけます。 2025年4月から High Quality シリーズが進化。高温異常警報装置で「燃やし過ぎ」をお知らせします。 当社独自の旋回燃焼は高温で燃焼し煙の発生を抑えます。来場者から好評の燃焼デモをぜひご体感ください。"
 style="--brand-primary: #E94E1B; --brand-secondary: #A5320E; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">DAITO</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/065.png" alt="ＤＡＩＴＯ㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -942,7 +925,7 @@ style="--brand-primary: #E94E1B; --brand-secondary: #A5320E; --brand-text: #FFFF
                  data-search-text="柳瀬㈱ YANASE YANASE  No.132 No132 ベルトサンダー、マイティミニ、ダイグラインダー、パワーダイヤカッター NEO、チップソードラドR を展示。サービスセットとして「ベルトサンダー ハッピーベルトセット」「低速サンダー + ベベルグレートセット」「ダイグラインダー超硬カッターセット」をご用意。 パワーダイヤカッター NEO は石材・ガラス・シリコン・セラミック・コンクリート・モルタル等の切断にマルチ対応。ベベルグレートはおわん型のベベル形状で曲面・コーナーでも使いやすく、黒皮除去〜サビ取り〜ヤケ取り〜傷ぼかしまでカバーします。 研削から研磨までトータルでご提案。少々マニアックな商品も展示する予定です。"
 style="--brand-primary: #E8540C; --brand-secondary: #A33908; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">YANASE</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/132.png" alt="柳瀬㈱ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">YANASE</h3>
@@ -955,7 +938,7 @@ style="--brand-primary: #E8540C; --brand-secondary: #A33908; --brand-text: #FFFF
                  data-search-text="㈱フジ FUJI FUJI  No.107 No107 ボンベスタンド、ハンドカー各種を展示。  "
 style="--brand-primary: #0B4DA2; --brand-secondary: #E63027; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">FUJI</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/107.png" alt="㈱フジ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -970,7 +953,7 @@ style="--brand-primary: #0B4DA2; --brand-secondary: #E63027; --brand-text: #FFFF
                  data-search-text="㈱エステーリンク ST-LINK ST-LINK  No.017 No017 メタルエステ600 (ME-2104)、新型メタルスライダー600 (MS0601)、溶接作業用3D定盤を展示します。 新型メタルスライダー600 (MS0601) は集塵機内蔵化 (従来は別置き)、自動基点設定 (従来は手動)、マグネットコンベア標準装備 (従来オプション)、モーター容量 0.75kw→1.5kw で研削力向上を実現。 バリ取り手作業から自動化へ。研磨ブラシによる多方向研削で均一にバリを除去し、高品質な仕上げに。頑固なドロス除去も同時に加工でき、小ワークでも安定加工で作業効率がアップします。"
 style="--brand-primary: #3D8C5F; --brand-secondary: #1F4E33; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">ST-LINK</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/017.png" alt="㈱エステーリンク 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-special">限定特典あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -985,7 +968,7 @@ style="--brand-primary: #3D8C5F; --brand-secondary: #1F4E33; --brand-text: #FFFF
                  data-search-text="ヤマト産業㈱ YAMATO YAMATO  No.134 No134 YR-507F、SSボーイウルトラ、YR-85F、ラボスタを展示。  減圧弁メーカーとして、減圧弁を中心にご紹介。溶断器・加熱器も販売しています。"
 style="--brand-primary: #0086A8; --brand-secondary: #005A73; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">YAMATO</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/134.png" alt="ヤマト産業㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -1000,7 +983,7 @@ style="--brand-primary: #0086A8; --brand-secondary: #005A73; --brand-text: #FFFF
                  data-search-text="酸素アーク⼯業㈱ SANSO ARC SANSO ARC  No.040 No040 シャープランス SC2-6BX (ホルダー MT150)、オクトギア OCT12-1850、スターカッテンド SC9-5/SC9-5L (ホルダー SG64)、水中切断棒 W-7/SC8-5W (ホルダー W52K)、着火セット「ちゃかポット」を展示。動画でランス棒の切断デモと取扱説明を上映予定。  ランス切断棒の用途と「どんな金属でも切断可能」というメリットを実演動画と共にご説明。後日の現場デモも無料対応 (酸素瓶と切断物のみご用意ください)。"
 style="--brand-primary: #D7261E; --brand-secondary: #8E1812; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo is-long">SANSO ARC</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/040.png" alt="酸素アーク⼯業㈱ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">SANSO ARC</h3>
@@ -1013,7 +996,7 @@ style="--brand-primary: #D7261E; --brand-secondary: #8E1812; --brand-text: #FFFF
                  data-search-text="イーグルクランプ㈱ EAGLE CLAMP EAGLE CLAMP  No.008 No008 縦つり/横つり/ネジ式クランプ、セットチェーン、クレーンスケール等を地上900mmのゴールデンゾーンに配置。手に取りやすく、単品カタログも目に入る商談しやすい展示構成。 軽量クランプ LH/LV/LHF型 (10kg〜100kg対応) を展示。労基法「人力による重量物運搬対策」の有効解として、近年の展示会では売れ筋商品です。 見やすい・手に取りやすい・実践的、ユーザーニーズに沿った展示。特にネジ式クランプの下取りセールを6月〜7月に実施します。"
 style="--brand-primary: #C8161D; --brand-secondary: #7A0E13; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo is-long">EAGLE CLAMP</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/008.png" alt="イーグルクランプ㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -1028,7 +1011,7 @@ style="--brand-primary: #C8161D; --brand-secondary: #7A0E13; --brand-text: #FFFF
                  data-search-text="ボッシュ㈱ BOSCH BOSCH  No.117 No117 超硬セーバーソーブレードの切断デモ、レーザー墨出し器・距離計・サーモグラフィー等の測定工具のデモを実施。 新製品ジェットブローチ (アトラ・ライトボーラー等のアトラエース型穴あけ機に対応)、新製品タフボックス (従来ケース比で大幅に頑丈) を展示。 ガス溶断・グラインダーに代わる「火花の出ない切断工具」として、超硬セーバーソーブレードをご提案。バイメタル刃比で最大100倍の長寿命、鉄・ステンレス・鋳鉄管・高張力鋼の切断に対応します。"
 style="--brand-primary: #EE0000; --brand-secondary: #A30000; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">BOSCH</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/117.png" alt="ボッシュ㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -1043,7 +1026,7 @@ style="--brand-primary: #EE0000; --brand-secondary: #A30000; --brand-text: #FFFF
                  data-search-text="㈱プロスパー PROSPER PROSPER  No.113 No113 ハイブランドのウォッチ、バッグ、アパレル、ジュエリー等を展示。 新製品の発表はありませんが、厳選した商品ラインナップをご用意しています。 幅広いジャンルの商品を一度にご覧いただける点が強みです。"
 style="--brand-primary: #1F2A44; --brand-secondary: #B8893A; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">PROSPER</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/113.png" alt="㈱プロスパー 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -1058,7 +1041,7 @@ style="--brand-primary: #1F2A44; --brand-secondary: #B8893A; --brand-text: #FFFF
                  data-search-text="㈱ホータス HOTAS HOTAS  No.115 No115 ドリル研磨機 (デモ可)、クイックタップ (デモ可)、チップ式エアー面取り機 (展示)、チップ式エアービードリムーバー (展示)、鉄骨用テーパーシャンクドリル (展示)。  簡単・短時間でドリルの再研磨が可能なドリル研磨機をぜひその場でお試しください。"
 style="--brand-primary: #0E5BA8; --brand-secondary: #F08200; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">HOTAS</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/115.png" alt="㈱ホータス 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -1073,7 +1056,7 @@ style="--brand-primary: #0E5BA8; --brand-secondary: #F08200; --brand-text: #FFFF
                  data-search-text="マツモト機械㈱ MAC-WELS MAC-WELS  No.120 No120 配布カタログから、ローリングアース「EM-500」、溶接ロボット用ノズルクリーナー「ロボメイト RNP-B」、ワイヤ量検知器「WSE-CU」など、TIG・半自動・ロボット溶接の周辺機器を中心にご紹介。 ロボメイト RNP-B はアーク溶接ロボットの溶接トーチ内ノズル付着スパッタを自動除去し、スパッタ付着防止液を自動塗布。ワイヤカット機能でワイヤつき出し長さを一定に保ち、ロボット溶接の連続稼働を支えます。 溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。"
 style="--brand-primary: #C8102E; --brand-secondary: #1A1A1A; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">MAC-WELS</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/120.png" alt="マツモト機械㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -1088,7 +1071,7 @@ style="--brand-primary: #C8102E; --brand-secondary: #1A1A1A; --brand-text: #FFFF
                  data-search-text="スリーエムジャパン㈱ 3M 3M 切断・電動工具 No.058 No058 墜落制止用器具、溶接遮光面、取替え式・使い捨て防じんマスク等の安全保護具を展示。墜落制止用器具の落下デモを実施します。 昨年新発売の溶接遮光面 G5-03E、墜落制止用器具のナノロックライトロック付き巻取り式ランヤード (DBI-サラ Nano-Lok Light、新規格適合) を展示・デモ。世界80年の墜落防止実績を持つ3Mの最新ラインナップです。 「胴ベルトからフルハーネスへの切替検討中」「フルハーネス使用時の落下距離が気になる」「作業高さ2〜3mでのフルハーネスの正しい使い方・装着方法を知りたい」 — そんな方はぜひブースのデモをご覧ください。"
 style="--brand-primary: #DA291C; --brand-secondary: #9E1B11; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">3M</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/058.png" alt="スリーエムジャパン㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -1103,7 +1086,7 @@ style="--brand-primary: #DA291C; --brand-secondary: #9E1B11; --brand-text: #FFFF
                  data-search-text="マツモト産業㈱エクセル貿易事業部 MAC-EXE MAC-EXE  No.121 No121 TIGトーチ、タングステン電極棒、ケーブルカバー、溶接テーブル、マグネット、ウェルケーブル等、海外製を中心とした溶接周辺品ラインナップを展示。 ビルドプロ「ALPHA16」シリーズ溶接テーブル。従来テーブルでは専用治具が必要だったサイドの穴あけが、ALPHA16 は最初からサイドにも穴がある設計で、治具不要で多方向の固定が可能です。 ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。"
 style="--brand-primary: #C8102E; --brand-secondary: #7A0A1C; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">MAC-EXE</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/121.png" alt="マツモト産業㈱エクセル貿易事業部 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -1118,7 +1101,7 @@ style="--brand-primary: #C8102E; --brand-secondary: #7A0A1C; --brand-text: #FFFF
                  data-search-text="㈱エスカディア SCADIA SCADIA  No.016 No016 3本ロール機 SRM-33 / SR-55EⅡ、2本ロール機 SRT-55 を出展。実際のワークをご持参いただければ、その場でロール実演加工が可能です。  当社ロール機はウレタンライニング採用のため、鉄芯比で製品に傷がつきにくく食いつきも良好で作業性が向上します。Ⅱシリーズは端曲げ機構付き、ぜひ実機でご確認ください。"
 style="--brand-primary: #0E5E8A; --brand-secondary: #06354F; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">SCADIA</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/016.png" alt="㈱エスカディア 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
@@ -1133,7 +1116,7 @@ style="--brand-primary: #0E5E8A; --brand-secondary: #06354F; --brand-text: #FFFF
                  data-search-text="㈱サンワ SANWA SANWA  No.043 No043 展示電動工具 (一部除く) のデモを実施。鉄板 t=0.8〜3.2mm の切断と、開先加工機のデモを予定。 レーザー加工をされているユーザー様向け新製品 — TSC200 スラットクリーナー、PS100 パーツセパレーター。単品カタログを添付しています。 実機で工具の使用感を体験いただけます。引合いが出ればユーザー様先で後日デモに伺う運用です。"
 style="--brand-primary: #E85D1A; --brand-secondary: #A8400F; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">SANWA</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/043.png" alt="㈱サンワ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-special">限定特典あり</span>            </div>
           </div>
@@ -1148,7 +1131,7 @@ style="--brand-primary: #E85D1A; --brand-secondary: #A8400F; --brand-text: #FFFF
                  data-search-text="三共㈱ SANKYO SANKYO  No.148 No148 理研機器の油圧機器を展示。  展示用の油圧機器は分解品もあり、実物の構造を内部までご確認いただけます。70MPa〜400MPaクラスの超高圧油圧ポンプ・シリンダ・バルブを取り扱う理研機器の高圧制御技術をご紹介します。"
 style="--brand-primary: #0B3D91; --brand-secondary: #062366; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">SANKYO</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/148.png" alt="三共㈱ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">SANKYO</h3>
@@ -1161,7 +1144,7 @@ style="--brand-primary: #0B3D91; --brand-secondary: #062366; --brand-text: #FFFF
                  data-search-text="㈱ハタヤリミテッド HATAYA HATAYA  No.100 No100 50W LED ケイ・ライトハイブリッドマグネット付き、LEDヘッドライト「ロクゼロゼロα」、キリンライトセット、LEDテープライト各種、フレキシブルLEDジョーハンドランプなどを展示。 50W LED ケイ・ライトハイブリッドマグネット付き (型式 LWA-50KHBN-M)。AC/バッテリー両対応で、AC点灯時 5,500lm、バッテリー時 2,000lm (連続6時間)。ケーブル脱着式でバッテリー使用時の取り回しが格段に楽です。 コードリール、LEDライトを取り揃えてお待ちしています。"
 style="--brand-primary: #E60012; --brand-secondary: #A50010; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">HATAYA</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/100.png" alt="㈱ハタヤリミテッド 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -1176,7 +1159,7 @@ style="--brand-primary: #E60012; --brand-secondary: #A50010; --brand-text: #FFFF
                  data-search-text="ヨコタ⼯業㈱ YOKOTA YOKOTA  No.138 No138 エアーツールのデモ機を展示。 新型エアーアングルグラインダ G700H と新型エアーストレートグラインダ GS-65 シリーズを展示。従来品から出力を維持しつつ軽量化を実現しています。 新型グラインダを目玉に、従来現行品や締付工具も展示予定。"
 style="--brand-primary: #3A3A3C; --brand-secondary: #1C1C1E; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">YOKOTA</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/138.png" alt="ヨコタ⼯業㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
@@ -1191,7 +1174,7 @@ style="--brand-primary: #3A3A3C; --brand-secondary: #1C1C1E; --brand-text: #FFFF
                  data-search-text="サンコーミタチ㈱ MITACHI MITACHI 切断・電動工具 No.039 No039 各種グラインダ、各種チップソー切断機を展示。サービス品は当日のお楽しみ。 「お値段以上」「品質重視」「日本製」 — 普段使いのグラインダのグレードアップ提案。電動工具の使い捨て化が進む中、日本製にこだわった品質重視のモノづくりを発信するメーカーです。 実際にお手にとってお試しください。"
 style="--brand-primary: #1F8A4C; --brand-secondary: #0F4F2C; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">MITACHI</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/039.png" alt="サンコーミタチ㈱ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">MITACHI</h3>
@@ -1204,7 +1187,7 @@ style="--brand-primary: #1F8A4C; --brand-secondary: #0F4F2C; --brand-text: #FFFF
                  data-search-text="明⼤㈱ MEIDAI MEIDAI  No.128 No128 マックスリング一式を展示。  展示商品だけでなく、ユーザー用途に合わせた特殊品製作にも対応します。"
 style="--brand-primary: #2E7D32; --brand-secondary: #1B5E20; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo">MEIDAI</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/128.png" alt="明⼤㈱ 製品イメージ" loading="lazy" />
           </div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">MEIDAI</h3>
@@ -1217,7 +1200,7 @@ style="--brand-primary: #2E7D32; --brand-secondary: #1B5E20; --brand-text: #FFFF
                  data-search-text="静岡製機㈱ SHIZUOKA SEIKI SHIZUOKA SEIKI  No.048 No048 気化式冷風機を展示。冷風の体感を実施します。  熱中症対策品。省エネで環境にやさしいラインナップです。"
 style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFFFF;">
 <div class="maker-card-new"></div>          <div class="maker-card-hero">
-            <div class="maker-card-logo is-long">SHIZUOKA SEIKI</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/048.png" alt="静岡製機㈱ 製品イメージ" loading="lazy" />
             <div class="maker-card-badges">
 <span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>

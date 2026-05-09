@@ -27,3 +27,8 @@ inspect_output.txt
 
 # Phase 7 step-8: PDF→PNG レンダリング (vision agent への入力、再生成可、78MB)
 data/_pdf_pages/
+
+# 機密: OpenAI 等の API キー
+.env
+.env.*
+!.env.example

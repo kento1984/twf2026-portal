@@ -377,38 +377,21 @@
     .maker-card:hover .maker-card-link::after { transform: translateX(4px); }
     .maker-card-link.is-link-block::before { content: ''; position: absolute; inset: 0; }
 
-    /* === A層 (フル詳細) — ブランドカラーグラデ + 略称タイポ ========= */
+    /* === A層 (フル詳細) — カスタムイラスト (gpt-image-1 生成) を全面表示 ===
+       hero に <img> を貼る。画像読み込み中・取得失敗時のフォールバックとして
+       同じグラデーション背景を残す。略称タイポは画像内に統合済み。 */
     .maker-card-tier-a .maker-card-hero {
       background: linear-gradient(135deg, var(--brand-primary, #C8102E) 0%, var(--brand-secondary, #8B0B20) 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .maker-card-tier-a .maker-card-hero::before {
-      content: '';
+    .maker-card-illust {
       position: absolute;
       inset: 0;
-      background-image:
-        radial-gradient(circle at 75% 25%, rgba(255,255,255,0.16) 0%, transparent 55%),
-        repeating-linear-gradient(45deg, transparent 0 22px, rgba(255,255,255,0.05) 22px 23px);
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      z-index: 1;
     }
-    .maker-card-logo {
-      position: relative;
-      z-index: 2;
-      font-size: clamp(18px, 2.4vw, 28px);
-      font-weight: 900;
-      color: var(--brand-text, #fff);
-      letter-spacing: -0.01em;
-      text-align: center;
-      padding: 0 14px;
-      line-height: 1.05;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.18);
-      font-family: 'Roboto Mono', 'Noto Sans JP', sans-serif;
-      max-width: 90%;
-      word-break: keep-all;
-    }
-    .maker-card-logo.is-long { font-size: clamp(13px, 1.4vw, 18px); }
     .maker-card-badges {
       position: absolute;
       top: 8px;
@@ -804,7 +787,7 @@
           {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
           {% if m.tier == 'A' %}
           <div class="maker-card-hero">
-            <div class="maker-card-logo{% if _logo_long %} is-long{% endif %}">{{ _logo_text }}</div>
+            <img class="maker-card-illust" src="assets/maker-illustrations/{{ '%03d' | format(m.no) }}.png" alt="{{ m.name }} 製品イメージ" loading="lazy" />
             {% if m.status_badges %}
             <div class="maker-card-badges">
               {% for b in m.status_badges %}<span class="mb-pill mb-{{ b.type }}">{{ b.label }}</span>{% endfor %}
