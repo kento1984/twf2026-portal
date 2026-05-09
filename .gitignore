@@ -9,7 +9,8 @@
 # Local prototype screenshots (regenerable via scripts/screenshot_top.py)
 prototype/screenshots/
 
-# Phase 6 step 2: backup files written by excel_mapper.py (redundant with git history)
+# Phase 6 step 2 / Kangxi正規化: backup files written by excel_mapper.py / normalize_kangxi.py
+# (.bak は git履歴で代替できるため追跡不要)
 *.bak
 
 # Phase 7 step 5/6: prototype/attachments/ は Cloudflare Pages 配信用に同梱するが、

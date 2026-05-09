@@ -69,7 +69,7 @@
   },
   "005": {
     "no": 5,
-    "name": "アネスト岩⽥㈱",
+    "name": "アネスト岩田㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -190,7 +190,7 @@
   },
   "012": {
     "no": 12,
-    "name": "内⽥メガネ",
+    "name": "内田メガネ",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -297,7 +297,7 @@
   },
   "018": {
     "no": 18,
-    "name": "㈱⼤崎電⼯",
+    "name": "㈱大崎電工",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -365,7 +365,7 @@
   },
   "022": {
     "no": 22,
-    "name": "㈱柏⽥製作所",
+    "name": "㈱柏田製作所",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -484,7 +484,7 @@
   },
   "029": {
     "no": 29,
-    "name": "㈱ケミカル⼭本",
+    "name": "㈱ケミカル山本",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -501,7 +501,7 @@
   },
   "030": {
     "no": 30,
-    "name": "現代綜合⾦属ジャパン㈱",
+    "name": "現代綜合金属ジャパン㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -518,7 +518,7 @@
   },
   "031": {
     "no": 31,
-    "name": "⼯機ホールディングス㈱",
+    "name": "工機ホールディングス㈱",
     "name_short": "",
     "category": "切断・電動工具",
     "has_answer": false,
@@ -552,7 +552,7 @@
   },
   "033": {
     "no": 33,
-    "name": "㈱神⼾製鋼所",
+    "name": "㈱神戸製鋼所",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -586,7 +586,7 @@
   },
   "035": {
     "no": 35,
-    "name": "㈱⼩森安全機研究所",
+    "name": "㈱小森安全機研究所",
     "name_short": "",
     "category": "協働ロボット",
     "has_answer": false,
@@ -620,7 +620,7 @@
   },
   "037": {
     "no": 37,
-    "name": "㈱阪⼝製作所",
+    "name": "㈱阪口製作所",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -671,7 +671,7 @@
   },
   "040": {
     "no": 40,
-    "name": "酸素アーク⼯業㈱",
+    "name": "酸素アーク工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -707,7 +707,7 @@
   },
   "042": {
     "no": 42,
-    "name": "三⽴電器⼯業㈱",
+    "name": "三立電器工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -849,7 +849,7 @@
   },
   "050": {
     "no": 50,
-    "name": "昭和精⼯㈱",
+    "name": "昭和精工㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -900,7 +900,7 @@
   },
   "053": {
     "no": 53,
-    "name": "新東⼯業㈱",
+    "name": "新東工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1072,7 +1072,7 @@
   },
   "063": {
     "no": 63,
-    "name": "⼤同興業㈱",
+    "name": "大同興業㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -1093,7 +1093,7 @@
   },
   "064": {
     "no": 64,
-    "name": "⼤東精機㈱",
+    "name": "大東精機㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1161,7 +1161,7 @@
   },
   "068": {
     "no": 68,
-    "name": "㈱⽴⼭",
+    "name": "㈱立山",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1178,7 +1178,7 @@
   },
   "069": {
     "no": 69,
-    "name": "㈱千代⽥精機",
+    "name": "㈱千代田精機",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1348,7 +1348,7 @@
   },
   "079": {
     "no": 79,
-    "name": "㈱⼗川ゴム",
+    "name": "㈱十川ゴム",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1365,7 +1365,7 @@
   },
   "080": {
     "no": 80,
-    "name": "⼟⽜産業㈱",
+    "name": "土牛産業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1419,7 +1419,7 @@
   },
   "083": {
     "no": 83,
-    "name": "⽇動⼯業㈱",
+    "name": "日動工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -1436,7 +1436,7 @@
   },
   "084": {
     "no": 84,
-    "name": "⽇光物産㈱",
+    "name": "日光物産㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1453,7 +1453,7 @@
   },
   "085": {
     "no": 85,
-    "name": "ニツコー熔材⼯業㈱",
+    "name": "ニツコー熔材工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1470,7 +1470,7 @@
   },
   "086": {
     "no": 86,
-    "name": "⽇鉄溶接⼯業㈱",
+    "name": "日鉄溶接工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1487,7 +1487,7 @@
   },
   "087": {
     "no": 87,
-    "name": "⽇東⼯器㈱",
+    "name": "日東工器㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1504,7 +1504,7 @@
   },
   "088": {
     "no": 88,
-    "name": "⽇本アイ・エス・ケイ㈱",
+    "name": "日本アイ・エス・ケイ㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1521,7 +1521,7 @@
   },
   "089": {
     "no": 89,
-    "name": "⽇本ウエルディング㈱",
+    "name": "日本ウエルディング㈱",
     "name_short": "",
     "category": "ファイバーレーザー",
     "has_answer": true,
@@ -1540,7 +1540,7 @@
   },
   "090": {
     "no": 90,
-    "name": "⽇本カノマックス㈱",
+    "name": "日本カノマックス㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1557,7 +1557,7 @@
   },
   "091": {
     "no": 91,
-    "name": "⽇本クランプ㈱",
+    "name": "日本クランプ㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1574,7 +1574,7 @@
   },
   "092": {
     "no": 92,
-    "name": "⽇本ニューマチック⼯業㈱",
+    "name": "日本ニューマチック工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1591,7 +1591,7 @@
   },
   "093": {
     "no": 93,
-    "name": "㈱⽇本フラッシュ",
+    "name": "㈱日本フラッシュ",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1608,7 +1608,7 @@
   },
   "094": {
     "no": 94,
-    "name": "⽇本ホイスト㈱",
+    "name": "日本ホイスト㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1625,7 +1625,7 @@
   },
   "095": {
     "no": 95,
-    "name": "⽇本ワグナー・スプレーテック㈱",
+    "name": "日本ワグナー・スプレーテック㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1693,7 +1693,7 @@
   },
   "099": {
     "no": 99,
-    "name": "⻑⾕川⼯業㈱",
+    "name": "⻑谷川工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1781,7 +1781,7 @@
   },
   "104": {
     "no": 104,
-    "name": "㈱⽇⽴産機システム",
+    "name": "㈱日立産機システム",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1869,7 +1869,7 @@
   },
   "109": {
     "no": 109,
-    "name": "不⼆空機㈱",
+    "name": "不二空機㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1886,7 +1886,7 @@
   },
   "110": {
     "no": 110,
-    "name": "富⼠製砥㈱",
+    "name": "富士製砥㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -1903,7 +1903,7 @@
   },
   "111": {
     "no": 111,
-    "name": "富⼠電線販売㈱",
+    "name": "富士電線販売㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -2046,7 +2046,7 @@
   },
   "119": {
     "no": 119,
-    "name": "マイト⼯業㈱",
+    "name": "マイト工業㈱",
     "name_short": "",
     "category": "保護具",
     "has_answer": false,
@@ -2105,7 +2105,7 @@
   },
   "122": {
     "no": 122,
-    "name": "三⽊ネツレン㈱",
+    "name": "三木ネツレン㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -2190,7 +2190,7 @@
   },
   "127": {
     "no": 127,
-    "name": "村⽥機械㈱",
+    "name": "村田機械㈱",
     "name_short": "",
     "category": "板金加工機",
     "has_answer": false,
@@ -2207,7 +2207,7 @@
   },
   "128": {
     "no": 128,
-    "name": "明⼤㈱",
+    "name": "明大㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -2345,7 +2345,7 @@
   },
   "136": {
     "no": 136,
-    "name": "⼭本光学㈱",
+    "name": "山本光学㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
@@ -2379,7 +2379,7 @@
   },
   "138": {
     "no": 138,
-    "name": "ヨコタ⼯業㈱",
+    "name": "ヨコタ工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": true,
@@ -2483,7 +2483,7 @@
   },
   "144": {
     "no": 144,
-    "name": "レッキス⼯業㈱",
+    "name": "レッキス工業㈱",
     "name_short": "",
     "category": "",
     "has_answer": false,
