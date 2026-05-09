@@ -240,7 +240,14 @@ def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pd
     return counts
 
 
-def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products):
+def load_topics():
+    if not TOPICS_PATH.exists():
+        return {}
+    with open(TOPICS_PATH, encoding="utf-8") as f:
+        return json.load(f)
+
+
+def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None):
     cards = []
     for m in makers:
         no = int(m["no"])
@@ -270,19 +277,19 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
     ))
 
     tpl = env.get_template("top.html.j2")
-    html = tpl.render(makers=cards, counts=counts)
+    html = tpl.render(makers=cards, counts=counts, topics=topics or {})
     (OUT_DIR / "index.html").write_text(html, encoding="utf-8")
     return len(cards)
 
 
-def render_topics(env):
+def render_topics(env, topics=None):
     """Phase 1.0: みどころ3選トピックページを生成。
     data/topics.json を読み prototype/topics/{slug}/index.html を出力。
     """
-    if not TOPICS_PATH.exists():
+    if topics is None:
+        topics = load_topics()
+    if not topics:
         return 0
-    with open(TOPICS_PATH, encoding="utf-8") as f:
-        topics = json.load(f)
     tpl = env.get_template("topic.html.j2")
     rendered = 0
     for slug, topic in topics.items():
@@ -328,9 +335,10 @@ def main():
     pdf_extracts = load_pdf_extracts()
     products = load_products()
 
+    topics = load_topics()
     counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
-    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
-    n_topics = render_topics(env)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics)
+    n_topics = render_topics(env, topics)
 
     final_used = Counter(slugs.values())
     duplicates = sorted(s for s, c in final_used.items() if c > 1)

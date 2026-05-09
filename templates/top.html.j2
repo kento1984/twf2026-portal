@@ -190,19 +190,41 @@
     .btn-blue:hover { background: #004999; }
 
     /* ===========================================================
-       Section 3: みどころ3選 ───── 16:9 / 暗(ガンメタ + 3スポット演出)
+       Section 3: みどころ3選 ───── 3スポット演出 + 直下カード接続
        柏原生成の3スポット背景画像 (top-pickup-3spots-pc.png) と整合
        =========================================================== */
-    .pickup {
+    .pickup-section {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: #1a1a1a url('assets/top-pickup-3spots-pc.png') center / cover no-repeat;
+      background: #1a1a1a;
+      padding-bottom: 56px;
       overflow: hidden;
     }
-    .pickup .section-header {
+    /* v4 超ワイド画像 (1916×821 ≒ 21:9) を画面幅いっぱいに展開。
+       max-width を撤廃し、stage を画面幅に合わせて伸ばす。aspect-ratio で縦は自動。
+       1920幅: stage 1920×823 (シルエット v3並みの存在感、両サイドの工場背景は画面端まで)
+       1366幅: stage 1366×585。 */
+    .pickup-stage {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1916 / 821;
+      background: #1a1a1a url('assets/top-pickup-3spots-pc.png') center bottom / cover no-repeat;
+    }
+    /* 画像下端からカード上部にかけて自然なフェードアウトを作る */
+    .pickup-stage::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 90px;
+      background: linear-gradient(180deg, rgba(26,26,26,0) 0%, rgba(26,26,26,0.85) 70%, #1a1a1a 100%);
+      pointer-events: none;
+    }
+    .pickup-section .section-header {
+      position: absolute;
+      top: 0; left: 0; right: 0;
       padding-top: 40px;
       margin-bottom: 0;
+      z-index: 2;
     }
     .pickup-eyebrow {
       display: block;
@@ -212,39 +234,55 @@
       color: var(--orange-500);
       margin-bottom: 10px;
       text-align: center;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+      text-shadow: 0 2px 6px rgba(0,0,0,0.7);
     }
-    .pickup .section-title-light {
-      text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    .pickup-section .section-title-light {
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7);
     }
+    /* カードはステージから「降りてくる」演出: ステージ下端に少し重ねる */
     .pickup-cards {
-      position: absolute;
-      bottom: 7%;
-      left: 0; right: 0;
+      position: relative;
+      margin: -64px auto 0;
       padding: 0 60px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 28px;
       max-width: 1280px;
-      margin: 0 auto;
+      z-index: 3;
     }
     .pickup-card {
+      --card-accent: var(--orange-500);
+      --card-accent-soft: rgba(255, 107, 53, 0.45);
       position: relative;
       display: block;
-      padding: 22px 22px 20px;
-      background: rgba(18, 18, 18, 0.78);
-      border: 1px solid rgba(255, 107, 53, 0.45);
+      padding: 24px 22px 20px;
+      background: rgba(18, 18, 18, 0.92);
+      border: 1px solid var(--card-accent-soft);
+      border-top: 3px solid var(--card-accent);
       border-radius: 10px;
-      backdrop-filter: blur(3px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.5);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 14px 36px rgba(0,0,0,0.55);
       color: #fff;
       text-decoration: none;
       transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
     }
+    /* シルエットの台座から降りる光の筋を演出 */
+    .pickup-card::before {
+      content: '';
+      position: absolute;
+      top: -36px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 36px;
+      background: linear-gradient(180deg, transparent 0%, var(--card-accent) 100%);
+      opacity: 0.55;
+      pointer-events: none;
+    }
     .pickup-card:hover {
       transform: translateY(-4px);
-      border-color: var(--orange-500);
-      box-shadow: 0 14px 36px rgba(255, 107, 53, 0.25), 0 6px 16px rgba(0,0,0,0.5);
+      border-color: var(--card-accent);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.55), 0 0 24px var(--card-accent-soft);
       text-decoration: none;
     }
     .pickup-card-title {
@@ -262,14 +300,14 @@
     .pickup-card-count {
       font-size: 13px;
       font-weight: 700;
-      color: var(--orange-500);
+      color: var(--card-accent);
       margin-bottom: 10px;
       letter-spacing: 0.04em;
     }
     .pickup-card-keywords {
       font-size: 12px;
       font-weight: 500;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.72);
       line-height: 1.55;
       margin-bottom: 14px;
       letter-spacing: 0.01em;
@@ -279,17 +317,17 @@
       align-items: center;
       gap: 6px;
       padding: 6px 14px;
-      background: rgba(255, 107, 53, 0.14);
-      border: 1px solid rgba(255, 107, 53, 0.55);
+      background: color-mix(in srgb, var(--card-accent) 16%, transparent);
+      border: 1px solid var(--card-accent);
       border-radius: 999px;
       font-size: 12px;
       font-weight: 800;
-      color: var(--orange-500);
+      color: var(--card-accent);
       letter-spacing: 0.04em;
       transition: background 150ms ease-out, color 150ms ease-out;
     }
     .pickup-card:hover .pickup-card-cta {
-      background: var(--orange-500);
+      background: var(--card-accent);
       color: #fff;
     }
 
@@ -776,34 +814,29 @@
   </section>
 
   <!-- ============================================================
-       Section 3: みどころ3選 (TWF2026 メイン企画)  /  ガンメタ暗  /  16:9
-       柏原方針: 既存5項目を 3コーナー (生産性/作業環境/実演セミナー) に置換
-       背景画像 = 柏原ChatGPT生成の3スポット版 top-pickup-3spots-pc.png
+       Section 3: みどころ3選 (TWF2026 メイン企画)
+       ステージ (3スポット背景) + 直下カード接続 + accent_color差別化
+       data/topics.json を build_html.py から渡された topics でループ生成
        ============================================================ -->
-  <section class="pickup">
-    <div class="section-header">
-      <span class="pickup-eyebrow">みどころ3選 / TWF2026 メイン企画</span>
-      <h2 class="section-title section-title-light double-underline double-underline-center">2大コーナー × 実演セミナー</h2>
+  <section class="pickup-section">
+    <div class="pickup-stage">
+      <div class="section-header">
+        <span class="pickup-eyebrow">みどころ3選 / TWF2026 メイン企画</span>
+        <h2 class="section-title section-title-light double-underline double-underline-center">2大コーナー × 実演セミナー</h2>
+      </div>
     </div>
     <div class="pickup-cards">
-      <a class="pickup-card" href="topics/productivity-solutions/">
-        <div class="pickup-card-title"><span class="pickup-card-icon">🤖</span>生産性向上ソリューションコーナー</div>
-        <div class="pickup-card-count">11製品が集結</div>
-        <div class="pickup-card-keywords">協働ロボット・AMR・3Dレーダー・溶接カメラ</div>
+      {% set _pickup_order = ['productivity-solutions', 'work-environment', 'seminars'] %}
+      {% for slug in _pickup_order if slug in topics %}
+      {% set t = topics[slug] %}
+      <a class="pickup-card" href="topics/{{ slug }}/"
+         style="--card-accent: {{ t.accent_color }}; --card-accent-soft: color-mix(in srgb, {{ t.accent_color }} 45%, transparent);">
+        <div class="pickup-card-title"><span class="pickup-card-icon">{{ t.icon }}</span>{{ t.card_title_short or t.title }}</div>
+        <div class="pickup-card-count">{{ t.card_count_label }}</div>
+        <div class="pickup-card-keywords">{{ t.card_keywords }}</div>
         <span class="pickup-card-cta">詳しく見る →</span>
       </a>
-      <a class="pickup-card" href="topics/work-environment/">
-        <div class="pickup-card-title"><span class="pickup-card-icon">🦺</span>作業環境向上ブース ＆ いちおしメーカー</div>
-        <div class="pickup-card-count">13製品が集結</div>
-        <div class="pickup-card-keywords">熱中症対策・粉じん計・ファイバーレーザー・防災</div>
-        <span class="pickup-card-cta">詳しく見る →</span>
-      </a>
-      <a class="pickup-card" href="topics/seminars/">
-        <div class="pickup-card-title"><span class="pickup-card-icon">🎤</span>実演セミナー (参加無料)</div>
-        <div class="pickup-card-count">4社が会場で実演</div>
-        <div class="pickup-card-keywords">3M / 神戸製鋼所 / ダイヘン / 三菱電機</div>
-        <span class="pickup-card-cta">詳しく見る →</span>
-      </a>
+      {% endfor %}
     </div>
   </section>
 
