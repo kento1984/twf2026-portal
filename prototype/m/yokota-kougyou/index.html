@@ -122,12 +122,330 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #3A3A3C 0%, #1C1C1E 100%);
+  }
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #3A3A3C;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #3A3A3C;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #3A3A3C;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #D62828;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
-    border-radius: 8px;
+    border-left: 6px solid #3A3A3C;
+    border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
   }
@@ -135,14 +453,14 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--red-500);
+    color: #3A3A3C;
     margin-bottom: 4px;
   }
   .q-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--gray-800);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
   }
   .q-body {
     font-size: 16px;
@@ -150,30 +468,35 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
 
+  /* === Attachments === */
   .attachments {
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 24px 28px;
     background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments-h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    color: var(--gray-800);
+    border-radius: 10px;
   }
   .pdf-card {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 1px solid var(--gray-200);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #fff;
   }
-  .pdf-card:first-of-type {
-    margin-top: 0;
-  }
+  .pdf-card:first-of-type { margin-top: 0; }
   .pdf-card-header {
     display: flex;
     justify-content: space-between;
@@ -195,18 +518,16 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--blue-500);
+    background: #3A3A3C;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s;
   }
-  .pdf-download-btn:hover {
-    background: #004F9E;
-  }
+  .pdf-download-btn:hover { opacity: 0.85; }
   .pdf-iframe {
     border: none;
     display: block;
@@ -227,29 +548,47 @@
     word-break: break-all;
   }
 
-  .reply-meta {
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #3A3A3C;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
     font-size: 13px;
     color: var(--gray-600);
-    margin-top: 4px;
   }
 
-  .q5-only-notice {
-    background: #fff8e1;
-    border: 1px solid #f0c36d;
-    border-left: 6px solid #e6a23c;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #7a5a1d;
-  }
-  .q5-only-notice strong {
-    color: #6b4818;
-  }
-
+  /* === Editorial note === */
   .editorial-note {
-    margin-top: 48px;
+    margin-top: 56px;
     padding: 14px 18px;
     background: var(--gray-50);
     border: 1px dashed var(--gray-200);
@@ -272,66 +611,7 @@
     margin-top: 2px;
     word-break: break-all;
   }
-  .editorial-note a {
-    color: var(--blue-500);
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
-  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -350,60 +630,310 @@
     <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
-    <span class="maker-no">No.138</span>
-    <h1>ヨコタ⼯業㈱</h1>
-    <div class="maker-meta">
-<span>回答受信: 2026-04-21 09:02</span>    </div>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.138</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+      </p>
+      <h1 class="maker-hero-name">ヨコタ⼯業㈱</h1>
+<p class="maker-hero-cat">新型グラインダを目玉に、従来現行品や締付工具も展示予定。</p>      <div class="maker-hero-badges">
+        <span class="badge badge-discount">特別割引あり</span>
+        <span class="badge badge-priority">最優先</span>
+      </div>
+      <a class="maker-hero-cta" href="http://www.yokota-kogyo.co.jp/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
+  <div class="maker-content-wrap">
 
-  <section class="q-list">
-      <article class="q-card">
-        <div class="q-label">Q1 / 企画概要</div>
-        <h2 class="q-title">企画概要</h2>
-        <div class="q-body">エアーツールのデモ機を展示。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q2 / 新製品・新技術</div>
-        <h2 class="q-title">新製品・新技術</h2>
-        <div class="q-body">新型エアーアングルグラインダ G700H と新型エアーストレートグラインダ GS-65 シリーズを展示。従来品から出力を維持しつつ軽量化を実現しています。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q3 / ブースのみどころ</div>
-        <h2 class="q-title">ブースのみどころ</h2>
-        <div class="q-body">新型グラインダを目玉に、従来現行品や締付工具も展示予定。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q4 / セール企画・特典</div>
-        <h2 class="q-title">セール企画・特典</h2>
-        <div class="q-body">ユーザー様や商流により対応可否が分かれる場合があり、当日のケースバイケースで特価対応をします。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q5 / 配布資料・備考</div>
-        <h2 class="q-title">配布資料・備考</h2>
-        <div class="q-body">グラインダ新リーフレットを配布。</div>
-      </article>
-  </section>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">📌</span> みどころ</dt>
+          <dd>新型グラインダを目玉に、従来現行品や締付工具も展示予定。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>ユーザー様や商流により対応可否が分かれる場合があり、当日のケースバイケースで特価対応をします。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
+          <dd>新型エアーアングルグラインダ G700H と新型エアーストレートグラインダ GS-65 シリーズを展示。従来品から出力を維持しつつ軽量化を実現しています。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>1点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📊</span> 製品テーブル</dt>
+          <dd>3カテゴリ抽出済み — モデル・特価・新製品をテーブル化</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📅</span> 回答受信</dt>
+          <dd>2026-04-21 09:02</dd>
+        </div>
+      </dl>
+    </section>
 
-  <section class="attachments">
-    <h2 class="attachments-h2">📎 添付資料 (1件)</h2>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 グラインダ新リーフレット.pdf</h3>
-        <a href="../../attachments/%E3%83%A8%E3%82%B3%E3%82%BF%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%B0%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%80%E6%96%B0%E3%83%AA%E3%83%BC%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+    <h2 class="section-h2">📊 製品情報・特価リスト</h2>
+    <section class="product-info">
+      <article class="product-section">
+        <h3 class="product-section-title">High Performance Midget Grinders ／ MG-0A Series</h3>
+<p class="product-section-subtitle">高性能 ミゼットグラインダ — 振れ／衝撃／磨耗に強いミゼット ／ 触れる砥石／超硬ロータリーバー兼用 ／ 芯ブレ精度0.05mm以下の高精度チャック採用 (Decentering: less than 0.05mm)</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>Model</th><th>Free Speed</th><th>Air Consumption</th><th>Overall Length</th><th>Weight</th><th>コレット／ホイールサイズ</th><th>Air Inlet Thread</th><th>Air Hose Bore</th><th>Air Pressure</th><th>Sound Level</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">MG-0AS</td>
+                  <td class="">30,000 min⁻¹</td>
+                  <td class="">0.45 m³/min</td>
+                  <td class="">165 mm</td>
+                  <td class="">0.35 kg</td>
+                  <td class="">—</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">8 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">82 dB</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">MG-0AS-1</td>
+                  <td class="">30,000 min⁻¹</td>
+                  <td class="">0.45 m³/min</td>
+                  <td class="">175 mm</td>
+                  <td class="">0.40 kg</td>
+                  <td class="">—</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">8 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">82 dB</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">MG-0AS-2</td>
+                  <td class="">30,000 min⁻¹</td>
+                  <td class="">0.45 m³/min</td>
+                  <td class="">190 mm</td>
+                  <td class="">0.42 kg</td>
+                  <td class="">—</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">8 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">82 dB</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">MG-0AL</td>
+                  <td class="">20,000 min⁻¹</td>
+                  <td class="">0.45 m³/min</td>
+                  <td class="">215 mm</td>
+                  <td class="">0.45 kg</td>
+                  <td class="">—</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">8 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">82 dB</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">MG-0AL-1</td>
+                  <td class="">20,000 min⁻¹</td>
+                  <td class="">0.45 m³/min</td>
+                  <td class="">225 mm</td>
+                  <td class="">0.48 kg</td>
+                  <td class="">—</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">8 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">82 dB</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">MG-0AL-2</td>
+                  <td class="">20,000 min⁻¹</td>
+                  <td class="">0.45 m³/min</td>
+                  <td class="">240 mm</td>
+                  <td class="">0.50 kg</td>
+                  <td class="">—</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">8 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">82 dB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 高性能ミゼットグラインダ — 振れ／衝撃／磨耗に強い高耐久仕様</li><li>🔹 芯ブレ精度0.05mm以下の高精度チャックを採用（Decentering less than 0.05mm）</li><li>🔹 触れる砥石／超硬ロータリーバー兼用、現場の研削用途を一台でカバー</li><li>🔹 ヨコタの空気圧工具らしい軽量・低騒音設計（82dB前後）</li>        </ul>
+        <div class="product-warning">⚠️ 数値は代表値であり仕様変更となる場合があります（リーフレット上の機械文字表記より）</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">Disc Grinders ／ G400H(-S) ／ G700H Series</h3>
+<p class="product-section-subtitle">ディスクグラインダ — スピンドルロック機構搭載 ／ 排出方向可変 (Variable exhaust direction) ／ サイレンサ採用素材 (G400H、G700H) ／ ヘッド部水抜き機構 (Improvement of durability for water suction) ／ 多機能形状の握り、握りすぎを防止するヘッドモーター部</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>Model</th><th>Free Speed</th><th>Wheel Size</th><th>Air Consumption</th><th>Overall Length</th><th>Weight</th><th>Air Inlet Thread</th><th>Air Hose Bore</th><th>Air Pressure</th><th>Sound Level</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">G400H-S</td>
+                  <td class="">11,000 min⁻¹</td>
+                  <td class="">100 mm</td>
+                  <td class="">0.85 m³/min</td>
+                  <td class="">—</td>
+                  <td class="">1.55 kg</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">10 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">—</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">G400H</td>
+                  <td class="">11,000 min⁻¹</td>
+                  <td class="">100 mm</td>
+                  <td class="">0.85 m³/min</td>
+                  <td class="">—</td>
+                  <td class="">1.55 kg</td>
+                  <td class="">Rc 1/4</td>
+                  <td class="">10 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">—</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">G700H</td>
+                  <td class="">7,000 min⁻¹</td>
+                  <td class="">180 mm</td>
+                  <td class="">1.20 m³/min</td>
+                  <td class="">—</td>
+                  <td class="">2.77 kg</td>
+                  <td class="">Rc 3/8</td>
+                  <td class="">12.7 mm</td>
+                  <td class="">0.6 MPa</td>
+                  <td class="">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 ディスクグラインダ G400H/G700Hシリーズ — Light weight, maintaining the output（軽量＆出力両立）</li><li>🔹 スピンドルロック機構搭載で砥石交換が容易に</li><li>🔹 排出方向可変（Variable exhaust direction）で作業者への風当たりを軽減</li><li>🔹 ヘッド部水抜き機構（Improvement of durability for water suction）採用、防水性能向上</li><li>🔹 G400H-Sはホイールカバー無しサイドハンドル仕様（Wheel cover for cutting wheel）</li>        </ul>
+        <div class="product-warning">⚠️ モーター部の防水仕様は完全防水ではありません / 対応砥石の最高使用回転数を必ず確認のこと</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">Straight Grinders ／ GS-65 Series</h3>
+<p class="product-section-subtitle">ストレートグラインダ GS-65シリーズ — 軽量 (Light weight) 出力を維持しながら軽量・低騒音 ／ 高耐久性 (High durability) モーター部の防水仕様 ／ 多機能形状の握り (Handy power tool)、深部の研削加工に最適</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>Model</th><th>Free Speed</th><th>Wheel Size</th><th>Air Consumption</th><th>Overall Length</th><th>Weight</th><th>Air Inlet Thread</th><th>Air Hose Bore</th><th>Air Pressure</th><th>Sound Level</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">GS-65</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">GS-65L</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">GS-65-C</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">GS-65-L</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+                  <td class="">—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 ストレートグラインダ GS-65シリーズ — 出力を維持しながら軽量・低騒音</li><li>🔹 モーター部の防水仕様で High durability を実現</li><li>🔹 多機能形状の握りで深部の研削加工に最適、Handy power tool</li><li>🔹 リーフレットp02には4タイプ（GS-65 / GS-65L / GS-65-C / GS-65-L）のラインアップを掲載</li>        </ul>
+        <div class="product-warning">⚠️ 詳細諸元はカタログ表での確認が必要（画像中の小型表より）</div>
+      </article>
+    </section>
+
+
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">エアーツールのデモ機を展示。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q2 / 新製品・新技術</div>
+          <h3 class="q-title">新製品・新技術</h3>
+          <div class="q-body">新型エアーアングルグラインダ G700H と新型エアーストレートグラインダ GS-65 シリーズを展示。従来品から出力を維持しつつ軽量化を実現しています。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q3 / ブースのみどころ</div>
+          <h3 class="q-title">ブースのみどころ</h3>
+          <div class="q-body">新型グラインダを目玉に、従来現行品や締付工具も展示予定。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">ユーザー様や商流により対応可否が分かれる場合があり、当日のケースバイケースで特価対応をします。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">グラインダ新リーフレットを配布。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (1件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 グラインダ新リーフレット.pdf</h3>
+          <a href="../../attachments/%E3%83%A8%E3%82%B3%E3%82%BF%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%B0%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%80%E6%96%B0%E3%83%AA%E3%83%BC%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%A8%E3%82%B3%E3%82%BF%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%B0%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%80%E6%96%B0%E3%83%AA%E3%83%BC%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf" class="pdf-iframe" title="グラインダ新リーフレット.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E3%83%A8%E3%82%B3%E3%82%BF%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%B0%E3%83%A9%E3%82%A4%E3%83%B3%E3%83%80%E6%96%B0%E3%83%AA%E3%83%BC%E3%83%95%E3%83%AC%E3%83%83%E3%83%88.pdf" class="pdf-iframe" title="グラインダ新リーフレット.pdf のプレビュー"></iframe>
-    </div>
-    <p class="attach-path">保管先: <code>attachments/ヨコタ工業株式会社/</code></p>
-  </section>
+      <p class="attach-path">保管先: <code>attachments/ヨコタ工業株式会社/</code></p>
+    </section>
 
 
-  <aside class="editorial-note">
-    <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。
-  </aside>
-  </main>
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>

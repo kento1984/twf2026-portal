@@ -1,0 +1,56 @@
+{
+  "121": {
+    "name": "マツモト産業㈱エクセル貿易事業部",
+    "primary": "#C8102E",
+    "secondary": "#7A0A1C",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://mac-exe.co.jp/texec/",
+    "notes": "創業100年超の溶接機材総合商社。溶接の火花/熱を想起させるコーポレートレッドを主軸に、深い赤茶でセカンダリ、保護具的な黄色をアクセントに配置。"
+  },
+  "128": {
+    "name": "明大㈱",
+    "primary": "#2E7D32",
+    "secondary": "#1B5E20",
+    "accent": "#FFB300",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://meidai.co.jp/",
+    "notes": "ロックスリング®を主力とする繊維スリングメーカー。吊具・玉掛け業界の安全色（産業グリーン）を主軸に、JIS安全色の黄色をアクセントとして配置。"
+  },
+  "132": {
+    "name": "柳瀬㈱",
+    "primary": "#E8540C",
+    "secondary": "#A33908",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://yanase-saving.com/",
+    "notes": "ベルトサンダー・研磨砥材メーカー（YANASEブランド）。研磨砥粒の暖色オレンジを主軸に、深いラストオレンジでセカンダリ、漆黒でツール感をアクセントに。"
+  },
+  "134": {
+    "name": "ヤマト産業㈱",
+    "primary": "#0086A8",
+    "secondary": "#005A73",
+    "accent": "#E63946",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.e-yamato.co.jp/",
+    "notes": "圧力制御機器（減圧弁・調整器）メーカー、大阪生野区。高圧ガス業界に多いティール／シアン系をコーポレートに据え、危険警告系の赤をアクセントとして組み合わせる。"
+  },
+  "138": {
+    "name": "ヨコタ工業㈱",
+    "primary": "#3A3A3C",
+    "secondary": "#1C1C1E",
+    "accent": "#D62828",
+    "text_on_primary": "#FFFFFF",
+    "source": "http://www.yokota-kogyo.co.jp/",
+    "notes": "1919年創業のエアツール・パワーツールメーカー（東大阪）。インパクトレンチ等の重厚な工具ボディを想起するガンメタルグレーを主軸に、ブランドアクセントの赤をビビッドに配置。"
+  },
+  "148": {
+    "name": "三共㈱",
+    "primary": "#0B3D91",
+    "secondary": "#062366",
+    "accent": "#D4A24C",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://id-sankyo.co.jp/",
+    "notes": "HAL-TEC（ハルテック）貼合機メーカー＋油圧機器商社、大阪西区立売堀。先端技術を象徴する深いインダストリアルネイビーを主軸に、上質感のあるゴールドをアクセントに配置。"
+  }
+}

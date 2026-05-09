@@ -122,12 +122,330 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0B4DA2 0%, #E63027 100%);
+  }
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #0B4DA2;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #0B4DA2;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #0B4DA2;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #F5A623;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
-    border-radius: 8px;
+    border-left: 6px solid #0B4DA2;
+    border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
   }
@@ -135,14 +453,14 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--red-500);
+    color: #0B4DA2;
     margin-bottom: 4px;
   }
   .q-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--gray-800);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
   }
   .q-body {
     font-size: 16px;
@@ -150,30 +468,35 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
 
+  /* === Attachments === */
   .attachments {
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 24px 28px;
     background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments-h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    color: var(--gray-800);
+    border-radius: 10px;
   }
   .pdf-card {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 1px solid var(--gray-200);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #fff;
   }
-  .pdf-card:first-of-type {
-    margin-top: 0;
-  }
+  .pdf-card:first-of-type { margin-top: 0; }
   .pdf-card-header {
     display: flex;
     justify-content: space-between;
@@ -195,18 +518,16 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--blue-500);
+    background: #0B4DA2;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s;
   }
-  .pdf-download-btn:hover {
-    background: #004F9E;
-  }
+  .pdf-download-btn:hover { opacity: 0.85; }
   .pdf-iframe {
     border: none;
     display: block;
@@ -227,29 +548,47 @@
     word-break: break-all;
   }
 
-  .reply-meta {
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #0B4DA2;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
     font-size: 13px;
     color: var(--gray-600);
-    margin-top: 4px;
   }
 
-  .q5-only-notice {
-    background: #fff8e1;
-    border: 1px solid #f0c36d;
-    border-left: 6px solid #e6a23c;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #7a5a1d;
-  }
-  .q5-only-notice strong {
-    color: #6b4818;
-  }
-
+  /* === Editorial note === */
   .editorial-note {
-    margin-top: 48px;
+    margin-top: 56px;
     padding: 14px 18px;
     background: var(--gray-50);
     border: 1px dashed var(--gray-200);
@@ -272,66 +611,7 @@
     margin-top: 2px;
     word-break: break-all;
   }
-  .editorial-note a {
-    color: var(--blue-500);
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
-  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -350,57 +630,162 @@
     <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
-    <span class="maker-no">No.107</span>
-    <h1>㈱フジ</h1>
-    <div class="maker-meta">
-<span>回答受信: 2026-04-21 14:56</span>    </div>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.107</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+      </p>
+      <h1 class="maker-hero-name">㈱フジ</h1>
+      <div class="maker-hero-badges">
+        <span class="badge badge-discount">特別割引あり</span>
+      </div>
+      <a class="maker-hero-cta" href="http://www.fuji-handcar.com/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
+  <div class="maker-content-wrap">
 
-  <section class="q-list">
-      <article class="q-card">
-        <div class="q-label">Q1 / 企画概要</div>
-        <h2 class="q-title">企画概要</h2>
-        <div class="q-body">ボンベスタンド、ハンドカー各種を展示。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q4 / セール企画・特典</div>
-        <h2 class="q-title">セール企画・特典</h2>
-        <div class="q-body">別添拡販チラシ掲載商品の特価販売を実施。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q5 / 配布資料・備考</div>
-        <h2 class="q-title">配布資料・備考</h2>
-        <div class="q-body">TWF2026拡販チラシ (一般商品/目玉商品 FKMV-4) 計2点を配布。</div>
-      </article>
-  </section>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>別添拡販チラシ掲載商品の特価販売を実施。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>2点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📊</span> 製品テーブル</dt>
+          <dd>2カテゴリ抽出済み — モデル・特価・新製品をテーブル化</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📅</span> 回答受信</dt>
+          <dd>2026-04-21 14:56</dd>
+        </div>
+      </dl>
+    </section>
 
-  <section class="attachments">
-    <h2 class="attachments-h2">📎 添付資料 (2件)</h2>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 TWF2026拡販チラシ一般商品.pdf</h3>
-        <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E8%88%AC%E5%95%86%E5%93%81.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+    <h2 class="section-h2">📊 製品情報・特価リスト</h2>
+    <section class="product-info">
+      <article class="product-section">
+        <h3 class="product-section-title">屋内用 小型容器 四輪 運搬車 ハンドカーFKマルチV-4型1本積</h3>
+<p class="product-section-subtitle">屋内用ハンドカーFKシリーズの新定番!! 展示会特価にてご提供します!</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>品名</th><th>通常価格(税別)</th><th>限定特価(税別)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">フジハンドカーFKマルチV-4型 1本積</td>
+                  <td class="col-price">¥46,200</td>
+                  <td class="col-price">¥27,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 3ポジション容器受けバンド：取付穴600㎜、400㎜、200㎜の3ポジションに小容器用フリーサイズの容器受バンドを装備</li><li>🔹 多くの小容器に対応：主な搭載可能容器規格は、酸ボン1.5～3000L (頂径190φ仕様) または同等程度の小型サイズ容器を搭載できます</li><li>🔹 取付位置自在チェーン2本付き：チェーン2本付き、Uボブック止り仕様で、本体固定側1本スプリングフック1点止で、簡単に取付容器をミガ角の頂部リからバンド位置に容器に応じてピタリ調整できます</li><li>🔹 本体メインタイヤは125φ×2輪、折畳可能後脚2輪のキャスターは65φ×2輪ストッパー付きを装備しました</li><li>🔹 本体寸法：計開長3300×幅410×奥行1020㎜ (本体込み、含車検サイズは含みません)</li><li>🔹 折畳寸法：3300×900×780㎜</li><li>🔹 車輪サイズ：本体メインタイヤ125φ (ゴム)、後脚キャスター65φ (ゴム) ストッパー付</li><li>🔹 容器収納数例：左 酸素容器500ℓ (3.4ℓ) 頂径190φ仕様、右 酸素容器1000ℓ (10ℓ)</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">フジハンドカーFKマルチV-4型 1本積</span></p>
+        <div class="product-warning">⚠️ 上記価格に消費税は含まれません。 / 搭載容器規格・φ径は当社規格 (90×3000Lの容量・90φ仕様までは10φ単位で異なる場合があります)</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">フジハンドカー「特別限定企画」</h3>
+<p class="product-section-subtitle">ウェルディングフェスタ 厳選商品!!</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>品名</th><th>仕様</th><th>希望小売価格(税別)</th><th>限定特価(税別)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">フジハンドカーFA3型</td>
+                  <td class="">ノーパンクタイヤ仕様なし</td>
+                  <td class="col-price">¥36,600</td>
+                  <td class="col-price">¥27,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">フジハンドカーFAH型</td>
+                  <td class="">ノーパンクタイヤ仕様 7型つき仕様</td>
+                  <td class="col-price">¥55,000</td>
+                  <td class="col-price">¥37,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">フジハンドカーFE型</td>
+                  <td class="">ノーパンクタイヤなし</td>
+                  <td class="col-price">¥38,600</td>
+                  <td class="col-price">¥26,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">ボンベスタンド 7000L×1本立</td>
+                  <td class=""></td>
+                  <td class="col-price">¥27,600</td>
+                  <td class="col-price">¥20,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">ボンベスタンド 7000L×2本立</td>
+                  <td class=""></td>
+                  <td class="col-price">¥35,400</td>
+                  <td class="col-price">¥25,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 高圧ガス容器を安全・快適に移動、2本搭載式ガス昇降運搬台車：フジハンドカーFAシリーズ</li><li>🔹 高圧ガス容器を安全・快適に移動、1本搭載式ガス昇降運搬台車：フジハンドカーFEシリーズ</li><li>🔹 高圧ガス容器を安全・確実な保持に、ボンベスタンドシリーズ</li>        </ul>
+        <div class="product-warning">⚠️ 2026年5月1日～2026年6月末日までの期間限定特価商品です。上記価格に消費税は含まれません。</div>
+      </article>
+    </section>
+
+
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">ボンベスタンド、ハンドカー各種を展示。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">別添拡販チラシ掲載商品の特価販売を実施。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">TWF2026拡販チラシ (一般商品/目玉商品 FKMV-4) 計2点を配布。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (2件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 TWF2026拡販チラシ一般商品.pdf</h3>
+          <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E8%88%AC%E5%95%86%E5%93%81.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E8%88%AC%E5%95%86%E5%93%81.pdf" class="pdf-iframe" title="TWF2026拡販チラシ一般商品.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E8%88%AC%E5%95%86%E5%93%81.pdf" class="pdf-iframe" title="TWF2026拡販チラシ一般商品.pdf のプレビュー"></iframe>
-    </div>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 TWF2026拡販チラシ一目玉商品FKMV-4.pdf</h3>
-        <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E7%9B%AE%E7%8E%89%E5%95%86%E5%93%81FKMV-4.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 TWF2026拡販チラシ一目玉商品FKMV-4.pdf</h3>
+          <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E7%9B%AE%E7%8E%89%E5%95%86%E5%93%81FKMV-4.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E7%9B%AE%E7%8E%89%E5%95%86%E5%93%81FKMV-4.pdf" class="pdf-iframe" title="TWF2026拡販チラシ一目玉商品FKMV-4.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%95%E3%82%B8/TWF2026%E6%8B%A1%E8%B2%A9%E3%83%81%E3%83%A9%E3%82%B7%E4%B8%80%E7%9B%AE%E7%8E%89%E5%95%86%E5%93%81FKMV-4.pdf" class="pdf-iframe" title="TWF2026拡販チラシ一目玉商品FKMV-4.pdf のプレビュー"></iframe>
-    </div>
-    <p class="attach-path">保管先: <code>attachments/株式会社フジ/</code></p>
-  </section>
+      <p class="attach-path">保管先: <code>attachments/株式会社フジ/</code></p>
+    </section>
 
 
-  <aside class="editorial-note">
-    <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。
-  </aside>
-  </main>
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>

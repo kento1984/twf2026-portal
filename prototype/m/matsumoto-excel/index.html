@@ -122,12 +122,330 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #C8102E 0%, #7A0A1C 100%);
+  }
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #C8102E;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #C8102E;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #F5A623;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
-    border-radius: 8px;
+    border-left: 6px solid #C8102E;
+    border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
   }
@@ -135,14 +453,14 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--red-500);
+    color: #C8102E;
     margin-bottom: 4px;
   }
   .q-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--gray-800);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
   }
   .q-body {
     font-size: 16px;
@@ -150,30 +468,35 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
 
+  /* === Attachments === */
   .attachments {
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 24px 28px;
     background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments-h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    color: var(--gray-800);
+    border-radius: 10px;
   }
   .pdf-card {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 1px solid var(--gray-200);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #fff;
   }
-  .pdf-card:first-of-type {
-    margin-top: 0;
-  }
+  .pdf-card:first-of-type { margin-top: 0; }
   .pdf-card-header {
     display: flex;
     justify-content: space-between;
@@ -195,18 +518,16 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--blue-500);
+    background: #C8102E;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s;
   }
-  .pdf-download-btn:hover {
-    background: #004F9E;
-  }
+  .pdf-download-btn:hover { opacity: 0.85; }
   .pdf-iframe {
     border: none;
     display: block;
@@ -227,29 +548,47 @@
     word-break: break-all;
   }
 
-  .reply-meta {
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #C8102E;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
     font-size: 13px;
     color: var(--gray-600);
-    margin-top: 4px;
   }
 
-  .q5-only-notice {
-    background: #fff8e1;
-    border: 1px solid #f0c36d;
-    border-left: 6px solid #e6a23c;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #7a5a1d;
-  }
-  .q5-only-notice strong {
-    color: #6b4818;
-  }
-
+  /* === Editorial note === */
   .editorial-note {
-    margin-top: 48px;
+    margin-top: 56px;
     padding: 14px 18px;
     background: var(--gray-50);
     border: 1px dashed var(--gray-200);
@@ -272,66 +611,7 @@
     margin-top: 2px;
     word-break: break-all;
   }
-  .editorial-note a {
-    color: var(--blue-500);
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
-  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -350,70 +630,443 @@
     <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
-    <span class="maker-no">No.121</span>
-    <h1>マツモト産業㈱エクセル貿易事業部</h1>
-    <div class="maker-meta">
-<span>回答受信: 2026-04-21 09:44</span>    </div>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.121</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+      </p>
+      <h1 class="maker-hero-name">マツモト産業㈱エクセル貿易事業部</h1>
+<p class="maker-hero-cat">ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。</p>      <div class="maker-hero-badges">
+        <span class="badge badge-discount">特別割引あり</span>
+        <span class="badge badge-priority">最優先</span>
+      </div>
+      <a class="maker-hero-cta" href="https://mac-exe.co.jp/texec/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
+  <div class="maker-content-wrap">
 
-  <section class="q-list">
-      <article class="q-card">
-        <div class="q-label">Q1 / 企画概要</div>
-        <h2 class="q-title">企画概要</h2>
-        <div class="q-body">TIGトーチ、タングステン電極棒、ケーブルカバー、溶接テーブル、マグネット、ウェルケーブル等、海外製を中心とした溶接周辺品ラインナップを展示。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q2 / 新製品・新技術</div>
-        <h2 class="q-title">新製品・新技術</h2>
-        <div class="q-body">ビルドプロ「ALPHA16」シリーズ溶接テーブル。従来テーブルでは専用治具が必要だったサイドの穴あけが、ALPHA16 は最初からサイドにも穴がある設計で、治具不要で多方向の固定が可能です。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q3 / ブースのみどころ</div>
-        <h2 class="q-title">ブースのみどころ</h2>
-        <div class="q-body">ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q4 / セール企画・特典</div>
-        <h2 class="q-title">セール企画・特典</h2>
-        <div class="q-body">TWF特価企画チラシをご参照ください。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q5 / 配布資料・備考</div>
-        <h2 class="q-title">配布資料・備考</h2>
-        <div class="q-body">TWF特価企画チラシ、ビルドプロ溶接テーブル「ALPHA16」カタログを配布。</div>
-      </article>
-  </section>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">📌</span> みどころ</dt>
+          <dd>ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>TWF特価企画チラシをご参照ください。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
+          <dd>ビルドプロ「ALPHA16」シリーズ溶接テーブル。従来テーブルでは専用治具が必要だったサイドの穴あけが、ALPHA16 は最初からサイドにも穴がある設計で、治具不要で多方向の固定が可能です。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>2点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📊</span> 製品テーブル</dt>
+          <dd>7カテゴリ抽出済み — モデル・特価・新製品をテーブル化</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📅</span> 回答受信</dt>
+          <dd>2026-04-21 09:44</dd>
+        </div>
+      </dl>
+    </section>
 
-  <section class="attachments">
-    <h2 class="attachments-h2">📎 添付資料 (2件)</h2>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 TWF特価企画チラシ【エクセル貿易】.pdf</h3>
-        <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/TWF%E7%89%B9%E4%BE%A1%E4%BC%81%E7%94%BB%E3%83%81%E3%83%A9%E3%82%B7%E3%80%90%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+    <h2 class="section-h2">📊 製品情報・特価リスト</h2>
+    <section class="product-info">
+      <article class="product-section">
+        <h3 class="product-section-title">TWF当日限定お買得SALE (溶接機材・産業機器展)</h3>
+<p class="product-section-subtitle">開催日限定！早い者勝ち！ウェルディングフェスタで特価でお届けします</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>種別</th><th>メーカー希望小売価格</th><th>特別価格</th><th>プレゼント／備考</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">TDSL12075-K1</td>
+                  <td class="">ライノリフト (1,200×750×640〜1040H)</td>
+                  <td class="col-price">840,000円</td>
+                  <td class="col-price">785,000円</td>
+                  <td class="">強化Lクランプ UDN6150×2個 と 強化Cクランプ PT09K×2個 プレゼント</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM6024125P-A2</td>
+                  <td class="">ALPHA16テーブル (2400×1200×150×767H)</td>
+                  <td class="col-price">1,452,500円</td>
+                  <td class="col-price">1,390,000円</td>
+                  <td class="">ライノカード付属 66点治具セット TDK6100 1セットプレゼント</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">WP-150-1726-4SF</td>
+                  <td class="">TIGトーチ (型式:TC-3-3.8F)</td>
+                  <td class="col-price">39,900円</td>
+                  <td class="col-price">37,900円</td>
+                  <td class="">ケーブルカバー プレゼント (景品ケーブルカバー型式)</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">WP-200-1726-4SF</td>
+                  <td class="">TIGトーチ (型式:TC-4-3.8Z)</td>
+                  <td class="col-price">49,700円</td>
+                  <td class="col-price">46,200円</td>
+                  <td class="">ケーブルカバー プレゼント</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 デモ実演等承ります！お気軽にお問い合わせください</li><li>🔹 ライノリフトはLクランプ・Cクランプ計4個プレゼント</li><li>🔹 ALPHA16テーブルは66点治具セット1セットプレゼント</li><li>🔹 TIGトーチはケーブルカバープレゼント</li>        </ul>
+        <div class="product-warning">⚠️ ※溶接機の仕様により金額は変動します / ※写真はイメージです</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ALPHA16 溶接テーブルシステム概要</h3>
+<p class="product-section-subtitle">リバーシブルのテーブルトップ＆サイドプレート、窒化処理仕上げの精密溶接治具</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>項目</th><th>仕様</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">テーブル平面度</td>
+                  <td class="">0.3m / 1,000mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">穴間隔</td>
+                  <td class="">50mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">穴径</td>
+                  <td class="">16mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">プレート板厚</td>
+                  <td class="">12mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">サイドプレート高さ</td>
+                  <td class="">150mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">窒化深さ</td>
+                  <td class="">0.01-0.02mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">表面硬度 (テーブルトップ)</td>
+                  <td class="">58-62 HRC</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">表面硬度 (サイドプレート)</td>
+                  <td class="">50-55 HRC</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 リバーシブルのテーブルトップ＆サイドプレート：全てのALPHA16テーブルは、16mmにより位置決めが可能。両面共反面使用することができ、表面が傷んだ場合、裏返して使用、またはトップのみの交換が可能</li><li>🔹 ALPHA16テーブル側面板：ALPHA16テーブルの138mmのサイドプレートとテーブルトップの差は150mmに設計されています</li><li>🔹 サイドプレートは取付ネジとブッシュ固定が可能。固定力を高め、5ボアホールも採用</li><li>🔹 窒化処理テーブルトップ：テーブルのテーブルトップ、サイドプレートはすべて窒化処理加工品</li>        </ul>
+        <div class="product-warning">⚠️ ※他のALPHAテーブルシリーズは板厚は16mm</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ALPHA テーブル 3,000×1,500 mm (テーブルサイズ)</h3>
+<p class="product-section-subtitle">脚タイプ別 (重あ寺型／調整式／調整式＋ストッパー付きキャスター)</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>型式</th><th>仕上げ</th><th>脚仕様</th><th>テーブル寸法 (mm)</th><th>耐荷重 (kg)</th><th>テーブル重量 (kg)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">TM603015FP-A1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 6× TMSL3130</td>
+                  <td class="">917×3000</td>
+                  <td class="">3500</td>
+                  <td class="">917</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM603015FP-A2</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 6× TMSL2520</td>
+                  <td class="">767×3000</td>
+                  <td class="">3500</td>
+                  <td class="">917</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM603015FP-B1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式 6× TMSLR30 (715〜969)</td>
+                  <td class=""></td>
+                  <td class="">3500</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM603015FP-C1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式＋ストッパー付きキャスター 6× TMSLC30 (835〜1,090)</td>
+                  <td class=""></td>
+                  <td class="">1500</td>
+                  <td class=""></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 3,000×1,500×150 MM 大型テーブルトップ TM603015PP</li><li>🔹 ALPHAテーブル プレート内訳 A/B/C/D 各種ラインナップ</li><li>🔹 脚タイプ別に重ね寺型・調整式・キャスター付きから選択可能</li>        </ul>
+        <div class="product-warning">⚠️ ※価格表は、当社により予告なく改訂・変更されることがあります</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ALPHA テーブル 2,400×1,200 mm</h3>
+<p class="product-section-subtitle">中型サイズの溶接テーブル。脚タイプ別ラインナップ</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>型式</th><th>仕上げ</th><th>脚仕様</th><th>テーブル寸法 (mm)</th><th>耐荷重 (kg)</th><th>テーブル重量 (kg)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">TM6024125P-A1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 6× TMSL3130</td>
+                  <td class="">813</td>
+                  <td class="">3500</td>
+                  <td class="">639</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM6024125P-A2</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 6× TMSL2520</td>
+                  <td class="">767</td>
+                  <td class="">3500</td>
+                  <td class="">653</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM6024125P-B1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式 6× TMSLR30 (715〜969)</td>
+                  <td class=""></td>
+                  <td class="">1500</td>
+                  <td class="">671</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM6024125P-C1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式＋ストッパー付きキャスター 6× TMSLC30 (835〜1,090)</td>
+                  <td class=""></td>
+                  <td class="">1500</td>
+                  <td class="">718</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 2,400×1,200×150 MM テーブルトップ TM602412PP</li><li>🔹 プレート内訳 A/B/C 各種</li>        </ul>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ALPHA テーブル 2,000×1,000 mm</h3>
+<p class="product-section-subtitle">コンパクト〜中型のスタンダードサイズ</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>型式</th><th>仕上げ</th><th>脚仕様</th><th>テーブル寸法 (mm)</th><th>耐荷重 (kg)</th><th>テーブル重量 (kg)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">TM602010FP-A1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 6× TMSL3130</td>
+                  <td class="">917</td>
+                  <td class="">3500</td>
+                  <td class="">490</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM602010FP-A2</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 6× TMSL2520</td>
+                  <td class="">767</td>
+                  <td class="">3500</td>
+                  <td class="">490</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM602010FP-B1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式 6× TMSLR30 (715〜969)</td>
+                  <td class=""></td>
+                  <td class="">2000</td>
+                  <td class="">522</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM602010FP-C1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式＋ストッパー付きキャスター 6× TMSLC30 (835〜1,090)</td>
+                  <td class=""></td>
+                  <td class="">1500</td>
+                  <td class="">525</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 2,000×1,000×150 MM テーブルトップ TM602010PP</li><li>🔹 プレート内訳 A/B/C/D</li>        </ul>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ALPHA テーブル 1,500×1,000 mm</h3>
+<p class="product-section-subtitle">小型作業向けスタンダードサイズ</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>型式</th><th>仕上げ</th><th>脚仕様</th><th>テーブル寸法 (mm)</th><th>耐荷重 (kg)</th><th>テーブル重量 (kg)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">TM601510FP-A1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 4× TMSL3130</td>
+                  <td class="">813</td>
+                  <td class="">3500</td>
+                  <td class="">363</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM601510FP-A2</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 4× TMSL2520</td>
+                  <td class="">767</td>
+                  <td class="">3500</td>
+                  <td class="">361</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM601510FP-B1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式 4× TMSLR30 (715〜969)</td>
+                  <td class=""></td>
+                  <td class="">2500</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM601510FP-C1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式＋ストッパー付きキャスター 4× TMSLC30 (835〜1,090)</td>
+                  <td class=""></td>
+                  <td class="">1500</td>
+                  <td class="">384</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 1,500×1,000×150 MM テーブルトップ TM601510PP</li><li>🔹 プレート内訳 A/B/C</li>        </ul>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ALPHA テーブル 1,200×1,200 mm</h3>
+<p class="product-section-subtitle">正方形サイズの溶接テーブル</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>型式</th><th>仕上げ</th><th>脚仕様</th><th>テーブル寸法 (mm)</th><th>耐荷重 (kg)</th><th>テーブル重量 (kg)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">TM601212FP-A1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 4× TMSL3130</td>
+                  <td class="">917</td>
+                  <td class="">2500</td>
+                  <td class="">341</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM601212FP-A2</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 重ね寺型 4× TMSL2520</td>
+                  <td class="">767</td>
+                  <td class="">2500</td>
+                  <td class="">337</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM601212FP-B1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式 4× TMSLR30 (715〜969)</td>
+                  <td class=""></td>
+                  <td class="">2500</td>
+                  <td class="">345</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TM601212FP-C1</td>
+                  <td class="">窒化処理</td>
+                  <td class="">脚 調整式＋ストッパー付きキャスター 4× TMSLC30 (835〜1,090)</td>
+                  <td class=""></td>
+                  <td class="">1000</td>
+                  <td class="">352</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 1,200×1,200×150 MM テーブルトップ TM601212PP</li><li>🔹 プレート内訳 A/B</li>        </ul>
+      </article>
+    </section>
+
+
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">TIGトーチ、タングステン電極棒、ケーブルカバー、溶接テーブル、マグネット、ウェルケーブル等、海外製を中心とした溶接周辺品ラインナップを展示。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q2 / 新製品・新技術</div>
+          <h3 class="q-title">新製品・新技術</h3>
+          <div class="q-body">ビルドプロ「ALPHA16」シリーズ溶接テーブル。従来テーブルでは専用治具が必要だったサイドの穴あけが、ALPHA16 は最初からサイドにも穴がある設計で、治具不要で多方向の固定が可能です。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q3 / ブースのみどころ</div>
+          <h3 class="q-title">ブースのみどころ</h3>
+          <div class="q-body">ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">TWF特価企画チラシをご参照ください。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">TWF特価企画チラシ、ビルドプロ溶接テーブル「ALPHA16」カタログを配布。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (2件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 TWF特価企画チラシ【エクセル貿易】.pdf</h3>
+          <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/TWF%E7%89%B9%E4%BE%A1%E4%BC%81%E7%94%BB%E3%83%81%E3%83%A9%E3%82%B7%E3%80%90%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/TWF%E7%89%B9%E4%BE%A1%E4%BC%81%E7%94%BB%E3%83%81%E3%83%A9%E3%82%B7%E3%80%90%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E3%80%91.pdf" class="pdf-iframe" title="TWF特価企画チラシ【エクセル貿易】.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/TWF%E7%89%B9%E4%BE%A1%E4%BC%81%E7%94%BB%E3%83%81%E3%83%A9%E3%82%B7%E3%80%90%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E3%80%91.pdf" class="pdf-iframe" title="TWF特価企画チラシ【エクセル貿易】.pdf のプレビュー"></iframe>
-    </div>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 ビルドプロ溶接テーブル【ALPHA16】.pdf</h3>
-        <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%83%93%E3%83%AB%E3%83%89%E3%83%97%E3%83%AD%E6%BA%B6%E6%8E%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%80%90ALPHA16%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 ビルドプロ溶接テーブル【ALPHA16】.pdf</h3>
+          <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%83%93%E3%83%AB%E3%83%89%E3%83%97%E3%83%AD%E6%BA%B6%E6%8E%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%80%90ALPHA16%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%83%93%E3%83%AB%E3%83%89%E3%83%97%E3%83%AD%E6%BA%B6%E6%8E%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%80%90ALPHA16%E3%80%91.pdf" class="pdf-iframe" title="ビルドプロ溶接テーブル【ALPHA16】.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E7%94%A3%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E3%82%A8%E3%82%AF%E3%82%BB%E3%83%AB%E8%B2%BF%E6%98%93%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%83%93%E3%83%AB%E3%83%89%E3%83%97%E3%83%AD%E6%BA%B6%E6%8E%A5%E3%83%86%E3%83%BC%E3%83%96%E3%83%AB%E3%80%90ALPHA16%E3%80%91.pdf" class="pdf-iframe" title="ビルドプロ溶接テーブル【ALPHA16】.pdf のプレビュー"></iframe>
-    </div>
-    <p class="attach-path">保管先: <code>attachments/マツモト産業株式会社　エクセル貿易事業部/</code></p>
-  </section>
+      <p class="attach-path">保管先: <code>attachments/マツモト産業株式会社　エクセル貿易事業部/</code></p>
+    </section>
 
 
-  <aside class="editorial-note">
-    <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。
-    <ul>
-      <li><a href="https://mac-exe.co.jp/texec/" target="_blank" rel="noopener">https://mac-exe.co.jp/texec/</a></li>
-    </ul>
-  </aside>
-  </main>
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+      <ul>
+<li><a href="https://mac-exe.co.jp/texec/" target="_blank" rel="noopener">https://mac-exe.co.jp/texec/</a></li>      </ul>
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>

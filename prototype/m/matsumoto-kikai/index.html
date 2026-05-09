@@ -122,12 +122,330 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #C8102E 0%, #1A1A1A 100%);
+  }
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #C8102E;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #C8102E;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #E8E8E8;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
-    border-radius: 8px;
+    border-left: 6px solid #C8102E;
+    border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
   }
@@ -135,14 +453,14 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--red-500);
+    color: #C8102E;
     margin-bottom: 4px;
   }
   .q-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--gray-800);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
   }
   .q-body {
     font-size: 16px;
@@ -150,30 +468,35 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
 
+  /* === Attachments === */
   .attachments {
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 24px 28px;
     background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments-h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    color: var(--gray-800);
+    border-radius: 10px;
   }
   .pdf-card {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 1px solid var(--gray-200);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #fff;
   }
-  .pdf-card:first-of-type {
-    margin-top: 0;
-  }
+  .pdf-card:first-of-type { margin-top: 0; }
   .pdf-card-header {
     display: flex;
     justify-content: space-between;
@@ -195,18 +518,16 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--blue-500);
+    background: #C8102E;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s;
   }
-  .pdf-download-btn:hover {
-    background: #004F9E;
-  }
+  .pdf-download-btn:hover { opacity: 0.85; }
   .pdf-iframe {
     border: none;
     display: block;
@@ -227,29 +548,47 @@
     word-break: break-all;
   }
 
-  .reply-meta {
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #C8102E;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
     font-size: 13px;
     color: var(--gray-600);
-    margin-top: 4px;
   }
 
-  .q5-only-notice {
-    background: #fff8e1;
-    border: 1px solid #f0c36d;
-    border-left: 6px solid #e6a23c;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #7a5a1d;
-  }
-  .q5-only-notice strong {
-    color: #6b4818;
-  }
-
+  /* === Editorial note === */
   .editorial-note {
-    margin-top: 48px;
+    margin-top: 56px;
     padding: 14px 18px;
     background: var(--gray-50);
     border: 1px dashed var(--gray-200);
@@ -272,66 +611,7 @@
     margin-top: 2px;
     word-break: break-all;
   }
-  .editorial-note a {
-    color: var(--blue-500);
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
-  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -350,85 +630,347 @@
     <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
-    <span class="maker-no">No.120</span>
-    <h1>マツモト機械㈱</h1>
-    <div class="maker-meta">
-<span>回答受信: 2026-04-21 10:19</span>    </div>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.120</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+      </p>
+      <h1 class="maker-hero-name">マツモト機械㈱</h1>
+<p class="maker-hero-cat">溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。</p>      <div class="maker-hero-badges">
+        <span class="badge badge-discount">特別割引あり</span>
+      </div>
+      <a class="maker-hero-cta" href="https://www.mac-wels.co.jp/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
+  <div class="maker-content-wrap">
 
-  <section class="q-list">
-      <article class="q-card">
-        <div class="q-label">Q1 / 企画概要</div>
-        <h2 class="q-title">企画概要</h2>
-        <div class="q-body">配布カタログから、ローリングアース「EM-500」、溶接ロボット用ノズルクリーナー「ロボメイト RNP-B」、ワイヤ量検知器「WSE-CU」など、TIG・半自動・ロボット溶接の周辺機器を中心にご紹介。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q2 / 新製品・新技術</div>
-        <h2 class="q-title">新製品・新技術</h2>
-        <div class="q-body">ロボメイト RNP-B はアーク溶接ロボットの溶接トーチ内ノズル付着スパッタを自動除去し、スパッタ付着防止液を自動塗布。ワイヤカット機能でワイヤつき出し長さを一定に保ち、ロボット溶接の連続稼働を支えます。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q3 / ブースのみどころ</div>
-        <h2 class="q-title">ブースのみどころ</h2>
-        <div class="q-body">溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q4 / セール企画・特典</div>
-        <h2 class="q-title">セール企画・特典</h2>
-        <div class="q-body">チラシ「2026東京WF」掲載の特価商品をご用意。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q5 / 配布資料・備考</div>
-        <h2 class="q-title">配布資料・備考</h2>
-        <div class="q-body">ローリングアース EM-500、ロボメイト RNP-B、ワイヤ量検知器 WSE-CU の各カタログ + 2026東京WFチラシ、計4点を配布。</div>
-      </article>
-  </section>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">📌</span> みどころ</dt>
+          <dd>溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>チラシ「2026東京WF」掲載の特価商品をご用意。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
+          <dd>ロボメイト RNP-B はアーク溶接ロボットの溶接トーチ内ノズル付着スパッタを自動除去し、スパッタ付着防止液を自動塗布。ワイヤカット機能でワイヤつき出し長さを一定に保ち、ロボット溶接の連続稼働を支えます。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>4点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📊</span> 製品テーブル</dt>
+          <dd>5カテゴリ抽出済み — モデル・特価・新製品をテーブル化</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📅</span> 回答受信</dt>
+          <dd>2026-04-21 10:19</dd>
+        </div>
+      </dl>
+    </section>
 
-  <section class="attachments">
-    <h2 class="attachments-h2">📎 添付資料 (4件)</h2>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 カタログ_ローリングアース「EM-500」_【2025-12】.pdf</h3>
-        <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%A2%E3%83%BC%E3%82%B9%E3%80%8CEM-500%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
-      </div>
-      <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%A2%E3%83%BC%E3%82%B9%E3%80%8CEM-500%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" class="pdf-iframe" title="カタログ_ローリングアース「EM-500」_【2025-12】.pdf のプレビュー"></iframe>
-    </div>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 カタログ_ロボメイト「RNP-B」_【2025-12】.pdf</h3>
-        <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%9C%E3%83%A1%E3%82%A4%E3%83%88%E3%80%8CRNP-B%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
-      </div>
-      <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%9C%E3%83%A1%E3%82%A4%E3%83%88%E3%80%8CRNP-B%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" class="pdf-iframe" title="カタログ_ロボメイト「RNP-B」_【2025-12】.pdf のプレビュー"></iframe>
-    </div>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 カタログ_ワイヤ量検知器「WSE-CU」_【2025-12】.pdf</h3>
-        <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AF%E3%82%A4%E3%83%A4%E9%87%8F%E6%A4%9C%E7%9F%A5%E5%99%A8%E3%80%8CWSE-CU%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
-      </div>
-      <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AF%E3%82%A4%E3%83%A4%E9%87%8F%E6%A4%9C%E7%9F%A5%E5%99%A8%E3%80%8CWSE-CU%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" class="pdf-iframe" title="カタログ_ワイヤ量検知器「WSE-CU」_【2025-12】.pdf のプレビュー"></iframe>
-    </div>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 チラシ_2026東京WF.pdf</h3>
-        <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%83%81%E3%83%A9%E3%82%B7_2026%E6%9D%B1%E4%BA%ACWF.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
-      </div>
-      <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%83%81%E3%83%A9%E3%82%B7_2026%E6%9D%B1%E4%BA%ACWF.pdf" class="pdf-iframe" title="チラシ_2026東京WF.pdf のプレビュー"></iframe>
-    </div>
-    <p class="attach-path">保管先: <code>attachments/マツモト機械株式会社/</code></p>
-  </section>
+    <h2 class="section-h2">📊 製品情報・特価リスト</h2>
+    <section class="product-info">
+      <article class="product-section">
+        <h3 class="product-section-title">溶接ロボット用ノズルクリーナー ロボメイト RNP-B</h3>
+<p class="product-section-subtitle">アーク溶接用ロボットの溶接トーチノズル内に付着したスパッタを清掃するための装置</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>項目</th><th>仕様</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">型式</td>
+                  <td class="">RNP-B</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">入力電圧</td>
+                  <td class="">単相 AC100V〜240V</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">定格周波数</td>
+                  <td class="">50/60Hz</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">対応ノズル外径</td>
+                  <td class="">Φ13〜Φ16</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">ブレード締付トルク</td>
+                  <td class="">0.13Nm</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 特殊鋼製ブレード：刃幅は特殊鋼でできており、高速/低速の振動数で広がりとし広さを繰り返し、ブレードの交換無しでサイズの幅をフレキシブルに対応することができます</li><li>🔹 簡単操作：ロボットトーチでリミットスイッチを押すだけでティーチングするだけでON / OFFの操作が可能</li><li>🔹 ノズル飛散で清掃可：ブローホール発生の原因になるオリフィス近辺のスパッタも清掃可能</li><li>🔹 異常検出機構：異常を検出した場合、ロボットと本製品の動作を停止し、LEDランプの点滅回数で異常を知らせます (例)3回点滅＝モーターの過負荷が考えられます</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">RNP-B</span></p>
+        <div class="product-warning">⚠️ ※ノズルの全長によっては届かない場合がございます / ※スパッタの付着過多時は注意</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ローリングアース EM-500</h3>
+<p class="product-section-subtitle">縦・横兼用タイプ。1台でパイプ用とフランジ用の2姿勢使用可能。アースケーブルのねじれ防止構造</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>項目</th><th>仕様</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">型式</td>
+                  <td class="">EM-500</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">電流容量</td>
+                  <td class="">500A</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">使用率</td>
+                  <td class="">60%</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">取付寸法</td>
+                  <td class="">MAX50mm</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">取付姿勢</td>
+                  <td class="">縦・横兼用 (組み換え式)</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">本体質量</td>
+                  <td class="">3.6kg</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 縦・横兼用タイプのため、組み換えにより、1台でパイプ用とフランジ用の2姿勢の使用が可能</li><li>🔹 アースケーブルのねじれ防止：円滑な回転により、アースケーブルのねじれを防止できる構造</li><li>🔹 横型(フランジ用) と 縦型(パイプ用) の組み換えが容易</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">EM-500</span></p>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ワイヤ量検知器 WSE-CU</h3>
+<p class="product-section-subtitle">パックワイヤのワイヤ使用量を計測するための装置。カウンター一体型でケーブル配線が不要</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>項目</th><th>仕様</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">型式</td>
+                  <td class="">WSE-CU</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">入力電圧</td>
+                  <td class="">単相 AC100V</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">適用ワイヤ径</td>
+                  <td class="">Φ0.9〜Φ1.6</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">ワイヤ吐出量</td>
+                  <td class="">0.1m/1パルス</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">ワイヤ量設定値</td>
+                  <td class="">MAX 99,999.9m</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">接続ネジサイズ</td>
+                  <td class="">9/16-18UNF</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 カウンターユニット一体型：センサー部とカウンター部を一体化させたことで、センサー部とカウンター部間のケーブル配線が不要</li><li>🔹 簡単ワイヤセット：工具レスで開閉できるので吐出を脱着しやすく、ワイヤセット時にワイヤ位置を確認しながら装置に通すことができるようになり、従来機と比較してワイヤがセットしやすくなります</li><li>🔹 1日単位／1週間単位／1ヵ月単位等のワイヤ使用量がわかり、生産管理などに役立ちます</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">WSE-CU</span></p>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">展示会当日限定企画 (5大サービス)</h3>
+<p class="product-section-subtitle">会期 2026年6月12日〜6月13日 / 会場 幕張メッセ No.9ホール</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>No</th><th>企画</th><th>内容</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">1</td>
+                  <td class="">『チャック』サービス</td>
+                  <td class="">展示会当日に「小型ポジショナー」をご購入で、「適用チャック」をサービスいたします (ポジショナー型式 PS-1X→WP-200, PS-2X→WP-200, PS-3X→WP-300)</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">2</td>
+                  <td class="">『チャック』特価販売</td>
+                  <td class="">展示会当日に「PS-4X」「POK-07X」をご購入でチャック「WPT-600」を特価で提供</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">3</td>
+                  <td class="">『ローリングアース』サービス</td>
+                  <td class="">展示会当日に「ターニングロール」「パイプローラー」「ローリングアース」または「ローリングアース mini」を1個サービスで提供</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">4</td>
+                  <td class="">『メタルソー』サービス</td>
+                  <td class="">展示会当日に「エンゼル」をご購入で「メタルソー」2枚プレゼント</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">5</td>
+                  <td class="">『ミルカッター』サービス</td>
+                  <td class="">展示会当日に「Rカット」をご購入で「ミルカッター」を1本サービス。MHG-220/MHG-280/MHG-330/MHG-350のサイズ別ラインナップ (パイプ径21.7/22.0/26.0/27.2/30.0/34.0/42.7他)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 展示会当日限定の5大サービス企画</li><li>🔹 チャック・ローリングアース・メタルソー・ミルカッターのプレゼント／特価</li><li>🔹 対象機種購入で関連オプションを無料サービス</li>        </ul>
+        <div class="product-warning">⚠️ 対象ポジショナー、対象機種に限ります / サイズによってサービス内容が異なる場合があります</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">期間限定企画 『ビールセット』プレゼント／『マクドナルドカード』プレゼント</h3>
+<p class="product-section-subtitle">4月1日〜展示会当日。対象製品ご購入でアサヒビールセットまたはマクドナルドカードをプレゼント</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>対象商品</th><th>条件</th><th>プレゼント</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">ターニングロール／ポジショナー／パイプエース／タチトキ／ストリームジェントル／ヒュームゼロ／ヒュームゼロS／マックロール／Rカット／エンゼル</td>
+                  <td class="">対象製品をご購入</td>
+                  <td class="">ビールセット 1個</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">メタルソー Φ360以下</td>
+                  <td class="">1枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">メタルソー Φ315以下</td>
+                  <td class="">2枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">チップソー Φ180</td>
+                  <td class="">10枚以上購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">チップソー Φ305以上</td>
+                  <td class="">1枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">バンドソー 27mm幅以上</td>
+                  <td class="">5枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">バンドソー 20mm幅以下</td>
+                  <td class="">10枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">プラチナカット</td>
+                  <td class="">200枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">マックディスク・SPディスク・Mサム・Mナポ等</td>
+                  <td class="">50枚購入</td>
+                  <td class="">マクドナルドカード 1枚</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 対象期間中、対象製品をご購入でビールセットをプレゼント</li><li>🔹 メタルソー、チップソー、バンドソーなどの消耗品もマクドナルドカードでお得</li><li>🔹 マクドナルドカード500円分(イメージ)</li>        </ul>
+        <div class="product-warning">⚠️ 対象期間中、対象製品をご購入の方に、ビールセットをプレゼント致します。商品の発注は、当日決済となる場合があります</div>
+      </article>
+    </section>
 
 
-  <aside class="editorial-note">
-    <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。
-    <ul>
-      <li><a href="https://www.mac-wels.co.jp/" target="_blank" rel="noopener">https://www.mac-wels.co.jp/</a></li>
-      <li><a href="https://www.mac-wels.co.jp/robot_robomate.html" target="_blank" rel="noopener">https://www.mac-wels.co.jp/robot_robomate.html</a></li>
-    </ul>
-  </aside>
-  </main>
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">配布カタログから、ローリングアース「EM-500」、溶接ロボット用ノズルクリーナー「ロボメイト RNP-B」、ワイヤ量検知器「WSE-CU」など、TIG・半自動・ロボット溶接の周辺機器を中心にご紹介。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q2 / 新製品・新技術</div>
+          <h3 class="q-title">新製品・新技術</h3>
+          <div class="q-body">ロボメイト RNP-B はアーク溶接ロボットの溶接トーチ内ノズル付着スパッタを自動除去し、スパッタ付着防止液を自動塗布。ワイヤカット機能でワイヤつき出し長さを一定に保ち、ロボット溶接の連続稼働を支えます。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q3 / ブースのみどころ</div>
+          <h3 class="q-title">ブースのみどころ</h3>
+          <div class="q-body">溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">チラシ「2026東京WF」掲載の特価商品をご用意。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">ローリングアース EM-500、ロボメイト RNP-B、ワイヤ量検知器 WSE-CU の各カタログ + 2026東京WFチラシ、計4点を配布。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (4件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 カタログ_ローリングアース「EM-500」_【2025-12】.pdf</h3>
+          <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%A2%E3%83%BC%E3%82%B9%E3%80%8CEM-500%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E3%82%A2%E3%83%BC%E3%82%B9%E3%80%8CEM-500%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" class="pdf-iframe" title="カタログ_ローリングアース「EM-500」_【2025-12】.pdf のプレビュー"></iframe>
+      </div>
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 カタログ_ロボメイト「RNP-B」_【2025-12】.pdf</h3>
+          <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%9C%E3%83%A1%E3%82%A4%E3%83%88%E3%80%8CRNP-B%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AD%E3%83%9C%E3%83%A1%E3%82%A4%E3%83%88%E3%80%8CRNP-B%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" class="pdf-iframe" title="カタログ_ロボメイト「RNP-B」_【2025-12】.pdf のプレビュー"></iframe>
+      </div>
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 カタログ_ワイヤ量検知器「WSE-CU」_【2025-12】.pdf</h3>
+          <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AF%E3%82%A4%E3%83%A4%E9%87%8F%E6%A4%9C%E7%9F%A5%E5%99%A8%E3%80%8CWSE-CU%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0_%E3%83%AF%E3%82%A4%E3%83%A4%E9%87%8F%E6%A4%9C%E7%9F%A5%E5%99%A8%E3%80%8CWSE-CU%E3%80%8D_%E3%80%902025-12%E3%80%91.pdf" class="pdf-iframe" title="カタログ_ワイヤ量検知器「WSE-CU」_【2025-12】.pdf のプレビュー"></iframe>
+      </div>
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 チラシ_2026東京WF.pdf</h3>
+          <a href="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%83%81%E3%83%A9%E3%82%B7_2026%E6%9D%B1%E4%BA%ACWF.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E3%83%9E%E3%83%84%E3%83%A2%E3%83%88%E6%A9%9F%E6%A2%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%83%81%E3%83%A9%E3%82%B7_2026%E6%9D%B1%E4%BA%ACWF.pdf" class="pdf-iframe" title="チラシ_2026東京WF.pdf のプレビュー"></iframe>
+      </div>
+      <p class="attach-path">保管先: <code>attachments/マツモト機械株式会社/</code></p>
+    </section>
+
+
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+      <ul>
+<li><a href="https://www.mac-wels.co.jp/" target="_blank" rel="noopener">https://www.mac-wels.co.jp/</a></li><li><a href="https://www.mac-wels.co.jp/robot_robomate.html" target="_blank" rel="noopener">https://www.mac-wels.co.jp/robot_robomate.html</a></li>      </ul>
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>

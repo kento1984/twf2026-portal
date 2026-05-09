@@ -1,0 +1,303 @@
+{
+  "_doc": "A層30社のブランドカラー。各エージェントが収集→マージ。primary=メイン、secondary=濃い影 (グラデ用)、accent=アクセント、text_on_primary=primaryの上の文字色。",
+  "005": {
+    "name": "アネスト岩田㈱",
+    "primary": "#0046AB",
+    "secondary": "#002A66",
+    "accent": "#FFB800",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.anest-iwata.co.jp/corporate_slogan.html",
+    "notes": "コーポレートカラーは公式に「ブルー」と明言。スローガンロゴでも『i』をブルーで強調。アクセントは産業機器の警告色として黄を採用",
+    "_group": "group_a"
+  },
+  "008": {
+    "name": "イーグルクランプ㈱",
+    "primary": "#C8161D",
+    "secondary": "#7A0E13",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.eagleclamp.co.jp/",
+    "notes": "鷲の力強さを表す赤を主色に。SBB型クランプの『赤い締付確認ライン』など製品にも赤が使われており、重量物吊具メーカーとして安全色の赤＋黒の組合せが妥当",
+    "_group": "group_a"
+  },
+  "016": {
+    "name": "㈱エスカディア",
+    "primary": "#0E5E8A",
+    "secondary": "#06354F",
+    "accent": "#E76F1B",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://scadia.jp/",
+    "notes": "ロール成形・ロールベンダー（重切削系金属加工機）メーカーで、滋賀県甲賀。重機械業界で堅牢さを示すスチールブルーを主色、アクセントは火花/熱処理を想起させるオレンジ",
+    "_group": "group_a"
+  },
+  "017": {
+    "name": "㈱エステーリンク",
+    "primary": "#3D8C5F",
+    "secondary": "#1F4E33",
+    "accent": "#C9A24A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.st-link.co.jp/",
+    "notes": "新潟県燕市の精密板金・バリ取り機（メタルエステ）メーカー。社名『リンク』と燕三条の自然を想起させる深いグリーン、アクセントは『エステ』のニュアンスに合わせた金",
+    "_group": "group_a"
+  },
+  "020": {
+    "name": "㈱オグラ",
+    "primary": "#E8351E",
+    "secondary": "#9C1D0D",
+    "accent": "#FFD200",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://ogura-web.com/",
+    "notes": "鉄筋カッター・ベンダー・パンチャーの携帯式油圧工具メーカー（神奈川県海老名）。OGURAブランドは製品・カタログで一貫した強い赤を使用。アクセントは建設安全色の黄",
+    "_group": "group_a"
+  },
+  "039": {
+    "name": "サンコーミタチ㈱",
+    "primary": "#1F8A4C",
+    "secondary": "#0F4F2C",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.sanko-mitachi.com/",
+    "notes": "1958年創業の国産プロ用電動工具メーカー。MITACHIブランドのディスクグラインダ等は伝統的にグリーン系ボディが特徴。アクセントは負荷インジケータのオレンジを参照",
+    "_group": "group_a"
+  },
+  "040": {
+    "name": "酸素アーク工業㈱",
+    "primary": "#D7261E",
+    "secondary": "#8E1812",
+    "accent": "#FFB800",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.sansoarc.co.jp/",
+    "notes": "ランス棒・シャープランス（酸素溶断棒）のトップメーカー。鋼材を高温で溶断・穿孔する事業特性から、炎・熱を象徴する濃い赤を主軸に、ゴールド/オレンジをアクセントに採用。公式ガイドライン非公開のため、業種イメージから推定。",
+    "_group": "group_b"
+  },
+  "043": {
+    "name": "㈱サンワ",
+    "primary": "#E85D1A",
+    "secondary": "#A8400F",
+    "accent": "#1A2942",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://sanwa-tool.com/",
+    "notes": "板金切断専門の電動工具メーカー（ニブラ・シャー・エースカッタ等）。製品ボディ色がオレンジ寄りの暖色で展開されることが多く、HiKOKIバッテリー対応コードレス機の訴求も強い。コーポレートカラー非公開のため、製品イメージから推定。",
+    "_group": "group_b"
+  },
+  "048": {
+    "name": "静岡製機㈱",
+    "primary": "#0E8A4E",
+    "secondary": "#0A6038",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.shizuoka-seiki.co.jp/",
+    "notes": "農業機械（穀物乾燥機・色彩選別機）と環境機器（気化式冷風機・加湿機）の総合メーカー。農機分野の伝統的ブランドアイデンティティであるグリーンを主軸に、暖色アクセントで補完。公式ガイドライン非公開のため、業種・サイトトーンから推定。",
+    "_group": "group_b"
+  },
+  "049": {
+    "name": "シャープマーケティングジャパン㈱",
+    "primary": "#E6000D",
+    "secondary": "#A30009",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.sharp.co.jp/",
+    "notes": "シャープ公式ロゴマニュアルにて『Sharp red』として #E6000D を規定（社章・ロゴに統一指定）。BrandColorCode・Encycolorpedia 等複数の二次ソースで一致。",
+    "_group": "group_b"
+  },
+  "058": {
+    "name": "スリーエムジャパン㈱",
+    "primary": "#DA291C",
+    "secondary": "#9E1B11",
+    "accent": "#FFCD00",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.3m.co.jp/",
+    "notes": "3M公式ブランドガイドライン上のコーポレートレッドは PANTONE 185 C 系で、Web/印刷で広く使用される PANTONE 485 C 相当の #DA291C を採用。3Mビジュアルアイデンティティでは赤を主軸に黄色をサブとする組み合わせが定番。",
+    "_group": "group_b"
+  },
+  "060": {
+    "name": "㈱セブンティ・エイト",
+    "primary": "#F5A623",
+    "secondary": "#B87317",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#1A1A1A",
+    "source": "https://seventy-eight.co.jp/",
+    "notes": "ブランド名『HARD WORKER』で溶接スパッタ取り・ケレン棒・ガス溶断機点火装置等を製造。労働現場の視認性を象徴するイエロー/オレンジ＋ブラックの組合せが業界標準であり、社名・ブランドイメージとも合致。公式ガイドライン非公開のため推定。",
+    "_group": "group_b"
+  },
+  "063": {
+    "name": "大同興業㈱",
+    "primary": "#0B2F6B",
+    "secondary": "#071F4A",
+    "accent": "#D7141A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.daidokogyo.co.jp/ (DKK 公式: https://daido-kogyo.co.jp/media/special/1191/ — コーポレートカラーはネイビーブルー＋レッド、四つ割菱ロゴマーク)",
+    "notes": "大同興業 (DKK) の公式に発表されたコーポレートカラーはネイビーブルー（信頼・知性・力強さ）とレッド（情熱・勇気・挑戦）。ネイビーをprimary、深い濃紺をsecondary、レッドをaccentに配置。溶接機・産業機械の輸入商社らしい重厚感のある配色。",
+    "_group": "group_c"
+  },
+  "065": {
+    "name": "ＤＡＩＴＯ㈱",
+    "primary": "#E94E1B",
+    "secondary": "#A5320E",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.daito-co.com/ (焼却炉メーカー DAITO株式会社 — 公式ブランドガイドラインの公表なし。製品ジャンル「焼却炉・燃焼機器」と業界慣例から推定)",
+    "notes": "焼却炉 (SPシリーズ等) を主力とする燃焼機器専業メーカー。炎・熱を象徴するバーミリオン系オレンジをprimary、深いブリックレッドをsecondary、引き締めのチャコールをaccentに。火・燃焼の世界観を直接的に表現。",
+    "_group": "group_c"
+  },
+  "082": {
+    "name": "㈱ナカトミ",
+    "primary": "#00A0E9",
+    "secondary": "#006FB8",
+    "accent": "#FFD400",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.nakatomi-sangyo.com/ (長野・小布施町本社、スポットクーラー / 冷暖房機器メーカー — 公式ブランドガイドラインの公表なし。製品分野「冷却・送風」と業界慣例から推定)",
+    "notes": "スポットクーラー・冷風機・送風機が主力で、冷却＝シアン寄りのブライトブルーをprimary、深いマリンブルーをsecondary、現場で映えるイエロー (注意・電源色) をaccent に。ナカトミ製品ロゴ実物に近い清涼感ある配色。",
+    "_group": "group_c"
+  },
+  "083": {
+    "name": "日動工業㈱",
+    "primary": "#FFD200",
+    "secondary": "#1A1A1A",
+    "accent": "#E60012",
+    "text_on_primary": "#1A1A1A",
+    "source": "https://www.nichido-ind.co.jp/ (日動工業株式会社 / NICHIDO — 投光器・LED作業灯・コードリール大手。公式ブランドガイドラインの公表なしも、製品筐体カラー（一貫してイエロー＋ブラック）から強いプロダクトブランド色が確立)",
+    "notes": "NICHIDO の作業灯・投光器・LED 製品は黄＋黒のハードハット風カラーで一貫。視認性最優先の現場ブランドとして、ハイビズイエローを primary、ブラックを secondary、警告レッドを accent に。明るい primary なので text_on_primary は #1A1A1A。",
+    "_group": "group_c"
+  },
+  "089": {
+    "name": "日本ウエルディング㈱",
+    "primary": "#005BAC",
+    "secondary": "#003366",
+    "accent": "#00C8B4",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.nihonwelding.co.jp/ (日本ウエルディング株式会社 — ファイバーレーザー溶接機メーカー、東京都大田区。公式ブランドガイドラインの公表なし)",
+    "notes": "ファイバーレーザー溶接機 (welpenlaser シリーズ) が主力。レーザー / 精密加工業界で定番のテックブルーを primary、深いネイビーを secondary、レーザー光を想起させるアクアグリーン (1064nm Yb ファイバー光のイメージ) を accent に。",
+    "_group": "group_c"
+  },
+  "100": {
+    "name": "㈱ハタヤリミテッド",
+    "primary": "#E60012",
+    "secondary": "#A50010",
+    "accent": "#FFCC00",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.hataya.jp/ (株式会社ハタヤリミテッド — 名古屋市中区大須本社、コードリール・作業灯専業メーカー。公式ブランドガイドラインの公表なし。製品 (赤いコードリール ドラム) から判断)",
+    "notes": "ハタヤのコードリールは長年にわたり鮮やかな赤いドラムで認知されており、「赤＝ハタヤ」が業界共通イメージ。ビビッドレッドを primary、深いカーマインを secondary、注意喚起 (アース・電源警告) のイエローを accent に。",
+    "_group": "group_c"
+  },
+  "107": {
+    "name": "㈱フジ",
+    "primary": "#0B4DA2",
+    "secondary": "#E63027",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "http://www.fuji-handcar.com/",
+    "notes": "Industrial blue primary with safety red accent — typical palette for high-pressure gas cylinder handcar manufacturers; orange used for product highlight on official site.",
+    "_group": "group_d"
+  },
+  "111": {
+    "name": "富士電線販売㈱",
+    "primary": "#003B8E",
+    "secondary": "#D32F2F",
+    "accent": "#F2B233",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.fujiewc.co.jp/",
+    "notes": "Fuji Electric Wire — deep corporate blue with red accent (Mt. Fuji-inspired heritage palette common to 富士-named industrial firms); yellow for cable/safety signaling.",
+    "_group": "group_d"
+  },
+  "113": {
+    "name": "㈱プロスパー",
+    "primary": "#1F2A44",
+    "secondary": "#B8893A",
+    "accent": "#E5C572",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.prosper-web.co.jp/",
+    "notes": "High-end wholesale positioning — deep navy with antique gold accent to evoke 'prosperity'/premium tooling distribution.",
+    "_group": "group_d"
+  },
+  "115": {
+    "name": "㈱ホータス",
+    "primary": "#0E5BA8",
+    "secondary": "#F08200",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://hotas.biz/",
+    "notes": "Hotas drill grinder — site uses precision-machine blue with orange product highlights (DG series); black for industrial grade typography.",
+    "_group": "group_d"
+  },
+  "117": {
+    "name": "ボッシュ㈱",
+    "primary": "#EE0000",
+    "secondary": "#A30000",
+    "accent": "#FFFFFF",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.bosch.co.jp/",
+    "notes": "Bosch global brand red (Pantone 485 / RAL 3020 ~ #EE0000) with white accent — iconic identity used across all Bosch divisions.",
+    "_group": "group_d"
+  },
+  "120": {
+    "name": "マツモト機械㈱",
+    "primary": "#C8102E",
+    "secondary": "#1A1A1A",
+    "accent": "#E8E8E8",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.mac-wels.co.jp/",
+    "notes": "MAC welding equipment Osaka — strong industrial red echoing welding-arc heat with steel-grey neutral; classic welding-machine maker palette.",
+    "_group": "group_d"
+  },
+  "121": {
+    "name": "マツモト産業㈱エクセル貿易事業部",
+    "primary": "#C8102E",
+    "secondary": "#7A0A1C",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://mac-exe.co.jp/texec/",
+    "notes": "創業100年超の溶接機材総合商社。溶接の火花/熱を想起させるコーポレートレッドを主軸に、深い赤茶でセカンダリ、保護具的な黄色をアクセントに配置。",
+    "_group": "group_e"
+  },
+  "128": {
+    "name": "明大㈱",
+    "primary": "#2E7D32",
+    "secondary": "#1B5E20",
+    "accent": "#FFB300",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://meidai.co.jp/",
+    "notes": "ロックスリング®を主力とする繊維スリングメーカー。吊具・玉掛け業界の安全色（産業グリーン）を主軸に、JIS安全色の黄色をアクセントとして配置。",
+    "_group": "group_e"
+  },
+  "132": {
+    "name": "柳瀬㈱",
+    "primary": "#E8540C",
+    "secondary": "#A33908",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://yanase-saving.com/",
+    "notes": "ベルトサンダー・研磨砥材メーカー（YANASEブランド）。研磨砥粒の暖色オレンジを主軸に、深いラストオレンジでセカンダリ、漆黒でツール感をアクセントに。",
+    "_group": "group_e"
+  },
+  "134": {
+    "name": "ヤマト産業㈱",
+    "primary": "#0086A8",
+    "secondary": "#005A73",
+    "accent": "#E63946",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.e-yamato.co.jp/",
+    "notes": "圧力制御機器（減圧弁・調整器）メーカー、大阪生野区。高圧ガス業界に多いティール／シアン系をコーポレートに据え、危険警告系の赤をアクセントとして組み合わせる。",
+    "_group": "group_e"
+  },
+  "138": {
+    "name": "ヨコタ工業㈱",
+    "primary": "#3A3A3C",
+    "secondary": "#1C1C1E",
+    "accent": "#D62828",
+    "text_on_primary": "#FFFFFF",
+    "source": "http://www.yokota-kogyo.co.jp/",
+    "notes": "1919年創業のエアツール・パワーツールメーカー（東大阪）。インパクトレンチ等の重厚な工具ボディを想起するガンメタルグレーを主軸に、ブランドアクセントの赤をビビッドに配置。",
+    "_group": "group_e"
+  },
+  "148": {
+    "name": "三共㈱",
+    "primary": "#0B3D91",
+    "secondary": "#062366",
+    "accent": "#D4A24C",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://id-sankyo.co.jp/",
+    "notes": "HAL-TEC（ハルテック）貼合機メーカー＋油圧機器商社、大阪西区立売堀。先端技術を象徴する深いインダストリアルネイビーを主軸に、上質感のあるゴールドをアクセントに配置。",
+    "_group": "group_e"
+  }
+}

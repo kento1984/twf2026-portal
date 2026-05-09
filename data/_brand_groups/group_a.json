@@ -1,0 +1,56 @@
+{
+  "005": {
+    "name": "アネスト岩田㈱",
+    "primary": "#0046AB",
+    "secondary": "#002A66",
+    "accent": "#FFB800",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.anest-iwata.co.jp/corporate_slogan.html",
+    "notes": "コーポレートカラーは公式に「ブルー」と明言。スローガンロゴでも『i』をブルーで強調。アクセントは産業機器の警告色として黄を採用"
+  },
+  "008": {
+    "name": "イーグルクランプ㈱",
+    "primary": "#C8161D",
+    "secondary": "#7A0E13",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.eagleclamp.co.jp/",
+    "notes": "鷲の力強さを表す赤を主色に。SBB型クランプの『赤い締付確認ライン』など製品にも赤が使われており、重量物吊具メーカーとして安全色の赤＋黒の組合せが妥当"
+  },
+  "016": {
+    "name": "㈱エスカディア",
+    "primary": "#0E5E8A",
+    "secondary": "#06354F",
+    "accent": "#E76F1B",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://scadia.jp/",
+    "notes": "ロール成形・ロールベンダー（重切削系金属加工機）メーカーで、滋賀県甲賀。重機械業界で堅牢さを示すスチールブルーを主色、アクセントは火花/熱処理を想起させるオレンジ"
+  },
+  "017": {
+    "name": "㈱エステーリンク",
+    "primary": "#3D8C5F",
+    "secondary": "#1F4E33",
+    "accent": "#C9A24A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.st-link.co.jp/",
+    "notes": "新潟県燕市の精密板金・バリ取り機（メタルエステ）メーカー。社名『リンク』と燕三条の自然を想起させる深いグリーン、アクセントは『エステ』のニュアンスに合わせた金"
+  },
+  "020": {
+    "name": "㈱オグラ",
+    "primary": "#E8351E",
+    "secondary": "#9C1D0D",
+    "accent": "#FFD200",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://ogura-web.com/",
+    "notes": "鉄筋カッター・ベンダー・パンチャーの携帯式油圧工具メーカー（神奈川県海老名）。OGURAブランドは製品・カタログで一貫した強い赤を使用。アクセントは建設安全色の黄"
+  },
+  "039": {
+    "name": "サンコーミタチ㈱",
+    "primary": "#1F8A4C",
+    "secondary": "#0F4F2C",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.sanko-mitachi.com/",
+    "notes": "1958年創業の国産プロ用電動工具メーカー。MITACHIブランドのディスクグラインダ等は伝統的にグリーン系ボディが特徴。アクセントは負荷インジケータのオレンジを参照"
+  }
+}

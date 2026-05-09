@@ -122,12 +122,330 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #005BAC 0%, #003366 100%);
+  }
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #005BAC;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #005BAC;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #005BAC;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #00C8B4;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
-    border-radius: 8px;
+    border-left: 6px solid #005BAC;
+    border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
   }
@@ -135,14 +453,14 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--red-500);
+    color: #005BAC;
     margin-bottom: 4px;
   }
   .q-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--gray-800);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
   }
   .q-body {
     font-size: 16px;
@@ -150,30 +468,35 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
 
+  /* === Attachments === */
   .attachments {
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 24px 28px;
     background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments-h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    color: var(--gray-800);
+    border-radius: 10px;
   }
   .pdf-card {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 1px solid var(--gray-200);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #fff;
   }
-  .pdf-card:first-of-type {
-    margin-top: 0;
-  }
+  .pdf-card:first-of-type { margin-top: 0; }
   .pdf-card-header {
     display: flex;
     justify-content: space-between;
@@ -195,18 +518,16 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--blue-500);
+    background: #005BAC;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s;
   }
-  .pdf-download-btn:hover {
-    background: #004F9E;
-  }
+  .pdf-download-btn:hover { opacity: 0.85; }
   .pdf-iframe {
     border: none;
     display: block;
@@ -227,29 +548,47 @@
     word-break: break-all;
   }
 
-  .reply-meta {
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #005BAC;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
     font-size: 13px;
     color: var(--gray-600);
-    margin-top: 4px;
   }
 
-  .q5-only-notice {
-    background: #fff8e1;
-    border: 1px solid #f0c36d;
-    border-left: 6px solid #e6a23c;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #7a5a1d;
-  }
-  .q5-only-notice strong {
-    color: #6b4818;
-  }
-
+  /* === Editorial note === */
   .editorial-note {
-    margin-top: 48px;
+    margin-top: 56px;
     padding: 14px 18px;
     background: var(--gray-50);
     border: 1px dashed var(--gray-200);
@@ -272,66 +611,7 @@
     margin-top: 2px;
     word-break: break-all;
   }
-  .editorial-note a {
-    color: var(--blue-500);
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
-  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -350,69 +630,186 @@
     <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
-    <span class="maker-no">No.089</span>
-    <h1>⽇本ウエルディング㈱</h1>
-    <div class="maker-meta">
-<span>カテゴリ: ファイバーレーザー</span><span>回答受信: 2026-04-23 09:59</span>    </div>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.089</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+<span>ファイバーレーザー</span>      </p>
+      <h1 class="maker-hero-name">⽇本ウエルディング㈱</h1>
+<p class="maker-hero-cat">FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。</p>      <div class="maker-hero-badges">
+        <span class="badge badge-discount">特別割引あり</span>
+      </div>
+      <a class="maker-hero-cta" href="https://www.nihonwelding.co.jp/ (日本ウエルディング株式会社 — ファイバーレーザー溶接機メーカー、東京都大田区。公式ブランドガイドラインの公表なし)" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
+  <div class="maker-content-wrap">
 
-  <section class="q-list">
-      <article class="q-card">
-        <div class="q-label">Q1 / 企画概要</div>
-        <h2 class="q-title">企画概要</h2>
-        <div class="q-body">ファイバーレーザー溶接機 FBL-1000CW を実演展示します。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q2 / 新製品・新技術</div>
-        <h2 class="q-title">新製品・新技術</h2>
-        <div class="q-body">他社が海外製主体の中で、FBL-1000CW は国産機。安心の品質とサポート体制が特長です。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q3 / ブースのみどころ</div>
-        <h2 class="q-title">ブースのみどころ</h2>
-        <div class="q-body">FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q4 / セール企画・特典</div>
-        <h2 class="q-title">セール企画・特典</h2>
-        <div class="q-body">展示会特価でご提供します。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q5 / 配布資料・備考</div>
-        <h2 class="q-title">配布資料・備考</h2>
-        <div class="q-body">FBL-1000CW カタログを配布。</div>
-      </article>
-  </section>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">📌</span> みどころ</dt>
+          <dd>FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>展示会特価でご提供します。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
+          <dd>他社が海外製主体の中で、FBL-1000CW は国産機。安心の品質とサポート体制が特長です。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>1点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📊</span> 製品テーブル</dt>
+          <dd>1カテゴリ抽出済み — モデル・特価・新製品をテーブル化</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📅</span> 回答受信</dt>
+          <dd>2026-04-23 09:59</dd>
+        </div>
+      </dl>
+    </section>
 
-  <section class="attachments">
-    <h2 class="attachments-h2">📎 添付資料 (1件)</h2>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 FBL-1000CWカタログ.pdf</h3>
-        <a href="../../attachments/%E6%97%A5%E6%9C%AC%E3%82%A6%E3%82%A8%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FBL-1000CW%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+    <h2 class="section-h2">📊 製品情報・特価リスト</h2>
+    <section class="product-info">
+      <article class="product-section">
+        <h3 class="product-section-title">WEL-Penlaser FBL-1000CW</h3>
+<p class="product-section-subtitle">1000W出力 CW発振ファイバーレーザー（溶接・切断のリノベーションを）</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>項目</th><th>仕様</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">型式</td>
+                  <td class="">FBL-1000CW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">発振器</td>
+                  <td class="">出力1000W／波長1.07μm／ビーム径Φ0.4mm／発振方式CW（連続発振）</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">電源</td>
+                  <td class="">AC200V／三相50/60Hz</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">入力電圧変動範囲</td>
+                  <td class="">AC200V±10%</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">外形寸法</td>
+                  <td class="">W410×H413×D470mm相当（本体）</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">質量</td>
+                  <td class="">約60kg</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">レーザー発振器/光ケーブル</td>
+                  <td class="">レーザー出力1000W／光ケーブル長10m</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">シーケンス</td>
+                  <td class="">保護等級IP54、レーザークラス4</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">冷却方式</td>
+                  <td class="">水冷／冷却水温度30℃</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">使用温度範囲</td>
+                  <td class="">10～40℃</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">湿度</td>
+                  <td class="">10～90％（結露なきこと）</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">トーチ仕様</td>
+                  <td class="">重量約2.0kg／ケーブル外径Φ7／2Wayハンドトーチ（ストレート/ヘッド可動）</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">チラー</td>
+                  <td class="">外形W360×H583×D504mm／質量約45kg／冷却能力1.7kW／流量2.5L/min</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">付属品</td>
+                  <td class="">光ケーブル、加工レンズ、レーザー保護ガラス、トーチ、安全保護具一式</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 1000W出力 CW発振ファイバーレーザー（ハイパワー&amp;コンパクト）</li><li>🔹 ヘッド交換式 2Wayハンドトーチ（ストレート/スーパードライブ）</li><li>🔹 パルス（変調）とCW（連続波）の2つのモードを備える</li><li>🔹 戻り光保護機構を内蔵、4段階安全機能</li><li>🔹 アップ/ダウンスロープ制御、アクティブリモコン搭載</li>        </ul>
+        <div class="product-warning">⚠️ レーザークラス4／使用には適切な保護具着用必須 / 保護メガネ（OD7以上）使用推奨 / 結露なきこと（湿度10～90%） / 国家試験「特定化学物質作業主任者技能講習」受講推奨</div>
+      </article>
+    </section>
+
+
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">ファイバーレーザー溶接機 FBL-1000CW を実演展示します。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q2 / 新製品・新技術</div>
+          <h3 class="q-title">新製品・新技術</h3>
+          <div class="q-body">他社が海外製主体の中で、FBL-1000CW は国産機。安心の品質とサポート体制が特長です。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q3 / ブースのみどころ</div>
+          <h3 class="q-title">ブースのみどころ</h3>
+          <div class="q-body">FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">展示会特価でご提供します。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">FBL-1000CW カタログを配布。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (1件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 FBL-1000CWカタログ.pdf</h3>
+          <a href="../../attachments/%E6%97%A5%E6%9C%AC%E3%82%A6%E3%82%A8%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FBL-1000CW%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E6%97%A5%E6%9C%AC%E3%82%A6%E3%82%A8%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FBL-1000CW%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" class="pdf-iframe" title="FBL-1000CWカタログ.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E6%97%A5%E6%9C%AC%E3%82%A6%E3%82%A8%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FBL-1000CW%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" class="pdf-iframe" title="FBL-1000CWカタログ.pdf のプレビュー"></iframe>
-    </div>
-    <p class="attach-path">保管先: <code>attachments/日本ウエルディング株式会社/</code></p>
-  </section>
+      <p class="attach-path">保管先: <code>attachments/日本ウエルディング株式会社/</code></p>
+    </section>
 
-  <section class="pamphlet">
-    <h2 class="pamphlet-h2">公式パンフレットより</h2>
-    <div class="pamphlet-meta">
-<span class="pamphlet-section">ファイバーレーザー</span><span class="pamphlet-note-text">ファイバーレーザー溶接機 PRE 1000CW</span>    </div>
-    <div class="pamphlet-img-wrap">
-      <img src="../../data/pamphlet_pages/page_004.png" alt="公式パンフレット p.4" />
-    </div>
-    <p class="pamphlet-page-link">公式パンフレット p.4 に掲載</p>
-  </section>
+    <h2 class="section-h2">📕 公式パンフレットより</h2>
+    <section class="pamphlet">
+      <div class="pamphlet-meta">
+<span class="pamphlet-section">ファイバーレーザー</span><span class="pamphlet-note-text">ファイバーレーザー溶接機 PRE 1000CW</span>      </div>
+      <div class="pamphlet-img-wrap">
+        <img src="../../data/pamphlet_pages/page_004.png" alt="公式パンフレット p.4" />
+      </div>
+      <p class="pamphlet-page-link">公式パンフレット p.4 に掲載</p>
+    </section>
 
-  <aside class="editorial-note">
-    <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。
-  </aside>
-  </main>
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>

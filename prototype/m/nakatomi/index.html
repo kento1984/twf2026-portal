@@ -122,12 +122,330 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
+  /* === Full-bleed override (A-tier) === */
+  body { background: var(--gray-50); }
+  main.maker-page { max-width: none; padding: 0 0 96px; }
+  .maker-content-wrap {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* === Hero banner (brand-colored full-bleed) === */
+  .maker-hero {
+    position: relative;
+    color: #FFFFFF;
+    padding: 84px 32px 68px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #00A0E9 0%, #006FB8 100%);
+  }
+  .maker-hero-pattern {
+    position: absolute;
+    top: -10%;
+    right: -8%;
+    width: 55%;
+    height: 130%;
+    background-image:
+      radial-gradient(circle at 70% 50%, rgba(255,255,255,0.14) 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .maker-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-max);
+    margin: 0 auto;
+  }
+  .maker-hero-eyebrow {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    opacity: 0.8;
+    margin: 0 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .maker-hero-no {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius: 3px;
+  }
+  .maker-hero-tier {
+    background: rgba(255,255,255,0.18);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+  }
+  .maker-hero-name {
+    font-size: clamp(40px, 6vw, 72px);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin: 8px 0 14px;
+  }
+  .maker-hero-cat {
+    margin: 0;
+    font-size: 16px;
+    opacity: 0.85;
+    line-height: 1.55;
+    max-width: 700px;
+  }
+  .maker-hero-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 22px 0 0;
+  }
+  .badge {
+    display: inline-block;
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  }
+  .badge-discount { background: #16a34a; color: #fff; }
+  .badge-special { background: #9333ea; color: #fff; }
+  .badge-priority { background: #dc2626; color: #fff; }
+  .maker-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 22px;
+    padding: 11px 22px;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 999px;
+    color: inherit !important;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.15s, transform 0.15s;
+  }
+  .maker-hero-cta:hover {
+    background: rgba(255,255,255,0.28);
+    transform: translateX(2px);
+  }
+
+  /* === Properties panel (Notion風 metadata) === */
+  .maker-props {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid var(--gray-200);
+    border-left: 6px solid #00A0E9;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
+    padding: 22px 32px;
+    margin: -36px 0 48px;
+    position: relative;
+    z-index: 5;
+  }
+  .property-list { margin: 0; }
+  .property-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 18px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--gray-100);
+  }
+  .property-row:last-child { border-bottom: none; }
+  .property-row dt {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .property-icon { font-size: 17px; line-height: 1.4; flex-shrink: 0; }
+  .property-row dd {
+    margin: 0;
+    color: var(--gray-800);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* === Section heading === */
+  .section-h2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--gray-800);
+    margin: 64px 0 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #00A0E9;
+  }
+
+  /* === Product info section (PDF extracted) === */
+  .product-info { margin-top: 56px; }
+  .product-section {
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-md);
+  }
+  .product-section-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--gray-800);
+    margin: 0 0 4px;
+  }
+  .product-section-subtitle {
+    font-size: 13px;
+    color: var(--gray-600);
+    margin: 0 0 14px;
+    line-height: 1.55;
+  }
+  .product-table-wrap {
+    overflow-x: auto;
+    margin: 8px 0 14px;
+    border: 1px solid var(--gray-200);
+    border-radius: 6px;
+  }
+  .product-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .product-table thead { background: var(--gray-100); }
+  .product-table th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 700;
+    color: var(--gray-700);
+    border-bottom: 2px solid var(--gray-200);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .product-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--gray-100);
+    color: var(--gray-800);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  .product-table tbody tr:last-child td { border-bottom: none; }
+  .product-table tbody tr:hover { background: var(--gray-50); }
+  .product-table .col-first {
+    font-family: var(--font-mono);
+    font-weight: 700;
+    color: #00A0E9;
+    white-space: nowrap;
+  }
+  .product-table .col-price {
+    font-weight: 800;
+    color: #C8102E;
+    white-space: nowrap;
+  }
+  .product-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 12px;
+    display: grid;
+    gap: 6px;
+  }
+  .product-highlights li {
+    padding: 9px 14px;
+    background: var(--gray-50);
+    border-left: 3px solid #FFD400;
+    font-size: 14px;
+    color: var(--gray-800);
+    border-radius: 0 4px 4px 0;
+    line-height: 1.55;
+  }
+  .product-warning {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #7a5a1d;
+    line-height: 1.6;
+  }
+  .new-models-line {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--gray-600);
+  }
+  .new-models-line .new-pill {
+    display: inline-block;
+    margin: 0 4px 4px 0;
+    padding: 2px 8px;
+    background: #16a34a;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  /* === Product gallery (graceful empty) === */
+  .product-gallery { margin-top: 56px; }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .product-card {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .product-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  }
+  .product-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: var(--gray-50);
+    padding: 12px;
+  }
+  .product-card figcaption {
+    padding: 12px 16px;
+    border-top: 1px solid var(--gray-100);
+  }
+  .product-card-name {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--gray-800);
+    line-height: 1.4;
+  }
+  .product-card-cat {
+    margin: 4px 0 0;
+    font-size: 12px;
+    color: var(--gray-600);
+  }
+
+  /* === Q-list === */
+  .q-list { display: flex; flex-direction: column; gap: 18px; }
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
-    border-radius: 8px;
+    border-left: 6px solid #00A0E9;
+    border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
   }
@@ -135,14 +453,14 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: var(--red-500);
+    color: #00A0E9;
     margin-bottom: 4px;
   }
   .q-title {
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 19px;
+    font-weight: 800;
     color: var(--gray-800);
-    margin-bottom: 12px;
+    margin: 0 0 12px;
   }
   .q-body {
     font-size: 16px;
@@ -150,30 +468,35 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .q5-only-notice {
+    background: #fff8e1;
+    border: 1px solid #f0c36d;
+    border-left: 6px solid #e6a23c;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 24px 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #7a5a1d;
+  }
+  .q5-only-notice strong { color: #6b4818; }
 
+  /* === Attachments === */
   .attachments {
-    margin-top: 40px;
+    margin-top: 24px;
     padding: 24px 28px;
     background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments-h2 {
-    font-size: 20px;
-    font-weight: 700;
-    margin: 0 0 16px;
-    color: var(--gray-800);
+    border-radius: 10px;
   }
   .pdf-card {
-    margin-top: 20px;
+    margin-top: 18px;
     border: 1px solid var(--gray-200);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: var(--shadow-md);
     background: #fff;
   }
-  .pdf-card:first-of-type {
-    margin-top: 0;
-  }
+  .pdf-card:first-of-type { margin-top: 0; }
   .pdf-card-header {
     display: flex;
     justify-content: space-between;
@@ -195,18 +518,16 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: var(--blue-500);
+    background: #00A0E9;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
     font-weight: 700;
-    text-decoration: none;
+    text-decoration: none !important;
     white-space: nowrap;
-    transition: background 0.15s ease;
+    transition: opacity 0.15s;
   }
-  .pdf-download-btn:hover {
-    background: #004F9E;
-  }
+  .pdf-download-btn:hover { opacity: 0.85; }
   .pdf-iframe {
     border: none;
     display: block;
@@ -227,29 +548,47 @@
     word-break: break-all;
   }
 
-  .reply-meta {
+  /* === Pamphlet === */
+  .pamphlet { margin-top: 0; }
+  .pamphlet-meta {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+    font-size: 14px;
+  }
+  .pamphlet-section {
+    display: inline-block;
+    padding: 4px 12px;
+    background: #00A0E9;
+    color: #fff;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 13px;
+  }
+  .pamphlet-note-text {
+    color: var(--gray-600);
+    align-self: center;
+    line-height: 1.5;
+  }
+  .pamphlet-img-wrap {
+    border: 1px solid var(--gray-200);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    background: #fff;
+  }
+  .pamphlet-img-wrap img { width: 100%; height: auto; }
+  .pamphlet-page-link {
+    margin-top: 12px;
+    text-align: right;
     font-size: 13px;
     color: var(--gray-600);
-    margin-top: 4px;
   }
 
-  .q5-only-notice {
-    background: #fff8e1;
-    border: 1px solid #f0c36d;
-    border-left: 6px solid #e6a23c;
-    border-radius: 8px;
-    padding: 16px 20px;
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 1.7;
-    color: #7a5a1d;
-  }
-  .q5-only-notice strong {
-    color: #6b4818;
-  }
-
+  /* === Editorial note === */
   .editorial-note {
-    margin-top: 48px;
+    margin-top: 56px;
     padding: 14px 18px;
     background: var(--gray-50);
     border: 1px dashed var(--gray-200);
@@ -272,66 +611,7 @@
     margin-top: 2px;
     word-break: break-all;
   }
-  .editorial-note a {
-    color: var(--blue-500);
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
-  }
+  .editorial-note a { color: var(--blue-500); }
 
     .maker-footer {
       margin-top: 64px;
@@ -350,70 +630,453 @@
     <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
   </header>
   <main class="maker-page">
-  <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
-    <span class="maker-no">No.082</span>
-    <h1>㈱ナカトミ</h1>
-    <div class="maker-meta">
-<span>回答受信: 2026-04-22 11:47</span>    </div>
+  <header class="maker-hero">
+    <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <div class="maker-hero-inner">
+      <p class="maker-hero-eyebrow">
+        <span class="maker-hero-no">No.082</span>
+        <span class="maker-hero-tier">A-Tier フル詳細</span>
+      </p>
+      <h1 class="maker-hero-name">㈱ナカトミ</h1>
+<p class="maker-hero-cat">全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。</p>      <div class="maker-hero-badges">
+        <span class="badge badge-discount">特別割引あり</span>
+        <span class="badge badge-priority">最優先</span>
+      </div>
+      <a class="maker-hero-cta" href="https://www.nakatomi-sangyo.com/ (長野・小布施町本社、スポットクーラー / 冷暖房機器メーカー — 公式ブランドガイドラインの公表なし。製品分野「冷却・送風」と業界慣例から推定)" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+    </div>
   </header>
 
+  <div class="maker-content-wrap">
 
-  <section class="q-list">
-      <article class="q-card">
-        <div class="q-label">Q1 / 企画概要</div>
-        <h2 class="q-title">企画概要</h2>
-        <div class="q-body">SAC シリーズ (スポット冷風機・自動首振り対応) と SPC シリーズ (排熱ダクト付スポットクーラー) を中心に、夏向け冷却ソリューションを稼働展示。風量と冷感を実機で体感いただけます。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q2 / 新製品・新技術</div>
-        <h2 class="q-title">新製品・新技術</h2>
-        <div class="q-body">30周年記念モデル SAC-2500LTD / SAC-2900LTD、環境配慮型 R32 冷媒採用機種、全閉式ファンモーター搭載でホコリ・粉塵をシャットアウトする業務用モデルを展開。工場・倉庫の暑熱対策に。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q3 / ブースのみどころ</div>
-        <h2 class="q-title">ブースのみどころ</h2>
-        <div class="q-body">全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q4 / セール企画・特典</div>
-        <h2 class="q-title">セール企画・特典</h2>
-        <div class="q-body">配布する2026夏チラシに参考価格を掲載。京葉エリア・さいたまエリア向けにも重点配布予定で、当日特価でご案内します。</div>
-      </article>
-      <article class="q-card">
-        <div class="q-label">Q5 / 配布資料・備考</div>
-        <h2 class="q-title">配布資料・備考</h2>
-        <div class="q-body">2026東京ウェルディングフェスタ向け夏チラシ (表/裏) と2026夏カタログを配布。公式HP からもカタログのダウンロード・印刷が可能 (nakatomi-sangyo.com/catalog)。</div>
-      </article>
-  </section>
+    <section class="maker-props">
+      <dl class="property-list">
+        <div class="property-row">
+          <dt><span class="property-icon">📌</span> みどころ</dt>
+          <dd>全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🎁</span> セール企画</dt>
+          <dd>配布する2026夏チラシに参考価格を掲載。京葉エリア・さいたまエリア向けにも重点配布予定で、当日特価でご案内します。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
+          <dd>30周年記念モデル SAC-2500LTD / SAC-2900LTD、環境配慮型 R32 冷媒採用機種、全閉式ファンモーター搭載でホコリ・粉塵をシャットアウトする業務用モデルを展開。工場・倉庫の暑熱対策に。</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📎</span> 配布資料</dt>
+          <dd>2点 (PDF) — ページ下部にプレビュー掲載</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📊</span> 製品テーブル</dt>
+          <dd>6カテゴリ抽出済み — モデル・特価・新製品をテーブル化</dd>
+        </div>
+        <div class="property-row">
+          <dt><span class="property-icon">📅</span> 回答受信</dt>
+          <dd>2026-04-22 11:47</dd>
+        </div>
+      </dl>
+    </section>
 
-  <section class="attachments">
-    <h2 class="attachments-h2">📎 添付資料 (2件)</h2>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 2026東京ウェルディングフェスタ向け夏チラシ（表）.pdf</h3>
-        <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A1%A8%EF%BC%89.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+    <h2 class="section-h2">📊 製品情報・特価リスト</h2>
+    <section class="product-info">
+      <article class="product-section">
+        <h3 class="product-section-title">スポットクーラー スタンダードシリーズ (バージョンアップ)</h3>
+<p class="product-section-subtitle">環境省冷媒R32採用＆移動性強化のスタンダード機。単相100V/三相200Vをラインナップ</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>電源</th><th>特別価格(税別)</th><th>備考</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">SAC-25</td>
+                  <td class="">単相100V</td>
+                  <td class="col-price">¥76,800</td>
+                  <td class="">NEW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-25S</td>
+                  <td class="">単相100V</td>
+                  <td class="col-price">¥81,800</td>
+                  <td class="">NEW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-26S</td>
+                  <td class="">三相200V</td>
+                  <td class="col-price">¥92,000</td>
+                  <td class="">NEW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SPC-26S</td>
+                  <td class="">三相200V (能力UP)</td>
+                  <td class="col-price">¥96,000</td>
+                  <td class="">NEW</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 ①環境省冷媒R32に配慮したエコ冷媒R32を採用</li><li>🔹 ②従来モデルから冷房能力を強化！</li><li>🔹 ③キャスターをウレタン製に変更し、移動性を改善</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">SAC-25</span><span class="new-pill">SAC-25S</span><span class="new-pill">SAC-26S</span><span class="new-pill">SPC-26S</span></p>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">スタンダードシリーズ ドレンレスタイプ／大風量モデル SPC-100B</h3>
+<p class="product-section-subtitle">強風と冷感を兼ね揃えた大風量スポットクーラー！(到達距離約17m)</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>電源</th><th>特別価格(税別)</th><th>備考</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">SAC-28D</td>
+                  <td class="">単相100V (ドレンレス)</td>
+                  <td class="col-price">¥95,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-280S</td>
+                  <td class="">単相100V (ドレンレス)</td>
+                  <td class="col-price">(価格表記)</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SPC-28</td>
+                  <td class="">三相200V (ドレンレス)</td>
+                  <td class="col-price">(価格表記)</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SPC-280S</td>
+                  <td class="">三相200V (ドレンレス・大風量)</td>
+                  <td class="col-price">(価格表記)</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SPC-100B</td>
+                  <td class="">三相200V</td>
+                  <td class="col-price">¥698,000</td>
+                  <td class="">冷房能力 50Hz 8.3kW / 60Hz 10.0kW、トルネード効果＋大風量で到達距離が伸びる 約17m</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 大型倉庫内、大型工場内、トラック・コンテナ積込み作業の冷却に</li><li>🔹 ドレンタンクが従来比2倍の大容量。連続作動長く水捨ての煩わしさから解放</li><li>🔹 移動が便利。ロックキャスター搭載で設置が簡単。アイボルトにつり上げ可能</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">SPC-100B</span></p>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">プレミアムシリーズ (強冷却 / マルチダクト / 冷暖・コンパクトな型など)</h3>
+<p class="product-section-subtitle">様々なニーズにお応え。100V電源のツインダクトタイプは100Vでクラス最大の冷房能力を実現</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>電源</th><th>冷房能力 50Hz</th><th>冷房能力 60Hz</th><th>特別価格(税別)</th><th>備考</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">SAC-30</td>
+                  <td class="">単相100V</td>
+                  <td class="">2.5kW</td>
+                  <td class="">3.0kW</td>
+                  <td class="col-price">¥138,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-30S</td>
+                  <td class="">単相100V</td>
+                  <td class="">2.5kW</td>
+                  <td class="">3.0kW</td>
+                  <td class="col-price">¥158,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SPC-30S</td>
+                  <td class="">三相200V</td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="col-price">¥158,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-34</td>
+                  <td class="">単相100V</td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="col-price">¥49,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-34S</td>
+                  <td class="">単相100V (ツインダクト)</td>
+                  <td class="">2.6kW (ツイン)</td>
+                  <td class="">3.4kW (ツイン)</td>
+                  <td class="col-price">¥208,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-18</td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="col-price">¥138,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-G8</td>
+                  <td class="">ツインダクト800W</td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="col-price">¥268,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-27HCS</td>
+                  <td class="">ツインダクト800W (冷暖兼用)</td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="col-price">¥498,000</td>
+                  <td class="">NEW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SAC-35HCS</td>
+                  <td class="">ツインダクト800W (冷暖兼用)</td>
+                  <td class=""></td>
+                  <td class=""></td>
+                  <td class="col-price">¥598,000</td>
+                  <td class="">NEW</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 100V電源1ロイヤルでクラス最大の冷房能力を実現</li><li>🔹 強冷却・マルチダクト・冷暖・コンパクトな型などラインナップ</li><li>🔹 プレミアムシリーズも全機種「エコ冷媒R32」を採用</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">SAC-27HCS</span><span class="new-pill">SAC-35HCS</span></p>
+        <div class="product-warning">⚠️ 100V電源以外のシリーズはツインダクトには対応しておりません</div>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">60cm 全閉式工場扇 / 大型冷風機 キャビネットファン</h3>
+<p class="product-section-subtitle">45cm羽根から6cm大きくなって風量UP！羽根径60cmだから工場でも圧倒的な広風力</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>電源</th><th>特別価格(税別)</th><th>備考</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">OPF-600SZ</td>
+                  <td class="">単相100V</td>
+                  <td class="col-price">¥29,800</td>
+                  <td class="">NEW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">OPF-600LSZ</td>
+                  <td class="">単相100V (ロースタンド)</td>
+                  <td class="col-price">¥22,800</td>
+                  <td class="">NEW</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">OPF-450SZ(U)</td>
+                  <td class="">単相100V</td>
+                  <td class="col-price">(価格表記)</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">DCF-3D45Q</td>
+                  <td class="">DC 45cm卓上型</td>
+                  <td class="col-price">¥29,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">M-25TA</td>
+                  <td class="">単相100V</td>
+                  <td class="col-price">¥29,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">MSF-45CQ</td>
+                  <td class="">ミスト機能付き</td>
+                  <td class="col-price">¥84,000</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">CABF-550Z</td>
+                  <td class="">単相100V (大型冷風機)</td>
+                  <td class="col-price">¥198,000</td>
+                  <td class="">オートストップ機能搭載</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 羽根径60cmだから工場でも圧倒的な広風力</li><li>🔹 ノズル噴霧でテラコッタ除湿冷却（ミスト機能付）</li><li>🔹 大型冷風機にはキャスターも付き移動らくらく</li>        </ul>
+        <p class="new-models-line">🆕 新製品: <span class="new-pill">OPF-600SZ</span><span class="new-pill">OPF-600LSZ</span></p>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">ビッグファンシリーズ＆DCサーキュレーター＆ジェットファン</h3>
+<p class="product-section-subtitle">従来のビッグファンも！直進性の高いサーキュレーター送風で約20m先まで風が届く</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>特別価格(税別)</th><th>備考</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">BF-60Z</td>
+                  <td class="col-price">¥26,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">BF-75YZ</td>
+                  <td class="col-price">¥60,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">BF-100YZ</td>
+                  <td class="col-price">¥97,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">BF-125YZ</td>
+                  <td class="col-price">(価格表記)</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">BF-75ZS</td>
+                  <td class="col-price">¥44,800</td>
+                  <td class=""></td>
+              </tr>
+              <tr>
+                  <td class="col-first ">DCS-600C</td>
+                  <td class="col-price">¥64,800</td>
+                  <td class="">DCサーキュレーター</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">SJF-450TW</td>
+                  <td class="col-price">¥148,000</td>
+                  <td class="">ジェットファン (上下左右首振機能)</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">NJF-560S</td>
+                  <td class="col-price">¥98,000</td>
+                  <td class="">ジェットファン (左右首振機能)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 羽根径約11m級の従来のビッグファンも！</li><li>🔹 直進性の高いDCサーキュレーター送風で約20m先まで風が届く</li><li>🔹 ジェットファンは首振機能搭載</li>        </ul>
+      </article>
+      <article class="product-section">
+        <h3 class="product-section-title">除湿機シリーズ／天吊り・床置式除湿機</h3>
+<p class="product-section-subtitle">工場・現場の湿度コントロールに最適な業務用除湿機ラインナップ</p>        <div class="product-table-wrap">
+          <table class="product-table">
+            <thead>
+              <tr>
+<th>モデル</th><th>除湿容量</th><th>特別価格(税別)</th>              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="col-first ">DM-10</td>
+                  <td class="">8L (1日)</td>
+                  <td class="col-price">¥44,800</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">DM-15</td>
+                  <td class="">15L (1日)</td>
+                  <td class="col-price">¥99,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">DM-15C</td>
+                  <td class="">15L (1日)</td>
+                  <td class="col-price">¥110,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">NDM-18C</td>
+                  <td class="">18L (1日)</td>
+                  <td class="col-price">¥158,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">DM-22</td>
+                  <td class="">20L (1日)</td>
+                  <td class="col-price">¥148,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">DM-30</td>
+                  <td class="">25L (1日)</td>
+                  <td class="col-price">¥240,000</td>
+              </tr>
+              <tr>
+                  <td class="col-first ">TFDM-25</td>
+                  <td class="">25L (1日・天吊式)</td>
+                  <td class="col-price">¥298,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <ul class="product-highlights">
+<li>🔹 工場・倉庫・現場での湿気対策に</li><li>🔹 天吊り・床置きから選べる豊富なラインナップ</li><li>🔹 業務用除湿機としての高い能力</li>        </ul>
+      </article>
+    </section>
+
+
+
+    <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
+    <section class="q-list">
+        <article class="q-card">
+          <div class="q-label">Q1 / 企画概要</div>
+          <h3 class="q-title">企画概要</h3>
+          <div class="q-body">SAC シリーズ (スポット冷風機・自動首振り対応) と SPC シリーズ (排熱ダクト付スポットクーラー) を中心に、夏向け冷却ソリューションを稼働展示。風量と冷感を実機で体感いただけます。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q2 / 新製品・新技術</div>
+          <h3 class="q-title">新製品・新技術</h3>
+          <div class="q-body">30周年記念モデル SAC-2500LTD / SAC-2900LTD、環境配慮型 R32 冷媒採用機種、全閉式ファンモーター搭載でホコリ・粉塵をシャットアウトする業務用モデルを展開。工場・倉庫の暑熱対策に。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q3 / ブースのみどころ</div>
+          <h3 class="q-title">ブースのみどころ</h3>
+          <div class="q-body">全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q4 / セール企画・特典</div>
+          <h3 class="q-title">セール企画・特典</h3>
+          <div class="q-body">配布する2026夏チラシに参考価格を掲載。京葉エリア・さいたまエリア向けにも重点配布予定で、当日特価でご案内します。</div>
+        </article>
+        <article class="q-card">
+          <div class="q-label">Q5 / 配布資料・備考</div>
+          <h3 class="q-title">配布資料・備考</h3>
+          <div class="q-body">2026東京ウェルディングフェスタ向け夏チラシ (表/裏) と2026夏カタログを配布。公式HP からもカタログのダウンロード・印刷が可能 (nakatomi-sangyo.com/catalog)。</div>
+        </article>
+    </section>
+
+    <h2 class="section-h2">📎 配布資料 (2件)</h2>
+    <section class="attachments">
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 2026東京ウェルディングフェスタ向け夏チラシ（表）.pdf</h3>
+          <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A1%A8%EF%BC%89.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A1%A8%EF%BC%89.pdf" class="pdf-iframe" title="2026東京ウェルディングフェスタ向け夏チラシ（表）.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A1%A8%EF%BC%89.pdf" class="pdf-iframe" title="2026東京ウェルディングフェスタ向け夏チラシ（表）.pdf のプレビュー"></iframe>
-    </div>
-    <div class="pdf-card">
-      <div class="pdf-card-header">
-        <h3>📄 2026東京ウェルディングフェスタ向け夏チラシ（裏）.pdf</h3>
-        <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A3%8F%EF%BC%89.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>📄 2026東京ウェルディングフェスタ向け夏チラシ（裏）.pdf</h3>
+          <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A3%8F%EF%BC%89.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
+        </div>
+        <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A3%8F%EF%BC%89.pdf" class="pdf-iframe" title="2026東京ウェルディングフェスタ向け夏チラシ（裏）.pdf のプレビュー"></iframe>
       </div>
-      <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%83%8A%E3%82%AB%E3%83%88%E3%83%9F/2026%E6%9D%B1%E4%BA%AC%E3%82%A6%E3%82%A7%E3%83%AB%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%83%95%E3%82%A7%E3%82%B9%E3%82%BF%E5%90%91%E3%81%91%E5%A4%8F%E3%83%81%E3%83%A9%E3%82%B7%EF%BC%88%E8%A3%8F%EF%BC%89.pdf" class="pdf-iframe" title="2026東京ウェルディングフェスタ向け夏チラシ（裏）.pdf のプレビュー"></iframe>
-    </div>
-    <p class="attach-path">保管先: <code>attachments/株式会社ナカトミ/</code></p>
-  </section>
+      <p class="attach-path">保管先: <code>attachments/株式会社ナカトミ/</code></p>
+    </section>
 
 
-  <aside class="editorial-note">
-    <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。
-    <ul>
-      <li><a href="https://www.nakatomi-sangyo.com/aircon/" target="_blank" rel="noopener">https://www.nakatomi-sangyo.com/aircon/</a></li>
-    </ul>
-  </aside>
-  </main>
+    <aside class="editorial-note">
+      <span class="label">※</span>本ページの Q1〜Q5 は、メーカーからお預かりした回答と添付資料、メーカー公式サイト掲載情報を基に、主催店として読みやすく再編集しています。製品情報・特価リストは添付チラシ・カタログから抽出しました。
+      <ul>
+<li><a href="https://www.nakatomi-sangyo.com/aircon/" target="_blank" rel="noopener">https://www.nakatomi-sangyo.com/aircon/</a></li>      </ul>
+    </aside>
+
+  </div>  </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>

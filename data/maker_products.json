@@ -1,0 +1,339 @@
+{
+  "_doc": "A層メーカー公式HPの製品画像URL。group_1が curl 経由で 9/10 取得成功、group_2/3 は WebFetch denial で空。",
+  "005": {
+    "name": "アネスト岩田㈱",
+    "products": [
+      {
+        "name": "スクロールコンプレッサ SLP-55EGD",
+        "category": "オイルフリー スクロールコンプレッサ",
+        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Scroll/Oil-Free/SLP/SLP-55EGD_10_S.png",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+      },
+      {
+        "name": "レシプロコンプレッサ TFP75CF-10",
+        "category": "オイルフリー レシプロコンプレッサ",
+        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Piston/Oil-Free/TFP/TFP75CF-10_05_S.png",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+      },
+      {
+        "name": "クロー（ツース）コンプレッサ FRL-150B",
+        "category": "オイルフリー クローコンプレッサ",
+        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Claw/Oil-Free/FRL/FRL-150B_10_S.png",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+      },
+      {
+        "name": "ブースタコンプレッサ EFBS04B-9.5",
+        "category": "オイルフリー ブースタコンプレッサ",
+        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Booster/Oil-Free/EFBS/EFBS04B-9.5_10_S.png",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "008": {
+    "name": "イーグルクランプ㈱",
+    "products": [
+      {
+        "name": "E型 縦つりクランプ",
+        "category": "鋼板用縦つりクランプ",
+        "image_url": "https://www.eagleclamp.co.jp/_managed/wp-content/uploads/E-13-30.png",
+        "source_page": "https://www.eagleclamp.co.jp/product/1122/"
+      },
+      {
+        "name": "EK型 縦つり用クランプ",
+        "category": "鋼板用縦つりクランプ",
+        "image_url": "https://www.eagleclamp.co.jp/_managed/wp-content/uploads/EK-50020-40.png",
+        "source_page": "https://www.eagleclamp.co.jp/product/1195/"
+      },
+      {
+        "name": "ET型 縦つりクランプ",
+        "category": "鋼板用縦つりクランプ",
+        "image_url": "https://www.eagleclamp.co.jp/_managed/wp-content/uploads/ET-13-20.png",
+        "source_page": "https://www.eagleclamp.co.jp/product/1203/"
+      },
+      {
+        "name": "SL型 縦つり横つり兼用クランプ",
+        "category": "鋼板用兼用クランプ",
+        "image_url": "https://www.eagleclamp.co.jp/_managed/wp-content/uploads/%E2%98%85230525_DSC00426_SL-13-20.png",
+        "source_page": "https://www.eagleclamp.co.jp/product/1213/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "016": {
+    "name": "㈱エスカディア",
+    "products": [
+      {
+        "name": "SRTシリーズ ロールベンダー",
+        "category": "2本ロール ロールベンダー",
+        "image_url": "https://scadia.jp/images/srt/srt01.jpg",
+        "source_page": "https://scadia.jp/roolbender/2rolls/srt/"
+      },
+      {
+        "name": "SRY 3本ロールベンダー",
+        "category": "3本ロール ロールベンダー",
+        "image_url": "https://scadia.jp/images/3rolls/3rolls_01.jpg",
+        "source_page": "https://scadia.jp/roolbender/3rolls/sry/"
+      },
+      {
+        "name": "SRF-55 4本ロールベンダー",
+        "category": "4本ロール ロールベンダー",
+        "image_url": "https://scadia.jp/images/4rolls/SRF-55.png",
+        "source_page": "https://scadia.jp/roolbender/4rolls/srf/"
+      },
+      {
+        "name": "SRF-55 加工サンプル",
+        "category": "4本ロール 円筒加工",
+        "image_url": "https://scadia.jp/images/4rolls/001.jpg",
+        "source_page": "https://scadia.jp/roolbender/4rolls/srf/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "017": {
+    "name": "㈱エステーリンク",
+    "products": [
+      {
+        "name": "板金屋のためのバリ取り機",
+        "category": "板金用バリ取り機",
+        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-01-01.jpg",
+        "source_page": "https://www.baritoriki.jp/"
+      },
+      {
+        "name": "バリ取り機 製品紹介画像",
+        "category": "板金用バリ取り機",
+        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-01-02.jpg",
+        "source_page": "https://www.baritoriki.jp/"
+      },
+      {
+        "name": "バリ取り機 加工事例",
+        "category": "板金用バリ取り機 加工事例",
+        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-02-01.jpg",
+        "source_page": "https://www.baritoriki.jp/"
+      },
+      {
+        "name": "バリ取り機 加工事例 2",
+        "category": "板金用バリ取り機 加工事例",
+        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-02-04.jpg",
+        "source_page": "https://www.baritoriki.jp/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "020": {
+    "name": "㈱オグラ",
+    "products": [
+      {
+        "name": "コードレス鉄筋カッター HCC-19MX",
+        "category": "コードレス電動油圧鉄筋カッター",
+        "image_url": "https://ogura-web.com/images/en/hcc19mxintro.png",
+        "source_page": "https://ogura-web.com/en/products/cutters/hcc19mx.html"
+      },
+      {
+        "name": "鉄筋カッター HCC-F1640",
+        "category": "電動油圧鉄筋カッター",
+        "image_url": "https://ogura-web.com/images/en/hccf1640intro.png",
+        "source_page": "https://ogura-web.com/en/products/cutters/hccf1640.html"
+      },
+      {
+        "name": "コードレス鉄筋カッター HCC-13BL",
+        "category": "コードレス電動油圧鉄筋カッター",
+        "image_url": "https://ogura-web.com/images/en/hcc13blintro.png",
+        "source_page": "https://ogura-web.com/en/products/cutters/hcc13bl.html"
+      },
+      {
+        "name": "コードレスニブラ N9205WMX",
+        "category": "金属薄板加工 コードレスニブラ",
+        "image_url": "https://ogura-web.com/images/en/n9205wmxintro.png",
+        "source_page": "https://ogura-web.com/en/products/metal-fabrication-tools/n9205wmx.html"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "039": {
+    "name": "サンコーミタチ㈱",
+    "products": [
+      {
+        "name": "ディスクグラインダ MG125SBD",
+        "category": "電子制御ディスクグラインダ",
+        "image_url": "https://www.sanko-mitachi.com/_src/6209/01-14-mg125sbd.jpg",
+        "source_page": "https://www.sanko-mitachi.com/products/disc-grinder/mg125sbd.html"
+      },
+      {
+        "name": "アングルグラインダ シリーズ",
+        "category": "ディスクグラインダ",
+        "image_url": "https://www.sanko-mitachi.com/_src/5995/img20211118202927219916.jpg",
+        "source_page": "https://www.sanko-mitachi.com/products/disc-grinder/angle_series.html"
+      },
+      {
+        "name": "ストレートグラインダ シリーズ",
+        "category": "ストレートグラインダ",
+        "image_url": "https://www.sanko-mitachi.com/_src/5997/img20211118202927235518.jpg",
+        "source_page": "https://www.sanko-mitachi.com/products/straight/straight_series.html"
+      },
+      {
+        "name": "電子制御コントローラ",
+        "category": "電動工具用電子制御",
+        "image_url": "https://www.sanko-mitachi.com/_src/5999/img20211118202927206951.jpg",
+        "source_page": "https://www.sanko-mitachi.com/products/electric-control/index.html"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "040": {
+    "name": "酸素アーク工業㈱",
+    "products": [
+      {
+        "name": "シャープランス",
+        "category": "酸素アーク切断棒（ランス棒）",
+        "image_url": "https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/sharplance/sharp01_lrg.jpg",
+        "source_page": "https://www.sansoarc.co.jp/sharp_lance/"
+      },
+      {
+        "name": "スターカッテンド",
+        "category": "酸素アーク切断棒",
+        "image_url": "https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/star/star01_lrg.jpg",
+        "source_page": "https://www.sansoarc.co.jp/product/star_cuttend/"
+      },
+      {
+        "name": "水中熔断・溶接棒",
+        "category": "水中切断・溶接用ランス棒",
+        "image_url": "https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/underwater/underwater01_lrg.jpg",
+        "source_page": "https://www.sansoarc.co.jp/product/underwater/"
+      },
+      {
+        "name": "ポータブルカッティング(OZ)",
+        "category": "携帯型酸素切断装置",
+        "image_url": "https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/portable/portable01_lrg.jpg",
+        "source_page": "https://www.sansoarc.co.jp/product/portable_cutting/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "043": {
+    "name": "㈱サンワ",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "公式サイト sanwa-tool.com が curl 直アクセスを '無効なURL' で拒否（ボット対策）。画像URLを検証できず。"
+  },
+  "048": {
+    "name": "静岡製機㈱",
+    "products": [
+      {
+        "name": "気化式冷風機 RKF306α",
+        "category": "気化式冷風機（1〜2人用）",
+        "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf306%CE%B1/file/3817/rfk306%CE%B1_icon.jpg",
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+      },
+      {
+        "name": "気化式冷風機 RKF406α",
+        "category": "気化式冷風機（2〜4人用）",
+        "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf406%CE%B1/file/188/rkf406_thum.jpg",
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+      },
+      {
+        "name": "気化式冷風機 RKF506α",
+        "category": "気化式冷風機（4〜6人用）",
+        "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf506%CE%B1/file/190/rkf506_thum.jpg",
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+      },
+      {
+        "name": "気化式冷風機 RKF711",
+        "category": "業務用大型気化式冷風機",
+        "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf711/file/2470/rkf711%E5%B7%A6.jpg",
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "049": {
+    "name": "シャープマーケティングジャパン㈱",
+    "products": [
+      {
+        "name": "ルームエアコン Rシリーズ",
+        "category": "プラズマクラスター搭載ルームエアコン",
+        "image_url": "https://jp.sharp/aircon/products/ur/images/gallery-1.jpg",
+        "source_page": "https://jp.sharp/aircon/products/ur/"
+      },
+      {
+        "name": "プラズマクラスター空気清浄機 KI-UD50",
+        "category": "加湿空気清浄機",
+        "image_url": "https://jp.sharp/kuusei/products/kiud50/images/gallery-1.jpg",
+        "source_page": "https://jp.sharp/kuusei/products/kiud50/"
+      },
+      {
+        "name": "プラズマクラスター冷蔵庫 SJ-X504R",
+        "category": "両開き冷蔵庫",
+        "image_url": "https://jp.sharp/reizo/products/sjx504r/images/gallery-1.jpg",
+        "source_page": "https://jp.sharp/reizo/products/sjx504r/"
+      },
+      {
+        "name": "ポータブルクーラー AV-U24S",
+        "category": "ポータブルクーラー",
+        "image_url": "https://jp.sharp/portable-cooler/products/avu24s/images/gallery-1.jpg",
+        "source_page": "https://jp.sharp/portable-cooler/products/avu24s/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "058": {
+    "name": "スリーエムジャパン㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.3mcompany.jp/3M/ja_JP/fall-protection/"
+  },
+  "060": {
+    "name": "㈱セブンティ・エイト",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify official site URLs without fabrication"
+  },
+  "063": {
+    "name": "大同興業㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify ART-7902 welder image URLs without fabrication"
+  },
+  "065": {
+    "name": "ＤＡＩＴＯ㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.daito-co.com/"
+  },
+  "082": {
+    "name": "㈱ナカトミ",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.nakatomi-sangyo.com/aircon/"
+  },
+  "083": {
+    "name": "日動工業㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify nichido.co.jp LED product image URLs without fabrication"
+  },
+  "089": {
+    "name": "日本ウエルディング㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify FBL-1000CW image URLs without fabrication"
+  },
+  "100": {
+    "name": "㈱ハタヤリミテッド",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.hataya.jp/"
+  },
+  "107": {
+    "name": "㈱フジ",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify ハンドカー/ボンベスタンド image URLs without fabrication"
+  },
+  "111": {
+    "name": "富士電線販売㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify SS-WCT 溶接ケーブル image URLs without fabrication"
+  }
+}

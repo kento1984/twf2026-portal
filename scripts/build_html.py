@@ -36,6 +36,10 @@ JSON_PATH = ROOT / "data" / "maker_details.json"
 REWRITES_PATH = ROOT / "data" / "maker_details_rewritten.json"
 SLUG_PATH = ROOT / "data" / "maker_slugs.json"
 PAMPHLET_INDEX_PATH = ROOT / "data" / "pamphlet_index.json"
+BRAND_PATH = ROOT / "data" / "maker_brand.json"
+STATUS_PATH = ROOT / "data" / "maker_status.json"
+PDF_EXTRACTS_PATH = ROOT / "data" / "pdf_extracts.json"
+PRODUCTS_PATH = ROOT / "data" / "maker_products.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
 
@@ -135,9 +139,40 @@ def load_rewrites() -> dict:
     return {k: v for k, v in raw.items() if not k.startswith("_")}
 
 
+def _load_kv_json(path: Path) -> dict:
+    """Generic loader for {maker_no: payload} JSON files. Skips _doc keys."""
+    if not path.exists():
+        return {}
+    with open(path, encoding="utf-8") as f:
+        raw = json.load(f)
+    return {k: v for k, v in raw.items() if not k.startswith("_")}
+
+
+def load_brand() -> dict:
+    """data/maker_brand.json — primary/secondary/accent/text_on_primary/source per maker."""
+    return _load_kv_json(BRAND_PATH)
+
+
+def load_status() -> dict:
+    """data/maker_status.json — badges per maker."""
+    return _load_kv_json(STATUS_PATH)
+
+
+def load_pdf_extracts() -> dict:
+    """data/pdf_extracts.json — sections (table/highlights/warnings/new_models) per maker."""
+    return _load_kv_json(PDF_EXTRACTS_PATH)
+
+
+def load_products() -> dict:
+    """data/maker_products.json — official product images per maker."""
+    return _load_kv_json(PRODUCTS_PATH)
+
+
 def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None,
-                 rewrites: dict | None = None) -> dict:
-    """Combine csv row + json detail (+ pamphlet index + rewrites) into one record."""
+                 rewrites: dict | None = None,
+                 brand: dict | None = None, status: dict | None = None,
+                 pdf_extracts: dict | None = None, products: dict | None = None) -> dict:
+    """Combine csv row + json detail (+ pamphlet index + rewrites + brand/status/pdf/products)."""
     no = int(csv_row["no"])
     rec = dict(json_rec)  # has_answer, q1-q5, attachments, attachment_dir, reply_date, ...
     rec["no"] = no
@@ -172,10 +207,17 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
                 if rkey in rw:
                     rec[f"raw_{q}"] = rec.get(q, "")
                     rec[q] = rw[rkey]
+
+    # Phase 7 step-8: ブランドカラー / ステータス / PDF抽出 / 製品画像 をテンプレ用に注入
+    key = f"{no:03d}"
+    rec["brand"] = (brand or {}).get(key) or None
+    rec["status_badges"] = ((status or {}).get(key) or {}).get("badges") or []
+    rec["pdf_extract"] = (pdf_extracts or {}).get(key) or None
+    rec["products"] = (products or {}).get(key) or None
     return rec
 
 
-def render_pages(env, makers, details, pamphlet_idx, rewrites):
+def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products):
     tpl_for = {
         "A": env.get_template("maker_full.html.j2"),
         "B": env.get_template("maker_pamphlet.html.j2"),
@@ -184,7 +226,7 @@ def render_pages(env, makers, details, pamphlet_idx, rewrites):
     counts = Counter()
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
         rec["slug"] = m["__slug"]
         tier = tier_for(rec)
         rec["tier"] = tier
@@ -196,11 +238,11 @@ def render_pages(env, makers, details, pamphlet_idx, rewrites):
     return counts
 
 
-def render_top(env, makers, details, counts, pamphlet_idx, rewrites):
+def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products):
     cards = []
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
         rec["slug"] = m["__slug"]
         rec["tier"] = tier_for(rec)
         rec["display_name"] = (rec["name_short"] or rec["name"]).strip()
@@ -260,9 +302,13 @@ def main():
 
     pamphlet_idx = load_pamphlet_index()
     rewrites = load_rewrites()
+    brand = load_brand()
+    status = load_status()
+    pdf_extracts = load_pdf_extracts()
+    products = load_products()
 
-    counts = render_pages(env, makers, details, pamphlet_idx, rewrites)
-    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites)
+    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
 
     final_used = Counter(slugs.values())
     duplicates = sorted(s for s, c in final_used.items() if c > 1)

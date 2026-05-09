@@ -1,0 +1,238 @@
+{
+  "_doc": "A層メーカーのステータスバッジ自動判定結果。q4/q5を割引キーワード・特典キーワードで判定、Q2の型番充実度で最優先を判定。",
+  "005": {
+    "name": "アネスト岩田㈱",
+    "badges": [
+      {
+        "type": "special",
+        "label": "限定特典あり"
+      }
+    ]
+  },
+  "008": {
+    "name": "イーグルクランプ㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "016": {
+    "name": "㈱エスカディア",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "017": {
+    "name": "㈱エステーリンク",
+    "badges": [
+      {
+        "type": "special",
+        "label": "限定特典あり"
+      },
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "043": {
+    "name": "㈱サンワ",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      },
+      {
+        "type": "special",
+        "label": "限定特典あり"
+      }
+    ]
+  },
+  "048": {
+    "name": "静岡製機㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "049": {
+    "name": "シャープマーケティングジャパン㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "058": {
+    "name": "スリーエムジャパン㈱",
+    "badges": [
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "060": {
+    "name": "㈱セブンティ・エイト",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      },
+      {
+        "type": "special",
+        "label": "限定特典あり"
+      }
+    ]
+  },
+  "063": {
+    "name": "大同興業㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "065": {
+    "name": "ＤＡＩＴＯ㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "082": {
+    "name": "㈱ナカトミ",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      },
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "089": {
+    "name": "日本ウエルディング㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "100": {
+    "name": "㈱ハタヤリミテッド",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      },
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "107": {
+    "name": "㈱フジ",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "111": {
+    "name": "富士電線販売㈱",
+    "badges": [
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "113": {
+    "name": "㈱プロスパー",
+    "badges": [
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "115": {
+    "name": "㈱ホータス",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "117": {
+    "name": "ボッシュ㈱",
+    "badges": [
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "120": {
+    "name": "マツモト機械㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "121": {
+    "name": "マツモト産業㈱エクセル貿易事業部",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      },
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  },
+  "134": {
+    "name": "ヤマト産業㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      }
+    ]
+  },
+  "138": {
+    "name": "ヨコタ工業㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "特別割引あり"
+      },
+      {
+        "type": "priority",
+        "label": "最優先"
+      }
+    ]
+  }
+}

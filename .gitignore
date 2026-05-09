@@ -24,3 +24,6 @@ prototype/attachments/**/image[0-9][0-9][0-9].bmp
 
 # scripts/_inspect_excel.py 実行で出る一時ファイル
 inspect_output.txt
+
+# Phase 7 step-8: PDF→PNG レンダリング (vision agent への入力、再生成可、78MB)
+data/_pdf_pages/

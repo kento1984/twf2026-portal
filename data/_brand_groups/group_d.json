@@ -1,0 +1,56 @@
+{
+  "107": {
+    "name": "㈱フジ",
+    "primary": "#0B4DA2",
+    "secondary": "#E63027",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF",
+    "source": "http://www.fuji-handcar.com/",
+    "notes": "Industrial blue primary with safety red accent — typical palette for high-pressure gas cylinder handcar manufacturers; orange used for product highlight on official site."
+  },
+  "111": {
+    "name": "富士電線販売㈱",
+    "primary": "#003B8E",
+    "secondary": "#D32F2F",
+    "accent": "#F2B233",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.fujiewc.co.jp/",
+    "notes": "Fuji Electric Wire — deep corporate blue with red accent (Mt. Fuji-inspired heritage palette common to 富士-named industrial firms); yellow for cable/safety signaling."
+  },
+  "113": {
+    "name": "㈱プロスパー",
+    "primary": "#1F2A44",
+    "secondary": "#B8893A",
+    "accent": "#E5C572",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.prosper-web.co.jp/",
+    "notes": "High-end wholesale positioning — deep navy with antique gold accent to evoke 'prosperity'/premium tooling distribution."
+  },
+  "115": {
+    "name": "㈱ホータス",
+    "primary": "#0E5BA8",
+    "secondary": "#F08200",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://hotas.biz/",
+    "notes": "Hotas drill grinder — site uses precision-machine blue with orange product highlights (DG series); black for industrial grade typography."
+  },
+  "117": {
+    "name": "ボッシュ㈱",
+    "primary": "#EE0000",
+    "secondary": "#A30000",
+    "accent": "#FFFFFF",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.bosch.co.jp/",
+    "notes": "Bosch global brand red (Pantone 485 / RAL 3020 ~ #EE0000) with white accent — iconic identity used across all Bosch divisions."
+  },
+  "120": {
+    "name": "マツモト機械㈱",
+    "primary": "#C8102E",
+    "secondary": "#1A1A1A",
+    "accent": "#E8E8E8",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.mac-wels.co.jp/",
+    "notes": "MAC welding equipment Osaka — strong industrial red echoing welding-arc heat with steel-grey neutral; classic welding-machine maker palette."
+  }
+}

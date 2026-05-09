@@ -1,0 +1,62 @@
+{
+  "058": {
+    "name": "スリーエムジャパン㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.3mcompany.jp/3M/ja_JP/fall-protection/"
+  },
+  "060": {
+    "name": "㈱セブンティ・エイト",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify official site URLs without fabrication"
+  },
+  "063": {
+    "name": "大同興業㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify ART-7902 welder image URLs without fabrication"
+  },
+  "065": {
+    "name": "ＤＡＩＴＯ㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.daito-co.com/"
+  },
+  "082": {
+    "name": "㈱ナカトミ",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.nakatomi-sangyo.com/aircon/"
+  },
+  "083": {
+    "name": "日動工業㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify nichido.co.jp LED product image URLs without fabrication"
+  },
+  "089": {
+    "name": "日本ウエルディング㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify FBL-1000CW image URLs without fabrication"
+  },
+  "100": {
+    "name": "㈱ハタヤリミテッド",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.hataya.jp/"
+  },
+  "107": {
+    "name": "㈱フジ",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify ハンドカー/ボンベスタンド image URLs without fabrication"
+  },
+  "111": {
+    "name": "富士電線販売㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify SS-WCT 溶接ケーブル image URLs without fabrication"
+  }
+}

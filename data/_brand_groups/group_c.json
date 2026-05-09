@@ -1,0 +1,56 @@
+{
+  "063": {
+    "name": "大同興業㈱",
+    "primary": "#0B2F6B",
+    "secondary": "#071F4A",
+    "accent": "#D7141A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.daidokogyo.co.jp/ (DKK 公式: https://daido-kogyo.co.jp/media/special/1191/ — コーポレートカラーはネイビーブルー＋レッド、四つ割菱ロゴマーク)",
+    "notes": "大同興業 (DKK) の公式に発表されたコーポレートカラーはネイビーブルー（信頼・知性・力強さ）とレッド（情熱・勇気・挑戦）。ネイビーをprimary、深い濃紺をsecondary、レッドをaccentに配置。溶接機・産業機械の輸入商社らしい重厚感のある配色。"
+  },
+  "065": {
+    "name": "ＤＡＩＴＯ㈱",
+    "primary": "#E94E1B",
+    "secondary": "#A5320E",
+    "accent": "#1A1A1A",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.daito-co.com/ (焼却炉メーカー DAITO株式会社 — 公式ブランドガイドラインの公表なし。製品ジャンル「焼却炉・燃焼機器」と業界慣例から推定)",
+    "notes": "焼却炉 (SPシリーズ等) を主力とする燃焼機器専業メーカー。炎・熱を象徴するバーミリオン系オレンジをprimary、深いブリックレッドをsecondary、引き締めのチャコールをaccentに。火・燃焼の世界観を直接的に表現。"
+  },
+  "082": {
+    "name": "㈱ナカトミ",
+    "primary": "#00A0E9",
+    "secondary": "#006FB8",
+    "accent": "#FFD400",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.nakatomi-sangyo.com/ (長野・小布施町本社、スポットクーラー / 冷暖房機器メーカー — 公式ブランドガイドラインの公表なし。製品分野「冷却・送風」と業界慣例から推定)",
+    "notes": "スポットクーラー・冷風機・送風機が主力で、冷却＝シアン寄りのブライトブルーをprimary、深いマリンブルーをsecondary、現場で映えるイエロー (注意・電源色) をaccent に。ナカトミ製品ロゴ実物に近い清涼感ある配色。"
+  },
+  "083": {
+    "name": "日動工業㈱",
+    "primary": "#FFD200",
+    "secondary": "#1A1A1A",
+    "accent": "#E60012",
+    "text_on_primary": "#1A1A1A",
+    "source": "https://www.nichido-ind.co.jp/ (日動工業株式会社 / NICHIDO — 投光器・LED作業灯・コードリール大手。公式ブランドガイドラインの公表なしも、製品筐体カラー（一貫してイエロー＋ブラック）から強いプロダクトブランド色が確立)",
+    "notes": "NICHIDO の作業灯・投光器・LED 製品は黄＋黒のハードハット風カラーで一貫。視認性最優先の現場ブランドとして、ハイビズイエローを primary、ブラックを secondary、警告レッドを accent に。明るい primary なので text_on_primary は #1A1A1A。"
+  },
+  "089": {
+    "name": "日本ウエルディング㈱",
+    "primary": "#005BAC",
+    "secondary": "#003366",
+    "accent": "#00C8B4",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.nihonwelding.co.jp/ (日本ウエルディング株式会社 — ファイバーレーザー溶接機メーカー、東京都大田区。公式ブランドガイドラインの公表なし)",
+    "notes": "ファイバーレーザー溶接機 (welpenlaser シリーズ) が主力。レーザー / 精密加工業界で定番のテックブルーを primary、深いネイビーを secondary、レーザー光を想起させるアクアグリーン (1064nm Yb ファイバー光のイメージ) を accent に。"
+  },
+  "100": {
+    "name": "㈱ハタヤリミテッド",
+    "primary": "#E60012",
+    "secondary": "#A50010",
+    "accent": "#FFCC00",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.hataya.jp/ (株式会社ハタヤリミテッド — 名古屋市中区大須本社、コードリール・作業灯専業メーカー。公式ブランドガイドラインの公表なし。製品 (赤いコードリール ドラム) から判断)",
+    "notes": "ハタヤのコードリールは長年にわたり鮮やかな赤いドラムで認知されており、「赤＝ハタヤ」が業界共通イメージ。ビビッドレッドを primary、深いカーマインを secondary、注意喚起 (アース・電源警告) のイエローを accent に。"
+  }
+}
