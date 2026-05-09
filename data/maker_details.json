@@ -126,9 +126,7 @@
     "q3": "見やすい・手に取りやすい・実践的等、ユーザーニーズに沿った展示。\n特にネジ式クランプの下取りセールが6月～7月に実施。",
     "q4": "台数、金額によって特価いたします。",
     "q5": "添付あり(　点) / なし\n無し。",
-    "attachments": [
-      "Outlook-1qbkdxk4.jpg"
-    ],
+    "attachments": [],
     "attachment_dir": "attachments/イーグルクランプ株式会社/"
   },
   "009": {
@@ -381,14 +379,14 @@
     "name": "キスウェルジャパン㈱",
     "name_short": "",
     "category": "",
-    "has_answer": true,
-    "status": "partial",
-    "reply_date": "2026-04-22 09:36",
+    "has_answer": false,
+    "status": "unanswered",
+    "reply_date": null,
     "q1": "",
     "q2": "",
     "q3": "",
     "q4": "",
-    "q5": "添付あり(　点) / なし",
+    "q5": "",
     "attachments": [],
     "attachment_dir": null
   },
@@ -942,13 +940,6 @@
     "q4": "添付資料裏面",
     "q5": "添付あり(　1点) / なし",
     "attachments": [
-      "image001.gif",
-      "image002.png",
-      "image003.png",
-      "image004.png",
-      "image005.png",
-      "image006.gif",
-      "image007.png",
       "【2026WF】墜落落下デモ＿キャンペーンチラシ_v5.pdf"
     ],
     "attachment_dir": "attachments/スリーエムジャパン株式会社　安全衛生製品事業部/"
@@ -1074,18 +1065,16 @@
     "name": "㈱ダイヘン",
     "name_short": "",
     "category": "協働ロボット",
-    "has_answer": true,
-    "status": "partial",
-    "reply_date": "2026-04-21 08:42",
+    "has_answer": false,
+    "status": "unanswered",
+    "reply_date": null,
     "q1": "",
     "q2": "",
     "q3": "",
     "q4": "",
-    "q5": "添付あり(　点) / なし",
-    "attachments": [
-      "no-lock.txt"
-    ],
-    "attachment_dir": "attachments/株式会社ダイヘン/"
+    "q5": "",
+    "attachments": [],
+    "attachment_dir": null
   },
   "067": {
     "no": 67,
@@ -1359,9 +1348,7 @@
     "q3": "・高天井用照明\n工場や倉庫、体育館、商業施設など天井の高い場所でもムラのない明るさを実現でき、高効率LEDにより水銀灯に比べて大幅な省エネルギーを達成し、電気代の削減に貢献します。",
     "q4": "なし",
     "q5": "添付あり(3点) / なし\n添付あり",
-    "attachments": [
-      "WinZip Compressed Attachments.zip"
-    ],
+    "attachments": [],
     "attachment_dir": "attachments/日動工業株式会社/"
   },
   "084": {
@@ -1417,9 +1404,9 @@
     "name": "⽇東⼯器㈱",
     "name_short": "",
     "category": "",
-    "has_answer": true,
-    "status": "partial",
-    "reply_date": "2026-04-20 20:51",
+    "has_answer": false,
+    "status": "unanswered",
+    "reply_date": null,
     "q1": "",
     "q2": "",
     "q3": "",
@@ -1777,19 +1764,16 @@
     "name": "不⼆空機㈱",
     "name_short": "",
     "category": "",
-    "has_answer": true,
-    "status": "partial",
-    "reply_date": "2026-04-21 08:52",
+    "has_answer": false,
+    "status": "unanswered",
+    "reply_date": null,
     "q1": "",
     "q2": "",
     "q3": "",
     "q4": "",
-    "q5": "添付あり(　点) / なし",
-    "attachments": [
-      "image001.png",
-      "FA-20-4_Fuji_A4flyer_WEB_202604.pdf"
-    ],
-    "attachment_dir": "attachments/不二空機株式会社/"
+    "q5": "",
+    "attachments": [],
+    "attachment_dir": null
   },
   "110": {
     "no": 110,
@@ -1922,10 +1906,6 @@
     "q4": "",
     "q5": "添付あり(　1点) →後日、紙版のチラシも持参します。",
     "attachments": [
-      "image001.png",
-      "image002.png",
-      "image003.png",
-      "image004.png",
       "ボッシュ2026TWFチラシ両面.pdf"
     ],
     "attachment_dir": "attachments/ボッシュ株式会社/"

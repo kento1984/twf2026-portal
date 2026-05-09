@@ -22,7 +22,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 21,オプティレーザーソリューションズ㈱,,,false,
 22,㈱柏⽥製作所,,,false,
 23,カミマル㈱,,,false,
-24,キスウェルジャパン㈱,,,true,
+24,キスウェルジャパン㈱,,,false,
 25,㈱キトー,,揚送機器,false,4
 26,㈱キャドマック,,板金加工機,false,2
 27,京セラインダストリアルツールズ㈱,,切断・電動工具,false,3
@@ -64,7 +64,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 63,⼤同興業㈱,,,true,
 64,⼤東精機㈱,,,false,
 65,ＤＡＩＴＯ㈱,,,true,
-66,㈱ダイヘン,,協働ロボット,true,2
+66,㈱ダイヘン,,協働ロボット,false,2
 67,タケダ機械㈱,,,false,
 68,㈱⽴⼭,,,false,
 69,㈱千代⽥精機,,,false,
@@ -85,7 +85,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 84,⽇光物産㈱,,,false,
 85,ニツコー熔材⼯業㈱,,,false,
 86,⽇鉄溶接⼯業㈱,,,false,
-87,⽇東⼯器㈱,,,true,
+87,⽇東⼯器㈱,,,false,
 88,⽇本アイ・エス・ケイ㈱,,,false,
 89,⽇本ウエルディング㈱,,ファイバーレーザー,true,4
 90,⽇本カノマックス㈱,,,false,
@@ -107,7 +107,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 106,ファナック㈱,,協働ロボット,false,2
 107,㈱フジ,,,true,
 108,㈱フジ医療器,,,false,
-109,不⼆空機㈱,,,true,
+109,不⼆空機㈱,,,false,
 110,富⼠製砥㈱,,,false,
 111,富⼠電線販売㈱,,,true,
 112,ブルマン㈱,,,false,

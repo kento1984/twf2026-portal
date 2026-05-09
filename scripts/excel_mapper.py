@@ -49,11 +49,32 @@ COL = {
 LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳|㈴|㈵)")
 WS_RE = re.compile(r"\s+")
 
+# 添付ファイル: 残す拡張子 (案内資料系)
+ATTACH_KEEP_EXT = {".pdf", ".docx", ".xlsx", ".pptx"}
+# 添付ファイル: 明示的に除外するパターン (Outlook 埋め込み画像 / ロックファイル / 圧縮)
+ATTACH_DROP_NAME_RE = re.compile(r"^image\d{3,}\.(gif|png|jpe?g|bmp)$", re.IGNORECASE)
+
+
+def is_useful_attachment(filename: str) -> bool:
+    """配布資料として意味ある添付だけ True を返す。
+    - image001.gif / image123.png のような Outlook 埋め込み画像は除外
+    - .txt / .zip は除外
+    - .pdf / .docx / .xlsx / .pptx のみ許可
+    """
+    name = filename.strip()
+    if not name:
+        return False
+    base = name.rsplit("/", 1)[-1].rsplit("\\", 1)[-1]
+    if ATTACH_DROP_NAME_RE.match(base):
+        return False
+    ext = ("." + base.rsplit(".", 1)[-1].lower()) if "." in base else ""
+    return ext in ATTACH_KEEP_EXT
+
 # B列(回答状況)の先頭マーカー → 内部 status
 STATUS_MAP = {
     "☑": "answered",     # 回答済
-    "◎": "partial",      # 部分回答
-    "▲": "partial",      # 一部
+    "◎": "partial",      # 部分回答 (Q5/添付に意味ある内容あり)
+    "▲": "unanswered",   # 未記入返信 (返信は来たが本文空)
     "✖": "unanswered",   # 未回答
     "■": "skipped",      # 一括ダミー (集約対象外)
     "★": "unknown",      # 不明
@@ -223,7 +244,8 @@ def merge(makers: list[dict], excel_rows: list[dict]):
 
         if classified in HAS_ANSWER_STATUSES:
             files_raw = r.get("attach_files_raw") or ""
-            files = [s.strip() for s in re.split(r"[\r\n]+", files_raw) if s.strip()]
+            files_all = [s.strip() for s in re.split(r"[\r\n]+", files_raw) if s.strip()]
+            files = [f for f in files_all if is_useful_attachment(f)]
             details[key].update({
                 "has_answer": True,
                 "status": classified,

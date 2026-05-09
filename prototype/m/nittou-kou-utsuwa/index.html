@@ -122,143 +122,28 @@
     .tier-badge.tier-b { background: var(--blue-500); }
     .tier-badge.tier-c { background: var(--gray-400); }
 
-  .q-list { display: flex; flex-direction: column; gap: 24px; }
-  .q-card {
+  .skeleton-msg {
+    padding: 32px;
     background: #fff;
-    border: 1px solid var(--gray-200);
-    border-left: 6px solid var(--red-500);
+    border: 1px dashed var(--gray-200);
     border-radius: 8px;
-    box-shadow: var(--shadow-md);
-    padding: 24px 28px;
-  }
-  .q-label {
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--red-500);
-    margin-bottom: 4px;
-  }
-  .q-title {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--gray-800);
-    margin-bottom: 12px;
-  }
-  .q-body {
+    text-align: center;
+    color: var(--gray-600);
     font-size: 16px;
-    line-height: 1.85;
+    line-height: 1.9;
+  }
+  .skeleton-msg strong {
+    display: block;
     color: var(--gray-800);
-    white-space: pre-wrap;
-  }
-
-  .attachments {
-    margin-top: 40px;
-    padding: 24px 28px;
-    background: var(--gray-100);
-    border-radius: 8px;
-  }
-  .attachments h2 {
+    font-weight: 700;
+    margin-bottom: 8px;
     font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--gray-800);
   }
-  .attachments ul {
-    list-style: none;
-    padding-left: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .attachments li {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 12px;
-    background: #fff;
-    border: 1px solid var(--gray-200);
-    border-radius: 6px;
-    font-size: 14px;
-    color: var(--gray-800);
-  }
-  .attachments li::before {
-    content: '📄';
-    flex-shrink: 0;
-  }
-  .attach-path {
-    margin-top: 12px;
-    font-size: 12px;
-    color: var(--gray-600);
-  }
-  .attach-path code {
-    font-family: var(--font-mono);
-    background: rgba(0,0,0,0.04);
-    padding: 2px 6px;
-    border-radius: 3px;
-    word-break: break-all;
-  }
-
-  .reply-meta {
+  .skeleton-meta {
+    margin-top: 24px;
+    text-align: center;
     font-size: 13px;
-    color: var(--gray-600);
-    margin-top: 4px;
-  }
-
-  .pamphlet {
-    margin-top: 56px;
-    padding-top: 32px;
-    border-top: 2px solid var(--gray-200);
-  }
-  .pamphlet-h2 {
-    font-size: 22px;
-    font-weight: 700;
-    margin-bottom: 16px;
-    color: var(--gray-800);
-    display: flex;
-    align-items: baseline;
-    gap: 12px;
-  }
-  .pamphlet-h2::before {
-    content: '📕';
-    font-size: 20px;
-  }
-  .pamphlet-meta {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 16px;
-    font-size: 14px;
-  }
-  .pamphlet-section {
-    display: inline-block;
-    padding: 4px 12px;
-    background: var(--blue-500);
-    color: #fff;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 13px;
-  }
-  .pamphlet-note-text {
-    color: var(--gray-600);
-    align-self: center;
-    line-height: 1.5;
-  }
-  .pamphlet-img-wrap {
-    border: 1px solid var(--gray-200);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: var(--shadow-md);
-    background: #fff;
-  }
-  .pamphlet-img-wrap img {
-    width: 100%;
-    height: auto;
-  }
-  .pamphlet-page-link {
-    margin-top: 12px;
-    text-align: right;
-    font-size: 13px;
-    color: var(--gray-600);
+    color: var(--gray-400);
   }
 
     .maker-footer {
@@ -279,17 +164,21 @@
   </header>
   <main class="maker-page">
   <header class="maker-header">
-    <span class="tier-badge tier-a">フル詳細</span>
+    <span class="tier-badge tier-c">情報準備中</span>
     <span class="maker-no">No.087</span>
     <h1>⽇東⼯器㈱</h1>
-    <div class="maker-meta">
-<span>回答受信: 2026-04-20 20:51</span>    </div>
   </header>
 
-  <section class="q-list">
-  </section>
+  <div class="skeleton-msg">
+    <strong>⽇東⼯器㈱ の詳細情報は準備中です。</strong>
+    メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。
+    <br /><br />
+    出展社No.087 としてTWF2026に出展されることは確定済みです。
+  </div>
 
-
+  <div class="skeleton-meta">
+    最新情報: マツモト産業㈱ 京葉営業所 / TEL 047-358-1121
+  </div>
   </main>
   <footer class="maker-footer">
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
