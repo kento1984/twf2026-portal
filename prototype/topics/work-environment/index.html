@@ -309,6 +309,7 @@
       border-color: var(--accent);
       box-shadow: 0 12px 28px rgba(0,0,0,0.10);
     }
+    /* 画像あり: 16:9 サムネイル */
     .tpc-image {
       width: 100%;
       aspect-ratio: 16 / 9;
@@ -316,24 +317,42 @@
       background-size: cover;
       background-position: center;
     }
-    .tpc-no-image {
+    /* 画像なし: スリムなアクセントバー + メーカーNo装飾文字ヘッダ */
+    .tpc-accent-bar {
       width: 100%;
-      aspect-ratio: 16 / 9;
-      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
-      position: relative;
-      overflow: hidden;
+      height: 5px;
+      background: linear-gradient(90deg, var(--accent) 0%, var(--accent-dark) 100%);
     }
-    .tpc-no-image::after {
-      content: '製品画像は準備中';
-      position: absolute;
-      inset: 0;
+    .tpc-decor-header {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 11px;
-      font-weight: 700;
-      color: rgba(255,255,255,0.88);
-      letter-spacing: 0.16em;
+      align-items: baseline;
+      gap: 14px;
+      padding: 18px 22px 6px;
+      border-bottom: 1px dashed var(--gray-200);
+      margin-bottom: 12px;
+    }
+    .tpc-decor-no {
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 1;
+      color: var(--accent);
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .tpc-decor-maker {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--gray-800);
+      line-height: 1.3;
+      letter-spacing: 0.01em;
+    }
+    /* 画像なしカードでは tpc-body の上 padding を調整 (decor-header と二重 padding 防止) */
+    .topic-product-card.no-image .tpc-body {
+      padding-top: 0;
+    }
+    .topic-product-card.no-image .tpc-meta {
+      display: none; /* decor-header が代替 */
     }
     .tpc-body {
       padding: 16px 20px 20px;
@@ -497,8 +516,12 @@
   <section class="topic-section">
     <h2 class="topic-section-title">作業環境向上ブース</h2>
 <p class="topic-section-intro">現場の熱・粉じん・防災にまつわる 8 製品。実演・体験あり、参加無料の企画も。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">058</span>
+          <span class="tpc-decor-maker">スリーエムジャパン</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.058</span>
@@ -510,8 +533,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">033</span>
+          <span class="tpc-decor-maker">神戸製鋼所</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.033</span>
@@ -525,8 +552,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">001</span>
+          <span class="tpc-decor-maker">アカサカテック</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.001</span>
@@ -540,8 +571,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">036</span>
+          <span class="tpc-decor-maker">サイシュウテクノ</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.036</span>
@@ -553,8 +588,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">075</span>
+          <span class="tpc-decor-maker">東洋化学商会</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.075</span>
@@ -568,8 +607,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">034</span>
+          <span class="tpc-decor-maker">五常</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.034</span>
@@ -583,8 +626,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">076</span>
+          <span class="tpc-decor-maker">東横サポート</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.076</span>
@@ -596,8 +643,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">139</span>
+          <span class="tpc-decor-maker">LA・PITA</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.139</span>
@@ -614,8 +665,12 @@
   <section class="topic-section">
     <h2 class="topic-section-title">初TWF出展いちおしメーカー</h2>
 <p class="topic-section-intro">今回が初 TWF 出展となる注目の 5 社。フィットテスター、ファイバーレーザークリーナー、屋内遮熱シート、コードレス塗装機など、現場改善の新しい選択肢。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">090</span>
+          <span class="tpc-decor-maker">日本カノマックス</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.090</span>
@@ -629,8 +684,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">028</span>
+          <span class="tpc-decor-maker">KS・S</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.028</span>
@@ -644,8 +703,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">102</span>
+          <span class="tpc-decor-maker">BXテンパル</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.102</span>
@@ -659,8 +722,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">021</span>
+          <span class="tpc-decor-maker">オプティレーザーソリューションズ</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.021</span>
@@ -674,8 +741,12 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card">
-        <div class="tpc-no-image"></div>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">095</span>
+          <span class="tpc-decor-maker">日本ワグナー・スプレーテック</span>
+        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.095</span>
