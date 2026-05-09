@@ -236,37 +236,82 @@
     }
     .search-bar {
       position: relative;
-      max-width: 600px;
-      margin: 8px auto 48px;
+      max-width: 720px;
+      margin: 8px auto 16px;
       display: flex;
       align-items: center;
       background: #fff;
-      border: 1px solid var(--gray-200);
-      border-radius: 8px;
-      padding: 12px 16px;
-      box-shadow: var(--shadow-md);
+      border: 2px solid var(--gray-200);
+      border-radius: 14px;
+      padding: 16px 22px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+      transition: border-color 150ms, box-shadow 150ms;
     }
-    .search-bar:focus-within { border-color: var(--blue-500); }
-    .search-bar svg { width: 20px; height: 20px; color: var(--gray-400); flex-shrink: 0; }
+    .search-bar:focus-within {
+      border-color: var(--red-500);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 12px 32px rgba(200,16,46,0.12);
+    }
+    .search-bar svg { width: 22px; height: 22px; color: var(--gray-400); flex-shrink: 0; }
+    .search-bar:focus-within svg { color: var(--red-500); }
     .search-bar input {
       flex: 1;
       border: none;
       outline: none;
-      padding: 0 12px;
+      padding: 0 14px;
       font-family: inherit;
-      font-size: 16px;
+      font-size: 17px;
+      font-weight: 500;
       color: var(--gray-800);
       background: transparent;
     }
-    .search-bar input::placeholder { color: var(--gray-400); }
+    .search-bar input::placeholder { color: var(--gray-400); font-weight: 400; }
     .search-bar input:not([disabled]) { cursor: text; }
+
+    /* クイックフィルタチップ */
+    .filter-chips {
+      max-width: 920px;
+      margin: 0 auto 20px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      padding: 0 16px;
+    }
+    .filter-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gray-800);
+      cursor: pointer;
+      transition: all 150ms;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    .filter-chip:hover {
+      background: var(--gray-50);
+      border-color: var(--gray-400);
+      transform: translateY(-1px);
+    }
+    .filter-chip.is-active {
+      background: var(--gray-800);
+      color: #fff;
+      border-color: var(--gray-800);
+    }
+    .filter-chip-icon { font-size: 15px; line-height: 1; }
+
     .search-empty {
       max-width: 600px;
-      margin: -24px auto 32px;
+      margin: 8px auto 24px;
       padding: 14px 18px;
       background: #fff8e1;
       border: 1px solid #f0c36d;
-      border-radius: 6px;
+      border-radius: 8px;
       color: #7a5a1d;
       font-size: 14px;
       line-height: 1.6;
@@ -279,46 +324,49 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
     }
+    /* === Maker Card (Notion Gallery 風) ============================ */
     .maker-card {
       position: relative;
       background: #fff;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-md);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
       transition: transform 200ms ease-out, box-shadow 200ms ease-out;
-      cursor: pointer;
     }
     .maker-card:hover {
       transform: translateY(-4px);
-      box-shadow: var(--shadow-card-hover);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.10), 0 12px 32px rgba(0,0,0,0.08);
     }
     .maker-card-hero {
       width: 100%;
-      aspect-ratio: 16 / 9;
+      aspect-ratio: 16 / 10;
       background-color: var(--gray-100);
       background-size: cover;
       background-position: center;
+      position: relative;
+      overflow: hidden;
     }
     .maker-card-body {
-      padding: 20px 18px 22px;
+      padding: 16px 18px 18px;
     }
     .maker-card-name {
-      font-size: 22px;
-      font-weight: 700;
-      line-height: 1.3;
+      font-size: 16px;
+      font-weight: 800;
+      line-height: 1.35;
       color: var(--gray-800);
-      margin-bottom: 4px;
+      margin: 0 0 4px;
     }
     .maker-card-cat {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--gray-600);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
+      line-height: 1.45;
     }
     .maker-card-link {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: var(--blue-500);
     }
@@ -327,61 +375,117 @@
       transition: transform 150ms ease-out;
     }
     .maker-card:hover .maker-card-link::after { transform: translateX(4px); }
+    .maker-card-link.is-link-block::before { content: ''; position: absolute; inset: 0; }
 
-    /* カード4隅の装飾 (CSS background) */
-    .maker-card::before,
-    .maker-card::after,
-    .maker-card .corner-bl,
-    .maker-card .corner-br {
+    /* === A層 (フル詳細) — ブランドカラーグラデ + 略称タイポ ========= */
+    .maker-card-tier-a .maker-card-hero {
+      background: linear-gradient(135deg, var(--brand-primary, #C8102E) 0%, var(--brand-secondary, #8B0B20) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .maker-card-tier-a .maker-card-hero::before {
       content: '';
       position: absolute;
-      width: 36px;
-      height: 36px;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 75% 25%, rgba(255,255,255,0.16) 0%, transparent 55%),
+        repeating-linear-gradient(45deg, transparent 0 22px, rgba(255,255,255,0.05) 22px 23px);
       pointer-events: none;
-      background-size: contain;
-      background-repeat: no-repeat;
+    }
+    .maker-card-logo {
+      position: relative;
       z-index: 2;
+      font-size: clamp(18px, 2.4vw, 28px);
+      font-weight: 900;
+      color: var(--brand-text, #fff);
+      letter-spacing: -0.01em;
+      text-align: center;
+      padding: 0 14px;
+      line-height: 1.05;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.18);
+      font-family: 'Roboto Mono', 'Noto Sans JP', sans-serif;
+      max-width: 90%;
+      word-break: keep-all;
     }
-    .maker-card::before {
-      top: 6px; left: 6px;
-      background-image: url('assets/extracted/card-frames/frame_001.png');
+    .maker-card-logo.is-long { font-size: clamp(13px, 1.4vw, 18px); }
+    .maker-card-badges {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      align-items: flex-end;
     }
-    .maker-card::after {
-      top: 6px; right: 6px;
-      background-image: url('assets/extracted/card-frames/frame_005.png');
+    .maker-card-badges .mb-pill {
+      padding: 3px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      border-radius: 999px;
+      letter-spacing: 0.04em;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+      white-space: nowrap;
     }
-    .maker-card .corner-bl {
-      bottom: 6px; left: 6px;
-      background-image: url('assets/extracted/card-frames/frame_009.png');
-    }
-    .maker-card .corner-br {
-      bottom: 6px; right: 6px;
-      background-image: url('assets/extracted/card-frames/frame_013.png');
-    }
+    .maker-card-badges .mb-discount { color: #15803d; }
+    .maker-card-badges .mb-special  { color: #7e22ce; }
+    .maker-card-badges .mb-priority { color: #b91c1c; }
+    .maker-card-tier-a .maker-card-link { color: var(--brand-primary, var(--blue-500)); }
 
-    /* NEWバッジ (1社目だけお試し配置) */
+    /* === B層 (パンフ簡易) — パンフ画像をやや脱彩度 ================ */
+    .maker-card-tier-b .maker-card-hero {
+      filter: saturate(0.92) contrast(0.97);
+      background-color: var(--gray-100);
+    }
+    .maker-card-tier-b .maker-card-hero-pamphlet {
+      background-position: top center;
+    }
+    .maker-card-tier-b .maker-card-link { color: var(--gray-700); }
+
+    /* === C層 (情報準備中) — ミニマル化 ============================ */
+    .maker-card-tier-c {
+      background: var(--gray-50);
+      border: 1px dashed var(--gray-200);
+      box-shadow: none;
+    }
+    .maker-card-tier-c:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .maker-card-tier-c .maker-card-hero { display: none; }
+    .maker-card-tier-c .maker-card-body { padding: 18px 18px 16px; }
+    .maker-card-tier-c .maker-card-name {
+      font-size: 15px;
+      color: var(--gray-700);
+      font-weight: 700;
+    }
+    .maker-card-tier-c .maker-card-cat { color: var(--gray-400); margin-bottom: 8px; }
+    .maker-card-tier-c .maker-card-link {
+      display: inline-block;
+      padding: 3px 10px;
+      background: var(--gray-200);
+      color: var(--gray-600) !important;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+    .maker-card-tier-c .maker-card-link::after { content: ''; }
+
+    /* NEW バッジ (右上に小さく配置) */
     .maker-card-new {
       position: absolute;
-      top: -12px;
-      right: -10px;
-      width: 64px;
-      height: 64px;
-      background: url('assets/extracted/new-badges/new_001.png') center / contain no-repeat;
-      filter: drop-shadow(0 3px 5px rgba(0,0,0,0.25));
+      top: 8px;
+      left: 8px;
       z-index: 3;
+      padding: 2px 8px;
+      background: #16a34a;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
-
-    /* hover glow (state_001.png) */
-    .maker-card .hover-glow {
-      position: absolute;
-      inset: -12px;
-      pointer-events: none;
-      background: url('assets/extracted/card-states/state_001.png') center / cover no-repeat;
-      opacity: 0;
-      transition: opacity 200ms ease-out;
-      z-index: 0;
-    }
-    .maker-card:hover .hover-glow { opacity: 1; }
+    .maker-card-new::after { content: 'NEW'; }
 
     /* ===========================================================
        Section 5: 当日セール特価  ───────  16:9  /  明
@@ -535,35 +639,37 @@
        Section 4: Phase 6 — 3-tier maker cards + legend
        =========================================================== */
     .maker-tier-legend {
-      max-width: 760px;
-      margin: -16px auto 32px;
+      max-width: 720px;
+      margin: 4px auto 28px;
       display: flex;
-      gap: 18px;
+      gap: 14px;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      font-size: 13px;
-      color: var(--gray-600);
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.02em;
     }
     .tier-key {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 5px;
     }
     .tier-key .dot {
-      width: 10px; height: 10px; border-radius: 50%;
+      width: 7px; height: 7px; border-radius: 50%;
       display: inline-block;
     }
     .tier-key-a .dot { background: var(--red-500); }
     .tier-key-b .dot { background: var(--blue-500); }
     .tier-key-c .dot { background: var(--gray-400); }
     .tier-key-total {
-      margin-left: 12px;
-      padding: 4px 12px;
+      margin-left: 4px;
+      padding: 2px 10px;
       background: var(--gray-100);
       border-radius: 999px;
       font-weight: 700;
-      color: var(--gray-800);
+      font-size: 11px;
+      color: var(--gray-600);
     }
 
     /* C-tier (情報準備中): no hero image, muted */
@@ -661,8 +767,20 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input id="maker-search" type="text" placeholder="メーカー名・カテゴリで絞り込み (例: ナカトミ / 切断 / 冷却)" autocomplete="off" />
+        <input id="maker-search" type="text" placeholder="メーカー名・カテゴリ・製品名で検索 (例: ロボット, 保護具, 冷却)" autocomplete="off" />
       </div>
+
+      <div class="filter-chips" role="list" aria-label="クイックフィルタ">
+        <button type="button" class="filter-chip" data-filter="ロボット|自動化|ロボメイト"><span class="filter-chip-icon">🤖</span>ロボット・自動化</button>
+        <button type="button" class="filter-chip" data-filter="保護|安全|防じん|墜落|ハーネス|ランヤード|遮光"><span class="filter-chip-icon">🛡️</span>保護具・安全</button>
+        <button type="button" class="filter-chip" data-filter="冷却|冷風|空調|スポットクーラー|暑熱|気化"><span class="filter-chip-icon">❄️</span>冷却・空調</button>
+        <button type="button" class="filter-chip" data-filter="溶接|アーク|レーザー|スポット溶接|スタッド|電源"><span class="filter-chip-icon">🔥</span>溶接・電源</button>
+        <button type="button" class="filter-chip" data-filter="切断|グラインダ|セーバーソー|チップソー|ランス|サンダー"><span class="filter-chip-icon">🪚</span>切断・電動工具</button>
+        <button type="button" class="filter-chip" data-filter="油圧|空圧|エアー|コンプレッサ|減圧弁"><span class="filter-chip-icon">⚙️</span>油圧・空圧</button>
+        <button type="button" class="filter-chip" data-filter="運搬|ハンドカー|ボンベ|スタンド|クレーン|クランプ|吊|スリング"><span class="filter-chip-icon">📦</span>物流・運搬</button>
+        <button type="button" class="filter-chip" data-filter="ドリル|研磨|バリ取り|測定|工具|ケーブル|ライト|照明"><span class="filter-chip-icon">🔧</span>工具・消耗品</button>
+      </div>
+
       <p class="search-empty" id="search-empty" hidden>該当するメーカーが見つかりませんでした。検索ワードを変えて再度お試しください。</p>
 
       <div class="maker-tier-legend">
@@ -673,1406 +791,1660 @@
       </div>
 
       <div class="maker-grid">
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="⽇本ウエルディング㈱ ⽇本ウエルディング㈱  ファイバーレーザー No.089 No089 ファイバーレーザー溶接機 FBL-1000CW を実演展示します。 他社が海外製主体の中で、FBL-1000CW は国産機。安心の品質とサポート体制が特長です。 FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_002.png');"></div>
-          <div class="maker-card-body">
-            <h3 class="maker-card-name">⽇本ウエルディング㈱</h3>
-            <div class="maker-card-cat">No.089 / ファイバーレーザー</div>
-            <a href="m/nippon-uerudingu/" class="maker-card-link">詳細を見る</a>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="⽇本ウエルディング㈱ NIPPON WELDING NIPPON WELDING ファイバーレーザー No.089 No089 ファイバーレーザー溶接機 FBL-1000CW を実演展示します。 他社が海外製主体の中で、FBL-1000CW は国産機。安心の品質とサポート体制が特長です。 FBL-1000CW のトーチは軽量のペンタイプ。ガンタイプのファイバーレーザーで不便を感じているユーザー様からの切替が増えています。"
+style="--brand-primary: #005BAC; --brand-secondary: #003366; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo is-long">NIPPON WELDING</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
-        </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="富⼠電線販売㈱ 富⼠電線販売㈱   No.111 No111 WCT、SS-WCT を展示。 SS-WCT は従来の WCT より柔らかく、耐久性にも優れます。 消耗品のため、当日特価がブースの主役です。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_005.png');"></div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">富⼠電線販売㈱</h3>
+            <h3 class="maker-card-name">NIPPON WELDING</h3>
+            <div class="maker-card-cat">No.089 · ファイバーレーザー</div>
+            <a href="m/nippon-uerudingu/" class="maker-card-link is-link-block">詳細を見る</a>
+          </div>
+        </article>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="富⼠電線販売㈱ FUJI WIRE FUJI WIRE  No.111 No111 WCT、SS-WCT を展示。 SS-WCT は従来の WCT より柔らかく、耐久性にも優れます。 消耗品のため、当日特価がブースの主役です。"
+style="--brand-primary: #003B8E; --brand-secondary: #D32F2F; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo is-long">FUJI WIRE</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
+          <div class="maker-card-body">
+            <h3 class="maker-card-name">FUJI WIRE</h3>
             <div class="maker-card-cat">No.111</div>
-            <a href="m/fuji-densen-hanbai/" class="maker-card-link">詳細を見る</a>
+            <a href="m/fuji-densen-hanbai/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="シャープマーケティングジャパン㈱ シャープマーケティングジャパン㈱   No.049 No049 ブースのレイアウト案を準備しています (添付エクセル参照)。 アイススラリー冷蔵庫で暑熱対策。アイススラリーは「液体と氷が混じった飲める氷」で、現場の熱中症対策にも有効です。 夏物商材 (アイススラリー、ポータブルクーラー、リカバリーウェア)、理美容商材 (ドライヤー、美顔器など)、その他家電を幅広く展示。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_005.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="シャープマーケティングジャパン㈱ SHARP SHARP  No.049 No049 ブースのレイアウト案を準備しています (添付エクセル参照)。 アイススラリー冷蔵庫で暑熱対策。アイススラリーは「液体と氷が混じった飲める氷」で、現場の熱中症対策にも有効です。 夏物商材 (アイススラリー、ポータブルクーラー、リカバリーウェア)、理美容商材 (ドライヤー、美顔器など)、その他家電を幅広く展示。"
+style="--brand-primary: #E6000D; --brand-secondary: #A30009; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">SHARP</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">シャープマーケティングジャパン㈱</h3>
+            <h3 class="maker-card-name">SHARP</h3>
             <div class="maker-card-cat">No.049</div>
-            <a href="m/shaapumaaketeingujapan/" class="maker-card-link">詳細を見る</a>
+            <a href="m/shaapumaaketeingujapan/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="アネスト岩⽥㈱ アネスト岩⽥㈱   No.005 No005 タンクマウントタイプを中心に、パッケージレシプロとスクリュータイプのコンプレッサを稼働展示。実機の駆動音と振動感までその場でご確認いただけます。 スクリュータイプの吐出量とインバーター起動時の静音性を、レシプロタイプと並べて比較体感いただけます。用途に応じた最適な機種選定の参考に。 即売に力を入れて現品を多数出品。各コンプレッサの実サイズ感、設置スペースに対するイメージ、稼働時の音まで現場目線でご確認いただけます。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_001.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="アネスト岩⽥㈱ ANEST IWATA ANEST IWATA  No.005 No005 タンクマウントタイプを中心に、パッケージレシプロとスクリュータイプのコンプレッサを稼働展示。実機の駆動音と振動感までその場でご確認いただけます。 スクリュータイプの吐出量とインバーター起動時の静音性を、レシプロタイプと並べて比較体感いただけます。用途に応じた最適な機種選定の参考に。 即売に力を入れて現品を多数出品。各コンプレッサの実サイズ感、設置スペースに対するイメージ、稼働時の音まで現場目線でご確認いただけます。"
+style="--brand-primary: #0046AB; --brand-secondary: #002A66; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo is-long">ANEST IWATA</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-special">限定特典あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">アネスト岩⽥㈱</h3>
+            <h3 class="maker-card-name">ANEST IWATA</h3>
             <div class="maker-card-cat">No.005</div>
-            <a href="m/anesuto-iwata/" class="maker-card-link">詳細を見る</a>
+            <a href="m/anesuto-iwata/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="⽇動⼯業㈱ ⽇動⼯業㈱   No.083 No083 高天井用照明、熱中症対策商品 (スポットクーラー・気化式冷風機など)、ハンディライト、設備小物関係を展示。  高天井用LED照明は、工場・倉庫・体育館・商業施設など天井の高い場所でムラのない明るさを実現。水銀灯比で大幅な省エネを達成し、電気代削減に貢献します。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_001.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="⽇動⼯業㈱ NICHIDO NICHIDO  No.083 No083 高天井用照明、熱中症対策商品 (スポットクーラー・気化式冷風機など)、ハンディライト、設備小物関係を展示。  高天井用LED照明は、工場・倉庫・体育館・商業施設など天井の高い場所でムラのない明るさを実現。水銀灯比で大幅な省エネを達成し、電気代削減に貢献します。"
+style="--brand-primary: #FFD200; --brand-secondary: #1A1A1A; --brand-text: #1A1A1A;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">NICHIDO</div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">⽇動⼯業㈱</h3>
+            <h3 class="maker-card-name">NICHIDO</h3>
             <div class="maker-card-cat">No.083</div>
-            <a href="m/nichidou-kougyou/" class="maker-card-link">詳細を見る</a>
+            <a href="m/nichidou-kougyou/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱ナカトミ ㈱ナカトミ   No.082 No082 SAC シリーズ (スポット冷風機・自動首振り対応) と SPC シリーズ (排熱ダクト付スポットクーラー) を中心に、夏向け冷却ソリューションを稼働展示。風量と冷感を実機で体感いただけます。 30周年記念モデル SAC-2500LTD / SAC-2900LTD、環境配慮型 R32 冷媒採用機種、全閉式ファンモーター搭載でホコリ・粉塵をシャットアウトする業務用モデルを展開。工場・倉庫の暑熱対策に。 全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_005.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱ナカトミ NAKATOMI NAKATOMI  No.082 No082 SAC シリーズ (スポット冷風機・自動首振り対応) と SPC シリーズ (排熱ダクト付スポットクーラー) を中心に、夏向け冷却ソリューションを稼働展示。風量と冷感を実機で体感いただけます。 30周年記念モデル SAC-2500LTD / SAC-2900LTD、環境配慮型 R32 冷媒採用機種、全閉式ファンモーター搭載でホコリ・粉塵をシャットアウトする業務用モデルを展開。工場・倉庫の暑熱対策に。 全機種を稼働展示しているので、「冷たい・涼しい」をその場で体感いただけます。スポットクーラーから大型機まで幅広いラインナップを揃え、現場の規模感に合わせた選定がその場で可能です。"
+style="--brand-primary: #00A0E9; --brand-secondary: #006FB8; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">NAKATOMI</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱ナカトミ</h3>
+            <h3 class="maker-card-name">NAKATOMI</h3>
             <div class="maker-card-cat">No.082</div>
-            <a href="m/nakatomi/" class="maker-card-link">詳細を見る</a>
+            <a href="m/nakatomi/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="⼤同興業㈱ ⼤同興業㈱   No.063 No063 両面スポット溶接機 ART-7902、片面スポット溶接機 UP10D、スタッド溶接機 CDi-1502、ベッセイクランプを各種実演予定。  溶接機は特別な付帯設備なく誰でも簡単に高品質な溶接が可能。クランプはドイツ製ベッセイ社の高品質品で扱いやすく長くご使用いただけます。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_003.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="⼤同興業㈱ DKK DKK  No.063 No063 両面スポット溶接機 ART-7902、片面スポット溶接機 UP10D、スタッド溶接機 CDi-1502、ベッセイクランプを各種実演予定。  溶接機は特別な付帯設備なく誰でも簡単に高品質な溶接が可能。クランプはドイツ製ベッセイ社の高品質品で扱いやすく長くご使用いただけます。"
+style="--brand-primary: #0B2F6B; --brand-secondary: #071F4A; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">DKK</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">⼤同興業㈱</h3>
+            <h3 class="maker-card-name">DKK</h3>
             <div class="maker-card-cat">No.063</div>
-            <a href="m/daidou-kougyou/" class="maker-card-link">詳細を見る</a>
+            <a href="m/daidou-kougyou/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱セブンティ・エイト ㈱セブンティ・エイト  切断・電動工具 No.060 No060 弊社製の溶接作業用工具を現物展示。手にとってご確認いただけます。 半自動溶接機の細口ノズル用スパッタ除去工具の新製品を展示。従来品より多種類のノズル除去に対応します。 実際に手にとっていただき、他社製品との違いを実感いただけます。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_002.png');"></div>
-          <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱セブンティ・エイト</h3>
-            <div class="maker-card-cat">No.060 / 切断・電動工具</div>
-            <a href="m/sebuntei-eito/" class="maker-card-link">詳細を見る</a>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱セブンティ・エイト 78 78 切断・電動工具 No.060 No060 弊社製の溶接作業用工具を現物展示。手にとってご確認いただけます。 半自動溶接機の細口ノズル用スパッタ除去工具の新製品を展示。従来品より多種類のノズル除去に対応します。 実際に手にとっていただき、他社製品との違いを実感いただけます。"
+style="--brand-primary: #F5A623; --brand-secondary: #B87317; --brand-text: #1A1A1A;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">78</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-special">限定特典あり</span>            </div>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
-        </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱オグラ ㈱オグラ  切断・電動工具 No.020 No020 コードレスパンチャー、鉄筋カッター、鉄筋ベンダー等を展示。デモンストレーションも実施します。  他社メーカーにない独自製品をピンポイントでアピール。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_005.png');"></div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱オグラ</h3>
-            <div class="maker-card-cat">No.020 / 切断・電動工具</div>
-            <a href="m/ogura/" class="maker-card-link">詳細を見る</a>
+            <h3 class="maker-card-name">78</h3>
+            <div class="maker-card-cat">No.060 · 切断・電動工具</div>
+            <a href="m/sebuntei-eito/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="ＤＡＩＴＯ㈱ ＤＡＩＴＯ㈱   No.065 No065 SPⅡ-400M を展示。SPⅡシリーズは廃プラスチックも燃やせる売れ筋焼却炉で、サイズが法規制対象外のため面倒な届出・許可なしに設置・使用できる (一部地域除く) ことが強み。当日ブースで燃焼実演を行い、想像以上の燃焼力をご覧いただけます。 2025年4月から High Quality シリーズが進化。高温異常警報装置で「燃やし過ぎ」をお知らせします。 当社独自の旋回燃焼は高温で燃焼し煙の発生を抑えます。来場者から好評の燃焼デモをぜひご体感ください。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_004.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱オグラ OGURA OGURA 切断・電動工具 No.020 No020 コードレスパンチャー、鉄筋カッター、鉄筋ベンダー等を展示。デモンストレーションも実施します。  他社メーカーにない独自製品をピンポイントでアピール。"
+style="--brand-primary: #E8351E; --brand-secondary: #9C1D0D; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">OGURA</div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">ＤＡＩＴＯ㈱</h3>
+            <h3 class="maker-card-name">OGURA</h3>
+            <div class="maker-card-cat">No.020 · 切断・電動工具</div>
+            <a href="m/ogura/" class="maker-card-link is-link-block">詳細を見る</a>
+          </div>
+        </article>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="ＤＡＩＴＯ㈱ DAITO DAITO  No.065 No065 SPⅡ-400M を展示。SPⅡシリーズは廃プラスチックも燃やせる売れ筋焼却炉で、サイズが法規制対象外のため面倒な届出・許可なしに設置・使用できる (一部地域除く) ことが強み。当日ブースで燃焼実演を行い、想像以上の燃焼力をご覧いただけます。 2025年4月から High Quality シリーズが進化。高温異常警報装置で「燃やし過ぎ」をお知らせします。 当社独自の旋回燃焼は高温で燃焼し煙の発生を抑えます。来場者から好評の燃焼デモをぜひご体感ください。"
+style="--brand-primary: #E94E1B; --brand-secondary: #A5320E; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">DAITO</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
+          <div class="maker-card-body">
+            <h3 class="maker-card-name">DAITO</h3>
             <div class="maker-card-cat">No.065</div>
-            <a href="m/daito/" class="maker-card-link">詳細を見る</a>
+            <a href="m/daito/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="柳瀬㈱ 柳瀬㈱   No.132 No132 ベルトサンダー、マイティミニ、ダイグラインダー、パワーダイヤカッター NEO、チップソードラドR を展示。サービスセットとして「ベルトサンダー ハッピーベルトセット」「低速サンダー + ベベルグレートセット」「ダイグラインダー超硬カッターセット」をご用意。 パワーダイヤカッター NEO は石材・ガラス・シリコン・セラミック・コンクリート・モルタル等の切断にマルチ対応。ベベルグレートはおわん型のベベル形状で曲面・コーナーでも使いやすく、黒皮除去〜サビ取り〜ヤケ取り〜傷ぼかしまでカバーします。 研削から研磨までトータルでご提案。少々マニアックな商品も展示する予定です。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_002.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="柳瀬㈱ YANASE YANASE  No.132 No132 ベルトサンダー、マイティミニ、ダイグラインダー、パワーダイヤカッター NEO、チップソードラドR を展示。サービスセットとして「ベルトサンダー ハッピーベルトセット」「低速サンダー + ベベルグレートセット」「ダイグラインダー超硬カッターセット」をご用意。 パワーダイヤカッター NEO は石材・ガラス・シリコン・セラミック・コンクリート・モルタル等の切断にマルチ対応。ベベルグレートはおわん型のベベル形状で曲面・コーナーでも使いやすく、黒皮除去〜サビ取り〜ヤケ取り〜傷ぼかしまでカバーします。 研削から研磨までトータルでご提案。少々マニアックな商品も展示する予定です。"
+style="--brand-primary: #E8540C; --brand-secondary: #A33908; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">YANASE</div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">柳瀬㈱</h3>
+            <h3 class="maker-card-name">YANASE</h3>
             <div class="maker-card-cat">No.132</div>
-            <a href="m/yanase/" class="maker-card-link">詳細を見る</a>
+            <a href="m/yanase/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱フジ ㈱フジ   No.107 No107 ボンベスタンド、ハンドカー各種を展示。  ">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_004.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱フジ FUJI FUJI  No.107 No107 ボンベスタンド、ハンドカー各種を展示。  "
+style="--brand-primary: #0B4DA2; --brand-secondary: #E63027; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">FUJI</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱フジ</h3>
+            <h3 class="maker-card-name">FUJI</h3>
             <div class="maker-card-cat">No.107</div>
-            <a href="m/fuji/" class="maker-card-link">詳細を見る</a>
+            <a href="m/fuji/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱エステーリンク ㈱エステーリンク   No.017 No017 メタルエステ600 (ME-2104)、新型メタルスライダー600 (MS0601)、溶接作業用3D定盤を展示します。 新型メタルスライダー600 (MS0601) は集塵機内蔵化 (従来は別置き)、自動基点設定 (従来は手動)、マグネットコンベア標準装備 (従来オプション)、モーター容量 0.75kw→1.5kw で研削力向上を実現。 バリ取り手作業から自動化へ。研磨ブラシによる多方向研削で均一にバリを除去し、高品質な仕上げに。頑固なドロス除去も同時に加工でき、小ワークでも安定加工で作業効率がアップします。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_004.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱エステーリンク ST-LINK ST-LINK  No.017 No017 メタルエステ600 (ME-2104)、新型メタルスライダー600 (MS0601)、溶接作業用3D定盤を展示します。 新型メタルスライダー600 (MS0601) は集塵機内蔵化 (従来は別置き)、自動基点設定 (従来は手動)、マグネットコンベア標準装備 (従来オプション)、モーター容量 0.75kw→1.5kw で研削力向上を実現。 バリ取り手作業から自動化へ。研磨ブラシによる多方向研削で均一にバリを除去し、高品質な仕上げに。頑固なドロス除去も同時に加工でき、小ワークでも安定加工で作業効率がアップします。"
+style="--brand-primary: #3D8C5F; --brand-secondary: #1F4E33; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">ST-LINK</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-special">限定特典あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱エステーリンク</h3>
+            <h3 class="maker-card-name">ST-LINK</h3>
             <div class="maker-card-cat">No.017</div>
-            <a href="m/esuteerinku/" class="maker-card-link">詳細を見る</a>
+            <a href="m/esuteerinku/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="ヤマト産業㈱ ヤマト産業㈱   No.134 No134 YR-507F、SSボーイウルトラ、YR-85F、ラボスタを展示。  減圧弁メーカーとして、減圧弁を中心にご紹介。溶断器・加熱器も販売しています。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_003.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="ヤマト産業㈱ YAMATO YAMATO  No.134 No134 YR-507F、SSボーイウルトラ、YR-85F、ラボスタを展示。  減圧弁メーカーとして、減圧弁を中心にご紹介。溶断器・加熱器も販売しています。"
+style="--brand-primary: #0086A8; --brand-secondary: #005A73; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">YAMATO</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">ヤマト産業㈱</h3>
+            <h3 class="maker-card-name">YAMATO</h3>
             <div class="maker-card-cat">No.134</div>
-            <a href="m/yamato-sangyou/" class="maker-card-link">詳細を見る</a>
+            <a href="m/yamato-sangyou/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="酸素アーク⼯業㈱ 酸素アーク⼯業㈱   No.040 No040 シャープランス SC2-6BX (ホルダー MT150)、オクトギア OCT12-1850、スターカッテンド SC9-5/SC9-5L (ホルダー SG64)、水中切断棒 W-7/SC8-5W (ホルダー W52K)、着火セット「ちゃかポット」を展示。動画でランス棒の切断デモと取扱説明を上映予定。  ランス切断棒の用途と「どんな金属でも切断可能」というメリットを実演動画と共にご説明。後日の現場デモも無料対応 (酸素瓶と切断物のみご用意ください)。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_002.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="酸素アーク⼯業㈱ SANSO ARC SANSO ARC  No.040 No040 シャープランス SC2-6BX (ホルダー MT150)、オクトギア OCT12-1850、スターカッテンド SC9-5/SC9-5L (ホルダー SG64)、水中切断棒 W-7/SC8-5W (ホルダー W52K)、着火セット「ちゃかポット」を展示。動画でランス棒の切断デモと取扱説明を上映予定。  ランス切断棒の用途と「どんな金属でも切断可能」というメリットを実演動画と共にご説明。後日の現場デモも無料対応 (酸素瓶と切断物のみご用意ください)。"
+style="--brand-primary: #D7261E; --brand-secondary: #8E1812; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo is-long">SANSO ARC</div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">酸素アーク⼯業㈱</h3>
+            <h3 class="maker-card-name">SANSO ARC</h3>
             <div class="maker-card-cat">No.040</div>
-            <a href="m/sanso-aaku-kougyou/" class="maker-card-link">詳細を見る</a>
+            <a href="m/sanso-aaku-kougyou/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="イーグルクランプ㈱ イーグルクランプ㈱   No.008 No008 縦つり/横つり/ネジ式クランプ、セットチェーン、クレーンスケール等を地上900mmのゴールデンゾーンに配置。手に取りやすく、単品カタログも目に入る商談しやすい展示構成。 軽量クランプ LH/LV/LHF型 (10kg〜100kg対応) を展示。労基法「人力による重量物運搬対策」の有効解として、近年の展示会では売れ筋商品です。 見やすい・手に取りやすい・実践的、ユーザーニーズに沿った展示。特にネジ式クランプの下取りセールを6月〜7月に実施します。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_002.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="イーグルクランプ㈱ EAGLE CLAMP EAGLE CLAMP  No.008 No008 縦つり/横つり/ネジ式クランプ、セットチェーン、クレーンスケール等を地上900mmのゴールデンゾーンに配置。手に取りやすく、単品カタログも目に入る商談しやすい展示構成。 軽量クランプ LH/LV/LHF型 (10kg〜100kg対応) を展示。労基法「人力による重量物運搬対策」の有効解として、近年の展示会では売れ筋商品です。 見やすい・手に取りやすい・実践的、ユーザーニーズに沿った展示。特にネジ式クランプの下取りセールを6月〜7月に実施します。"
+style="--brand-primary: #C8161D; --brand-secondary: #7A0E13; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo is-long">EAGLE CLAMP</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">イーグルクランプ㈱</h3>
+            <h3 class="maker-card-name">EAGLE CLAMP</h3>
             <div class="maker-card-cat">No.008</div>
-            <a href="m/iigurukuranpu/" class="maker-card-link">詳細を見る</a>
+            <a href="m/iigurukuranpu/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="ボッシュ㈱ ボッシュ㈱   No.117 No117 超硬セーバーソーブレードの切断デモ、レーザー墨出し器・距離計・サーモグラフィー等の測定工具のデモを実施。 新製品ジェットブローチ (アトラ・ライトボーラー等のアトラエース型穴あけ機に対応)、新製品タフボックス (従来ケース比で大幅に頑丈) を展示。 ガス溶断・グラインダーに代わる「火花の出ない切断工具」として、超硬セーバーソーブレードをご提案。バイメタル刃比で最大100倍の長寿命、鉄・ステンレス・鋳鉄管・高張力鋼の切断に対応します。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_003.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="ボッシュ㈱ BOSCH BOSCH  No.117 No117 超硬セーバーソーブレードの切断デモ、レーザー墨出し器・距離計・サーモグラフィー等の測定工具のデモを実施。 新製品ジェットブローチ (アトラ・ライトボーラー等のアトラエース型穴あけ機に対応)、新製品タフボックス (従来ケース比で大幅に頑丈) を展示。 ガス溶断・グラインダーに代わる「火花の出ない切断工具」として、超硬セーバーソーブレードをご提案。バイメタル刃比で最大100倍の長寿命、鉄・ステンレス・鋳鉄管・高張力鋼の切断に対応します。"
+style="--brand-primary: #EE0000; --brand-secondary: #A30000; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">BOSCH</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">ボッシュ㈱</h3>
+            <h3 class="maker-card-name">BOSCH</h3>
             <div class="maker-card-cat">No.117</div>
-            <a href="m/bosshu/" class="maker-card-link">詳細を見る</a>
+            <a href="m/bosshu/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱プロスパー ㈱プロスパー   No.113 No113 ハイブランドのウォッチ、バッグ、アパレル、ジュエリー等を展示。 新製品の発表はありませんが、厳選した商品ラインナップをご用意しています。 幅広いジャンルの商品を一度にご覧いただける点が強みです。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_001.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱プロスパー PROSPER PROSPER  No.113 No113 ハイブランドのウォッチ、バッグ、アパレル、ジュエリー等を展示。 新製品の発表はありませんが、厳選した商品ラインナップをご用意しています。 幅広いジャンルの商品を一度にご覧いただける点が強みです。"
+style="--brand-primary: #1F2A44; --brand-secondary: #B8893A; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">PROSPER</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱プロスパー</h3>
+            <h3 class="maker-card-name">PROSPER</h3>
             <div class="maker-card-cat">No.113</div>
-            <a href="m/purosupaa/" class="maker-card-link">詳細を見る</a>
+            <a href="m/purosupaa/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱ホータス ㈱ホータス   No.115 No115 ドリル研磨機 (デモ可)、クイックタップ (デモ可)、チップ式エアー面取り機 (展示)、チップ式エアービードリムーバー (展示)、鉄骨用テーパーシャンクドリル (展示)。  簡単・短時間でドリルの再研磨が可能なドリル研磨機をぜひその場でお試しください。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_002.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱ホータス HOTAS HOTAS  No.115 No115 ドリル研磨機 (デモ可)、クイックタップ (デモ可)、チップ式エアー面取り機 (展示)、チップ式エアービードリムーバー (展示)、鉄骨用テーパーシャンクドリル (展示)。  簡単・短時間でドリルの再研磨が可能なドリル研磨機をぜひその場でお試しください。"
+style="--brand-primary: #0E5BA8; --brand-secondary: #F08200; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">HOTAS</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱ホータス</h3>
+            <h3 class="maker-card-name">HOTAS</h3>
             <div class="maker-card-cat">No.115</div>
-            <a href="m/hootasu/" class="maker-card-link">詳細を見る</a>
+            <a href="m/hootasu/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="マツモト機械㈱ マツモト機械㈱   No.120 No120 配布カタログから、ローリングアース「EM-500」、溶接ロボット用ノズルクリーナー「ロボメイト RNP-B」、ワイヤ量検知器「WSE-CU」など、TIG・半自動・ロボット溶接の周辺機器を中心にご紹介。 ロボメイト RNP-B はアーク溶接ロボットの溶接トーチ内ノズル付着スパッタを自動除去し、スパッタ付着防止液を自動塗布。ワイヤカット機能でワイヤつき出し長さを一定に保ち、ロボット溶接の連続稼働を支えます。 溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_004.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="マツモト機械㈱ MAC-WELS MAC-WELS  No.120 No120 配布カタログから、ローリングアース「EM-500」、溶接ロボット用ノズルクリーナー「ロボメイト RNP-B」、ワイヤ量検知器「WSE-CU」など、TIG・半自動・ロボット溶接の周辺機器を中心にご紹介。 ロボメイト RNP-B はアーク溶接ロボットの溶接トーチ内ノズル付着スパッタを自動除去し、スパッタ付着防止液を自動塗布。ワイヤカット機能でワイヤつき出し長さを一定に保ち、ロボット溶接の連続稼働を支えます。 溶接の前処理・自動化に効くアース・ノズルクリーナー・ワイヤ量検知器の各カタログをじっくりご覧いただけます。"
+style="--brand-primary: #C8102E; --brand-secondary: #1A1A1A; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">MAC-WELS</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">マツモト機械㈱</h3>
+            <h3 class="maker-card-name">MAC-WELS</h3>
             <div class="maker-card-cat">No.120</div>
-            <a href="m/matsumoto-kikai/" class="maker-card-link">詳細を見る</a>
+            <a href="m/matsumoto-kikai/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="スリーエムジャパン㈱ スリーエムジャパン㈱  切断・電動工具 No.058 No058 墜落制止用器具、溶接遮光面、取替え式・使い捨て防じんマスク等の安全保護具を展示。墜落制止用器具の落下デモを実施します。 昨年新発売の溶接遮光面 G5-03E、墜落制止用器具のナノロックライトロック付き巻取り式ランヤード (DBI-サラ Nano-Lok Light、新規格適合) を展示・デモ。世界80年の墜落防止実績を持つ3Mの最新ラインナップです。 「胴ベルトからフルハーネスへの切替検討中」「フルハーネス使用時の落下距離が気になる」「作業高さ2〜3mでのフルハーネスの正しい使い方・装着方法を知りたい」 — そんな方はぜひブースのデモをご覧ください。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_001.png');"></div>
-          <div class="maker-card-body">
-            <h3 class="maker-card-name">スリーエムジャパン㈱</h3>
-            <div class="maker-card-cat">No.058 / 切断・電動工具</div>
-            <a href="m/3m-japan/" class="maker-card-link">詳細を見る</a>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="スリーエムジャパン㈱ 3M 3M 切断・電動工具 No.058 No058 墜落制止用器具、溶接遮光面、取替え式・使い捨て防じんマスク等の安全保護具を展示。墜落制止用器具の落下デモを実施します。 昨年新発売の溶接遮光面 G5-03E、墜落制止用器具のナノロックライトロック付き巻取り式ランヤード (DBI-サラ Nano-Lok Light、新規格適合) を展示・デモ。世界80年の墜落防止実績を持つ3Mの最新ラインナップです。 「胴ベルトからフルハーネスへの切替検討中」「フルハーネス使用時の落下距離が気になる」「作業高さ2〜3mでのフルハーネスの正しい使い方・装着方法を知りたい」 — そんな方はぜひブースのデモをご覧ください。"
+style="--brand-primary: #DA291C; --brand-secondary: #9E1B11; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">3M</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-priority">最優先</span>            </div>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
-        </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="マツモト産業㈱エクセル貿易事業部 マツモト産業㈱エクセル貿易事業部   No.121 No121 TIGトーチ、タングステン電極棒、ケーブルカバー、溶接テーブル、マグネット、ウェルケーブル等、海外製を中心とした溶接周辺品ラインナップを展示。 ビルドプロ「ALPHA16」シリーズ溶接テーブル。従来テーブルでは専用治具が必要だったサイドの穴あけが、ALPHA16 は最初からサイドにも穴がある設計で、治具不要で多方向の固定が可能です。 ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_005.png');"></div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">マツモト産業㈱エクセル貿易事業部</h3>
+            <h3 class="maker-card-name">3M</h3>
+            <div class="maker-card-cat">No.058 · 切断・電動工具</div>
+            <a href="m/3m-japan/" class="maker-card-link is-link-block">詳細を見る</a>
+          </div>
+        </article>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="マツモト産業㈱エクセル貿易事業部 MAC-EXE MAC-EXE  No.121 No121 TIGトーチ、タングステン電極棒、ケーブルカバー、溶接テーブル、マグネット、ウェルケーブル等、海外製を中心とした溶接周辺品ラインナップを展示。 ビルドプロ「ALPHA16」シリーズ溶接テーブル。従来テーブルでは専用治具が必要だったサイドの穴あけが、ALPHA16 は最初からサイドにも穴がある設計で、治具不要で多方向の固定が可能です。 ユーザー様の様々な場面に対応する TIG トーチと、作業効率を高める溶接テーブルを実機でご確認いただけます。"
+style="--brand-primary: #C8102E; --brand-secondary: #7A0A1C; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">MAC-EXE</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
+          <div class="maker-card-body">
+            <h3 class="maker-card-name">MAC-EXE</h3>
             <div class="maker-card-cat">No.121</div>
-            <a href="m/matsumoto-excel/" class="maker-card-link">詳細を見る</a>
+            <a href="m/matsumoto-excel/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱エスカディア ㈱エスカディア   No.016 No016 3本ロール機 SRM-33 / SR-55EⅡ、2本ロール機 SRT-55 を出展。実際のワークをご持参いただければ、その場でロール実演加工が可能です。  当社ロール機はウレタンライニング採用のため、鉄芯比で製品に傷がつきにくく食いつきも良好で作業性が向上します。Ⅱシリーズは端曲げ機構付き、ぜひ実機でご確認ください。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_003.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱エスカディア SCADIA SCADIA  No.016 No016 3本ロール機 SRM-33 / SR-55EⅡ、2本ロール機 SRT-55 を出展。実際のワークをご持参いただければ、その場でロール実演加工が可能です。  当社ロール機はウレタンライニング採用のため、鉄芯比で製品に傷がつきにくく食いつきも良好で作業性が向上します。Ⅱシリーズは端曲げ機構付き、ぜひ実機でご確認ください。"
+style="--brand-primary: #0E5E8A; --brand-secondary: #06354F; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">SCADIA</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱エスカディア</h3>
+            <h3 class="maker-card-name">SCADIA</h3>
             <div class="maker-card-cat">No.016</div>
-            <a href="m/esukadia/" class="maker-card-link">詳細を見る</a>
+            <a href="m/esukadia/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱サンワ ㈱サンワ   No.043 No043 展示電動工具 (一部除く) のデモを実施。鉄板 t=0.8〜3.2mm の切断と、開先加工機のデモを予定。 レーザー加工をされているユーザー様向け新製品 — TSC200 スラットクリーナー、PS100 パーツセパレーター。単品カタログを添付しています。 実機で工具の使用感を体験いただけます。引合いが出ればユーザー様先で後日デモに伺う運用です。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_003.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱サンワ SANWA SANWA  No.043 No043 展示電動工具 (一部除く) のデモを実施。鉄板 t=0.8〜3.2mm の切断と、開先加工機のデモを予定。 レーザー加工をされているユーザー様向け新製品 — TSC200 スラットクリーナー、PS100 パーツセパレーター。単品カタログを添付しています。 実機で工具の使用感を体験いただけます。引合いが出ればユーザー様先で後日デモに伺う運用です。"
+style="--brand-primary: #E85D1A; --brand-secondary: #A8400F; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">SANWA</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-special">限定特典あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱サンワ</h3>
+            <h3 class="maker-card-name">SANWA</h3>
             <div class="maker-card-cat">No.043</div>
-            <a href="m/sanwa/" class="maker-card-link">詳細を見る</a>
+            <a href="m/sanwa/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="三共㈱ 三共㈱   No.148 No148 理研機器の油圧機器を展示。  展示用の油圧機器は分解品もあり、実物の構造を内部までご確認いただけます。70MPa〜400MPaクラスの超高圧油圧ポンプ・シリンダ・バルブを取り扱う理研機器の高圧制御技術をご紹介します。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_005.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="三共㈱ SANKYO SANKYO  No.148 No148 理研機器の油圧機器を展示。  展示用の油圧機器は分解品もあり、実物の構造を内部までご確認いただけます。70MPa〜400MPaクラスの超高圧油圧ポンプ・シリンダ・バルブを取り扱う理研機器の高圧制御技術をご紹介します。"
+style="--brand-primary: #0B3D91; --brand-secondary: #062366; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">SANKYO</div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">三共㈱</h3>
+            <h3 class="maker-card-name">SANKYO</h3>
             <div class="maker-card-cat">No.148</div>
-            <a href="m/sankyou/" class="maker-card-link">詳細を見る</a>
+            <a href="m/sankyou/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="㈱ハタヤリミテッド ㈱ハタヤリミテッド   No.100 No100 50W LED ケイ・ライトハイブリッドマグネット付き、LEDヘッドライト「ロクゼロゼロα」、キリンライトセット、LEDテープライト各種、フレキシブルLEDジョーハンドランプなどを展示。 50W LED ケイ・ライトハイブリッドマグネット付き (型式 LWA-50KHBN-M)。AC/バッテリー両対応で、AC点灯時 5,500lm、バッテリー時 2,000lm (連続6時間)。ケーブル脱着式でバッテリー使用時の取り回しが格段に楽です。 コードリール、LEDライトを取り揃えてお待ちしています。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_003.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="㈱ハタヤリミテッド HATAYA HATAYA  No.100 No100 50W LED ケイ・ライトハイブリッドマグネット付き、LEDヘッドライト「ロクゼロゼロα」、キリンライトセット、LEDテープライト各種、フレキシブルLEDジョーハンドランプなどを展示。 50W LED ケイ・ライトハイブリッドマグネット付き (型式 LWA-50KHBN-M)。AC/バッテリー両対応で、AC点灯時 5,500lm、バッテリー時 2,000lm (連続6時間)。ケーブル脱着式でバッテリー使用時の取り回しが格段に楽です。 コードリール、LEDライトを取り揃えてお待ちしています。"
+style="--brand-primary: #E60012; --brand-secondary: #A50010; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">HATAYA</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱ハタヤリミテッド</h3>
+            <h3 class="maker-card-name">HATAYA</h3>
             <div class="maker-card-cat">No.100</div>
-            <a href="m/hatayarimiteddo/" class="maker-card-link">詳細を見る</a>
+            <a href="m/hatayarimiteddo/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="ヨコタ⼯業㈱ ヨコタ⼯業㈱   No.138 No138 エアーツールのデモ機を展示。 新型エアーアングルグラインダ G700H と新型エアーストレートグラインダ GS-65 シリーズを展示。従来品から出力を維持しつつ軽量化を実現しています。 新型グラインダを目玉に、従来現行品や締付工具も展示予定。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_004.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="ヨコタ⼯業㈱ YOKOTA YOKOTA  No.138 No138 エアーツールのデモ機を展示。 新型エアーアングルグラインダ G700H と新型エアーストレートグラインダ GS-65 シリーズを展示。従来品から出力を維持しつつ軽量化を実現しています。 新型グラインダを目玉に、従来現行品や締付工具も展示予定。"
+style="--brand-primary: #3A3A3C; --brand-secondary: #1C1C1E; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">YOKOTA</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span><span class="mb-pill mb-priority">最優先</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">ヨコタ⼯業㈱</h3>
+            <h3 class="maker-card-name">YOKOTA</h3>
             <div class="maker-card-cat">No.138</div>
-            <a href="m/yokota-kougyou/" class="maker-card-link">詳細を見る</a>
+            <a href="m/yokota-kougyou/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="サンコーミタチ㈱ サンコーミタチ㈱  切断・電動工具 No.039 No039 各種グラインダ、各種チップソー切断機を展示。サービス品は当日のお楽しみ。 「お値段以上」「品質重視」「日本製」 — 普段使いのグラインダのグレードアップ提案。電動工具の使い捨て化が進む中、日本製にこだわった品質重視のモノづくりを発信するメーカーです。 実際にお手にとってお試しください。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_001.png');"></div>
-          <div class="maker-card-body">
-            <h3 class="maker-card-name">サンコーミタチ㈱</h3>
-            <div class="maker-card-cat">No.039 / 切断・電動工具</div>
-            <a href="m/sankoomitachi/" class="maker-card-link">詳細を見る</a>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="サンコーミタチ㈱ MITACHI MITACHI 切断・電動工具 No.039 No039 各種グラインダ、各種チップソー切断機を展示。サービス品は当日のお楽しみ。 「お値段以上」「品質重視」「日本製」 — 普段使いのグラインダのグレードアップ提案。電動工具の使い捨て化が進む中、日本製にこだわった品質重視のモノづくりを発信するメーカーです。 実際にお手にとってお試しください。"
+style="--brand-primary: #1F8A4C; --brand-secondary: #0F4F2C; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">MITACHI</div>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
-        </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="明⼤㈱ 明⼤㈱   No.128 No128 マックスリング一式を展示。  展示商品だけでなく、ユーザー用途に合わせた特殊品製作にも対応します。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_001.png');"></div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">明⼤㈱</h3>
+            <h3 class="maker-card-name">MITACHI</h3>
+            <div class="maker-card-cat">No.039 · 切断・電動工具</div>
+            <a href="m/sankoomitachi/" class="maker-card-link is-link-block">詳細を見る</a>
+          </div>
+        </article>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="明⼤㈱ MEIDAI MEIDAI  No.128 No128 マックスリング一式を展示。  展示商品だけでなく、ユーザー用途に合わせた特殊品製作にも対応します。"
+style="--brand-primary: #2E7D32; --brand-secondary: #1B5E20; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo">MEIDAI</div>
+          </div>
+          <div class="maker-card-body">
+            <h3 class="maker-card-name">MEIDAI</h3>
             <div class="maker-card-cat">No.128</div>
-            <a href="m/meidai/" class="maker-card-link">詳細を見る</a>
+            <a href="m/meidai/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-a" data-tier="A" data-search-text="静岡製機㈱ 静岡製機㈱   No.048 No048 気化式冷風機を展示。冷風の体感を実施します。  熱中症対策品。省エネで環境にやさしいラインナップです。">
-          <div class="hover-glow"></div>
-<div class="maker-card-new"></div>          <div class="maker-card-hero" style="background-image: url('assets/extracted/card-placeholders/placeholder_004.png');"></div>
+        <article class="maker-card maker-card-tier-a"
+                 data-tier="A"
+                 data-search-text="静岡製機㈱ SHIZUOKA SEIKI SHIZUOKA SEIKI  No.048 No048 気化式冷風機を展示。冷風の体感を実施します。  熱中症対策品。省エネで環境にやさしいラインナップです。"
+style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFFFF;">
+<div class="maker-card-new"></div>          <div class="maker-card-hero">
+            <div class="maker-card-logo is-long">SHIZUOKA SEIKI</div>
+            <div class="maker-card-badges">
+<span class="mb-pill mb-discount">特別割引あり</span>            </div>
+          </div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">静岡製機㈱</h3>
+            <h3 class="maker-card-name">SHIZUOKA SEIKI</h3>
             <div class="maker-card-cat">No.048</div>
-            <a href="m/shizuoka-seiki/" class="maker-card-link">詳細を見る</a>
+            <a href="m/shizuoka-seiki/" class="maker-card-link is-link-block">詳細を見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱アカサカテック ㈱アカサカテック  安全・快適ソリューション No.001 No001   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱アカサカテック ㈱アカサカテック  安全・快適ソリューション No.001 No001   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱アカサカテック</h3>
-            <div class="maker-card-cat">No.001 / 安全・快適ソリューション</div>
-            <a href="m/akasakatekku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.001 · 安全・快適ソリューション · 公式パンフ p.2</div>
+            <a href="m/akasakatekku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="アサダ㈱ アサダ㈱  切断・電動工具 No.002 No002   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="アサダ㈱ アサダ㈱  切断・電動工具 No.002 No002   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">アサダ㈱</h3>
-            <div class="maker-card-cat">No.002 / 切断・電動工具</div>
-            <a href="m/asada/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.002 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/asada/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱アマダマシナリー ㈱アマダマシナリー  金属加工機 No.006 No006   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱アマダマシナリー ㈱アマダマシナリー  金属加工機 No.006 No006   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱アマダマシナリー</h3>
-            <div class="maker-card-cat">No.006 / 金属加工機</div>
-            <a href="m/amadamashinarii/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.006 · 金属加工機 · 公式パンフ p.3</div>
+            <a href="m/amadamashinarii/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="アルインコ㈱ アルインコ㈱  切断・電動工具 No.007 No007   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="アルインコ㈱ アルインコ㈱  切断・電動工具 No.007 No007   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">アルインコ㈱</h3>
-            <div class="maker-card-cat">No.007 / 切断・電動工具</div>
-            <a href="m/aruinko/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.007 · 切断・電動工具 · 公式パンフ p.4</div>
+            <a href="m/aruinko/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱イチグチ ㈱イチグチ  切断・電動工具 No.010 No010   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱イチグチ ㈱イチグチ  切断・電動工具 No.010 No010   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱イチグチ</h3>
-            <div class="maker-card-cat">No.010 / 切断・電動工具</div>
-            <a href="m/ichiguchi/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.010 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/ichiguchi/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱オートスイング（OTOS） ㈱オートスイング（OTOS）  協働ロボット No.019 No019   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱オートスイング（OTOS） ㈱オートスイング（OTOS）  協働ロボット No.019 No019   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱オートスイング（OTOS）</h3>
-            <div class="maker-card-cat">No.019 / 協働ロボット</div>
-            <a href="m/ootosuingu-otos/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.019 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/ootosuingu-otos/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱キトー ㈱キトー  揚送機器 No.025 No025   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱キトー ㈱キトー  揚送機器 No.025 No025   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱キトー</h3>
-            <div class="maker-card-cat">No.025 / 揚送機器</div>
-            <a href="m/kitoo/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.025 · 揚送機器 · 公式パンフ p.4</div>
+            <a href="m/kitoo/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱キャドマック ㈱キャドマック  板金加工機 No.026 No026   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱キャドマック ㈱キャドマック  板金加工機 No.026 No026   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱キャドマック</h3>
-            <div class="maker-card-cat">No.026 / 板金加工機</div>
-            <a href="m/kyadomakku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.026 · 板金加工機 · 公式パンフ p.2</div>
+            <a href="m/kyadomakku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="京セラインダストリアルツールズ㈱ 京セラインダストリアルツールズ㈱  切断・電動工具 No.027 No027   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="京セラインダストリアルツールズ㈱ 京セラインダストリアルツールズ㈱  切断・電動工具 No.027 No027   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">京セラインダストリアルツールズ㈱</h3>
-            <div class="maker-card-cat">No.027 / 切断・電動工具</div>
-            <a href="m/kyousera-indasutoriarutsuuruzu/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.027 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/kyousera-indasutoriarutsuuruzu/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="⼯機ホールディングス㈱ ⼯機ホールディングス㈱  切断・電動工具 No.031 No031   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="⼯機ホールディングス㈱ ⼯機ホールディングス㈱  切断・電動工具 No.031 No031   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⼯機ホールディングス㈱</h3>
-            <div class="maker-card-cat">No.031 / 切断・電動工具</div>
-            <a href="m/kouki-hoorudingusu/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.031 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/kouki-hoorudingusu/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="興研㈱ 興研㈱  空調・環境・安全・保護具 No.032 No032   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="興研㈱ 興研㈱  空調・環境・安全・保護具 No.032 No032   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">興研㈱</h3>
-            <div class="maker-card-cat">No.032 / 空調・環境・安全・保護具</div>
-            <a href="m/koken/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.032 · 空調・環境・安全・保護具 · 公式パンフ p.4</div>
+            <a href="m/koken/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱五常 ㈱五常  安全・快適ソリューション No.034 No034   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱五常 ㈱五常  安全・快適ソリューション No.034 No034   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱五常</h3>
-            <div class="maker-card-cat">No.034 / 安全・快適ソリューション</div>
-            <a href="m/gojou/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.034 · 安全・快適ソリューション · 公式パンフ p.2</div>
+            <a href="m/gojou/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱⼩森安全機研究所 ㈱⼩森安全機研究所  協働ロボット No.035 No035   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱⼩森安全機研究所 ㈱⼩森安全機研究所  協働ロボット No.035 No035   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱⼩森安全機研究所</h3>
-            <div class="maker-card-cat">No.035 / 協働ロボット</div>
-            <a href="m/komori-anzen-ki-kenkyuusho/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.035 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/komori-anzen-ki-kenkyuusho/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="サイシュウテクノ㈱ サイシュウテクノ㈱  作業環境向上ブース No.036 No036   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="サイシュウテクノ㈱ サイシュウテクノ㈱  作業環境向上ブース No.036 No036   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">サイシュウテクノ㈱</h3>
-            <div class="maker-card-cat">No.036 / 作業環境向上ブース</div>
-            <a href="m/saishuutekuno/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.036 · 作業環境向上ブース · 公式パンフ p.2</div>
+            <a href="m/saishuutekuno/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="ジェントス㈱ ジェントス㈱  保護具 No.046 No046   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="ジェントス㈱ ジェントス㈱  保護具 No.046 No046   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ジェントス㈱</h3>
-            <div class="maker-card-cat">No.046 / 保護具</div>
-            <a href="m/jientosu/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.046 · 保護具 · 公式パンフ p.3</div>
+            <a href="m/jientosu/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱重松製作所 ㈱重松製作所  空調・環境・安全・保護具 No.047 No047   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱重松製作所 ㈱重松製作所  空調・環境・安全・保護具 No.047 No047   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱重松製作所</h3>
-            <div class="maker-card-cat">No.047 / 空調・環境・安全・保護具</div>
-            <a href="m/shigematsu/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.047 · 空調・環境・安全・保護具 · 公式パンフ p.4</div>
+            <a href="m/shigematsu/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="シンクス㈱ シンクス㈱  協働ロボット No.051 No051   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="シンクス㈱ シンクス㈱  協働ロボット No.051 No051   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">シンクス㈱</h3>
-            <div class="maker-card-cat">No.051 / 協働ロボット</div>
-            <a href="m/shinkusu/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.051 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/shinkusu/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱スーパーツール ㈱スーパーツール  切断・電動工具 No.055 No055   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱スーパーツール ㈱スーパーツール  切断・電動工具 No.055 No055   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱スーパーツール</h3>
-            <div class="maker-card-cat">No.055 / 切断・電動工具</div>
-            <a href="m/suupaatsuuru/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.055 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/suupaatsuuru/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱ゼネテック ㈱ゼネテック  協働ロボット No.059 No059   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱ゼネテック ㈱ゼネテック  協働ロボット No.059 No059   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ゼネテック</h3>
-            <div class="maker-card-cat">No.059 / 協働ロボット</div>
-            <a href="m/zenetekku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.059 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/zenetekku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="象印チェンブロック㈱ 象印チェンブロック㈱  揚送機器 No.061 No061   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="象印チェンブロック㈱ 象印チェンブロック㈱  揚送機器 No.061 No061   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">象印チェンブロック㈱</h3>
-            <div class="maker-card-cat">No.061 / 揚送機器</div>
-            <a href="m/zoujirushi-chenburokku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.061 · 揚送機器 · 公式パンフ p.4</div>
+            <a href="m/zoujirushi-chenburokku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱ダイヘン ㈱ダイヘン  協働ロボット No.066 No066   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱ダイヘン DAIHEN DAIHEN 協働ロボット No.066 No066   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
-            <h3 class="maker-card-name">㈱ダイヘン</h3>
-            <div class="maker-card-cat">No.066 / 協働ロボット</div>
-            <a href="m/daihen/" class="maker-card-link">パンフを見る</a>
+            <h3 class="maker-card-name">DAIHEN</h3>
+            <div class="maker-card-cat">No.066 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/daihen/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱東洋化学商会 ㈱東洋化学商会  作業環境向上ブース No.075 No075   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱東洋化学商会 ㈱東洋化学商会  作業環境向上ブース No.075 No075   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱東洋化学商会</h3>
-            <div class="maker-card-cat">No.075 / 作業環境向上ブース</div>
-            <a href="m/touyoukagaku-shoukai/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.075 · 作業環境向上ブース · 公式パンフ p.2</div>
+            <a href="m/touyoukagaku-shoukai/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="東横サポート㈲ 東横サポート㈲  作業環境向上ブース No.076 No076   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="東横サポート㈲ 東横サポート㈲  作業環境向上ブース No.076 No076   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">東横サポート㈲</h3>
-            <div class="maker-card-cat">No.076 / 作業環境向上ブース</div>
-            <a href="m/touyoko-sapooto/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.076 · 作業環境向上ブース · 公式パンフ p.2</div>
+            <a href="m/touyoko-sapooto/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="ＴＯＮＥ㈱ ＴＯＮＥ㈱  切断・電動工具 No.081 No081   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="ＴＯＮＥ㈱ ＴＯＮＥ㈱  切断・電動工具 No.081 No081   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ＴＯＮＥ㈱</h3>
-            <div class="maker-card-cat">No.081 / 切断・電動工具</div>
-            <a href="m/tone/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.081 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/tone/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱ノビテック ㈱ノビテック  協働ロボット No.097 No097   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱ノビテック ㈱ノビテック  協働ロボット No.097 No097   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ノビテック</h3>
-            <div class="maker-card-cat">No.097 / 協働ロボット</div>
-            <a href="m/nobitekku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.097 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/nobitekku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱HiPAPhotonicsJapan ㈱HiPAPhotonicsJapan  ファイバーレーザー No.098 No098   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱HiPAPhotonicsJapan ㈱HiPAPhotonicsJapan  ファイバーレーザー No.098 No098   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱HiPAPhotonicsJapan</h3>
-            <div class="maker-card-cat">No.098 / ファイバーレーザー</div>
-            <a href="m/hipaphotonicsjapan/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.098 · ファイバーレーザー · 公式パンフ p.3</div>
+            <a href="m/hipaphotonicsjapan/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="パナソニック㈱ パナソニック㈱  ロボット・溶接機 No.101 No101   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="パナソニック㈱ パナソニック㈱  ロボット・溶接機 No.101 No101   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">パナソニック㈱</h3>
-            <div class="maker-card-cat">No.101 / ロボット・溶接機</div>
-            <a href="m/panasonikku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.101 · ロボット・溶接機 · 公式パンフ p.3</div>
+            <a href="m/panasonikku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱ビック・ツール ㈱ビック・ツール  切断・電動工具 No.105 No105   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱ビック・ツール ㈱ビック・ツール  切断・電動工具 No.105 No105   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ビック・ツール</h3>
-            <div class="maker-card-cat">No.105 / 切断・電動工具</div>
-            <a href="m/bikku-tsuuru/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.105 · 切断・電動工具 · 公式パンフ p.4</div>
+            <a href="m/bikku-tsuuru/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="ファナック㈱ ファナック㈱  協働ロボット No.106 No106   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="ファナック㈱ ファナック㈱  協働ロボット No.106 No106   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ファナック㈱</h3>
-            <div class="maker-card-cat">No.106 / 協働ロボット</div>
-            <a href="m/fanakku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.106 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/fanakku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="フロニウスジャパン㈱ フロニウスジャパン㈱  協働ロボット No.114 No114   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="フロニウスジャパン㈱ フロニウスジャパン㈱  協働ロボット No.114 No114   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">フロニウスジャパン㈱</h3>
-            <div class="maker-card-cat">No.114 / 協働ロボット</div>
-            <a href="m/furoniusujapan/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.114 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/furoniusujapan/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="マイト⼯業㈱ マイト⼯業㈱  保護具 No.119 No119   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="マイト⼯業㈱ マイト⼯業㈱  保護具 No.119 No119   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">マイト⼯業㈱</h3>
-            <div class="maker-card-cat">No.119 / 保護具</div>
-            <a href="m/maito-kougyou/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.119 · 保護具 · 公式パンフ p.3</div>
+            <a href="m/maito-kougyou/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="三菱電機㈱ 三菱電機㈱  板金加工機 No.123 No123   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="三菱電機㈱ 三菱電機㈱  板金加工機 No.123 No123   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">三菱電機㈱</h3>
-            <div class="maker-card-cat">No.123 / 板金加工機</div>
-            <a href="m/mitsubishidenki/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.123 · 板金加工機 · 公式パンフ p.2</div>
+            <a href="m/mitsubishidenki/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="三菱電機フィナンシャルソリューションズ㈱ 三菱電機フィナンシャルソリューションズ㈱  板金加工機 No.124 No124   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="三菱電機フィナンシャルソリューションズ㈱ 三菱電機フィナンシャルソリューションズ㈱  板金加工機 No.124 No124   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">三菱電機フィナンシャルソリューションズ㈱</h3>
-            <div class="maker-card-cat">No.124 / 板金加工機</div>
-            <a href="m/mitsubishidenki-finansharusoryuushonzu/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.124 · 板金加工機 · 公式パンフ p.2</div>
+            <a href="m/mitsubishidenki-finansharusoryuushonzu/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="村⽥機械㈱ 村⽥機械㈱  板金加工機 No.127 No127   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="村⽥機械㈱ 村⽥機械㈱  板金加工機 No.127 No127   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">村⽥機械㈱</h3>
-            <div class="maker-card-cat">No.127 / 板金加工機</div>
-            <a href="m/muratakikai/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.127 · 板金加工機 · 公式パンフ p.2</div>
+            <a href="m/muratakikai/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱メサック ㈱メサック  協働ロボット No.129 No129   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱メサック ㈱メサック  協働ロボット No.129 No129   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱メサック</h3>
-            <div class="maker-card-cat">No.129 / 協働ロボット</div>
-            <a href="m/mesakku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.129 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/mesakku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱モトユキ ㈱モトユキ  切断・電動工具 No.130 No130   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱モトユキ ㈱モトユキ  切断・電動工具 No.130 No130   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱モトユキ</h3>
-            <div class="maker-card-cat">No.130 / 切断・電動工具</div>
-            <a href="m/motoyuki/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.130 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/motoyuki/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱LA・PITA ㈱LA・PITA  作業環境向上ブース No.139 No139   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱LA・PITA ㈱LA・PITA  作業環境向上ブース No.139 No139   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱LA・PITA</h3>
-            <div class="maker-card-cat">No.139 / 作業環境向上ブース</div>
-            <a href="m/la-pita/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.139 · 作業環境向上ブース · 公式パンフ p.2</div>
+            <a href="m/la-pita/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="㈱レヂトン ㈱レヂトン  切断・電動工具 No.143 No143   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="㈱レヂトン ㈱レヂトン  切断・電動工具 No.143 No143   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱レヂトン</h3>
-            <div class="maker-card-cat">No.143 / 切断・電動工具</div>
-            <a href="m/rejiton/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.143 · 切断・電動工具 · 公式パンフ p.3</div>
+            <a href="m/rejiton/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-b" data-tier="B" data-search-text="ロボットバンク㈱ ロボットバンク㈱  協働ロボット No.145 No145   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-b"
+                 data-tier="B"
+                 data-search-text="ロボットバンク㈱ ロボットバンク㈱  協働ロボット No.145 No145   "
+>
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ロボットバンク㈱</h3>
-            <div class="maker-card-cat">No.145 / 協働ロボット</div>
-            <a href="m/robottobanku/" class="maker-card-link">パンフを見る</a>
+            <div class="maker-card-cat">No.145 · 協働ロボット · 公式パンフ p.2</div>
+            <a href="m/robottobanku/" class="maker-card-link is-link-block">パンフを見る</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="旭産業㈱ 旭産業㈱   No.003 No003   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="旭産業㈱ 旭産業㈱   No.003 No003   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">旭産業㈱</h3>
             <div class="maker-card-cat">No.003</div>
-            <a href="m/asahi-sangyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/asahi-sangyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="アデリア㈱ アデリア㈱   No.004 No004   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="アデリア㈱ アデリア㈱   No.004 No004   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">アデリア㈱</h3>
             <div class="maker-card-cat">No.004</div>
-            <a href="m/aderia/" class="maker-card-link">情報準備中</a>
+            <a href="m/aderia/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="育良精機㈱ 育良精機㈱   No.009 No009   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="育良精機㈱ 育良精機㈱   No.009 No009   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">育良精機㈱</h3>
             <div class="maker-card-cat">No.009</div>
-            <a href="m/ikura-seiki/" class="maker-card-link">情報準備中</a>
+            <a href="m/ikura-seiki/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱イチネンケミカルズ ㈱イチネンケミカルズ   No.011 No011   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱イチネンケミカルズ ㈱イチネンケミカルズ   No.011 No011   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱イチネンケミカルズ</h3>
             <div class="maker-card-cat">No.011</div>
-            <a href="m/ichinenkemikaruzu/" class="maker-card-link">情報準備中</a>
+            <a href="m/ichinenkemikaruzu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="内⽥メガネ 内⽥メガネ   No.012 No012   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="内⽥メガネ 内⽥メガネ   No.012 No012   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">内⽥メガネ</h3>
             <div class="maker-card-cat">No.012</div>
-            <a href="m/uchida-megane/" class="maker-card-link">情報準備中</a>
+            <a href="m/uchida-megane/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ＡＩＲＭＡＮ ㈱ＡＩＲＭＡＮ   No.013 No013   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ＡＩＲＭＡＮ ㈱ＡＩＲＭＡＮ   No.013 No013   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ＡＩＲＭＡＮ</h3>
             <div class="maker-card-cat">No.013</div>
-            <a href="m/airman/" class="maker-card-link">情報準備中</a>
+            <a href="m/airman/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ＡＭＳ ㈱ＡＭＳ   No.014 No014   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ＡＭＳ ㈱ＡＭＳ   No.014 No014   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ＡＭＳ</h3>
             <div class="maker-card-cat">No.014</div>
-            <a href="m/ams/" class="maker-card-link">情報準備中</a>
+            <a href="m/ams/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱エクシード ㈱エクシード   No.015 No015   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱エクシード ㈱エクシード   No.015 No015   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱エクシード</h3>
             <div class="maker-card-cat">No.015</div>
-            <a href="m/ekushiido/" class="maker-card-link">情報準備中</a>
+            <a href="m/ekushiido/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱⼤崎電⼯ ㈱⼤崎電⼯   No.018 No018   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱⼤崎電⼯ ㈱⼤崎電⼯   No.018 No018   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱⼤崎電⼯</h3>
             <div class="maker-card-cat">No.018</div>
-            <a href="m/oosaki-denkou/" class="maker-card-link">情報準備中</a>
+            <a href="m/oosaki-denkou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="オプティレーザーソリューションズ㈱ オプティレーザーソリューションズ㈱   No.021 No021   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="オプティレーザーソリューションズ㈱ オプティレーザーソリューションズ㈱   No.021 No021   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">オプティレーザーソリューションズ㈱</h3>
             <div class="maker-card-cat">No.021</div>
-            <a href="m/oputeireezaasoryuushonzu/" class="maker-card-link">情報準備中</a>
+            <a href="m/oputeireezaasoryuushonzu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱柏⽥製作所 ㈱柏⽥製作所   No.022 No022   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱柏⽥製作所 ㈱柏⽥製作所   No.022 No022   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱柏⽥製作所</h3>
             <div class="maker-card-cat">No.022</div>
-            <a href="m/kashiwada-seisakusho/" class="maker-card-link">情報準備中</a>
+            <a href="m/kashiwada-seisakusho/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="カミマル㈱ カミマル㈱   No.023 No023   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="カミマル㈱ カミマル㈱   No.023 No023   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">カミマル㈱</h3>
             <div class="maker-card-cat">No.023</div>
-            <a href="m/kamimaru/" class="maker-card-link">情報準備中</a>
+            <a href="m/kamimaru/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="キスウェルジャパン㈱ キスウェルジャパン㈱   No.024 No024   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="キスウェルジャパン㈱ キスウェルジャパン㈱   No.024 No024   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">キスウェルジャパン㈱</h3>
             <div class="maker-card-cat">No.024</div>
-            <a href="m/kisuuerujapan/" class="maker-card-link">情報準備中</a>
+            <a href="m/kisuuerujapan/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ＫＳ・Ｓ ㈱ＫＳ・Ｓ   No.028 No028   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ＫＳ・Ｓ ㈱ＫＳ・Ｓ   No.028 No028   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ＫＳ・Ｓ</h3>
             <div class="maker-card-cat">No.028</div>
-            <a href="m/ks-s/" class="maker-card-link">情報準備中</a>
+            <a href="m/ks-s/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ケミカル⼭本 ㈱ケミカル⼭本   No.029 No029   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ケミカル⼭本 ㈱ケミカル⼭本   No.029 No029   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ケミカル⼭本</h3>
             <div class="maker-card-cat">No.029</div>
-            <a href="m/kemikaru-yamamoto/" class="maker-card-link">情報準備中</a>
+            <a href="m/kemikaru-yamamoto/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="現代綜合⾦属ジャパン㈱ 現代綜合⾦属ジャパン㈱   No.030 No030   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="現代綜合⾦属ジャパン㈱ 現代綜合⾦属ジャパン㈱   No.030 No030   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">現代綜合⾦属ジャパン㈱</h3>
             <div class="maker-card-cat">No.030</div>
-            <a href="m/gendai-sougou-kinzoku-japan/" class="maker-card-link">情報準備中</a>
+            <a href="m/gendai-sougou-kinzoku-japan/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱神⼾製鋼所 ㈱神⼾製鋼所   No.033 No033   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱神⼾製鋼所 ㈱神⼾製鋼所   No.033 No033   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱神⼾製鋼所</h3>
             <div class="maker-card-cat">No.033</div>
-            <a href="m/kami-kou-tokoro/" class="maker-card-link">情報準備中</a>
+            <a href="m/kami-kou-tokoro/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱阪⼝製作所 ㈱阪⼝製作所   No.037 No037   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱阪⼝製作所 ㈱阪⼝製作所   No.037 No037   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱阪⼝製作所</h3>
             <div class="maker-card-cat">No.037</div>
-            <a href="m/sakaguchi-seisakusho/" class="maker-card-link">情報準備中</a>
+            <a href="m/sakaguchi-seisakusho/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱サンエス ㈱サンエス   No.038 No038   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱サンエス ㈱サンエス   No.038 No038   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱サンエス</h3>
             <div class="maker-card-cat">No.038</div>
-            <a href="m/san-esu/" class="maker-card-link">情報準備中</a>
+            <a href="m/san-esu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="産報出版㈱ 産報出版㈱   No.041 No041   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="産報出版㈱ 産報出版㈱   No.041 No041   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">産報出版㈱</h3>
             <div class="maker-card-cat">No.041</div>
-            <a href="m/sanpou-shuppan/" class="maker-card-link">情報準備中</a>
+            <a href="m/sanpou-shuppan/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="三⽴電器⼯業㈱ 三⽴電器⼯業㈱   No.042 No042   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="三⽴電器⼯業㈱ 三⽴電器⼯業㈱   No.042 No042   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">三⽴電器⼯業㈱</h3>
             <div class="maker-card-cat">No.042</div>
-            <a href="m/san-ritsu-denki-kougyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/san-ritsu-denki-kougyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="シェアビジョン㈱ シェアビジョン㈱   No.044 No044   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="シェアビジョン㈱ シェアビジョン㈱   No.044 No044   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">シェアビジョン㈱</h3>
             <div class="maker-card-cat">No.044</div>
-            <a href="m/shieabijon/" class="maker-card-link">情報準備中</a>
+            <a href="m/shieabijon/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ジェイ・アンド・エス ㈱ジェイ・アンド・エス   No.045 No045   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ジェイ・アンド・エス ㈱ジェイ・アンド・エス   No.045 No045   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ジェイ・アンド・エス</h3>
             <div class="maker-card-cat">No.045</div>
-            <a href="m/jiei-ando-esu/" class="maker-card-link">情報準備中</a>
+            <a href="m/jiei-ando-esu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="昭和精⼯㈱ 昭和精⼯㈱   No.050 No050   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="昭和精⼯㈱ 昭和精⼯㈱   No.050 No050   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">昭和精⼯㈱</h3>
             <div class="maker-card-cat">No.050</div>
-            <a href="m/shouwa-seikou/" class="maker-card-link">情報準備中</a>
+            <a href="m/shouwa-seikou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="シンテック㈱ シンテック㈱   No.052 No052   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="シンテック㈱ シンテック㈱   No.052 No052   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">シンテック㈱</h3>
             <div class="maker-card-cat">No.052</div>
-            <a href="m/shintekku/" class="maker-card-link">情報準備中</a>
+            <a href="m/shintekku/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="新東⼯業㈱ 新東⼯業㈱   No.053 No053   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="新東⼯業㈱ 新東⼯業㈱   No.053 No053   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">新東⼯業㈱</h3>
             <div class="maker-card-cat">No.053</div>
-            <a href="m/shintou-kougyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/shintou-kougyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="シンワ測定㈱ シンワ測定㈱   No.054 No054   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="シンワ測定㈱ シンワ測定㈱   No.054 No054   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">シンワ測定㈱</h3>
             <div class="maker-card-cat">No.054</div>
-            <a href="m/shinwa-sokutei/" class="maker-card-link">情報準備中</a>
+            <a href="m/shinwa-sokutei/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱スギヤス ㈱スギヤス   No.056 No056   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱スギヤス ㈱スギヤス   No.056 No056   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱スギヤス</h3>
             <div class="maker-card-cat">No.056</div>
-            <a href="m/sugiyasu/" class="maker-card-link">情報準備中</a>
+            <a href="m/sugiyasu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱スズキッド ㈱スズキッド   No.057 No057   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱スズキッド ㈱スズキッド   No.057 No057   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱スズキッド</h3>
             <div class="maker-card-cat">No.057</div>
-            <a href="m/suzukiddo/" class="maker-card-link">情報準備中</a>
+            <a href="m/suzukiddo/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ダイキンＨＶＡＣソリューション東京㈱ ダイキンＨＶＡＣソリューション東京㈱   No.062 No062   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ダイキンＨＶＡＣソリューション東京㈱ ダイキンＨＶＡＣソリューション東京㈱   No.062 No062   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ダイキンＨＶＡＣソリューション東京㈱</h3>
             <div class="maker-card-cat">No.062</div>
-            <a href="m/daikin-hvac-soryuushon-toukyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/daikin-hvac-soryuushon-toukyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⼤東精機㈱ ⼤東精機㈱   No.064 No064   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⼤東精機㈱ ⼤東精機㈱   No.064 No064   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⼤東精機㈱</h3>
             <div class="maker-card-cat">No.064</div>
-            <a href="m/daitou-seiki/" class="maker-card-link">情報準備中</a>
+            <a href="m/daitou-seiki/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="タケダ機械㈱ タケダ機械㈱   No.067 No067   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="タケダ機械㈱ タケダ機械㈱   No.067 No067   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">タケダ機械㈱</h3>
             <div class="maker-card-cat">No.067</div>
-            <a href="m/takeda-kikai/" class="maker-card-link">情報準備中</a>
+            <a href="m/takeda-kikai/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱⽴⼭ ㈱⽴⼭   No.068 No068   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱⽴⼭ ㈱⽴⼭   No.068 No068   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱⽴⼭</h3>
             <div class="maker-card-cat">No.068</div>
-            <a href="m/tateyama/" class="maker-card-link">情報準備中</a>
+            <a href="m/tateyama/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱千代⽥精機 ㈱千代⽥精機   No.069 No069   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱千代⽥精機 ㈱千代⽥精機   No.069 No069   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱千代⽥精機</h3>
             <div class="maker-card-cat">No.069</div>
-            <a href="m/chiyoda-seiki/" class="maker-card-link">情報準備中</a>
+            <a href="m/chiyoda-seiki/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱テクノプラン ㈱テクノプラン   No.070 No070   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱テクノプラン ㈱テクノプラン   No.070 No070   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱テクノプラン</h3>
             <div class="maker-card-cat">No.070</div>
-            <a href="m/tekunopuran/" class="maker-card-link">情報準備中</a>
+            <a href="m/tekunopuran/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="デンヨー㈱ デンヨー㈱   No.071 No071   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="デンヨー㈱ デンヨー㈱   No.071 No071   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">デンヨー㈱</h3>
             <div class="maker-card-cat">No.071</div>
-            <a href="m/denyoo/" class="maker-card-link">情報準備中</a>
+            <a href="m/denyoo/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="東空販売㈱ 東空販売㈱   No.072 No072   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="東空販売㈱ 東空販売㈱   No.072 No072   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">東空販売㈱</h3>
             <div class="maker-card-cat">No.072</div>
-            <a href="m/higashizora-hanbai/" class="maker-card-link">情報準備中</a>
+            <a href="m/higashizora-hanbai/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="東武トップツアーズ㈱ 東武トップツアーズ㈱   No.073 No073   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="東武トップツアーズ㈱ 東武トップツアーズ㈱   No.073 No073   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">東武トップツアーズ㈱</h3>
             <div class="maker-card-cat">No.073</div>
-            <a href="m/toubu-topputsuaazu/" class="maker-card-link">情報準備中</a>
+            <a href="m/toubu-topputsuaazu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱東洋アソシエイツ ㈱東洋アソシエイツ   No.074 No074   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱東洋アソシエイツ ㈱東洋アソシエイツ   No.074 No074   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱東洋アソシエイツ</h3>
             <div class="maker-card-cat">No.074</div>
-            <a href="m/touyou-asoshieitsu/" class="maker-card-link">情報準備中</a>
+            <a href="m/touyou-asoshieitsu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱トーキン ㈱トーキン   No.077 No077   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱トーキン ㈱トーキン   No.077 No077   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱トーキン</h3>
             <div class="maker-card-cat">No.077</div>
-            <a href="m/tookin/" class="maker-card-link">情報準備中</a>
+            <a href="m/tookin/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱トーヨーセーフティ ㈱トーヨーセーフティ   No.078 No078   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱トーヨーセーフティ ㈱トーヨーセーフティ   No.078 No078   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱トーヨーセーフティ</h3>
             <div class="maker-card-cat">No.078</div>
-            <a href="m/tooyooseefutei/" class="maker-card-link">情報準備中</a>
+            <a href="m/tooyooseefutei/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱⼗川ゴム ㈱⼗川ゴム   No.079 No079   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱⼗川ゴム ㈱⼗川ゴム   No.079 No079   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱⼗川ゴム</h3>
             <div class="maker-card-cat">No.079</div>
-            <a href="m/sogawa-gomu/" class="maker-card-link">情報準備中</a>
+            <a href="m/sogawa-gomu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⼟⽜産業㈱ ⼟⽜産業㈱   No.080 No080   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⼟⽜産業㈱ ⼟⽜産業㈱   No.080 No080   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⼟⽜産業㈱</h3>
             <div class="maker-card-cat">No.080</div>
-            <a href="m/togyuu-sangyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/togyuu-sangyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇光物産㈱ ⽇光物産㈱   No.084 No084   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇光物産㈱ ⽇光物産㈱   No.084 No084   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇光物産㈱</h3>
             <div class="maker-card-cat">No.084</div>
-            <a href="m/nikkou-bussan/" class="maker-card-link">情報準備中</a>
+            <a href="m/nikkou-bussan/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ニツコー熔材⼯業㈱ ニツコー熔材⼯業㈱   No.085 No085   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ニツコー熔材⼯業㈱ ニツコー熔材⼯業㈱   No.085 No085   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ニツコー熔材⼯業㈱</h3>
             <div class="maker-card-cat">No.085</div>
-            <a href="m/nitsukoo-you-zai-kougyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/nitsukoo-you-zai-kougyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇鉄溶接⼯業㈱ ⽇鉄溶接⼯業㈱   No.086 No086   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇鉄溶接⼯業㈱ ⽇鉄溶接⼯業㈱   No.086 No086   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇鉄溶接⼯業㈱</h3>
             <div class="maker-card-cat">No.086</div>
-            <a href="m/nittetsu-yousetsu/" class="maker-card-link">情報準備中</a>
+            <a href="m/nittetsu-yousetsu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇東⼯器㈱ ⽇東⼯器㈱   No.087 No087   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇東⼯器㈱ ⽇東⼯器㈱   No.087 No087   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇東⼯器㈱</h3>
             <div class="maker-card-cat">No.087</div>
-            <a href="m/nittou-kou-utsuwa/" class="maker-card-link">情報準備中</a>
+            <a href="m/nittou-kou-utsuwa/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇本アイ・エス・ケイ㈱ ⽇本アイ・エス・ケイ㈱   No.088 No088   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇本アイ・エス・ケイ㈱ ⽇本アイ・エス・ケイ㈱   No.088 No088   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇本アイ・エス・ケイ㈱</h3>
             <div class="maker-card-cat">No.088</div>
-            <a href="m/nippon-ai-esu-kei/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-ai-esu-kei/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇本カノマックス㈱ ⽇本カノマックス㈱   No.090 No090   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇本カノマックス㈱ ⽇本カノマックス㈱   No.090 No090   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇本カノマックス㈱</h3>
             <div class="maker-card-cat">No.090</div>
-            <a href="m/nippon-kanomakkusu/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-kanomakkusu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇本クランプ㈱ ⽇本クランプ㈱   No.091 No091   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇本クランプ㈱ ⽇本クランプ㈱   No.091 No091   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇本クランプ㈱</h3>
             <div class="maker-card-cat">No.091</div>
-            <a href="m/nippon-kuranpu/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-kuranpu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇本ニューマチック⼯業㈱ ⽇本ニューマチック⼯業㈱   No.092 No092   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇本ニューマチック⼯業㈱ ⽇本ニューマチック⼯業㈱   No.092 No092   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇本ニューマチック⼯業㈱</h3>
             <div class="maker-card-cat">No.092</div>
-            <a href="m/nippon-nyuumachikku-kougyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-nyuumachikku-kougyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱⽇本フラッシュ ㈱⽇本フラッシュ   No.093 No093   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱⽇本フラッシュ ㈱⽇本フラッシュ   No.093 No093   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱⽇本フラッシュ</h3>
             <div class="maker-card-cat">No.093</div>
-            <a href="m/nippon-furasshu/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-furasshu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇本ホイスト㈱ ⽇本ホイスト㈱   No.094 No094   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇本ホイスト㈱ ⽇本ホイスト㈱   No.094 No094   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇本ホイスト㈱</h3>
             <div class="maker-card-cat">No.094</div>
-            <a href="m/nippon-hoisuto/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-hoisuto/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⽇本ワグナー・スプレーテック㈱ ⽇本ワグナー・スプレーテック㈱   No.095 No095   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⽇本ワグナー・スプレーテック㈱ ⽇本ワグナー・スプレーテック㈱   No.095 No095   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⽇本ワグナー・スプレーテック㈱</h3>
             <div class="maker-card-cat">No.095</div>
-            <a href="m/nippon-wagunaa-supureetekku/" class="maker-card-link">情報準備中</a>
+            <a href="m/nippon-wagunaa-supureetekku/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ニューレジストン㈱ ニューレジストン㈱   No.096 No096   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ニューレジストン㈱ ニューレジストン㈱   No.096 No096   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ニューレジストン㈱</h3>
             <div class="maker-card-cat">No.096</div>
-            <a href="m/nyuurejisuton/" class="maker-card-link">情報準備中</a>
+            <a href="m/nyuurejisuton/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⻑⾕川⼯業㈱ ⻑⾕川⼯業㈱   No.099 No099   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⻑⾕川⼯業㈱ ⻑⾕川⼯業㈱   No.099 No099   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⻑⾕川⼯業㈱</h3>
             <div class="maker-card-cat">No.099</div>
-            <a href="m/tanigawa-kougyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/tanigawa-kougyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ＢＸテンパル㈱ ＢＸテンパル㈱   No.102 No102   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ＢＸテンパル㈱ ＢＸテンパル㈱   No.102 No102   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ＢＸテンパル㈱</h3>
             <div class="maker-card-cat">No.102</div>
-            <a href="m/bx-tenparu/" class="maker-card-link">情報準備中</a>
+            <a href="m/bx-tenparu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ピカコーポレイション ㈱ピカコーポレイション   No.103 No103   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ピカコーポレイション ㈱ピカコーポレイション   No.103 No103   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ピカコーポレイション</h3>
             <div class="maker-card-cat">No.103</div>
-            <a href="m/pikakooporeishon/" class="maker-card-link">情報準備中</a>
+            <a href="m/pikakooporeishon/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱⽇⽴産機システム ㈱⽇⽴産機システム   No.104 No104   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱⽇⽴産機システム ㈱⽇⽴産機システム   No.104 No104   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱⽇⽴産機システム</h3>
             <div class="maker-card-cat">No.104</div>
-            <a href="m/hitachi-sanki-shisutemu/" class="maker-card-link">情報準備中</a>
+            <a href="m/hitachi-sanki-shisutemu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱フジ医療器 ㈱フジ医療器   No.108 No108   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱フジ医療器 ㈱フジ医療器   No.108 No108   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱フジ医療器</h3>
             <div class="maker-card-cat">No.108</div>
-            <a href="m/fuji-iryou-utsuwa/" class="maker-card-link">情報準備中</a>
+            <a href="m/fuji-iryou-utsuwa/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="不⼆空機㈱ 不⼆空機㈱   No.109 No109   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="不⼆空機㈱ 不⼆空機㈱   No.109 No109   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">不⼆空機㈱</h3>
             <div class="maker-card-cat">No.109</div>
-            <a href="m/fuji-sora-ki/" class="maker-card-link">情報準備中</a>
+            <a href="m/fuji-sora-ki/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="富⼠製砥㈱ 富⼠製砥㈱   No.110 No110   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="富⼠製砥㈱ 富⼠製砥㈱   No.110 No110   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">富⼠製砥㈱</h3>
             <div class="maker-card-cat">No.110</div>
-            <a href="m/fuji-sei-to/" class="maker-card-link">情報準備中</a>
+            <a href="m/fuji-sei-to/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ブルマン㈱ ブルマン㈱   No.112 No112   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ブルマン㈱ ブルマン㈱   No.112 No112   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ブルマン㈱</h3>
             <div class="maker-card-cat">No.112</div>
-            <a href="m/buruman/" class="maker-card-link">情報準備中</a>
+            <a href="m/buruman/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ホタルクス ㈱ホタルクス   No.116 No116   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ホタルクス ㈱ホタルクス   No.116 No116   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ホタルクス</h3>
             <div class="maker-card-cat">No.116</div>
-            <a href="m/hotarukusu/" class="maker-card-link">情報準備中</a>
+            <a href="m/hotarukusu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="マーテック㈱ マーテック㈱   No.118 No118   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="マーテック㈱ マーテック㈱   No.118 No118   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">マーテック㈱</h3>
             <div class="maker-card-cat">No.118</div>
-            <a href="m/maatekku/" class="maker-card-link">情報準備中</a>
+            <a href="m/maatekku/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="三⽊ネツレン㈱ 三⽊ネツレン㈱   No.122 No122   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="三⽊ネツレン㈱ 三⽊ネツレン㈱   No.122 No122   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">三⽊ネツレン㈱</h3>
             <div class="maker-card-cat">No.122</div>
-            <a href="m/miki-netsuren/" class="maker-card-link">情報準備中</a>
+            <a href="m/miki-netsuren/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱三ッ星 ㈱三ッ星   No.125 No125   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱三ッ星 ㈱三ッ星   No.125 No125   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱三ッ星</h3>
             <div class="maker-card-cat">No.125</div>
-            <a href="m/san-tsu-hoshi/" class="maker-card-link">情報準備中</a>
+            <a href="m/san-tsu-hoshi/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ムラキ ㈱ムラキ   No.126 No126   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ムラキ ㈱ムラキ   No.126 No126   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ムラキ</h3>
             <div class="maker-card-cat">No.126</div>
-            <a href="m/muraki/" class="maker-card-link">情報準備中</a>
+            <a href="m/muraki/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ヤサカ産業㈱ ヤサカ産業㈱   No.131 No131   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ヤサカ産業㈱ ヤサカ産業㈱   No.131 No131   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ヤサカ産業㈱</h3>
             <div class="maker-card-cat">No.131</div>
-            <a href="m/yasaka-sangyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/yasaka-sangyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ヤマダコーポレーション ㈱ヤマダコーポレーション   No.133 No133   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ヤマダコーポレーション ㈱ヤマダコーポレーション   No.133 No133   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ヤマダコーポレーション</h3>
             <div class="maker-card-cat">No.133</div>
-            <a href="m/yamadakooporeeshon/" class="maker-card-link">情報準備中</a>
+            <a href="m/yamadakooporeeshon/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="やまびこジャパン㈱ やまびこジャパン㈱   No.135 No135   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="やまびこジャパン㈱ やまびこジャパン㈱   No.135 No135   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">やまびこジャパン㈱</h3>
             <div class="maker-card-cat">No.135</div>
-            <a href="m/yamabiko-japan/" class="maker-card-link">情報準備中</a>
+            <a href="m/yamabiko-japan/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="⼭本光学㈱ ⼭本光学㈱   No.136 No136   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="⼭本光学㈱ ⼭本光学㈱   No.136 No136   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">⼭本光学㈱</h3>
             <div class="maker-card-cat">No.136</div>
-            <a href="m/yamamoto-kougaku/" class="maker-card-link">情報準備中</a>
+            <a href="m/yamamoto-kougaku/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱友和 ㈱友和   No.137 No137   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱友和 ㈱友和   No.137 No137   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱友和</h3>
             <div class="maker-card-cat">No.137</div>
-            <a href="m/tomokazu/" class="maker-card-link">情報準備中</a>
+            <a href="m/tomokazu/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱理研オプテック ㈱理研オプテック   No.140 No140   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱理研オプテック ㈱理研オプテック   No.140 No140   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱理研オプテック</h3>
             <div class="maker-card-cat">No.140</div>
-            <a href="m/riken-oputekku/" class="maker-card-link">情報準備中</a>
+            <a href="m/riken-oputekku/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="理研機器 理研機器   No.141 No141   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="理研機器 理研機器   No.141 No141   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">理研機器</h3>
             <div class="maker-card-cat">No.141</div>
-            <a href="m/riken-kiki/" class="maker-card-link">情報準備中</a>
+            <a href="m/riken-kiki/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ルッドスパンセットジャパン ㈱ルッドスパンセットジャパン   No.142 No142   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ルッドスパンセットジャパン ㈱ルッドスパンセットジャパン   No.142 No142   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ルッドスパンセットジャパン</h3>
             <div class="maker-card-cat">No.142</div>
-            <a href="m/ruddosupansettojapan/" class="maker-card-link">情報準備中</a>
+            <a href="m/ruddosupansettojapan/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="レッキス⼯業㈱ レッキス⼯業㈱   No.144 No144   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="レッキス⼯業㈱ レッキス⼯業㈱   No.144 No144   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">レッキス⼯業㈱</h3>
             <div class="maker-card-cat">No.144</div>
-            <a href="m/rekkisu-kougyou/" class="maker-card-link">情報準備中</a>
+            <a href="m/rekkisu-kougyou/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="ワーナーケミカル㈱ ワーナーケミカル㈱   No.146 No146   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="ワーナーケミカル㈱ ワーナーケミカル㈱   No.146 No146   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ワーナーケミカル㈱</h3>
             <div class="maker-card-cat">No.146</div>
-            <a href="m/waanaakemikaru/" class="maker-card-link">情報準備中</a>
+            <a href="m/waanaakemikaru/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
-        <article class="maker-card maker-card-tier-c" data-tier="C" data-search-text="㈱ワキタ ㈱ワキタ   No.147 No147   ">
-          <div class="hover-glow"></div>
+        <article class="maker-card maker-card-tier-c"
+                 data-tier="C"
+                 data-search-text="㈱ワキタ ㈱ワキタ   No.147 No147   "
+>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ワキタ</h3>
             <div class="maker-card-cat">No.147</div>
-            <a href="m/wakita/" class="maker-card-link">情報準備中</a>
+            <a href="m/wakita/" class="maker-card-link is-link-block">情報準備中</a>
           </div>
-          <span class="corner-bl"></span><span class="corner-br"></span>
         </article>
       </div>
     </div>
@@ -2147,7 +2519,7 @@
       }
     })();
 
-    // ---- メーカー検索 (data-search-text を含む全カードを部分一致でフィルタ) ----
+    // ---- メーカー検索 + クイックフィルタチップ ----
     (function() {
       const input = document.getElementById('maker-search');
       if (!input) return;
@@ -2155,13 +2527,16 @@
       const empty = document.getElementById('search-empty');
       const totalSpan = document.querySelector('.tier-key-total');
       const totalDefault = totalSpan ? totalSpan.textContent : '';
+      const chips = Array.from(document.querySelectorAll('.filter-chip'));
 
-      function apply() {
-        const q = input.value.trim().toLowerCase();
+      function applyQuery(raw) {
+        const q = (raw || '').trim().toLowerCase();
+        // OR マッチ: q を '|' で分割して、いずれかにヒットすれば match
+        const parts = q.split('|').map(s => s.trim()).filter(Boolean);
         let visible = 0;
         cards.forEach(c => {
           const blob = (c.dataset.searchText || '').toLowerCase();
-          const match = !q || blob.indexOf(q) !== -1;
+          const match = parts.length === 0 || parts.some(p => blob.indexOf(p) !== -1);
           c.hidden = !match;
           if (match) visible++;
         });
@@ -2170,9 +2545,33 @@
           totalSpan.textContent = q ? ('絞り込み ' + visible + '/' + cards.length + '社') : totalDefault;
         }
       }
-      input.addEventListener('input', apply);
-      // ブラウザの戻るボタン等で値が残っていた場合の初期反映
-      if (input.value) apply();
+
+      input.addEventListener('input', () => {
+        // ユーザーが手入力に切り替えたらチップの選択を解除
+        chips.forEach(c => c.classList.remove('is-active'));
+        applyQuery(input.value);
+      });
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const filter = chip.dataset.filter || '';
+          const wasActive = chip.classList.contains('is-active');
+          chips.forEach(c => c.classList.remove('is-active'));
+          if (wasActive) {
+            input.value = '';
+            applyQuery('');
+          } else {
+            chip.classList.add('is-active');
+            input.value = filter;
+            applyQuery(filter);
+          }
+          // スクロール位置を絞り込み結果の頭に
+          const grid = document.querySelector('.maker-grid');
+          if (grid) grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      });
+
+      if (input.value) applyQuery(input.value);
     })();
   </script>
 </body>
