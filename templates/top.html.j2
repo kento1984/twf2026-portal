@@ -259,6 +259,20 @@
       background: transparent;
     }
     .search-bar input::placeholder { color: var(--gray-400); }
+    .search-bar input:not([disabled]) { cursor: text; }
+    .search-empty {
+      max-width: 600px;
+      margin: -24px auto 32px;
+      padding: 14px 18px;
+      background: #fff8e1;
+      border: 1px solid #f0c36d;
+      border-radius: 6px;
+      color: #7a5a1d;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .maker-card[hidden] { display: none !important; }
 
     .maker-grid {
       display: grid;
@@ -647,8 +661,9 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input type="text" placeholder="メーカー名・カテゴリで絞り込み" disabled />
+        <input id="maker-search" type="text" placeholder="メーカー名・カテゴリで絞り込み (例: ナカトミ / 切断 / 冷却)" autocomplete="off" />
       </div>
+      <p class="search-empty" id="search-empty" hidden>該当するメーカーが見つかりませんでした。検索ワードを変えて再度お試しください。</p>
 
       <div class="maker-tier-legend">
         <span class="tier-key tier-key-a"><span class="dot"></span>フル詳細 ({{ counts.A }}社)</span>
@@ -659,7 +674,10 @@
 
       <div class="maker-grid">
         {% for m in makers %}
-        <article class="maker-card maker-card-tier-{{ m.tier|lower }}" data-tier="{{ m.tier }}">
+        {# data-search-text: メーカー名 + display_name + category + No.付番 + Q1〜Q3 (rewrite後) を結合。
+           JS 側で toLowerCase + includes で部分一致絞り込み。長い q1-q3 は冷却/切断/溶接など業界キーワード検索を成立させる。 #}
+        {% set _search_blob = (m.name or '') ~ ' ' ~ (m.display_name or '') ~ ' ' ~ (m.name_short or '') ~ ' ' ~ (m.category or '') ~ ' No.' ~ ('%03d' | format(m.no)) ~ ' No' ~ ('%03d' | format(m.no)) ~ ' ' ~ (m.q1 or '') ~ ' ' ~ (m.q2 or '') ~ ' ' ~ (m.q3 or '') %}
+        <article class="maker-card maker-card-tier-{{ m.tier|lower }}" data-tier="{{ m.tier }}" data-search-text="{{ _search_blob }}">
           <div class="hover-glow"></div>
           {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
           {% if m.tier == 'A' %}
@@ -746,6 +764,34 @@
         const day = String(d.getDate()).padStart(2, '0');
         updated.innerHTML = '<span>更新日: ' + y + '-' + m + '-' + day + '</span>';
       }
+    })();
+
+    // ---- メーカー検索 (data-search-text を含む全カードを部分一致でフィルタ) ----
+    (function() {
+      const input = document.getElementById('maker-search');
+      if (!input) return;
+      const cards = Array.from(document.querySelectorAll('.maker-card[data-search-text]'));
+      const empty = document.getElementById('search-empty');
+      const totalSpan = document.querySelector('.tier-key-total');
+      const totalDefault = totalSpan ? totalSpan.textContent : '';
+
+      function apply() {
+        const q = input.value.trim().toLowerCase();
+        let visible = 0;
+        cards.forEach(c => {
+          const blob = (c.dataset.searchText || '').toLowerCase();
+          const match = !q || blob.indexOf(q) !== -1;
+          c.hidden = !match;
+          if (match) visible++;
+        });
+        if (empty) empty.hidden = !(q && visible === 0);
+        if (totalSpan) {
+          totalSpan.textContent = q ? ('絞り込み ' + visible + '/' + cards.length + '社') : totalDefault;
+        }
+      }
+      input.addEventListener('input', apply);
+      // ブラウザの戻るボタン等で値が残っていた場合の初期反映
+      if (input.value) apply();
     })();
   </script>
 </body>
