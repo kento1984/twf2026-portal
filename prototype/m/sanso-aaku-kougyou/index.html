@@ -4,6 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1920, initial-scale=1" />
   <title>酸素アーク⼯業㈱ | TWF2026 みどころポータル</title>
+  <meta name="description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報を主催店マツモト産業がまとめたポータルサイト。">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png">
+  <link rel="shortcut icon" href="../../assets/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="TWF2026 みどころポータル">
+  <meta property="og:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報">
+  <meta property="og:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+  <meta property="og:url" content="https://twf2026-portal.pages.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TWF2026 みどころポータル">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TWF2026 みどころポータル">
+  <meta name="twitter:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ">
+  <meta name="twitter:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -58,10 +78,26 @@
       font-weight: 500;
     }
     .topbar-back:hover { color: #fff; text-decoration: none; }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
     .topbar-logo {
-      height: 36px;
+      height: 40px;
       width: auto;
+      display: block;
       filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+    .topbar-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.65);
+      font-weight: 600;
+      padding-left: 12px;
+      border-left: 1px solid rgba(255,255,255,0.25);
+      line-height: 1.2;
     }
 
     .maker-page {
@@ -622,12 +658,29 @@
       color: var(--gray-600);
     }
     .maker-footer a { color: var(--gray-600); }
+    .maker-footer-logo {
+      display: block;
+      margin: 0 auto 12px;
+      height: 32px;
+      width: auto;
+      opacity: 0.75;
+    }
+    .maker-footer-org {
+      display: block;
+      margin-top: 4px;
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.04em;
+    }
   </style>
 </head>
 <body>
   <header class="topbar">
     <a class="topbar-back" href="../../index.html">← TOPへ戻る</a>
-    <img class="topbar-logo" src="../../assets/raw/_official/twf2026-logo.png" alt="TWF2026 東京ウェルディングフェスタ" />
+    <a class="topbar-brand" href="../../index.html" aria-label="TWF2026 みどころポータル トップへ">
+      <img class="topbar-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
+      <span class="topbar-subtitle">みどころポータル</span>
+    </a>
   </header>
   <main class="maker-page">
   <header class="maker-hero">
@@ -787,8 +840,10 @@
 
   </div>  </main>
   <footer class="maker-footer">
+    <img class="maker-footer-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>
+    <span class="maker-footer-org">主催: 東京ウェルディングフェスタ実行委員会</span>
   </footer>
 </body>
 </html>

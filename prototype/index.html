@@ -4,6 +4,26 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=1920, initial-scale=1" />
   <title>TWF2026 みどころポータル | 主催店向け営業支援サイト</title>
+  <meta name="description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報を主催店マツモト産業がまとめたポータルサイト。">
+
+  <!-- Favicon (TOP は index.html がルート直下なので相対パスで assets/) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png">
+  <link rel="shortcut icon" href="assets/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="TWF2026 みどころポータル">
+  <meta property="og:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報">
+  <meta property="og:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+  <meta property="og:url" content="https://twf2026-portal.pages.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TWF2026 みどころポータル">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TWF2026 みどころポータル">
+  <meta name="twitter:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ">
+  <meta name="twitter:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -120,8 +140,15 @@
       align-self: center;
       max-width: 920px;
     }
+    .hero-twf-logo {
+      display: block;
+      width: clamp(280px, 40vw, 540px);
+      height: auto;
+      margin-bottom: 28px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+    }
     .hero-h1 {
-      font-size: 72px;
+      font-size: 56px;
       font-weight: 900;
       line-height: 1.1;
       color: #fff;
@@ -688,7 +715,8 @@
   <section class="hero">
     <div class="hero-inner">
       <div class="hero-title-block">
-        <h1 class="hero-h1 double-underline">TWF2026 みどころポータル</h1>
+        <img class="hero-twf-logo" src="assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
+        <h1 class="hero-h1 double-underline">みどころポータル</h1>
         <p class="hero-sub">
           主催店のための営業支援ガイド<br />
           2026年6月12-13日 幕張メッセ No.9ホール
