@@ -665,12 +665,23 @@
       width: auto;
       opacity: 0.75;
     }
-    .maker-footer-org {
-      display: block;
-      margin-top: 4px;
+    .footer-organizer {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
       font-size: 11px;
       color: var(--gray-400);
       letter-spacing: 0.04em;
+    }
+    .footer-twf-square {
+      height: 56px;
+      width: auto;
+      vertical-align: middle;
+      flex-shrink: 0;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      background: #fff;
     }
   </style>
 </head>
@@ -908,7 +919,10 @@
     <img class="maker-footer-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
     マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
     <a href="../../index.html">TWF2026 みどころポータル トップ</a>
-    <span class="maker-footer-org">主催: 東京ウェルディングフェスタ実行委員会</span>
+    <div class="footer-organizer">
+      <img class="footer-twf-square" src="../../assets/twf-logo-square.png" alt="TWF" />
+      <span>主催: 東京ウェルディングフェスタ実行委員会</span>
+    </div>
   </footer>
 </body>
 </html>

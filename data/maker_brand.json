@@ -96,8 +96,8 @@
     "secondary": "#A30009",
     "accent": "#1A1A1A",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.sharp.co.jp/",
-    "notes": "シャープ公式ロゴマニュアルにて『Sharp red』として #E6000D を規定（社章・ロゴに統一指定）。BrandColorCode・Encycolorpedia 等複数の二次ソースで一致。",
+    "source": "https://smj.jp.sharp/bs/",
+    "notes": "シャープ公式ロゴマニュアルにて『Sharp red』として #E6000D を規定（社章・ロゴに統一指定）。source は 049 出展事業 (業務用・暑熱対策・アイススラリー冷蔵庫等) に対応する『シャープマーケティングジャパン ビジネスソリューション社』公式サイトを採用 (旧 www.sharp.co.jp はシャープ本体トップで該当事業ページに辿り着けないため差し替え)。",
     "_group": "group_b"
   },
   "058": {
