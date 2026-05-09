@@ -1,15 +1,15 @@
 # TWF2026 みどころポータル — HANDOFF
 
-最終更新: **2026-05-09 (土) 深夜** (Phase 7 step-9 反映)
+最終更新: **2026-05-09 (土) 深夜** (Phase 7 step-12 反映、本日計9コミット)
 公開URL: **https://twf2026-portal.pages.dev** (Cloudflare Pages, `main` push で自動再デプロイ)
 GitHub: https://github.com/kento1984/twf2026-portal
-本番送付目標: **2026-05-12 (火)** 主催店各社宛
+本番送付目標: **2026-05-12 (火)** 主催店各社宛 → **3日前倒しで A層フル詳細達成**
 
 ---
 
-## 今日 (5/9) の到達点
+## 今日 (5/9) の到達点 — Notion 完全超え
 
-会社PC (D:\repos\twf2026-portal) で Phase 7 step-1〜9 + フェーズ1 (リッチ化) を完了。
+会社PC (D:\repos\twf2026-portal) で Phase 7 step-1〜12 + フェーズ1 (リッチ化) を完了。
 
 | commit | 内容 |
 |---|---|
@@ -22,143 +22,106 @@ GitHub: https://github.com/kento1984/twf2026-portal
 | `03a6f5d` | step-7 / フェーズ1 メーカー回答を客向けにリファイン (Notion版踏襲) |
 | `711f11c` | step-8 / フェーズ1拡張 A層リッチ化 (Notion超え版) |
 | `4a9dac4` | HANDOFF.md 初版追加 |
-| `ce74888` | **step-9 公式サイトURL正規化 (A層30社、source クリーンアップ)** |
+| `ce74888` | step-9 公式サイトURL正規化 (A層30社、source クリーンアップ) |
+| `27b4ad0` | HANDOFF.md 更新: step-9 反映 |
+| `ffd9046` | step-10 ユーザビリティ修正 (回答受信日削除 + 検索機能有効化) |
+| `89dbdf7` | step-11 TOPページ Notion ギャラリー風リデザイン (ブランドカラー + クイックフィルタ) |
+| `32b3009` | **step-12 A層30社にカスタムイラスト追加 (gpt-image-1、$1.20、Notion完全超え達成)** |
 
-### Phase 7 step-9 の詳細 (`ce74888`)
-
-- 31社全URLを `curl -L -I -A "Mozilla/5.0"` で検証 → 27社直接 200/301/302、4社は Schannel/bot検出ノイズ (再検証で実在確認)
-- 6社 (063 / 065 / 082 / 083 / 089 / 100) の source に括弧コメントが混入していて hero CTA の href が壊れていた → URL のみに整形 (情報は notes フィールド側に既に記載済)
-- **058 3M**: `www.3m.co.jp` が curl で 000 (実質無効) → `https://www.3mcompany.jp/` に差し替え
-- **005 アネスト岩田**: `/corporate_slogan.html` サブパス → トップ `/` へ修正
-- **066 ダイヘン新規追加**: 現状 C 層 skeleton で CTA 非表示だが、回答受信で A 層昇格時に自動有効化される。primary `#1976D2` 系ブルー
-- Playwright + 実Chrome `page.eval_on_selector('.maker-hero-cta', 'el => el.href')` で 5社 (082/058/117/148/065) の href が想定 URL になることを検証
-
-### 投入データ (5種)
+### 投入データ (6種)
 
 | ファイル | 規模 | 取得方法 |
 |---|---|---|
-| `data/maker_brand.json` | **31社** (A層30 + 066 ダイヘン) — 全社 source URLクリーン化済 | 5並列エージェント + WebSearch + ブランド推定、step-9 で curl 検証 |
+| `data/maker_brand.json` | **31社** (A層30 + 066 ダイヘン) | 5並列エージェント + WebSearch + curl 検証 |
 | `data/maker_status.json` | 23社にバッジ | `q4/q5` キーワード判定 (特別割引/限定特典/最優先) |
 | `data/pdf_extracts.json` | **19社 / 54セクション / 230行** | 4並列 vision エージェントで PNG 解析 |
-| `data/maker_products.json` | 9社で画像取得成功 (残21社は要リトライ) | curl + HTML パース + HEAD 検証 (group_1 のみ成功) |
-| `data/maker_details_rewritten.json` | A層30社のQ1〜Q5書き直し | フェーズ1で投入済 (commit `03a6f5d`) |
+| `data/maker_products.json` | 9社で画像取得成功 (残21社は要リトライ) | curl + HTML パース + HEAD 検証 |
+| `data/maker_details_rewritten.json` | A層30社のQ1〜Q5書き直し | フェーズ1で投入済 |
+| `prototype/assets/maker-illustrations/` | **30枚 PNG (約41MB)** | OpenAI gpt-image-1、各社主力製品 + 英字社名タイポ統合 |
 
 ### テンプレ7セクション構成 (`templates/maker_full.html.j2`)
 
-1. **ヒーロー** — `linear-gradient(135deg, primary, secondary)` ブランドカラーで全社個別、装飾パターン、status badge、公式サイトCTA
-2. **プロパティパネル** — Notion風 dt/dd、絵文字アイコン、`border-left:6px solid primary`
-3. **製品情報** — PDF抽出テーブル + ハイライト + 新製品 pill + 警告枠
-4. **主要製品ギャラリー** — 公式HP画像 (9社のみ、他は graceful skip)
-5. **Q1〜Q5** — リファイン済テキスト
-6. **添付PDF** — iframe + DLボタン (ボタン色もブランド色追従)
-7. **編集注記** — web_sources URL リスト
+ヒーロー (ブランドカラーグラデ + status badge + 公式サイトCTA) → プロパティパネル (Notion風) → 製品情報 (PDF抽出テーブル) → 主要製品ギャラリー (9社のみ) → Q1〜Q5 → 添付PDF (iframe) → 編集注記。
+
+### TOPページ (`templates/top.html.j2`)
+
+- A層カード: hero に gpt-image-1 生成のカスタムイラスト全面表示、status badge を右上に
+- B層カード: パンフ画像をやや脱彩度
+- C層カード: 破線枠ミニマル
+- 検索ボックス: 大型化、placeholder 充実、focus 時赤枠
+- クイックフィルタ8チップ: ロボット/保護具/冷却/溶接/切断/油圧/物流/工具、OR マッチ JS
+- 凡例: 11px グレーで控えめに
 
 ---
 
 ## 既知の限界 (要 follow-up)
 
-### 製品画像 21社未取得 (最高ROI)
-
-`data/_product_groups/group_2.json` (10社) と `group_3.json` (10社、+ 1社 group_1 の 043 サンワも失敗) の計 **21社** が `fetched_ok=false`。group_1 と同じ curl 方式で再実行可能。
-
-**推奨フォローアップ手順:**
-- `scripts/fetch_product_images.py` を新規作成 (group_1 のロジックを汎用化)
-  - 入力: maker_no、公式HP URL (data/maker_brand.json の source 流用)
-  - 処理: `curl -A "Mozilla/5.0..." -k --ssl-no-revoke` で HTML 取得 → `<img src>` 抽出 → 商品ページ画像を 2-4 件選定 → HEAD で 200 確認
-  - 出力: `data/_product_groups/group_X.json` を更新
-- 取得後 `python scripts/build_html.py` で再ビルド → 9社 → 最大30社で視覚インパクト大幅向上
-
-### ブランドカラー推定一部
-
-ブランドガイド非公開メーカーは業界慣習からの推定 (例: 020 オグラ赤・039 サンコーミタチ緑・107 フジ青 等)。**違和感あれば `data/maker_brand.json` の `primary` / `secondary` / `accent` を手動上書き → ビルド再実行で即反映** (テンプレ側で linear-gradient と border-left に注入される)。
-
-### カテゴリ列の業種ミスマッチ
-
-`data/makers.csv` の `category` 列が空白 or 不正な社が多い。ヒーローの eyebrow 表示 (大文字英字、ブランドカラー背景) に直接出るので影響が大きい:
-
-| no | 現状 | あるべき姿 |
-|---|---|---|
-| 058 3M | 切断・電動工具 (誤) | 安全保護具 |
-| 082 ナカトミ | 空白 | 冷却機器 / 暑熱対策 |
-| 089 日本ウエルディング | ファイバーレーザー (済) | — |
-| 020 オグラ | 切断・電動工具 (済) | — |
-| 多数 | 空白 | 業種に応じて |
-
-`data/makers.csv` の category 列を直接編集 → ビルドで反映。
-
-### A層以外未改修
-
-B層39社・C層79社は既存のシンプル `maker_pamphlet.html.j2` / `maker_skeleton.html.j2` のまま。今回の改修は A層 (`maker_full.html.j2`) 限定。TWF 後でもよい。
+- **製品画像 21社未取得** — `_product_groups/group_2/3.json` が WebFetch denied で空。`group_1.json` の curl 方式で再実行可能 (`scripts/fetch_product_images.py` 新規作成、下記 5/10 タスク参照)
+- **ブランドカラー推定一部** — ガイド非公開メーカーは業界慣習推定。違和感あれば `data/maker_brand.json` を手動上書き → `python scripts/build_html.py` で即反映
+- **カテゴリ列の業種ミスマッチ** — `data/makers.csv` の category が空 or 不正な社が多数。例: 058 3M「切断・電動工具」(誤) → 「安全保護具」、082 ナカトミ空白 → 「冷却機器」
+- **A層以外未改修** — 5/9 時点で B層39社・C層79社はシンプルテンプレのまま。**5/10 で B層リッチ化予定 (下記参照)**
+- **gpt-image-2 未使用** — 組織認証 (https://platform.openai.com/settings/organization/general) が必要、申請待ち。承認後は全社イラスト再生成検討
 
 ---
 
-## 自宅PC (C:\repos\twf2026-portal\) で続行する手順
+## 明日 5/10 (日) のメインタスク — B層39社のリッチ化 (新方針)
 
-### 1) 最新コード取得
+**柏原方針:** 「B層も中身ないとはいえ、回答きてるからこっちでもらった情報やパンフレット情報をもとに書くしかない、ネット検索もしながら」 → A層相当のリッチ化を B層 39社にも適用。
+
+**工程 (合計 5-7時間 + コスト約 $1.56):**
+
+1. **メーカー回答リファイン** — Claude 自身で薄い回答 + パンフ + Web検索を統合
+   - 入力: `data/maker_details.json` の B層39社
+   - 出力: `data/maker_details_b_rewritten.json`
+2. **公式HPからプロフィール情報取得** — Web検索 + curl HTML パース
+3. **製品テーブル/特徴抽出** — パンフ画像から Claude vision (`extract_pdfs.py` を B層用に拡張)
+4. **ブランドカラー収集** — 5並列 subagent で 39社分
+5. **カスタムイラスト生成** — gpt-image-1、$1.56 (39 × $0.04)
+6. **製品画像取得** — curl + HTML パース (A層 group_1 と同じ手法)
+7. **テンプレ統合** — A層 `maker_full.html.j2` を B層用に微調整 (パンフ画像セクションは既存のまま、Q1〜Q5 セクションは無いので削除等)
+8. **ビルド + Playwright 検証 + push**
+
+### 家PC環境準備 (C:\repos\twf2026-portal\)
 
 ```powershell
 cd C:\repos\twf2026-portal
-git pull origin main
-```
+git pull origin main          # 最新は 32b3009
 
-最新は `ce74888` (Phase 7 step-9)。
+# Python 依存 (前回パッケージ + openai/dotenv)
+pip install Jinja2 openpyxl pymupdf pdfplumber Pillow playwright openai python-dotenv
+python -m playwright install chromium
 
-### 2) Python 依存 (初回のみ、会社PC環境と揃える)
+# .env を新規作成 (家PC用に新APIキー作成推奨)
+# OPENAI_API_KEY=sk-... を .env に書き込み (.gitignore 済)
 
-```powershell
-pip install Jinja2 openpyxl pymupdf pdfplumber Pillow playwright
-python -m playwright install chromium  # 検証用
-```
-
-### 3) 編集 → ビルド → push のサイクル
-
-```powershell
-# A) data/maker_brand.json で primary/secondary を手動修正
-# B) data/makers.csv で category 列を埋める
-# C) data/maker_products.json に画像URL を追加 (group_2/3 リトライ結果を反映)
-# D) ビルド
+# ビルド確認
 $env:PYTHONUTF8=1
 python scripts/build_html.py
-
-# E) ローカル検証
-cd prototype
-python -m http.server 8765
-# 別ターミナル / ブラウザで http://127.0.0.1:8765/m/nakatomi/ 等を開く
-
-# F) コミット
-cd ..
-git add data/ prototype/m/
-git commit -m "..."
-git push origin main
 ```
 
-### 4) Playwright で複数社のスクショ一括撮影 (任意)
-
-```powershell
-# 既存 scripts/screenshot_makers.py を流用 / 拡張可能
-# headed=False (headless) でもfold画像/構造確認は十分
-```
-
-> ⚠️ 注: `data/_pdf_pages/` は .gitignore 済 (78MB)。PDF抽出のみ再実行する場合は
-> `python scripts/extract_pdfs.py` で再生成 (prototype/attachments/ にPDFがあれば)。
+⚠️ 注: 会社PC `D:\` の `.env` は別環境、家PCには **別キー** を作成して `.env` に保存すること。コミット禁止 (`.gitignore` 済)。
 
 ---
 
-## 残タスク
+## その他 残タスク
 
 ### 家でできる (自宅PC、ネット環境)
 
-1. **製品画像 21社リトライ (最高ROI)** — `scripts/fetch_product_images.py` 新規作成 (curl + HTML パース + HEAD検証)、上記「既知の限界」参照
-2. **カテゴリの正規化** — `data/makers.csv` の category 列を業種に合わせて埋める (058 3M、082 ナカトミ等)
-3. **ブランドカラーの目視チェック + 手動修正** — 各社 hero を実機ブラウザで眺めて違和感ある社を `data/maker_brand.json` で個別書き換え (公式 favicon / ロゴ画像を ColorPicker で取った値が確実)
-4. **スクショ目視で異常社の発見** — `python scripts/screenshot_makers.py` 拡張、A層30社全部撮影 → 一覧で並べてレイアウト崩れチェック
-5. **主催店宛メール文案** — 5/12 送付用、URL案内 + 価値説明 (Notion から進化した、製品テーブル抽出済み 等)
-6. **B/C層 (117社) のテンプレ強化** — TWF 後でも可、優先度低
+1. **製品画像 21社リトライ (最高ROI)** — `scripts/fetch_product_images.py` 新規作成 (`group_1` の curl 方式を汎用化)、`group_2/3` を再実行し `data/maker_products.json` を満たす
+2. **カテゴリ正規化 (`data/makers.csv` category 列)** — 検索精度向上 + ヒーロー eyebrow 表示改善
+3. **ブランドカラー目視チェック** — `data/maker_brand.json` で違和感社を個別書き換え
+4. **主催店宛メール文案** — 5/12 送付準備、URL案内 + 価値説明
+5. **(検討中) サイト全体トーン変更** — 黒基調 → 白基調
+
+### TWF (6/12-13) 後
+
+- **C層79社の判断** — 情報届いた社のみ A 層に昇格
+- **gpt-image-2 用組織認証申請** → 承認後、全社イラスト再生成 (品質向上)
 
 ### 会社でしかできない (\\flsv04 アクセス必要)
 
-- **集約Excel更新時の反映** — `D:/repos/twf2026_sender/TWF2026_回答集約.xlsx` が更新されたら、会社PCで `excel_mapper.py` 実行 → JSON 更新 → ビルド → push
-- **添付PDF更新時の再同期** — `python scripts/sync_attachments.py` (社内 fileserver 必須)、その後 `extract_pdfs.py` でPNG再生成 → 該当メーカーの PDF抽出を vision エージェントで再実行 → `pdf_extracts.json` 更新
+- **集約Excel更新時の反映** — `D:/repos/twf2026_sender/TWF2026_回答集約.xlsx` 更新後、`excel_mapper.py` 実行 → JSON 更新 → ビルド → push
+- **添付PDF更新時の再同期** — `sync_attachments.py` → `extract_pdfs.py` → vision エージェント再実行 → `pdf_extracts.json` 更新
 
 ---
 
@@ -166,19 +129,34 @@ git push origin main
 
 | commit | 内容 |
 |---|---|
-| `ce74888` | Phase 7 step-9: 公式サイトURL正規化 (A層30社、source クリーンアップ + 検証) |
+| `32b3009` | step-12 A層30社にカスタムイラスト追加 (gpt-image-1) |
+| `89dbdf7` | step-11 TOPページ Notion ギャラリー風リデザイン |
+| `ffd9046` | step-10 ユーザビリティ修正 (回答受信日削除 + 検索機能) |
+| `27b4ad0` | HANDOFF.md 更新 (step-9 反映) |
+| `ce74888` | step-9 公式サイトURL正規化 (A層30社) |
 | `4a9dac4` | HANDOFF.md 初版追加 |
-| `711f11c` | A層リッチ化 (Notion超え版) — 投入データ4種 + テンプレ7セクション |
-| `03a6f5d` | フェーズ1: メーカー回答を客向けにリファイン (Notion版踏襲) |
-| `bf442e7` | Phase 7 step-6: リソースを prototype/ に集約 (Cloudflare 配信修正) |
+| `711f11c` | step-8 A層リッチ化 (Notion超え版) |
+| `03a6f5d` | step-7 メーカー回答リファイン (フェーズ1) |
+| `bf442e7` | step-6 リソースを prototype/ に集約 |
+
+---
+
+## 5/9 サマリ
+
+- **本日計9コミット**、サイト本番稼働、**Notion 完全超え達成**
+- 5/12 目標を **3日前倒し**、A層フル詳細完了
+- 明日以降は B層リッチ化 + 仕上げ
+
+お疲れさまでした。
 
 ---
 
 ## 5/12 (火) 主催店送付までのチェックリスト
 
-- [ ] 自宅で 製品画像 21社リトライ (5/10〜11)
-- [ ] カテゴリ列の埋め込み (5/10〜11)
-- [ ] ブランドカラー違和感社の手動修正 (5/10〜11)
-- [ ] 全A層スクショ目視 (5/11)
-- [ ] 主催店宛メール文案準備 (5/11)
-- [ ] 5/12 朝、最新ビルド + 公開URL動作確認 → 主催店送付
+- [ ] 5/10: B層39社リッチ化 (家PC、5-7時間)
+- [ ] 5/10〜11: 製品画像21社リトライ
+- [ ] 5/10〜11: カテゴリ列の埋め込み
+- [ ] 5/10〜11: ブランドカラー違和感社の手動修正
+- [ ] 5/11: 全A/B層スクショ目視
+- [ ] 5/11: 主催店宛メール文案準備
+- [ ] 5/12 朝: 最新ビルド + 公開URL動作確認 → 主催店送付
