@@ -465,7 +465,18 @@
       font-weight: 800;
       line-height: 1.35;
       color: var(--gray-800);
-      margin: 0 0 4px;
+      margin: 0 0 2px;
+    }
+    /* 英字ブランド (name_short) をサブ表記で小さく併記。世界観維持 */
+    .maker-card-name-sub {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--gray-400);
+      letter-spacing: 0.14em;
+      line-height: 1.2;
+      margin: 0 0 6px;
+      text-transform: uppercase;
     }
     .maker-card-cat {
       font-size: 12px;
@@ -901,7 +912,8 @@
           <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_{{ '%03d' | format(m.pamphlet_page) }}.png');"></div>
           {% endif %}
           <div class="maker-card-body">
-            <h3 class="maker-card-name">{{ m.display_name }}</h3>
+            <h3 class="maker-card-name">{{ m.name }}</h3>
+            {% if m.name_short and m.name_short != m.name %}<div class="maker-card-name-sub">{{ m.name_short }}</div>{% endif %}
             <div class="maker-card-cat">No.{{ '%03d' | format(m.no) }}{% if m.category %} · {{ m.category }}{% endif %}{% if m.tier == 'B' and m.pamphlet_page %} · 公式パンフ p.{{ m.pamphlet_page }}{% endif %}</div>
             <a href="m/{{ m.slug }}/" class="maker-card-link is-link-block">{% if m.tier == 'A' %}詳細を見る{% elif m.tier == 'B' %}パンフを見る{% else %}情報準備中{% endif %}</a>
           </div>
