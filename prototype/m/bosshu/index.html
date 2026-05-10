@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #EE0000; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #EE0000;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -850,30 +879,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="../../assets/maker-products/117/1.png" alt="Product" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">Product</p>
-          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="../../assets/maker-products/117/2.jpg" alt="安全第一！ Bosch PROtection - ボッシュ プロ用電動工具が誇る 9つの安全機能 - あなたの手に安全と安心を" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">安全第一！ Bosch PROtection - ボッシュ プロ用電動工具が誇る 9つの安全機能 - あなたの手に安全と安心を</p>
-          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="../../assets/maker-products/117/3.jpg" alt="Bosch Smart Life Selection" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">Bosch Smart Life Selection</p>
-          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="../../assets/maker-products/117/4.jpg" alt="Smart &amp; Perfect.  IXO（アイ・エックス・オー） ボッシュ コードレスドライバー" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">Smart &amp; Perfect.  IXO（アイ・エックス・オー） ボッシュ コードレスドライバー</p>
-          </figcaption>
-        </figure>
+          <a href="https://www.bosch.co.jp/pt/catalog/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/117/1.png" alt="Product" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">Product</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.bosch.co.jp/pt/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/117/2.jpg" alt="安全第一！ Bosch PROtection - ボッシュ プロ用電動工具が誇る 9つの安全機能 - あなたの手に安全と安心を" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">安全第一！ Bosch PROtection - ボッシュ プロ用電動工具が誇る 9つの安全機能 - あなたの手に安全と安心を</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.bosch.co.jp/pt/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/117/3.jpg" alt="Bosch Smart Life Selection" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">Bosch Smart Life Selection</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.bosch.co.jp/pt/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/117/4.jpg" alt="Smart &amp; Perfect.  IXO（アイ・エックス・オー） ボッシュ コードレスドライバー" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">Smart &amp; Perfect.  IXO（アイ・エックス・オー） ボッシュ コードレスドライバー</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

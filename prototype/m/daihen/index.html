@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #1976D2; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #1976D2;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -717,30 +746,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="../../assets/maker-products/066/1.jpg" alt="WB-M500S 半自動溶接機 (CO2/MAG)" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">WB-M500S 半自動溶接機 (CO2/MAG)</p>
-<p class="product-card-cat">半自動溶接電源</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="../../assets/maker-products/066/2.jpg" alt="FD-VC4/VC4L 協働ロボット (アーク溶接用途)" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">FD-VC4/VC4L 協働ロボット (アーク溶接用途)</p>
-<p class="product-card-cat">アーク溶接ロボット</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="../../assets/maker-products/066/3.jpg" alt="AiTranLEFT 搬送ロボット" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">AiTranLEFT 搬送ロボット</p>
-<p class="product-card-cat">自律走行搬送ロボット</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="../../assets/maker-products/066/4.jpg" alt="AiTranTRAILER 搬送ロボット (台車牽引型)" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">AiTranTRAILER 搬送ロボット (台車牽引型)</p>
-<p class="product-card-cat">自律走行搬送ロボット</p>          </figcaption>
-        </figure>
+          <a href="https://www.daihen.co.jp/products/welder/co2_mag/wb-m500s.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/066/1.jpg" alt="WB-M500S 半自動溶接機 (CO2/MAG)" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">WB-M500S 半自動溶接機 (CO2/MAG)</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">半自動溶接電源</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.daihen-robot.com/items/fd_vc4" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/066/2.jpg" alt="FD-VC4/VC4L 協働ロボット (アーク溶接用途)" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">FD-VC4/VC4L 協働ロボット (アーク溶接用途)</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">アーク溶接ロボット</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.daihen-robot.com/items/Aitran" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/066/3.jpg" alt="AiTranLEFT 搬送ロボット" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">AiTranLEFT 搬送ロボット</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">自律走行搬送ロボット</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.daihen-robot.com/items/Aitran" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/maker-products/066/4.jpg" alt="AiTranTRAILER 搬送ロボット (台車牽引型)" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">AiTranTRAILER 搬送ロボット (台車牽引型)</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">自律走行搬送ロボット</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

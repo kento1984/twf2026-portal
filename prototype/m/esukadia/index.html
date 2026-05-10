@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #0E5E8A; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #0E5E8A;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -765,30 +794,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="https://scadia.jp/images/srt/srt01.jpg" alt="SRTシリーズ ロールベンダー" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">SRTシリーズ ロールベンダー</p>
-<p class="product-card-cat">2本ロール ロールベンダー</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://scadia.jp/images/3rolls/3rolls_01.jpg" alt="SRY 3本ロールベンダー" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">SRY 3本ロールベンダー</p>
-<p class="product-card-cat">3本ロール ロールベンダー</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://scadia.jp/images/4rolls/SRF-55.png" alt="SRF-55 4本ロールベンダー" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">SRF-55 4本ロールベンダー</p>
-<p class="product-card-cat">4本ロール ロールベンダー</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://scadia.jp/images/4rolls/001.jpg" alt="SRF-55 加工サンプル" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">SRF-55 加工サンプル</p>
-<p class="product-card-cat">4本ロール 円筒加工</p>          </figcaption>
-        </figure>
+          <a href="https://scadia.jp/roolbender/2rolls/srt/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://scadia.jp/images/srt/srt01.jpg" alt="SRTシリーズ ロールベンダー" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">SRTシリーズ ロールベンダー</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">2本ロール ロールベンダー</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://scadia.jp/roolbender/3rolls/sry/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://scadia.jp/images/3rolls/3rolls_01.jpg" alt="SRY 3本ロールベンダー" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">SRY 3本ロールベンダー</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">3本ロール ロールベンダー</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://scadia.jp/roolbender/4rolls/srf/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://scadia.jp/images/4rolls/SRF-55.png" alt="SRF-55 4本ロールベンダー" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">SRF-55 4本ロールベンダー</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">4本ロール ロールベンダー</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://scadia.jp/roolbender/4rolls/srf/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://scadia.jp/images/4rolls/001.jpg" alt="SRF-55 加工サンプル" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">SRF-55 加工サンプル</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">4本ロール 円筒加工</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

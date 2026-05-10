@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #E6000D; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #E6000D;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -809,30 +838,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="https://jp.sharp/aircon/products/ur/images/gallery-1.jpg" alt="ルームエアコン Rシリーズ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">ルームエアコン Rシリーズ</p>
-<p class="product-card-cat">プラズマクラスター搭載ルームエアコン</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://jp.sharp/kuusei/products/kiud50/images/gallery-1.jpg" alt="プラズマクラスター空気清浄機 KI-UD50" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">プラズマクラスター空気清浄機 KI-UD50</p>
-<p class="product-card-cat">加湿空気清浄機</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://jp.sharp/reizo/products/sjx504r/images/gallery-1.jpg" alt="プラズマクラスター冷蔵庫 SJ-X504R" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">プラズマクラスター冷蔵庫 SJ-X504R</p>
-<p class="product-card-cat">両開き冷蔵庫</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://jp.sharp/portable-cooler/products/avu24s/images/gallery-1.jpg" alt="ポータブルクーラー AV-U24S" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">ポータブルクーラー AV-U24S</p>
-<p class="product-card-cat">ポータブルクーラー</p>          </figcaption>
-        </figure>
+          <a href="https://jp.sharp/aircon/products/ur/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://jp.sharp/aircon/products/ur/images/gallery-1.jpg" alt="ルームエアコン Rシリーズ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ルームエアコン Rシリーズ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">プラズマクラスター搭載ルームエアコン</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://jp.sharp/kuusei/products/kiud50/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://jp.sharp/kuusei/products/kiud50/images/gallery-1.jpg" alt="プラズマクラスター空気清浄機 KI-UD50" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">プラズマクラスター空気清浄機 KI-UD50</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">加湿空気清浄機</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://jp.sharp/reizo/products/sjx504r/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://jp.sharp/reizo/products/sjx504r/images/gallery-1.jpg" alt="プラズマクラスター冷蔵庫 SJ-X504R" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">プラズマクラスター冷蔵庫 SJ-X504R</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">両開き冷蔵庫</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://jp.sharp/portable-cooler/products/avu24s/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://jp.sharp/portable-cooler/products/avu24s/images/gallery-1.jpg" alt="ポータブルクーラー AV-U24S" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ポータブルクーラー AV-U24S</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">ポータブルクーラー</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

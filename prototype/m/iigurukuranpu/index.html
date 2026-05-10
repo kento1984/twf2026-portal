@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #C8161D; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #C8161D;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -732,30 +761,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/E-13-30.png" alt="E型 縦つりクランプ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">E型 縦つりクランプ</p>
-<p class="product-card-cat">鋼板用縦つりクランプ</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/EK-50020-40.png" alt="EK型 縦つり用クランプ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">EK型 縦つり用クランプ</p>
-<p class="product-card-cat">鋼板用縦つりクランプ</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/ET-13-20.png" alt="ET型 縦つりクランプ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">ET型 縦つりクランプ</p>
-<p class="product-card-cat">鋼板用縦つりクランプ</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/%E2%98%85230525_DSC00426_SL-13-20.png" alt="SL型 縦つり横つり兼用クランプ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">SL型 縦つり横つり兼用クランプ</p>
-<p class="product-card-cat">鋼板用兼用クランプ</p>          </figcaption>
-        </figure>
+          <a href="https://www.eagleclamp.co.jp/product/1122/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/E-13-30.png" alt="E型 縦つりクランプ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">E型 縦つりクランプ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">鋼板用縦つりクランプ</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.eagleclamp.co.jp/product/1195/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/EK-50020-40.png" alt="EK型 縦つり用クランプ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">EK型 縦つり用クランプ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">鋼板用縦つりクランプ</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.eagleclamp.co.jp/product/1203/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/ET-13-20.png" alt="ET型 縦つりクランプ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ET型 縦つりクランプ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">鋼板用縦つりクランプ</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.eagleclamp.co.jp/product/1213/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.eagleclamp.co.jp/_managed/wp-content/uploads/%E2%98%85230525_DSC00426_SL-13-20.png" alt="SL型 縦つり横つり兼用クランプ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">SL型 縦つり横つり兼用クランプ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">鋼板用兼用クランプ</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #D7261E; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #D7261E;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -785,30 +814,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/sharplance/sharp01_lrg.jpg" alt="シャープランス" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">シャープランス</p>
-<p class="product-card-cat">酸素アーク切断棒（ランス棒）</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/star/star01_lrg.jpg" alt="スターカッテンド" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">スターカッテンド</p>
-<p class="product-card-cat">酸素アーク切断棒</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/underwater/underwater01_lrg.jpg" alt="水中熔断・溶接棒" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">水中熔断・溶接棒</p>
-<p class="product-card-cat">水中切断・溶接用ランス棒</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/portable/portable01_lrg.jpg" alt="ポータブルカッティング(OZ)" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">ポータブルカッティング(OZ)</p>
-<p class="product-card-cat">携帯型酸素切断装置</p>          </figcaption>
-        </figure>
+          <a href="https://www.sansoarc.co.jp/sharp_lance/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/sharplance/sharp01_lrg.jpg" alt="シャープランス" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">シャープランス</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">酸素アーク切断棒（ランス棒）</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.sansoarc.co.jp/product/star_cuttend/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/star/star01_lrg.jpg" alt="スターカッテンド" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">スターカッテンド</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">酸素アーク切断棒</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.sansoarc.co.jp/product/underwater/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/underwater/underwater01_lrg.jpg" alt="水中熔断・溶接棒" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">水中熔断・溶接棒</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">水中切断・溶接用ランス棒</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.sansoarc.co.jp/product/portable_cutting/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sansoarc.co.jp/cms/wp-content/themes/sansoarc/images/product/portable/portable01_lrg.jpg" alt="ポータブルカッティング(OZ)" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ポータブルカッティング(OZ)</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">携帯型酸素切断装置</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #1F8A4C; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #1F8A4C;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -729,30 +758,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="https://www.sanko-mitachi.com/_src/6209/01-14-mg125sbd.jpg" alt="ディスクグラインダ MG125SBD" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">ディスクグラインダ MG125SBD</p>
-<p class="product-card-cat">電子制御ディスクグラインダ</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.sanko-mitachi.com/_src/5995/img20211118202927219916.jpg" alt="アングルグラインダ シリーズ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">アングルグラインダ シリーズ</p>
-<p class="product-card-cat">ディスクグラインダ</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.sanko-mitachi.com/_src/5997/img20211118202927235518.jpg" alt="ストレートグラインダ シリーズ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">ストレートグラインダ シリーズ</p>
-<p class="product-card-cat">ストレートグラインダ</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://www.sanko-mitachi.com/_src/5999/img20211118202927206951.jpg" alt="電子制御コントローラ" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">電子制御コントローラ</p>
-<p class="product-card-cat">電動工具用電子制御</p>          </figcaption>
-        </figure>
+          <a href="https://www.sanko-mitachi.com/products/disc-grinder/mg125sbd.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sanko-mitachi.com/_src/6209/01-14-mg125sbd.jpg" alt="ディスクグラインダ MG125SBD" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ディスクグラインダ MG125SBD</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">電子制御ディスクグラインダ</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.sanko-mitachi.com/products/disc-grinder/angle_series.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sanko-mitachi.com/_src/5995/img20211118202927219916.jpg" alt="アングルグラインダ シリーズ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">アングルグラインダ シリーズ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">ディスクグラインダ</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.sanko-mitachi.com/products/straight/straight_series.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sanko-mitachi.com/_src/5997/img20211118202927235518.jpg" alt="ストレートグラインダ シリーズ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ストレートグラインダ シリーズ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">ストレートグラインダ</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.sanko-mitachi.com/products/electric-control/index.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://www.sanko-mitachi.com/_src/5999/img20211118202927206951.jpg" alt="電子制御コントローラ" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">電子制御コントローラ</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">電動工具用電子制御</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 

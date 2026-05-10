@@ -474,6 +474,35 @@
     font-size: 12px;
     color: var(--gray-600);
   }
+  /* === Product card clickable link wrapper === */
+  .product-card-link {
+    display: block;
+    text-decoration: none !important;
+    color: inherit !important;
+  }
+  .product-card-link .product-card { transition: transform 0.18s ease, box-shadow 0.18s ease; }
+  .product-card-link:hover .product-card {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
+  }
+  .product-card-link:hover .product-card-name { color: #E8351E; }
+  .product-card-name-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .product-card-arrow {
+    font-size: 13px;
+    color: var(--gray-500);
+    opacity: 0.7;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+  .product-card-link:hover .product-card-arrow {
+    color: #E8351E;
+    opacity: 1;
+  }
 
   /* === Q-list === */
   .q-list { display: flex; flex-direction: column; gap: 18px; }
@@ -725,30 +754,50 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-        <figure class="product-card">
-          <img src="https://ogura-web.com/images/en/hcc19mxintro.png" alt="コードレス鉄筋カッター HCC-19MX" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">コードレス鉄筋カッター HCC-19MX</p>
-<p class="product-card-cat">コードレス電動油圧鉄筋カッター</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://ogura-web.com/images/en/hccf1640intro.png" alt="鉄筋カッター HCC-F1640" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">鉄筋カッター HCC-F1640</p>
-<p class="product-card-cat">電動油圧鉄筋カッター</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://ogura-web.com/images/en/hcc13blintro.png" alt="コードレス鉄筋カッター HCC-13BL" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">コードレス鉄筋カッター HCC-13BL</p>
-<p class="product-card-cat">コードレス電動油圧鉄筋カッター</p>          </figcaption>
-        </figure>
-        <figure class="product-card">
-          <img src="https://ogura-web.com/images/en/n9205wmxintro.png" alt="コードレスニブラ N9205WMX" loading="lazy" />
-          <figcaption>
-            <p class="product-card-name">コードレスニブラ N9205WMX</p>
-<p class="product-card-cat">金属薄板加工 コードレスニブラ</p>          </figcaption>
-        </figure>
+          <a href="https://ogura-web.com/en/products/cutters/hcc19mx.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://ogura-web.com/images/en/hcc19mxintro.png" alt="コードレス鉄筋カッター HCC-19MX" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">コードレス鉄筋カッター HCC-19MX</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">コードレス電動油圧鉄筋カッター</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://ogura-web.com/en/products/cutters/hccf1640.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://ogura-web.com/images/en/hccf1640intro.png" alt="鉄筋カッター HCC-F1640" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">鉄筋カッター HCC-F1640</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">電動油圧鉄筋カッター</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://ogura-web.com/en/products/cutters/hcc13bl.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://ogura-web.com/images/en/hcc13blintro.png" alt="コードレス鉄筋カッター HCC-13BL" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">コードレス鉄筋カッター HCC-13BL</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">コードレス電動油圧鉄筋カッター</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://ogura-web.com/en/products/metal-fabrication-tools/n9205wmx.html" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="https://ogura-web.com/images/en/n9205wmxintro.png" alt="コードレスニブラ N9205WMX" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">コードレスニブラ N9205WMX</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">金属薄板加工 コードレスニブラ</p>              </figcaption>
+            </figure>
+          </a>
       </div>
     </section>
 
