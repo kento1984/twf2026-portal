@@ -106,7 +106,7 @@
     "secondary": "#9E1B11",
     "accent": "#FFCD00",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.3mcompany.jp/",
+    "source": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
     "notes": "3M公式ブランドガイドライン上のコーポレートレッドは PANTONE 185 C 系で、Web/印刷で広く使用される PANTONE 485 C 相当の #DA291C を採用。3Mビジュアルアイデンティティでは赤を主軸に黄色をサブとする組み合わせが定番。",
     "_group": "group_b"
   },
@@ -226,7 +226,7 @@
     "secondary": "#A30000",
     "accent": "#FFFFFF",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.bosch.co.jp/",
+    "source": "https://www.bosch.co.jp/pt/",
     "notes": "Bosch global brand red (Pantone 485 / RAL 3020 ~ #EE0000) with white accent — iconic identity used across all Bosch divisions.",
     "_group": "group_d"
   },
@@ -306,7 +306,7 @@
     "secondary": "#0D47A1",
     "accent": "#FFC107",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.daihen.co.jp/",
+    "source": "https://www.daihen.co.jp/products/robot/catalog/",
     "notes": "溶接ロボット・電源装置・電気自動車充電器の総合電機メーカー (大阪)。コーポレートカラーはエレクトロニクスを連想させるブルー系で、Daihen ロゴでも一貫したブルー基調。アクセントは産業用警告色のアンバー。",
     "_group": "manual"
   },
@@ -316,7 +316,7 @@
     "secondary": "#8B0B20",
     "accent": "#0066B3",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.kobelco.co.jp/",
+    "source": "https://www.kobelco.co.jp/products/welding/axelarc/",
     "notes": "総合素材メーカーKOBELCO。溶接事業部門のコーポレートビジュアルでは赤系を主軸、サブにブルー (鉄鋼の青) を使う。AXELARC™、REGARCなどのプロダクトカラーも赤系統。暫定値、要公式ガイドライン確認。",
     "_group": "manual"
   },
@@ -585,7 +585,7 @@
     "text_on_primary": "#FFFFFF"
   },
   "123": {
-    "source": "https://www.mitsubishielectric.co.jp/fa/products/laser/",
+    "source": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
     "primary": "#666666",
     "secondary": "#444444",
     "text_on_primary": "#FFFFFF"

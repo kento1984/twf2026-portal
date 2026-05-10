@@ -280,36 +280,36 @@
     "name": "スリーエムジャパン㈱",
     "products": [
       {
-        "name": "コマンド™ タブ 浴室用[Sサイズ] CMT-WR-L",
+        "name": "3M Personal Protective Equipment Products: Man wearing goggles, hard hat, respir",
         "category": "",
-        "image_url": "../../assets/maker-products/058/1.jpg",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/home/",
-        "remote_url": "https://multimedia.3m.com/mws/media/1538448J/cmb-03-package-front.jpg",
-        "bytes": 36765
+        "image_url": "../../assets/maker-products/058/1.webp",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
+        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/cce66706-7e43-45b1-a59b-52b3835724a9/MG_1351.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-cce66706-7e43-45b1-a59b-52b3835724a9-lOGhVFl",
+        "bytes": 65522
       },
       {
-        "name": "スコッチ® 強力瞬間接着剤 [多用途] 7004",
+        "name": "3M PPE Protective Eyewear",
         "category": "",
-        "image_url": "../../assets/maker-products/058/2.jpg",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/adhesives/",
-        "remote_url": "https://multimedia.3m.com/mws/media/1016340J/7004.jpg",
-        "bytes": 47828
+        "image_url": "../../assets/maker-products/058/2.webp",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
+        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/b356fc72-66cd-4ac4-b1d6-f6ac60732f67/3M+Schutzbrille+SecureFit+SF401ASAF_Anwendung_Polieren_3.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-b356fc72-66cd-4ac4-b1d6-f6ac60732f67-oCgGZWT",
+        "bytes": 48318
       },
       {
-        "name": "スコッチ® 強力瞬間接着剤 [多用途] 7070",
+        "name": "作業者の安全を守り、より安心して最大限のパフォーマンスを発揮いただくために。",
         "category": "",
         "image_url": "../../assets/maker-products/058/3.webp",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/adhesives/",
-        "remote_url": "https://multimedia.3m.com/mws/media/1016349J/7070.jpg",
-        "bytes": 46728
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/respiratory-protection-jp/products/reusable-respirators/",
+        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/9f340ba8-3b23-46ba-bf6f-8d9e9c7704db/210401_3m_6361_5_1200x350.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-9f340ba8-3b23-46ba-bf6f-8d9e9c7704db-nQiixOQ",
+        "bytes": 105784
       },
       {
-        "name": "スコッチ® 強力瞬間接着剤ミニ小分け",
+        "name": "作業者のパフォーマンスを改善するために、より快適で安全な電動ファン付き呼吸用保護をぜひご検討ください。",
         "category": "",
-        "image_url": "../../assets/maker-products/058/4.jpg",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/adhesives/",
-        "remote_url": "https://multimedia.3m.com/mws/media/1428931J/amn-g3.jpg",
-        "bytes": 51837
+        "image_url": "../../assets/maker-products/058/4.webp",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/respiratory-protection-jp/products/papr/",
+        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/6a001820-4ce7-47b5-922a-7ddb6a294a23/210402_3m_d2_1741_5_1200x350.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-6a001820-4ce7-47b5-922a-7ddb6a294a23-oCgH0u3",
+        "bytes": 97358
       }
     ],
     "fetched_ok": true
@@ -434,9 +434,41 @@
   },
   "117": {
     "name": "ボッシュ㈱",
-    "products": [],
-    "fetched_ok": false,
-    "skip_reason": "no valid images found"
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/117/1.png",
+        "source_page": "https://www.bosch.co.jp/pt/catalog/",
+        "remote_url": "https://www.bosch.co.jp/pt/catalog/images/cover-professional-2025-02.png",
+        "bytes": 505427
+      },
+      {
+        "name": "安全第一！ Bosch PROtection - ボッシュ プロ用電動工具が誇る 9つの安全機能 - あなたの手に安全と安心を",
+        "category": "",
+        "image_url": "../../assets/maker-products/117/2.jpg",
+        "source_page": "https://www.bosch.co.jp/pt/",
+        "remote_url": "https://www.bosch.co.jp/pt/images/stage--safety--2025-04--w1920.jpg",
+        "bytes": 585008
+      },
+      {
+        "name": "Bosch Smart Life Selection",
+        "category": "",
+        "image_url": "../../assets/maker-products/117/3.jpg",
+        "source_page": "https://www.bosch.co.jp/pt/",
+        "remote_url": "https://www.bosch.co.jp/pt/images/stage--sls--2023-07--w1920.jpg",
+        "bytes": 326692
+      },
+      {
+        "name": "Smart & Perfect.  IXO（アイ・エックス・オー） ボッシュ コードレスドライバー",
+        "category": "",
+        "image_url": "../../assets/maker-products/117/4.jpg",
+        "source_page": "https://www.bosch.co.jp/pt/",
+        "remote_url": "https://www.bosch.co.jp/pt/images/stage--ixo7--2024-07--w1920.jpg",
+        "bytes": 137512
+      }
+    ],
+    "fetched_ok": true
   },
   "134": {
     "name": "ヤマト産業㈱",
@@ -508,9 +540,41 @@
   },
   "033": {
     "name": "㈱神戸製鋼所",
-    "products": [],
-    "fetched_ok": false,
-    "skip_reason": "no valid images found"
+    "products": [
+      {
+        "name": "AXELARC™ 専用ワイヤ(中厚板用途)",
+        "category": "",
+        "image_url": "../../assets/maker-products/033/1.webp",
+        "source_page": "https://www.kobelco.co.jp/products/welding/axelarc/",
+        "remote_url": "https://www.kobelco.co.jp/products/welding/axelarc/img/AXELARC_im01.webp",
+        "bytes": 211656
+      },
+      {
+        "name": "AXELARC™ AX-1AS 多様な課題を解決する AXELARC™ ワイヤ",
+        "category": "",
+        "image_url": "../../assets/maker-products/033/2.webp",
+        "source_page": "https://www.kobelco.co.jp/products/welding/axelarc/",
+        "remote_url": "https://www.kobelco.co.jp/products/welding/axelarc/img/AXELARC_im03.webp",
+        "bytes": 264826
+      },
+      {
+        "name": "AXELARC™ AX-1A",
+        "category": "",
+        "image_url": "../../assets/maker-products/033/3.webp",
+        "source_page": "https://www.kobelco.co.jp/products/welding/axelarc/",
+        "remote_url": "https://www.kobelco.co.jp/products/welding/axelarc/img/AXELARC_im04.webp",
+        "bytes": 232584
+      },
+      {
+        "name": "赤カタログ全ページPDF",
+        "category": "",
+        "image_url": "../../assets/maker-products/033/4.webp",
+        "source_page": "https://www.kobelco.co.jp/products/welding/catalog.html",
+        "remote_url": "https://www.kobelco.co.jp/products/welding/img/catalog_im02.webp",
+        "bytes": 44268
+      }
+    ],
+    "fetched_ok": true
   },
   "002": {
     "name": "アサダ㈱",
@@ -1668,9 +1732,41 @@
   },
   "123": {
     "name": "三菱電機㈱",
-    "products": [],
-    "fetched_ok": false,
-    "skip_reason": "fetch failed: https://www.mitsubishielectric.co.jp/fa/products/laser/"
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/123/1.jpg",
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_2d.jpg",
+        "bytes": 60986
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/123/2.jpg",
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_3d.jpg",
+        "bytes": 71952
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/123/3.jpg",
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_drilling.jpg",
+        "bytes": 60434
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/123/4.jpg",
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_cuttingl.jpg",
+        "bytes": 128266
+      }
+    ],
+    "fetched_ok": true
   },
   "124": {
     "name": "三菱電機フィナンシャルソリューションズ㈱",
@@ -1787,5 +1883,43 @@
     "products": [],
     "fetched_ok": false,
     "skip_reason": "manual filter: contact_bg + Yuwanews(連絡先BG/ニュース紙面)"
+  },
+  "066": {
+    "name": "㈱ダイヘン",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/066/1.jpg",
+        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
+        "remote_url": "https://www.daihen.co.jp/products/robot/img/No.R21405_7.jpg",
+        "bytes": 38222
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/066/2.jpg",
+        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
+        "remote_url": "https://www.daihen.co.jp/products/robot/img/No.R21103C.jpg",
+        "bytes": 36917
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/066/3.jpg",
+        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
+        "remote_url": "https://www.daihen.co.jp/products/robot/img/FD-S3.jpg",
+        "bytes": 34416
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/066/4.jpg",
+        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
+        "remote_url": "https://www.daihen.co.jp/products/robot/img/No.R21402.jpg",
+        "bytes": 32545
+      }
+    ],
+    "fetched_ok": true
   }
 }
