@@ -306,7 +306,11 @@
     "secondary": "#0D47A1",
     "accent": "#FFC107",
     "text_on_primary": "#FFFFFF",
-    "source": "https://www.daihen.co.jp/products/robot/catalog/",
+    "source": [
+      "https://www.daihen.co.jp/products/welder/co2_mag/wb-m500s.html",
+      "https://www.daihen-robot.com/items/fd_vc4",
+      "https://www.daihen-robot.com/items/Aitran"
+    ],
     "notes": "溶接ロボット・電源装置・電気自動車充電器の総合電機メーカー (大阪)。コーポレートカラーはエレクトロニクスを連想させるブルー系で、Daihen ロゴでも一貫したブルー基調。アクセントは産業用警告色のアンバー。",
     "_group": "manual"
   },

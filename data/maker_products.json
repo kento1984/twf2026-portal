@@ -1888,38 +1888,39 @@
     "name": "㈱ダイヘン",
     "products": [
       {
-        "name": "Product",
-        "category": "",
+        "name": "WB-M500S 半自動溶接機 (CO2/MAG)",
+        "category": "半自動溶接電源",
         "image_url": "../../assets/maker-products/066/1.jpg",
-        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
-        "remote_url": "https://www.daihen.co.jp/products/robot/img/No.R21405_7.jpg",
-        "bytes": 38222
+        "source_page": "https://www.daihen.co.jp/products/welder/co2_mag/wb-m500s.html",
+        "remote_url": "https://www.daihen.co.jp/products/welder/img/co2mag/wb-m500s_image09.jpg",
+        "bytes": 42302
       },
       {
-        "name": "Product",
-        "category": "",
+        "name": "FD-VC4/VC4L 協働ロボット (アーク溶接用途)",
+        "category": "アーク溶接ロボット",
         "image_url": "../../assets/maker-products/066/2.jpg",
-        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
-        "remote_url": "https://www.daihen.co.jp/products/robot/img/No.R21103C.jpg",
-        "bytes": 36917
+        "source_page": "https://www.daihen-robot.com/items/fd_vc4",
+        "remote_url": "https://www.daihen-robot.com/assets/img//robot/items/mv_FD-VC4.jpg",
+        "bytes": 152191
       },
       {
-        "name": "Product",
-        "category": "",
+        "name": "AiTranLEFT 搬送ロボット",
+        "category": "自律走行搬送ロボット",
         "image_url": "../../assets/maker-products/066/3.jpg",
-        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
-        "remote_url": "https://www.daihen.co.jp/products/robot/img/FD-S3.jpg",
-        "bytes": 34416
+        "source_page": "https://www.daihen-robot.com/items/Aitran",
+        "remote_url": "https://www.daihen-robot.com/assets/img/robot/about/aitranleft_main.jpg",
+        "bytes": 95977
       },
       {
-        "name": "Product",
-        "category": "",
+        "name": "AiTranTRAILER 搬送ロボット (台車牽引型)",
+        "category": "自律走行搬送ロボット",
         "image_url": "../../assets/maker-products/066/4.jpg",
-        "source_page": "https://www.daihen.co.jp/products/robot/catalog/",
-        "remote_url": "https://www.daihen.co.jp/products/robot/img/No.R21402.jpg",
-        "bytes": 32545
+        "source_page": "https://www.daihen-robot.com/items/Aitran",
+        "remote_url": "https://www.daihen-robot.com/assets/img/robot/about/aitrantrailer_main.jpg",
+        "bytes": 89303
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "manual_curated": "2026-05-11 柏原指定3製品ページから手動キュレーション"
   }
 }

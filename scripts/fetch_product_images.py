@@ -259,23 +259,50 @@ def ext_for(content_type: str, url: str) -> str:
     return "jpg"
 
 
-def fetch_for_maker(no: str, name: str, source: str, max_images: int = 4, dry: bool = False) -> dict:
-    """単一メーカーの製品画像を取得。fetched_ok=true ならローカル保存済。"""
-    print(f"\n=== {no} {name} ({source}) ===")
-    if not source:
+def fetch_for_maker(no: str, name: str, source, max_images: int = 4, dry: bool = False) -> dict:
+    """単一メーカーの製品画像を取得。fetched_ok=true ならローカル保存済。
+
+    source は str (単一URL) または list[str] (複数製品ページ) 両対応。
+    list の場合は各URLが「製品ページ直」前提で discover をスキップ、各URLから最大2枚ずつ。
+    """
+    # source を list に正規化
+    if isinstance(source, list):
+        source_urls = [s for s in source if s]
+        is_multi = True
+    else:
+        source_urls = [source] if source else []
+        is_multi = False
+
+    label = f"{len(source_urls)} URLs" if is_multi else (source_urls[0] if source_urls else "<no source>")
+    print(f"\n=== {no} {name} ({label}) ===")
+    if not source_urls:
         return {"name": name, "products": [], "fetched_ok": False, "skip_reason": "no source URL"}
 
-    html = fetch_html(source)
-    if not html:
-        return {"name": name, "products": [], "fetched_ok": False, "skip_reason": f"fetch failed: {source}"}
+    # 複数URL指定時は各URLから2枚ずつを目安に最大6枚
+    if is_multi:
+        max_images = min(6, max(max_images, len(source_urls) * 2))
 
-    # トップページ + 製品ページ群を巡回
-    pages_to_scan: list[tuple[str, str]] = [(source, html)]
-    for sub in discover_product_pages(html, source, limit=4):
-        time.sleep(1.2)
-        sub_html = fetch_html(sub)
-        if sub_html:
-            pages_to_scan.append((sub, sub_html))
+    pages_to_scan: list[tuple[str, str]] = []
+    for i, src_url in enumerate(source_urls, 1):
+        if is_multi:
+            print(f"  [URL {i}/{len(source_urls)}] {src_url}")
+        html = fetch_html(src_url)
+        if not html:
+            if is_multi:
+                print(f"    fetch failed")
+            continue
+        pages_to_scan.append((src_url, html))
+        # 単一source の場合のみ discover で補完
+        if not is_multi:
+            for sub in discover_product_pages(html, src_url, limit=4):
+                time.sleep(1.2)
+                sub_html = fetch_html(sub)
+                if sub_html:
+                    pages_to_scan.append((sub, sub_html))
+
+    if not pages_to_scan:
+        joined = source_urls[0] if not is_multi else f"{len(source_urls)} URLs"
+        return {"name": name, "products": [], "fetched_ok": False, "skip_reason": f"fetch failed: {joined}"}
 
     print(f"  scanned pages: {len(pages_to_scan)}")
     candidates: list[tuple[str, str, str]] = []  # (url, name, source_page)
@@ -322,10 +349,16 @@ def fetch_for_maker(no: str, name: str, source: str, max_images: int = 4, dry: b
         for old in out_dir.glob("*"):
             old.unlink()
 
+    # 複数URL時は各 source_page から最大2枚で偏り防止
+    per_source_max = 2 if is_multi else max_images
+    src_counts: dict[str, int] = {}
+
     selected: list[dict] = []
     for url, alt, src in uniq:
         if len(selected) >= max_images:
             break
+        if src_counts.get(src, 0) >= per_source_max:
+            continue
         ok, ct, cl = head_check(url)
         if not ok:
             continue
@@ -363,6 +396,7 @@ def fetch_for_maker(no: str, name: str, source: str, max_images: int = 4, dry: b
             "remote_url": url,
             "bytes": size,
         })
+        src_counts[src] = src_counts.get(src, 0) + 1
         print(f"  + {idx}.{ext} ({size:,} bytes, {ct})  ← {url[:80]}")
         time.sleep(0.5)
 
