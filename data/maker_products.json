@@ -278,17 +278,57 @@
   },
   "058": {
     "name": "スリーエムジャパン㈱",
-    "products": [],
-    "fetched_ok": false,
-    "skip_reason": "no valid images found"
+    "products": [
+      {
+        "name": "コマンド™ タブ 浴室用[Sサイズ] CMT-WR-L",
+        "category": "",
+        "image_url": "../../assets/maker-products/058/1.jpg",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/home/",
+        "remote_url": "https://multimedia.3m.com/mws/media/1538448J/cmb-03-package-front.jpg",
+        "bytes": 36765
+      },
+      {
+        "name": "スコッチ® 強力瞬間接着剤 [多用途] 7004",
+        "category": "",
+        "image_url": "../../assets/maker-products/058/2.jpg",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/adhesives/",
+        "remote_url": "https://multimedia.3m.com/mws/media/1016340J/7004.jpg",
+        "bytes": 47828
+      },
+      {
+        "name": "スコッチ® 強力瞬間接着剤 [多用途] 7070",
+        "category": "",
+        "image_url": "../../assets/maker-products/058/3.webp",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/adhesives/",
+        "remote_url": "https://multimedia.3m.com/mws/media/1016349J/7070.jpg",
+        "bytes": 46728
+      },
+      {
+        "name": "スコッチ® 強力瞬間接着剤ミニ小分け",
+        "category": "",
+        "image_url": "../../assets/maker-products/058/4.jpg",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/adhesives/",
+        "remote_url": "https://multimedia.3m.com/mws/media/1428931J/amn-g3.jpg",
+        "bytes": 51837
+      }
+    ],
+    "fetched_ok": true
   },
   "060": {
     "name": "㈱セブンティ・エイト",
     "products": [
       {
-        "name": "MO-01　溶接ペンチ",
+        "name": "Product",
         "category": "",
         "image_url": "../../assets/maker-products/060/1.jpg",
+        "source_page": "https://seventy-eight.co.jp/catalog/",
+        "remote_url": "https://seventy-eight.co.jp/catalog/img/img-catalog.jpg",
+        "bytes": 109769
+      },
+      {
+        "name": "MO-01　溶接ペンチ",
+        "category": "",
+        "image_url": "../../assets/maker-products/060/2.jpg",
         "source_page": "https://seventy-eight.co.jp/product/pliers/",
         "remote_url": "https://seventy-eight.co.jp/product/wp-content/uploads/sites/2/2017/03/MO-01_01.jpg",
         "bytes": 84150
@@ -296,7 +336,7 @@
       {
         "name": "MO-03　溶接ペンチ",
         "category": "",
-        "image_url": "../../assets/maker-products/060/2.jpg",
+        "image_url": "../../assets/maker-products/060/3.jpg",
         "source_page": "https://seventy-eight.co.jp/product/pliers/",
         "remote_url": "https://seventy-eight.co.jp/product/wp-content/uploads/sites/2/2017/03/MO-03-SB-180-1.jpg",
         "bytes": 133971
@@ -304,73 +344,25 @@
       {
         "name": "MO-03S　溶接ペンチ",
         "category": "",
-        "image_url": "../../assets/maker-products/060/3.jpg",
+        "image_url": "../../assets/maker-products/060/4.jpg",
         "source_page": "https://seventy-eight.co.jp/product/pliers/",
         "remote_url": "https://seventy-eight.co.jp/product/wp-content/uploads/sites/2/2023/01/MO-03S.jpg",
         "bytes": 247775
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/060/4.jpg",
-        "source_page": "https://seventy-eight.co.jp/catalog/",
-        "remote_url": "https://seventy-eight.co.jp/catalog/img/img-catalog.jpg",
-        "bytes": 109769
       }
     ],
     "fetched_ok": true
   },
   "063": {
     "name": "大同興業㈱",
-    "products": [
-      {
-        "name": "Hero",
-        "category": "",
-        "image_url": "../../assets/maker-products/063/1.jpg",
-        "source_page": "https://www.daidokogyo.co.jp/",
-        "remote_url": "https://www.daidokogyo.co.jp/ogp.jpg",
-        "bytes": 54709
-      }
-    ],
-    "fetched_ok": true
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "manual filter: ogp.jpgのみ(OGメタ画像)"
   },
   "065": {
     "name": "ＤＡＩＴＯ㈱",
-    "products": [
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/065/1.jpg",
-        "source_page": "https://www.daito-co.com/product/lineup/",
-        "remote_url": "https://www.daito-co.com/product/wp-content/uploads/2025/03/ISR2-500M_-1.jpg",
-        "bytes": 2021478
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/065/2.jpg",
-        "source_page": "https://www.daito-co.com/product/lineup/",
-        "remote_url": "https://www.daito-co.com/product/wp-content/uploads/2025/03/ISR-500M.jpg",
-        "bytes": 798670
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/065/3.jpg",
-        "source_page": "https://www.daito-co.com/product/lineup/",
-        "remote_url": "https://www.daito-co.com/product/wp-content/uploads/2025/03/ISZ-400M_.jpg",
-        "bytes": 270264
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/065/4.jpg",
-        "source_page": "https://www.daito-co.com/product/lineup/",
-        "remote_url": "https://www.daito-co.com/product/wp-content/uploads/2025/03/LSR-500M.jpg",
-        "bytes": 622840
-      }
-    ],
-    "fetched_ok": true
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied for https://www.daito-co.com/"
   },
   "082": {
     "name": "㈱ナカトミ",
@@ -380,82 +372,50 @@
   },
   "083": {
     "name": "日動工業㈱",
-    "products": [
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/083/1.jpg",
-        "source_page": "https://www.nichido-ind.co.jp/products/search?q=LED+SERIES",
-        "remote_url": "https://www.nichido-ind.co.jp/assets/product/img/LEIS-600N3-HS-50K_1.jpg",
-        "bytes": 109387
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/083/2.jpg",
-        "source_page": "https://www.nichido-ind.co.jp/products/search?q=LED+SERIES",
-        "remote_url": "https://www.nichido-ind.co.jp/assets/product/img/LEIS-600N3-HVS10-50K_1.jpg",
-        "bytes": 109387
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/083/3.jpg",
-        "source_page": "https://www.nichido-ind.co.jp/products/search?q=LED+SERIES",
-        "remote_url": "https://www.nichido-ind.co.jp/assets/product/img/LEIS-600N3-HVS-50K_1.jpg",
-        "bytes": 109387
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/083/4.jpg",
-        "source_page": "https://www.nichido-ind.co.jp/products/search?q=LED+SERIES",
-        "remote_url": "https://www.nichido-ind.co.jp/assets/product/img/LEIS-430N3-HS-50K_1.jpg",
-        "bytes": 84910
-      }
-    ],
-    "fetched_ok": true
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify nichido.co.jp LED product image URLs without fabrication"
   },
   "089": {
     "name": "日本ウエルディング㈱",
     "products": [],
     "fetched_ok": false,
-    "skip_reason": "no valid images found (youtube banner)"
+    "skip_reason": "WebFetch permission denied; cannot verify FBL-1000CW image URLs without fabrication"
   },
   "100": {
     "name": "㈱ハタヤリミテッド",
     "products": [
       {
-        "name": "パイロットランプ付サンデーレインボーリールカタログ",
+        "name": "カタログ",
         "category": "",
         "image_url": "../../assets/maker-products/100/1.jpg",
-        "source_page": "https://www.hataya.jp/products/catalog/",
-        "remote_url": "https://www.hataya.jp/uploads/product/10121/dtl2_1_1.jpg",
-        "bytes": 38777
+        "source_page": "https://www.hataya.jp/",
+        "remote_url": "https://www.hataya.jp/common/img/catalog.jpg",
+        "bytes": 159812
       },
       {
-        "name": "ぴよりんオートマッキーカタログ",
+        "name": "TOP1",
         "category": "",
         "image_url": "../../assets/maker-products/100/2.jpg",
-        "source_page": "https://www.hataya.jp/products/catalog/",
-        "remote_url": "https://www.hataya.jp/uploads/product/10105/dtl2_1_1.jpg",
-        "bytes": 52069
+        "source_page": "https://www.hataya.jp/",
+        "remote_url": "https://www.hataya.jp/uploads/post/2201/1_1.jpg",
+        "bytes": 92306
       },
       {
-        "name": "15m サンデーレインボーリールカタログ",
+        "name": "TOP2",
         "category": "",
         "image_url": "../../assets/maker-products/100/3.jpg",
-        "source_page": "https://www.hataya.jp/products/catalog/",
-        "remote_url": "https://www.hataya.jp/uploads/product/10101/dtl2_1_1.jpg",
-        "bytes": 37699
+        "source_page": "https://www.hataya.jp/",
+        "remote_url": "https://www.hataya.jp/uploads/post/2200/1_1.jpg",
+        "bytes": 94445
       },
       {
-        "name": "段積みフラットリールカタログ",
+        "name": "TOP3",
         "category": "",
         "image_url": "../../assets/maker-products/100/4.jpg",
-        "source_page": "https://www.hataya.jp/products/catalog/",
-        "remote_url": "https://www.hataya.jp/uploads/product/10067/dtl2_1_1.jpg",
-        "bytes": 41907
+        "source_page": "https://www.hataya.jp/",
+        "remote_url": "https://www.hataya.jp/uploads/post/2199/1_1.jpg",
+        "bytes": 90167
       }
     ],
     "fetched_ok": true
@@ -464,45 +424,13 @@
     "name": "㈱フジ",
     "products": [],
     "fetched_ok": false,
-    "skip_reason": "no valid images found (corporate banner)"
+    "skip_reason": "WebFetch permission denied; cannot verify ハンドカー/ボンベスタンド image URLs without fabrication"
   },
   "111": {
     "name": "富士電線販売㈱",
-    "products": [
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/111/1.jpg",
-        "source_page": "https://www.fujiewc.co.jp/product/",
-        "remote_url": "https://www.fujiewc.co.jp/wp-content/themes/fujiwc/img/products/cat01_1.jpg?=v2",
-        "bytes": 101434
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/111/2.jpg",
-        "source_page": "https://www.fujiewc.co.jp/product/",
-        "remote_url": "https://www.fujiewc.co.jp/wp-content/themes/fujiwc/img/products/cat02_1.jpg?=v4",
-        "bytes": 67648
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/111/3.jpg",
-        "source_page": "https://www.fujiewc.co.jp/product/",
-        "remote_url": "https://www.fujiewc.co.jp/wp-content/themes/fujiwc/img/products/cat03_1.jpg?=v2",
-        "bytes": 49228
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/111/4.jpg",
-        "source_page": "https://www.fujiewc.co.jp/product/",
-        "remote_url": "https://www.fujiewc.co.jp/wp-content/themes/fujiwc/img/products/cat04_1.jpg?=v2",
-        "bytes": 69971
-      }
-    ],
-    "fetched_ok": true
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "WebFetch permission denied; cannot verify SS-WCT 溶接ケーブル image URLs without fabrication"
   },
   "117": {
     "name": "ボッシュ㈱",
@@ -584,164 +512,1280 @@
     "fetched_ok": false,
     "skip_reason": "no valid images found"
   },
-  "066": {
-    "name": "㈱ダイヘン",
+  "002": {
+    "name": "アサダ㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/002/1.jpg",
+        "source_page": "https://www.asada.co.jp/",
+        "remote_url": "https://www.asada.co.jp/content/images/product/image/11manifold/digitalmf/digital-manifold_MS810_1100x600.jpg",
+        "bytes": 125035
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/002/2.jpg",
+        "source_page": "https://www.asada.co.jp/",
+        "remote_url": "https://www.asada.co.jp/content/images/product/image/01nejikiriki/supertronic2000E-AMP/08-1.AMP_1100x600.jpg",
+        "bytes": 135075
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/002/3.jpg",
+        "source_page": "https://www.asada.co.jp/",
+        "remote_url": "https://www.asada.co.jp/content/images/product/image/17copper/robend4000E-AMP/01-2-1.AMP_1100x600.jpg",
+        "bytes": 136701
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/002/4.jpg",
+        "source_page": "https://www.asada.co.jp/",
+        "remote_url": "https://www.asada.co.jp/content/images/product/image/11manifold/mamorukun/13MAMORU1100x600.jpg",
+        "bytes": 116075
+      }
+    ],
+    "fetched_ok": true
+  },
+  "003": {
+    "name": "旭産業㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/003/1.jpg",
+        "source_page": "https://www.asahi-sangyo.co.jp/",
+        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/03/5KF1809_150dpi_-1-440x480.jpg",
+        "bytes": 32441
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/003/2.jpg",
+        "source_page": "https://www.asahi-sangyo.co.jp/",
+        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/03/5KF5680_350dpi_-440x480.jpg",
+        "bytes": 57400
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/003/3.jpg",
+        "source_page": "https://www.asahi-sangyo.co.jp/",
+        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/07/1_5KF1809_150dpi.jpg",
+        "bytes": 526365
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/003/4.jpg",
+        "source_page": "https://www.asahi-sangyo.co.jp/",
+        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/07/5KF5680_350dpi_-1.jpg",
+        "bytes": 720267
+      }
+    ],
+    "fetched_ok": true
+  },
+  "006": {
+    "name": "㈱アマダマシナリー",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/006/1.jpg",
+        "source_page": "https://www.amada.co.jp/ja/products/",
+        "remote_url": "https://www.amada.co.jp/img/ja/products/index/img_bg.jpg",
+        "bytes": 52892
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/006/2.jpg",
+        "source_page": "https://www.amada.co.jp/ja/products/",
+        "remote_url": "https://www.amada.co.jp/img/ja/products/index/img_10.jpg",
+        "bytes": 170562
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/006/3.jpg",
+        "source_page": "https://www.amada.co.jp/ja/products/",
+        "remote_url": "https://www.amada.co.jp/img/ja/products/index/img_11.jpg",
+        "bytes": 89999
+      },
+      {
+        "name": "Hero",
+        "category": "",
+        "image_url": "../../assets/maker-products/006/4.jpg",
+        "source_page": "https://www.amada.co.jp/ja/products/",
+        "remote_url": "https://www.amada.co.jp/assets/img/ogp/ogp_product.jpg",
+        "bytes": 37578
+      }
+    ],
+    "fetched_ok": true
+  },
+  "007": {
+    "name": "アルインコ㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/007/1.webp",
+        "source_page": "https://alinco.co.jp/construction/",
+        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-01.jpg",
+        "bytes": 33930
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/007/2.webp",
+        "source_page": "https://alinco.co.jp/construction/",
+        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-02.jpg",
+        "bytes": 31658
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/007/3.webp",
+        "source_page": "https://alinco.co.jp/construction/",
+        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-04.jpg",
+        "bytes": 36274
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/007/4.webp",
+        "source_page": "https://alinco.co.jp/construction/",
+        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-05.jpg",
+        "bytes": 37022
+      }
+    ],
+    "fetched_ok": true
+  },
+  "009": {
+    "name": "育良精機㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/009/1.jpg",
+        "source_page": "https://www.ikura.com/products.html#RE",
+        "remote_url": "https://www.ikura.com/products/01.jpg",
+        "bytes": 491148
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/009/2.jpg",
+        "source_page": "https://www.ikura.com/products.html#RE",
+        "remote_url": "https://www.ikura.com/products/02.jpg",
+        "bytes": 439523
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/009/3.jpg",
+        "source_page": "https://www.ikura.com/products.html#RE",
+        "remote_url": "https://www.ikura.com/products/03.jpg",
+        "bytes": 426056
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/009/4.jpg",
+        "source_page": "https://www.ikura.com/products.html#RE",
+        "remote_url": "https://www.ikura.com/products/04.jpg",
+        "bytes": 538912
+      }
+    ],
+    "fetched_ok": true
+  },
+  "010": {
+    "name": "㈱イチグチ",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/010/1.png",
+        "source_page": "https://ichiguchi.co.jp/product/",
+        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/01_SKDFB50-A.png",
+        "bytes": 158449
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/010/2.png",
+        "source_page": "https://ichiguchi.co.jp/product/",
+        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/02_SKDFB50-Z.png",
+        "bytes": 152958
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/010/3.png",
+        "source_page": "https://ichiguchi.co.jp/product/",
+        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/16_TD10016-A.png",
+        "bytes": 166785
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/010/4.png",
+        "source_page": "https://ichiguchi.co.jp/product/",
+        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/19_CON10015-A.png",
+        "bytes": 159640
+      }
+    ],
+    "fetched_ok": true
+  },
+  "011": {
+    "name": "㈱イチネンケミカルズ",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/011/1.jpg",
+        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
+        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/6/list_image/list_image.jpg",
+        "bytes": 64631
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/011/2.jpg",
+        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
+        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/5/list_image/list_image.jpg",
+        "bytes": 147047
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/011/3.jpg",
+        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
+        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/4/list_image/list_image.jpg",
+        "bytes": 106478
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/011/4.jpg",
+        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
+        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/10/list_image/list_image.jpg",
+        "bytes": 147732
+      }
+    ],
+    "fetched_ok": true
+  },
+  "014": {
+    "name": "㈱ＡＭＳ",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "fetch failed: https://www.asm123.co.jp/"
+  },
+  "015": {
+    "name": "㈱エクシード",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "manual filter: 製品ではなく事業紹介(business)+代表写真(daihyou)のみ"
+  },
+  "021": {
+    "name": "オプティレーザーソリューションズ㈱",
+    "products": [
+      {
+        "name": "ULTL-CW3000",
+        "category": "",
+        "image_url": "../../assets/maker-products/021/1.jpg",
+        "source_page": "https://ult-laser.com/lineup/",
+        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_cw3000_img01.jpg?25112802",
+        "bytes": 72402
+      },
+      {
+        "name": "ULTL-CW2000PX",
+        "category": "",
+        "image_url": "../../assets/maker-products/021/2.jpg",
+        "source_page": "https://ult-laser.com/lineup/",
+        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_cw2000px_img01.jpg?25112802",
+        "bytes": 68509
+      },
+      {
+        "name": "ULTL-CW2000",
+        "category": "",
+        "image_url": "../../assets/maker-products/021/3.jpg",
+        "source_page": "https://ult-laser.com/lineup/",
+        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_cw2000_img01.jpg?25112802",
+        "bytes": 67059
+      },
+      {
+        "name": "サンプル商品",
+        "category": "",
+        "image_url": "../../assets/maker-products/021/4.jpg",
+        "source_page": "https://ult-laser.com/lineup/",
+        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_pulse1000_w_img01.jpg?25112802",
+        "bytes": 68157
+      }
+    ],
+    "fetched_ok": true
+  },
+  "027": {
+    "name": "京セラインダストリアルツールズ㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/027/1.jpg",
+        "source_page": "https://www.kyocera-industrialtools.co.jp/products/home#purpose",
+        "remote_url": "https://www.kyocera-industrialtools.co.jp/products/uploads/images/home_main_visual/e3b30a75fc22c5dbf756081773923ee7fbbbd28128c4c5062399850ec8eb9c83.jpg",
+        "bytes": 222633
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/027/2.jpg",
+        "source_page": "https://www.kyocera-industrialtools.co.jp/products/home/types/2",
+        "remote_url": "https://www.kyocera-industrialtools.co.jp/products/uploads/images/type/resized/570/af47e0ef3d4a1a8c539ec38cd623d1ac.jpg?key=44364c0c34e1852d2b05315a68f62715e7a4e51c",
+        "bytes": 32880
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/027/3.jpg",
+        "source_page": "https://www.kyocera-industrialtools.co.jp/products/home/types/2",
+        "remote_url": "https://www.kyocera-industrialtools.co.jp/products/uploads/images/type/resized/570/9f498f3584f3806b7013eb5f0eb3dc77.jpg?key=9c89c354390e9c95a7cb913c5a8bd1a94f15680e",
+        "bytes": 36994
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/027/4.jpg",
+        "source_page": "https://www.kyocera-industrialtools.co.jp/products/home/types/2",
+        "remote_url": "https://www.kyocera-industrialtools.co.jp/products/uploads/images/type/resized/570/07bd9c5f7056b778321830cd1096b78b.jpg?key=a02e0e05f41ac022d3091180d16b45db759b279d",
+        "bytes": 47528
+      }
+    ],
+    "fetched_ok": true
+  },
+  "028": {
+    "name": "㈱ＫＳ・Ｓ",
+    "products": [
+      {
+        "name": "kawasaki2",
+        "category": "",
+        "image_url": "../../assets/maker-products/028/1.png",
+        "source_page": "https://www.ks-s.co.jp/",
+        "remote_url": "https://www.ks-s.co.jp/wp/wp-content/uploads/2021/03/kawasaki2-358x1024.png",
+        "bytes": 358356
+      }
+    ],
+    "fetched_ok": true
+  },
+  "029": {
+    "name": "㈱ケミカル山本",
+    "products": [
+      {
+        "name": "スライド5 ｜ステンレス電解研磨　溶接焼け取り　さび、汚れ取り　及び　材質の簡易判別　不動態技術　株式会社ケミカル山本",
+        "category": "",
+        "image_url": "../../assets/maker-products/029/1.jpg",
+        "source_page": "http://www.chemical-y.co.jp/",
+        "remote_url": "https://chemical-y.co.jp/wordpress/wp-content/uploads/2024/07/20240704.jpg",
+        "bytes": 531106
+      },
+      {
+        "name": "ケミヤマ博士",
+        "category": "",
+        "image_url": "../../assets/maker-products/029/2.png",
+        "source_page": "http://www.chemical-y.co.jp/",
+        "remote_url": "https://chemical-y.co.jp/common/img/hakase.png",
+        "bytes": 63145
+      },
+      {
+        "name": "展示会のご案内　株式会社ケミカル山本",
+        "category": "",
+        "image_url": "../../assets/maker-products/029/3.png",
+        "source_page": "http://www.chemical-y.co.jp/",
+        "remote_url": "https://chemical-y.co.jp/common/img/tenji_img.png",
+        "bytes": 188579
+      },
+      {
+        "name": "営業所・出張所",
+        "category": "",
+        "image_url": "../../assets/maker-products/029/4.png",
+        "source_page": "http://www.chemical-y.co.jp/",
+        "remote_url": "https://chemical-y.co.jp/common/img/eigyousho_img_map.png",
+        "bytes": 56790
+      }
+    ],
+    "fetched_ok": true
+  },
+  "031": {
+    "name": "工機ホールディングス㈱",
     "products": [],
     "fetched_ok": false,
     "skip_reason": "no valid images found"
   },
-  "113": {
-    "name": "㈱プロスパー",
-    "products": [],
-    "fetched_ok": false,
-    "skip_reason": "no valid images found (real estate banners)"
-  },
-  "115": {
-    "name": "㈱ホータス",
+  "038": {
+    "name": "㈱サンエス",
     "products": [],
     "fetched_ok": false,
     "skip_reason": "no valid images found"
   },
-  "120": {
-    "name": "マツモト機械㈱",
-    "products": [
-      {
-        "name": "製品情報",
-        "category": "",
-        "image_url": "../../assets/maker-products/120/1.jpg",
-        "source_page": "https://www.mac-wels.co.jp/products.html",
-        "remote_url": "https://www.mac-wels.co.jp/images_products/products_img_010.jpg",
-        "bytes": 44416
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/120/2.jpg",
-        "source_page": "https://www.mac-wels.co.jp/",
-        "remote_url": "https://www.mac-wels.co.jp/images/230525_campaign_chip_saw.jpg",
-        "bytes": 66314
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/120/3.jpg",
-        "source_page": "https://www.mac-wels.co.jp/",
-        "remote_url": "https://www.mac-wels.co.jp/images/230315_pipeace_x_010.jpg",
-        "bytes": 64441
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/120/4.jpg",
-        "source_page": "https://www.mac-wels.co.jp/",
-        "remote_url": "https://www.mac-wels.co.jp/images/210824_hume_zero_010.jpg",
-        "bytes": 55622
-      }
-    ],
-    "fetched_ok": true
-  },
-  "121": {
-    "name": "マツモト産業㈱エクセル貿易事業部",
-    "products": [
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/121/1.jpg",
-        "source_page": "https://mac-exe.co.jp/texec/category/catalog/",
-        "remote_url": "https://mac-exe.co.jp/texec/wp-content/uploads/sites/3/TIG-pdf-360x509.jpg",
-        "bytes": 36089
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/121/2.jpg",
-        "source_page": "https://mac-exe.co.jp/texec/category/catalog/",
-        "remote_url": "https://mac-exe.co.jp/texec/wp-content/uploads/sites/3/vol6-360x551.jpg",
-        "bytes": 601627
-      }
-    ],
-    "fetched_ok": true
-  },
-  "128": {
-    "name": "明大㈱",
-    "products": [
-      {
-        "name": "明大株式会社",
-        "category": "",
-        "image_url": "../../assets/maker-products/128/1.jpg",
-        "source_page": "https://meidai.co.jp/",
-        "remote_url": "https://meidai.co.jp/wp-content/uploads/2023/02/明大ロゴ2017-01.jpg",
-        "bytes": 101747
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/128/2.jpg",
-        "source_page": "https://meidai.co.jp/",
-        "remote_url": "https://meidai.co.jp/wp-content/uploads/2023/09/20230714撚糸04_1500.jpg",
-        "bytes": 609332
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/128/3.jpg",
-        "source_page": "https://meidai.co.jp/",
-        "remote_url": "https://meidai.co.jp/wp-content/uploads/2023/09/織機-007_1500.jpg",
-        "bytes": 356641
-      },
-      {
-        "name": "Product",
-        "category": "",
-        "image_url": "../../assets/maker-products/128/4.jpg",
-        "source_page": "https://meidai.co.jp/",
-        "remote_url": "https://meidai.co.jp/wp-content/uploads/2023/09/20230714４軸10_1500.jpg",
-        "bytes": 373226
-      }
-    ],
-    "fetched_ok": true
-  },
-  "132": {
-    "name": "柳瀬㈱",
+  "044": {
+    "name": "シェアビジョン㈱",
     "products": [],
     "fetched_ok": false,
-    "skip_reason": "no valid product images (catalog cover/logo/building only)"
+    "skip_reason": "no valid images found"
   },
-  "148": {
-    "name": "三共㈱",
+  "045": {
+    "name": "㈱ジェイ・アンド・エス",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "no valid images found"
+  },
+  "047": {
+    "name": "㈱重松製作所",
+    "products": [
+      {
+        "name": "熱中症予防用品TC-2000Vの男性着用写真",
+        "category": "",
+        "image_url": "../../assets/maker-products/047/1.png",
+        "source_page": "https://www.sts-japan.com/",
+        "remote_url": "https://www.sts-japan.com/images/phTC_2000V.png",
+        "bytes": 45538
+      },
+      {
+        "name": "熱中症予防用品 VTW-7K2Tの男性着用写真",
+        "category": "",
+        "image_url": "../../assets/maker-products/047/2.png",
+        "source_page": "https://www.sts-japan.com/",
+        "remote_url": "https://www.sts-japan.com/images/phVTW-7K2T.png",
+        "bytes": 34820
+      },
+      {
+        "name": "Syx099P(V3/OV付)の商品写真",
+        "category": "",
+        "image_url": "../../assets/maker-products/047/3.png",
+        "source_page": "https://www.sts-japan.com/",
+        "remote_url": "https://www.sts-japan.com/images/phSyx099P_V3_OV.png",
+        "bytes": 49806
+      },
+      {
+        "name": "保護めがね LX-91/LX-92の商品写真（青色）",
+        "category": "",
+        "image_url": "../../assets/maker-products/047/4.png",
+        "source_page": "https://www.sts-japan.com/",
+        "remote_url": "https://www.sts-japan.com/images/phLX-91_LX-92.png",
+        "bytes": 58226
+      }
+    ],
+    "fetched_ok": true
+  },
+  "051": {
+    "name": "シンクス㈱",
+    "products": [
+      {
+        "name": "VXW-7 Plus 製品紹介ページに追加",
+        "category": "",
+        "image_url": "../../assets/maker-products/051/1.png",
+        "source_page": "https://www.shinx.co.jp/",
+        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2023/11/SHINX_VXW-3000-7Plus_0.png",
+        "bytes": 778505
+      },
+      {
+        "name": "SPN1シリーズ",
+        "category": "",
+        "image_url": "../../assets/maker-products/051/2.png",
+        "source_page": "https://www.shinx.co.jp/products/",
+        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2024/09/spn1.png",
+        "bytes": 205164
+      },
+      {
+        "name": "SPN2シリーズ",
+        "category": "",
+        "image_url": "../../assets/maker-products/051/3.png",
+        "source_page": "https://www.shinx.co.jp/products/",
+        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2024/09/spn2.png",
+        "bytes": 283102
+      },
+      {
+        "name": "HPPシリーズ",
+        "category": "",
+        "image_url": "../../assets/maker-products/051/4.png",
+        "source_page": "https://www.shinx.co.jp/products/",
+        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2024/09/hpp.png",
+        "bytes": 211747
+      }
+    ],
+    "fetched_ok": true
+  },
+  "061": {
+    "name": "象印チェンブロック㈱",
+    "products": [
+      {
+        "name": "Hero",
+        "category": "",
+        "image_url": "../../assets/maker-products/061/1.jpg",
+        "source_page": "https://www.elephant.co.jp/",
+        "remote_url": "https://www.elephant.co.jp/files/site_config/capture.jpg",
+        "bytes": 83708
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/061/2.png",
+        "source_page": "https://www.elephant.co.jp/pages/78/",
+        "remote_url": "https://www.elephant.co.jp/files/libs/10217/s/20250602131142982.png?1748837502",
+        "bytes": 305456
+      }
+    ],
+    "fetched_ok": true
+  },
+  "062": {
+    "name": "ダイキンＨＶＡＣソリューション東京㈱",
+    "products": [
+      {
+        "name": "学校・教育施設",
+        "category": "",
+        "image_url": "../../assets/maker-products/062/1.jpg",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
+        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img01-05.jpg",
+        "bytes": 31896
+      },
+      {
+        "name": "業務用エアコンのリースネットZEAS",
+        "category": "",
+        "image_url": "../../assets/maker-products/062/2.jpg",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
+        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img02-01.jpg",
+        "bytes": 34545
+      },
+      {
+        "name": "寒冷地向けエアコン",
+        "category": "",
+        "image_url": "../../assets/maker-products/062/3.jpg",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
+        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img02-04.jpg",
+        "bytes": 82318
+      },
+      {
+        "name": "農事用ヒートポンプエアコン",
+        "category": "",
+        "image_url": "../../assets/maker-products/062/4.jpg",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
+        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img02-14.jpg",
+        "bytes": 42201
+      }
+    ],
+    "fetched_ok": true
+  },
+  "070": {
+    "name": "㈱テクノプラン",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "no valid images found"
+  },
+  "071": {
+    "name": "デンヨー㈱",
     "products": [
       {
         "name": "Product",
         "category": "",
-        "image_url": "../../assets/maker-products/148/1.jpg",
-        "source_page": "https://id-sankyo.co.jp/",
-        "remote_url": "https://id-sankyo.co.jp/wp/wp-content/themes/sankyo/images/service/hydraulic/hydraulic_baner.jpg",
-        "bytes": 56433
+        "image_url": "../../assets/maker-products/071/1.png",
+        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/",
+        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2022/11/DCA-45USKB3.png",
+        "bytes": 1931745
       },
       {
         "name": "Product",
         "category": "",
-        "image_url": "../../assets/maker-products/148/2.jpg",
-        "source_page": "https://id-sankyo.co.jp/service-cat/clean",
-        "remote_url": "https://id-sankyo.co.jp/wp/wp-content/uploads/2023/03/img03-1.jpg",
-        "bytes": 111614
+        "image_url": "../../assets/maker-products/071/2.png",
+        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/",
+        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2020/12/DCA-60ESI2.png",
+        "bytes": 663478
       },
       {
-        "name": "Product",
+        "name": "可搬形ディーゼル発電機（DCAシリーズ/TLGシリーズ）",
         "category": "",
-        "image_url": "../../assets/maker-products/148/3.jpg",
-        "source_page": "https://id-sankyo.co.jp/service-cat/clean",
-        "remote_url": "https://id-sankyo.co.jp/wp/wp-content/uploads/2023/03/e41452ad41de82dfde417842749c67cb-900x599.jpg",
-        "bytes": 47123
+        "image_url": "../../assets/maker-products/071/3.png",
+        "source_page": "https://www.denyo.co.jp/",
+        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2020/11/DCA-45LSYE-574x600.png",
+        "bytes": 236648
       },
       {
-        "name": "Product",
+        "name": "その他の発電装置",
         "category": "",
-        "image_url": "../../assets/maker-products/148/4.jpg",
-        "source_page": "https://id-sankyo.co.jp/service-cat/original",
-        "remote_url": "https://id-sankyo.co.jp/wp/wp-content/uploads/2023/03/491217e232ba4716020b86de99710901-900x180-1.jpg",
-        "bytes": 33324
+        "image_url": "../../assets/maker-products/071/4.png",
+        "source_page": "https://www.denyo.co.jp/",
+        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2020/11/DCA-260SGC-H-600x413.png",
+        "bytes": 250509
       }
     ],
     "fetched_ok": true
+  },
+  "072": {
+    "name": "東空販売㈱",
+    "products": [
+      {
+        "name": "万能一軸破砕機",
+        "category": "",
+        "image_url": "../../assets/maker-products/072/1.jpg",
+        "source_page": "https://www.toku-net.co.jp/catalog/index.html",
+        "remote_url": "https://www.toku-net.co.jp/picture/catalog-picture/single-shaft-shredder.jpg",
+        "bytes": 166483
+      },
+      {
+        "name": "MI-16M air impact wrench",
+        "category": "",
+        "image_url": "../../assets/maker-products/072/2.jpg",
+        "source_page": "https://www.toku-net.co.jp/catalog/index.html",
+        "remote_url": "https://www.toku-net.co.jp/picture/catalog-picture/power-tool/mi16m.jpg",
+        "bytes": 116957
+      },
+      {
+        "name": "充電式シャットオフインパクトレンチ MBI-160TX",
+        "category": "",
+        "image_url": "../../assets/maker-products/072/3.jpg",
+        "source_page": "https://www.toku-net.co.jp/product/index.html",
+        "remote_url": "https://www.toku-net.co.jp/picture/aut/mbi160tx-5.jpg",
+        "bytes": 134784
+      },
+      {
+        "name": "充電式シャットオフインパクトレンチ MBI-250TX",
+        "category": "",
+        "image_url": "../../assets/maker-products/072/4.jpg",
+        "source_page": "https://www.toku-net.co.jp/product/index.html",
+        "remote_url": "https://www.toku-net.co.jp/picture/aut/mbi250tx-5.jpg",
+        "bytes": 167278
+      }
+    ],
+    "fetched_ok": true
+  },
+  "084": {
+    "name": "日光物産㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/084/1.jpg",
+        "source_page": "https://nikko-bussan.com/catalog/",
+        "remote_url": "https://nikko-bussan.com/control/catalog/images/sougou072.jpg",
+        "bytes": 264356
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/084/2.jpg",
+        "source_page": "https://nikko-bussan.com/catalog/",
+        "remote_url": "https://nikko-bussan.com/control/catalog/images/protective05.jpg",
+        "bytes": 244569
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/084/3.jpg",
+        "source_page": "https://nikko-bussan.com/catalog/",
+        "remote_url": "https://nikko-bussan.com/control/catalog/images/armatex_var1.jpg",
+        "bytes": 170235
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/084/4.jpg",
+        "source_page": "https://nikko-bussan.com/catalog/",
+        "remote_url": "https://nikko-bussan.com/control/catalog/images/teguard_catalog_var1.jpg",
+        "bytes": 294291
+      }
+    ],
+    "fetched_ok": true
+  },
+  "085": {
+    "name": "ニツコー熔材工業㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/085/1.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/",
+        "remote_url": "https://www.nikko-yozai.co.jp/wp/wp-content/themes/nikko-yozai/img/common/megamenu/product_bnr.jpg",
+        "bytes": 34589
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/085/2.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/",
+        "remote_url": "https://www.nikko-yozai.co.jp/wp/wp-content/themes/nikko-yozai/img/common/megamenu/company1.jpg",
+        "bytes": 50870
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/085/3.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/",
+        "remote_url": "https://www.nikko-yozai.co.jp/wp/wp-content/themes/nikko-yozai/img/common/megamenu/company2.jpg",
+        "bytes": 96807
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/085/4.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/",
+        "remote_url": "https://www.nikko-yozai.co.jp/wp/wp-content/themes/nikko-yozai/img/common/megamenu/company3.jpg",
+        "bytes": 83808
+      }
+    ],
+    "fetched_ok": true
+  },
+  "087": {
+    "name": "日東工器㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/087/1.jpg",
+        "source_page": "https://www.nitto-kohki.co.jp/prd/search/Pressrelease?lang=ja",
+        "remote_url": "https://www.nitto-kohki.co.jp/apps/statics/files/press/tmb/ja/DVC0301B.jpg",
+        "bytes": 159860
+      },
+      {
+        "name": "自動機対応ロボット搭載製品",
+        "category": "",
+        "image_url": "../../assets/maker-products/087/2.jpg",
+        "source_page": "https://www.nitto-kohki.co.jp/product/d_cat/",
+        "remote_url": "https://nitto-kohki.meclib.jp/X02/book/jpg/0001.jpg",
+        "bytes": 80494
+      },
+      {
+        "name": "水素社会のためにできること",
+        "category": "",
+        "image_url": "../../assets/maker-products/087/3.jpg",
+        "source_page": "https://www.nitto-kohki.co.jp/product/d_cat/",
+        "remote_url": "https://nitto-kohki.meclib.jp/X06/book/jpg/0001.jpg",
+        "bytes": 66953
+      },
+      {
+        "name": "工場環境改善カタログ",
+        "category": "",
+        "image_url": "../../assets/maker-products/087/4.jpg",
+        "source_page": "https://www.nitto-kohki.co.jp/product/d_cat/",
+        "remote_url": "https://nitto-kohki.meclib.jp/X10/book/jpg/0001.jpg",
+        "bytes": 92006
+      }
+    ],
+    "fetched_ok": true
+  },
+  "088": {
+    "name": "日本アイ・エス・ケイ㈱",
+    "products": [
+      {
+        "name": "ショールームのご案内” width=",
+        "category": "",
+        "image_url": "../../assets/maker-products/088/1.jpg",
+        "source_page": "http://www.king-ind.co.jp/",
+        "remote_url": "http://www.king-ind.co.jp/showroom_isk/enter_01.jpg",
+        "bytes": 678882
+      },
+      {
+        "name": "防盗金庫・耐火金庫",
+        "category": "",
+        "image_url": "../../assets/maker-products/088/2.jpg",
+        "source_page": "http://www.king-ind.co.jp/",
+        "remote_url": "http://www.king-ind.co.jp/image/main safe_iris-05.jpg",
+        "bytes": 189601
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/088/3.jpg",
+        "source_page": "http://www.king-ind.co.jp/",
+        "remote_url": "http://www.king-ind.co.jp/image/main window dental.jpg",
+        "bytes": 208565
+      },
+      {
+        "name": "書庫・ロッカー",
+        "category": "",
+        "image_url": "../../assets/maker-products/088/4.jpg",
+        "source_page": "http://www.king-ind.co.jp/",
+        "remote_url": "http://www.king-ind.co.jp/image/main window locker.jpg",
+        "bytes": 284329
+      }
+    ],
+    "fetched_ok": true
+  },
+  "090": {
+    "name": "日本カノマックス㈱",
+    "products": [
+      {
+        "name": "マスクフィットテスター SeriesⅡ 発売",
+        "category": "",
+        "image_url": "../../assets/maker-products/090/1.jpg",
+        "source_page": "https://www.kanomax.co.jp/",
+        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2022/04/55066b0e97fb7175af738a6429c3ce78.jpg",
+        "bytes": 69269
+      },
+      {
+        "name": "走査型液中ナノパーティクルカウンター　ScanningTPC　Model 9010",
+        "category": "",
+        "image_url": "../../assets/maker-products/090/2.jpg",
+        "source_page": "https://www.kanomax.co.jp/",
+        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2021/07/296f8e6df8a7384623668e05bec81f66.jpg",
+        "bytes": 190880
+      },
+      {
+        "name": "ハンドヘルドパーティクルカウンターMODEL3888・3889",
+        "category": "",
+        "image_url": "../../assets/maker-products/090/3.jpg",
+        "source_page": "https://www.kanomax.co.jp/",
+        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2021/07/img_820_1514421816.jpg",
+        "bytes": 198481
+      },
+      {
+        "name": "infiTOF-DUO",
+        "category": "",
+        "image_url": "../../assets/maker-products/090/4.jpg",
+        "source_page": "https://www.kanomax.co.jp/",
+        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2021/07/img_820_1576627011.jpg",
+        "bytes": 89325
+      }
+    ],
+    "fetched_ok": true
+  },
+  "096": {
+    "name": "ニューレジストン㈱",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/096/1.jpg",
+        "source_page": "https://www.nrs.co.jp/",
+        "remote_url": "https://www.nrs.co.jp/img/photo01.jpg",
+        "bytes": 519502
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/096/2.jpg",
+        "source_page": "https://www.nrs.co.jp/",
+        "remote_url": "https://www.nrs.co.jp/img/photo02.jpg",
+        "bytes": 595577
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/096/3.jpg",
+        "source_page": "https://www.nrs.co.jp/",
+        "remote_url": "https://www.nrs.co.jp/img/photo03.jpg",
+        "bytes": 652423
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/096/4.jpg",
+        "source_page": "https://www.nrs.co.jp/",
+        "remote_url": "https://www.nrs.co.jp/img/photo04.jpg",
+        "bytes": 801256
+      }
+    ],
+    "fetched_ok": true
+  },
+  "097": {
+    "name": "㈱ノビテック",
+    "products": [
+      {
+        "name": "工業分野 3次元動作計測システムVENUS3D R",
+        "category": "",
+        "image_url": "../../assets/maker-products/097/1.jpg",
+        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
+        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_VENUS3DR_industrial.jpg",
+        "bytes": 85251
+      },
+      {
+        "name": "人体分野 3次元動作計測システムVENUS3D R",
+        "category": "",
+        "image_url": "../../assets/maker-products/097/2.jpg",
+        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
+        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_VENUS3DR_bio.jpg",
+        "bytes": 99580
+      },
+      {
+        "name": "寸法・位置計測ソフトウェアVENUS3D STA",
+        "category": "",
+        "image_url": "../../assets/maker-products/097/3.jpg",
+        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
+        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_VENUS3DR_sta.jpg",
+        "bytes": 93514
+      },
+      {
+        "name": "ハイスピードカメラPhantom",
+        "category": "",
+        "image_url": "../../assets/maker-products/097/4.jpg",
+        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
+        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_hs_phantomall.jpg",
+        "bytes": 82669
+      }
+    ],
+    "fetched_ok": true
+  },
+  "098": {
+    "name": "㈱HiPAPhotonicsJapan",
+    "products": [
+      {
+        "name": "YDFLP11.png",
+        "category": "",
+        "image_url": "../../assets/maker-products/098/1.png",
+        "source_page": "https://jptjp.jp/products/lasers/mopa-fiber-lasers",
+        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20250724/YDFLP11-825.png",
+        "bytes": 247087
+      },
+      {
+        "name": "JPT-LIT 20(1)(1).png",
+        "category": "",
+        "image_url": "../../assets/maker-products/098/2.png",
+        "source_page": "https://jptjp.jp/products/lasers/ultrafast-lasers/jetlit",
+        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20260122/JPTLIT2011.png",
+        "bytes": 396035
+      },
+      {
+        "name": "C0364.MP4_20251229_161802.277(1)(1).jpg",
+        "category": "",
+        "image_url": "../../assets/maker-products/098/3.jpg",
+        "source_page": "https://jptjp.jp/products/lasers/ultrafast-lasers/jetlit",
+        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20260122/C0364.MP420251229161802.27711.jpg",
+        "bytes": 899280
+      },
+      {
+        "name": "27TE.png",
+        "category": "",
+        "image_url": "../../assets/maker-products/098/4.png",
+        "source_page": "https://jptjp.jp/",
+        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20250719/27TE-566.png",
+        "bytes": 111665
+      }
+    ],
+    "fetched_ok": true
+  },
+  "099": {
+    "name": "長谷川工業㈱",
+    "products": [
+      {
+        "name": "lucano",
+        "category": "",
+        "image_url": "../../assets/maker-products/099/1.jpg",
+        "source_page": "https://www.hasegawa-kogyo.co.jp/product/",
+        "remote_url": "https://www.hasegawa-kogyo.co.jp/_img/product/brand/lucano.jpg",
+        "bytes": 318700
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/099/2.jpg",
+        "source_page": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/",
+        "remote_url": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/thumb/image-000001.jpg?v=20260114",
+        "bytes": 88317
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/099/3.jpg",
+        "source_page": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/",
+        "remote_url": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/thumb/image-000004.jpg?v=20260114",
+        "bytes": 270449
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/099/4.jpg",
+        "source_page": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/",
+        "remote_url": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/thumb/image-000005.jpg?v=20260114",
+        "bytes": 536200
+      }
+    ],
+    "fetched_ok": true
+  },
+  "102": {
+    "name": "ＢＸテンパル㈱",
+    "products": [
+      {
+        "name": "instagramアイコン",
+        "category": "",
+        "image_url": "../../assets/maker-products/102/1.png",
+        "source_page": "https://www.tenpal.co.jp/",
+        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/Instagram_Glyph_Gradient_RGB.png",
+        "bytes": 80057
+      },
+      {
+        "name": "ホームオーニングシリーズ",
+        "category": "",
+        "image_url": "../../assets/maker-products/102/2.jpg",
+        "source_page": "https://www.tenpal.co.jp/product.html",
+        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/category_awning02.jpg",
+        "bytes": 77792
+      },
+      {
+        "name": "デザインオーニングシリーズ",
+        "category": "",
+        "image_url": "../../assets/maker-products/102/3.jpg",
+        "source_page": "https://www.tenpal.co.jp/product.html",
+        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/awning21.jpg",
+        "bytes": 283776
+      },
+      {
+        "name": "固定式テント",
+        "category": "",
+        "image_url": "../../assets/maker-products/102/4.jpg",
+        "source_page": "https://www.tenpal.co.jp/product.html",
+        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/category_ordertent01.jpg",
+        "bytes": 97150
+      }
+    ],
+    "fetched_ok": true
+  },
+  "104": {
+    "name": "㈱日立産機システム",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "no valid images found"
+  },
+  "105": {
+    "name": "㈱ビック・ツール",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/105/1.png",
+        "source_page": "http://www.bictool.com/product_cat01.html",
+        "remote_url": "http://www.bictool.com/images/product/product01.png",
+        "bytes": 41972
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/105/2.png",
+        "source_page": "http://www.bictool.com/product_cat01.html",
+        "remote_url": "http://www.bictool.com/images/product/product02.png",
+        "bytes": 45176
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/105/3.png",
+        "source_page": "http://www.bictool.com/product_cat01.html",
+        "remote_url": "http://www.bictool.com/images/product/product10.png",
+        "bytes": 33938
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/105/4.png",
+        "source_page": "http://www.bictool.com/product_cat03.html",
+        "remote_url": "http://www.bictool.com/images/product/product27.png",
+        "bytes": 33156
+      }
+    ],
+    "fetched_ok": true
+  },
+  "109": {
+    "name": "不二空機㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "manual filter: ストック画像(untitled-design + adobestock)"
+  },
+  "110": {
+    "name": "富士製砥㈱",
+    "products": [
+      {
+        "name": "36_catalog_b_01_b",
+        "category": "",
+        "image_url": "../../assets/maker-products/110/1.jpg",
+        "source_page": "https://www.fujiseito.com/download/",
+        "remote_url": "https://www.fujiseito.com/wp-content/uploads/2016/09/36_catalog_b_01_b.jpg",
+        "bytes": 43095
+      },
+      {
+        "name": "富士製砥　総合カタログ 表紙イメージ class=",
+        "category": "",
+        "image_url": "../../assets/maker-products/110/2.png",
+        "source_page": "https://www.fujiseito.com/download/",
+        "remote_url": "https://www.fujiseito.com/catalog/2025/thumbnail/202503_fujiseito-all.png",
+        "bytes": 66152
+      },
+      {
+        "name": "富士製砥総合ダイジェストカタログ 表紙イメージ",
+        "category": "",
+        "image_url": "../../assets/maker-products/110/3.png",
+        "source_page": "https://www.fujiseito.com/download/",
+        "remote_url": "https://www.fujiseito.com/catalog/2025/thumbnail/202511_fujiseito-digest-all.png",
+        "bytes": 54929
+      },
+      {
+        "name": "エイシン製品ダイジェストカタログ 表紙イメージ",
+        "category": "",
+        "image_url": "../../assets/maker-products/110/4.png",
+        "source_page": "https://www.fujiseito.com/download/",
+        "remote_url": "https://www.fujiseito.com/catalog/2025/thumbnail/202503_fujiseito-eishin-all.png",
+        "bytes": 44976
+      }
+    ],
+    "fetched_ok": true
+  },
+  "116": {
+    "name": "㈱ホタルクス",
+    "products": [
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/116/1.jpg",
+        "source_page": "https://www.hotalux.com/products/_1834.html?cat=H126",
+        "remote_url": "https://www.hotalux.com/se/fourthpage/HL/H126/H26-1.jpg",
+        "bytes": 58249
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/116/2.jpg",
+        "source_page": "https://www.hotalux.com/products/_1834.html?cat=H126",
+        "remote_url": "https://www.hotalux.com/se/fourthpage/HL/H126/H26-2.jpg",
+        "bytes": 213430
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/116/3.jpg",
+        "source_page": "https://www.hotalux.com/products/_1834.html?cat=M134",
+        "remote_url": "https://www.hotalux.com/se/fourthpage/ML/M134/M34-1.jpg",
+        "bytes": 159320
+      },
+      {
+        "name": "Product",
+        "category": "",
+        "image_url": "../../assets/maker-products/116/4.jpg",
+        "source_page": "https://www.hotalux.com/products/_1834.html?cat=M134",
+        "remote_url": "https://www.hotalux.com/se/fourthpage/ML/M134/M34-3.jpg",
+        "bytes": 168395
+      }
+    ],
+    "fetched_ok": true
+  },
+  "123": {
+    "name": "三菱電機㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "fetch failed: https://www.mitsubishielectric.co.jp/fa/products/laser/"
+  },
+  "124": {
+    "name": "三菱電機フィナンシャルソリューションズ㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "manual filter: og_image.pngのみ(OGメタ画像)"
+  },
+  "126": {
+    "name": "㈱ムラキ",
+    "products": [
+      {
+        "name": "精密機工部",
+        "category": "",
+        "image_url": "../../assets/maker-products/126/1.jpg",
+        "source_page": "https://www.muraki-ltd.co.jp/about/",
+        "remote_url": "https://www.muraki-ltd.co.jp/about/images/phMicro.jpg",
+        "bytes": 40972
+      },
+      {
+        "name": "時計部",
+        "category": "",
+        "image_url": "../../assets/maker-products/126/2.jpg",
+        "source_page": "https://www.muraki-ltd.co.jp/about/",
+        "remote_url": "https://www.muraki-ltd.co.jp/about/images/phWatch.jpg",
+        "bytes": 31080
+      }
+    ],
+    "fetched_ok": true
+  },
+  "127": {
+    "name": "村田機械㈱",
+    "products": [
+      {
+        "name": "繊維機械事業",
+        "category": "",
+        "image_url": "../../assets/maker-products/127/1.png",
+        "source_page": "https://www.muratec.jp/company/division/",
+        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img1.png",
+        "bytes": 776682
+      },
+      {
+        "name": "L&A（ロジスティクス＆オートメーション）事業",
+        "category": "",
+        "image_url": "../../assets/maker-products/127/2.png",
+        "source_page": "https://www.muratec.jp/company/division/",
+        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img2.png",
+        "bytes": 1064201
+      },
+      {
+        "name": "クリーンFA事業",
+        "category": "",
+        "image_url": "../../assets/maker-products/127/3.png",
+        "source_page": "https://www.muratec.jp/company/division/",
+        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img3.png",
+        "bytes": 684812
+      },
+      {
+        "name": "工作機械事業",
+        "category": "",
+        "image_url": "../../assets/maker-products/127/4.png",
+        "source_page": "https://www.muratec.jp/company/division/",
+        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img4.png",
+        "bytes": 626294
+      }
+    ],
+    "fetched_ok": true
+  },
+  "130": {
+    "name": "㈱モトユキ",
+    "products": [
+      {
+        "name": "「SC-1514 / SC-2014 / SC-2514」を発売",
+        "category": "",
+        "image_url": "../../assets/maker-products/130/1.webp",
+        "source_page": "https://motoyuki.co.jp/",
+        "remote_url": "https://motoyuki.co.jp/cdn/shop/articles/SC_SERIES_C-1__s_08bcc4bd-f19c-4696-8cd1-da645874849b.png?v=1764729177&width=595",
+        "bytes": 119512
+      },
+      {
+        "name": "FMタイプ",
+        "category": "",
+        "image_url": "../../assets/maker-products/130/2.webp",
+        "source_page": "https://motoyuki.co.jp/products/fm_type",
+        "remote_url": "https://motoyuki.co.jp/cdn/shop/files/e_FM-180_expansion_white.png?v=1759390736&width=1500",
+        "bytes": 121838
+      },
+      {
+        "name": "FMタイプ",
+        "category": "",
+        "image_url": "../../assets/maker-products/130/3.webp",
+        "source_page": "https://motoyuki.co.jp/products/fm_type",
+        "remote_url": "https://motoyuki.co.jp/cdn/shop/files/FM-305_PK.jpg?v=1759390736&width=1053",
+        "bytes": 248284
+      },
+      {
+        "name": "GLAタイプ",
+        "category": "",
+        "image_url": "../../assets/maker-products/130/4.webp",
+        "source_page": "https://motoyuki.co.jp/products/gla_type",
+        "remote_url": "https://motoyuki.co.jp/cdn/shop/files/e_GLA-180G_expansion_1500.png?v=1759390766&width=1500",
+        "bytes": 171630
+      }
+    ],
+    "fetched_ok": true
+  },
+  "136": {
+    "name": "山本光学㈱",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "manual filter: strength + recruit のみ(事業/採用紹介)"
+  },
+  "137": {
+    "name": "㈱友和",
+    "products": [],
+    "fetched_ok": false,
+    "skip_reason": "manual filter: contact_bg + Yuwanews(連絡先BG/ニュース紙面)"
   }
 }

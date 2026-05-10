@@ -319,5 +319,281 @@
     "source": "https://www.kobelco.co.jp/",
     "notes": "総合素材メーカーKOBELCO。溶接事業部門のコーポレートビジュアルでは赤系を主軸、サブにブルー (鉄鋼の青) を使う。AXELARC™、REGARCなどのプロダクトカラーも赤系統。暫定値、要公式ガイドライン確認。",
     "_group": "manual"
+  },
+  "002": {
+    "source": "https://www.asada.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "003": {
+    "source": "https://www.asahi-sangyo.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "006": {
+    "source": "https://www.amada.co.jp/ja/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "007": {
+    "source": "https://alinco.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "009": {
+    "source": "https://www.ikura.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "010": {
+    "source": "https://ichiguchi.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "011": {
+    "source": "https://www.ichinen-chem.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "015": {
+    "source": "https://exceed.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "027": {
+    "source": "https://www.kyocera-industrialtools.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "028": {
+    "source": "https://www.ks-s.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "031": {
+    "source": "https://www.koki-holdings.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "044": {
+    "source": "https://www.sharevision.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "045": {
+    "source": "https://www.jands.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "047": {
+    "source": "https://www.sts-japan.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "051": {
+    "source": "https://www.shinx.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "061": {
+    "source": "https://www.elephant.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "071": {
+    "source": "https://www.denyo.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "087": {
+    "source": "https://www.nitto-kohki.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "090": {
+    "source": "https://www.kanomax.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "096": {
+    "source": "https://www.nrs.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "097": {
+    "source": "https://www.nobby-tech.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "099": {
+    "source": "https://www.hasegawa-kogyo.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "104": {
+    "source": "https://www.hitachi-ies.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "116": {
+    "source": "https://www.hotalux.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "126": {
+    "source": "https://www.muraki-ltd.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "127": {
+    "source": "https://www.muratec.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "130": {
+    "source": "https://motoyuki.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "136": {
+    "source": "https://yamamoto-kogaku.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "137": {
+    "source": "https://www.yuwa-net.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "014": {
+    "source": "https://www.asm123.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "021": {
+    "source": "https://ult-laser.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "029": {
+    "source": "http://www.chemical-y.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "038": {
+    "source": "https://www.suns.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "062": {
+    "source": "https://www.daikin-hvac-tokyo.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "070": {
+    "source": "http://www.tp-mag.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "072": {
+    "source": "https://www.toku-net.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "084": {
+    "source": "https://nikko-bussan.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "085": {
+    "source": "https://www.nikko-yozai.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "088": {
+    "source": "http://www.king-ind.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "098": {
+    "source": "https://jptjp.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "102": {
+    "source": "https://www.tenpal.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "105": {
+    "source": "http://www.bictool.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "109": {
+    "source": "https://www.fujitools.com/ja-jp",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "110": {
+    "source": "https://www.fujiseito.com/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "123": {
+    "source": "https://www.mitsubishielectric.co.jp/fa/products/laser/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
+  },
+  "124": {
+    "source": "https://www.mefs.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF"
   }
 }
