@@ -190,6 +190,89 @@
     .btn-blue:hover { background: #004999; }
 
     /* ===========================================================
+       Section 2: TWF2026 開幕カウントダウン (hero 直下)
+       =========================================================== */
+    .countdown {
+      padding: clamp(48px, 7vw, 76px) 24px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at top, rgba(200,16,46,0.04) 0%, transparent 60%),
+        var(--gray-50);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .countdown-eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red-500);
+      padding: 4px 14px;
+      border: 1px solid var(--red-500);
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    .countdown-title {
+      font-size: clamp(18px, 2.4vw, 24px);
+      font-weight: 800;
+      color: var(--gray-800);
+      letter-spacing: 0.04em;
+      margin: 0 0 28px;
+    }
+    .countdown-grid {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: clamp(10px, 2.5vw, 28px);
+      flex-wrap: nowrap;
+    }
+    .countdown-cell {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: clamp(80px, 14vw, 160px);
+      padding: clamp(14px, 2vw, 24px) clamp(10px, 2vw, 22px);
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 14px;
+      box-shadow: var(--shadow-md);
+    }
+    .countdown-num {
+      font-family: var(--font-mono);
+      font-size: clamp(48px, 9.5vw, 108px);
+      font-weight: 900;
+      line-height: 1;
+      color: var(--red-500);
+      font-variant-numeric: tabular-nums;
+      letter-spacing: -0.02em;
+    }
+    .countdown-label {
+      font-size: clamp(11px, 1.3vw, 14px);
+      margin-top: clamp(8px, 1vw, 12px);
+      color: var(--gray-600);
+      letter-spacing: 0.12em;
+      font-weight: 700;
+    }
+    .countdown-status {
+      font-size: clamp(20px, 2.8vw, 28px);
+      font-weight: 800;
+      color: var(--red-500);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .countdown-venue {
+      margin-top: 24px;
+      font-size: clamp(12px, 1.4vw, 14px);
+      color: var(--gray-600);
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 480px) {
+      .countdown-cell { min-width: 0; flex: 1; padding: 12px 6px; border-radius: 10px; }
+      .countdown-grid { gap: 8px; }
+    }
+
+    /* ===========================================================
        Section 3: みどころ3選 ───── 3スポット演出 + 直下カード接続
        柏原生成の3スポット背景画像 (top-pickup-3spots-pc.png) と整合
        =========================================================== */
@@ -960,7 +1043,6 @@
         <img class="hero-twf-logo" src="assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
         <h1 class="hero-h1 double-underline">みどころポータル</h1>
         <p class="hero-sub">
-          主催店のための営業支援ガイド<br />
           2026年6月12-13日 幕張メッセ No.9ホール
         </p>
       </div>
@@ -969,6 +1051,32 @@
         <a class="btn" href="#makerlist">サイトを見る ▶</a>
       </div>
     </div>
+  </section>
+
+  <!-- ============================================================
+       Section 2: TWF2026 開幕カウントダウン
+       hero 直下、みどころ3選 (Section 3) の前に配置
+       JS で 1分おき更新。開催中・終了後は表示切替
+       ============================================================ -->
+  <section class="countdown" aria-labelledby="countdown-title">
+    <span class="countdown-eyebrow">Countdown</span>
+    <h2 id="countdown-title" class="countdown-title">TWF2026 開幕まで</h2>
+    <div class="countdown-grid" id="countdown-grid">
+      <div class="countdown-cell">
+        <span class="countdown-num" id="cd-days">--</span>
+        <span class="countdown-label">DAYS</span>
+      </div>
+      <div class="countdown-cell">
+        <span class="countdown-num" id="cd-hours">--</span>
+        <span class="countdown-label">HOURS</span>
+      </div>
+      <div class="countdown-cell">
+        <span class="countdown-num" id="cd-minutes">--</span>
+        <span class="countdown-label">MINUTES</span>
+      </div>
+    </div>
+    <div class="countdown-status" id="countdown-status" hidden></div>
+    <p class="countdown-venue">2026.06.12 (FRI) 〜 06.13 (SAT)　幕張メッセ No.9 ホール</p>
   </section>
 
   <!-- ============================================================
@@ -3282,6 +3390,47 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
       });
 
       if (input.value) applyQuery(input.value);
+    })();
+
+    // ---- TWF2026 開幕カウントダウン ----
+    (function() {
+      const start = new Date('2026-06-12T10:00:00+09:00').getTime();
+      const end   = new Date('2026-06-13T18:00:00+09:00').getTime();
+      const $d = document.getElementById('cd-days');
+      const $h = document.getElementById('cd-hours');
+      const $m = document.getElementById('cd-minutes');
+      const $grid = document.getElementById('countdown-grid');
+      const $title = document.getElementById('countdown-title');
+      const $status = document.getElementById('countdown-status');
+      if (!$d || !$h || !$m || !$grid || !$title || !$status) return;
+
+      function pad(n) { return String(n).padStart(2, '0'); }
+
+      function tick() {
+        const now = Date.now();
+        if (now < start) {
+          const diff = start - now;
+          const days = Math.floor(diff / 86400000);
+          const hours = Math.floor((diff % 86400000) / 3600000);
+          const minutes = Math.floor((diff % 3600000) / 60000);
+          $d.textContent = days;
+          $h.textContent = pad(hours);
+          $m.textContent = pad(minutes);
+        } else if (now < end) {
+          $title.textContent = '🎉 TWF2026 開催中';
+          $grid.hidden = true;
+          $status.hidden = false;
+          $status.textContent = '幕張メッセ No.9 ホールでお待ちしております';
+        } else {
+          $title.textContent = 'ご来場ありがとうございました';
+          $grid.hidden = true;
+          $status.hidden = false;
+          $status.textContent = '次回 TWF でまたお会いしましょう';
+        }
+      }
+
+      tick();
+      setInterval(tick, 60000);  // 1分おき更新
     })();
   </script>
 </body>
