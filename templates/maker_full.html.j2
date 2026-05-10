@@ -659,9 +659,10 @@
       {% for f in maker.attachments %}
         {% set href = "../../attachments/" ~ (maker.company_dir | urlquote) ~ "/" ~ (f | urlquote) %}
         {% set is_pdf = f.lower().endswith('.pdf') %}
+        {% set label = (maker.attachment_labels or {}).get(f) %}
       <div class="pdf-card">
         <div class="pdf-card-header">
-          <h3>📄 {{ f }}</h3>
+          <h3>📄 {% if label %}{{ label }} <small style="display:block;font-weight:500;font-size:12px;color:var(--gray-600);margin-top:2px;font-family:var(--font-mono);">{{ f }}</small>{% else %}{{ f }}{% endif %}</h3>
           <a href="{{ href }}" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         {% if is_pdf %}

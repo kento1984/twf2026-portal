@@ -1,8 +1,12 @@
 {
-  "_doc": "excel_mapper.py 実行後、特定メーカーの maker_details.json フィールドを手動値で上書きするための定義。キーは zero-padded No (例: '033')。値は maker_details.json と同じスキーマ (no/name 等は除く)、上書きしたいフィールドだけ書く。'_' で始まるキーはコメントとして無視。先頭 '_remark' に上書き理由を書くことを推奨。\n\nsender 側 manual_overrides.json (twf2026_sender) と区別: あちらは Excel 集約段階での回答上書き (PDFまとめ回答→自動転記が困難な象印など)。こちら portal 側は Excel→portal 反映後の最終調整 (sender のパース起因の歪み補正、添付ファイル名の portal実体合わせ等)。",
+  "_doc": "excel_mapper.py 実行後、特定メーカーの maker_details.json フィールドを手動値で上書きするための定義。キーは zero-padded No (例: '033')。値は maker_details.json と同じスキーマ (no/name 等は除く)、上書きしたいフィールドだけ書く。'_' で始まるキーはコメントとして無視。先頭 '_remark' に上書き理由を書くことを推奨。\n\nsender 側 manual_overrides.json (twf2026_sender) と区別: あちらは Excel 集約段階での回答上書き (PDFまとめ回答→自動転記が困難な象印など)。こちら portal 側は Excel→portal 反映後の最終調整 (sender のパース起因の歪み補正、添付ファイル名の portal実体合わせ等)。\n\nattachment_labels は filename → 表示ラベル の dict。テンプレ側 (maker_full.html.j2) で attachments 配列の各 PDF タイトル表示に使用される (未指定なら filename を表示)。複数 PDF を並列表示する場合に「カタログ」「チラシ」など役割の区別を明確化するために導入。",
   "033": {
-    "_remark": "神戸製鋼: (1) sender collector が q5 に濱田様メール署名フッタを混入させてしまうため、q5 を手動値 '添付あり (1点)' に固定。 (2) sender 側 attachments カラムは collector がリネーム後の slug 名 'axelarc_ax-1c.pdf' を返すが、portal の prototype/attachments/ の実体ファイルは元名 'AX-1C_カタログ.pdf'。リンク切れ防止のため attachments を手動指定。q1-q3 は sender の正規化版 (全角括弧/インデント整形) で OK のため override せず。 (commit d735985 の手動 rich 化の保護)",
-    "q5": "添付あり (1点)",
-    "attachments": ["AX-1C_カタログ.pdf"]
+    "_remark": "神戸製鋼: (1) sender collector が q5 に濱田様メール署名フッタを混入させてしまうため、q5 を手動値 '添付あり (1点)' に固定。 (2) sender 側 attachments カラムは collector がリネーム後の slug 名 'axelarc_ax-1c.pdf' を返すが、portal の prototype/attachments/ の実体ファイルは元名 'AX-1C_カタログ.pdf'。リンク切れ防止のため attachments を手動指定。 (3) 2026-05-10 追加: 主催店から 26TWF_神鋼AXELARCチラシ0414.pdf (AXELARC 4プログラムまとめ最新版) を受領、attachments に追加。q5 ラベルは「添付あり (2点)」に更新。 (4) attachment_labels で AX-1C_カタログ (技術詳細) と 26TWF_神鋼AXELARCチラシ (当日企画) の役割を明記。q1-q3 は sender の正規化版で OK のため override せず。 (commit d735985 の手動 rich 化の保護)",
+    "q5": "添付あり (2点)",
+    "attachments": ["AX-1C_カタログ.pdf", "26TWF_神鋼AXELARCチラシ0414.pdf"],
+    "attachment_labels": {
+      "AX-1C_カタログ.pdf": "AX-1C 技術詳細カタログ",
+      "26TWF_神鋼AXELARCチラシ0414.pdf": "TWF2026 当日企画チラシ (4プログラム)"
+    }
   }
 }

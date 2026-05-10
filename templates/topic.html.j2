@@ -274,6 +274,11 @@
     .tpc-link-internal { color: var(--blue-500); }
     .tpc-link-external { color: var(--gray-600); }
     .tpc-link-external:hover { color: var(--accent); }
+    .tpc-link-flyer {
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .tpc-link-flyer:hover { color: var(--accent-dark); }
 
     /* TOPに戻るCTA */
     .topic-back-cta {
@@ -356,6 +361,9 @@
           <div class="tpc-links">
             {% if p.maker_slug %}
             <a class="tpc-link-internal" href="../../m/{{ p.maker_slug }}/">メーカー詳細 →</a>
+            {% endif %}
+            {% if p.flyer_url %}
+            <a class="tpc-link-flyer" href="{{ p.flyer_url }}" target="_blank" rel="noopener">📄 {{ p.flyer_label or 'PDFチラシ' }} ↗</a>
             {% endif %}
             {% if p.official_url %}
             <a class="tpc-link-external" href="{{ p.official_url }}" target="_blank" rel="noopener">公式ページ ↗</a>
