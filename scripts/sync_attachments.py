@@ -6,9 +6,15 @@
 static として配信され、詳細ページの iframe / ダウンロードボタンから直接参照される。
 
 探索順 (最初に見つかったものを使用):
-  1. \\\\fileserver\\twf2026\\attachments\\        (社内ファイルサーバ)
-  2. D:\\repos\\twf2026_sender\\attachments\\      (ローカル運用)
+  1. \\\\flsv04\\200東日本エリア\\東京ＷＦ資料\\…\\回答集約\\attachments\\
+                                                  (集約スクリプトの真の出力先、最新)
+  2. D:\\repos\\twf2026_sender\\attachments\\      (★警告: ローカルキャッシュ、古い可能性大)
   3. --src で明示指定したパス
+
+注意: 2 は git clone 時のローカルキャッシュで .gitignore 対象、`git pull` しても更新
+されない。1 が到達できない (社内ネット外/VPN無し) 環境で 2 が拾われると、4/23時点で
+止まった古い PDF を同期して気づかない罠になる。詳細は HANDOFF.md「attachments の
+正しい保存先」を参照。
 
 抽出ポリシー (excel_mapper.is_useful_attachment と同一):
   Keep : .pdf / .docx / .xlsx / .pptx
@@ -32,8 +38,13 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_DEST = ROOT / "prototype" / "attachments"
 
 CANDIDATE_SOURCES = [
-    Path(r"\\fileserver\twf2026\attachments"),
-    Path(r"D:/repos/twf2026_sender/attachments"),
+    # 真のソース: 集約スクリプト (twf2026_collector) が書き込む共有フォルダ。
+    # 1時間に1回更新、55社+ の最新 PDF/Excel が揃う唯一の場所。
+    # 落とし穴: D:\repos\twf2026_sender\attachments\ は git clone 時のローカルキャッシュ、
+    # 過去ある時点で手動コピーしただけの古いデータ。詳細は HANDOFF.md の
+    # 「attachments の正しい保存先」参照。
+    Path(r"\\flsv04\200東日本エリア\東京ＷＦ資料\２０２６東京ＷＦ\2026 東京ＷＦ メーカー企画\回答集約\attachments"),
+    Path(r"D:/repos/twf2026_sender/attachments"),  # フォールバック (社内ネット非到達時のみ)
 ]
 
 ATTACH_KEEP_EXT = {".pdf", ".docx", ".xlsx", ".pptx"}

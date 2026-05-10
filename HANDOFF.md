@@ -174,3 +174,53 @@ python scripts/build_html.py
 - [ ] 5/11: 全A/B層スクショ目視
 - [ ] 5/11: 主催店宛メール文案準備
 - [ ] 5/12 朝: 最新ビルド + 公開URL動作確認 → 主催店送付
+
+---
+
+## attachments の正しい保存先 (重要)
+
+集約スクリプト (twf2026_sender / twf2026_collector.py) が書き込む **真の保存先**:
+
+```
+\\flsv04\200東日本エリア\東京ＷＦ資料\２０２６東京ＷＦ\2026 東京ＷＦ メーカー企画\回答集約\attachments\
+```
+
+- 1時間に1回更新、55社+ の PDF / PNG / Excel 等が保存される
+- 機密情報のため git 管理外 (sender repo の .gitignore 対象)
+- アクセス: 会社PC (社内ネットワーク) or 家PC (VPN必須)
+- Cloudflare Pages のビルド環境からはアクセス不可
+
+### portal 側の運用フロー
+
+1. 柏原の手元 (会社PC) で `python scripts/sync_attachments.py` を実行
+   → `\\flsv04\...` から `prototype/attachments/` に PDF/Office を再帰コピー
+2. `python scripts/excel_mapper.py` で `data/maker_details.json` を再生成
+   (実体存在チェックで attachments 配列も自動正規化)
+3. `python scripts/build_html.py` で HTML 再ビルド
+4. `git add prototype/attachments/ data/maker_details.json prototype/` → commit → push
+5. Cloudflare Pages が `main` push を検知して自動デプロイ
+
+### 落とし穴 (避けるべきパス)
+
+#### `D:\repos\twf2026_sender\attachments\`
+sender repo を git clone した際のローカルキャッシュ。
+- .gitignore 対象なので `git pull` しても更新されない
+- 過去のある時点で手動コピーした古いデータの可能性が高い
+- **これを「sender 実体」と勘違いすると、重大な誤判断になる**
+  (実例: 2026-05-10、collector バグと誤認して 1 時間ロス)
+
+#### `\\fileserver\twf2026\attachments`
+存在しないホスト名 (sync_attachments.py の旧 DEFAULTS の 1 番目)。
+- 過去のテンプレ残骸、5/10 修正済
+- これがあるとフォールバック動作で sender clone 側を見てしまい、上記の罠に直結
+
+### sender 側のアーキテクチャ
+
+- スクリプト本体: GitHub repo (kento1984/twf2026-sender)
+- 集約 Excel 出力先: `\\flsv04\...` (config_local.py で定義)
+- 添付保存先: 同上
+- 集約 Excel の中身は git 管理外、共有フォルダの実体だけが正
+
+twf2026-portal 側で sender data が必要な時は、必ず共有フォルダ `\\flsv04\...` を見ること。
+
+> 同等の運用ルールを sender repo (twf2026_sender) の `SPEC_collector.md` にも追記推奨 (別チャットで対応)。
