@@ -1,15 +1,22 @@
-"""normalize_kangxi.py — Kangxi Radicals → CJK統合漢字 正規化
+"""normalize_kangxi.py — 部首互換ブロック → CJK統合漢字 正規化
 
 集約Excel (\\\\flsv04\\TWF2026_回答集約.xlsx) 由来で data/*.csv / data/*.json に
-Kangxi Radicals (U+2F00-U+2FDF) が混入している問題を修正する。
+以下の Unicode ブロックの部首字形が混入している問題を修正する。
 
-例: 「㈱神⼾製鋼所」(⼾=U+2F80) → 「㈱神戸製鋼所」(戸=U+6238)
-これにより検索ボックスの「神戸」「日鉄」「日本」等のキーワードがヒットしない問題を解消。
+  - Kangxi Radicals          (U+2F00-U+2FDF) … 214 個、NFKD で CJK 統合漢字に分解
+  - CJK Radicals Supplement  (U+2E80-U+2EFF) … 128 個、ほぼ NFKD 分解されない
+
+例:
+  「㈱神⼾製鋼所」(⼾=U+2F80 Kangxi)        → 「㈱神戸製鋼所」(戸=U+6238)
+  「⻑谷川工業㈱」(⻑=U+2ED1 CJK Radicals Supp) → 「長谷川工業㈱」(長=U+9577)
+
+これにより検索ボックスの「神戸」「長谷川」等のキーワードがヒットしない問題を解消。
 
 スコープ:
-  - Kangxi Radicals (U+2F00-U+2FDF) のみ対象 (214個の部首文字)
-  - 「㈱」(U+3231) など他の互換文字は触らない (NFKD全適用は禁止)
-  - NFKD分解で 1:1 で対応する CJK 統合漢字へマップ
+  - 上記2ブロックのみ対象。「㈱」(U+3231) など他の互換文字は触らない (NFKD全適用は禁止)
+  - NFKD で分解できる文字はそれを使い、分解できない文字 (CJK Radicals Supp の大半)
+    は JP_FORM_MAP で手動マップ
+  - JP_FORM_MAP で日本字形に揃える (例: 戶→戸)
   - べき等: 既に正規化済なら何もしない
 
 Usage:
@@ -27,28 +34,33 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "data"
-KANGXI_RE = re.compile(r"[\u2F00-\u2FDF]")
+# CJK Radicals Supplement (U+2E80-U+2EFF) + Kangxi Radicals (U+2F00-U+2FDF)
+RADICAL_RE = re.compile(r"[\u2E80-\u2FDF]")
 
 # Kangxi Radical を NFKD で分解した結果、繁体字の正字になってしまう場合に
 # 日本字形へ追加マッピング。集約Excelデータは日本字形 (戸/学/国 等) が前提のため、
 # 検索ボックスで「神戸」(U+6238) がヒットするよう日本字形に揃える。
 # 例: ⼾ (U+2F3E Kangxi Radical Door) → NFKD → 戶 (U+6236 繁体字) → 戸 (U+6238 日本字形)
 JP_FORM_MAP: dict[str, str] = {
-    "\u6236": "\u6238",  # 戶 (U+6236) → 戸 (U+6238)
+    "\u6236": "\u6238",  # (a) 戶 (U+6236) → 戸 (U+6238)  Kangxi NFKD分解後の繁体字を日本字形へ
+    "\u2ED1": "\u9577",  # (b) ⻑ (U+2ED1 CJK RADICAL LONG ONE) → 長 (U+9577)  NFKD分解されないので直接マップ
 }
 
 
 def normalize_text(text: str) -> tuple[str, list[tuple[str, str]]]:
-    """Kangxi Radicals 範囲の文字を NFKD 分解で CJK 統合漢字に置換、
+    """部首互換ブロック (CJK Radicals Supp + Kangxi Radicals) の文字を CJK統合漢字へ置換、
     さらに JP_FORM_MAP で日本字形へ揃える。
     返り値: (変換後テキスト, [(元文字, 最終変換後), ...] 変換ログ全件)
     """
     changes: list[tuple[str, str]] = []
     out: list[str] = []
     for c in text:
-        if 0x2F00 <= ord(c) <= 0x2FDF:
+        if 0x2E80 <= ord(c) <= 0x2FDF:
+            # まず NFKD 分解 (Kangxi はだいたいこれで CJK 統合漢字に解決)
             d = unicodedata.normalize("NFKD", c)
-            # NFKD 結果がさらに日本字形に変換可能なら適用
+            # 次に JP_FORM_MAP で:
+            #   - NFKD で繁体字になったものを日本字形へ (例: 戶→戸)
+            #   - NFKD で分解されない CJK Radicals Supp を直接マップ (例: ⻑→長)
             d = "".join(JP_FORM_MAP.get(ch, ch) for ch in d)
             out.append(d)
             if d != c:
@@ -63,7 +75,7 @@ def process_file(path: Path, dry_run: bool) -> dict:
     if not path.exists():
         return {"path": str(path), "skip": "not_found"}
     raw = path.read_text(encoding="utf-8")
-    if not KANGXI_RE.search(raw):
+    if not RADICAL_RE.search(raw):
         return {"path": str(path.relative_to(ROOT)), "kangxi_count": 0, "changed": False}
 
     new_raw, changes = normalize_text(raw)

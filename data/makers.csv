@@ -97,12 +97,12 @@ no,name,name_short,category,has_answer,pamphlet_page
 96,ニューレジストン㈱,,,true,
 97,㈱ノビテック,,協働ロボット,true,2
 98,㈱HiPAPhotonicsJapan,,ファイバーレーザー,true,3
-99,⻑谷川工業㈱,,,false,
+99,長谷川工業㈱,Hasegawa Kogyo,安全・快適ソリューション,true,
 100,㈱ハタヤリミテッド,HATAYA,,true,
 101,パナソニック㈱,,ロボット・溶接機,false,3
 102,ＢＸテンパル㈱,,,true,
 103,㈱ピカコーポレイション,,,false,
-104,㈱日立産機システム,,,false,
+104,㈱日立産機システム,,,true,
 105,㈱ビック・ツール,,切断・電動工具,true,4
 106,ファナック㈱,,協働ロボット,false,2
 107,㈱フジ,FUJI,,true,
