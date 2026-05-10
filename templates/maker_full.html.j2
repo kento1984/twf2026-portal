@@ -547,7 +547,8 @@
       </div>
       {% endif %}
       {% if brand.source %}
-      <a class="maker-hero-cta" href="{{ brand.source }}" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+      {% set hero_src = brand.source[0] if (brand.source is iterable and brand.source is not string) else brand.source %}
+      <a class="maker-hero-cta" href="{{ hero_src }}" target="_blank" rel="noopener">公式サイトを見る ↗</a>
       {% endif %}
     </div>
   </header>

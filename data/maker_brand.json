@@ -589,7 +589,10 @@
     "text_on_primary": "#FFFFFF"
   },
   "123": {
-    "source": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
+    "source": [
+      "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/pmerit/2d/gx-f/index.html",
+      "https://www.mitsubishielectric.co.jp/fa/products/faspec/point.page?kisyu=/laser&formNm=GXL-F_PARENT00000000005242"
+    ],
     "primary": "#666666",
     "secondary": "#444444",
     "text_on_primary": "#FFFFFF"

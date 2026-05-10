@@ -318,7 +318,7 @@
     "name": "㈱セブンティ・エイト",
     "products": [
       {
-        "name": "Product",
+        "name": "セブンティ・エイト 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/060/1.jpg",
         "source_page": "https://seventy-eight.co.jp/catalog/",
@@ -436,7 +436,7 @@
     "name": "ボッシュ㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "ボッシュ 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/117/1.png",
         "source_page": "https://www.bosch.co.jp/pt/catalog/",
@@ -474,7 +474,7 @@
     "name": "ヤマト産業㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "ヤマト産業 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/134/1.jpg",
         "source_page": "https://www.e-yamato.co.jp/support/discontinued_product.php",
@@ -482,7 +482,7 @@
         "bytes": 42365
       },
       {
-        "name": "Product",
+        "name": "ヤマト産業 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/134/2.jpg",
         "source_page": "https://www.e-yamato.co.jp/support/discontinued_product.php",
@@ -490,7 +490,7 @@
         "bytes": 32412
       },
       {
-        "name": "Product",
+        "name": "ヤマト産業 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/134/3.jpg",
         "source_page": "https://www.e-yamato.co.jp/support/discontinued_product.php",
@@ -504,7 +504,7 @@
     "name": "ヨコタ工業㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "ヨコタ工業 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/138/1.png",
         "source_page": "https://www.yokota-kogyo.co.jp/_product/series_バッテリ シャットオフレンチ.html",
@@ -512,7 +512,7 @@
         "bytes": 140324
       },
       {
-        "name": "Product",
+        "name": "ヨコタ工業 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/138/2.png",
         "source_page": "https://www.yokota-kogyo.co.jp/_product/series_新型アングルグラインダ.html",
@@ -520,7 +520,7 @@
         "bytes": 73031
       },
       {
-        "name": "Product",
+        "name": "ヨコタ工業 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/138/3.png",
         "source_page": "https://www.yokota-kogyo.co.jp/_product/series_新型アングルグラインダ.html",
@@ -528,7 +528,7 @@
         "bytes": 111882
       },
       {
-        "name": "Product",
+        "name": "ヨコタ工業 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/138/4.png",
         "source_page": "https://www.yokota-kogyo.co.jp/_product/series_バッテリ システムレンチ.html",
@@ -580,7 +580,7 @@
     "name": "アサダ㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "アサダ 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/002/1.jpg",
         "source_page": "https://www.asada.co.jp/",
@@ -588,7 +588,7 @@
         "bytes": 125035
       },
       {
-        "name": "Product",
+        "name": "アサダ 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/002/2.jpg",
         "source_page": "https://www.asada.co.jp/",
@@ -596,7 +596,7 @@
         "bytes": 135075
       },
       {
-        "name": "Product",
+        "name": "アサダ 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/002/3.jpg",
         "source_page": "https://www.asada.co.jp/",
@@ -604,7 +604,7 @@
         "bytes": 136701
       },
       {
-        "name": "Product",
+        "name": "アサダ 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/002/4.jpg",
         "source_page": "https://www.asada.co.jp/",
@@ -618,7 +618,7 @@
     "name": "旭産業㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "旭産業 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/003/1.jpg",
         "source_page": "https://www.asahi-sangyo.co.jp/",
@@ -626,7 +626,7 @@
         "bytes": 32441
       },
       {
-        "name": "Product",
+        "name": "旭産業 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/003/2.jpg",
         "source_page": "https://www.asahi-sangyo.co.jp/",
@@ -634,7 +634,7 @@
         "bytes": 57400
       },
       {
-        "name": "Product",
+        "name": "旭産業 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/003/3.jpg",
         "source_page": "https://www.asahi-sangyo.co.jp/",
@@ -642,7 +642,7 @@
         "bytes": 526365
       },
       {
-        "name": "Product",
+        "name": "旭産業 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/003/4.jpg",
         "source_page": "https://www.asahi-sangyo.co.jp/",
@@ -656,7 +656,7 @@
     "name": "㈱アマダマシナリー",
     "products": [
       {
-        "name": "Product",
+        "name": "アマダマシナリー 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/006/1.jpg",
         "source_page": "https://www.amada.co.jp/ja/products/",
@@ -664,7 +664,7 @@
         "bytes": 52892
       },
       {
-        "name": "Product",
+        "name": "アマダマシナリー 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/006/2.jpg",
         "source_page": "https://www.amada.co.jp/ja/products/",
@@ -672,7 +672,7 @@
         "bytes": 170562
       },
       {
-        "name": "Product",
+        "name": "アマダマシナリー 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/006/3.jpg",
         "source_page": "https://www.amada.co.jp/ja/products/",
@@ -680,7 +680,7 @@
         "bytes": 89999
       },
       {
-        "name": "Hero",
+        "name": "アマダマシナリー 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/006/4.jpg",
         "source_page": "https://www.amada.co.jp/ja/products/",
@@ -694,7 +694,7 @@
     "name": "アルインコ㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "アルインコ 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/007/1.webp",
         "source_page": "https://alinco.co.jp/construction/",
@@ -702,7 +702,7 @@
         "bytes": 33930
       },
       {
-        "name": "Product",
+        "name": "アルインコ 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/007/2.webp",
         "source_page": "https://alinco.co.jp/construction/",
@@ -710,7 +710,7 @@
         "bytes": 31658
       },
       {
-        "name": "Product",
+        "name": "アルインコ 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/007/3.webp",
         "source_page": "https://alinco.co.jp/construction/",
@@ -718,7 +718,7 @@
         "bytes": 36274
       },
       {
-        "name": "Product",
+        "name": "アルインコ 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/007/4.webp",
         "source_page": "https://alinco.co.jp/construction/",
@@ -732,7 +732,7 @@
     "name": "育良精機㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "育良精機 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/009/1.jpg",
         "source_page": "https://www.ikura.com/products.html#RE",
@@ -740,7 +740,7 @@
         "bytes": 491148
       },
       {
-        "name": "Product",
+        "name": "育良精機 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/009/2.jpg",
         "source_page": "https://www.ikura.com/products.html#RE",
@@ -748,7 +748,7 @@
         "bytes": 439523
       },
       {
-        "name": "Product",
+        "name": "育良精機 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/009/3.jpg",
         "source_page": "https://www.ikura.com/products.html#RE",
@@ -756,7 +756,7 @@
         "bytes": 426056
       },
       {
-        "name": "Product",
+        "name": "育良精機 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/009/4.jpg",
         "source_page": "https://www.ikura.com/products.html#RE",
@@ -770,7 +770,7 @@
     "name": "㈱イチグチ",
     "products": [
       {
-        "name": "Product",
+        "name": "イチグチ 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/010/1.png",
         "source_page": "https://ichiguchi.co.jp/product/",
@@ -778,7 +778,7 @@
         "bytes": 158449
       },
       {
-        "name": "Product",
+        "name": "イチグチ 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/010/2.png",
         "source_page": "https://ichiguchi.co.jp/product/",
@@ -786,7 +786,7 @@
         "bytes": 152958
       },
       {
-        "name": "Product",
+        "name": "イチグチ 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/010/3.png",
         "source_page": "https://ichiguchi.co.jp/product/",
@@ -794,7 +794,7 @@
         "bytes": 166785
       },
       {
-        "name": "Product",
+        "name": "イチグチ 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/010/4.png",
         "source_page": "https://ichiguchi.co.jp/product/",
@@ -808,7 +808,7 @@
     "name": "㈱イチネンケミカルズ",
     "products": [
       {
-        "name": "Product",
+        "name": "イチネンケミカルズ 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/011/1.jpg",
         "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
@@ -816,7 +816,7 @@
         "bytes": 64631
       },
       {
-        "name": "Product",
+        "name": "イチネンケミカルズ 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/011/2.jpg",
         "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
@@ -824,7 +824,7 @@
         "bytes": 147047
       },
       {
-        "name": "Product",
+        "name": "イチネンケミカルズ 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/011/3.jpg",
         "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
@@ -832,7 +832,7 @@
         "bytes": 106478
       },
       {
-        "name": "Product",
+        "name": "イチネンケミカルズ 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/011/4.jpg",
         "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
@@ -896,7 +896,7 @@
     "name": "京セラインダストリアルツールズ㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "京セラインダストリアルツールズ 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/027/1.jpg",
         "source_page": "https://www.kyocera-industrialtools.co.jp/products/home#purpose",
@@ -904,7 +904,7 @@
         "bytes": 222633
       },
       {
-        "name": "Product",
+        "name": "京セラインダストリアルツールズ 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/027/2.jpg",
         "source_page": "https://www.kyocera-industrialtools.co.jp/products/home/types/2",
@@ -912,7 +912,7 @@
         "bytes": 32880
       },
       {
-        "name": "Product",
+        "name": "京セラインダストリアルツールズ 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/027/3.jpg",
         "source_page": "https://www.kyocera-industrialtools.co.jp/products/home/types/2",
@@ -920,7 +920,7 @@
         "bytes": 36994
       },
       {
-        "name": "Product",
+        "name": "京セラインダストリアルツールズ 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/027/4.jpg",
         "source_page": "https://www.kyocera-industrialtools.co.jp/products/home/types/2",
@@ -1086,7 +1086,7 @@
     "name": "象印チェンブロック㈱",
     "products": [
       {
-        "name": "Hero",
+        "name": "象印チェンブロック 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/061/1.jpg",
         "source_page": "https://www.elephant.co.jp/",
@@ -1094,7 +1094,7 @@
         "bytes": 83708
       },
       {
-        "name": "Product",
+        "name": "象印チェンブロック 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/061/2.png",
         "source_page": "https://www.elephant.co.jp/pages/78/",
@@ -1152,7 +1152,7 @@
     "name": "デンヨー㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "デンヨー 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/071/1.png",
         "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/",
@@ -1160,7 +1160,7 @@
         "bytes": 1931745
       },
       {
-        "name": "Product",
+        "name": "デンヨー 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/071/2.png",
         "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/",
@@ -1228,7 +1228,7 @@
     "name": "日光物産㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "日光物産 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/084/1.jpg",
         "source_page": "https://nikko-bussan.com/catalog/",
@@ -1236,7 +1236,7 @@
         "bytes": 264356
       },
       {
-        "name": "Product",
+        "name": "日光物産 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/084/2.jpg",
         "source_page": "https://nikko-bussan.com/catalog/",
@@ -1244,7 +1244,7 @@
         "bytes": 244569
       },
       {
-        "name": "Product",
+        "name": "日光物産 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/084/3.jpg",
         "source_page": "https://nikko-bussan.com/catalog/",
@@ -1252,7 +1252,7 @@
         "bytes": 170235
       },
       {
-        "name": "Product",
+        "name": "日光物産 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/084/4.jpg",
         "source_page": "https://nikko-bussan.com/catalog/",
@@ -1266,7 +1266,7 @@
     "name": "ニツコー熔材工業㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "ニツコー熔材工業 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/085/1.jpg",
         "source_page": "https://www.nikko-yozai.co.jp/",
@@ -1274,7 +1274,7 @@
         "bytes": 34589
       },
       {
-        "name": "Product",
+        "name": "ニツコー熔材工業 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/085/2.jpg",
         "source_page": "https://www.nikko-yozai.co.jp/",
@@ -1282,7 +1282,7 @@
         "bytes": 50870
       },
       {
-        "name": "Product",
+        "name": "ニツコー熔材工業 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/085/3.jpg",
         "source_page": "https://www.nikko-yozai.co.jp/",
@@ -1290,7 +1290,7 @@
         "bytes": 96807
       },
       {
-        "name": "Product",
+        "name": "ニツコー熔材工業 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/085/4.jpg",
         "source_page": "https://www.nikko-yozai.co.jp/",
@@ -1304,7 +1304,7 @@
     "name": "日東工器㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "日東工器 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/087/1.jpg",
         "source_page": "https://www.nitto-kohki.co.jp/prd/search/Pressrelease?lang=ja",
@@ -1358,7 +1358,7 @@
         "bytes": 189601
       },
       {
-        "name": "Product",
+        "name": "日本アイ・エス・ケイ 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/088/3.jpg",
         "source_page": "http://www.king-ind.co.jp/",
@@ -1418,7 +1418,7 @@
     "name": "ニューレジストン㈱",
     "products": [
       {
-        "name": "Product",
+        "name": "ニューレジストン 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/096/1.jpg",
         "source_page": "https://www.nrs.co.jp/",
@@ -1426,7 +1426,7 @@
         "bytes": 519502
       },
       {
-        "name": "Product",
+        "name": "ニューレジストン 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/096/2.jpg",
         "source_page": "https://www.nrs.co.jp/",
@@ -1434,7 +1434,7 @@
         "bytes": 595577
       },
       {
-        "name": "Product",
+        "name": "ニューレジストン 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/096/3.jpg",
         "source_page": "https://www.nrs.co.jp/",
@@ -1442,7 +1442,7 @@
         "bytes": 652423
       },
       {
-        "name": "Product",
+        "name": "ニューレジストン 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/096/4.jpg",
         "source_page": "https://www.nrs.co.jp/",
@@ -1540,7 +1540,7 @@
         "bytes": 318700
       },
       {
-        "name": "Product",
+        "name": "長谷川工業 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/099/2.jpg",
         "source_page": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/",
@@ -1548,7 +1548,7 @@
         "bytes": 88317
       },
       {
-        "name": "Product",
+        "name": "長谷川工業 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/099/3.jpg",
         "source_page": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/",
@@ -1556,7 +1556,7 @@
         "bytes": 270449
       },
       {
-        "name": "Product",
+        "name": "長谷川工業 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/099/4.jpg",
         "source_page": "https://www.hasegawa-kogyo.co.jp/digitalcatalog/",
@@ -1614,7 +1614,7 @@
     "name": "㈱ビック・ツール",
     "products": [
       {
-        "name": "Product",
+        "name": "ビック・ツール 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/105/1.png",
         "source_page": "http://www.bictool.com/product_cat01.html",
@@ -1622,7 +1622,7 @@
         "bytes": 41972
       },
       {
-        "name": "Product",
+        "name": "ビック・ツール 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/105/2.png",
         "source_page": "http://www.bictool.com/product_cat01.html",
@@ -1630,7 +1630,7 @@
         "bytes": 45176
       },
       {
-        "name": "Product",
+        "name": "ビック・ツール 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/105/3.png",
         "source_page": "http://www.bictool.com/product_cat01.html",
@@ -1638,7 +1638,7 @@
         "bytes": 33938
       },
       {
-        "name": "Product",
+        "name": "ビック・ツール 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/105/4.png",
         "source_page": "http://www.bictool.com/product_cat03.html",
@@ -1696,7 +1696,7 @@
     "name": "㈱ホタルクス",
     "products": [
       {
-        "name": "Product",
+        "name": "ホタルクス 主要製品 1",
         "category": "",
         "image_url": "../../assets/maker-products/116/1.jpg",
         "source_page": "https://www.hotalux.com/products/_1834.html?cat=H126",
@@ -1704,7 +1704,7 @@
         "bytes": 58249
       },
       {
-        "name": "Product",
+        "name": "ホタルクス 主要製品 2",
         "category": "",
         "image_url": "../../assets/maker-products/116/2.jpg",
         "source_page": "https://www.hotalux.com/products/_1834.html?cat=H126",
@@ -1712,7 +1712,7 @@
         "bytes": 213430
       },
       {
-        "name": "Product",
+        "name": "ホタルクス 主要製品 3",
         "category": "",
         "image_url": "../../assets/maker-products/116/3.jpg",
         "source_page": "https://www.hotalux.com/products/_1834.html?cat=M134",
@@ -1720,7 +1720,7 @@
         "bytes": 159320
       },
       {
-        "name": "Product",
+        "name": "ホタルクス 主要製品 4",
         "category": "",
         "image_url": "../../assets/maker-products/116/4.jpg",
         "source_page": "https://www.hotalux.com/products/_1834.html?cat=M134",
@@ -1734,39 +1734,40 @@
     "name": "三菱電機㈱",
     "products": [
       {
-        "name": "Product",
-        "category": "",
+        "name": "GX-F (2Dファイバーレーザー加工機 / 4020GX)",
+        "category": "二次元レーザ加工機",
         "image_url": "../../assets/maker-products/123/1.jpg",
-        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
-        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_2d.jpg",
-        "bytes": 60986
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/pmerit/2d/gx-f/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/product/products/4020GX.jpg",
+        "bytes": 94650
       },
       {
-        "name": "Product",
-        "category": "",
+        "name": "GXL-F (3Dファイバーレーザー加工機)",
+        "category": "三次元レーザ加工機",
         "image_url": "../../assets/maker-products/123/2.jpg",
-        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
-        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_3d.jpg",
-        "bytes": 71952
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/faspec/point.page?kisyu=/laser&formNm=GXL-F_PARENT00000000005242",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/specimg/prodimg/LASER/DA0000398002/GXL-F_WEB.jpg",
+        "bytes": 57448
       },
       {
-        "name": "Product",
-        "category": "",
+        "name": "GX-F レーザーヘッド (高速・高精度加工)",
+        "category": "加工ヘッド",
         "image_url": "../../assets/maker-products/123/3.jpg",
-        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
-        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_drilling.jpg",
-        "bytes": 60434
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/pmerit/2d/gx-f/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/pmerit/2d/gx-f/img/detail02.jpg",
+        "bytes": 88834
       },
       {
-        "name": "Product",
-        "category": "",
+        "name": "GX-F AIアシスト加工 (MELS AR / AI機能搭載)",
+        "category": "AI機能",
         "image_url": "../../assets/maker-products/123/4.jpg",
-        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/index.html",
-        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/img/products_thumbnail_laser_cuttingl.jpg",
-        "bytes": 128266
+        "source_page": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/pmerit/2d/gx-f/index.html",
+        "remote_url": "https://www.mitsubishielectric.co.jp/fa/products/mecha/laser/pmerit/2d/gx-f/img/detail04-1.jpg",
+        "bytes": 51183
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "manual_curated": "2026-05-11 柏原指定 GX-F/GXL-F ページから手動キュレーション"
   },
   "124": {
     "name": "三菱電機フィナンシャルソリューションズ㈱",
