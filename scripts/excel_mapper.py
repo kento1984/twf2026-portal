@@ -42,6 +42,7 @@ CSV_PATH = ROOT / "data" / "makers.csv"
 JSON_PATH = ROOT / "data" / "maker_details.json"
 ALIAS_PATH = ROOT / "data" / "maker_aliases.json"
 OVERRIDES_PATH = ROOT / "data" / "maker_overrides.json"
+PORTAL_ATTACH_ROOT = ROOT / "prototype" / "attachments"
 DEFAULT_EXCEL = Path(r"D:\repos\twf2026_sender\TWF2026_回答集約_local検証.xlsx")
 
 # Excel layout (1-indexed columns, see twf2026_collector spec)
@@ -232,6 +233,7 @@ def merge(makers: list[dict], excel_rows: list[dict]):
     raw_status_counter: Counter = Counter()
     classified_counter: Counter = Counter()
     aliased: list[dict] = []
+    dropped_attachments: list[tuple[str, str, str]] = []  # (csv_no, csv_name, dropped_filename)
 
     for r in excel_rows:
         raw_status = r.get("status", "")
@@ -287,6 +289,17 @@ def merge(makers: list[dict], excel_rows: list[dict]):
                 if cd.startswith("attachments/"):
                     cd = cd[len("attachments/"):]
                 company_dir = cd or None
+            # portal側 prototype/attachments/ に実体あるものだけ残す。
+            # sender も collector が取得失敗した PDF (本文に名前だけ書かれているケース) を
+            # 含めるとリンク切れになるため、ここで除外して maker_details.json をクリーンに保つ。
+            if company_dir:
+                kept = []
+                for fn in files:
+                    if (PORTAL_ATTACH_ROOT / company_dir / fn).exists():
+                        kept.append(fn)
+                    else:
+                        dropped_attachments.append((key, match["name"], fn))
+                files = kept
             details[key].update({
                 "has_answer": True,
                 "status": classified,
@@ -310,7 +323,7 @@ def merge(makers: list[dict], excel_rows: list[dict]):
             "no_agrees": int(r["no"]) == no,
             "status": raw_status, "classified": classified,
         })
-    return details, matched, unmatched, raw_status_counter, classified_counter, aliased
+    return details, matched, unmatched, raw_status_counter, classified_counter, aliased, dropped_attachments
 
 
 def write_csv(makers: list[dict], details: dict) -> Path:
@@ -341,7 +354,7 @@ def main():
 
     makers = load_makers()
     excel_rows = load_excel(excel_path)
-    details, matched, unmatched, raw_status_counter, classified_counter, aliased = merge(makers, excel_rows)
+    details, matched, unmatched, raw_status_counter, classified_counter, aliased, dropped_attachments = merge(makers, excel_rows)
 
     print(f"CSV makers loaded:  {len(makers)}  ({CSV_PATH.relative_to(ROOT)})")
     print(f"Excel rows loaded:  {len(excel_rows)}  ({excel_path})")
@@ -391,6 +404,14 @@ def main():
             print("    名前ゆらぎなら data/maker_aliases.json に追加してください。")
             for r in unmatched_real:
                 print(f"  excel No={r['excel_no']}  status={r['status']}  name={r['excel_name']!r}")
+
+    if dropped_attachments:
+        print()
+        print(f"--- Dropped attachments ({len(dropped_attachments)} 件、portal実体なしで maker_details.json から除外) ---")
+        print(f"    sender 側 (D:\\repos\\twf2026_sender\\attachments\\) にも実体が無い PDF。")
+        print(f"    sender の collector が取得失敗 (本文に名前だけ記載のケース等)。")
+        for csv_no, name, fn in dropped_attachments:
+            print(f"  No.{csv_no} {name}  /  {fn}")
 
     # --- maker_overrides.json 適用 (mapper反映後の最終調整) ---
     overrides = load_overrides()
