@@ -602,5 +602,15 @@
     "primary": "#666666",
     "secondary": "#444444",
     "text_on_primary": "#FFFFFF"
+  },
+  "019": {
+    "name": "㈱オートスイング (OTOS)",
+    "primary": "#1565C0",
+    "secondary": "#0D47A1",
+    "accent": "#FFA726",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.otos.co.kr/",
+    "notes": "OTOSは韓国OTOS本社の保護具・溶接カメラメーカー。日本支社が東京千代田区にあり TWF2026 出展。コーポレートカラーはOTOSロゴの青系。",
+    "_group": "manual"
   }
 }

@@ -1923,5 +1923,28 @@
     ],
     "fetched_ok": true,
     "manual_curated": "2026-05-11 柏原指定3製品ページから手動キュレーション"
+  },
+  "019": {
+    "name": "㈱オートスイング (OTOS)",
+    "products": [
+      {
+        "name": "OTOSWING 溶接カメラシリーズ (CAMERA 200 / 400)",
+        "category": "溶接カメラ",
+        "image_url": "../../assets/maker-products/019/1.jpg",
+        "source_page": "https://www.otos.co.kr/",
+        "remote_url": "https://www.otos.co.kr/img_up/shop_pds/otos1/design/my_xml/me-in-seul-ra-i-deu--ka-me-ra1301767663410.jpg",
+        "bytes": 897538
+      },
+      {
+        "name": "F2i スマート溶接ヘルメット (HDV / ClearLight 2 / Flex Tech)",
+        "category": "溶接ヘルメット",
+        "image_url": "../../assets/maker-products/019/2.jpg",
+        "source_page": "https://www.otos.co.kr/",
+        "remote_url": "https://www.otos.co.kr/img_up/shop_pds/otos1/design/my_xml/me-in-seul-ra-i-deu--yong-jeop-myeo1767663428.jpg",
+        "bytes": 1716688
+      }
+    ],
+    "fetched_ok": true,
+    "manual_curated": "2026-05-11 OTOS本社サイトから手動キュレーション (溶接カメラ + F2iヘルメット)"
   }
 }
