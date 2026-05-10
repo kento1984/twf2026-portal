@@ -3,18 +3,24 @@
 Read TWF2026_回答集約.xlsx (output by twf2026_collector / twf2026_sender) and
 merge maker answers into the portal data layer:
 
-  - data/maker_details.json  (147-maker structured data, keyed by zero-padded No.)
+  - data/maker_details.json  (148-maker structured data, keyed by zero-padded No.)
   - data/makers.csv          (update has_answer column; original backed up to .bak)
 
 Usage:
   python scripts/excel_mapper.py [--excel PATH] [--dry]
 
 Matching strategy:
-  Names from the Excel are normalized (NFKC + 法人格除去 + 空白除去 + casefold)
-  and looked up against the same-normalized CSV names. Only a normalized
-  exact-match is treated as a hit. For unmatched Excel rows we surface a
-  diagnostic hint: "your Excel row says No=N — the CSV row at No=N is named ..."
-  so the operator can fix the source rather than auto-pairing on No.
+  Excel No (送信順) と makers.csv No (TWFパンフ記載順) は番号体系が違うため
+  No列ベースの突合は使わない。突合優先順位:
+    1) メーカー名 normalize 完全一致 (NFKC + 法人格除去 + 空白除去 + casefold)
+    2) maker_aliases.json による手動エイリアス
+  突合失敗行は「Unmatched dump」に reply_email/email も併記して出力する
+  (alias.json への追加候補や、makers.csv 外メーカーの判別に使う)。
+
+  STATUS マーカーは sender 側 (commit e603089〜) の改修に追従:
+    ☑ 回答済み / ◎ 部分回答 / 📎 添付回答 / ★ 複数返信 → has_answer=True
+    ▲ 未記入返信 / ✖ 未回答                            → has_answer=False
+    ■ 一括 (ユアサ/産メカ自体の dummy行) / ─ 経由      → skipped
 """
 from __future__ import annotations
 
@@ -35,7 +41,8 @@ ROOT = Path(__file__).resolve().parents[1]
 CSV_PATH = ROOT / "data" / "makers.csv"
 JSON_PATH = ROOT / "data" / "maker_details.json"
 ALIAS_PATH = ROOT / "data" / "maker_aliases.json"
-DEFAULT_EXCEL = ROOT / "data" / "raw" / "answers.xlsx"
+OVERRIDES_PATH = ROOT / "data" / "maker_overrides.json"
+DEFAULT_EXCEL = Path(r"D:\repos\twf2026_sender\TWF2026_回答集約_local検証.xlsx")
 
 # Excel layout (1-indexed columns, see twf2026_collector spec)
 COL = {
@@ -46,7 +53,11 @@ COL = {
     "attach_count": 14, "attach_files": 15, "attach_dir": 16, "note": 17,
 }
 
-LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳|㈴|㈵)")
+LEGAL_RE = re.compile(
+    r"(株式会社|有限会社|合同会社|合資会社|合名会社"
+    r"|\(株\)|\(有\)|（株）|（有）"
+    r"|㈱|㈲|㈳|㈴|㈵|㋿)"
+)
 WS_RE = re.compile(r"\s+")
 
 # 添付ファイル: 残す拡張子 (案内資料系)
@@ -71,13 +82,16 @@ def is_useful_attachment(filename: str) -> bool:
     return ext in ATTACH_KEEP_EXT
 
 # B列(回答状況)の先頭マーカー → 内部 status
+# sender 側 (twf2026_collector commit e603089〜) の新ステータス体系に準拠。
 STATUS_MAP = {
     "☑": "answered",     # 回答済
     "◎": "partial",      # 部分回答 (Q5/添付に意味ある内容あり)
+    "📎": "partial",     # 添付回答 (本文空+添付のみ — 添付が回答の代わり)
+    "★": "answered",     # 複数返信 (複数メールから本文を合体済)
     "▲": "unanswered",   # 未記入返信 (返信は来たが本文空)
     "✖": "unanswered",   # 未回答
-    "■": "skipped",      # 一括ダミー (集約対象外)
-    "★": "unknown",      # 不明
+    "■": "skipped",      # 一括ダミー (ユアサ/産メカ自体、集約対象外)
+    "─": "skipped",      # 経由 (一括の派生記録、has_answer は本体行で記録)
 }
 HAS_ANSWER_STATUSES = {"answered", "partial"}
 
@@ -119,6 +133,24 @@ def load_makers() -> list[dict]:
         return list(csv.DictReader(f))
 
 
+def load_overrides() -> dict[str, dict]:
+    """data/maker_overrides.json を読んで {zero-padded No: {field: value, ...}} を返す。
+    キーが '_' で始まるエントリ・各 entry 内の '_' で始まるフィールドはコメント扱いで無視する。
+    """
+    if not OVERRIDES_PATH.exists():
+        return {}
+    with open(OVERRIDES_PATH, encoding="utf-8") as f:
+        raw = json.load(f)
+    out: dict[str, dict] = {}
+    for k, v in raw.items():
+        if k.startswith("_"):
+            continue
+        if not isinstance(v, dict):
+            continue
+        out[k] = {fk: fv for fk, fv in v.items() if not fk.startswith("_")}
+    return out
+
+
 def load_aliases() -> dict[str, str]:
     """data/maker_aliases.json を読んで {normalize(excel_name): normalize(csv_name)} を返す。
     キーが '_' で始まるエントリはドキュメント扱いで無視する。
@@ -154,6 +186,7 @@ def load_excel(path: Path) -> list[dict]:
             "no": no,
             "status": cell_str(row[COL["status"] - 1]),
             "name": cell_str(row[COL["name"] - 1]),
+            "email": cell_str(row[COL["email"] - 1]),
             "reply_email": cell_str(row[COL["reply_email"] - 1]),
             "reply_dt": row[COL["reply_dt"] - 1],
             "q1": cell_str(row[COL["q1"] - 1]),
@@ -192,7 +225,6 @@ def init_details(makers: list[dict]) -> dict:
 
 def merge(makers: list[dict], excel_rows: list[dict]):
     by_norm = {normalize(m["name"]): m for m in makers}
-    by_no = {int(m["no"]): m for m in makers}
     aliases = load_aliases()
     details = init_details(makers)
     matched: list[dict] = []
@@ -220,11 +252,11 @@ def merge(makers: list[dict], excel_rows: list[dict]):
                         "status": raw_status, "classified": classified,
                     })
         if not match:
-            csv_at_same_no = by_no.get(r["no"])
             unmatched.append({
                 "excel_no": r["no"],
                 "excel_name": r["name"],
-                "hint_csv_name": csv_at_same_no["name"] if csv_at_same_no else None,
+                "email": r.get("email") or None,
+                "reply_email": r.get("reply_email") or None,
                 "status": raw_status,
                 "classified": classified,
             })
@@ -340,10 +372,45 @@ def main():
 
     if unmatched:
         print()
-        print("--- Unmatched (warning) ---")
+        print(f"--- Unmatched ({len(unmatched)} 件) ---")
+        print("    (skipped 系 = ■ 一括 / ─ 経由 は makers.csv に対応行が無くて当然)")
         for r in unmatched:
-            hint = f" / CSV[No={r['excel_no']}]={r['hint_csv_name']!s}" if r["hint_csv_name"] else " / CSVに該当No.なし"
-            print(f"  excel No={r['excel_no']}  classified={r['classified']}  name={r['excel_name']!r}  status={r['status']}{hint}")
+            extra = []
+            if r.get("email"):
+                extra.append(f"email={r['email']}")
+            if r.get("reply_email") and r.get("reply_email") != r.get("email"):
+                extra.append(f"reply={r['reply_email']}")
+            extra_s = "  /  " + " / ".join(extra) if extra else ""
+            print(f"  excel No={r['excel_no']:>4}  classified={r['classified']:>11}  "
+                  f"name={r['excel_name']!r}{extra_s}")
+        # alias.json への候補ヒント (skipped 以外で名前突合できなかったもの)
+        unmatched_real = [r for r in unmatched if r["classified"] != "skipped"]
+        if unmatched_real:
+            print()
+            print(f"--- 要対応 (skipped以外で未マッチ {len(unmatched_real)} 件) ---")
+            print("    名前ゆらぎなら data/maker_aliases.json に追加してください。")
+            for r in unmatched_real:
+                print(f"  excel No={r['excel_no']}  status={r['status']}  name={r['excel_name']!r}")
+
+    # --- maker_overrides.json 適用 (mapper反映後の最終調整) ---
+    overrides = load_overrides()
+    if overrides:
+        print()
+        print(f"--- Overrides ({len(overrides)} 件、data/maker_overrides.json) ---")
+        for key, fields in overrides.items():
+            if key not in details:
+                print(f"  WARN: override key {key!r} は details に存在しない (skip)")
+                continue
+            applied = []
+            for fk, fv in fields.items():
+                old = details[key].get(fk)
+                details[key][fk] = fv
+                if old != fv:
+                    applied.append(fk)
+            if applied:
+                print(f"  No.{key} {details[key]['name']}: 上書き {applied}")
+            else:
+                print(f"  No.{key} {details[key]['name']}: (差分なし、override 不要かも)")
 
     answered = sum(1 for v in details.values() if v["has_answer"])
     print()
