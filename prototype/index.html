@@ -539,13 +539,17 @@
     .maker-card-badges .mb-priority { color: #b91c1c; }
     .maker-card-tier-a .maker-card-link { color: var(--brand-primary, var(--blue-500)); }
 
-    /* === B層 (パンフ簡易) — パンフ画像をやや脱彩度 ================ */
+    /* === B層 (パンフ簡易) — 2026-05-10: パンフ背景画像を撤廃しミニマル化 ====
+       品格優先: 雑多なパンフサムネを並べるより、薄いグレーグラデで統一感を出す。
+       「公式パンフ p.X」表記は本文側で維持されているため、識別はテキストで担保。 */
     .maker-card-tier-b .maker-card-hero {
-      filter: saturate(0.92) contrast(0.97);
-      background-color: var(--gray-100);
+      background: linear-gradient(180deg, var(--gray-100) 0%, var(--gray-50) 100%);
+      background-color: var(--gray-50);
+      filter: none;
     }
-    .maker-card-tier-b .maker-card-hero-pamphlet {
-      background-position: top center;
+    .maker-card-hero-blank {
+      /* B層の hero (上記 .maker-card-tier-b .maker-card-hero) と同じスタイル。
+         class 名としても明示しておくことで意図 (= 空白プレースホルダ) が明瞭。 */
     }
     .maker-card-tier-b .maker-card-link { color: var(--gray-700); }
 
@@ -789,12 +793,6 @@
     .maker-card[data-tier="C"] .maker-card-cat { color: var(--gray-400); }
     .maker-card[data-tier="C"] .maker-card-link { color: var(--gray-400); }
     .maker-card[data-tier="C"] .maker-card-link::after { content: ''; }
-
-    /* B-tier: pamphlet thumbnail tinted */
-    .maker-card[data-tier="B"] .maker-card-hero-pamphlet {
-      background-color: var(--gray-100);
-      filter: contrast(0.97);
-    }
 
     /* tier indicator stripe on the left edge */
     .maker-card[data-tier="A"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--red-500); }
@@ -2257,7 +2255,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱アカサカテック ㈱アカサカテック  安全・快適ソリューション No.001 No001   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱アカサカテック</h3>
             <div class="maker-card-cat">No.001 · 安全・快適ソリューション · 公式パンフ p.2</div>
@@ -2268,7 +2266,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱オートスイング（OTOS） ㈱オートスイング（OTOS）  協働ロボット No.019 No019   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱オートスイング（OTOS）</h3>
             <div class="maker-card-cat">No.019 · 協働ロボット · 公式パンフ p.2</div>
@@ -2279,7 +2277,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱キトー ㈱キトー  揚送機器 No.025 No025   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱キトー</h3>
             <div class="maker-card-cat">No.025 · 揚送機器 · 公式パンフ p.4</div>
@@ -2290,7 +2288,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱キャドマック ㈱キャドマック  板金加工機 No.026 No026   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱キャドマック</h3>
             <div class="maker-card-cat">No.026 · 板金加工機 · 公式パンフ p.2</div>
@@ -2301,7 +2299,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="興研㈱ 興研㈱  空調・環境・安全・保護具 No.032 No032   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_004.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">興研㈱</h3>
             <div class="maker-card-cat">No.032 · 空調・環境・安全・保護具 · 公式パンフ p.4</div>
@@ -2312,7 +2310,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱五常 ㈱五常  安全・快適ソリューション No.034 No034   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱五常</h3>
             <div class="maker-card-cat">No.034 · 安全・快適ソリューション · 公式パンフ p.2</div>
@@ -2323,7 +2321,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱小森安全機研究所 ㈱小森安全機研究所  協働ロボット No.035 No035   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱小森安全機研究所</h3>
             <div class="maker-card-cat">No.035 · 協働ロボット · 公式パンフ p.2</div>
@@ -2334,7 +2332,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="サイシュウテクノ㈱ サイシュウテクノ㈱  作業環境向上ブース No.036 No036   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">サイシュウテクノ㈱</h3>
             <div class="maker-card-cat">No.036 · 作業環境向上ブース · 公式パンフ p.2</div>
@@ -2345,7 +2343,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="ジェントス㈱ ジェントス㈱  保護具 No.046 No046   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ジェントス㈱</h3>
             <div class="maker-card-cat">No.046 · 保護具 · 公式パンフ p.3</div>
@@ -2356,7 +2354,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱スーパーツール ㈱スーパーツール  切断・電動工具 No.055 No055   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱スーパーツール</h3>
             <div class="maker-card-cat">No.055 · 切断・電動工具 · 公式パンフ p.3</div>
@@ -2367,7 +2365,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱ゼネテック ㈱ゼネテック  協働ロボット No.059 No059   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱ゼネテック</h3>
             <div class="maker-card-cat">No.059 · 協働ロボット · 公式パンフ p.2</div>
@@ -2378,7 +2376,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱東洋化学商会 ㈱東洋化学商会  作業環境向上ブース No.075 No075   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱東洋化学商会</h3>
             <div class="maker-card-cat">No.075 · 作業環境向上ブース · 公式パンフ p.2</div>
@@ -2389,7 +2387,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="東横サポート㈲ 東横サポート㈲  作業環境向上ブース No.076 No076   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">東横サポート㈲</h3>
             <div class="maker-card-cat">No.076 · 作業環境向上ブース · 公式パンフ p.2</div>
@@ -2400,7 +2398,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="ＴＯＮＥ㈱ ＴＯＮＥ㈱  切断・電動工具 No.081 No081   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ＴＯＮＥ㈱</h3>
             <div class="maker-card-cat">No.081 · 切断・電動工具 · 公式パンフ p.3</div>
@@ -2411,7 +2409,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="パナソニック㈱ パナソニック㈱  ロボット・溶接機 No.101 No101   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">パナソニック㈱</h3>
             <div class="maker-card-cat">No.101 · ロボット・溶接機 · 公式パンフ p.3</div>
@@ -2422,7 +2420,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="ファナック㈱ ファナック㈱  協働ロボット No.106 No106   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ファナック㈱</h3>
             <div class="maker-card-cat">No.106 · 協働ロボット · 公式パンフ p.2</div>
@@ -2433,7 +2431,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="フロニウスジャパン㈱ フロニウスジャパン㈱  協働ロボット No.114 No114   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">フロニウスジャパン㈱</h3>
             <div class="maker-card-cat">No.114 · 協働ロボット · 公式パンフ p.2</div>
@@ -2444,7 +2442,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="マイト工業㈱ マイト工業㈱  保護具 No.119 No119   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">マイト工業㈱</h3>
             <div class="maker-card-cat">No.119 · 保護具 · 公式パンフ p.3</div>
@@ -2455,7 +2453,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱メサック ㈱メサック  協働ロボット No.129 No129   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱メサック</h3>
             <div class="maker-card-cat">No.129 · 協働ロボット · 公式パンフ p.2</div>
@@ -2466,7 +2464,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱LA・PITA ㈱LA・PITA  作業環境向上ブース No.139 No139   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱LA・PITA</h3>
             <div class="maker-card-cat">No.139 · 作業環境向上ブース · 公式パンフ p.2</div>
@@ -2477,7 +2475,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="㈱レヂトン ㈱レヂトン  切断・電動工具 No.143 No143   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_003.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">㈱レヂトン</h3>
             <div class="maker-card-cat">No.143 · 切断・電動工具 · 公式パンフ p.3</div>
@@ -2488,7 +2486,7 @@ style="--brand-primary: #0E8A4E; --brand-secondary: #0A6038; --brand-text: #FFFF
                  data-tier="B"
                  data-search-text="ロボットバンク㈱ ロボットバンク㈱  協働ロボット No.145 No145   "
 >
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_002.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           <div class="maker-card-body">
             <h3 class="maker-card-name">ロボットバンク㈱</h3>
             <div class="maker-card-cat">No.145 · 協働ロボット · 公式パンフ p.2</div>

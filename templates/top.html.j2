@@ -539,13 +539,17 @@
     .maker-card-badges .mb-priority { color: #b91c1c; }
     .maker-card-tier-a .maker-card-link { color: var(--brand-primary, var(--blue-500)); }
 
-    /* === B層 (パンフ簡易) — パンフ画像をやや脱彩度 ================ */
+    /* === B層 (パンフ簡易) — 2026-05-10: パンフ背景画像を撤廃しミニマル化 ====
+       品格優先: 雑多なパンフサムネを並べるより、薄いグレーグラデで統一感を出す。
+       「公式パンフ p.X」表記は本文側で維持されているため、識別はテキストで担保。 */
     .maker-card-tier-b .maker-card-hero {
-      filter: saturate(0.92) contrast(0.97);
-      background-color: var(--gray-100);
+      background: linear-gradient(180deg, var(--gray-100) 0%, var(--gray-50) 100%);
+      background-color: var(--gray-50);
+      filter: none;
     }
-    .maker-card-tier-b .maker-card-hero-pamphlet {
-      background-position: top center;
+    .maker-card-hero-blank {
+      /* B層の hero (上記 .maker-card-tier-b .maker-card-hero) と同じスタイル。
+         class 名としても明示しておくことで意図 (= 空白プレースホルダ) が明瞭。 */
     }
     .maker-card-tier-b .maker-card-link { color: var(--gray-700); }
 
@@ -790,12 +794,6 @@
     .maker-card[data-tier="C"] .maker-card-link { color: var(--gray-400); }
     .maker-card[data-tier="C"] .maker-card-link::after { content: ''; }
 
-    /* B-tier: pamphlet thumbnail tinted */
-    .maker-card[data-tier="B"] .maker-card-hero-pamphlet {
-      background-color: var(--gray-100);
-      filter: contrast(0.97);
-    }
-
     /* tier indicator stripe on the left edge */
     .maker-card[data-tier="A"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--red-500); }
     .maker-card[data-tier="B"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--blue-500); }
@@ -909,7 +907,7 @@
             {% endif %}
           </div>
           {% elif m.tier == 'B' %}
-          <div class="maker-card-hero maker-card-hero-pamphlet" style="background-image: url('data/pamphlet_pages/page_{{ '%03d' | format(m.pamphlet_page) }}.png');"></div>
+          <div class="maker-card-hero maker-card-hero-blank"></div>
           {% endif %}
           <div class="maker-card-body">
             <h3 class="maker-card-name">{{ m.name }}</h3>

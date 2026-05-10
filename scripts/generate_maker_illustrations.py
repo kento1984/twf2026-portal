@@ -1,14 +1,20 @@
-"""generate_maker_illustrations.py — A層メーカーのカスタムイラストを gpt-image-1 で生成。
+"""generate_maker_illustrations.py — A層メーカーのシネマティック工業シーン画像を gpt-image-1 で生成。
 
-各社の主力製品を 1-2 点アイコン化したフラットイラストを生成し、
-prototype/assets/maker-illustrations/{maker_no}.png に保存する。
-TOP カードの hero 部分から img 参照される。
+方針 (2026-05-10〜): TOP みどころ3選シルエット v4 と統一感のあるシネマティック写真風。
+  - 暗い工業背景、ドラマチック照明
+  - 溶接アーク・火花・溶解炉の暖色アクセント
+  - 各社の主力製品をシーンの主役に配置
+  - メーカー名/英字タイポ/ロゴは一切入れない (テンプレと PRODUCTS の双方で抑制)
+  - 1024x1024 正方形
+
+prototype/assets/maker-illustrations/{maker_no}.png に保存され、TOP カードの hero
+部分から img 参照される。
 
 Usage:
-  python scripts/generate_maker_illustrations.py            # 試作 3社 (082/058/117)
+  python scripts/generate_maker_illustrations.py            # 試作 3社 (033/099/117)
   python scripts/generate_maker_illustrations.py --all      # A層全社 (既存はskip)
-  python scripts/generate_maker_illustrations.py --only 082 # 単独再生成
-  python scripts/generate_maker_illustrations.py --force --only 082  # 上書き
+  python scripts/generate_maker_illustrations.py --only 033 # 単独再生成
+  python scripts/generate_maker_illustrations.py --force --only 033  # 上書き
 """
 from __future__ import annotations
 
@@ -36,44 +42,91 @@ OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 BRAND_PATH = ROOT / "data" / "maker_brand.json"
 MAKERS_CSV = ROOT / "data" / "makers.csv"
 
-# 使用モデル: gpt-image-2 (2026 年新モデル、文字描画品質向上)
-# フォールバック: gpt-image-1 (失敗時のみ)
-DEFAULT_MODEL = "gpt-image-2"
+# 使用モデル: gpt-image-1 (2026/05 時点でシネマティック写真風が安定生成可能)
+DEFAULT_MODEL = "gpt-image-1"
 FALLBACK_MODEL = "gpt-image-1"
 
-# 製品マッピング: maker_no → 主力製品の英語ピクトグラム記述
+# 製品マッピング: maker_no → シーンの主役 (英語、シネマティック工業シーンの主体)。
+# A層 78 社分を Q1 から抽出。抽象的な社は generic な工業シーン記述で代用。
 PRODUCTS = {
-    "005": "an industrial air compressor and a pneumatic paint spray gun",
-    "008": "industrial heavy-duty lifting clamps and chain hoists",
-    "016": "a roll forming machine and roll bender for sheet metal processing",
-    "017": "precision sheet metal parts with a deburring machine",
-    "020": "a portable hydraulic rebar cutter and a rebar bender",
-    "033": "an articulated industrial welding robot performing AXELARC welding on a thick steel plate, with bright orange welding sparks and intense arc light, low-spatter weld pool clearly visible",
-    "039": "a disc grinder and various professional power tools",
-    "040": "long oxygen cutting lances and thermal lance rods for steel cutting",
-    "043": "a power nibbler and metal shear for sheet metal cutting",
-    "048": "a grain dryer silo and an evaporative cooling unit",
-    "049": "a commercial split air conditioner and an air purifier",
-    "058": "a fall-protection safety harness with lanyard, a welding helmet, and a respirator mask",
-    "060": "a spatter chipping hammer and welding maintenance tools",
-    "063": "an industrial spot welding machine and mechanical welding components",
-    "065": "an industrial waste incinerator with a smoke stack and flames",
-    "082": "a portable spot cooler unit with a flexible exhaust duct and small snowflake icons",
-    "083": "a yellow industrial LED floodlight and a yellow cord reel",
-    "089": "a fiber laser welding machine with a focused laser beam",
-    "100": "a red industrial cord reel and a portable LED work light",
-    "107": "a high-pressure gas cylinder hand truck for industrial use",
-    "111": "a coiled bundle of thick industrial electrical welding cables",
-    "113": "premium hand tools (chrome wrenches and spanners) on a luxury display",
-    "115": "a precision drill grinding machine for re-sharpening drill bits",
-    "117": "an electric drill with carbide jet broach hole-cutting bits",
-    "120": "a yellow articulated welding robot arm with a controller cabinet",
-    "121": "a TIG welding torch and a perforated welding fixture table",
-    "128": "industrial fiber lifting slings and woven rigging belts",
-    "132": "a belt sander and stacked abrasive grinding wheels",
-    "134": "a brass gas pressure regulator and a reducing valve assembly",
-    "138": "a pneumatic air impact wrench tool",
-    "148": "a hydraulic cylinder assembly and a laminating press machine",
+    "002": "Industrial vertical band saw and angle cutting machine processing steel pipes",
+    "003": "Welding spatter shield curtains and protective panels hanging in industrial workshop",
+    "005": "Industrial reciprocating air compressor and tank-mount package compressor in factory",
+    "006": "Industrial vertical band saw machine cutting metal in factory",
+    "007": "Industrial work platforms, aluminum ladders and scaffolds arranged in factory",
+    "008": "Heavy industrial lifting clamps and chain hoists suspended from overhead crane",
+    "009": "Industrial angle cutting machine and fiber laser welding setup with bright sparks",
+    "010": "Industrial grinding discs and polishing wheels with sparks flying from grinder",
+    "011": "Industrial stainless steel surface electrolytic cleaning device with electrode",
+    "014": "Luxury watches, jewelry and branded accessories displayed in warm spotlight booth",
+    "015": "Industrial TIG welding torch with bright welding arc and ceramic nozzles",
+    "016": "Industrial three-roll bending machine for sheet metal processing",
+    "017": "Industrial metal deburring machine and 3D welding fixture table",
+    "020": "Cordless industrial rebar cutter, rebar bender and hydraulic puncher",
+    "021": "Industrial laser cleaning device with bright orange laser beam removing rust",
+    "027": "Industrial angle grinder with sparks and cordless power tool battery system",
+    "028": "Industrial fiber laser pipe cutting machine with bright laser beam",
+    "029": "Industrial stainless steel weld electrolytic cleaning machine",
+    "031": "Industrial cordless angle grinder and reciprocating saw with sparks",
+    "033": "Industrial welding robot performing arc welding on thick steel plate with bright orange sparks",
+    "038": "Industrial cooling vest and air-conditioned workwear in hot factory environment",
+    "039": "Industrial angle grinder and circular saw cutting metal with sparks",
+    "040": "Industrial oxygen lance cutting steel with intense flames and molten sparks",
+    "043": "Industrial steel plate cutter and bevel cutting machine in workshop",
+    "044": "Industrial factory consultation scene with equipment silhouettes and subsidy planning",
+    "045": "Industrial spot cooler and large factory ventilation fan unit",
+    "047": "Industrial dust mask and gas respiratory protection equipment",
+    "048": "Industrial evaporative cooling fan in factory environment",
+    "049": "Industrial commercial air conditioner and air purifier in factory office",
+    "051": "Industrial machinery silhouettes in dimly lit factory hall",
+    "058": "Industrial grinding wheel and cutting disc with sparks flying from angle grinder",
+    "060": "Welding tools and steel chipping hammers laid out on workbench in workshop",
+    "061": "Industrial electric chain hoist and lever block with heavy chains from crane",
+    "062": "Industrial air conditioning unit and air purifier in factory environment",
+    "063": "Industrial spot welding machine with bright welding arc and sparks",
+    "065": "Industrial waste incinerator with smoke stack and intense flames",
+    "066": "Yellow industrial collaborative welding robot arm in factory with sparks",
+    "070": "Heavy industrial lifting clamp for flat and round steel bars",
+    "071": "Industrial portable diesel generator and welding machine on construction site",
+    "072": "Industrial pneumatic tools and air compressor silhouettes in factory",
+    "082": "Large industrial spot cooler with flexible exhaust duct in factory",
+    "083": "Industrial high-bay LED floodlight illuminating factory in warm glow",
+    "084": "Heavy-duty leather welding gloves and flame-resistant safety apron on bench",
+    "085": "Industrial welding wire spools and stainless steel filler wire in workshop",
+    "087": "Industrial pneumatic tools, drills and air-powered machinery in workshop",
+    "088": "Heavy industrial fireproof safe and secure tool storage cabinets",
+    "089": "Industrial fiber laser welding machine with bright laser beam welding metal",
+    "090": "Industrial mask fit tester device and air flow measurement instrument",
+    "096": "Industrial grinding wheels and cutting discs displayed in workshop with sparks",
+    "097": "Industrial welding observation camera mounted near welding arc capturing weld pool",
+    "098": "Industrial laser cleaning device with bright orange laser beam",
+    "099": "Industrial work platforms, aluminum ladders and warehouse carts in factory",
+    "100": "Industrial LED work light and cord reel illuminating factory in warm glow",
+    "102": "Industrial heat-reflective roof sheet panels with thermal demonstration setup",
+    "104": "Industrial oil-free reciprocating air compressor in factory",
+    "105": "Industrial drill bits and drill grinding machine in workshop",
+    "107": "Industrial high-pressure gas cylinder hand truck with cylinders",
+    "109": "Industrial pneumatic grinder and sander with sparks flying from metal surface",
+    "110": "Industrial metal cutting drills and high-frequency grinder with sparks",
+    "111": "Coiled industrial welding cables on workshop floor with welding equipment",
+    "113": "Luxury watches, jewelry and branded accessories displayed in warm spotlight booth",
+    "115": "Industrial drill grinding machine and pneumatic deburring tool",
+    "116": "Industrial LED high-bay light illuminating large factory hall",
+    "117": "Industrial reciprocating saw cutting steel and laser distance measurement tool",
+    "120": "Industrial welding positioner and turning roll with welding sparks",
+    "121": "Industrial TIG welding torch on perforated welding fixture table with arc",
+    "123": "Industrial fiber laser cutting machine with bright laser beam cutting steel plate",
+    "124": "Industrial fiber laser cutting machine with maintenance technician silhouette",
+    "126": "Industrial carbide rotary bur and pneumatic die grinder with sparks",
+    "127": "Industrial fiber laser cutting machine processing steel plate with bright beam",
+    "128": "Industrial fiber lifting slings and synthetic rigging straps",
+    "130": "Industrial circular saw blade cutting metal with bright sparks",
+    "132": "Industrial belt sander and pneumatic die grinder with sparks",
+    "134": "Industrial gas pressure regulator and welding gas equipment",
+    "136": "Industrial safety goggles and welding helmet on workshop bench",
+    "137": "Industrial chemical containers and cleaning solution drums in factory",
+    "138": "Industrial pneumatic impact wrench and air tools laid out in workshop",
+    "148": "Industrial hydraulic cylinder and press machine in factory",
 }
 
 
@@ -95,44 +148,42 @@ def load_name_short_map() -> dict:
     return out
 
 
-def make_prompt(no: str, product: str, brand: dict, name_short: str) -> str:
-    primary = brand.get("primary", "#1976D2")
-    secondary = brand.get("secondary", "#0D47A1")
-    text_color = "white" if (brand.get("text_on_primary", "#FFFFFF").upper() == "#FFFFFF") else "dark charcoal"
+def make_prompt(product: str) -> str:
+    """シネマティック工業シーン プロンプト (TOP みどころ3選シルエット v4 と統一感)。
+
+    柏原方針 (2026-05-10):
+      - シネマティック写真風 (フラット/3D/ピクトグラム禁止)
+      - 暗い工業背景 + ドラマチック照明
+      - オレンジの溶接アーク・火花・遠方の炉の火 で暖色アクセント
+      - 鎖、配管、機材で重厚な工業感
+      - メーカー名/英字タイポ/ロゴ/文字は一切なし
+    """
     return (
-        f"Flat vector illustration with English company name typography. "
-        f"Main subject: {product}, occupying the upper two-thirds of the image. "
-        f"Background: smooth gradient flowing from {primary} to {secondary}. "
-        f"In the bottom one-third, the company name '{name_short}' is prominently displayed "
-        f"as bold uppercase sans-serif typography in {text_color}, centered, "
-        f"with crisp clean letterforms. "
-        f"Industrial pictogram style, centered composition, soft drop shadows, "
-        f"slight isometric perspective. Single coherent scene, no collage, no other text. "
-        f"Do not add any other letters, numbers, logos, or watermarks anywhere."
+        f"{product}. "
+        f"Cinematic photography style, dramatic orange glow from welding arcs and "
+        f"molten steel sparks. Heavy industrial atmosphere with chains, pipes, distant "
+        f"furnace fires in the background. No text, no logos, no branding, no letters. "
+        f"Wide composition, dark dramatic background. Photorealistic, 4K quality, "
+        f"square 1024x1024."
     )
 
 
-def generate(client: OpenAI, no: str, brand_map: dict, name_map: dict,
+def generate(client: OpenAI, no: str,
              model: str = DEFAULT_MODEL, force: bool = False, retries: int = 3) -> bool:
     if no not in PRODUCTS:
         print(f"  SKIP {no}: no product mapping")
-        return False
-    name_short = name_map.get(no)
-    if not name_short:
-        print(f"  SKIP {no}: name_short が CSV に未設定")
         return False
     out = OUTPUT_DIR / f"{no}.png"
     if out.exists() and not force:
         print(f"  SKIP {no}: {out.name} already exists")
         return True
 
-    brand = brand_map.get(no, {})
-    prompt = make_prompt(no, PRODUCTS[no], brand, name_short)
+    prompt = make_prompt(PRODUCTS[no])
 
     current_model = model
     for attempt in range(1, retries + 1):
         try:
-            print(f"  GEN {no} [{current_model}] (attempt {attempt}/{retries}) name_short={name_short!r}")
+            print(f"  GEN {no} [{current_model}] (attempt {attempt}/{retries})")
             resp = client.images.generate(
                 model=current_model,
                 prompt=prompt,
@@ -167,17 +218,15 @@ def main():
     ap.add_argument("--force", action="store_true", help="既存ファイルを上書き")
     args = ap.parse_args()
 
-    brand_map = load_brand_map()
-    name_map = load_name_short_map()
     client = OpenAI()
 
     if args.only:
-        # 複数 no を space 区切りでも受け付ける (例: --only "082 058 117")
+        # 複数 no を space 区切りでも受け付ける (例: --only "033 099 117")
         targets = [s.strip().zfill(3) for s in args.only.split() if s.strip()]
     elif args.all:
         targets = sorted(PRODUCTS.keys())
     else:
-        targets = ["082", "058", "117"]  # 試作 3社
+        targets = ["033", "099", "117"]  # 試作 3社 (神戸/長谷川/ボッシュ)
 
     print(f"出力先: {OUTPUT_DIR.relative_to(ROOT)}")
     print(f"対象 ({len(targets)}社): {' '.join(targets)}")
@@ -185,7 +234,7 @@ def main():
 
     ok, fail = 0, []
     for no in targets:
-        if generate(client, no, brand_map, name_map, force=args.force):
+        if generate(client, no, force=args.force):
             ok += 1
         else:
             fail.append(no)
