@@ -62,6 +62,7 @@ PRODUCTS = {
     "015": "Industrial TIG welding torch with bright welding arc and ceramic nozzles",
     "016": "Industrial three-roll bending machine for sheet metal processing",
     "017": "Industrial metal deburring machine and 3D welding fixture table",
+    "019": "Industrial welding camera with matte black body and lens mounted near an arc welding torch capturing the weld pool with brilliant blue-white sparks",
     "020": "Cordless industrial rebar cutter, rebar bender and hydraulic puncher",
     "021": "Industrial laser cleaning device with bright orange laser beam removing rust",
     "027": "Industrial angle grinder with sparks and cordless power tool battery system",
