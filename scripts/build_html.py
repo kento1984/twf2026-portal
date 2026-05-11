@@ -47,6 +47,35 @@ TOPICS_OUT = OUT_DIR / "topics"
 
 LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳)")
 
+# Q2〜Q5 の空・テンプレ残骸判定用トークン
+# Q1 は骨格として常に表示するため、この判定は適用しない
+_EMPTY_Q_TOKENS = {
+    "", "なし", "無し", "ナシ", "－", "—", "-", "未定", "不明",
+    "N/A", "n/a", "なしです", "ありません", "特になし",
+}
+_STRIP_CHARS = "()（） 　.、・\n\t-－—"
+
+
+def is_empty_q(text) -> bool:
+    """Q2〜Q5 の本文が「客に見せると品が悪い空表現」かを判定する。
+
+    - None / 空文字 / 全角空白のみ → 空
+    - "なし" "未定" 等の単独トークン → 空
+    - "添付あり(  点) / なし" のようなテンプレ残骸 (30文字未満) → 空
+    - 記号・空白・改行のみで実質情報量ゼロ → 空
+    """
+    if not text:
+        return True
+    s = str(text).strip()
+    if s in _EMPTY_Q_TOKENS:
+        return True
+    if "添付あり" in s and "なし" in s and len(s) < 30:
+        return True
+    stripped = s
+    for ch in _STRIP_CHARS:
+        stripped = stripped.replace(ch, "")
+    return stripped == ""
+
 
 def strip_legal(name: str) -> str:
     s = unicodedata.normalize("NFKC", name or "")
@@ -327,6 +356,7 @@ def main():
     )
     # 添付パス用 URL エンコード (日本語フォルダ名 + 全角空白 　 をブラウザで安全に開けるように)
     env.filters["urlquote"] = lambda s: urlquote(str(s or ""), safe="")
+    env.filters["is_empty_q"] = is_empty_q
 
     pamphlet_idx = load_pamphlet_index()
     rewrites = load_rewrites()

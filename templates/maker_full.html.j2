@@ -545,7 +545,7 @@
         {% if maker.category %}<span>{{ maker.category }}</span>{% endif %}
       </p>
       <h1 class="maker-hero-name">{{ maker.name }}</h1>
-      {% if maker.q3 %}<p class="maker-hero-cat">{{ maker.q3 | truncate(140, True, '…') }}</p>{% endif %}
+      {% if not (maker.q3 | is_empty_q) %}<p class="maker-hero-cat">{{ maker.q3 | truncate(140, True, '…') }}</p>{% endif %}
       {% if maker.status_badges %}
       <div class="maker-hero-badges">
         {% for b in maker.status_badges %}
@@ -564,19 +564,19 @@
 
     <section class="maker-props">
       <dl class="property-list">
-        {% if maker.q3 %}
+        {% if not (maker.q3 | is_empty_q) %}
         <div class="property-row">
           <dt><span class="property-icon">📌</span> みどころ</dt>
           <dd>{{ maker.q3 | truncate(140, True, '…') }}</dd>
         </div>
         {% endif %}
-        {% if maker.q4 %}
+        {% if not (maker.q4 | is_empty_q) %}
         <div class="property-row">
           <dt><span class="property-icon">🎁</span> セール企画</dt>
           <dd>{{ maker.q4 | truncate(140, True, '…') }}</dd>
         </div>
         {% endif %}
-        {% if maker.q2 %}
+        {% if not (maker.q2 | is_empty_q) %}
         <div class="property-row">
           <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
           <dd>{{ maker.q2 | truncate(140, True, '…') }}</dd>
@@ -675,9 +675,16 @@
     </section>
     {% endif %}
 
-    {% set q1_4_empty = not (maker.q1 or maker.q2 or maker.q3 or maker.q4) %}
-    {% set q5_present = maker.q5 %}
+    {# Q1 は骨格として常に表示 (本文が truthy なら表示)。Q2〜Q5 は is_empty_q で沈黙判定。 #}
+    {% set q1_present = maker.q1 | trim if maker.q1 else false %}
+    {% set q2_present = not (maker.q2 | is_empty_q) %}
+    {% set q3_present = not (maker.q3 | is_empty_q) %}
+    {% set q4_present = not (maker.q4 | is_empty_q) %}
+    {% set q5_present = not (maker.q5 | is_empty_q) %}
+    {% set q1_4_empty = not (q1_present or q2_present or q3_present or q4_present) %}
+    {% set has_any_q = q1_present or q2_present or q3_present or q4_present or q5_present %}
 
+    {% if has_any_q %}
     <h2 class="section-h2">📝 メーカー回答 Q1〜Q5</h2>
     {% if q1_4_empty and q5_present %}
     <div class="q5-only-notice">
@@ -688,14 +695,14 @@
     {% endif %}
     <section class="q-list">
       {% set qs = [
-        ('Q1', '企画概要', maker.q1),
-        ('Q2', '新製品・新技術', maker.q2),
-        ('Q3', 'ブースのみどころ', maker.q3),
-        ('Q4', 'セール企画・特典', maker.q4),
-        ('Q5', '配布資料・備考', maker.q5),
+        ('Q1', '企画概要',         maker.q1, q1_present),
+        ('Q2', '新製品・新技術',   maker.q2, q2_present),
+        ('Q3', 'ブースのみどころ', maker.q3, q3_present),
+        ('Q4', 'セール企画・特典', maker.q4, q4_present),
+        ('Q5', '配布資料・備考',   maker.q5, q5_present),
       ] %}
-      {% for code, title, body in qs %}
-        {% if body %}
+      {% for code, title, body, show in qs %}
+        {% if show %}
         <article class="q-card">
           <div class="q-label">{{ code }} / {{ title }}</div>
           <h3 class="q-title">{{ title }}</h3>
@@ -704,6 +711,7 @@
         {% endif %}
       {% endfor %}
     </section>
+    {% endif %}
 
     {% if maker.attachments and maker.company_dir %}
     <h2 class="section-h2">📎 配布資料 ({{ maker.attachments | length }}件)</h2>
