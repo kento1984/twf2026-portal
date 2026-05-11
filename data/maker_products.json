@@ -219,30 +219,31 @@
   },
   "048": {
     "name": "静岡製機㈱",
+    "_doc": "気化式冷風機 RKF サイズ別ラインナップ 4枠 (TWF 6月開催で工場暑熱対策直結)。既存画像維持、source_page を各個別ページに分散。",
     "products": [
       {
         "name": "気化式冷風機 RKF306α",
         "category": "気化式冷風機（1〜2人用）",
         "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf306%CE%B1/file/3817/rfk306%CE%B1_icon.jpg",
-        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf306%CE%B1/"
       },
       {
         "name": "気化式冷風機 RKF406α",
         "category": "気化式冷風機（2〜4人用）",
         "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf406%CE%B1/file/188/rkf406_thum.jpg",
-        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf406%CE%B1/"
       },
       {
         "name": "気化式冷風機 RKF506α",
         "category": "気化式冷風機（4〜6人用）",
         "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf506%CE%B1/file/190/rkf506_thum.jpg",
-        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf506%CE%B1/"
       },
       {
         "name": "気化式冷風機 RKF711",
         "category": "業務用大型気化式冷風機",
         "image_url": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf711/file/2470/rkf711%E5%B7%A6.jpg",
-        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/"
+        "source_page": "https://www.shizuoka-seiki.co.jp/products/air/aircooler/aircooler/rkf711/"
       }
     ],
     "fetched_ok": true
@@ -804,38 +805,31 @@
   },
   "021": {
     "name": "オプティレーザーソリューションズ㈱",
+    "_doc": "出力幅訴求 4枠 (時代適合): 大型ハイパワー (CW3000) + 中型空冷可搬 (CW1500) + パルス (P1000) + バッテリー駆動 (P300BP・現場機動)。レーザー洗浄機の幅広いラインナップ展開を訴求。",
     "products": [
       {
         "name": "ULTL-CW3000",
-        "category": "",
+        "category": "3000W 水冷大型ハイパワー (フラッグシップ)",
         "image_url": "../../assets/maker-products/021/1.jpg",
-        "source_page": "https://ult-laser.com/lineup/",
-        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_cw3000_img01.jpg?25112802",
-        "bytes": 72402
+        "source_page": "https://ult-laser.com/lineup/cw3000-w/"
       },
       {
-        "name": "ULTL-CW2000PX",
-        "category": "",
+        "name": "ULTL-CW1500",
+        "category": "1500W 中型空冷 (可搬性)",
         "image_url": "../../assets/maker-products/021/2.jpg",
-        "source_page": "https://ult-laser.com/lineup/",
-        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_cw2000px_img01.jpg?25112802",
-        "bytes": 68509
+        "source_page": "https://ult-laser.com/lineup/cw1500-a/"
       },
       {
-        "name": "ULTL-CW2000",
-        "category": "",
+        "name": "ULTL-P1000",
+        "category": "1000W パルス水冷 (素材選択性)",
         "image_url": "../../assets/maker-products/021/3.jpg",
-        "source_page": "https://ult-laser.com/lineup/",
-        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_cw2000_img01.jpg?25112802",
-        "bytes": 67059
+        "source_page": "https://ult-laser.com/lineup/pulse1000-w/"
       },
       {
-        "name": "サンプル商品",
-        "category": "",
+        "name": "ULTL-P300BP",
+        "category": "300W バッテリー駆動・電源不要 (現場機動性)",
         "image_url": "../../assets/maker-products/021/4.jpg",
-        "source_page": "https://ult-laser.com/lineup/",
-        "remote_url": "https://ult-laser.com/cms/wp-content/themes/ult-laser/img/lineup/product_list_pulse1000_w_img01.jpg?25112802",
-        "bytes": 68157
+        "source_page": "https://ult-laser.com/lineup/pulse300bp-a/"
       }
     ],
     "fetched_ok": true
@@ -911,38 +905,31 @@
   },
   "029": {
     "name": "㈱ケミカル山本",
+    "_doc": "ステンレス表面処理パイオニア 4枠: 溶接焼け取り (TWF直結・看板) + ステンレス用品 + チタン用品 (多素材) + テクノセンター受託加工。旧版は全画像がナビ素材 (スライド/キャラ/展示会案内/営業所マップ) で誤拾い、新規取得。",
     "products": [
       {
-        "name": "スライド5 ｜ステンレス電解研磨　溶接焼け取り　さび、汚れ取り　及び　材質の簡易判別　不動態技術　株式会社ケミカル山本",
-        "category": "",
+        "name": "溶接焼け取り",
+        "category": "中性塩電解焼け取り (TWF直結・看板)",
         "image_url": "../../assets/maker-products/029/1.jpg",
-        "source_page": "http://www.chemical-y.co.jp/",
-        "remote_url": "https://chemical-y.co.jp/wordpress/wp-content/uploads/2024/07/20240704.jpg",
-        "bytes": 531106
+        "source_page": "https://chemical-y.co.jp/product/yosetuato"
       },
       {
-        "name": "ケミヤマ博士",
-        "category": "",
-        "image_url": "../../assets/maker-products/029/2.png",
-        "source_page": "http://www.chemical-y.co.jp/",
-        "remote_url": "https://chemical-y.co.jp/common/img/hakase.png",
-        "bytes": 63145
+        "name": "ステンレス用品",
+        "category": "電解研磨・不動態化処理 (SUS304/316/430)",
+        "image_url": "../../assets/maker-products/029/2.jpg",
+        "source_page": "https://chemical-y.co.jp/product/stainless"
       },
       {
-        "name": "展示会のご案内　株式会社ケミカル山本",
-        "category": "",
-        "image_url": "../../assets/maker-products/029/3.png",
-        "source_page": "http://www.chemical-y.co.jp/",
-        "remote_url": "https://chemical-y.co.jp/common/img/tenji_img.png",
-        "bytes": 188579
+        "name": "チタン用品",
+        "category": "チタンブライト・チタンリンス (多素材対応)",
+        "image_url": "../../assets/maker-products/029/3.jpg",
+        "source_page": "https://chemical-y.co.jp/product/titanium"
       },
       {
-        "name": "営業所・出張所",
-        "category": "",
+        "name": "テクノセンター (受託加工)",
+        "category": "出張施工・人手不足対応",
         "image_url": "../../assets/maker-products/029/4.png",
-        "source_page": "http://www.chemical-y.co.jp/",
-        "remote_url": "https://chemical-y.co.jp/common/img/eigyousho_img_map.png",
-        "bytes": 56790
+        "source_page": "https://chemical-y.co.jp/createcenter/"
       }
     ],
     "fetched_ok": true
@@ -973,38 +960,31 @@
   },
   "047": {
     "name": "㈱重松製作所",
+    "_doc": "TWF直結+時代適合最大化 4枠: PAPR (溶接ヒューム規制対応・時代適合◎) + 防じん/防毒兼用 (TW01C・多用途) + 保護めがね LX (TWF文脈◎) + 熱中症予防 (6月開催の季節適合)。熱中症2枠重複を解消し TW01C 追加。",
     "products": [
       {
-        "name": "熱中症予防用品TC-2000Vの男性着用写真",
-        "category": "",
-        "image_url": "../../assets/maker-products/047/1.png",
-        "source_page": "https://www.sts-japan.com/",
-        "remote_url": "https://www.sts-japan.com/images/phTC_2000V.png",
-        "bytes": 45538
-      },
-      {
-        "name": "熱中症予防用品 VTW-7K2Tの男性着用写真",
-        "category": "",
-        "image_url": "../../assets/maker-products/047/2.png",
-        "source_page": "https://www.sts-japan.com/",
-        "remote_url": "https://www.sts-japan.com/images/phVTW-7K2T.png",
-        "bytes": 34820
-      },
-      {
-        "name": "Syx099P(V3/OV付)の商品写真",
-        "category": "",
+        "name": "電動ファン付き呼吸用保護具 Syx099P",
+        "category": "PAPR・溶接ヒューム対策 (2022年規制対応)",
         "image_url": "../../assets/maker-products/047/3.png",
-        "source_page": "https://www.sts-japan.com/",
-        "remote_url": "https://www.sts-japan.com/images/phSyx099P_V3_OV.png",
-        "bytes": 49806
+        "source_page": "https://www.sts-japan.com/products/papr/"
       },
       {
-        "name": "保護めがね LX-91/LX-92の商品写真（青色）",
-        "category": "",
+        "name": "防じん/防毒 兼用マスク TW01C",
+        "category": "多用途呼吸用保護具 (7色展開)",
+        "image_url": "../../assets/maker-products/047/2.jpg",
+        "source_page": "https://www.sts-japan.com/products/twoway/"
+      },
+      {
+        "name": "保護めがね LX-91/LX-92",
+        "category": "視認性重視デザイン",
         "image_url": "../../assets/maker-products/047/4.png",
-        "source_page": "https://www.sts-japan.com/",
-        "remote_url": "https://www.sts-japan.com/images/phLX-91_LX-92.png",
-        "bytes": 58226
+        "source_page": "https://www.sts-japan.com/products/eye_protector/"
+      },
+      {
+        "name": "熱中症予防用品 TC-2000V",
+        "category": "6月開催のTWF季節適合",
+        "image_url": "../../assets/maker-products/047/1.png",
+        "source_page": "https://www.sts-japan.com/products/heat_stroke/"
       }
     ],
     "fetched_ok": true
@@ -1071,38 +1051,31 @@
   },
   "062": {
     "name": "ダイキンＨＶＡＣソリューション東京㈱",
+    "_doc": "TWF文脈最大化 4枠 (旧版は学校/リース/寒冷地/農事 で TWF来場者の関心軸とズレ): 工場・倉庫向け (TWF直結) + 業務用換気ベンティエール (ヒューム排出) + リースZEAS (初期投資抑制) + エアコン洗浄サービス (保守・人手不足対応)。",
     "products": [
       {
-        "name": "学校・教育施設",
-        "category": "",
+        "name": "工場・倉庫向けエアコン",
+        "category": "TWF直結・工場暑熱対策",
         "image_url": "../../assets/maker-products/062/1.jpg",
-        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
-        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img01-05.jpg",
-        "bytes": 31896
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products/scene/factory/"
+      },
+      {
+        "name": "業務用換気ベンティエール",
+        "category": "ヒューム排出・換気規制対応",
+        "image_url": "../../assets/maker-products/062/2.png",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/kanki/"
       },
       {
         "name": "業務用エアコンのリースネットZEAS",
-        "category": "",
-        "image_url": "../../assets/maker-products/062/2.jpg",
-        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
-        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img02-01.jpg",
-        "bytes": 34545
+        "category": "初期投資抑制・サブスク型",
+        "image_url": "../../assets/maker-products/062/3.png",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/anshin/"
       },
       {
-        "name": "寒冷地向けエアコン",
-        "category": "",
-        "image_url": "../../assets/maker-products/062/3.jpg",
-        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
-        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img02-04.jpg",
-        "bytes": 82318
-      },
-      {
-        "name": "農事用ヒートポンプエアコン",
-        "category": "",
-        "image_url": "../../assets/maker-products/062/4.jpg",
-        "source_page": "https://www.daikin-hvac-tokyo.co.jp/products",
-        "remote_url": "https://www.daikin-hvac-tokyo.co.jp/assets/images/products/img02-14.jpg",
-        "bytes": 42201
+        "name": "業務用エアコン洗浄サービス",
+        "category": "保守・人手不足対応",
+        "image_url": "../../assets/maker-products/062/4.png",
+        "source_page": "https://www.daikin-hvac-tokyo.co.jp/senjyo/"
       }
     ],
     "fetched_ok": true
@@ -1191,38 +1164,31 @@
   },
   "084": {
     "name": "日光物産㈱",
+    "_doc": "保護具メーカー 4枠 (既存画像対応): 総合カタログ + 化学防護 (バリアーマン) + 耐熱・遮熱・防炎 (アルマテックス) + 耐切創 (テガード)。",
     "products": [
       {
-        "name": "日光物産 主要製品 1",
-        "category": "",
+        "name": "総合カタログ",
+        "category": "全製品ラインナップ",
         "image_url": "../../assets/maker-products/084/1.jpg",
-        "source_page": "https://nikko-bussan.com/catalog/",
-        "remote_url": "https://nikko-bussan.com/control/catalog/images/sougou072.jpg",
-        "bytes": 264356
+        "source_page": "https://nikko-bussan.com/catalog/"
       },
       {
-        "name": "日光物産 主要製品 2",
-        "category": "",
+        "name": "化学防護服・保護服 (バリアーマン)",
+        "category": "化学物質・有害物質対策",
         "image_url": "../../assets/maker-products/084/2.jpg",
-        "source_page": "https://nikko-bussan.com/catalog/",
-        "remote_url": "https://nikko-bussan.com/control/catalog/images/protective05.jpg",
-        "bytes": 244569
+        "source_page": "https://nikko-bussan.com/products/protective-wear/"
       },
       {
-        "name": "日光物産 主要製品 3",
-        "category": "",
+        "name": "耐熱・遮熱・防炎製品 (アルマテックス)",
+        "category": "溶接用防炎・耐熱 (TWF直結)",
         "image_url": "../../assets/maker-products/084/3.jpg",
-        "source_page": "https://nikko-bussan.com/catalog/",
-        "remote_url": "https://nikko-bussan.com/control/catalog/images/armatex_var1.jpg",
-        "bytes": 170235
+        "source_page": "https://nikko-bussan.com/products/heat-resistant/"
       },
       {
-        "name": "日光物産 主要製品 4",
-        "category": "",
+        "name": "耐切創製品 (テガード)",
+        "category": "切創防止・手袋・アームカバー",
         "image_url": "../../assets/maker-products/084/4.jpg",
-        "source_page": "https://nikko-bussan.com/catalog/",
-        "remote_url": "https://nikko-bussan.com/control/catalog/images/teguard_catalog_var1.jpg",
-        "bytes": 294291
+        "source_page": "https://nikko-bussan.com/products/cut-resistant/"
       }
     ],
     "fetched_ok": true
@@ -1322,152 +1288,124 @@
   },
   "088": {
     "name": "日本アイ・エス・ケイ㈱",
+    "_doc": "金庫・ロッカーメーカー (キング工業) 4枠 (TWF文脈薄、既存画像活用 URL個別化のみ): ショールーム + 防盗・耐火金庫 + データ保管庫 (windowシリーズ) + 書庫・ロッカー。",
     "products": [
       {
-        "name": "ショールームのご案内” width=",
-        "category": "",
+        "name": "ショールームのご案内",
+        "category": "実機展示・体験",
         "image_url": "../../assets/maker-products/088/1.jpg",
-        "source_page": "http://www.king-ind.co.jp/",
-        "remote_url": "http://www.king-ind.co.jp/showroom_isk/enter_01.jpg",
-        "bytes": 678882
+        "source_page": "http://www.king-ind.co.jp/showroom_isk/index.html"
       },
       {
         "name": "防盗金庫・耐火金庫",
-        "category": "",
+        "category": "業務用安全保管 (irisシリーズ)",
         "image_url": "../../assets/maker-products/088/2.jpg",
-        "source_page": "http://www.king-ind.co.jp/",
-        "remote_url": "http://www.king-ind.co.jp/image/main safe_iris-05.jpg",
-        "bytes": 189601
+        "source_page": "http://www.king-ind.co.jp/safe/index.html"
       },
       {
-        "name": "日本アイ・エス・ケイ 主要製品 3",
-        "category": "",
+        "name": "データ保管庫",
+        "category": "windowシリーズ・特殊保管",
         "image_url": "../../assets/maker-products/088/3.jpg",
-        "source_page": "http://www.king-ind.co.jp/",
-        "remote_url": "http://www.king-ind.co.jp/image/main window dental.jpg",
-        "bytes": 208565
+        "source_page": "http://www.king-ind.co.jp/shouhin.html"
       },
       {
         "name": "書庫・ロッカー",
-        "category": "",
+        "category": "業務用収納 (windowロッカー)",
         "image_url": "../../assets/maker-products/088/4.jpg",
-        "source_page": "http://www.king-ind.co.jp/",
-        "remote_url": "http://www.king-ind.co.jp/image/main window locker.jpg",
-        "bytes": 284329
+        "source_page": "http://www.king-ind.co.jp/shouhin.html"
       }
     ],
     "fetched_ok": true
   },
   "090": {
     "name": "日本カノマックス㈱",
+    "_doc": "TWF文脈最大化 4枠 (旧版の走査型ナノパーティクル/infiTOFは半導体・研究機関向けで TWF来場者と関心軸ズレ、粉じん計・風速計に差替): マスクフィットテスター + ハンドヘルドパーティクルカウンター + 粉じん計 + 風速計。",
     "products": [
       {
-        "name": "マスクフィットテスター SeriesⅡ 発売",
-        "category": "",
+        "name": "マスクフィットテスター SeriesⅡ",
+        "category": "呼吸用保護具評価 (溶接ヒューム規制対応)",
         "image_url": "../../assets/maker-products/090/1.jpg",
-        "source_page": "https://www.kanomax.co.jp/",
-        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2022/04/55066b0e97fb7175af738a6429c3ce78.jpg",
-        "bytes": 69269
+        "source_page": "https://www.kanomax.co.jp/product_category/category14/"
       },
       {
-        "name": "走査型液中ナノパーティクルカウンター　ScanningTPC　Model 9010",
-        "category": "",
+        "name": "ハンドヘルドパーティクルカウンター MODEL3888/3889",
+        "category": "気中粒子計数 (現場携帯型)",
         "image_url": "../../assets/maker-products/090/2.jpg",
-        "source_page": "https://www.kanomax.co.jp/",
-        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2021/07/296f8e6df8a7384623668e05bec81f66.jpg",
-        "bytes": 190880
+        "source_page": "https://www.kanomax.co.jp/product_category/category06/"
       },
       {
-        "name": "ハンドヘルドパーティクルカウンターMODEL3888・3889",
-        "category": "",
-        "image_url": "../../assets/maker-products/090/3.jpg",
-        "source_page": "https://www.kanomax.co.jp/",
-        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2021/07/img_820_1514421816.jpg",
-        "bytes": 198481
+        "name": "粉じん計・サンプリングポンプ",
+        "category": "作業環境測定 (粉じん濃度)",
+        "image_url": "../../assets/maker-products/090/3.png",
+        "source_page": "https://www.kanomax.co.jp/product_category/category02/"
       },
       {
-        "name": "infiTOF-DUO",
-        "category": "",
-        "image_url": "../../assets/maker-products/090/4.jpg",
-        "source_page": "https://www.kanomax.co.jp/",
-        "remote_url": "https://www.kanomax.co.jp/wordp/wp-content/uploads/2021/07/img_820_1576627011.jpg",
-        "bytes": 89325
+        "name": "風速計・気流計",
+        "category": "局所排気装置の風量測定",
+        "image_url": "../../assets/maker-products/090/4.png",
+        "source_page": "https://www.kanomax.co.jp/product_category/category01/"
       }
     ],
     "fetched_ok": true
   },
   "096": {
     "name": "ニューレジストン㈱",
+    "_doc": "切断砥石4枠 (主力ラインナップ網羅): ゼータカット (主力ストレート) + ジャーンカット (ラフサイド) + デルタカット (薄型1mm) + シータミニ (小径)。旧版は別会社 (nrs.co.jp = 旅行会社) 誤参照のため全廃棄、正しいドメイン newregiston.co.jp に修正。",
     "products": [
       {
-        "name": "ニューレジストン 主要製品 1",
-        "category": "",
+        "name": "ゼータカット (ZETA CUT)",
+        "category": "主力ストレート型切断砥石 (業界トップクラスのカットスピード)",
         "image_url": "../../assets/maker-products/096/1.jpg",
-        "source_page": "https://www.nrs.co.jp/",
-        "remote_url": "https://www.nrs.co.jp/img/photo01.jpg",
-        "bytes": 519502
+        "source_page": "https://www.newregiston.co.jp/p_info/"
       },
       {
-        "name": "ニューレジストン 主要製品 2",
-        "category": "",
+        "name": "ジャーンカット (JCT)",
+        "category": "ラフサイド仕上げ・105〜510mm 幅広いラインナップ",
         "image_url": "../../assets/maker-products/096/2.jpg",
-        "source_page": "https://www.nrs.co.jp/",
-        "remote_url": "https://www.nrs.co.jp/img/photo02.jpg",
-        "bytes": 595577
+        "source_page": "https://www.newregiston.co.jp/product/4jct/"
       },
       {
-        "name": "ニューレジストン 主要製品 3",
-        "category": "",
+        "name": "デルタカット (DCT)",
+        "category": "オフセット型・超薄型1mm・面一切断",
         "image_url": "../../assets/maker-products/096/3.jpg",
-        "source_page": "https://www.nrs.co.jp/",
-        "remote_url": "https://www.nrs.co.jp/img/photo03.jpg",
-        "bytes": 652423
+        "source_page": "https://www.newregiston.co.jp/product/4dct/"
       },
       {
-        "name": "ニューレジストン 主要製品 4",
-        "category": "",
+        "name": "シータミニ 58/75",
+        "category": "小径切断砥石 (狭所・小面積対応)",
         "image_url": "../../assets/maker-products/096/4.jpg",
-        "source_page": "https://www.nrs.co.jp/",
-        "remote_url": "https://www.nrs.co.jp/img/photo04.jpg",
-        "bytes": 801256
+        "source_page": "https://www.newregiston.co.jp/product/6sm/"
       }
     ],
     "fetched_ok": true
   },
   "097": {
     "name": "㈱ノビテック",
+    "_doc": "TWF文脈最大化 4枠 (旧版は VENUS3D 3枠重複 mixed): 溶接プロセス可視化 (Cavitar Welding Camera) + ハイスピードカメラ Phantom + 3D動作計測 VENUS3D + Thermera 熱画像。溶接プロセス可視化と熱画像で TWF直結を強化。",
     "products": [
       {
-        "name": "工業分野 3次元動作計測システムVENUS3D R",
-        "category": "",
+        "name": "溶接プロセス可視化 (Cavitar Welding Camera)",
+        "category": "アーク/レーザー溶接の可視化解析 (TWF直結◎◎)",
         "image_url": "../../assets/maker-products/097/1.jpg",
-        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
-        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_VENUS3DR_industrial.jpg",
-        "bytes": 85251
+        "source_page": "https://www.nobby-tech.co.jp/welding.html"
       },
       {
-        "name": "人体分野 3次元動作計測システムVENUS3D R",
-        "category": "",
+        "name": "ハイスピードカメラ Phantom",
+        "category": "高速度撮影・画像計測",
         "image_url": "../../assets/maker-products/097/2.jpg",
-        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
-        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_VENUS3DR_bio.jpg",
-        "bytes": 99580
+        "source_page": "https://www.nobby-tech.co.jp/measure.html"
       },
       {
-        "name": "寸法・位置計測ソフトウェアVENUS3D STA",
-        "category": "",
+        "name": "3次元動作計測 VENUS3D R",
+        "category": "工業分野モーション解析",
         "image_url": "../../assets/maker-products/097/3.jpg",
-        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
-        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_VENUS3DR_sta.jpg",
-        "bytes": 93514
+        "source_page": "https://www.nobby-tech.co.jp/3d.html"
       },
       {
-        "name": "ハイスピードカメラPhantom",
-        "category": "",
+        "name": "Thermera 熱画像計測 (2色法)",
+        "category": "溶接温度計測・高温現象解析",
         "image_url": "../../assets/maker-products/097/4.jpg",
-        "source_page": "https://www.nobby-tech.co.jp/materials/industry",
-        "remote_url": "https://www.nobby-tech.co.jp/dcms_media/image/catalogimg_hs_phantomall.jpg",
-        "bytes": 82669
+        "source_page": "https://www.nobby-tech.co.jp/measure/thermera/"
       }
     ],
     "fetched_ok": true

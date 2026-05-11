@@ -441,10 +441,11 @@
     "text_on_primary": "#FFFFFF"
   },
   "096": {
-    "source": "https://www.nrs.co.jp/",
+    "source": "https://www.newregiston.co.jp/",
     "primary": "#666666",
     "secondary": "#444444",
-    "text_on_primary": "#FFFFFF"
+    "text_on_primary": "#FFFFFF",
+    "_doc": "ドメイン修正: nrs.co.jp (誤・旅行会社) → newregiston.co.jp (正・砥石メーカー)"
   },
   "097": {
     "source": "https://www.nobby-tech.co.jp/",
