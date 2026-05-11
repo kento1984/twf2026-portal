@@ -96,8 +96,8 @@
     "secondary": "#A30009",
     "accent": "#1A1A1A",
     "text_on_primary": "#FFFFFF",
-    "source": "https://smj.jp.sharp/bs/",
-    "notes": "シャープ公式ロゴマニュアルにて『Sharp red』として #E6000D を規定（社章・ロゴに統一指定）。source は 049 出展事業 (業務用・暑熱対策・アイススラリー冷蔵庫等) に対応する『シャープマーケティングジャパン ビジネスソリューション社』公式サイトを採用 (旧 www.sharp.co.jp はシャープ本体トップで該当事業ページに辿り着けないため差し替え)。",
+    "source": "https://smj.jp.sharp/hs/",
+    "notes": "シャープ公式ロゴマニュアルにて『Sharp red』として #E6000D が規定。source は 049 ブジ社 (TWF出展) に対応する『シャープマーケティングジャパン ホームソリューション社』公式サイトを採用。旧 source = smj.jp.sharp/bs/ (ビジネスソリューション社、BtoB DX/AI/複合機系) は TWF 出展ジャンル (空調・空気清浄・業務用ディスプレイ・LED照明) と不一致のため 2026-05 に /hs/ へ修正。",
     "_group": "group_b"
   },
   "058": {

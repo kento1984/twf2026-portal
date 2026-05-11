@@ -247,34 +247,43 @@
     "fetched_ok": true
   },
   "049": {
-    "name": "シャープマーケティングジャパン㈱",
+    "name": "シャープマーケティングジャパン㈱ ホームソリューション社",
     "products": [
       {
-        "name": "ルームエアコン Rシリーズ",
-        "category": "プラズマクラスター搭載ルームエアコン",
-        "image_url": "https://jp.sharp/aircon/products/ur/images/gallery-1.jpg",
-        "source_page": "https://jp.sharp/aircon/products/ur/"
+        "name": "業務用プラズマクラスター空気清浄機 FU-M1200 (大風量・コンパクト)",
+        "category": "業務用空気清浄機",
+        "image_url": "../../assets/maker-products/049/1.png",
+        "source_page": "https://jp.sharp/business/pci/",
+        "remote_url": "https://jp.sharp/business/pci/assets/common/product-images/fum1200.png",
+        "bytes": 108266
       },
       {
-        "name": "プラズマクラスター空気清浄機 KI-UD50",
-        "category": "加湿空気清浄機",
-        "image_url": "https://jp.sharp/kuusei/products/kiud50/images/gallery-1.jpg",
-        "source_page": "https://jp.sharp/kuusei/products/kiud50/"
+        "name": "業務用プラズマクラスター加湿空気清浄機 KI-M1800 (タワー型)",
+        "category": "業務用空気清浄機",
+        "image_url": "../../assets/maker-products/049/2.png",
+        "source_page": "https://jp.sharp/business/pci/",
+        "remote_url": "https://jp.sharp/business/pci/assets/common/product-images/kim1800.png",
+        "bytes": 44418
       },
       {
-        "name": "プラズマクラスター冷蔵庫 SJ-X504R",
-        "category": "両開き冷蔵庫",
-        "image_url": "https://jp.sharp/reizo/products/sjx504r/images/gallery-1.jpg",
-        "source_page": "https://jp.sharp/reizo/products/sjx504r/"
+        "name": "インフォメーションディスプレイ e-Signage 5",
+        "category": "インフォメーションディスプレイ",
+        "image_url": "../../assets/maker-products/049/3.png",
+        "source_page": "https://jp.sharp/business/lcd-display/",
+        "remote_url": "https://jp.sharp/business/lcd-display/images/top/slide4.png",
+        "bytes": 786145
       },
       {
-        "name": "ポータブルクーラー AV-U24S",
-        "category": "ポータブルクーラー",
-        "image_url": "https://jp.sharp/portable-cooler/products/avu24s/images/gallery-1.jpg",
-        "source_page": "https://jp.sharp/portable-cooler/products/avu24s/"
+        "name": "業務用LED 高天井照明 (工場・倉庫向け)",
+        "category": "業務用LED照明",
+        "image_url": "../../assets/maker-products/049/4.jpg",
+        "source_page": "https://jp.sharp/business/led_lighting/",
+        "remote_url": "https://jp.sharp/business/led_lighting/images/n_visual_04.jpg",
+        "bytes": 86992
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "source": "smj.jp.sharp/hs/ + jp.sharp/business/ (HS社扱い業務用4カテゴリで再構築、旧 BS社 source からの移行 2026-05)"
   },
   "058": {
     "name": "スリーエムジャパン㈱",
