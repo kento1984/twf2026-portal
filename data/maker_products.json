@@ -289,7 +289,7 @@
     "name": "スリーエムジャパン㈱",
     "products": [
       {
-        "name": "3M Personal Protective Equipment Products: Man wearing goggles, hard hat, respir",
+        "name": "個人用保護具 一式 (溶接面・ヘルメット・呼吸用)",
         "category": "",
         "image_url": "../../assets/maker-products/058/1.webp",
         "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
@@ -297,7 +297,7 @@
         "bytes": 65522
       },
       {
-        "name": "3M PPE Protective Eyewear",
+        "name": "保護めがね",
         "category": "",
         "image_url": "../../assets/maker-products/058/2.webp",
         "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
@@ -305,7 +305,7 @@
         "bytes": 48318
       },
       {
-        "name": "作業者の安全を守り、より安心して最大限のパフォーマンスを発揮いただくために。",
+        "name": "電動ファン付き呼吸用保護具 (溶接ヒューム対策)",
         "category": "",
         "image_url": "../../assets/maker-products/058/3.webp",
         "source_page": "https://www.3mcompany.jp/3M/ja_JP/respiratory-protection-jp/products/reusable-respirators/",
@@ -313,7 +313,7 @@
         "bytes": 105784
       },
       {
-        "name": "作業者のパフォーマンスを改善するために、より快適で安全な電動ファン付き呼吸用保護をぜひご検討ください。",
+        "name": "電動ファン付き呼吸用保護具 (頭部全面保護タイプ)",
         "category": "",
         "image_url": "../../assets/maker-products/058/4.webp",
         "source_page": "https://www.3mcompany.jp/3M/ja_JP/respiratory-protection-jp/products/papr/",
