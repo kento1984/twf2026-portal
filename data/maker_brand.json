@@ -379,9 +379,10 @@
     "text_on_primary": "#FFFFFF"
   },
   "028": {
-    "source": "https://www.ks-s.co.jp/",
-    "primary": "#666666",
-    "secondary": "#444444",
+    "source": "https://kss-kr.com/",
+    "primary": "#C8102E",
+    "secondary": "#1A1A1A",
+    "accent": "#FF6900",
     "text_on_primary": "#FFFFFF"
   },
   "031": {

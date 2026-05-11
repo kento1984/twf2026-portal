@@ -916,18 +916,35 @@
     "fetched_ok": true
   },
   "028": {
-    "name": "㈱ＫＳ・Ｓ",
+    "name": "株式会社KS・S",
     "products": [
       {
-        "name": "kawasaki2",
-        "category": "",
+        "name": "KR-2000 ファイバーレーザー溶接機",
+        "category": "レーザー加工機",
         "image_url": "../../assets/maker-products/028/1.png",
-        "source_page": "https://www.ks-s.co.jp/",
-        "remote_url": "https://www.ks-s.co.jp/wp/wp-content/uploads/2021/03/kawasaki2-358x1024.png",
-        "bytes": 358356
+        "source_page": "https://kss-kr.com/",
+        "remote_url": "https://kss-kr.com/wp-content/themes/kss/img/nf/top/img01.png",
+        "bytes": 576600
+      },
+      {
+        "name": "KR-2000WG 高出力ファイバーレーザー溶接機 (2000W×2、新製品)",
+        "category": "レーザー加工機",
+        "image_url": "../../assets/maker-products/028/2.png",
+        "source_page": "https://kss-kr.com/",
+        "remote_url": "https://kss-kr.com/wp-content/themes/kss/img/nf/top/newitem.png",
+        "bytes": 408548
+      },
+      {
+        "name": "製品ラインナップ (溶接機・パイプ切断機・レーザクリーナー)",
+        "category": "レーザー加工機",
+        "image_url": "../../assets/maker-products/028/3.png",
+        "source_page": "https://kss-kr.com/",
+        "remote_url": "https://kss-kr.com/wp-content/themes/kss/img/nf/top/lineup.png",
+        "bytes": 1205429
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "source": "kss-kr.com (corrected from ks-s.co.jp — 別会社の社長写真誤掲載を是正、2026-05)"
   },
   "029": {
     "name": "㈱ケミカル山本",
