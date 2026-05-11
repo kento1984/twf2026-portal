@@ -289,39 +289,39 @@
     "name": "スリーエムジャパン㈱",
     "products": [
       {
-        "name": "個人用保護具 一式 (溶接面・ヘルメット・呼吸用)",
-        "category": "",
-        "image_url": "../../assets/maker-products/058/1.webp",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
-        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/cce66706-7e43-45b1-a59b-52b3835724a9/MG_1351.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-cce66706-7e43-45b1-a59b-52b3835724a9-lOGhVFl",
-        "bytes": 65522
+        "name": "スピードグラス G5-03 Pro 自動溶接遮光面",
+        "category": "溶接ヘルメット",
+        "image_url": "../../assets/maker-products/058/1.jpg",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/speedglas-welding-helmets-jp/",
+        "remote_url": "https://multimedia.3m.com/mws/media/2301515J/3m-speedglas-g5-03-pro-welding-helmet-with-passive-filter-front.jpg",
+        "bytes": 3447
+      },
+      {
+        "name": "DBI-サラ エグゾフィット ライト フルハーネス",
+        "category": "墜落制止用器具",
+        "image_url": "../../assets/maker-products/058/2.jpg",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/fall-protection/",
+        "remote_url": "https://multimedia.3m.com/mws/media/1648310J/3m-fall-protection-full-body-harness.jpg",
+        "bytes": 7266
+      },
+      {
+        "name": "3M 取替え式防じんマスク 3000/5744J-RS2 (新発売)",
+        "category": "呼吸用保護具",
+        "image_url": "../../assets/maker-products/058/3.jpg",
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/p/c/ppe/respiratory-protection/",
+        "remote_url": "https://multimedia.3m.com/mws/media/960356J/J.jpg",
+        "bytes": 7165
       },
       {
         "name": "保護めがね",
-        "category": "",
-        "image_url": "../../assets/maker-products/058/2.webp",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
-        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/b356fc72-66cd-4ac4-b1d6-f6ac60732f67/3M+Schutzbrille+SecureFit+SF401ASAF_Anwendung_Polieren_3.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-b356fc72-66cd-4ac4-b1d6-f6ac60732f67-oCgGZWT",
-        "bytes": 48318
-      },
-      {
-        "name": "電動ファン付き呼吸用保護具 (溶接ヒューム対策)",
-        "category": "",
-        "image_url": "../../assets/maker-products/058/3.webp",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/respiratory-protection-jp/products/reusable-respirators/",
-        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/9f340ba8-3b23-46ba-bf6f-8d9e9c7704db/210401_3m_6361_5_1200x350.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-9f340ba8-3b23-46ba-bf6f-8d9e9c7704db-nQiixOQ",
-        "bytes": 105784
-      },
-      {
-        "name": "電動ファン付き呼吸用保護具 (頭部全面保護タイプ)",
-        "category": "",
+        "category": "個人用保護具",
         "image_url": "../../assets/maker-products/058/4.webp",
-        "source_page": "https://www.3mcompany.jp/3M/ja_JP/respiratory-protection-jp/products/papr/",
-        "remote_url": "https://www.3mcompany.jp/wps/wcm/connect/6a001820-4ce7-47b5-922a-7ddb6a294a23/210402_3m_d2_1741_5_1200x350.jpg?MOD=AJPERES&CACHEID=ROOTWORKSPACE-6a001820-4ce7-47b5-922a-7ddb6a294a23-oCgH0u3",
-        "bytes": 97358
+        "source_page": "https://www.3mcompany.jp/3M/ja_JP/worker-health-safety-jp/personal-protective-equipment/",
+        "bytes": 48318
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "source": "3mcompany.jp + multimedia.3m.com (TWF目玉3製品で再構築 2026-05)"
   },
   "060": {
     "name": "㈱セブンティ・エイト",
