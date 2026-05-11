@@ -583,76 +583,62 @@
   },
   "002": {
     "name": "アサダ㈱",
+    "_doc": "4枠: TWF出展機種 (Beaver 4 ACTIVE) + HVAC冷媒対応 (MS-810) + 配管伝統看板 (Super Tronic) + 銅管 (Robend)。mamorukun は4枠目から外し Beaver 4 に差替 (Q1 に展示企画明記あり)。",
     "products": [
       {
-        "name": "アサダ 主要製品 1",
-        "category": "",
+        "name": "デジタルマニホールド MS-810",
+        "category": "HVAC・冷凍 (冷媒規制対応・脱フロン)",
         "image_url": "../../assets/maker-products/002/1.jpg",
-        "source_page": "https://www.asada.co.jp/",
-        "remote_url": "https://www.asada.co.jp/content/images/product/image/11manifold/digitalmf/digital-manifold_MS810_1100x600.jpg",
-        "bytes": 125035
+        "source_page": "https://www.asada.co.jp/products/hvac_and_r_servicing_equipment/manifolds/040201-019/"
       },
       {
-        "name": "アサダ 主要製品 2",
-        "category": "",
+        "name": "Super Tronic 2000E-AMP",
+        "category": "ねじ切り機 (配管・伝統看板)",
         "image_url": "../../assets/maker-products/002/2.jpg",
-        "source_page": "https://www.asada.co.jp/",
-        "remote_url": "https://www.asada.co.jp/content/images/product/image/01nejikiriki/supertronic2000E-AMP/08-1.AMP_1100x600.jpg",
-        "bytes": 135075
+        "source_page": "https://www.asada.co.jp/products/plumbing_equipment/threading_machines/010105-006/"
       },
       {
-        "name": "アサダ 主要製品 3",
-        "category": "",
+        "name": "Robend 4000E-AMP",
+        "category": "銅管ベンダー (配管設備の柱)",
         "image_url": "../../assets/maker-products/002/3.jpg",
-        "source_page": "https://www.asada.co.jp/",
-        "remote_url": "https://www.asada.co.jp/content/images/product/image/17copper/robend4000E-AMP/01-2-1.AMP_1100x600.jpg",
-        "bytes": 136701
+        "source_page": "https://www.asada.co.jp/products/copper_plumbing_tools/copper_pipe_processing_tools/050106-016/"
       },
       {
-        "name": "アサダ 主要製品 4",
-        "category": "",
+        "name": "Beaver 4 ACTIVE バンドソー",
+        "category": "TWF2026 出展機種・鋼材切断",
         "image_url": "../../assets/maker-products/002/4.jpg",
-        "source_page": "https://www.asada.co.jp/",
-        "remote_url": "https://www.asada.co.jp/content/images/product/image/11manifold/mamorukun/13MAMORU1100x600.jpg",
-        "bytes": 116075
+        "source_page": "https://www.asada.co.jp/products/plumbing_equipment/cutting_machines/010201-012/"
       }
     ],
     "fetched_ok": true
   },
   "003": {
     "name": "旭産業㈱",
+    "_doc": "事業領域全体 4枠 (火花対策・溶接周辺の総合メーカー訴求): スパッタシート (看板) + 耐火・耐熱 + 溶接・断熱 + 保護具。旧版は別会社 (asahi-sangyo.co.jp = FA機器メーカー) を誤参照していたため修正。正しいドメイン asahisangyou.com に統一。",
     "products": [
       {
-        "name": "旭産業 主要製品 1",
-        "category": "",
+        "name": "スパッタシート",
+        "category": "看板事業 (03SDX/AS-1000C/AG-38 等)",
         "image_url": "../../assets/maker-products/003/1.jpg",
-        "source_page": "https://www.asahi-sangyo.co.jp/",
-        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/03/5KF1809_150dpi_-1-440x480.jpg",
-        "bytes": 32441
+        "source_page": "https://www.asahisangyou.com/category/product-list/cat-suppata/"
       },
       {
-        "name": "旭産業 主要製品 2",
-        "category": "",
+        "name": "耐火・耐熱製品",
+        "category": "耐熱テープ・バイオセラミック (高温現場対応)",
         "image_url": "../../assets/maker-products/003/2.jpg",
-        "source_page": "https://www.asahi-sangyo.co.jp/",
-        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/03/5KF5680_350dpi_-440x480.jpg",
-        "bytes": 57400
+        "source_page": "https://www.asahisangyou.com/category/product-list/cat-fire/"
       },
       {
-        "name": "旭産業 主要製品 3",
-        "category": "",
+        "name": "溶接・断熱製品",
+        "category": "溶接フェンス・ついたて・ボンベカバー",
         "image_url": "../../assets/maker-products/003/3.jpg",
-        "source_page": "https://www.asahi-sangyo.co.jp/",
-        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/07/1_5KF1809_150dpi.jpg",
-        "bytes": 526365
+        "source_page": "https://www.asahisangyou.com/category/product-list/cat-welding/"
       },
       {
-        "name": "旭産業 主要製品 4",
-        "category": "",
+        "name": "保護具",
+        "category": "溶接ウェア・アルミ/アラミド/カーボン素材",
         "image_url": "../../assets/maker-products/003/4.jpg",
-        "source_page": "https://www.asahi-sangyo.co.jp/",
-        "remote_url": "https://www.asahi-sangyo.co.jp/wp-content/uploads/2024/07/5KF5680_350dpi_-1.jpg",
-        "bytes": 720267
+        "source_page": "https://www.asahisangyou.com/category/product-list/cat-protect/"
       }
     ],
     "fetched_ok": true
@@ -682,152 +668,124 @@
   },
   "007": {
     "name": "アルインコ㈱",
+    "_doc": "建設・現場機材メーカーとしての事業の幅 4枠: 住宅機器 (看板) + 建設機材 (TWF直結) + オクト (安全) + 仮設リース (現場機材レンタル)。電子事業部は TWF 関心軸とズレるため不採用。",
     "products": [
       {
-        "name": "アルインコ 主要製品 1",
-        "category": "",
-        "image_url": "../../assets/maker-products/007/1.webp",
-        "source_page": "https://alinco.co.jp/construction/",
-        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-01.jpg",
-        "bytes": 33930
+        "name": "住宅機器 (はしご・脚立)",
+        "category": "アルインコの看板事業",
+        "image_url": "../../assets/maker-products/007/1.jpg",
+        "source_page": "https://alinco.co.jp/housing/"
       },
       {
-        "name": "アルインコ 主要製品 2",
-        "category": "",
-        "image_url": "../../assets/maker-products/007/2.webp",
-        "source_page": "https://alinco.co.jp/construction/",
-        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-02.jpg",
-        "bytes": 31658
+        "name": "建設機材 (足場・作業台)",
+        "category": "高所作業・TWF直結",
+        "image_url": "../../assets/maker-products/007/2.jpg",
+        "source_page": "https://alinco.co.jp/construction/"
       },
       {
-        "name": "アルインコ 主要製品 3",
-        "category": "",
-        "image_url": "../../assets/maker-products/007/3.webp",
-        "source_page": "https://alinco.co.jp/construction/",
-        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-04.jpg",
-        "bytes": 36274
+        "name": "オクト (足場施工・安全管理)",
+        "category": "安全コンプライアンス・人手不足対応",
+        "image_url": "../../assets/maker-products/007/3.jpg",
+        "source_page": "https://alinco.co.jp/scaffold/"
       },
       {
-        "name": "アルインコ 主要製品 4",
-        "category": "",
-        "image_url": "../../assets/maker-products/007/4.webp",
-        "source_page": "https://alinco.co.jp/construction/",
-        "remote_url": "https://alinco.co.jp/images/construction/home/image-construction-pickUp-05.jpg",
-        "bytes": 37022
+        "name": "仮設リース",
+        "category": "建設現場の仮設機材レンタル",
+        "image_url": "../../assets/maker-products/007/4.jpg",
+        "source_page": "https://alinco.co.jp/lease/"
       }
     ],
     "fetched_ok": true
   },
   "009": {
     "name": "育良精機㈱",
+    "_doc": "溶接機軸 + 看板事業 4枠 (時代適合度重視): 鉄筋加工機 (顔) + ファイバーレーザー溶接機 (急拡大) + 溶接機全般 + ヒュームコレクター (環境・安全)。ikura.com + ikuratools.com の2サイトを横断。",
     "products": [
       {
-        "name": "育良精機 主要製品 1",
-        "category": "",
+        "name": "鉄筋加工機 (RE/V/PEシリーズ)",
+        "category": "育良精機の伝統看板",
         "image_url": "../../assets/maker-products/009/1.jpg",
-        "source_page": "https://www.ikura.com/products.html#RE",
-        "remote_url": "https://www.ikura.com/products/01.jpg",
-        "bytes": 491148
+        "source_page": "https://www.ikura.com/products.html"
       },
       {
-        "name": "育良精機 主要製品 2",
-        "category": "",
+        "name": "ファイバーレーザー溶接機 ISK-FL1500W/2000W",
+        "category": "ポータブルレーザー (2025/02 発売・急拡大)",
         "image_url": "../../assets/maker-products/009/2.jpg",
-        "source_page": "https://www.ikura.com/products.html#RE",
-        "remote_url": "https://www.ikura.com/products/02.jpg",
-        "bytes": 439523
+        "source_page": "https://www.ikuratools.com/w_FL.html"
       },
       {
-        "name": "育良精機 主要製品 3",
-        "category": "",
-        "image_url": "../../assets/maker-products/009/3.jpg",
-        "source_page": "https://www.ikura.com/products.html#RE",
-        "remote_url": "https://www.ikura.com/products/03.jpg",
-        "bytes": 426056
+        "name": "溶接機・関連機器 (半自動/直流アーク等)",
+        "category": "TWF直結・溶接機ラインナップ",
+        "image_url": "../../assets/maker-products/009/3.gif",
+        "source_page": "https://www.ikuratools.com/entrance_w.html"
       },
       {
-        "name": "育良精機 主要製品 4",
-        "category": "",
+        "name": "ヒュームコレクター ISK-M1300FC",
+        "category": "粉じん対策・環境/安全コンプライアンス",
         "image_url": "../../assets/maker-products/009/4.jpg",
-        "source_page": "https://www.ikura.com/products.html#RE",
-        "remote_url": "https://www.ikura.com/products/04.jpg",
-        "bytes": 538912
+        "source_page": "https://www.ikuratools.com/w_HC.html"
       }
     ],
     "fetched_ok": true
   },
   "010": {
     "name": "㈱イチグチ",
+    "_doc": "研磨材の幅 4枠: ディスク (主力看板) + ホイール (バリ取り) + スカット (黒皮剥離・現場主力) + ダイヤモンド (プレミアム/時代適合)。",
     "products": [
       {
-        "name": "イチグチ 主要製品 1",
-        "category": "",
+        "name": "ディスクシリーズ",
+        "category": "テクノディスク京・主力看板",
         "image_url": "../../assets/maker-products/010/1.png",
-        "source_page": "https://ichiguchi.co.jp/product/",
-        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/01_SKDFB50-A.png",
-        "bytes": 158449
+        "source_page": "https://ichiguchi.co.jp/product/series_disc/"
       },
       {
-        "name": "イチグチ 主要製品 2",
-        "category": "",
+        "name": "ホイールシリーズ",
+        "category": "フラップホイル・ポリゴンホイル (バリ取り)",
         "image_url": "../../assets/maker-products/010/2.png",
-        "source_page": "https://ichiguchi.co.jp/product/",
-        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/02_SKDFB50-Z.png",
-        "bytes": 152958
+        "source_page": "https://ichiguchi.co.jp/product/series_wheel/"
       },
       {
-        "name": "イチグチ 主要製品 3",
-        "category": "",
+        "name": "スカットディスクシリーズ",
+        "category": "黒皮剥離・現場主力 (SKDFB50 A/Z/C/S/B)",
         "image_url": "../../assets/maker-products/010/3.png",
-        "source_page": "https://ichiguchi.co.jp/product/",
-        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/16_TD10016-A.png",
-        "bytes": 166785
+        "source_page": "https://ichiguchi.co.jp/product/series_skatt/"
       },
       {
-        "name": "イチグチ 主要製品 4",
-        "category": "",
+        "name": "ダイヤモンドシリーズ",
+        "category": "スーパーダイヤテクノディスク (プレミアム)",
         "image_url": "../../assets/maker-products/010/4.png",
-        "source_page": "https://ichiguchi.co.jp/product/",
-        "remote_url": "https://ichiguchi.co.jp/wordpress/wp-content/uploads/2022/11/19_CON10015-A.png",
-        "bytes": 159640
+        "source_page": "https://ichiguchi.co.jp/product/series_dia/"
       }
     ],
     "fetched_ok": true
   },
   "011": {
     "name": "㈱イチネンケミカルズ",
+    "_doc": "TWFブース出展物4枠 (柏原業務知識): 自動車補修ケミカル + スーパーステンブライト (溶接焼け取り、ウエルディングショー出展) + アイコート塗床材 自社施工用 + アイコート塗床材 施工工事用。各 meclib.jp デジタルカタログに直リンク。",
     "products": [
       {
-        "name": "イチネンケミカルズ 主要製品 1",
-        "category": "",
+        "name": "自動車補修用ケミカル",
+        "category": "総合カタログ (NX30シリーズ)",
         "image_url": "../../assets/maker-products/011/1.jpg",
-        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
-        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/6/list_image/list_image.jpg",
-        "bytes": 64631
+        "source_page": "https://meclib.jp/nx30-05/"
       },
       {
-        "name": "イチネンケミカルズ 主要製品 2",
-        "category": "",
+        "name": "スーパーステンブライト",
+        "category": "ステンレス溶接焼け取り電解装置 (TWF直結)",
         "image_url": "../../assets/maker-products/011/2.jpg",
-        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
-        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/5/list_image/list_image.jpg",
-        "bytes": 147047
+        "source_page": "https://meclib.jp/SSB01-05/"
       },
       {
-        "name": "イチネンケミカルズ 主要製品 3",
-        "category": "",
+        "name": "アイコート (自社施工用 塗床材)",
+        "category": "DIY向け塗床材 (aicoat-blue)",
         "image_url": "../../assets/maker-products/011/3.jpg",
-        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
-        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/4/list_image/list_image.jpg",
-        "bytes": 106478
+        "source_page": "https://meclib.jp/aicoat-blue-04-03/"
       },
       {
-        "name": "イチネンケミカルズ 主要製品 4",
-        "category": "",
+        "name": "アイコート (施工工事用 塗床材)",
+        "category": "プロ施工向け塗床材 (aicoat-green)",
         "image_url": "../../assets/maker-products/011/4.jpg",
-        "source_page": "https://www.ichinen-chem.co.jp/business/prouse/products/",
-        "remote_url": "https://www.ichinen-chem.co.jp/business/prouse/products/files/Catalog/10/list_image/list_image.jpg",
-        "bytes": 147732
+        "source_page": "https://meclib.jp/aicoat-green-04/"
       }
     ],
     "fetched_ok": true

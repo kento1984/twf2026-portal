@@ -331,10 +331,11 @@
     "text_on_primary": "#FFFFFF"
   },
   "003": {
-    "source": "https://www.asahi-sangyo.co.jp/",
+    "source": "https://www.asahisangyou.com/",
     "primary": "#666666",
     "secondary": "#444444",
-    "text_on_primary": "#FFFFFF"
+    "text_on_primary": "#FFFFFF",
+    "_doc": "ドメイン修正: asahi-sangyo.co.jp (誤・FA機器別会社) → asahisangyou.com (正・スパッタシートメーカー)"
   },
   "006": {
     "source": "https://www.amada.co.jp/ja/",
