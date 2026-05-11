@@ -612,5 +612,19 @@
     "source": "https://www.otos.co.kr/",
     "notes": "OTOSは韓国OTOS本社の保護具・溶接カメラメーカー。日本支社が東京千代田区にあり TWF2026 出展。コーポレートカラーはOTOSロゴの青系。",
     "_group": "manual"
+  },
+  "135": {
+    "source": "https://yamabiko-japan.co.jp/",
+    "primary": "#D40000",
+    "secondary": "#9A0000",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF"
+  },
+  "143": {
+    "source": "https://www.resiton.co.jp/",
+    "primary": "#E60012",
+    "secondary": "#A50000",
+    "accent": "#F5A623",
+    "text_on_primary": "#FFFFFF"
   }
 }

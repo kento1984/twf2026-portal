@@ -2428,19 +2428,28 @@
   "135": {
     "no": 135,
     "name": "やまびこジャパン㈱",
-    "name_short": "",
-    "category": "",
-    "has_answer": false,
-    "status": "unanswered",
-    "reply_date": null,
-    "q1": "",
-    "q2": "",
-    "q3": "",
-    "q4": "",
-    "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "name_short": "shindaiwa",
+    "category": "動力機械",
+    "has_answer": true,
+    "status": "answered",
+    "reply_date": "2026-05-11 12:00",
+    "q1": "・インバータ発電機各種\n・ディーゼル発電機\n・ガソリン溶接機（新型）\n・ディーゼル溶接機（アーク、TIG、半自動）\n・切断機各種\n・２サイクルエンジン製品\n\n200Aガソリン溶接機+ダイヘン ティグミニを組み合わせた実演を予定",
+    "q2": "・ガソリン溶接機\nEGW165MC-I\nEGW200MC-I\nEGW200MC-IST\n\n・全モデル：プッシュ式セルスタート採用、溶接作業時の発電容量大幅UP\n・EGW200MC-I,EGW200MC-IST：アイドリングストップ機能、電撃防止機能追加\n・EGW200MC-IST：ティグミニの電源として使用時にTIG溶接電流180Aまで使用可能",
+    "q3": "進化したガソリン溶接機",
+    "q4": "・アウトレット商品多数出品\n・ディーゼル発電機やディーゼル溶接機ご購入のお客様に1800Wのポータブル電源をプレゼント（数量限定3台）\n・その他、展示会特別価格を設定",
+    "q5": "添付あり(3点)",
+    "attachments": [
+      "EGW165MC-I_カタログ.pdf",
+      "EGW200MC-I_カタログ.pdf",
+      "EGW200MC-IST_カタログ.pdf"
+    ],
+    "attachment_dir": "attachments/やまびこジャパン株式会社/",
+    "company_dir": "やまびこジャパン株式会社",
+    "attachment_labels": {
+      "EGW165MC-I_カタログ.pdf": "EGW165MC-I 単品カタログ (165A 軽量モデル)",
+      "EGW200MC-I_カタログ.pdf": "EGW200MC-I 単品カタログ (200A アイドルストップ搭載)",
+      "EGW200MC-IST_カタログ.pdf": "EGW200MC-IST 単品カタログ (200A TIGモード搭載)"
+    }
   },
   "136": {
     "no": 136,
@@ -2571,19 +2580,24 @@
   "143": {
     "no": 143,
     "name": "㈱レヂトン",
-    "name_short": "",
+    "name_short": "RESITON",
     "category": "切断・電動工具",
-    "has_answer": false,
-    "status": "unanswered",
-    "reply_date": null,
-    "q1": "",
-    "q2": "",
-    "q3": "",
-    "q4": "",
-    "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "has_answer": true,
+    "status": "answered",
+    "reply_date": "2026-05-11 12:00",
+    "q1": "切断砥石・研削砥石・セット品など / 対象商品を購入につき、お土産品プレゼント / 当日デモ有り",
+    "q2": "大判小判セット（金の卵105x1.0 100枚+20枚・125x1.3 50+10枚）を数量限定で発売",
+    "q3": "弊社商品をたくさん展示していますので、実際にブースに足を運んでいただきたいです。\n数量限定のセット品の販売など",
+    "q4": "ハイパーGT・GS・GMを大箱(200枚)での購入につき、金グラ105を１台プレゼント\n対象商品を購入につきお土産品プレゼント",
+    "q5": "添付あり(1点)",
+    "attachments": [
+      "2026TWF特価チラシ.pdf"
+    ],
+    "attachment_dir": "attachments/株式会社レヂトン/",
+    "company_dir": "株式会社レヂトン",
+    "attachment_labels": {
+      "2026TWF特価チラシ.pdf": "2026東京ウェルディングフェスタ TWF特価チラシ"
+    }
   },
   "144": {
     "no": 144,

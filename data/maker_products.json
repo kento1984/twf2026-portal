@@ -1931,5 +1931,59 @@
     ],
     "fetched_ok": true,
     "manual_curated": "2026-05-11 OTOS本社サイトから手動キュレーション (溶接カメラ + F2iヘルメット)"
+  },
+  "135": {
+    "name": "やまびこジャパン",
+    "products": [
+      {
+        "name": "EGW165MC-I (ガソリン溶接機 165A・軽量83kg)",
+        "category": "発電機・溶接機",
+        "image_url": "../../assets/maker-products/135/1.jpg",
+        "source_page": "https://yamabiko-japan.co.jp/",
+        "remote_url": null,
+        "bytes": 1056474
+      },
+      {
+        "name": "EGW200MC-I (ガソリン溶接機 200A・アイドルストップ機能)",
+        "category": "発電機・溶接機",
+        "image_url": "../../assets/maker-products/135/2.jpg",
+        "source_page": "https://yamabiko-japan.co.jp/",
+        "remote_url": null,
+        "bytes": 1087827
+      },
+      {
+        "name": "EGW200MC-IST (ガソリン溶接機 200A・TIGモード搭載)",
+        "category": "発電機・溶接機",
+        "image_url": "../../assets/maker-products/135/3.jpg",
+        "source_page": "https://yamabiko-japan.co.jp/",
+        "remote_url": null,
+        "bytes": 1110224
+      }
+    ],
+    "fetched_ok": true,
+    "source": "manual-pdf-yamabiko-EGW-series-2026-05"
+  },
+  "143": {
+    "name": "レヂトン",
+    "products": [
+      {
+        "name": "ハイパーGS/GT/GM 切断砥石シリーズ + 金の卵 (TWF特価チラシ P.1)",
+        "category": "切断・電動工具",
+        "image_url": "../../assets/maker-products/143/1.jpg",
+        "source_page": "https://www.resiton.co.jp/",
+        "remote_url": null,
+        "bytes": 1925012
+      },
+      {
+        "name": "DTファイナルネオ / VALUE / スイングローラー / ダイヤモンドブレード (TWF特価チラシ P.2)",
+        "category": "切断・電動工具",
+        "image_url": "../../assets/maker-products/143/2.jpg",
+        "source_page": "https://www.resiton.co.jp/",
+        "remote_url": null,
+        "bytes": 1713308
+      }
+    ],
+    "fetched_ok": true,
+    "source": "manual-pdf-resiton-twf2026-chirashi"
   }
 }

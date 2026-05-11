@@ -124,9 +124,11 @@ PRODUCTS = {
     "130": "Industrial circular saw blade cutting metal with bright sparks",
     "132": "Industrial belt sander and pneumatic die grinder with sparks",
     "134": "Industrial gas pressure regulator and welding gas equipment",
+    "135": "Cinematic close-up of a Shindaiwa-style red industrial gasoline-engine welder with arc welding sparks and welding torch, gasoline generator unit in dark factory background, professional product photography",
     "136": "Industrial safety goggles and welding helmet on workshop bench",
     "137": "Industrial chemical containers and cleaning solution drums in factory",
     "138": "Industrial pneumatic impact wrench and air tools laid out in workshop",
+    "143": "Cinematic close-up of industrial cutting and grinding wheels (resin-bonded abrasive discs) with sparks flying from a metal cutting operation, dark factory background, dramatic chiaroscuro lighting, professional product photography",
     "148": "Industrial hydraulic cylinder and press machine in factory",
 }
 
