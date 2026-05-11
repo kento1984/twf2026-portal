@@ -563,6 +563,106 @@
       color: var(--orange-500);
     }
 
+    /* --- Section 3.5: 2カード並列レイアウト + キッチンカーカード --- */
+    .flyer-cards-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+      gap: 28px;
+      align-items: stretch;
+    }
+    .flyer-cards-grid > .flyer-card {
+      max-width: none;
+      margin: 0;
+      gap: 24px;
+    }
+    .kitchen-car-card {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 24px;
+      padding: 28px;
+      align-items: center;
+      background:
+        radial-gradient(420px 220px at 20% 0%, rgba(46, 125, 50, 0.08) 0%, transparent 60%),
+        linear-gradient(180deg, #f4faf6 0%, #ffffff 60%, #f5faf7 100%);
+      border: 1px solid var(--gray-200);
+      border-left: 6px solid #2E7D32;
+      border-radius: 14px;
+      box-shadow: 0 14px 36px rgba(46, 125, 50, 0.10), 0 6px 16px rgba(0, 0, 0, 0.06);
+    }
+    .kitchen-car-thumb {
+      position: relative;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #f8fcf9;
+      aspect-ratio: 7 / 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+    .kitchen-car-img {
+      width: 100%;
+      max-width: 240px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+    .kitchen-car-thumb .img-note {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 10px;
+      color: var(--gray-500);
+      background: rgba(255, 255, 255, 0.85);
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    .kitchen-car-body {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .kitchen-car-eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      color: #2E7D32;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .kitchen-car-title {
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 1.35;
+      color: #1B5E20;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+    .kitchen-car-desc {
+      font-size: 14.5px;
+      line-height: 1.75;
+      color: var(--gray-700);
+      margin: 0;
+    }
+    .kitchen-car-source {
+      font-size: 11.5px;
+      color: var(--gray-500);
+      margin-top: 4px;
+    }
+    @media (max-width: 760px) {
+      .flyer-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .flyer-cards-grid > .flyer-card,
+      .kitchen-car-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* ===========================================================
        Section 4: メーカー一覧  ───────  flex height  /  明
        =========================================================== */
@@ -1117,38 +1217,56 @@
   </section>
 
   <!-- ============================================================
-       Section 3.5: 当日限定・特価セールチラシ (TOP配置)
-       _common 配下の主催店共通フライヤー。みどころ3選とメーカー一覧の間に
-       挟むことで「来場前の予習導線」として最も目立つ位置に配置。
+       Section 3.5: 当日限定・特価セールチラシ + キッチンカー初出店
+       _common 配下の主催店共通フライヤー + TWF2026 初の試みキッチンカー。
+       みどころ3選とメーカー一覧の間に挟むことで「来場前の予習導線」+
+       「会場の付加価値訴求」を一目で。
        ============================================================ -->
   <section class="flyer-section" id="flyer">
     <div class="section-header">
       <span class="flyer-eyebrow">2026 TOKYO WELDING FESTA / 当日限定企画</span>
       <h2 class="section-title double-underline double-underline-center">当日限定・特価セール</h2>
-      <p class="flyer-sub">6/12-13 限定企画を一覧で確認</p>
+      <p class="flyer-sub">6/12-13 限定企画 ＋ TWF2026 初の試み</p>
     </div>
-    <a class="flyer-card" href="attachments/_common/2026WF_当日限定企画セールチラシ.pdf" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-      <div class="flyer-card-thumb">
-        <span class="flyer-card-thumb-corner">PDF / A2 両面</span>
-        <img src="assets/twf-flyer-cover.png" alt="2026WF 当日限定企画セールチラシ 表紙" loading="lazy" />
-      </div>
-      <div class="flyer-card-body">
-        <h3 class="flyer-card-title">
-          <span class="accent">6/12-13</span> 当日限定企画セールチラシ
-        </h3>
-        <div class="flyer-card-meta">
-          <span class="flyer-card-meta-item">📄 A2 両面 / 2 ページ</span>
-          <span class="flyer-card-meta-item">📦 主催店共通フライヤー</span>
+    <div class="flyer-cards-grid">
+      <a class="flyer-card" href="attachments/_common/2026WF_当日限定企画セールチラシ.pdf" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
+        <div class="flyer-card-thumb">
+          <span class="flyer-card-thumb-corner">PDF / A2 両面</span>
+          <img src="assets/twf-flyer-cover.png" alt="2026WF 当日限定企画セールチラシ 表紙" loading="lazy" />
         </div>
-        <p class="flyer-card-desc">
-          会場で実施する全メーカー横断の特価企画を1枚に集約。価格・展示モデル・適用条件を事前にチェックして、当日の商談をスムーズに。
-        </p>
-        <div class="flyer-card-cta">
-          <span class="btn-flyer">📥 PDFを開く / ダウンロード</span>
-          <span class="btn-flyer btn-flyer-outline">▶ 来場前にチェック</span>
+        <div class="flyer-card-body">
+          <h3 class="flyer-card-title">
+            <span class="accent">6/12-13</span> 当日限定企画セールチラシ
+          </h3>
+          <div class="flyer-card-meta">
+            <span class="flyer-card-meta-item">📄 A2 両面 / 2 ページ</span>
+            <span class="flyer-card-meta-item">📦 主催店共通フライヤー</span>
+          </div>
+          <p class="flyer-card-desc">
+            会場で実施する全メーカー横断の特価企画を1枚に集約。価格・展示モデル・適用条件を事前にチェックして、当日の商談をスムーズに。
+          </p>
+          <div class="flyer-card-cta">
+            <span class="btn-flyer">📥 PDFを開く / ダウンロード</span>
+            <span class="btn-flyer btn-flyer-outline">▶ 来場前にチェック</span>
+          </div>
+        </div>
+      </a>
+      <div class="kitchen-car-card">
+        <div class="kitchen-car-thumb">
+          <img src="assets/topics/kitchen-car.png" alt="キッチンカー" class="kitchen-car-img" loading="lazy" />
+          <small class="img-note">イメージ</small>
+        </div>
+        <div class="kitchen-car-body">
+          <span class="kitchen-car-eyebrow">TWF2026 初の試み</span>
+          <h3 class="kitchen-car-title">🚚 キッチンカー初出店！</h3>
+          <p class="kitchen-car-desc">
+            会場内にキッチンカーが登場します。<br>
+            商談の合間にひと休み、軽食やドリンクをお楽しみください。
+          </p>
+          <small class="kitchen-car-source">※詳細は当日特価チラシをご確認ください</small>
         </div>
       </div>
-    </a>
+    </div>
   </section>
 
   <!-- ============================================================
