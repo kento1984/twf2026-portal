@@ -2,30 +2,31 @@
   "_doc": "A層メーカー公式HPの製品画像URL。group_1が curl 経由で 9/10 取得成功、group_2/3 は WebFetch denial で空。",
   "005": {
     "name": "アネスト岩田㈱",
+    "_doc": "新4枠 (時代適合度重視): スクロール=省エネ・オイルフリー / 塗装ロボット=自動化省人化 / 窒素ガス=レーザー溶接アシスト + ガス価格高騰対応 / ハンドスプレーガン=伝統看板。",
     "products": [
       {
-        "name": "スクロールコンプレッサ SLP-55EGD",
-        "category": "オイルフリー スクロールコンプレッサ",
+        "name": "スクロールコンプレッサ",
+        "category": "オイルフリー・省エネ (SLP Eシリーズ)",
         "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Scroll/Oil-Free/SLP/SLP-55EGD_10_S.png",
-        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors/scroll/slp-e"
       },
       {
-        "name": "レシプロコンプレッサ TFP75CF-10",
-        "category": "オイルフリー レシプロコンプレッサ",
-        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Piston/Oil-Free/TFP/TFP75CF-10_05_S.png",
-        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+        "name": "塗装ロボット・塗装設備",
+        "category": "自動化・省人化ライン",
+        "image_url": "../../assets/maker-products/005/2.jpg",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/coating-robots-and-coating-system"
       },
       {
-        "name": "クロー（ツース）コンプレッサ FRL-150B",
-        "category": "オイルフリー クローコンプレッサ",
-        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Claw/Oil-Free/FRL/FRL-150B_10_S.png",
-        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+        "name": "窒素ガス発生装置",
+        "category": "レーザー溶接アシストガス対応",
+        "image_url": "../../assets/maker-products/005/3.jpg",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/nitrogen-generators"
       },
       {
-        "name": "ブースタコンプレッサ EFBS04B-9.5",
-        "category": "オイルフリー ブースタコンプレッサ",
-        "image_url": "https://www.anest-iwata.co.jp/sites/products/files/pim/assets/AE/PRODUCT_IMAGE/Compressor/Booster/Oil-Free/EFBS/EFBS04B-9.5_10_S.png",
-        "source_page": "https://www.anest-iwata.co.jp/products-and-support/compressors"
+        "name": "ハンドスプレーガン",
+        "category": "塗装機器・伝統看板 (WIDERシリーズ他)",
+        "image_url": "../../assets/maker-products/005/4.jpg",
+        "source_page": "https://www.anest-iwata.co.jp/products-and-support/coating-equipment/hand-spray-guns"
       }
     ],
     "fetched_ok": true
@@ -483,31 +484,26 @@
     "name": "ヤマト産業㈱",
     "products": [
       {
-        "name": "ヤマト産業 主要製品 1",
-        "category": "",
+        "name": "圧力調整器 SR-1HH",
+        "category": "一般工業用圧力調整器 (溶接ガス圧制御)",
         "image_url": "../../assets/maker-products/134/1.jpg",
-        "source_page": "https://www.e-yamato.co.jp/support/discontinued_product.php",
-        "remote_url": "https://www.e-yamato.co.jp/data/img/2/sr_1hh_s.jpg",
-        "bytes": 42365
+        "source_page": "https://www.e-yamato.co.jp/catalog/index.html#reg"
       },
       {
-        "name": "ヤマト産業 主要製品 2",
-        "category": "",
+        "name": "メータ式圧力調整器 MSR-2B",
+        "category": "自動切替減圧弁・装置 (自動化対応)",
         "image_url": "../../assets/maker-products/134/2.jpg",
-        "source_page": "https://www.e-yamato.co.jp/support/discontinued_product.php",
-        "remote_url": "https://www.e-yamato.co.jp/data/img/2/msr_2b_f_s.jpg",
-        "bytes": 32412
+        "source_page": "https://www.e-yamato.co.jp/catalog/index.html#semio"
       },
       {
-        "name": "ヤマト産業 主要製品 3",
-        "category": "",
+        "name": "流量計 R-120",
+        "category": "計器・ガス供給機器",
         "image_url": "../../assets/maker-products/134/3.jpg",
-        "source_page": "https://www.e-yamato.co.jp/support/discontinued_product.php",
-        "remote_url": "https://www.e-yamato.co.jp/data/img/7/r_120_p_s.jpg",
-        "bytes": 54448
+        "source_page": "https://www.e-yamato.co.jp/catalog/index.html#meters"
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "_doc": "廃番商品ページの誤拾いを修正、総合カタログ各カテゴリアンカーに個別化"
   },
   "138": {
     "name": "ヨコタ工業㈱",
@@ -1827,38 +1823,31 @@
   },
   "127": {
     "name": "村田機械㈱",
+    "_doc": "板金加工機 /sm/ 配下の4機種で構成 (柏原業務知識ベース): ファイバー複合機 + プレスブレーキ + タレパン + ファイバーレーザ切断機。TWFブースで展示される機種を直結反映、レーザー急拡大トレンド + 板金加工の基本技術を訴求。",
     "products": [
       {
-        "name": "繊維機械事業",
-        "category": "",
-        "image_url": "../../assets/maker-products/127/1.png",
-        "source_page": "https://www.muratec.jp/company/division/",
-        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img1.png",
-        "bytes": 776682
+        "name": "ファイバー複合機",
+        "category": "レーザー切断 + パンチング複合 (LS3015MCシリーズ)",
+        "image_url": "../../assets/maker-products/127/1.jpg",
+        "source_page": "https://www.muratec.jp/sm/products/flh/"
       },
       {
-        "name": "L&A（ロジスティクス＆オートメーション）事業",
-        "category": "",
-        "image_url": "../../assets/maker-products/127/2.png",
-        "source_page": "https://www.muratec.jp/company/division/",
-        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img2.png",
-        "bytes": 1064201
+        "name": "プレスブレーキ",
+        "category": "曲げ加工 (BH/BBシリーズ・ベンディングロボット)",
+        "image_url": "../../assets/maker-products/127/2.jpg",
+        "source_page": "https://www.muratec.jp/sm/products/pb/"
       },
       {
-        "name": "クリーンFA事業",
-        "category": "",
-        "image_url": "../../assets/maker-products/127/3.png",
-        "source_page": "https://www.muratec.jp/company/division/",
-        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img3.png",
-        "bytes": 684812
+        "name": "タレットパンチプレス",
+        "category": "タレパン (MOTORUMシリーズ M3048TG/M5000)",
+        "image_url": "../../assets/maker-products/127/3.jpg",
+        "source_page": "https://www.muratec.jp/sm/products/tp/"
       },
       {
-        "name": "工作機械事業",
-        "category": "",
-        "image_url": "../../assets/maker-products/127/4.png",
-        "source_page": "https://www.muratec.jp/company/division/",
-        "remote_url": "https://www.muratec.jp/company/asset/img/lower/division/img4.png",
-        "bytes": 626294
+        "name": "ファイバーレーザ切断機",
+        "category": "専用機・自動化システム対応 (LS3015GC)",
+        "image_url": "../../assets/maker-products/127/4.jpg",
+        "source_page": "https://www.muratec.jp/sm/products/lc/LS3015GC.html"
       }
     ],
     "fetched_ok": true
@@ -1979,28 +1968,22 @@
     "name": "やまびこジャパン",
     "products": [
       {
-        "name": "EGW165MC-I (ガソリン溶接機 165A・軽量83kg)",
-        "category": "発電機・溶接機",
+        "name": "EGW165MC-I",
+        "category": "ガソリンエンジン溶接機 165A・軽量83kg",
         "image_url": "../../assets/maker-products/135/1.jpg",
-        "source_page": "https://yamabiko-japan.co.jp/",
-        "remote_url": null,
-        "bytes": 1056474
+        "source_page": "https://www.yamabiko-corp.co.jp/shindaiwa/products/category/detail/9750"
       },
       {
-        "name": "EGW200MC-I (ガソリン溶接機 200A・アイドルストップ機能)",
-        "category": "発電機・溶接機",
+        "name": "EGW200MC-I",
+        "category": "ガソリンエンジン溶接機 200A・アイドルストップ機能",
         "image_url": "../../assets/maker-products/135/2.jpg",
-        "source_page": "https://yamabiko-japan.co.jp/",
-        "remote_url": null,
-        "bytes": 1087827
+        "source_page": "https://www.yamabiko-corp.co.jp/shindaiwa/products/category/detail/9751"
       },
       {
-        "name": "EGW200MC-IST (ガソリン溶接機 200A・TIGモード搭載)",
-        "category": "発電機・溶接機",
+        "name": "EGW200MC-IST",
+        "category": "ガソリンエンジン溶接機 200A・TIGモード搭載",
         "image_url": "../../assets/maker-products/135/3.jpg",
-        "source_page": "https://yamabiko-japan.co.jp/",
-        "remote_url": null,
-        "bytes": 1110224
+        "source_page": "https://www.yamabiko-corp.co.jp/shindaiwa/products/category/detail/9752"
       }
     ],
     "fetched_ok": true,
@@ -2010,20 +1993,16 @@
     "name": "レヂトン",
     "products": [
       {
-        "name": "ハイパーGS/GT/GM 切断砥石シリーズ + 金の卵 (TWF特価チラシ P.1)",
-        "category": "切断・電動工具",
+        "name": "金の卵 + ハイパーGS/GT/GM 切断砥石",
+        "category": "看板商品「金の卵」 (TWF特価チラシ P.1)",
         "image_url": "../../assets/maker-products/143/1.jpg",
-        "source_page": "https://www.resiton.co.jp/",
-        "remote_url": null,
-        "bytes": 1925012
+        "source_page": "https://www.resiton.co.jp/pages/270/"
       },
       {
-        "name": "DTファイナルネオ / VALUE / スイングローラー / ダイヤモンドブレード (TWF特価チラシ P.2)",
-        "category": "切断・電動工具",
+        "name": "DTファイナルネオ / VALUE / スイングローラー / ダイヤモンドブレード",
+        "category": "切断砥石ラインナップ (TWF特価チラシ P.2)",
         "image_url": "../../assets/maker-products/143/2.jpg",
-        "source_page": "https://www.resiton.co.jp/",
-        "remote_url": null,
-        "bytes": 1713308
+        "source_page": "https://www.resiton.co.jp/pages/257/"
       }
     ],
     "fetched_ok": true,
