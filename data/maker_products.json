@@ -653,42 +653,27 @@
     "fetched_ok": true
   },
   "006": {
-    "name": "㈱アマダマシナリー",
+    "name": "アマダマシナリー",
     "products": [
       {
-        "name": "アマダマシナリー 主要製品 1",
-        "category": "",
+        "name": "SSP-400D 形鋼用バンドソーマシン",
+        "category": "切断・電動工具",
         "image_url": "../../assets/maker-products/006/1.jpg",
-        "source_page": "https://www.amada.co.jp/ja/products/",
-        "remote_url": "https://www.amada.co.jp/img/ja/products/index/img_bg.jpg",
-        "bytes": 52892
+        "source_page": "https://www.nccgp.co.jp/",
+        "remote_url": null,
+        "bytes": 676305
       },
       {
-        "name": "アマダマシナリー 主要製品 2",
-        "category": "",
+        "name": "SSP-400D 仕様・特長",
+        "category": "切断・電動工具",
         "image_url": "../../assets/maker-products/006/2.jpg",
-        "source_page": "https://www.amada.co.jp/ja/products/",
-        "remote_url": "https://www.amada.co.jp/img/ja/products/index/img_10.jpg",
-        "bytes": 170562
-      },
-      {
-        "name": "アマダマシナリー 主要製品 3",
-        "category": "",
-        "image_url": "../../assets/maker-products/006/3.jpg",
-        "source_page": "https://www.amada.co.jp/ja/products/",
-        "remote_url": "https://www.amada.co.jp/img/ja/products/index/img_11.jpg",
-        "bytes": 89999
-      },
-      {
-        "name": "アマダマシナリー 主要製品 4",
-        "category": "",
-        "image_url": "../../assets/maker-products/006/4.jpg",
-        "source_page": "https://www.amada.co.jp/ja/products/",
-        "remote_url": "https://www.amada.co.jp/assets/img/ogp/ogp_product.jpg",
-        "bytes": 37578
+        "source_page": "https://www.nccgp.co.jp/",
+        "remote_url": null,
+        "bytes": 720528
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "source": "manual-pdf-amada-ssp400d-2024-10"
   },
   "007": {
     "name": "アルインコ㈱",

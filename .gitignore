@@ -44,3 +44,6 @@ topics-banner-*.png
 
 # Phase 1.0: シルエット画像のリビジョン履歴 (柏原ローカル保管、commit対象外)
 prototype/assets/top-pickup-3spots-pc.v*.png
+
+# メーカー提供PDF等の一時作業領域 (画像変換元、git追跡不要)
+tmp/
