@@ -496,6 +496,8 @@
     .flyer-card-body {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
       gap: 14px;
     }
     .flyer-card-title {
@@ -504,12 +506,14 @@
       line-height: 1.35;
       color: var(--gray-800);
       letter-spacing: -0.01em;
+      text-align: center;
     }
     .flyer-card-title .accent { color: var(--red-500); }
     .flyer-card-meta {
       display: flex;
       gap: 16px;
       flex-wrap: wrap;
+      justify-content: center;
       font-size: 13px;
       color: var(--gray-600);
       font-weight: 600;
@@ -523,11 +527,13 @@
       font-size: 14.5px;
       line-height: 1.75;
       color: var(--gray-700);
+      text-align: center;
     }
     .flyer-card-cta {
       display: flex;
       gap: 12px;
       flex-wrap: wrap;
+      justify-content: center;
       margin-top: 4px;
     }
     .btn-flyer {
@@ -623,6 +629,8 @@
     .kitchen-car-body {
       display: flex;
       flex-direction: column;
+      align-items: center;
+      text-align: center;
       gap: 12px;
     }
     .kitchen-car-eyebrow {
@@ -640,17 +648,20 @@
       color: #1B5E20;
       letter-spacing: -0.01em;
       margin: 0;
+      text-align: center;
     }
     .kitchen-car-desc {
       font-size: 14.5px;
       line-height: 1.75;
       color: var(--gray-700);
       margin: 0;
+      text-align: center;
     }
     .kitchen-car-source {
       font-size: 11.5px;
       color: var(--gray-500);
       margin-top: 4px;
+      text-align: center;
     }
     @media (max-width: 760px) {
       .flyer-cards-grid {
@@ -1258,7 +1269,7 @@
         </div>
         <div class="kitchen-car-body">
           <span class="kitchen-car-eyebrow">TWF2026 初の試み</span>
-          <h3 class="kitchen-car-title">🚚 キッチンカー初出店！</h3>
+          <h3 class="kitchen-car-title">🚚 キッチンカー<span style="white-space: nowrap;">初出店！</span></h3>
           <p class="kitchen-car-desc">
             会場内にキッチンカーが登場します。<br>
             商談の合間にひと休み、軽食やドリンクをお楽しみください。
