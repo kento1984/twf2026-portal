@@ -173,7 +173,7 @@
     color: #FFFFFF;
     padding: 84px 32px 68px;
     overflow: hidden;
-    background: linear-gradient(135deg, #666666 0%, #444444 100%);
+    background: linear-gradient(135deg, #1f4196 0%, #0d2160 100%);
   }
   .maker-hero-pattern {
     position: absolute;
@@ -186,6 +186,28 @@
       repeating-linear-gradient(45deg, transparent 0 28px, rgba(255,255,255,0.045) 28px 30px);
     pointer-events: none;
     z-index: 1;
+  }
+  /* 汎用ロゴ表示 (maker.brand.logo_url があれば右上に大型配置) */
+  .maker-hero-logo {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    z-index: 3;
+    max-width: 320px;
+    width: 30%;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+    pointer-events: none;
+  }
+  @media (max-width: 760px) {
+    .maker-hero { padding-top: 260px; }
+    .maker-hero-logo {
+      top: 24px;
+      right: 50%;
+      transform: translateX(50%);
+      max-width: 220px;
+      width: 62%;
+    }
   }
   .maker-hero-inner {
     position: relative;
@@ -278,7 +300,7 @@
     background: #fff;
     border-radius: 12px;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid #666666;
+    border-left: 6px solid #1f4196;
     box-shadow: 0 12px 24px rgba(0,0,0,0.08), 0 4px 8px rgba(0,0,0,0.04);
     padding: 22px 32px;
     margin: -36px 0 48px;
@@ -320,7 +342,7 @@
     color: var(--gray-800);
     margin: 64px 0 24px;
     padding-bottom: 12px;
-    border-bottom: 3px solid #666666;
+    border-bottom: 3px solid #1f4196;
   }
 
   /* === Product info section (PDF extracted) === */
@@ -380,7 +402,7 @@
   .product-table .col-first {
     font-family: var(--font-mono);
     font-weight: 700;
-    color: #666666;
+    color: #1f4196;
     white-space: nowrap;
   }
   .product-table .col-price {
@@ -485,7 +507,7 @@
     transform: translateY(-3px);
     box-shadow: 0 14px 28px rgba(0,0,0,0.14), 0 4px 8px rgba(0,0,0,0.06);
   }
-  .product-card-link:hover .product-card-name { color: #666666; }
+  .product-card-link:hover .product-card-name { color: #1f4196; }
   .product-card-name-row {
     display: flex;
     align-items: flex-start;
@@ -500,7 +522,7 @@
     line-height: 1.4;
   }
   .product-card-link:hover .product-card-arrow {
-    color: #666666;
+    color: #1f4196;
     opacity: 1;
   }
 
@@ -509,7 +531,7 @@
   .q-card {
     background: #fff;
     border: 1px solid var(--gray-200);
-    border-left: 6px solid #666666;
+    border-left: 6px solid #1f4196;
     border-radius: 10px;
     box-shadow: var(--shadow-md);
     padding: 24px 28px;
@@ -518,7 +540,7 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
-    color: #666666;
+    color: #1f4196;
     margin-bottom: 4px;
   }
   .q-title {
@@ -583,7 +605,7 @@
   .pdf-download-btn {
     display: inline-block;
     padding: 8px 16px;
-    background: #666666;
+    background: #1f4196;
     color: #fff !important;
     border-radius: 999px;
     font-size: 13px;
@@ -632,7 +654,7 @@
   .pamphlet-section {
     display: inline-block;
     padding: 4px 12px;
-    background: #666666;
+    background: #1f4196;
     color: #fff;
     border-radius: 999px;
     font-weight: 700;
@@ -732,6 +754,7 @@
   <main class="maker-page">
   <header class="maker-hero">
     <div class="maker-hero-pattern" aria-hidden="true"></div>
+    <img class="maker-hero-logo" src="../../assets/makers/nikko-yozai/logo-marlin.png" alt="日亜溶接棒 NICHIA WELDING ELECTRODES (カジキマグロロゴ)" loading="eager" />
     <div class="maker-hero-inner">
       <p class="maker-hero-eyebrow">
         <span class="maker-hero-no">No.085</span>
@@ -769,48 +792,92 @@
     <h2 class="section-h2">🖼️ 主要製品 (公式サイト)</h2>
     <section class="product-gallery">
       <div class="product-grid">
-          <a href="https://www.nikko-yozai.co.jp/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=1" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/085/1.jpg" alt="ニツコー熔材工業 主要製品 1" loading="lazy" />
+              <img src="../../assets/makers/nikko-yozai/cat_01_nankou.jpg" alt="軟鋼用" loading="lazy" />
               <figcaption>
                 <div class="product-card-name-row">
-                  <p class="product-card-name">ニツコー熔材工業 主要製品 1</p>
+                  <p class="product-card-name">軟鋼用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
                 </div>
-              </figcaption>
+<p class="product-card-cat">Mild Steel</p>              </figcaption>
             </figure>
           </a>
-          <a href="https://www.nikko-yozai.co.jp/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=2" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/085/2.jpg" alt="ニツコー熔材工業 主要製品 2" loading="lazy" />
+              <img src="../../assets/makers/nikko-yozai/cat_02_taikou.jpg" alt="耐候性鋼・低温・耐熱鋼用" loading="lazy" />
               <figcaption>
                 <div class="product-card-name-row">
-                  <p class="product-card-name">ニツコー熔材工業 主要製品 2</p>
+                  <p class="product-card-name">耐候性鋼・低温・耐熱鋼用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
                 </div>
-              </figcaption>
+<p class="product-card-cat">Weathering / Low-Temp / Heat-Resistant</p>              </figcaption>
             </figure>
           </a>
-          <a href="https://www.nikko-yozai.co.jp/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=3" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/085/3.jpg" alt="ニツコー熔材工業 主要製品 3" loading="lazy" />
+              <img src="../../assets/makers/nikko-yozai/cat_03_stainless.jpg" alt="ステンレス鋼用" loading="lazy" />
               <figcaption>
                 <div class="product-card-name-row">
-                  <p class="product-card-name">ニツコー熔材工業 主要製品 3</p>
+                  <p class="product-card-name">ステンレス鋼用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
                 </div>
-              </figcaption>
+<p class="product-card-cat">Stainless Steel</p>              </figcaption>
             </figure>
           </a>
-          <a href="https://www.nikko-yozai.co.jp/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=4" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/085/4.jpg" alt="ニツコー熔材工業 主要製品 4" loading="lazy" />
+              <img src="../../assets/makers/nikko-yozai/cat_04_hardfacing.jpg" alt="硬化肉盛用" loading="lazy" />
               <figcaption>
                 <div class="product-card-name-row">
-                  <p class="product-card-name">ニツコー熔材工業 主要製品 4</p>
+                  <p class="product-card-name">硬化肉盛用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
                 </div>
-              </figcaption>
+<p class="product-card-cat">Hardfacing</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=5" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/makers/nikko-yozai/cat_05_castiron.jpg" alt="鋳鉄用" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">鋳鉄用</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">Cast Iron</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=6" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/makers/nikko-yozai/cat_06_copper.jpg" alt="銅・銅合金用" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">銅・銅合金用</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">Copper Alloys</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=7" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/makers/nikko-yozai/cat_07_nickel.jpg" alt="ニッケル合金用" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">ニッケル合金用</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">Nickel Alloys</p>              </figcaption>
+            </figure>
+          </a>
+          <a href="https://www.nikko-yozai.co.jp/product/?group1=8" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
+            <figure class="product-card">
+              <img src="../../assets/makers/nikko-yozai/cat_08_titanium.jpg" alt="チタン合金用" loading="lazy" />
+              <figcaption>
+                <div class="product-card-name-row">
+                  <p class="product-card-name">チタン合金用</p>
+                  <span class="product-card-arrow" aria-hidden="true">↗</span>
+                </div>
+<p class="product-card-cat">Titanium Alloys</p>              </figcaption>
             </figure>
           </a>
       </div>

@@ -36,6 +36,28 @@
     pointer-events: none;
     z-index: 1;
   }
+  /* 汎用ロゴ表示 (maker.brand.logo_url があれば右上に大型配置) */
+  .maker-hero-logo {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    z-index: 3;
+    max-width: 320px;
+    width: 30%;
+    height: auto;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.35));
+    pointer-events: none;
+  }
+  @media (max-width: 760px) {
+    .maker-hero { padding-top: 260px; }
+    .maker-hero-logo {
+      top: 24px;
+      right: 50%;
+      transform: translateX(50%);
+      max-width: 220px;
+      width: 62%;
+    }
+  }
   .maker-hero-inner {
     position: relative;
     z-index: 2;
@@ -538,6 +560,9 @@
 {% block content %}
   <header class="maker-hero">
     <div class="maker-hero-pattern" aria-hidden="true"></div>
+    {% if brand.logo_url %}
+    <img class="maker-hero-logo" src="{{ brand.logo_url }}" alt="{{ brand.logo_alt or (maker.name ~ ' ロゴ') }}" loading="eager" />
+    {% endif %}
     <div class="maker-hero-inner">
       <p class="maker-hero-eyebrow">
         <span class="maker-hero-no">No.{{ '%03d' | format(maker.no) }}</span>

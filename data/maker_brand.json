@@ -549,9 +549,11 @@
   },
   "085": {
     "source": "https://www.nikko-yozai.co.jp/",
-    "primary": "#666666",
-    "secondary": "#444444",
-    "text_on_primary": "#FFFFFF"
+    "primary": "#1f4196",
+    "secondary": "#0d2160",
+    "text_on_primary": "#FFFFFF",
+    "logo_url": "../../assets/makers/nikko-yozai/logo-marlin.png",
+    "logo_alt": "日亜溶接棒 NICHIA WELDING ELECTRODES (カジキマグロロゴ)"
   },
   "088": {
     "source": "http://www.king-ind.co.jp/",
