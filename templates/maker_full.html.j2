@@ -333,6 +333,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;
@@ -675,8 +684,8 @@
         {% for p in maker.products.products %}
           {% if p.source_page %}
           <a href="{{ p.source_page }}" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
-            <figure class="product-card">
-              <img src="{{ p.image_url }}" alt="{{ p.name }}" loading="lazy" />
+            <figure class="product-card{% if not p.image_url %} product-card-textonly{% endif %}">
+              {% if p.image_url %}<img src="{{ p.image_url }}" alt="{{ p.name }}" loading="lazy" />{% endif %}
               <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">{{ p.name }}</p>
@@ -687,8 +696,8 @@
             </figure>
           </a>
           {% else %}
-          <figure class="product-card">
-            <img src="{{ p.image_url }}" alt="{{ p.name }}" loading="lazy" />
+          <figure class="product-card{% if not p.image_url %} product-card-textonly{% endif %}">
+            {% if p.image_url %}<img src="{{ p.image_url }}" alt="{{ p.name }}" loading="lazy" />{% endif %}
             <figcaption>
               <p class="product-card-name">{{ p.name }}</p>
               {% if p.category %}<p class="product-card-cat">{{ p.category }}</p>{% endif %}

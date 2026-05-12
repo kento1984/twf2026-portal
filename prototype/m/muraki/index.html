@@ -484,6 +484,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;
@@ -797,8 +806,7 @@
       <div class="product-grid">
           <a href="https://www.muraki-ltd.co.jp/tool/products/tip/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/126/1.jpg" alt="先端工具" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/126/1.jpg" alt="先端工具" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">先端工具</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -808,8 +816,7 @@
           </a>
           <a href="https://www.muraki-ltd.co.jp/tool/products/air/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/126/2.jpg" alt="エア工具" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/126/2.jpg" alt="エア工具" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">エア工具</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -819,8 +826,7 @@
           </a>
           <a href="https://www.muraki-ltd.co.jp/tool/products/brush/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/126/3.jpg" alt="ブラシ" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/126/3.jpg" alt="ブラシ" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">ブラシ</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -830,8 +836,7 @@
           </a>
           <a href="https://www.muraki-ltd.co.jp/tool/products/cut/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/126/4.jpg" alt="切削工具" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/126/4.jpg" alt="切削工具" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">切削工具</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>

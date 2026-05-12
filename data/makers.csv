@@ -10,7 +10,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 9,育良精機㈱,,,true,
 10,㈱イチグチ,,切断・電動工具,true,3
 11,㈱イチネンケミカルズ,,,true,
-12,内田メガネ,,,false,
+12,㈱内田時計店,,,true,
 13,㈱ＡＩＲＭＡＮ,,,false,
 14,㈱ＡＭＳ,,,true,
 15,㈱エクシード,,,true,
@@ -21,7 +21,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 20,㈱オグラ,OGURA,切断・電動工具,true,3
 21,オプティレーザーソリューションズ㈱,,,true,
 22,㈱柏田製作所,,,false,
-23,カミマル㈱,,,false,
+23,カミマル㈱,,,true,
 24,キスウェルジャパン㈱,,,false,
 25,㈱キトー,,揚送機器,false,4
 26,㈱キャドマック,,板金加工機,false,2
@@ -54,7 +54,7 @@ no,name,name_short,category,has_answer,pamphlet_page
 53,新東工業㈱,,,false,
 54,シンワ測定㈱,,,false,
 55,㈱スーパーツール,,切断・電動工具,false,3
-56,㈱スギヤス,,,false,
+56,㈱スギヤス,,,true,
 57,㈱スズキッド,,,false,
 58,スリーエムジャパン㈱,3M,切断・電動工具,true,3
 59,㈱ゼネテック,,協働ロボット,false,2
@@ -72,13 +72,13 @@ no,name,name_short,category,has_answer,pamphlet_page
 71,デンヨー㈱,,,true,
 72,東空販売㈱,,,true,
 73,東武トップツアーズ㈱,,,false,
-74,㈱東洋アソシエイツ,,,false,
+74,㈱東洋アソシエイツ,,,true,
 75,㈱東洋化学商会,,作業環境向上ブース,false,2
 76,東横サポート㈲,,作業環境向上ブース,false,2
 77,㈱トーキン,,,false,
 78,㈱トーヨーセーフティ,,,false,
 79,㈱十川ゴム,,,false,
-80,土牛産業㈱,,,false,
+80,土牛産業㈱,,,true,
 81,ＴＯＮＥ㈱,,切断・電動工具,false,3
 82,㈱ナカトミ,NAKATOMI,,true,
 83,日動工業㈱,NICHIDO,,true,
@@ -140,10 +140,10 @@ no,name,name_short,category,has_answer,pamphlet_page
 139,㈱LA・PITA,,作業環境向上ブース,false,2
 140,㈱理研オプテック,,,false,
 141,理研機器,,,false,
-142,㈱ルッドスパンセットジャパン,,,false,
+142,㈱ルッドスパンセットジャパン,,,true,
 143,㈱レヂトン,RESITON,切断・電動工具,true,3
 144,レッキス工業㈱,,,false,
 145,ロボットバンク㈱,,協働ロボット,false,2
 146,ワーナーケミカル㈱,,,false,
-147,㈱ワキタ,,,false,
+147,㈱ワキタ,,,true,
 148,三共㈱,SANKYO,,true,

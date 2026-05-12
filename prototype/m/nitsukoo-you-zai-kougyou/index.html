@@ -484,6 +484,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;
@@ -794,8 +803,7 @@
       <div class="product-grid">
           <a href="https://www.nikko-yozai.co.jp/product/?group1=1" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_01_nankou.jpg" alt="軟鋼用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_01_nankou.jpg" alt="軟鋼用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">軟鋼用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -805,8 +813,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=2" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_02_taikou.jpg" alt="耐候性鋼・低温・耐熱鋼用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_02_taikou.jpg" alt="耐候性鋼・低温・耐熱鋼用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">耐候性鋼・低温・耐熱鋼用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -816,8 +823,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=3" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_03_stainless.jpg" alt="ステンレス鋼用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_03_stainless.jpg" alt="ステンレス鋼用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">ステンレス鋼用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -827,8 +833,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=4" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_04_hardfacing.jpg" alt="硬化肉盛用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_04_hardfacing.jpg" alt="硬化肉盛用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">硬化肉盛用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -838,8 +843,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=5" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_05_castiron.jpg" alt="鋳鉄用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_05_castiron.jpg" alt="鋳鉄用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">鋳鉄用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -849,8 +853,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=6" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_06_copper.jpg" alt="銅・銅合金用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_06_copper.jpg" alt="銅・銅合金用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">銅・銅合金用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -860,8 +863,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=7" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_07_nickel.jpg" alt="ニッケル合金用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_07_nickel.jpg" alt="ニッケル合金用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">ニッケル合金用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -871,8 +873,7 @@
           </a>
           <a href="https://www.nikko-yozai.co.jp/product/?group1=8" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/makers/nikko-yozai/cat_08_titanium.jpg" alt="チタン合金用" loading="lazy" />
-              <figcaption>
+<img src="../../assets/makers/nikko-yozai/cat_08_titanium.jpg" alt="チタン合金用" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">チタン合金用</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>

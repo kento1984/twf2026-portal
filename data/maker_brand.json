@@ -631,5 +631,75 @@
     "secondary": "#A50000",
     "accent": "#F5A623",
     "text_on_primary": "#FFFFFF"
+  },
+  "012": {
+    "name": "㈱内田時計店",
+    "primary": "#8B0000",
+    "secondary": "#1A1A1A",
+    "accent": "#C9A24A",
+    "text_on_primary": "#FFFFFF",
+    "source": "",
+    "notes": "横浜・野毛の老舗時計宝飾店。ロゴ印鑑風の深い赤+黒+金で老舗高級感。公式サイトURL不明 (実在確認できず空欄)。",
+    "_group": "group_a"
+  },
+  "023": {
+    "name": "カミマル㈱",
+    "primary": "#C8102E",
+    "secondary": "#7A0A1C",
+    "accent": "#FFD100",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.kamimaru.co.jp/",
+    "notes": "溶接消耗品商社、自社ブランド KS シリーズ。工業系の赤+黒+黄 (警告色) で力強さ。",
+    "_group": "group_a"
+  },
+  "056": {
+    "name": "㈱スギヤス",
+    "primary": "#0066B3",
+    "secondary": "#003D6B",
+    "accent": "#FFC72C",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.bishamon.co.jp/",
+    "notes": "BISHAMON ブランドで業界周知のテーブルリフト/物流機器メーカー。物流系標準カラーの青+ハイビズ黄。",
+    "_group": "group_a"
+  },
+  "074": {
+    "name": "㈱東洋アソシエイツ",
+    "primary": "#1E5631",
+    "secondary": "#0D2B17",
+    "accent": "#C0C0C0",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.toyoas.jp/",
+    "notes": "Compact9/LittleMilling11 等の精密卓上工作機械メーカー。深緑+ガンメタシルバーで精密機械感。",
+    "_group": "group_a"
+  },
+  "080": {
+    "name": "土牛産業㈱",
+    "primary": "#8B4513",
+    "secondary": "#3D1F0A",
+    "accent": "#D4AF37",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.dogyu.co.jp/",
+    "notes": "牛のロゴで知られる工具・安全用品メーカー (どぎゅう)。茶 (牛ロゴ由来) +ゴールドで看板色。",
+    "_group": "group_a"
+  },
+  "142": {
+    "name": "㈱ルッドスパンセットジャパン",
+    "primary": "#E30613",
+    "secondary": "#1A1A1A",
+    "accent": "#FFC107",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.rud-spanset.jp/",
+    "notes": "ドイツ RUD グループのリフティング機器。RUDコーポレートカラー (赤+黒) + 安全用品らしいハイビズ黄。",
+    "_group": "group_a"
+  },
+  "147": {
+    "name": "㈱ワキタ",
+    "primary": "#003F87",
+    "secondary": "#001F44",
+    "accent": "#FFC72C",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.wakita.co.jp/",
+    "notes": "建機/商事/不動産の総合企業。建機事業基調の青+ハイビズ黄。展示はメイホー (MEIHO) ブランドの空調・溶接機。",
+    "_group": "group_a"
   }
 }

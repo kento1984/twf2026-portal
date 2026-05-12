@@ -1855,5 +1855,222 @@
     ],
     "fetched_ok": true,
     "source": "manual-pdf-resiton-twf2026-chirashi"
+  },
+  "012": {
+    "name": "㈱内田時計店",
+    "_doc": "横浜・野毛の老舗総合時計宝飾店。看板=ブランド時計、新製品=RAY-BAN META スマートサングラス、Q1記載のオーダーメガネ+ヤヌーリスEV (オリーブオイル) で4枠構成。画像は要取得。 (画像は後日取得、現状テキストオンリーカード)",
+    "products": [
+      {
+        "name": "ブランド腕時計",
+        "category": "ROLEX / OMEGA / SEIKO / CITIZEN / TAG HEUER 他 (顔事業)",
+        "image_url": "",
+        "source_page": ""
+      },
+      {
+        "name": "RAY-BAN META スマートサングラス",
+        "category": "新製品・Meta社協業 (時代適合◎)",
+        "image_url": "",
+        "source_page": "https://www.ray-ban.com/japan/electronics/ray-ban-meta"
+      },
+      {
+        "name": "オーダーメガネ・サングラス",
+        "category": "ブランドサングラス各種 (Q1記載・体感商品)",
+        "image_url": "",
+        "source_page": ""
+      },
+      {
+        "name": "ヤヌーリス EV オリーブオイル",
+        "category": "ギリシャ製エクストラバージン (Q1「エナジーラバー」の正体・差別化)",
+        "image_url": "",
+        "source_page": ""
+      }
+    ],
+    "fetched_ok": true
+  },
+  "023": {
+    "name": "カミマル㈱",
+    "_doc": "溶接消耗品商社・自社KSブランド 4枠 (顔+主力+セール)。画像は後日取得。",
+    "products": [
+      {
+        "name": "KSパンダ 小型ガス溶接セット",
+        "category": "Q4セール対象・3台限定特価 (顔事業)",
+        "image_url": "",
+        "source_page": "https://www.kamimaru.co.jp/"
+      },
+      {
+        "name": "ボンベ運搬車",
+        "category": "Q1主力 (現場必需品)",
+        "image_url": "",
+        "source_page": "https://www.kamimaru.co.jp/"
+      },
+      {
+        "name": "ボンベスタンド",
+        "category": "Q1主力 (現場安定設置)",
+        "image_url": "",
+        "source_page": "https://www.kamimaru.co.jp/"
+      },
+      {
+        "name": "溶接消耗品各種",
+        "category": "Q1+Q3 コストダウン提案 (価格高騰対策)",
+        "image_url": "",
+        "source_page": "https://www.kamimaru.co.jp/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "056": {
+    "name": "㈱スギヤス",
+    "_doc": "BISHAMONブランドの物流機器 4枠: テーブルリフト + 幅狭テーブルリフト(新製品) + 昇降台車 + ハンドリフト。画像は後日取得。",
+    "products": [
+      {
+        "name": "テーブルリフト",
+        "category": "Q1①・顔事業 (BISHAMON看板)",
+        "image_url": "",
+        "source_page": "https://www.bishamon.co.jp/"
+      },
+      {
+        "name": "幅狭テーブルリフト",
+        "category": "Q2新製品・台車ごと昇降・パレタイズ対応 (時代適合◎)",
+        "image_url": "",
+        "source_page": "https://www.bishamon.co.jp/"
+      },
+      {
+        "name": "昇降台車",
+        "category": "Q1③・関東圏内デモ可",
+        "image_url": "",
+        "source_page": "https://www.bishamon.co.jp/"
+      },
+      {
+        "name": "ハンドリフト+パーキングブレーキ",
+        "category": "Q1④・現場安全対策",
+        "image_url": "",
+        "source_page": "https://www.bishamon.co.jp/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "074": {
+    "name": "㈱東洋アソシエイツ",
+    "_doc": "精密卓上工作機械メーカー 4枠 (Q1記載2機種+共通オプション+デモ体験)。画像は後日取得。",
+    "products": [
+      {
+        "name": "Compact9 精密卓上旋盤",
+        "category": "Q1主力・デジタルスケールキット付 (顔)",
+        "image_url": "",
+        "source_page": "https://www.toyoas.jp/"
+      },
+      {
+        "name": "LittleMilling11 精密卓上フライス盤",
+        "category": "Q1主力・デジタルスケールキット付 (顔)",
+        "image_url": "",
+        "source_page": "https://www.toyoas.jp/"
+      },
+      {
+        "name": "デジタルスケールキット",
+        "category": "両機種共通の精度向上オプション",
+        "image_url": "",
+        "source_page": "https://www.toyoas.jp/"
+      },
+      {
+        "name": "実機加工デモ体験",
+        "category": "現地100V金属加工体感 (Q3技術訴求)",
+        "image_url": "",
+        "source_page": "https://www.toyoas.jp/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "080": {
+    "name": "土牛産業㈱",
+    "_doc": "溶接スパッタ除去・安全用品 4枠 (新製品2+主力2)。画像は後日取得 (土牛公式 dogyu.co.jp 経由)。",
+    "products": [
+      {
+        "name": "ニードルケレン棒ショート NKL-200",
+        "category": "Q2新製品・令和8年4月発売",
+        "image_url": "",
+        "source_page": "https://www.dogyu.co.jp/"
+      },
+      {
+        "name": "マグタッチ安全棒",
+        "category": "Q2新製品・令和8年度",
+        "image_url": "",
+        "source_page": "https://www.dogyu.co.jp/"
+      },
+      {
+        "name": "超硬ケレンシリーズ",
+        "category": "Q5配布資料記載・主力 (令和7年4月溶接チラシ)",
+        "image_url": "",
+        "source_page": "https://www.dogyu.co.jp/"
+      },
+      {
+        "name": "溶接スパッタ除去工具",
+        "category": "Q1看板事業・TWF直結◎",
+        "image_url": "",
+        "source_page": "https://www.dogyu.co.jp/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "142": {
+    "name": "㈱ルッドスパンセットジャパン",
+    "_doc": "ドイツRUDグループのリフティング機器 4枠 (FX顔・HX-30特典・新製品ビーム・スリング)。画像は後日取得。",
+    "products": [
+      {
+        "name": "リフティングマグネット FXシリーズ",
+        "category": "FX-300 ¥192,700 等・セール対象 (顔事業)",
+        "image_url": "",
+        "source_page": "https://www.rud-spanset.jp/"
+      },
+      {
+        "name": "ハンドマグネット HX-30",
+        "category": "FX購入で無料プレゼント (¥45,100→¥0・特典)",
+        "image_url": "",
+        "source_page": "https://www.rud-spanset.jp/"
+      },
+      {
+        "name": "吊り天秤 (ビーム)",
+        "category": "Q2新製品・昨年未展示の特徴形状",
+        "image_url": "",
+        "source_page": "https://www.rud-spanset.jp/"
+      },
+      {
+        "name": "リフティングポイント + 繊維スリング",
+        "category": "Q1主力・実機展示",
+        "image_url": "",
+        "source_page": "https://www.rud-spanset.jp/"
+      }
+    ],
+    "fetched_ok": true
+  },
+  "147": {
+    "name": "㈱ワキタ",
+    "_doc": "ワキタ建機事業のメイホーブランド 4枠 (セール3+総合1)。MSC25L-1セール+MSC29ND新製品+MW3000iSアウトレット+メイホー総合。",
+    "products": [
+      {
+        "name": "MSC25L-1 スポットクーラー",
+        "category": "Q4セール対象・5台限定特価¥40,000 (通常¥48,000)",
+        "image_url": "",
+        "source_page": "https://www.wakita.co.jp/construction/meiho/"
+      },
+      {
+        "name": "MSC29ND 二口スポットクーラー",
+        "category": "Q2新製品・ノンドレン式・4.2mコード (時代適合)",
+        "image_url": "",
+        "source_page": "https://www.wakita.co.jp/construction/meiho/"
+      },
+      {
+        "name": "MW3000iS 発電機兼用溶接機",
+        "category": "Q4セール・1台限定アウトレット¥223,000・当日引取条件",
+        "image_url": "",
+        "source_page": "https://www.wakita.co.jp/construction/meiho/mw/mw3000is/"
+      },
+      {
+        "name": "メイホー製品総合",
+        "category": "夏物商材ライン (Q3夏物中心訴求)",
+        "image_url": "",
+        "source_page": "https://www.wakita.co.jp/construction/meiho/"
+      }
+    ],
+    "fetched_ok": true
   }
 }

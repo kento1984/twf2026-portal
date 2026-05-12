@@ -484,6 +484,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;
@@ -815,8 +824,7 @@
       <div class="product-grid">
           <a href="https://www.nccgp.co.jp/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/006/1.jpg" alt="SSP-400D 形鋼用バンドソーマシン" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/006/1.jpg" alt="SSP-400D 形鋼用バンドソーマシン" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">SSP-400D 形鋼用バンドソーマシン</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -826,8 +834,7 @@
           </a>
           <a href="https://www.nccgp.co.jp/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/006/2.jpg" alt="SSP-400D 仕様・特長" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/006/2.jpg" alt="SSP-400D 仕様・特長" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">SSP-400D 仕様・特長</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>

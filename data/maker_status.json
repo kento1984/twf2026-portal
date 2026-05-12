@@ -247,5 +247,58 @@
         "label": "新商品 AXELARC™"
       }
     ]
+  },
+  "023": {
+    "name": "カミマル㈱",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "3台限定特価あり"
+      },
+      {
+        "type": "special",
+        "label": "¥50,000以上でワインプレゼント"
+      }
+    ]
+  },
+  "056": {
+    "name": "㈱スギヤス",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "一部特価対応"
+      }
+    ]
+  },
+  "074": {
+    "name": "㈱東洋アソシエイツ",
+    "badges": [
+      {
+        "type": "special",
+        "label": "ご購入でオプションパーツプレゼント"
+      }
+    ]
+  },
+  "142": {
+    "name": "㈱ルッドスパンセットジャパン",
+    "badges": [
+      {
+        "type": "special",
+        "label": "FX購入でHX-30無料プレゼント"
+      }
+    ]
+  },
+  "147": {
+    "name": "㈱ワキタ",
+    "badges": [
+      {
+        "type": "discount",
+        "label": "MSC25L-1 5台限定/MW3000iS 1台限定アウトレット"
+      },
+      {
+        "type": "special",
+        "label": "MSC25L-1 新製品セール"
+      }
+    ]
   }
 }

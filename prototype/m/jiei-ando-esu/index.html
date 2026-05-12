@@ -484,6 +484,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;

@@ -484,6 +484,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;
@@ -793,8 +802,7 @@
       <div class="product-grid">
           <a href="https://www.otos.co.kr/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/019/1.jpg" alt="OTOSWING 溶接カメラシリーズ (CAMERA 200 / 400)" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/019/1.jpg" alt="OTOSWING 溶接カメラシリーズ (CAMERA 200 / 400)" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">OTOSWING 溶接カメラシリーズ (CAMERA 200 / 400)</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -804,8 +812,7 @@
           </a>
           <a href="https://www.otos.co.kr/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/019/2.jpg" alt="F2i スマート溶接ヘルメット (HDV / ClearLight 2 / Flex Tech)" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/019/2.jpg" alt="F2i スマート溶接ヘルメット (HDV / ClearLight 2 / Flex Tech)" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">F2i スマート溶接ヘルメット (HDV / ClearLight 2 / Flex Tech)</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>

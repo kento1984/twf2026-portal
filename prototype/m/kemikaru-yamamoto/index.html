@@ -484,6 +484,15 @@
     padding: 12px 16px;
     border-top: 1px solid var(--gray-100);
   }
+  /* 画像未取得時のテキストオンリーカード: 高さを揃えてカード崩れ防止 */
+  .product-card-textonly figcaption {
+    border-top: none;
+    padding: 20px 16px;
+    min-height: 96px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .product-card-name {
     margin: 0;
     font-size: 14px;
@@ -807,8 +816,7 @@
       <div class="product-grid">
           <a href="https://chemical-y.co.jp/product/yosetuato" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/029/1.jpg" alt="溶接焼け取り" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/029/1.jpg" alt="溶接焼け取り" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">溶接焼け取り</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -818,8 +826,7 @@
           </a>
           <a href="https://chemical-y.co.jp/product/stainless" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/029/2.jpg" alt="ステンレス用品" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/029/2.jpg" alt="ステンレス用品" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">ステンレス用品</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -829,8 +836,7 @@
           </a>
           <a href="https://chemical-y.co.jp/product/titanium" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/029/3.jpg" alt="チタン用品" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/029/3.jpg" alt="チタン用品" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">チタン用品</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
@@ -840,8 +846,7 @@
           </a>
           <a href="https://chemical-y.co.jp/createcenter/" target="_blank" rel="noopener noreferrer" class="product-card-link" title="公式製品ページを新規タブで開く">
             <figure class="product-card">
-              <img src="../../assets/maker-products/029/4.png" alt="テクノセンター (受託加工)" loading="lazy" />
-              <figcaption>
+<img src="../../assets/maker-products/029/4.png" alt="テクノセンター (受託加工)" loading="lazy" />              <figcaption>
                 <div class="product-card-name-row">
                   <p class="product-card-name">テクノセンター (受託加工)</p>
                   <span class="product-card-arrow" aria-hidden="true">↗</span>
