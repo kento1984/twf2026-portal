@@ -1889,30 +1889,30 @@
   },
   "023": {
     "name": "カミマル㈱",
-    "_doc": "溶接消耗品商社・自社KSブランド 4枠 (顔+主力+セール)。画像は後日取得。",
+    "_doc": "工業用消耗品商社 4枠 (顔+セール対象): KSパンダ (顔・3台限定¥160,000) + TORK不織布ウエス (アウトレット¥5,000) + TORK紙ウエス (¥8,200→¥5,800) + オイル吸着マット (¥7,000〜¥10,000)。実画像 023/1-4.jpg 配置済。",
     "products": [
       {
         "name": "KSパンダ 小型ガス溶接セット",
-        "category": "Q4セール対象・3台限定特価 (顔事業)",
-        "image_url": "",
+        "category": "Q4セール対象・3台限定特価¥160,000 (顔事業)",
+        "image_url": "../../assets/maker-products/023/1.jpg",
         "source_page": "https://www.kamimaru.co.jp/"
       },
       {
-        "name": "ボンベ運搬車",
-        "category": "Q1主力 (現場必需品)",
-        "image_url": "",
+        "name": "TORK 不織布ウエス 530137",
+        "category": "アウトレット特価¥5,000",
+        "image_url": "../../assets/maker-products/023/2.jpg",
         "source_page": "https://www.kamimaru.co.jp/"
       },
       {
-        "name": "ボンベスタンド",
-        "category": "Q1主力 (現場安定設置)",
-        "image_url": "",
+        "name": "TORK 紙ウエス 130081",
+        "category": "セール¥8,200→¥5,800",
+        "image_url": "../../assets/maker-products/023/3.jpg",
         "source_page": "https://www.kamimaru.co.jp/"
       },
       {
-        "name": "溶接消耗品各種",
-        "category": "Q1+Q3 コストダウン提案 (価格高騰対策)",
-        "image_url": "",
+        "name": "オイル吸着マット",
+        "category": "工場安全・現場保護 (¥7,000〜¥10,000)",
+        "image_url": "../../assets/maker-products/023/4.jpg",
         "source_page": "https://www.kamimaru.co.jp/"
       }
     ],
@@ -1920,30 +1920,30 @@
   },
   "056": {
     "name": "㈱スギヤス",
-    "_doc": "BISHAMONブランドの物流機器 4枠: テーブルリフト + 幅狭テーブルリフト(新製品) + 昇降台車 + ハンドリフト。画像は後日取得。",
+    "_doc": "BISHAMONブランドのテーブルリフト 4枠: 標準 + ミニX幅狭 (Q2新製品) + XSシリーズ (電動ネジ駆動・自然降下なし) + スーパーローリフトLX (業界最薄)。実画像 056/1-4.png 配置済。",
     "products": [
       {
-        "name": "テーブルリフト",
-        "category": "Q1①・顔事業 (BISHAMON看板)",
-        "image_url": "",
+        "name": "テーブルリフト 標準タイプ",
+        "category": "BISHAMON看板・顔事業",
+        "image_url": "../../assets/maker-products/056/1.png",
         "source_page": "https://www.bishamon.co.jp/"
       },
       {
-        "name": "幅狭テーブルリフト",
-        "category": "Q2新製品・台車ごと昇降・パレタイズ対応 (時代適合◎)",
-        "image_url": "",
+        "name": "ミニX 幅狭テーブルリフト",
+        "category": "Q2新製品・台車ごと昇降 (時代適合◎)",
+        "image_url": "../../assets/maker-products/056/2.png",
         "source_page": "https://www.bishamon.co.jp/"
       },
       {
-        "name": "昇降台車",
-        "category": "Q1③・関東圏内デモ可",
-        "image_url": "",
+        "name": "テーブルリフト XSシリーズ",
+        "category": "電動ネジ駆動・自然降下なし (安全性◎)",
+        "image_url": "../../assets/maker-products/056/3.png",
         "source_page": "https://www.bishamon.co.jp/"
       },
       {
-        "name": "ハンドリフト+パーキングブレーキ",
-        "category": "Q1④・現場安全対策",
-        "image_url": "",
+        "name": "スーパーローリフトLX",
+        "category": "業界最薄ロープロファイル",
+        "image_url": "../../assets/maker-products/056/4.png",
         "source_page": "https://www.bishamon.co.jp/"
       }
     ],
@@ -1982,30 +1982,30 @@
   },
   "080": {
     "name": "土牛産業㈱",
-    "_doc": "溶接スパッタ除去・安全用品 4枠 (新製品2+主力2)。画像は後日取得 (土牛公式 dogyu.co.jp 経由)。",
+    "_doc": "溶接後工程ツール 4枠 (新製品2+主力2): NKL-200 (Q2新製品) + マグタッチ安全棒 (Q2新製品・玉掛け作業安全) + 超硬刃ケレン棒 (スパッタ除去) + アルミ超硬刃ケレン棒ロング (ドロス除去・ロング)。実画像 080/1-4.png 配置済。",
     "products": [
       {
         "name": "ニードルケレン棒ショート NKL-200",
         "category": "Q2新製品・令和8年4月発売",
-        "image_url": "",
+        "image_url": "../../assets/maker-products/080/1.png",
         "source_page": "https://www.dogyu.co.jp/"
       },
       {
         "name": "マグタッチ安全棒",
-        "category": "Q2新製品・令和8年度",
-        "image_url": "",
+        "category": "Q2新製品・玉掛け作業の安全対策",
+        "image_url": "../../assets/maker-products/080/2.png",
         "source_page": "https://www.dogyu.co.jp/"
       },
       {
-        "name": "超硬ケレンシリーズ",
-        "category": "Q5配布資料記載・主力 (令和7年4月溶接チラシ)",
-        "image_url": "",
+        "name": "超硬刃ケレン棒",
+        "category": "溶接スパッタ除去 (主力・TWF直結◎)",
+        "image_url": "../../assets/maker-products/080/3.png",
         "source_page": "https://www.dogyu.co.jp/"
       },
       {
-        "name": "溶接スパッタ除去工具",
-        "category": "Q1看板事業・TWF直結◎",
-        "image_url": "",
+        "name": "アルミ超硬刃ケレン棒ロング",
+        "category": "ドロス除去・ロングタイプ",
+        "image_url": "../../assets/maker-products/080/4.png",
         "source_page": "https://www.dogyu.co.jp/"
       }
     ],
@@ -2013,30 +2013,30 @@
   },
   "142": {
     "name": "㈱ルッドスパンセットジャパン",
-    "_doc": "ドイツRUDグループのリフティング機器 4枠 (FX顔・HX-30特典・新製品ビーム・スリング)。画像は後日取得。",
+    "_doc": "ドイツRUDグループのリフティング機器 4枠: FX-600 (FXシリーズ主力) + HX-30 (FX購入特典・¥45,100→¥0) + FX-VV200 (V字溝対応) + FX-R225 (R形状)。実画像 142/1-4.png 配置済。",
     "products": [
       {
-        "name": "リフティングマグネット FXシリーズ",
-        "category": "FX-300 ¥192,700 等・セール対象 (顔事業)",
-        "image_url": "",
+        "name": "リフティングマグネット FX-600",
+        "category": "FXシリーズ主力 (FX-300以上購入で HX-30 無料プレゼント対象)",
+        "image_url": "../../assets/maker-products/142/1.png",
         "source_page": "https://www.rud-spanset.jp/"
       },
       {
         "name": "ハンドマグネット HX-30",
-        "category": "FX購入で無料プレゼント (¥45,100→¥0・特典)",
-        "image_url": "",
+        "category": "FX購入特典・¥45,100→¥0 無料プレゼント",
+        "image_url": "../../assets/maker-products/142/2.png",
         "source_page": "https://www.rud-spanset.jp/"
       },
       {
-        "name": "吊り天秤 (ビーム)",
-        "category": "Q2新製品・昨年未展示の特徴形状",
-        "image_url": "",
+        "name": "リフティングマグネット FX-VV200",
+        "category": "V字溝対応 (¥175,100)",
+        "image_url": "../../assets/maker-products/142/3.png",
         "source_page": "https://www.rud-spanset.jp/"
       },
       {
-        "name": "リフティングポイント + 繊維スリング",
-        "category": "Q1主力・実機展示",
-        "image_url": "",
+        "name": "リフティングマグネット FX-R225",
+        "category": "R形状対応 (¥224,400)",
+        "image_url": "../../assets/maker-products/142/4.png",
         "source_page": "https://www.rud-spanset.jp/"
       }
     ],
@@ -2044,7 +2044,7 @@
   },
   "147": {
     "name": "㈱ワキタ",
-    "_doc": "ワキタ建機事業のメイホーブランド 4枠。1.jpg=spot_cooler メイン (MSC25-2写真をMSC25L-1代表として使用、要差し替え検討)、2.jpg=メイホーMSCカテゴリトップ画、3.jpg=MW3000iS本体、4.jpg=メイホーMWカテゴリトップ画 (総合枠で代用)。",
+    "_doc": "ワキタ建機事業のメイホーブランド 4枠。1.jpg=MSC25L-1 正規画像 (柏原差替済) / 2.jpg=メイホーMSCカテゴリトップ画 (MSC29ND枠) / 3.jpg=MW3000iS本体 / 4.jpg=メイホーMWカテゴリトップ画 (総合枠)。",
     "products": [
       {
         "name": "MSC25L-1 スポットクーラー",
