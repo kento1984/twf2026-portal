@@ -1072,31 +1072,31 @@
   },
   "071": {
     "name": "デンヨー㈱",
-    "_doc": "可搬型ディーゼル発電機 DCAシリーズが顔事業 (画像4枚すべてDCA系)。TWF文脈で発電機+溶接機+特殊機器の3カテゴリページに分散させ、TOP混在を解消。画像との整合は維持。",
+    "_doc": "発電機+溶接機の両刀メーカー。TWF文脈では溶接機の訴求が重要との柏原業務知識を反映、溶接機2枠 (ガソリン+ディーゼル) + 発電機2枠 (中型+大型) のバランス4枠に再構成。画像 1+2 を発電機 → 溶接機本体に差し替え。",
     "products": [
       {
-        "name": "可搬形ディーゼル発電機 DCA-USKBシリーズ",
-        "category": "ディーゼル発電機 (顔事業・建設/レンタル看板)",
-        "image_url": "../../assets/maker-products/071/1.png",
-        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/"
+        "name": "GAW-190ES2 ガソリンエンジン溶接機",
+        "category": "可搬性重視・最大190A (TWF直結・現場機動性)",
+        "image_url": "../../assets/maker-products/071/1.jpg",
+        "source_page": "https://www.denyo.co.jp/products/gaw-190es2/"
       },
       {
-        "name": "可搬形ディーゼル発電機 DCA-ESIシリーズ",
-        "category": "インバータ制御モデル (高効率・省燃費)",
-        "image_url": "../../assets/maker-products/071/2.png",
-        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/"
+        "name": "DLW-400LSWE ディーゼル溶接機 (ウェルザック)",
+        "category": "Welzac 主力ブランド・400A 1人/200A 2人モード (TWF直結)",
+        "image_url": "../../assets/maker-products/071/2.jpg",
+        "source_page": "https://www.denyo.co.jp/products/dlw-400lswe/"
       },
       {
         "name": "可搬形ディーゼル発電機 DCA-LSYシリーズ",
-        "category": "低騒音モデル (現場用主力)",
+        "category": "低騒音モデル (現場用主力発電機)",
         "image_url": "../../assets/maker-products/071/3.png",
-        "source_page": "https://www.denyo.co.jp/products/generator/"
+        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/"
       },
       {
         "name": "DCA-260SGC 大型発電機",
-        "category": "大容量・特殊機器系 (建設現場/イベント)",
+        "category": "大容量260kVA (建設現場・イベント)",
         "image_url": "../../assets/maker-products/071/4.png",
-        "source_page": "https://www.denyo.co.jp/products/sequip/"
+        "source_page": "https://www.denyo.co.jp/products/generator/"
       }
     ],
     "fetched_ok": true
