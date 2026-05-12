@@ -93,30 +93,31 @@
   },
   "017": {
     "name": "㈱エステーリンク",
+    "_doc": "新潟県燕市の精密板金+バリ取り機メーカー。4ブランドサイト体制 (baritoriki.jp/3d-joban.jp/st-link.co.jp) を活用した 4枠: メタルエステ1000 (顔・累計2200台) + 3D溶接定盤 (TWF直結◎◎) + スポットダスター (溶接ヒューム規制対応・時代適合) + 精密板金加工 (顔事業派生)。別ドメイン参照は同一企業の正規ブランドサイトのため正当。",
     "products": [
       {
-        "name": "板金屋のためのバリ取り機",
-        "category": "板金用バリ取り機",
-        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-01-01.jpg",
-        "source_page": "https://www.baritoriki.jp/"
+        "name": "メタルエステ (バリ取り機)",
+        "category": "ME-2308 1000mm幅ベルト式 (顔・累計2200台)",
+        "image_url": "../../assets/maker-products/017/1.png",
+        "source_page": "https://www.baritoriki.jp/list/me-1000/"
       },
       {
-        "name": "バリ取り機 製品紹介画像",
-        "category": "板金用バリ取り機",
-        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-01-02.jpg",
-        "source_page": "https://www.baritoriki.jp/"
+        "name": "3D溶接定盤",
+        "category": "φ28/φ16 フレーム溶接・厚板用 (TWF直結)",
+        "image_url": "../../assets/maker-products/017/2.jpg",
+        "source_page": "https://3d-joban.jp/"
       },
       {
-        "name": "バリ取り機 加工事例",
-        "category": "板金用バリ取り機 加工事例",
-        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-02-01.jpg",
-        "source_page": "https://www.baritoriki.jp/"
+        "name": "スポットダスターGW (集塵機)",
+        "category": "溶接ヒューム/グラインダー集塵機 (規制対応)",
+        "image_url": "../../assets/maker-products/017/3.png",
+        "source_page": "https://www.baritoriki.jp/list/gs/"
       },
       {
-        "name": "バリ取り機 加工事例 2",
-        "category": "板金用バリ取り機 加工事例",
-        "image_url": "https://www.baritoriki.jp/wordpress/wp-content/themes/baritoriki/images/top-02-04.jpg",
-        "source_page": "https://www.baritoriki.jp/"
+        "name": "精密板金加工",
+        "category": "ファイバーレーザー+製缶+組立 一貫生産",
+        "image_url": "../../assets/maker-products/017/4.jpg",
+        "source_page": "https://www.st-link.co.jp/technical01.html"
       }
     ],
     "fetched_ok": true
@@ -395,38 +396,31 @@
   },
   "100": {
     "name": "㈱ハタヤリミテッド",
+    "_doc": "コードリール業界の老舗 4枠 (顔+時代適合+TWF直結): コードリール (顔・漏電遮断器付BR型) + LED照明 (現場省エネ・100W軽便投光器) + 特殊リール (溶接ケーブルリール・TWF直結) + オートリール (自動巻取・コードマックXL)。全画像新規取得。",
     "products": [
       {
-        "name": "カタログ",
-        "category": "",
+        "name": "コードリール",
+        "category": "業務用主力ラインナップ (漏電遮断器付BR型・看板事業)",
         "image_url": "../../assets/maker-products/100/1.jpg",
-        "source_page": "https://www.hataya.jp/",
-        "remote_url": "https://www.hataya.jp/common/img/catalog.jpg",
-        "bytes": 159812
+        "source_page": "https://www.hataya.jp/products/cordreel/"
       },
       {
-        "name": "TOP1",
-        "category": "",
+        "name": "LED照明・作業灯",
+        "category": "投光器・ハンドランプ・ヘッドライト (現場省エネ)",
         "image_url": "../../assets/maker-products/100/2.jpg",
-        "source_page": "https://www.hataya.jp/",
-        "remote_url": "https://www.hataya.jp/uploads/post/2201/1_1.jpg",
-        "bytes": 92306
+        "source_page": "https://www.hataya.jp/products/lighting/"
       },
       {
-        "name": "TOP2",
-        "category": "",
+        "name": "特殊リール",
+        "category": "エヤー/水/溶接ケーブルリール (TWF直結)",
         "image_url": "../../assets/maker-products/100/3.jpg",
-        "source_page": "https://www.hataya.jp/",
-        "remote_url": "https://www.hataya.jp/uploads/post/2200/1_1.jpg",
-        "bytes": 94445
+        "source_page": "https://www.hataya.jp/products/others/"
       },
       {
-        "name": "TOP3",
-        "category": "",
+        "name": "オートリール",
+        "category": "自動巻取式 コードマック/エヤーマックシリーズ",
         "image_url": "../../assets/maker-products/100/4.jpg",
-        "source_page": "https://www.hataya.jp/",
-        "remote_url": "https://www.hataya.jp/uploads/post/2199/1_1.jpg",
-        "bytes": 90167
+        "source_page": "https://www.hataya.jp/products/autoreel/"
       }
     ],
     "fetched_ok": true
@@ -1576,38 +1570,31 @@
   },
   "110": {
     "name": "富士製砥㈱",
+    "_doc": "切断砥石〜切断機〜グラインダ〜高周波機器の総合ラインナップ 4枠 (顔+TWF直結+時代適合): スーパー雷鳥 (両面補強切断砥石・看板) + KCM-370NE・SC (代表メタル切断機・実演動画掲載) + HD-180R/HD-182R (2026新製品ディスクグラインダ) + FKC-400H Type2 (2025/10 高周波インバータ電源・省エネ)。旧版はカタログ表紙画像でURLが全件 /download/ に集約されていた、新規取得。",
     "products": [
       {
-        "name": "36_catalog_b_01_b",
-        "category": "",
-        "image_url": "../../assets/maker-products/110/1.jpg",
-        "source_page": "https://www.fujiseito.com/download/",
-        "remote_url": "https://www.fujiseito.com/wp-content/uploads/2016/09/36_catalog_b_01_b.jpg",
-        "bytes": 43095
+        "name": "切断砥石",
+        "category": "スーパー雷鳥シリーズ 他 (両面補強・看板)",
+        "image_url": "../../assets/maker-products/110/1.png",
+        "source_page": "https://www.fujiseito.com/cut_stone/"
       },
       {
-        "name": "富士製砥　総合カタログ 表紙イメージ class=",
-        "category": "",
+        "name": "切断機",
+        "category": "KCM-370NE・SC 他 メタル切断機/Fカッター (TWF直結)",
         "image_url": "../../assets/maker-products/110/2.png",
-        "source_page": "https://www.fujiseito.com/download/",
-        "remote_url": "https://www.fujiseito.com/catalog/2025/thumbnail/202503_fujiseito-all.png",
-        "bytes": 66152
+        "source_page": "https://www.fujiseito.com/cut_machine/"
       },
       {
-        "name": "富士製砥総合ダイジェストカタログ 表紙イメージ",
-        "category": "",
+        "name": "グラインダ",
+        "category": "HD-180R/HD-182R (2026新製品) 他 電気/エアー",
         "image_url": "../../assets/maker-products/110/3.png",
-        "source_page": "https://www.fujiseito.com/download/",
-        "remote_url": "https://www.fujiseito.com/catalog/2025/thumbnail/202511_fujiseito-digest-all.png",
-        "bytes": 54929
+        "source_page": "https://www.fujiseito.com/grinder/"
       },
       {
-        "name": "エイシン製品ダイジェストカタログ 表紙イメージ",
-        "category": "",
+        "name": "高周波機器",
+        "category": "FKC-400H Type2 (2025/10 インバータ電源・省エネ)",
         "image_url": "../../assets/maker-products/110/4.png",
-        "source_page": "https://www.fujiseito.com/download/",
-        "remote_url": "https://www.fujiseito.com/catalog/2025/thumbnail/202503_fujiseito-eishin-all.png",
-        "bytes": 44976
+        "source_page": "https://www.fujiseito.com/h_freq/"
       }
     ],
     "fetched_ok": true
@@ -1697,22 +1684,31 @@
   },
   "126": {
     "name": "㈱ムラキ",
+    "_doc": "工具商社・機械工具部のTWF文脈最大化 4枠 (顔+TWF直結): MRA超硬バー (自社・先端工具看板) + MRAエアグラインダ (溶接後仕上げ) + OSBORNカップ/ホイールブラシ (溶接ビード清掃・TWF直結◎) + botekガンドリル (海外代理店ブランド差別化)。旧版は事業紹介画像 (精密機工部/時計部) でTWF文脈ゼロ、全画像新規取得。",
     "products": [
       {
-        "name": "精密機工部",
-        "category": "",
+        "name": "先端工具",
+        "category": "MRA超硬バー・ダイヤモンドバー・軸付砥石 (自社ブランド)",
         "image_url": "../../assets/maker-products/126/1.jpg",
-        "source_page": "https://www.muraki-ltd.co.jp/about/",
-        "remote_url": "https://www.muraki-ltd.co.jp/about/images/phMicro.jpg",
-        "bytes": 40972
+        "source_page": "https://www.muraki-ltd.co.jp/tool/products/tip/"
       },
       {
-        "name": "時計部",
-        "category": "",
+        "name": "エア工具",
+        "category": "MRA エアグラインダ・ベルトサンダ (溶接後仕上げ)",
         "image_url": "../../assets/maker-products/126/2.jpg",
-        "source_page": "https://www.muraki-ltd.co.jp/about/",
-        "remote_url": "https://www.muraki-ltd.co.jp/about/images/phWatch.jpg",
-        "bytes": 31080
+        "source_page": "https://www.muraki-ltd.co.jp/tool/products/air/"
+      },
+      {
+        "name": "ブラシ",
+        "category": "OSBORN カップ/ホイール/軸付 (溶接ビード清掃・TWF直結)",
+        "image_url": "../../assets/maker-products/126/3.jpg",
+        "source_page": "https://www.muraki-ltd.co.jp/tool/products/brush/"
+      },
+      {
+        "name": "切削工具",
+        "category": "botek ガンドリル/BTA工具 他 海外代理店ブランド",
+        "image_url": "../../assets/maker-products/126/4.jpg",
+        "source_page": "https://www.muraki-ltd.co.jp/tool/products/cut/"
       }
     ],
     "fetched_ok": true
