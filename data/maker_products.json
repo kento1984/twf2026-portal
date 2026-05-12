@@ -1072,7 +1072,7 @@
   },
   "071": {
     "name": "デンヨー㈱",
-    "_doc": "発電機+溶接機の両刀メーカー。TWF文脈では溶接機の訴求が重要との柏原業務知識を反映、溶接機2枠 (ガソリン+ディーゼル) + 発電機2枠 (中型+大型) のバランス4枠に再構成。画像 1+2 を発電機 → 溶接機本体に差し替え。",
+    "_doc": "発電機+溶接機の両刀メーカー。TWF文脈では溶接機の訴求が重要との柏原業務知識を反映、溶接機2枠 (ガソリン GAW-190ES2 + ウェルザック BDW-120BP バッテリー式) + 発電機2枠 (DCA-LSY + DCA-260SGC) のバランス4枠に再構成。2枠目の「ウェルザック」は本来 BDW-120BP (10kg背負い式バッテリー溶接機・2025グッドデザイン賞受賞) で、当初 DLW-400LSWE 誤同定を訂正。",
     "products": [
       {
         "name": "GAW-190ES2 ガソリンエンジン溶接機",
@@ -1081,10 +1081,10 @@
         "source_page": "https://www.denyo.co.jp/products/gaw-190es2/"
       },
       {
-        "name": "DLW-400LSWE ディーゼル溶接機 (ウェルザック)",
-        "category": "Welzac 主力ブランド・400A 1人/200A 2人モード (TWF直結)",
+        "name": "ウェルザック BDW-120BP バッテリー溶接機 (2025グッドデザイン賞)",
+        "category": "バッテリー駆動・10kg背負い式・120A (時代適合◎・脱炭素・現場機動性)",
         "image_url": "../../assets/maker-products/071/2.jpg",
-        "source_page": "https://www.denyo.co.jp/products/dlw-400lswe/"
+        "source_page": "https://www.denyo.co.jp/products/bdw-120bp/"
       },
       {
         "name": "可搬形ディーゼル発電機 DCA-LSYシリーズ",
