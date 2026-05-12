@@ -985,60 +985,50 @@
   },
   "051": {
     "name": "シンクス㈱",
+    "_doc": "木工・鉄鋼加工機メーカー、VXW-7 Plus は木工パネルソー主力機 (TOP誤参照解消)。",
     "products": [
       {
-        "name": "VXW-7 Plus 製品紹介ページに追加",
-        "category": "",
+        "name": "VXW-7 Plus パネルソー",
+        "category": "木工パネルソー (国内導入率No.1の主力)",
         "image_url": "../../assets/maker-products/051/1.png",
-        "source_page": "https://www.shinx.co.jp/",
-        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2023/11/SHINX_VXW-3000-7Plus_0.png",
-        "bytes": 778505
+        "source_page": "https://www.shinx.co.jp/products/products_catalog_wood01/"
       },
       {
         "name": "SPN1シリーズ",
-        "category": "",
+        "category": "鉄鋼開先加工機",
         "image_url": "../../assets/maker-products/051/2.png",
-        "source_page": "https://www.shinx.co.jp/products/",
-        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2024/09/spn1.png",
-        "bytes": 205164
+        "source_page": "https://www.shinx.co.jp/products/"
       },
       {
         "name": "SPN2シリーズ",
-        "category": "",
+        "category": "鉄鋼開先加工機 (大型)",
         "image_url": "../../assets/maker-products/051/3.png",
-        "source_page": "https://www.shinx.co.jp/products/",
-        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2024/09/spn2.png",
-        "bytes": 283102
+        "source_page": "https://www.shinx.co.jp/products/"
       },
       {
         "name": "HPPシリーズ",
-        "category": "",
+        "category": "板金加工機",
         "image_url": "../../assets/maker-products/051/4.png",
-        "source_page": "https://www.shinx.co.jp/products/",
-        "remote_url": "https://www.shinx.co.jp/wordpress/wp-content/uploads/2024/09/hpp.png",
-        "bytes": 211747
+        "source_page": "https://www.shinx.co.jp/products/"
       }
     ],
     "fetched_ok": true
   },
   "061": {
     "name": "象印チェンブロック㈱",
+    "_doc": "ホイスト・チェンブロックメーカー、TOP混在を解消。顔事業の電気チェーンブロック /pages/750/ に振り分け。",
     "products": [
       {
-        "name": "象印チェンブロック 主要製品 1",
-        "category": "",
+        "name": "電気チェーンブロック",
+        "category": "顔事業 (工場・倉庫の標準ホイスト)",
         "image_url": "../../assets/maker-products/061/1.jpg",
-        "source_page": "https://www.elephant.co.jp/",
-        "remote_url": "https://www.elephant.co.jp/files/site_config/capture.jpg",
-        "bytes": 83708
+        "source_page": "https://www.elephant.co.jp/pages/750/"
       },
       {
-        "name": "象印チェンブロック 主要製品 2",
-        "category": "",
+        "name": "クレーン関連 / 主要製品",
+        "category": "クレーン・トロリ系",
         "image_url": "../../assets/maker-products/061/2.png",
-        "source_page": "https://www.elephant.co.jp/pages/78/",
-        "remote_url": "https://www.elephant.co.jp/files/libs/10217/s/20250602131142982.png?1748837502",
-        "bytes": 305456
+        "source_page": "https://www.elephant.co.jp/pages/78/"
       }
     ],
     "fetched_ok": true
@@ -1082,38 +1072,31 @@
   },
   "071": {
     "name": "デンヨー㈱",
+    "_doc": "可搬型ディーゼル発電機 DCAシリーズが顔事業 (画像4枚すべてDCA系)。TWF文脈で発電機+溶接機+特殊機器の3カテゴリページに分散させ、TOP混在を解消。画像との整合は維持。",
     "products": [
       {
-        "name": "デンヨー 主要製品 1",
-        "category": "",
+        "name": "可搬形ディーゼル発電機 DCA-USKBシリーズ",
+        "category": "ディーゼル発電機 (顔事業・建設/レンタル看板)",
         "image_url": "../../assets/maker-products/071/1.png",
-        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/",
-        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2022/11/DCA-45USKB3.png",
-        "bytes": 1931745
+        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/"
       },
       {
-        "name": "デンヨー 主要製品 2",
-        "category": "",
+        "name": "可搬形ディーゼル発電機 DCA-ESIシリーズ",
+        "category": "インバータ制御モデル (高効率・省燃費)",
         "image_url": "../../assets/maker-products/071/2.png",
-        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/",
-        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2020/12/DCA-60ESI2.png",
-        "bytes": 663478
+        "source_page": "https://www.denyo.co.jp/products/generator/cdiesel/"
       },
       {
-        "name": "可搬形ディーゼル発電機（DCAシリーズ/TLGシリーズ）",
-        "category": "",
+        "name": "可搬形ディーゼル発電機 DCA-LSYシリーズ",
+        "category": "低騒音モデル (現場用主力)",
         "image_url": "../../assets/maker-products/071/3.png",
-        "source_page": "https://www.denyo.co.jp/",
-        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2020/11/DCA-45LSYE-574x600.png",
-        "bytes": 236648
+        "source_page": "https://www.denyo.co.jp/products/generator/"
       },
       {
-        "name": "その他の発電装置",
-        "category": "",
+        "name": "DCA-260SGC 大型発電機",
+        "category": "大容量・特殊機器系 (建設現場/イベント)",
         "image_url": "../../assets/maker-products/071/4.png",
-        "source_page": "https://www.denyo.co.jp/",
-        "remote_url": "https://www.denyo.co.jp/wp/wp-content/uploads/2020/11/DCA-260SGC-H-600x413.png",
-        "bytes": 250509
+        "source_page": "https://www.denyo.co.jp/products/sequip/"
       }
     ],
     "fetched_ok": true
@@ -1406,38 +1389,31 @@
   },
   "098": {
     "name": "㈱HiPAPhotonicsJapan",
+    "_doc": "JPT (中国本社) のファイバーレーザー製品、TOP混在を解消。MOPA/Ultrafast/CW-QCW の3カテゴリ + 加工機系で振り分け。製品名はファイル名生(YDFLP/JPT-LIT/27TE等)から正式名へ整理。",
     "products": [
       {
-        "name": "YDFLP11.png",
-        "category": "",
+        "name": "YDFLPシリーズ MOPAファイバーレーザー",
+        "category": "MOPAパルス可変・主力 (微細加工・マーキング)",
         "image_url": "../../assets/maker-products/098/1.png",
-        "source_page": "https://jptjp.jp/products/lasers/mopa-fiber-lasers",
-        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20250724/YDFLP11-825.png",
-        "bytes": 247087
+        "source_page": "https://jptjp.jp/products/lasers/mopa-fiber-lasers"
       },
       {
-        "name": "JPT-LIT 20(1)(1).png",
-        "category": "",
+        "name": "JetLit ウルトラファストレーザー",
+        "category": "ピコ秒/フェムト秒 (硬脆材料・精密加工)",
         "image_url": "../../assets/maker-products/098/2.png",
-        "source_page": "https://jptjp.jp/products/lasers/ultrafast-lasers/jetlit",
-        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20260122/JPTLIT2011.png",
-        "bytes": 396035
+        "source_page": "https://jptjp.jp/products/lasers/ultrafast-lasers/jetlit"
       },
       {
-        "name": "C0364.MP4_20251229_161802.277(1)(1).jpg",
-        "category": "",
+        "name": "JetLit 加工事例",
+        "category": "ウルトラファスト加工デモ",
         "image_url": "../../assets/maker-products/098/3.jpg",
-        "source_page": "https://jptjp.jp/products/lasers/ultrafast-lasers/jetlit",
-        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20260122/C0364.MP420251229161802.27711.jpg",
-        "bytes": 899280
+        "source_page": "https://jptjp.jp/products/lasers/ultrafast-lasers"
       },
       {
-        "name": "27TE.png",
-        "category": "",
+        "name": "CW/QCWファイバーレーザー",
+        "category": "連続発振・溶接/切断用 (TWF直結)",
         "image_url": "../../assets/maker-products/098/4.png",
-        "source_page": "https://jptjp.jp/",
-        "remote_url": "https://jptjp.jp/Public/Uploads/uploadfile/images/20250719/27TE-566.png",
-        "bytes": 111665
+        "source_page": "https://jptjp.jp/products/lasers/cw-qcw-fiber-lasers"
       }
     ],
     "fetched_ok": true
@@ -1482,38 +1458,25 @@
   },
   "102": {
     "name": "ＢＸテンパル㈱",
+    "_doc": "オーニング・テント・間仕切りメーカー。[1] はInstagramアイコン誤拾いで削除、残り3枠 (オーニング2種+テント) を個別カテゴリページに振り分け、TOP混在を解消。3枠だが画像不整合よりは健全。",
     "products": [
       {
-        "name": "instagramアイコン",
-        "category": "",
-        "image_url": "../../assets/maker-products/102/1.png",
-        "source_page": "https://www.tenpal.co.jp/",
-        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/Instagram_Glyph_Gradient_RGB.png",
-        "bytes": 80057
-      },
-      {
         "name": "ホームオーニングシリーズ",
-        "category": "",
+        "category": "ロールオーニング (店舗・施設向け)",
         "image_url": "../../assets/maker-products/102/2.jpg",
-        "source_page": "https://www.tenpal.co.jp/product.html",
-        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/category_awning02.jpg",
-        "bytes": 77792
+        "source_page": "https://www.tenpal.co.jp/awning.html#awning03"
       },
       {
         "name": "デザインオーニングシリーズ",
-        "category": "",
+        "category": "外観意匠重視・大型",
         "image_url": "../../assets/maker-products/102/3.jpg",
-        "source_page": "https://www.tenpal.co.jp/product.html",
-        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/awning21.jpg",
-        "bytes": 283776
+        "source_page": "https://www.tenpal.co.jp/awning.html#awning04"
       },
       {
         "name": "固定式テント",
-        "category": "",
+        "category": "工場/物流施設向け (TWF文脈)",
         "image_url": "../../assets/maker-products/102/4.jpg",
-        "source_page": "https://www.tenpal.co.jp/product.html",
-        "remote_url": "https://www.tenpal.co.jp/dcms_media/image/category_ordertent01.jpg",
-        "bytes": 97150
+        "source_page": "https://www.tenpal.co.jp/ordertent.html#ordertent02"
       }
     ],
     "fetched_ok": true
@@ -1746,38 +1709,31 @@
   },
   "130": {
     "name": "㈱モトユキ",
+    "_doc": "チップソー・切断工具メーカー。SCシリーズ (2025末 新製品) + FMタイプ + GLAタイプ で TOP混在を解消、コレクション/カテゴリページに振り分け。",
     "products": [
       {
-        "name": "「SC-1514 / SC-2014 / SC-2514」を発売",
-        "category": "",
+        "name": "SC-1514/2014/2514 シリーズ",
+        "category": "2025年末 新製品チップソー (時代適合)",
         "image_url": "../../assets/maker-products/130/1.webp",
-        "source_page": "https://motoyuki.co.jp/",
-        "remote_url": "https://motoyuki.co.jp/cdn/shop/articles/SC_SERIES_C-1__s_08bcc4bd-f19c-4696-8cd1-da645874849b.png?v=1764729177&width=595",
-        "bytes": 119512
+        "source_page": "https://motoyuki.co.jp/collections/tippedsaw"
       },
       {
         "name": "FMタイプ",
-        "category": "",
+        "category": "ステンレス用チップソー (顔事業)",
         "image_url": "../../assets/maker-products/130/2.webp",
-        "source_page": "https://motoyuki.co.jp/products/fm_type",
-        "remote_url": "https://motoyuki.co.jp/cdn/shop/files/e_FM-180_expansion_white.png?v=1759390736&width=1500",
-        "bytes": 121838
+        "source_page": "https://motoyuki.co.jp/products/fm_type"
       },
       {
-        "name": "FMタイプ",
-        "category": "",
+        "name": "FM-305 PKタイプ",
+        "category": "ステンレス用 大径305mm",
         "image_url": "../../assets/maker-products/130/3.webp",
-        "source_page": "https://motoyuki.co.jp/products/fm_type",
-        "remote_url": "https://motoyuki.co.jp/cdn/shop/files/FM-305_PK.jpg?v=1759390736&width=1053",
-        "bytes": 248284
+        "source_page": "https://motoyuki.co.jp/products/fm_type"
       },
       {
         "name": "GLAタイプ",
-        "category": "",
+        "category": "アルミ用チップソー",
         "image_url": "../../assets/maker-products/130/4.webp",
-        "source_page": "https://motoyuki.co.jp/products/gla_type",
-        "remote_url": "https://motoyuki.co.jp/cdn/shop/files/e_GLA-180G_expansion_1500.png?v=1759390766&width=1500",
-        "bytes": 171630
+        "source_page": "https://motoyuki.co.jp/products/gla_type"
       }
     ],
     "fetched_ok": true
