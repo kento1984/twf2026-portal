@@ -1,0 +1,17 @@
+# Cloudflare Pages _redirects
+# 詳細: https://developers.cloudflare.com/pages/configuration/redirects/
+#
+# このファイルはホスティング時にビルド出力 (prototype/) のルートに置かれ、
+# Cloudflare Pages が起動時に読み込んで適用する。
+#
+# 2026-05-12: PDF取り違え訂正 (commit 924419c) による旧URL → 新URL の救済
+# - 旧 カミマル/A4チラシ.pdf は中身が誤って FX系チラシだった → 訂正後はカミマル/セールチラシ.pdf にKSパンダ等の正しい中身
+# - 旧 ルッド/チラシ.pdf は中身が誤って KSパンダ系チラシだった → 訂正後はルッド/FXシリーズチラシ.pdf に正しい中身
+# 共有済URLが壊れないよう、旧URL → 新URL (該当社の本来のセール資料) に301リダイレクト。
+#
+# 注意: Cloudflare Pages は _redirects ファイルが存在し、かつビルド出力ルートに 404.html がある場合、
+# SPA-style fallback (404 → index.html) を行わず 404.html を返す。これで「PDFが見つからない時に
+# ポータルTOPが iframe 内に表示される」現象を恒久回避。
+
+/attachments/カミマル株式会社/2026東京WF　当日限定特価セール　A4チラシ.pdf  /attachments/カミマル株式会社/2026東京WF_当日限定特価セールチラシ.pdf  301
+/attachments/株式会社ルッドスパンセットジャパン/2026東京WF_チラシ.pdf  /attachments/株式会社ルッドスパンセットジャパン/2026東京WF_FXシリーズチラシ.pdf  301
