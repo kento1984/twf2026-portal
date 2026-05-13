@@ -583,10 +583,16 @@
     "q4": "展示会・同行販売限定特典　（金額に応じてのサービス品）",
     "q5": "新商品　　　　2部　ＣＲ36ＤＳＡ・トラッカープロ\n　キャンペーン　1部",
     "attachments": [
-      "26TWF_HiKOKI_GOGOバッテリーCP.pdf"
+      "26TWF_HiKOKI_GOGOバッテリーCP.pdf",
+      "2026HiKOKIの最新ASもらえるキャンペーン.pdf",
+      "チラシ　トラッカープロ.pdf",
+      "単品チラシ　CR36DSA.pdf"
     ],
     "attachment_labels": {
-      "26TWF_HiKOKI_GOGOバッテリーCP.pdf": "TWF2026 HiKOKI GOGOバッテリーキャンペーン (TWF会場・対面販売限定・対象57製品・〜6/30)"
+      "26TWF_HiKOKI_GOGOバッテリーCP.pdf": "TWF2026 HiKOKI GOGOバッテリーキャンペーン (TWF会場・対面販売限定・対象57製品・〜6/30)",
+      "2026HiKOKIの最新ASもらえるキャンペーン.pdf": "HiKOKI 最新アクセサリ獲得キャンペーン (展示会・同行販売限定)",
+      "チラシ　トラッカープロ.pdf": "トラッカープロ 製品カタログ (Apple/Android対応 工具位置管理)",
+      "単品チラシ　CR36DSA.pdf": "コードレスセーバソー CR36DSA 単品カタログ (36V マルチボルト)"
     },
     "attachment_dir": "attachments/工機ホールディングスジャパン株式会社/",
     "company_dir": "工機ホールディングスジャパン株式会社"
@@ -1519,8 +1525,15 @@
     "q2": "なし",
     "q3": "・高天井用照明\n工場や倉庫、体育館、商業施設など天井の高い場所でもムラのない明るさを実現でき、高効率LEDにより水銀灯に比べて大幅な省エネルギーを達成し、電気代の削減に貢献します。",
     "q4": "なし",
-    "q5": "添付あり(3点) / なし\n添付あり",
-    "attachments": [],
+    "q5": "添付あり(2点)",
+    "attachments": [
+      "news_release-vol.25-014 (1).pdf",
+      "news_release-vol.25-021[00].pdf"
+    ],
+    "attachment_labels": {
+      "news_release-vol.25-014 (1).pdf": "パノラマフラッシュ / パノラマリング / 電池式LED警告灯 (NEWS RELEASE 25-014)",
+      "news_release-vol.25-021[00].pdf": "充電式ファイバースコープ IES50-1 (NEWS RELEASE 25-021)"
+    },
     "attachment_dir": "attachments/日動工業株式会社/",
     "company_dir": "日動工業株式会社"
   },
