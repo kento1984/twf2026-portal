@@ -268,12 +268,17 @@
     "q3": "上記「■2. 新製品・新技術情報」に記載の製品が、今回の主な見どころとなります。",
     "q4": "現時点では、特別キャンペーン等の予定はございません。",
     "q5": "カタログにつきましては、下記URLよりご確認いただけます。\nチラシのご用意はございません。\n\nhttps://storage.googleapis.com/exceed-public-storage/catalog/TIG_Torch_Catalog_A3.pdf\n\n【掲載ページ】\n・TL18-FX フレキシブルTIGトーチ：P55〜56\n・透明ノズル：P107〜146\n・セラミックワイドノズル：P149〜156",
-    "attachments": ["TL18-FX_TIGトーチカタログ.pdf"],
-    "attachment_labels": {
-      "TL18-FX_TIGトーチカタログ.pdf": "TL18-FX フレキシブルTIGトーチ カタログ (A3)"
-    },
-    "attachment_dir": "attachments/株式会社エクシード/",
-    "company_dir": "株式会社エクシード"
+    "attachments": [],
+    "attachment_labels": {},
+    "attachment_dir": null,
+    "company_dir": null,
+    "external_resources": [
+      {
+        "url": "https://storage.googleapis.com/exceed-public-storage/catalog/TIG_Torch_Catalog_A3.pdf",
+        "label": "TL18-FX TIGトーチカタログ (A3, 107ページ)",
+        "note": "TL18-FX P55-56 / 透明ノズル P107-146 / セラミックワイドノズル P149-156"
+      }
+    ]
   },
   "016": {
     "no": 16,

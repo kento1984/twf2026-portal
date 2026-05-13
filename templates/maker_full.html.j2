@@ -768,6 +768,23 @@
     </section>
     {% endif %}
 
+    {# 外部公開資料: メーカー公式CDN等で公開済の大型カタログ等、Cloudflare Pages の
+       25MB単一ファイル制限で portal 内に同梱できないリソースを外部URLで誘導 #}
+    {% if maker.external_resources %}
+    <h2 class="section-h2">🌐 公式公開資料 ({{ maker.external_resources | length }}件)</h2>
+    <section class="external-resources">
+      {% for r in maker.external_resources %}
+      <div class="pdf-card">
+        <div class="pdf-card-header">
+          <h3>🌐 {{ r.label }}{% if r.note %} <small style="display:block;font-weight:500;font-size:12px;color:var(--gray-600);margin-top:2px;">{{ r.note }}</small>{% endif %}</h3>
+          <a href="{{ r.url }}" target="_blank" rel="noopener noreferrer" class="pdf-download-btn">↗ 公式サイトで開く</a>
+        </div>
+      </div>
+      {% endfor %}
+      <p class="attach-path">提供: メーカー公式CDN (外部サイトへ遷移します)</p>
+    </section>
+    {% endif %}
+
     {% if maker.pamphlet_page %}
     <h2 class="section-h2">📕 公式パンフレットより</h2>
     <section class="pamphlet">
