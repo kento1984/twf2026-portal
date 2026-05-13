@@ -98,7 +98,7 @@ PRODUCTS = {
     "082": "Large industrial spot cooler with flexible exhaust duct in factory",
     "083": "Industrial high-bay LED floodlight illuminating factory in warm glow",
     "084": "Heavy-duty leather welding gloves and flame-resistant safety apron on bench",
-    "085": "Photorealistic stack of white plastic welding wire spools (NOT silver, NOT metallic, NOT chrome - matte white industrial plastic with radial rib pattern on the flange), each spool tightly wound with copper-coated flux-cored welding wire visible through openings, neatly arranged in a clean modern Japanese factory, bright clean studio lighting on white background, beside the spools a yellow and black industrial cardboard box (no brand text visible), Japanese precision manufacturing aesthetic, minimalist white-and-yellow color palette, professional B2B product catalog photography, no foreign branding, no Korean or Chinese visual cues",
+    "085": "Photorealistic stack of white plastic welding wire spools with radial rib pattern on the flanges (matte white plastic, NOT silver, NOT metallic), tightly wound with copper-coated flux-cored welding wire glowing warmly under industrial lighting, beside the spools a yellow and black industrial cardboard box with the clearly readable text 'NICHIA' printed in large bold black letters on the yellow front panel of the box, displayed on a steel workbench in a heavy industrial Japanese welding consumables factory, warm orange ambient light from distant welding arcs casting soft glow on the wire copper surface, dark industrial background with chains and pipes",
     "087": "Industrial pneumatic tools, drills and air-powered machinery in workshop",
     "088": "Heavy industrial fireproof safe and secure tool storage cabinets",
     "089": "Industrial fiber laser welding machine with bright laser beam welding metal",
@@ -172,13 +172,15 @@ def make_prompt(product: str, no: str | None = None) -> str:
       - "085" (ニツコー熔材): 白プラスチックスプール + 黄色パッケージの実物寄り、
         共通シネマティック調 (暗背景・オレンジ火花) を抜き、明るい物撮りスタイル。
     """
-    # 085 ニツコー熔材専用: 実物 (白プラスチックスプール×黄色NICHIAパッケージ) 寄りで、
-    # シネマティック暗背景・オレンジ火花は適用しない (実物の清潔感・白基調を保持)
+    # 085 ニツコー熔材専用 (5/13 5回目調整、commit 7fc66f1→本commit):
+    # 他146社のシネマティック工業トーン (cinematic + orange glow + dark dramatic) に統一、
+    # ただし「No text, no logos」抑制を解除 — 箱の「NICHIA」テキストを生成可能にする。
     if no == "085":
         return (
             f"{product}. "
-            f"Clean product photography style, bright neutral white background, "
-            f"soft even studio lighting. No text, no logos, no branding, no letters. "
+            f"Cinematic photography style, dramatic orange glow from welding arcs and "
+            f"molten steel sparks. Heavy industrial atmosphere with chains, pipes, distant "
+            f"furnace fires in the background. Wide composition, dark dramatic background. "
             f"Photorealistic, 4K quality, square 1024x1024."
         )
     return (
