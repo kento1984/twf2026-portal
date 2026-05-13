@@ -1320,7 +1320,7 @@
           {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
           {% if m.tier == 'A' %}
           <div class="maker-card-hero">
-            <img class="maker-card-illust" src="assets/maker-illustrations/{{ '%03d' | format(m.no) }}.png" alt="{{ m.name }} 製品イメージ" loading="lazy" />
+            <img class="maker-card-illust" src="assets/maker-illustrations/{{ '%03d' | format(m.no) }}.png" alt="{{ m.name }} 製品イメージ" loading="lazy" onerror="this.parentElement.classList.add('maker-card-hero-blank'); this.remove();" />
             {% if m.status_badges %}
             <div class="maker-card-badges">
               {% for b in m.status_badges %}<span class="mb-pill mb-{{ b.type }}">{{ b.label }}</span>{% endfor %}
