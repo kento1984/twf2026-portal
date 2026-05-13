@@ -596,26 +596,12 @@
 
   <div class="maker-content-wrap">
 
+    {# サマリーセクション: Q2/Q3/Q4 と完全重複していた 📌みどころ / 🎁セール企画 / 🆕新製品・新技術
+       の3枠を撤去 (下部 Q1〜Q4 で同情報が読める)。
+       📎配布資料 と 📊製品テーブル は「ページ下部へのナビゲーション」「コンテンツ存在の予告」
+       として機能するため保持。 #}
     <section class="maker-props">
       <dl class="property-list">
-        {% if not (maker.q3 | is_empty_q) %}
-        <div class="property-row">
-          <dt><span class="property-icon">📌</span> みどころ</dt>
-          <dd>{{ maker.q3 | truncate(140, True, '…') }}</dd>
-        </div>
-        {% endif %}
-        {% if not (maker.q4 | is_empty_q) %}
-        <div class="property-row">
-          <dt><span class="property-icon">🎁</span> セール企画</dt>
-          <dd>{{ maker.q4 | truncate(140, True, '…') }}</dd>
-        </div>
-        {% endif %}
-        {% if not (maker.q2 | is_empty_q) %}
-        <div class="property-row">
-          <dt><span class="property-icon">🆕</span> 新製品・新技術</dt>
-          <dd>{{ maker.q2 | truncate(140, True, '…') }}</dd>
-        </div>
-        {% endif %}
         {% if maker.attachments %}
         <div class="property-row">
           <dt><span class="property-icon">📎</span> 配布資料</dt>
