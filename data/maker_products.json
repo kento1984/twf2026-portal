@@ -1172,16 +1172,56 @@
   },
   "085": {
     "name": "ニツコー熔材工業㈱",
-    "_doc": "材料メーカーとしての強み「材種の幅広さ」を訴求するため group1 全8カテゴリで構成。各カードは公式サイトのカテゴリページに直リンク。2026-05-13: メーカー要望でAI生成カテゴリ画像 (赤いスプール風で海外イメージ) を全削除、テキストオンリー化 (product-card-textonly 機構)。",
+    "_doc": "材料メーカーとしての強み「材種の幅広さ」を訴求するため group1 全8カテゴリで構成。各カードは公式サイトのカテゴリページに直リンク。",
     "products": [
-      { "name": "軟鋼用",                    "category": "Mild Steel",                            "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=1" },
-      { "name": "耐候性鋼・低温・耐熱鋼用",   "category": "Weathering / Low-Temp / Heat-Resistant", "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=2" },
-      { "name": "ステンレス鋼用",            "category": "Stainless Steel",                       "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=3" },
-      { "name": "硬化肉盛用",                "category": "Hardfacing",                            "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=4" },
-      { "name": "鋳鉄用",                    "category": "Cast Iron",                             "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=5" },
-      { "name": "銅・銅合金用",              "category": "Copper Alloys",                         "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=6" },
-      { "name": "ニッケル合金用",            "category": "Nickel Alloys",                         "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=7" },
-      { "name": "チタン合金用",              "category": "Titanium Alloys",                       "image_url": "", "source_page": "https://www.nikko-yozai.co.jp/product/?group1=8" }
+      {
+        "name": "軟鋼用",
+        "category": "Mild Steel",
+        "image_url": "../../assets/makers/nikko-yozai/cat_01_nankou.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=1"
+      },
+      {
+        "name": "耐候性鋼・低温・耐熱鋼用",
+        "category": "Weathering / Low-Temp / Heat-Resistant",
+        "image_url": "../../assets/makers/nikko-yozai/cat_02_taikou.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=2"
+      },
+      {
+        "name": "ステンレス鋼用",
+        "category": "Stainless Steel",
+        "image_url": "../../assets/makers/nikko-yozai/cat_03_stainless.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=3"
+      },
+      {
+        "name": "硬化肉盛用",
+        "category": "Hardfacing",
+        "image_url": "../../assets/makers/nikko-yozai/cat_04_hardfacing.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=4"
+      },
+      {
+        "name": "鋳鉄用",
+        "category": "Cast Iron",
+        "image_url": "../../assets/makers/nikko-yozai/cat_05_castiron.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=5"
+      },
+      {
+        "name": "銅・銅合金用",
+        "category": "Copper Alloys",
+        "image_url": "../../assets/makers/nikko-yozai/cat_06_copper.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=6"
+      },
+      {
+        "name": "ニッケル合金用",
+        "category": "Nickel Alloys",
+        "image_url": "../../assets/makers/nikko-yozai/cat_07_nickel.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=7"
+      },
+      {
+        "name": "チタン合金用",
+        "category": "Titanium Alloys",
+        "image_url": "../../assets/makers/nikko-yozai/cat_08_titanium.jpg",
+        "source_page": "https://www.nikko-yozai.co.jp/product/?group1=8"
+      }
     ],
     "fetched_ok": true
   },
