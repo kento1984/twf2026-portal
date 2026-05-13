@@ -98,7 +98,7 @@ PRODUCTS = {
     "082": "Large industrial spot cooler with flexible exhaust duct in factory",
     "083": "Industrial high-bay LED floodlight illuminating factory in warm glow",
     "084": "Heavy-duty leather welding gloves and flame-resistant safety apron on bench",
-    "085": "Industrial welding electrode rods and bare TIG filler rods of various lengths arranged neatly on a clean steel workbench, organized Japanese welding consumables maker workshop, sparks from a TIG welding torch in the foreground accenting the rods (no wire spools, no reels, no foreign packaging)",
+    "085": "Photorealistic neatly arranged stack of silver-toned welding wire spools and reels in a clean modern Japanese factory, polished stainless steel and matte silver finish on the spool flanges (NOT red, NOT yellow, NOT plastic-looking), tightly wound silver flux-cored welding wire visible on the reels, bright natural daylight, Japanese precision manufacturing aesthetic, organized workshop with subtle hexagonal pattern flooring, no foreign branding labels, no Korean or Chinese visual cues, professional Japanese B2B catalog photography",
     "087": "Industrial pneumatic tools, drills and air-powered machinery in workshop",
     "088": "Heavy industrial fireproof safe and secure tool storage cabinets",
     "089": "Industrial fiber laser welding machine with bright laser beam welding metal",
