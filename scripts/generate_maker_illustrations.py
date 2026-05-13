@@ -98,7 +98,7 @@ PRODUCTS = {
     "082": "Large industrial spot cooler with flexible exhaust duct in factory",
     "083": "Industrial high-bay LED floodlight illuminating factory in warm glow",
     "084": "Heavy-duty leather welding gloves and flame-resistant safety apron on bench",
-    "085": "Photorealistic neatly arranged stack of silver-toned welding wire spools and reels in a clean modern Japanese factory, polished stainless steel and matte silver finish on the spool flanges (NOT red, NOT yellow, NOT plastic-looking), tightly wound silver flux-cored welding wire visible on the reels, bright natural daylight, Japanese precision manufacturing aesthetic, organized workshop with subtle hexagonal pattern flooring, no foreign branding labels, no Korean or Chinese visual cues, professional Japanese B2B catalog photography",
+    "085": "Photorealistic stack of white plastic welding wire spools (NOT silver, NOT metallic, NOT chrome - matte white industrial plastic with radial rib pattern on the flange), each spool tightly wound with copper-coated flux-cored welding wire visible through openings, neatly arranged in a clean modern Japanese factory, bright clean studio lighting on white background, beside the spools a yellow and black industrial cardboard box (no brand text visible), Japanese precision manufacturing aesthetic, minimalist white-and-yellow color palette, professional B2B product catalog photography, no foreign branding, no Korean or Chinese visual cues",
     "087": "Industrial pneumatic tools, drills and air-powered machinery in workshop",
     "088": "Heavy industrial fireproof safe and secure tool storage cabinets",
     "089": "Industrial fiber laser welding machine with bright laser beam welding metal",
@@ -158,7 +158,7 @@ def load_name_short_map() -> dict:
     return out
 
 
-def make_prompt(product: str) -> str:
+def make_prompt(product: str, no: str | None = None) -> str:
     """シネマティック工業シーン プロンプト (TOP みどころ3選シルエット v4 と統一感)。
 
     柏原方針 (2026-05-10):
@@ -167,7 +167,20 @@ def make_prompt(product: str) -> str:
       - オレンジの溶接アーク・火花・遠方の炉の火 で暖色アクセント
       - 鎖、配管、機材で重厚な工業感
       - メーカー名/英字タイポ/ロゴ/文字は一切なし
+
+    no 別の override (2026-05-13):
+      - "085" (ニツコー熔材): 白プラスチックスプール + 黄色パッケージの実物寄り、
+        共通シネマティック調 (暗背景・オレンジ火花) を抜き、明るい物撮りスタイル。
     """
+    # 085 ニツコー熔材専用: 実物 (白プラスチックスプール×黄色NICHIAパッケージ) 寄りで、
+    # シネマティック暗背景・オレンジ火花は適用しない (実物の清潔感・白基調を保持)
+    if no == "085":
+        return (
+            f"{product}. "
+            f"Clean product photography style, bright neutral white background, "
+            f"soft even studio lighting. No text, no logos, no branding, no letters. "
+            f"Photorealistic, 4K quality, square 1024x1024."
+        )
     return (
         f"{product}. "
         f"Cinematic photography style, dramatic orange glow from welding arcs and "
@@ -188,7 +201,7 @@ def generate(client: OpenAI, no: str,
         print(f"  SKIP {no}: {out.name} already exists")
         return True
 
-    prompt = make_prompt(PRODUCTS[no])
+    prompt = make_prompt(PRODUCTS[no], no=no)
 
     current_model = model
     for attempt in range(1, retries + 1):
