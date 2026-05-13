@@ -15,3 +15,41 @@
 
 /attachments/カミマル株式会社/2026東京WF　当日限定特価セール　A4チラシ.pdf  /attachments/カミマル株式会社/2026東京WF_当日限定特価セールチラシ.pdf  301
 /attachments/株式会社ルッドスパンセットジャパン/2026東京WF_チラシ.pdf  /attachments/株式会社ルッドスパンセットジャパン/2026東京WF_FXシリーズチラシ.pdf  301
+
+# 2026-05-13: slug 健全性チェックで旧slugを正式英字社名/正規読みに修正 (17社)。
+# 万が一SNS/Slack等で旧URLが拡散していた場合の保険として301で新URLへ誘導。
+# 主催店メールはTOPページURLのみ告知のため告知URLへの影響なし。
+/m/kami-kou-tokoro/  /m/kobelco/  301
+/m/kami-kou-tokoro  /m/kobelco/  301
+/m/uchida-megane/  /m/uchida-tokeiten/  301
+/m/uchida-megane  /m/uchida-tokeiten/  301
+/m/kisuuerujapan/  /m/kiswel-japan/  301
+/m/kisuuerujapan  /m/kiswel-japan/  301
+/m/shieabijon/  /m/sharevision/  301
+/m/shieabijon  /m/sharevision/  301
+/m/shintekku/  /m/shintech/  301
+/m/shintekku  /m/shintech/  301
+/m/anesuto-iwata/  /m/anest-iwata/  301
+/m/anesuto-iwata  /m/anest-iwata/  301
+/m/iigurukuranpu/  /m/eagle-clamp/  301
+/m/iigurukuranpu  /m/eagle-clamp/  301
+/m/esukadia/  /m/scadia/  301
+/m/esukadia  /m/scadia/  301
+/m/esuteerinku/  /m/st-link/  301
+/m/esuteerinku  /m/st-link/  301
+/m/shaapumaaketeingujapan/  /m/sharp-marketing-japan/  301
+/m/shaapumaaketeingujapan  /m/sharp-marketing-japan/  301
+/m/nippon-uerudingu/  /m/nippon-welding/  301
+/m/nippon-uerudingu  /m/nippon-welding/  301
+/m/purosupaa/  /m/prosper/  301
+/m/purosupaa  /m/prosper/  301
+/m/hootasu/  /m/hotas/  301
+/m/hootasu  /m/hotas/  301
+/m/bosshu/  /m/bosch/  301
+/m/bosshu  /m/bosch/  301
+/m/rejiton/  /m/resiton/  301
+/m/rejiton  /m/resiton/  301
+/m/panasonikku/  /m/panasonic/  301
+/m/panasonikku  /m/panasonic/  301
+/m/fanakku/  /m/fanuc/  301
+/m/fanakku  /m/fanuc/  301
