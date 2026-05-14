@@ -94,6 +94,7 @@ PRODUCTS = {
     "071": "Industrial portable diesel generator and welding machine on construction site",
     "072": "Industrial pneumatic tools and air compressor silhouettes in factory",
     "074": "Cinematic precision craftsman workshop scene featuring a compact desktop precision metal lathe (Compact9 style) and a desktop precision milling machine with digital scale readouts, hands of a craftsman shaping a small metal part, fine metal chips on the bench, dark workshop background with focused warm task lighting, professional industrial photography",
+    "077": "Cinematic close-up of an aluminum-bodied semi-automatic MIG welding torch with a lightweight ergonomic black grip resting on a steel workbench, alongside a compact industrial fume collector unit with flexible extraction hose, MIG/MAG welding wire spool visible in the background, dramatic warm task lighting, orange welding sparks glow at the edge of the frame, dark industrial workshop atmosphere, professional industrial photography",
     "080": "Cinematic close-up of a craftsman's hands using a needle scaler chisel and a magnetic spatter-removal bar to clean weld spatter and rust from a thick steel plate, sparks and metal chips flying with bright orange welding glow in the background, dark industrial workshop atmosphere, professional industrial photography",
     "082": "Large industrial spot cooler with flexible exhaust duct in factory",
     "083": "Industrial high-bay LED floodlight illuminating factory in warm glow",

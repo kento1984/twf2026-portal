@@ -703,5 +703,15 @@
     "source": "https://www.wakita.co.jp/",
     "notes": "建機/商事/不動産の総合企業。建機事業基調の青+ハイビズ黄。展示はメイホー (MEIHO) ブランドの空調・溶接機。",
     "_group": "group_a"
+  },
+  "077": {
+    "name": "㈱トーキン",
+    "primary": "#1F3A5F",
+    "secondary": "#0F1F33",
+    "accent": "#FF6B35",
+    "text_on_primary": "#FFFFFF",
+    "source": "http://www.tokinarc.co.jp/",
+    "notes": "公式サイト未調査につき暫定。溶接トーチ・集塵機メーカーとして重厚ネイビー＋溶接アーク色オレンジを採用。柏原確認後に公式色へ差替予定。",
+    "_group": "group_b"
   }
 }

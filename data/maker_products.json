@@ -2072,5 +2072,36 @@
       }
     ],
     "fetched_ok": true
+  },
+  "077": {
+    "name": "㈱トーキン",
+    "_doc": "5/14 回答: アルミ製半自動トーチ CSHA/TLA + 小型集塵機 WF-120EX + 吸引部一体型 FCT-35。画像は gpt-image-1 で生成 (公式CDN未取得のため)。source_page は公式トップ、個別製品ページ判明後に差替可。",
+    "products": [
+      {
+        "name": "アルミ製半自動トーチ CSHA-35",
+        "category": "MIG/MAG トーチ・軽量アルミボディ",
+        "image_url": "../../assets/maker-products/077/1.jpg",
+        "source_page": "http://www.tokinarc.co.jp/"
+      },
+      {
+        "name": "アルミ製半自動トーチ TLA-35 (吸引一体型)",
+        "category": "ヒュームコレクタートーチ",
+        "image_url": "../../assets/maker-products/077/2.jpg",
+        "source_page": "http://www.tokinarc.co.jp/"
+      },
+      {
+        "name": "小型集塵機 WF-120EX",
+        "category": "ヒューム対策・コンパクト集塵機",
+        "image_url": "../../assets/maker-products/077/3.jpg",
+        "source_page": "http://www.tokinarc.co.jp/"
+      },
+      {
+        "name": "吸引部一体型トーチ FCT-35",
+        "category": "MIG ヒュームコレクタートーチ",
+        "image_url": "../../assets/maker-products/077/4.jpg",
+        "source_page": "http://www.tokinarc.co.jp/"
+      }
+    ],
+    "fetched_ok": true
   }
 }
