@@ -347,34 +347,34 @@
             "maker_no": 66,
             "maker_name": "ダイヘン",
             "maker_slug": "daihen",
-            "product_name": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 完全無人化ライン",
-            "tagline": "搬送→治具固定→協働ロボット溶接、完全無人で連続稼働 (マツモト産業ブース連動)",
+            "product_name": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+            "tagline": "搬送→位置補正→協働ロボット溶接の自動化を提案 (マツモト産業ブース連動)",
             "image_url": "/assets/topics/productivity-solutions/daihen/daihen_aitran.jpg",
             "official_url": "https://www.daihen-robot.com/items/Aitran",
             "is_first_exhibit": true,
             "is_new_product": false,
-            "what_is": "ダイヘンの自律搬送台車 AiTran と協働ロボット VC8 をレーザーセンサーで連携、ワーク搬送から溶接まで完全無人化するソリューション。マツモト産業 自動化推進コーナーで実機展示・デモ。iREX2025 でも同構成 (AiTran500 + VC8 + The Short Arc) のデモを展開、ダイヘン公式 YouTube でデモ映像を公開中。",
+            "what_is": "ダイヘンの自律搬送台車 AiTran と協働ロボット VC8 をレーザーセンサーで連携し、ワーク搬送から溶接までの連携自動化を提案するソリューション。マツモト産業 自動化推進コーナーで実機展示・デモ。iREX2025 でも同構成 (AiTran500 + VC8 + The Short Arc) のデモを展開、ダイヘン公式 YouTube でデモ映像を公開中。",
             "improvement": {
-              "headline": "搬送→溶接 完全無人化 / 24時間連続稼働 / スパッタ最大80%抑制",
+              "headline": "搬送と溶接の連携自動化 / 省人化を支援 / Short Arcによるスパッタ最大80%抑制",
               "before": "業界一般で見られる課題：従来は搬送員・治具セット作業員・溶接工が分業、夜間休日の稼働限界。段取り替えに人手が必要で多品種少量対応が困難。",
-              "after": "AiTran が無人搬送 → 治具自動固定 → VC8 が Short Arc 制御で溶接、レーザーセンサーで自律補正。完全無人で 24時間連続稼働可能。Welbee The Short Arc 採用時、低電流〜中高電流域でスパッタ発生を最大 80% 抑制。マツモト産業 自動化推進コーナーで実機デモを目の前で確認可能。"
+              "after": "AiTranが自律搬送、治具で位置決め後、VC8がShort Arc制御で溶接、レーザーセンサーで位置補正。Welbee The Short Arc採用時、低電流〜中高電流域でスパッタ発生を最大80%抑制。マツモト産業 自動化推進コーナーで実機デモを目の前で確認可能。"
             },
             "target_scenarios": [
               {
-                "industry": "完全無人ライン構築",
-                "detail": "搬送→治具→溶接の一気通貫自動化、夜間休日稼働"
+                "industry": "自律移動溶接の自動化提案",
+                "detail": "搬送・位置補正・溶接を連携させた自動化提案"
               },
               {
                 "industry": "多品種少量生産",
-                "detail": "AiTran のフレキシブル搬送で品種切替容易"
+                "detail": "レイアウト変更やワーク移動を伴う工程の柔軟化に貢献"
               },
               {
                 "industry": "人手不足現場",
-                "detail": "搬送員・溶接工 2名以上の削減が可能"
+                "detail": "搬送・溶接工程の自動化により、省人化を支援"
               },
               {
-                "industry": "鋼構造物・造船",
-                "detail": "大型ワークを協働ロボでロングリーチ溶接"
+                "industry": "鋼構造物・大型ワーク",
+                "detail": "自律移動ロボットと協働ロボットによる溶接自動化を提案"
               }
             ],
             "video": {
@@ -398,7 +398,7 @@
             ],
             "twf_highlights": [
               "🚀 マツモト産業ブース連動: 自動化推進コーナーで実機デモ",
-              "🤖 AiTran + VC8 + レーザーセンサー の完全無人化ライン",
+              "🤖 AiTran+VC8+レーザーセンサーの連携自動化提案",
               "🎬 デモ動画: ヒーロー直下に 2:29 YouTube埋込済 (-ydKdIio5es)",
               "🔗 iREX2025 同構成展開中: ダイヘン公式特設ページにも掲載"
             ]
