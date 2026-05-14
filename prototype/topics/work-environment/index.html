@@ -630,6 +630,179 @@
       }
     }
 
+    /* ===== Phase 2-C: 製品中心リファクタ (what_is / improvement / scenarios) ===== */
+    /* ヒーロー縮小: トーン控えめに */
+    .topic-wrap .topic-hero {
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+    .topic-wrap .topic-hero-flyer {
+      max-height: 280px;
+    }
+    .topic-wrap .topic-hero-flyer img {
+      max-height: 280px;
+    }
+    .topic-wrap .topic-title {
+      font-size: 30px;
+    }
+    .topic-wrap .topic-eyebrow {
+      font-size: 11px;
+      padding: 4px 11px;
+    }
+    .topic-wrap .topic-hero-video {
+      margin-top: -4px;
+      margin-bottom: 44px;
+    }
+
+    /* 製品カード: what_is/improvement/scenarios を持つ場合は縦長1カラム */
+    .topic-product-grid.deep {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .topic-product-card.deep .tpc-body {
+      padding: 22px 28px 26px;
+      gap: 12px;
+    }
+    .topic-product-card.deep .tpc-product {
+      font-size: 22px;
+    }
+    .topic-product-card.deep .tpc-tagline {
+      font-size: 15px;
+    }
+
+    /* これは何 (what_is) */
+    .tpc-what-is {
+      margin-top: 8px;
+      padding: 14px 18px;
+      background: #FAFAFA;
+      border-left: 4px solid var(--gray-400);
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--gray-800);
+    }
+
+    /* 改善効果 Before/After */
+    .tpc-improvement {
+      margin-top: 8px;
+    }
+    .tpc-improvement-headline {
+      display: block;
+      padding: 18px 22px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: #fff;
+      border-radius: 10px;
+      font-size: clamp(18px, 2.6vw, 26px);
+      font-weight: 900;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(255, 122, 26, 0.22);
+      margin-bottom: 14px;
+    }
+    .tpc-improvement-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .tpc-improvement-col {
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .tpc-improvement-col.before {
+      background: #F4F4F5;
+      border: 1px solid var(--gray-200);
+      color: var(--gray-600);
+    }
+    .tpc-improvement-col.after {
+      background: #FFF7ED;
+      border: 1px solid var(--accent);
+      color: var(--gray-800);
+    }
+    .tpc-improvement-col-label {
+      display: inline-block;
+      padding: 2px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+    .tpc-improvement-col.before .tpc-improvement-col-label {
+      background: var(--gray-400);
+      color: #fff;
+    }
+    .tpc-improvement-col.after .tpc-improvement-col-label {
+      background: var(--accent);
+      color: #fff;
+    }
+    .tpc-improvement-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--accent);
+      font-weight: 900;
+      padding: 0 4px;
+    }
+
+    /* 適用現場リスト (こんな現場で) */
+    .tpc-scenarios {
+      margin-top: 6px;
+      padding: 14px 18px;
+      background: #FFFBEB;
+      border: 1px dashed #FDE68A;
+      border-radius: 8px;
+    }
+    .tpc-scenarios-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+    .tpc-scenarios-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tpc-scenario {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .tpc-scenario::before {
+      content: '▶';
+      color: var(--accent);
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+    .tpc-scenario-industry {
+      font-weight: 800;
+      color: var(--gray-800);
+    }
+    .tpc-scenario-detail {
+      color: var(--gray-600);
+    }
+
+    @media (max-width: 720px) {
+      .tpc-improvement-row {
+        grid-template-columns: 1fr;
+      }
+      .tpc-improvement-arrow {
+        transform: rotate(90deg);
+        margin: -6px 0;
+      }
+      .topic-product-card.deep .tpc-body {
+        padding: 18px 18px 22px;
+      }
+    }
+
     .maker-footer {
       margin-top: 64px;
       padding: 24px 32px;
@@ -680,7 +853,7 @@
   <!-- ヒーロー -->
   <section class="topic-hero">
     <div class="topic-hero-text">
-      <span class="topic-eyebrow">🦺 みどころ3選 / TWF2026 メイン企画</span>
+      <span class="topic-eyebrow">🦺 TWF2026 みどころ特集</span>
       <h1 class="topic-title">作業環境向上ブース ＆ 初TWF出展いちおしメーカー</h1>
       <p class="topic-subtitle">熱中症対策・粉じん計・ファイバーレーザー・防災 — 13製品が集結</p>
       <p class="topic-intro">現場の熱中症対策、粉じん測定、最新のファイバーレーザー、防災製品まで「作業環境を向上させる」 8 製品 + 初 TWF 出展のいちおしメーカー 5 社、計 13 製品が集結。</p>
@@ -713,6 +886,9 @@
 <div class="tpc-tagline">墜落防止実験 + 吊り下げ体験 (参加無料)</div>
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/3m-japan/">メーカー詳細 →</a>
             <a class="tpc-link-flyer" href="../../attachments/%E3%82%B9%E3%83%AA%E3%83%BC%E3%82%A8%E3%83%A0%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E5%AE%89%E5%85%A8%E8%A1%9B%E7%94%9F%E8%A3%BD%E5%93%81%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%80%902026WF%E3%80%91%E5%A2%9C%E8%90%BD%E8%90%BD%E4%B8%8B%E3%83%87%E3%83%A2%EF%BC%BF%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A9%E3%82%B7_v5.pdf" target="_blank" rel="noopener">📄 TWF2026 3M 墜落制止デモ + 特価キャンペーンチラシ ↗</a>
@@ -734,6 +910,9 @@
           <div class="tpc-product">AXELARC™ 新ワイヤ送給制御プロセス</div>
 <div class="tpc-tagline">建機向け、安定アーク × 低スパッタ (実演、参加無料)</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-new">🆕 新商品</span>          </div>
+
+
+
 
 
 
@@ -761,6 +940,9 @@
 
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/akasakatekku/">メーカー詳細 →</a>
           </div>
@@ -780,6 +962,9 @@
           </div>
           <div class="tpc-product">大型冷風機 (現場の熱中症対策)</div>
 <div class="tpc-tagline">現場全体を冷やす大型冷風機</div>
+
+
+
 
 
           <div class="tpc-links">
@@ -802,6 +987,9 @@
           <div class="tpc-product">瞬間氷結スプレー CBA</div>
 <div class="tpc-tagline">現場の救急処置に、瞬間冷却</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
 
 
 
@@ -828,6 +1016,9 @@
 
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/gojou/">メーカー詳細 →</a>
           </div>
@@ -849,6 +1040,9 @@
 <div class="tpc-tagline">気化冷却で広範囲を涼しく</div>
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/touyoko-sapooto/">メーカー詳細 →</a>
           </div>
@@ -868,6 +1062,9 @@
           </div>
           <div class="tpc-product">防災セット (内閣府・防災推進協議会・防災安全協会認定)</div>
 <div class="tpc-tagline">三機関認定の本格防災セット</div>
+
+
+
 
 
           <div class="tpc-links">
@@ -898,6 +1095,9 @@
 
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/nippon-kanomakkusu/">メーカー詳細 →</a>
           </div>
@@ -918,6 +1118,9 @@
           <div class="tpc-product">ファイバーレーザークリーナー KZ-2000、ファイバーレーザーパイプ切断機 KCFX-3000 VX</div>
 <div class="tpc-tagline">クリーニング × パイプ切断、レーザー新世代</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
 
 
 
@@ -944,6 +1147,9 @@
 
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/bx-tenparu/">メーカー詳細 →</a>
           </div>
@@ -967,6 +1173,9 @@
 
 
 
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/oputeireezaasoryuushonzu/">メーカー詳細 →</a>
           </div>
@@ -987,6 +1196,9 @@
           <div class="tpc-product">コードレス塗装機 SprayPack 18V、FC4000 18V</div>
 <div class="tpc-tagline">コードレスで現場の塗装を機動的に</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
 
 
 

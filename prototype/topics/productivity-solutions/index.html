@@ -630,6 +630,179 @@
       }
     }
 
+    /* ===== Phase 2-C: 製品中心リファクタ (what_is / improvement / scenarios) ===== */
+    /* ヒーロー縮小: トーン控えめに */
+    .topic-wrap .topic-hero {
+      padding-bottom: 24px;
+      margin-bottom: 28px;
+    }
+    .topic-wrap .topic-hero-flyer {
+      max-height: 280px;
+    }
+    .topic-wrap .topic-hero-flyer img {
+      max-height: 280px;
+    }
+    .topic-wrap .topic-title {
+      font-size: 30px;
+    }
+    .topic-wrap .topic-eyebrow {
+      font-size: 11px;
+      padding: 4px 11px;
+    }
+    .topic-wrap .topic-hero-video {
+      margin-top: -4px;
+      margin-bottom: 44px;
+    }
+
+    /* 製品カード: what_is/improvement/scenarios を持つ場合は縦長1カラム */
+    .topic-product-grid.deep {
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+    .topic-product-card.deep .tpc-body {
+      padding: 22px 28px 26px;
+      gap: 12px;
+    }
+    .topic-product-card.deep .tpc-product {
+      font-size: 22px;
+    }
+    .topic-product-card.deep .tpc-tagline {
+      font-size: 15px;
+    }
+
+    /* これは何 (what_is) */
+    .tpc-what-is {
+      margin-top: 8px;
+      padding: 14px 18px;
+      background: #FAFAFA;
+      border-left: 4px solid var(--gray-400);
+      border-radius: 0 6px 6px 0;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--gray-800);
+    }
+
+    /* 改善効果 Before/After */
+    .tpc-improvement {
+      margin-top: 8px;
+    }
+    .tpc-improvement-headline {
+      display: block;
+      padding: 18px 22px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      color: #fff;
+      border-radius: 10px;
+      font-size: clamp(18px, 2.6vw, 26px);
+      font-weight: 900;
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(255, 122, 26, 0.22);
+      margin-bottom: 14px;
+    }
+    .tpc-improvement-row {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 10px;
+      align-items: stretch;
+    }
+    .tpc-improvement-col {
+      padding: 14px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.75;
+    }
+    .tpc-improvement-col.before {
+      background: #F4F4F5;
+      border: 1px solid var(--gray-200);
+      color: var(--gray-600);
+    }
+    .tpc-improvement-col.after {
+      background: #FFF7ED;
+      border: 1px solid var(--accent);
+      color: var(--gray-800);
+    }
+    .tpc-improvement-col-label {
+      display: inline-block;
+      padding: 2px 9px;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      border-radius: 3px;
+      margin-bottom: 8px;
+    }
+    .tpc-improvement-col.before .tpc-improvement-col-label {
+      background: var(--gray-400);
+      color: #fff;
+    }
+    .tpc-improvement-col.after .tpc-improvement-col-label {
+      background: var(--accent);
+      color: #fff;
+    }
+    .tpc-improvement-arrow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--accent);
+      font-weight: 900;
+      padding: 0 4px;
+    }
+
+    /* 適用現場リスト (こんな現場で) */
+    .tpc-scenarios {
+      margin-top: 6px;
+      padding: 14px 18px;
+      background: #FFFBEB;
+      border: 1px dashed #FDE68A;
+      border-radius: 8px;
+    }
+    .tpc-scenarios-label {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      color: var(--accent-dark);
+      margin-bottom: 10px;
+    }
+    .tpc-scenarios-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tpc-scenario {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .tpc-scenario::before {
+      content: '▶';
+      color: var(--accent);
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+    .tpc-scenario-industry {
+      font-weight: 800;
+      color: var(--gray-800);
+    }
+    .tpc-scenario-detail {
+      color: var(--gray-600);
+    }
+
+    @media (max-width: 720px) {
+      .tpc-improvement-row {
+        grid-template-columns: 1fr;
+      }
+      .tpc-improvement-arrow {
+        transform: rotate(90deg);
+        margin: -6px 0;
+      }
+      .topic-product-card.deep .tpc-body {
+        padding: 18px 18px 22px;
+      }
+    }
+
     .maker-footer {
       margin-top: 64px;
       padding: 24px 32px;
@@ -680,10 +853,10 @@
   <!-- ヒーロー -->
   <section class="topic-hero">
     <div class="topic-hero-text">
-      <span class="topic-eyebrow">🤖 みどころ3選 / TWF2026 メイン企画</span>
+      <span class="topic-eyebrow">🤖 TWF2026 みどころ特集</span>
       <h1 class="topic-title">生産性向上ソリューションコーナー</h1>
-      <p class="topic-subtitle">協働ロボット × AMR × 安全 × 教示 × レーザークリーナー — 5テーマで会場の目玉に</p>
-      <p class="topic-intro">TWF2026 メイン企画。協働ロボット・AMR(自律走行搬送)・3Dレーダー安全システム・溶接カメラ・最新レーザークリーナーまで、生産性向上に直結する 12 製品を 5 テーマに整理して 1 コーナーに集約。会場の動く実機 + 限定動画 + メーカー資料で「みどころ」を徹底解説。</p>
+      <p class="topic-subtitle">人手不足の時代に、現場の作業性を上げる12製品</p>
+      <p class="topic-intro">人手不足・働き方改革・景況感悪化の時代。現場の作業性アップ・生産性向上に直結する 12 製品を集めました。</p>
       <div class="topic-cta-row">
         <a class="btn-topic" href="/assets/topics/productivity-solutions-front.pdf" target="_blank" rel="noopener">📄 公式チラシをダウンロード</a>
         <a class="btn-topic btn-topic-outline" href="../../index.html#makerlist">出展メーカー一覧へ</a>
@@ -703,9 +876,9 @@
   </section>
 
   <section class="topic-section">
-    <h2 class="topic-section-title">① 協働ロボット — 1台で完結する自動化</h2>
-<p class="topic-section-intro">TIG/MAG 兼用、安全柵不要、CMT 低スパッタ、防爆塗装まで。1 セクションで「ロボットの今」が分かる 4 製品。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
+    <h2 class="topic-section-title">① 協働ロボット</h2>
+<p class="topic-section-intro">1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。</p>    <div class="topic-product-grid deep">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">066</span>
@@ -717,16 +890,60 @@
             <span class="tpc-meta-name">ダイヘン</span>
           </div>
           <div class="tpc-product">協働ロボットパッケージ (TIG/MAG兼用仕様)</div>
-<div class="tpc-tagline">高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式</div><div class="tpc-desc">ダイヘン独自の制御技術により、難易度の高い TIG ワイヤー溶接でも安定した高品質溶接を実現。1 台の架台に CO2・TIG 溶接機を搭載し、簡単な段取り替えで使い分けが可能。</div>
+<div class="tpc-tagline">高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式</div>
+          <div class="tpc-what-is">1 台の架台に CO2/MAG溶接機と TIG溶接機を搭載した協働ロボットパッケージ。タブレットでワークを撮影するだけで教示プログラムを自動生成、専門知識なしで段取り可能。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">段取りはタブレット写真1枚 / 1台でTIG・MAG兼用</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                多品種少量・大型構造物の溶接では TIG と MAG で別ラインを組むか、人手で機材を入替える運用。熟練溶接工不足で「同じ品質を再現できない」属人化問題が常態化。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                タブレット端末でワークを撮影するだけで教示プログラムが自動生成、専門知識なしで段取り可能。安全柵不要で設置面積を圧縮、移設も容易。1台でTIG/MAG切替できるためライン投資と段取り工数を抑制。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">大型構造物 (船舶・橋梁)</span>
+ — <span class="tpc-scenario-detail">多品種少量で従来は自動化困難だった現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">中小・町工場の多品種溶接</span>
+ — <span class="tpc-scenario-detail">熟練溶接工の確保が難しい現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">試作・小ロット製造</span>
+ — <span class="tpc-scenario-detail">段取り替え頻度が高く、人手依存度の高い現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">産業機械・建機部品</span>
+ — <span class="tpc-scenario-detail">TIG仕上げとMAG能率溶接を1台で使い分け</span>                </div>
+              </div>
+            </div>
+          </div>
+
 
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/daihen/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.daihen-robot.com/items/fd_vc4" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
       </article>
-      <article class="topic-product-card no-image">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">106</span>
@@ -739,15 +956,59 @@
           </div>
           <div class="tpc-product">安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)</div>
 <div class="tpc-tagline">安全柵不要、ハンド交換ワンタッチ</div>
+          <div class="tpc-what-is">可搬5〜30kgの協働ロボット CRX シリーズに溶接トーチ/ハンドをワンタッチで着脱できるマニュアルハンドチェンジャーを組合せた仕様。人接触で軽い力で停止、ダイレクトティーチで誰でも教示可能。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">段取り時間20%短縮 / 2日→1日 (タカノ社事例)</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                段取り替えのたびに専用治具・ハンド交換で時間を取られ、ロボット稼働率が低下。従来の産業用ロボットは安全柵必須で中小工場のフロア面積を圧迫、教示も習熟者依存。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                ハンドチェンジャーで手動溶接 ↔ ロボット溶接をワンタッチ切替。多品種少量でも稼働率が落ちない。安全柵レスで設置面積を縮小、2人で持上げ移設可能。ダイレクトティーチで初心者でも教示できる。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">板金加工/多品種少量溶接</span>
+ — <span class="tpc-scenario-detail">段取り替え頻度が高い現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">中小製造業のロボット初導入</span>
+ — <span class="tpc-scenario-detail">設置スペースと教示人材が限られる現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">手動↔ロボット併用</span>
+ — <span class="tpc-scenario-detail">熟練工と協働でフレキシブルに切替えたい現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">現場移設運用</span>
+ — <span class="tpc-scenario-detail">2人で運べる軽量性を活かしたい現場</span>                </div>
+              </div>
+            </div>
+          </div>
+
 
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/fanakku/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.fanuc.co.jp/ja/product/robot/f_r_collabo.html" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
       </article>
-      <article class="topic-product-card no-image">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">114</span>
@@ -760,15 +1021,59 @@
           </div>
           <div class="tpc-product">TPS400i CMT低スパッタ溶接×協働ロボット</div>
 <div class="tpc-tagline">CMT 低スパッタ × 協働ロボット連携</div>
+          <div class="tpc-what-is">デジタル溶接電源 TPS/i (400Aクラス) と CMT (Cold Metal Transfer) プロセスを組み合わせた低スパッタ・低入熱溶接システム。協働ロボットと連結し、薄板・異材接合など従来のMAG/MIGでは難しかった領域を自動化。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">ワイヤ加速2倍・速度1.3倍 / スパッタほぼゼロ</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                0.3mm 級の薄板や、炭素鋼-アルミなど異材接合では、入熱で板抜け・歪み、スパッタ後処理の手間、亜鉛メッキ鋼板のブローホール発生など、人手による補修・グラインダー作業が大量発生。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                CMT 精密波形制御 + ワイヤ送給制御で溶融池を強制冷却、スパッタを極限まで抑制。新CMTパッケージはワイヤ加速性能2倍、溶接速度1.3倍。後処理工程 (グラインダー、スパッタ除去) を大幅削減。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車部品/足回り溶接</span>
+ — <span class="tpc-scenario-detail">亜鉛メッキ鋼板のブローホール抑制が必要な現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">アルミ × 鉄の異材接合</span>
+ — <span class="tpc-scenario-detail">EV車体軽量化、異種金属溶接</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">薄板板金 (0.3〜1mm)</span>
+ — <span class="tpc-scenario-detail">厨房機器・家電筐体など穴あき・歪みが起きやすい現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">MIG ブレージング</span>
+ — <span class="tpc-scenario-detail">外装パネルの美観仕上げ</span>                </div>
+              </div>
+            </div>
+          </div>
+
 
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/furoniusujapan/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.fronius.com/ja-jp/japan" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
       </article>
-      <article class="topic-product-card">
+      <article class="topic-product-card deep">
         <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/mesack/mesack_robot_painting.jpg');"></div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -776,8 +1081,51 @@
             <span class="tpc-meta-name">メサック</span>
           </div>
           <div class="tpc-product">スプレーガン×防爆協働ロボット</div>
-<div class="tpc-tagline">防爆対応、塗装の自動化に</div><div class="tpc-desc">防爆対応の協働ロボットで塗装ラインを自動化。1台で30分/min の処理能力、ロボットつかみ方式で1m対応の塗装ブースも展示。</div>          <div class="tpc-badges">
+<div class="tpc-tagline">防爆対応、塗装の自動化に</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-what-is">静電気応用技術専門メーカーのメサックが、防爆対応の協働ロボットと自社製自動スプレーガンを組み合わせた塗装の自動化パッケージ。作業者がアームを直接動かすダイレクトティーチで教示可能。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">防爆ゾーンで安全柵なし / ダイレクトティーチで教示時間短縮</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                塗装現場は有機溶剤の有毒ガス対策で防毒マスク必須、労働環境が劣悪で若手が定着せず人手不足が深刻。従来の塗装ロボットは安全柵必須・教示も専門技術者依存。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                防爆協働ロボット + メサック自動ガンの組合せで、自動車ドア1枚分の大面積を1台でカバー。作業者がガンを動かすようにアームを直接動かすダイレクトティーチで教示時間を大幅短縮。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車部品塗装</span>
+ — <span class="tpc-scenario-detail">ドアパネル等大面積の多品種少量塗装</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">家具・建材塗装</span>
+ — <span class="tpc-scenario-detail">木工製品の意匠塗装、多色対応が必要な現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">中小塗装工場</span>
+ — <span class="tpc-scenario-detail">人手不足・労働環境改善が急務な町工場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">樹脂部品・家電筐体</span>
+ — <span class="tpc-scenario-detail">静電塗装で塗着効率向上が必要な現場</span>                </div>
+              </div>
+            </div>
+          </div>
 
 
           <div class="tpc-materials">
@@ -797,9 +1145,9 @@
     </div>
   </section>
   <section class="topic-section">
-    <h2 class="topic-section-title">② AMR・搬送自動化 — 工場の「物を運ぶ」を自動化</h2>
-<p class="topic-section-intro">段差・傾斜OKのAMR、AGV連携の搬送→溶接ライン。デモ動画で動きを確認、導入事例で効果を把握。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
+    <h2 class="topic-section-title">② AMR・搬送自動化</h2>
+<p class="topic-section-intro">「人が物を運ぶ」現場をロボットへ。段差・傾斜OKのAMR、AGV連携で搬送→溶接を一気通貫。</p>    <div class="topic-product-grid deep">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">145</span>
@@ -811,8 +1159,56 @@
             <span class="tpc-meta-name">ロボットバンク</span>
           </div>
           <div class="tpc-product">AMR 自律走行(協働)搬送ロボット StarLift シリーズ</div>
-<div class="tpc-tagline">150〜600kg、段差・傾斜OK、SLAMで即日稼働</div><div class="tpc-desc">古い工場特有の段差や傾斜も難なく突破。磁気テープ不要、空間スキャンするだけで当日から搬送開始。150kg〜600kg まで 1 台から導入可能、現場規模を問わず柔軟対応。</div>          <div class="tpc-badges">
+<div class="tpc-tagline">150〜600kg、段差・傾斜OK、SLAMで即日稼働</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-what-is">SLAM 自律走行 AMR 搬送ロボット。磁気テープ・Wi-Fi・床面工事不要で、CAD データから地図を作り経路を自動生成。可搬重量別に StarLift150/300/300E/600 の 4 機種、最大 600kg まで対応。傾斜 8°・段差 20mm まで走破。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">搬送量+200% / 搬送員2名削減 / 導入1ヶ月→2日</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                搬送専任のオペレーター複数名が手押し台車で繰り返し往復。新人教育に約20時間の研修が必要。磁気テープAGVは床面工事に約1ヶ月、レイアウト変更のたび再施工。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                食品加工工場で搬送量200%向上、自動車部品メーカーで搬送員2名削減、システム導入が最短2日 (従来1ヶ月)。操作習得は30分研修でOK、10時間バッテリーで24時間ローテーション運用可能。最大10万㎡ (東京ドーム約2個分) のマップを記憶。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車部品製造</span>
+ — <span class="tpc-scenario-detail">重量物のライン間搬送、夜勤の人員確保が困難な現場</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">食品加工工場</span>
+ — <span class="tpc-scenario-detail">衛生区画をまたぐ繰り返し搬送、交差汚染リスク削減</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">高機能材料加工</span>
+ — <span class="tpc-scenario-detail">重量ワークの多品種少量搬送、人手不足ライン</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">物流倉庫</span>
+ — <span class="tpc-scenario-detail">多層階拠点でのエレベーター連携搬送</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">レイアウト変更頻度の高い工場</span>
+ — <span class="tpc-scenario-detail">磁気テープ再敷設の手戻りを避けたい現場</span>                </div>
+              </div>
+            </div>
+          </div>
 
 
           <div class="tpc-materials">
@@ -822,6 +1218,7 @@
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/robottobanku/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.robotbank.jp/lp/starlift/a-001/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
           <div class="tpc-gallery">
@@ -873,7 +1270,7 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card no-image">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">066</span>
@@ -885,8 +1282,51 @@
             <span class="tpc-meta-name">ダイヘン</span>
           </div>
           <div class="tpc-product">協働ロボット × AiTran (AGV連携)</div>
-<div class="tpc-tagline">AGV 連携で搬送 → 溶接の完全自動化</div><div class="tpc-desc">搬送ロボット AiTran500 と協働溶接ロボット FD-VC8 を組み合わせ、Short Arc 制御で搬送から溶接までを一気通貫で完全自動化。</div>          <div class="tpc-badges">
+<div class="tpc-tagline">AGV 連携で搬送 → 溶接の完全自動化</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-what-is">自律搬送台車 AiTran と協働溶接ロボット FD-VC8 を組み合わせ、「ワーク搬送→治具固定→協働ロボット溶接」を完全無人化するソリューション。AiTran は独自オムニホイールで全方位移動、D-Broad ワイヤレス給電で 24 時間連続稼働。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">スパッタ最大80%抑制 / 搬送→溶接 完全無人化</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                重量ワークの搬送→治具セット→溶接→次工程搬送のたびに作業者が介入。安全柵設置で省スペース化が困難。従来の半自動溶接ではスパッタ清掃・後仕上げ工数が多発。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                AiTran が目的地指定だけで経路を自動生成し障害物を迂回、FD-VC8 は安全柵不要でセル設置面積を最小化。Welbee The Short Arc 採用時、低電流〜中高電流域でスパッタ発生を最大 80% 抑制 → 後仕上げ工数の大幅低減。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">鋼構造物・造船</span>
+ — <span class="tpc-scenario-detail">大型ワークを協働ロボットでロングリーチ溶接</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車部品 多品種少量</span>
+ — <span class="tpc-scenario-detail">段取り替えが多いラインで搬送と溶接をまとめて自動化</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">中小製造業の人手不足現場</span>
+ — <span class="tpc-scenario-detail">熟練溶接工確保が難しい工場での即戦力代替</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">レイアウト変更の多い現場</span>
+ — <span class="tpc-scenario-detail">移設容易なコンパクト協働ロボット</span>                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="tpc-videos">
             <div>
@@ -900,6 +1340,7 @@
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/daihen/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.daihen-robot.com/items/Aitran" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
@@ -907,9 +1348,9 @@
     </div>
   </section>
   <section class="topic-section">
-    <h2 class="topic-section-title">③ 安全・センシング — 世界水準のセーフティと可視化</h2>
-<p class="topic-section-intro">世界初の SIL2/PLd 準拠 3D レーダー、溶融池リアルタイム可視化カメラなど、生産現場の「見える化」と安全をアップグレード。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
+    <h2 class="topic-section-title">③ 安全・センシング</h2>
+<p class="topic-section-intro">世界初の SIL2/PLd 準拠 3D レーダー、溶融池可視化カメラ。生産現場の「見える化」と安全を一段上に。</p>    <div class="topic-product-grid deep">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">035</span>
@@ -920,9 +1361,57 @@
             <span class="tpc-meta-no">No.035</span>
             <span class="tpc-meta-name">小森安全機研究所</span>
           </div>
-          <div class="tpc-product">3D レーダー安全システム SRD シリーズ (世界初 SIL2/PLd 準拠)</div>
-<div class="tpc-tagline">世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG</div><div class="tpc-desc">イタリア Inxpect 社の 3D レーダー SRD は煙・ほこり・水滴・光・油など環境外乱に強く、屋内・屋外両用。AI カメラ KAG は 1 万パターン超学習済の人体シルエット検出機能。</div>          <div class="tpc-badges">
+          <div class="tpc-product">3D レーダー安全システム SRD シリーズ + AIカメラ KAG</div>
+<div class="tpc-tagline">世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-what-is">Inxpect 社製の世界初 SIL2/PLd 準拠 3D レーダー SRD (24GHz/60GHz FMCW) と自社 AI カメラ KAG (Komori Area Guardman) を組合せた、協働ロボット・AGV・移動クレーン用ガード一体ソリューション。検知距離 4〜9m、応答 100ms 以下、1 コントローラで最大 6 センサ。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">煙・油・水滴でも誤検知激減 / 応答&lt;100ms</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                光学式セーフティセンサーは煙・粉塵・切粉・水しぶき・油・強光で誤検知頻発し、ライン停止→現場確認→再起動のロス時間が積み重なる。塗装ライン・溶接ライン・屋外環境では実質使えないケースも。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                SRD は煙・ほこり・切粉・しぶき・降雨 45mm/h まで影響を受けず、塗装/溶接/油環境でも安定動作。動的検知ゾーン最大 32 パターンをリアルタイム切替。KAG は数万件の人体シルエットを学習し、立位/しゃがみ/横向き/部分隠蔽までカバーして誤検知を大幅低減。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">協働ロボットセル</span>
+ — <span class="tpc-scenario-detail">安全柵レス運用で人接近時のみ減速・停止</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">塗装・溶接ライン</span>
+ — <span class="tpc-scenario-detail">ミストや粉塵で光学センサーが使えない環境</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">AGV/AMR走行エリア</span>
+ — <span class="tpc-scenario-detail">油・水のある屋内外通路での進入検知</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">移動クレーン/積込ステーション</span>
+ — <span class="tpc-scenario-detail">死角の多い大型機械周辺の人検知</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">屋外設置の自動機械</span>
+ — <span class="tpc-scenario-detail">雨・粉塵に晒されるエリアでの安全確保</span>                </div>
+              </div>
+            </div>
+          </div>
 
 
           <div class="tpc-materials">
@@ -932,11 +1421,12 @@
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/komori-anzen-ki-kenkyuusho/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.komorisafety.co.jp/products/cn9/pg999.html" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
       </article>
-      <article class="topic-product-card no-image">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">019</span>
@@ -948,16 +1438,65 @@
             <span class="tpc-meta-name">オートスイング (OTOS)</span>
           </div>
           <div class="tpc-product">溶接カメラ Ray-X WGC-200/400</div>
-<div class="tpc-tagline">高精度溶接カメラで遠隔監視</div>
+<div class="tpc-tagline">アーク光の壁を超え、溶融池をクリア観察</div>
+          <div class="tpc-what-is">アーク光・ヒュームの影響を受けずに、アーク・溶融池・溶接線・周辺をリアルタイムで観察できる超小型産業用溶接カメラ。WGC-200 は有線、WGC-400 は有線+Wi-Fi 同時伝送 (1920×1080)。ヘルメット内蔵型と自動化用の 2 タイプ。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">Wi-Fiで複数人同時閲覧 / 初心者でもベテランの『見え方』を再現</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                アークが眩しすぎて溶融池・ビード形成が肉眼で見えず、ベテランの勘と経験頼り。新人教育は手元の再現に時間がかかり、不具合発生時も「なぜ起きたか」を後追いできない。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                Wi-Fi 動画をサーバー保存・複数人同時リアルタイム閲覧で、現場と事務所/教育担当が同じ映像を共有。初心者でもアーク・溶融池を見ながら作業可能。ロボット搭載時は溶融池サイズ/アーク長/シーム位置をリアルタイム抽出。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">中小溶接事業所</span>
+ — <span class="tpc-scenario-detail">ベテラン引退で技能伝承が急務、新人教育を映像で効率化</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">ロボット溶接ライン</span>
+ — <span class="tpc-scenario-detail">溶融池リアルタイム計測でアダプティブ制御</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">遠隔監視/多拠点支援</span>
+ — <span class="tpc-scenario-detail">本社/熟練者が複数現場の溶接品質を同時確認</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">厚板/構造物溶接</span>
+ — <span class="tpc-scenario-detail">大型ワークで作業者から見えない部位をモニタで確認</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">溶接訓練校</span>
+ — <span class="tpc-scenario-detail">アーク現象の可視化教材</span>                </div>
+              </div>
+            </div>
+          </div>
+
 
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/ootosuingu-otos/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://otos.tech/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
       </article>
-      <article class="topic-product-card no-image">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">097</span>
@@ -969,11 +1508,60 @@
             <span class="tpc-meta-name">ノビテック</span>
           </div>
           <div class="tpc-product">Cavitar Welding Camera</div>
-<div class="tpc-tagline">溶融池をリアルタイム可視化</div>
+<div class="tpc-tagline">溶接中の溶融池を計測、破壊検査ゼロへ</div>
+          <div class="tpc-what-is">レーザー照明とバンドパスフィルタの組合せで、アーク光・ヒュームを遮断し溶融池・ビード・周辺加工状況をクリアに撮影できる溶接モニターカメラ (フィンランド Cavitar 社製)。C300 モデルは 30×45×99mm・300g と超小型、解像度 1,440×1,080px、最大 70fps、画素分解能 0.027mm/pixel。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">破壊検査ゼロ化 / 不良その場で発見</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                接合不良の原因がアーク中に直接見えず、製品を切断する破壊検査でしか確認できない。被覆アーク手溶接の「スラグが追いかけてくる」といった現象は言葉で伝えるしかなく、技能伝承が困難。検査工程に渡ってから不良発見→手戻り発生。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                溶接中にリアルタイムで溶融池面積・ビード幅を計測し、不具合をその瞬間に検出。検査工程に送る前の工程内で不良を捕捉でき、工数削減と不良流出防止を両立。発生メカニズムが映像で理解でき、手溶接技術者の育成システムとしても活用可能。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車部品メーカー</span>
+ — <span class="tpc-scenario-detail">アルミ部品アーク溶接の溶融池面積・ビード幅をリアルタイム計測</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">建築/構造物厚板</span>
+ — <span class="tpc-scenario-detail">突合せ溶接のモニタリング</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">手溶接技能伝承現場</span>
+ — <span class="tpc-scenario-detail">被覆アーク溶接の現象を映像化、ベテランのコツを可視化教材に</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">研究/品質保証部門</span>
+ — <span class="tpc-scenario-detail">TIG/MAG/MIG/プラズマクラッド/レーザー溶接の解析</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">金属3Dプリンタ/溶断ライン</span>
+ — <span class="tpc-scenario-detail">プロセス安定性の可視化計測</span>                </div>
+              </div>
+            </div>
+          </div>
+
 
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/nobitekku/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.nobby-tech.co.jp/welding/weldingcamera" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
@@ -981,9 +1569,9 @@
     </div>
   </section>
   <section class="topic-section">
-    <h2 class="topic-section-title">④ 教示・周辺機器 — 自動化を支える「縁の下」</h2>
-<p class="topic-section-intro">オフライン教示で立ち上げ時間短縮、国産バランスアームで作業負荷を軽減。自動化システムを支える周辺技術。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
+    <h2 class="topic-section-title">④ 教示・周辺機器</h2>
+<p class="topic-section-intro">オフライン教示で立ち上げ時間 90% 削減、国産バランスアームで腰痛ゼロへ。自動化を支える「縁の下」。</p>    <div class="topic-product-grid deep">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">059</span>
@@ -995,18 +1583,67 @@
             <span class="tpc-meta-name">ゼネテック</span>
           </div>
           <div class="tpc-product">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</div>
-<div class="tpc-tagline">オフライン教示で立ち上げ時間を大幅短縮</div>          <div class="tpc-badges">
+<div class="tpc-tagline">ロボットを止めずに教示、ティーチング時間1/10</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-what-is">PC 上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。FANUC/YASKAWA/NACHI/DAIHEN/KAWASAKI など 17 社のロボット、コントローラ 40 社以上に対応。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">ティーチング時間90%削減 / ロボット止めずに教示</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                ティーチングのたびに本番ロボットを停止し、熟練ティーチングマンがペンダント片手に長時間つきっきり。多品種少量や段取り替え時は毎回の教示工数が利益を圧迫。メーカー別に教示方法が異なり属人化が深刻。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                従来のティーチング時間を約 1/10 以下に短縮 (90% 削減)。ソフト上で現場再現するため、本番ロボットは止めずに生産継続。17 社統一インターフェイスで多メーカー混在工場の属人化を解消。Python等の知識不要のドラッグ&amp;ドロップ操作。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">多品種少量生産工場</span>
+ — <span class="tpc-scenario-detail">段取り替えのたびの教示工数を激減</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">多メーカーロボット混在ライン</span>
+ — <span class="tpc-scenario-detail">17社統一UIで教示・運用標準化</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">溶接ロボット導入企業</span>
+ — <span class="tpc-scenario-detail">アーク/レーザー/TIG/スポット溶接の教示を事前検証</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">研磨/トリミング/塗装ライン</span>
+ — <span class="tpc-scenario-detail">工程シミュレーションで干渉/サイクルタイム最適化</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動化を進めたい中小製造業</span>
+ — <span class="tpc-scenario-detail">ティーチングマン不足/省人化が課題の現場</span>                </div>
+              </div>
+            </div>
+          </div>
 
 
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/zenetekku/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://vcolp.jp/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
       </article>
-      <article class="topic-product-card no-image">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">052</span>
@@ -1017,8 +1654,56 @@
             <span class="tpc-meta-no">No.052</span>
             <span class="tpc-meta-name">シンテック</span>
           </div>
-          <div class="tpc-product">3arm 新しいバランスアームのカタチ + T-Arm シリーズ</div>
-<div class="tpc-tagline">3 アーム構造でバランスアーム新世代へ (Tecnospiro 社日本総代理店)</div><div class="tpc-desc">スペイン Tecnospiro 社製 3arm の日本総代理店。バランスアーム T-Arm シリーズは耐荷重 40〜550kg の純国産品。トヨタ・日野・ダイハツのレールシステム納入実績、安全対策で他社を上回る。</div>
+          <div class="tpc-product">3arm + T-Arm シリーズ (バランスアーム)</div>
+<div class="tpc-tagline">3アーム構造で重量物を「無重力化」、トヨタ約5000箇所採用</div>
+          <div class="tpc-what-is">スペイン Tecnospiro 社製 3arm (3アーム構造で工具を無重力化、最大70kgまで対応) と、自社開発の純国産オートバランスアーム T-Arm (耐荷重40〜650kg、最大1000kg特注可) を組合せた、重量物・工具の持上/移載/位置決め支援システム。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">トヨタ約5000箇所レール採用 / 落下事故ゼロ継続</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                重量物の人力持上で慢性的な腰部負担。製造業では腰痛要因の72.4%が「重量物の持ち運び・積み下ろし」で、毎年600〜900人が4日以上休業する労災に発展 (厚労省データ)。工具反力で手首・肩を痛める作業者も多発。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                3armの無重力化機構により重量物が「実質ゼロ」感覚で操作可能。T-Armは引張・圧縮強度を従来の1.8倍に再設計、オートバランス標準装備でワーク重量が変わっても再設定不要。Knightレール採用後、2010-2011年以降トヨタ各工場でレール落下事故ゼロを継続中。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車組立</span>
+ — <span class="tpc-scenario-detail">エンジン/ミッション/タイヤ等の重量部品移載 (トヨタ・日野・ダイハツ納入実績)</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">ナットランナー作業</span>
+ — <span class="tpc-scenario-detail">トルク反力を3armが吸収、手首・肩への負担ゼロ化</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">金型/治具交換</span>
+ — <span class="tpc-scenario-detail">数十〜数百kgの金型を一人で安全に位置決め</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">狭所組立</span>
+ — <span class="tpc-scenario-detail">製品を傷つけずに精密位置決め、サーボバランサーで移送精度UP</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">1000社以上の納入実績</span>
+ — <span class="tpc-scenario-detail">コンサル〜アフター自社完結</span>                </div>
+              </div>
+            </div>
+          </div>
+
 
           <div class="tpc-materials">
             <div class="tpc-materials-label">📚 メーカー配布資料</div>
@@ -1029,6 +1714,7 @@
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/shintekku/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://thing-tech.com/arm/t-arm/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
@@ -1036,9 +1722,9 @@
     </div>
   </section>
   <section class="topic-section">
-    <h2 class="topic-section-title">⑤ レーザークリーナー — 塗膜・サビ・酸化皮膜を瞬時に除去 (初TWF出展)</h2>
-<p class="topic-section-intro">現場見学必須。CW (連続波) × Pulse (パルス) の使い分けで、用途に応じたレーザークリーニングを実現。動画でブースと製品を予習。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
+    <h2 class="topic-section-title">⑤ レーザークリーナー (初TWF出展)</h2>
+<p class="topic-section-intro">塗膜・サビ・酸化皮膜を光で瞬時に除去。粉塵・廃液・薬品ゼロ、クリーニング時間1/10以上の革新。</p>    <div class="topic-product-grid deep">
+      <article class="topic-product-card no-image deep">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
           <span class="tpc-decor-no">021</span>
@@ -1050,8 +1736,61 @@
             <span class="tpc-meta-name">オプティレーザーソリューションズ</span>
           </div>
           <div class="tpc-product">最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300</div>
-<div class="tpc-tagline">CW × Pulse、用途に応じて選べるレーザー</div><div class="tpc-desc">国産レーザークリーナーで塗膜・サビ・酸化皮膜を瞬時に除去。連続波 (CW) と高出力パルスの 2 系統で用途を選択可能。TWF2026 初出展、会場ブースで実機デモ。</div>          <div class="tpc-badges">
+<div class="tpc-tagline">CW × Pulse、用途に応じて選べる国産レーザー</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-what-is">国産レーザークリーナー ULT LASER シリーズ。CW2000 (連続波・水冷・出力200〜2000W調整・最大照射幅300mm) と Pulse300 (パルス・空冷・出力30〜300W・100V電源・本体24kg・12モード) の2系統で、塗膜/サビ/酸化皮膜/油膜/黒皮を光のエネルギーで瞬時に除去。</div>
+
+          <div class="tpc-improvement">
+            <div class="tpc-improvement-headline">クリーニング時間1/10以上 / 廃液・粉塵・薬品ゼロ</div>
+            <div class="tpc-improvement-row">
+              <div class="tpc-improvement-col before">
+                <span class="tpc-improvement-col-label">BEFORE</span>
+                グラインダー/サンドブラスト/ケミカル剥離では、大量の粉塵・研磨カス、薬品廃液と二次廃棄物の処理コスト、騒音、研磨材ランニングコスト、母材へのダメージリスク、熟練工依存、作業時間が長いといった多重課題。
+              </div>
+              <div class="tpc-improvement-arrow">→</div>
+              <div class="tpc-improvement-col after">
+                <span class="tpc-improvement-col-label">AFTER</span>
+                公式記載「グラインダーと比較して10分の1以上の時短効果」。非接触・非破壊で母材ダメージほぼゼロ、粉塵・廃液・薬品・二次廃棄物すべてゼロ、ランニングコストは電気代のみ。専門技術不要で誰でも操作可能。Pulse300は100V電源+24kgで一人現場運用可、CW2000はキャスター付きで一人移動可。
+              </div>
+            </div>
+          </div>
+
+          <div class="tpc-scenarios">
+            <div class="tpc-scenarios-label">💡 こんな現場で</div>
+            <div class="tpc-scenarios-list">
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">自動車製造</span>
+ — <span class="tpc-scenario-detail">溶接焼け跡除去 (Pulse300 導入実績あり)</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">プラント/重工</span>
+ — <span class="tpc-scenario-detail">塗料・黒皮・サビ除去 (CW2000 導入実績あり)</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">原子力発電所</span>
+ — <span class="tpc-scenario-detail">サビ・塗装・黒皮・油除去 (CW2000PX 導入実績)</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">鉄道/船舶/航空機</span>
+ — <span class="tpc-scenario-detail">旧塗膜剥離による再塗装下地処理</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">金型製造</span>
+ — <span class="tpc-scenario-detail">離型剤・カーボン除去で金型寿命延長</span>                </div>
+              </div>
+              <div class="tpc-scenario">
+                <div>
+                  <span class="tpc-scenario-industry">インフラ補修</span>
+ — <span class="tpc-scenario-detail">鋼橋・コンクリート壁のサビ除去</span>                </div>
+              </div>
+            </div>
+          </div>
 
           <div class="tpc-videos multi">
             <div>
@@ -1071,6 +1810,7 @@
 
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/oputeireezaasoryuushonzu/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://ult-laser.com/ultlaser/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
 
         </div>
