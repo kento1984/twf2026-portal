@@ -516,17 +516,17 @@
             "maker_no": 59,
             "maker_name": "ゼネテック",
             "maker_slug": "zenetekku",
-            "product_name": "オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)",
-            "tagline": "ロボットを止めずに教示、ティーチング時間1/10",
+            "product_name": "Visual Components OLP (VCOLP 5.0)",
+            "tagline": "2026/3/17 提供開始の最新版、ロボット止めずに教示・ティーチング時間1/10",
             "image_url": "/assets/topics/productivity-solutions/zenetekku/zenetekku_screenshot.jpg",
             "official_url": "https://vcolp.jp/",
             "is_first_exhibit": true,
             "is_new_product": false,
-            "what_is": "PC 上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。FANUC/YASKAWA/NACHI/DAIHEN/KAWASAKI など 17 社のロボット、コントローラ 40 社以上に対応。",
+            "what_is": "PC上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。2026年3月17日提供開始の最新版 VCOLP 5.0 では、連続溶接パスの自動生成、モデルベース設計、製品製造情報 (PMI)、溶接ジョブ管理機能を新搭載。アーク/レーザー/TIG/スポット溶接に対応、安川・ファナック・デンソー・ヤマハ発動機に加え三菱電機が新規対応。",
             "improvement": {
               "headline": "ティーチング時間90%削減 / ロボット止めずに教示",
               "before": "ティーチングのたびに本番ロボットを停止し、熟練ティーチングマンがペンダント片手に長時間つきっきり。多品種少量や段取り替え時は毎回の教示工数が利益を圧迫。メーカー別に教示方法が異なり属人化が深刻。",
-              "after": "従来のティーチング時間を約 1/10 以下に短縮 (90% 削減)。ソフト上で現場再現するため、本番ロボットは止めずに生産継続。17 社統一インターフェイスで多メーカー混在工場の属人化を解消。Python等の知識不要のドラッグ&ドロップ操作。"
+              "after": "従来のティーチング時間を約 1/10 以下に短縮 (90% 削減)。ソフト上で現場再現するため、本番ロボットは止めずに生産継続。VCOLP 5.0 では安川電機/ファナック/デンソー/ヤマハ発動機/三菱電機 (新規追加) の主要5メーカーに対応、Python等の知識不要のドラッグ&ドロップ操作。連携溶接電源はフロニウス製等、CAD/CAM側は Mastercam とも連動。"
             },
             "target_scenarios": [
               {
@@ -548,6 +548,14 @@
               {
                 "industry": "自動化を進めたい中小製造業",
                 "detail": "ティーチングマン不足/省人化が課題の現場"
+              },
+              {
+                "industry": "自動車部品・車体製造",
+                "detail": "VCOLP 5.0 主要ターゲット、連続溶接パス自動生成で立上げ時間圧縮"
+              },
+              {
+                "industry": "ロボットSIer",
+                "detail": "大手・中堅・中小製造業へ自動化提案する SIer の標準ツール"
               }
             ],
             "gallery_images": [
@@ -558,6 +566,15 @@
               {
                 "src": "/assets/topics/productivity-solutions/zenetekku/zenetekku_robots.jpg",
                 "alt": "対応ロボット17社一覧"
+              }
+            ],
+            "other_products": [
+              {
+                "name": "FlexSim",
+                "tagline": "AI搭載 3Dシミュレーションソフト",
+                "description": "製造工場・物流倉庫の生産性向上・効率化に最適な3Dシミュレーター。人・モノ・設備の流れやレイアウト・稼働をデジタルツインで見える化、AI技術で個別最適から全体最適までを強力に支援。",
+                "url": "https://flexsim.jp/",
+                "image": "/assets/topics/productivity-solutions/zenetekku/flexsim_hero.jpg"
               }
             ]
           },

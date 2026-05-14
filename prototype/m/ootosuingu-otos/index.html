@@ -1060,6 +1060,80 @@
   .twf-gallery-item img {
     width: 100%; height: 100%; object-fit: cover; display: block;
   }
+  .twf-other-products {
+    margin-top: 18px;
+    padding: 14px 18px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+  }
+  .twf-other-products-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .twf-other-products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .twf-other-product {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 14px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-other-product:hover {
+    border-color: #FF7A1A;
+    box-shadow: 0 4px 12px rgba(255,122,26,0.10);
+    text-decoration: none;
+  }
+  .twf-other-product-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #F4F4F5 center/cover no-repeat;
+    border-radius: 4px;
+  }
+  .twf-other-product-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .twf-other-product-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #2C2C2C;
+  }
+  .twf-other-product-tagline {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #FF7A1A;
+    margin-bottom: 4px;
+  }
+  .twf-other-product-desc {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.65;
+  }
+  .twf-other-product-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #FF7A1A;
+  }
+  @media (max-width: 720px) {
+    .twf-other-product { grid-template-columns: 1fr; }
+  }
+
   .twf-feature-back {
     text-align: center; margin-top: 28px;
   }
@@ -1156,6 +1230,7 @@
            style="background-image: url('/assets/topics/productivity-solutions/otos/otos_main.jpg');"
            aria-label="OTOS 公式メイン画像"></a>
       </div>
+
 
 
 

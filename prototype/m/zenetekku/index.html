@@ -512,6 +512,80 @@
   .twf-gallery-item img {
     width: 100%; height: 100%; object-fit: cover; display: block;
   }
+  .twf-other-products {
+    margin-top: 18px;
+    padding: 14px 18px;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+  }
+  .twf-other-products-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #475569;
+    margin-bottom: 10px;
+  }
+  .twf-other-products-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .twf-other-product {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 14px;
+    padding: 12px;
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-other-product:hover {
+    border-color: #FF7A1A;
+    box-shadow: 0 4px 12px rgba(255,122,26,0.10);
+    text-decoration: none;
+  }
+  .twf-other-product-img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background: #F4F4F5 center/cover no-repeat;
+    border-radius: 4px;
+  }
+  .twf-other-product-body {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+  .twf-other-product-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #2C2C2C;
+  }
+  .twf-other-product-tagline {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #FF7A1A;
+    margin-bottom: 4px;
+  }
+  .twf-other-product-desc {
+    font-size: 12px;
+    color: #475569;
+    line-height: 1.65;
+  }
+  .twf-other-product-link {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #FF7A1A;
+  }
+  @media (max-width: 720px) {
+    .twf-other-product { grid-template-columns: 1fr; }
+  }
+
   .twf-feature-back {
     text-align: center; margin-top: 28px;
   }
@@ -548,11 +622,11 @@
 
     <article class="twf-product">
 <div class="twf-product-section-label">④ 教示・周辺機器</div>
-      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/zenetekku/zenetekku_screenshot.jpg');" role="img" aria-label="オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)"></div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/zenetekku/zenetekku_screenshot.jpg');" role="img" aria-label="Visual Components OLP (VCOLP 5.0)"></div>
 
-      <h3 class="twf-product-name">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</h3>
-<div class="twf-product-tagline">ロボットを止めずに教示、ティーチング時間1/10</div>
-      <div class="twf-what-is">PC 上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。FANUC/YASKAWA/NACHI/DAIHEN/KAWASAKI など 17 社のロボット、コントローラ 40 社以上に対応。</div>
+      <h3 class="twf-product-name">Visual Components OLP (VCOLP 5.0)</h3>
+<div class="twf-product-tagline">2026/3/17 提供開始の最新版、ロボット止めずに教示・ティーチング時間1/10</div>
+      <div class="twf-what-is">PC上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。2026年3月17日提供開始の最新版 VCOLP 5.0 では、連続溶接パスの自動生成、モデルベース設計、製品製造情報 (PMI)、溶接ジョブ管理機能を新搭載。アーク/レーザー/TIG/スポット溶接に対応、安川・ファナック・デンソー・ヤマハ発動機に加え三菱電機が新規対応。</div>
 
       <div class="twf-improvement">
         <div class="twf-improvement-headline">ティーチング時間90%削減 / ロボット止めずに教示</div>
@@ -564,7 +638,7 @@
           <div class="twf-improvement-arrow">→</div>
           <div class="twf-improvement-col after">
             <span class="twf-improvement-col-label">AFTER</span>
-            従来のティーチング時間を約 1/10 以下に短縮 (90% 削減)。ソフト上で現場再現するため、本番ロボットは止めずに生産継続。17 社統一インターフェイスで多メーカー混在工場の属人化を解消。Python等の知識不要のドラッグ&amp;ドロップ操作。
+            従来のティーチング時間を約 1/10 以下に短縮 (90% 削減)。ソフト上で現場再現するため、本番ロボットは止めずに生産継続。VCOLP 5.0 では安川電機/ファナック/デンソー/ヤマハ発動機/三菱電機 (新規追加) の主要5メーカーに対応、Python等の知識不要のドラッグ&amp;ドロップ操作。連携溶接電源はフロニウス製等、CAD/CAM側は Mastercam とも連動。
           </div>
         </div>
       </div>
@@ -597,6 +671,16 @@
               <span class="twf-scenario-industry">自動化を進めたい中小製造業</span>
  — <span class="twf-scenario-detail">ティーチングマン不足/省人化が課題の現場</span>            </div>
           </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">自動車部品・車体製造</span>
+ — <span class="twf-scenario-detail">VCOLP 5.0 主要ターゲット、連続溶接パス自動生成で立上げ時間圧縮</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">ロボットSIer</span>
+ — <span class="twf-scenario-detail">大手・中堅・中小製造業へ自動化提案する SIer の標準ツール</span>            </div>
+          </div>
         </div>
       </div>
 
@@ -611,6 +695,18 @@
 
 
 
+
+      <div class="twf-other-products">
+        <div class="twf-other-products-label">📦 ゼネテックは他にも取扱中</div>
+        <div class="twf-other-products-list">
+          <a class="twf-other-product" href="https://flexsim.jp/" target="_blank" rel="noopener">
+<div class="twf-other-product-img" style="background-image:url('/assets/topics/productivity-solutions/zenetekku/flexsim_hero.jpg');"></div>            <div class="twf-other-product-body">
+              <div class="twf-other-product-name">FlexSim</div>
+<div class="twf-other-product-tagline">AI搭載 3Dシミュレーションソフト</div><div class="twf-other-product-desc">製造工場・物流倉庫の生産性向上・効率化に最適な3Dシミュレーター。人・モノ・設備の流れやレイアウト・稼働をデジタルツインで見える化、AI技術で個別最適から全体最適までを強力に支援。</div>              <span class="twf-other-product-link">公式サイト ↗</span>
+            </div>
+          </a>
+        </div>
+      </div>
     </article>
 
     <div class="twf-feature-back">
