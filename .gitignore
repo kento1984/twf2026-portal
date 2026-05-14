@@ -36,6 +36,9 @@ data/_pdf_pages/
 
 scripts/_*.py
 
+# 検証スクリプトのワンショットレポート (再生成可、追跡不要)
+docs/_*.md
+
 # Phase 1.0: Playwright 検証スクショ (毎回上書き再生成、追跡不要)
 verify-*.png
 
