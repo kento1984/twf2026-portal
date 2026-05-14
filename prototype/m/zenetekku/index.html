@@ -254,6 +254,330 @@
     </div>
   </header>
 
+<style>
+  .twf-feature {
+    background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);
+    border-top: 4px solid #FF7A1A;
+    padding: 56px 0 64px;
+    margin-bottom: 48px;
+  }
+  .twf-feature-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .twf-feature-header {
+    margin-bottom: 36px;
+  }
+  .twf-feature-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: #FF7A1A;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    margin-bottom: 12px;
+  }
+  .twf-feature-title {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+  }
+  .twf-feature-intro {
+    font-size: 14px;
+    color: #52525B;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+  .twf-product {
+    background: #fff;
+    border: 1px solid #E4E4E7;
+    border-left: 6px solid #FF7A1A;
+    border-radius: 12px;
+    padding: 28px 32px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .twf-product-section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #C24A0A;
+    padding: 3px 10px;
+    background: #FFF7ED;
+    border: 1px solid #FCD9B0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .twf-product-name {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.35;
+    color: #2C2C2C;
+    margin: 0 0 6px;
+  }
+  .twf-product-tagline {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF7A1A;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .twf-what-is {
+    padding: 14px 18px;
+    background: #FAFAFA;
+    border-left: 4px solid #A1A1AA;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #2C2C2C;
+    margin-bottom: 18px;
+  }
+  .twf-improvement {
+    margin-bottom: 18px;
+  }
+  .twf-improvement-headline {
+    display: block;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #FF7A1A 0%, #C24A0A 100%);
+    color: #fff;
+    border-radius: 10px;
+    font-size: clamp(18px, 2.6vw, 26px);
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(255,122,26,0.22);
+    margin-bottom: 14px;
+  }
+  .twf-improvement-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .twf-improvement-col {
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .twf-improvement-col.before {
+    background: #F4F4F5;
+    border: 1px solid #E4E4E7;
+    color: #52525B;
+  }
+  .twf-improvement-col.after {
+    background: #FFF7ED;
+    border: 1px solid #FF7A1A;
+    color: #2C2C2C;
+  }
+  .twf-improvement-col-label {
+    display: inline-block;
+    padding: 2px 9px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .twf-improvement-col.before .twf-improvement-col-label { background: #A1A1AA; color: #fff; }
+  .twf-improvement-col.after  .twf-improvement-col-label { background: #FF7A1A; color: #fff; }
+  .twf-improvement-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #FF7A1A;
+    font-weight: 900;
+    padding: 0 4px;
+  }
+  .twf-scenarios {
+    padding: 14px 18px;
+    background: #FFFBEB;
+    border: 1px dashed #FDE68A;
+    border-radius: 8px;
+    margin-bottom: 18px;
+  }
+  .twf-scenarios-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #C24A0A;
+    margin-bottom: 10px;
+  }
+  .twf-scenarios-list { display: flex; flex-direction: column; gap: 8px; }
+  .twf-scenario {
+    display: flex; align-items: baseline; gap: 10px;
+    font-size: 13px; line-height: 1.7;
+  }
+  .twf-scenario::before {
+    content: '▶'; color: #FF7A1A; font-size: 10px; flex-shrink: 0;
+  }
+  .twf-scenario-industry { font-weight: 800; color: #2C2C2C; }
+  .twf-scenario-detail   { color: #52525B; }
+  .twf-videos {
+    display: grid; gap: 12px; margin-bottom: 18px;
+    grid-template-columns: 1fr;
+  }
+  .twf-videos.multi { grid-template-columns: repeat(2, 1fr); }
+  .twf-video-embed {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    border-radius: 10px; overflow: hidden; background: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  }
+  .twf-video-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+  .twf-video-caption {
+    font-size: 12px; color: #52525B; margin-top: 6px; font-weight: 600;
+  }
+  .twf-materials {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 14px 16px;
+    background: #FFF7ED;
+    border-left: 3px solid #FF7A1A;
+    border-radius: 6px;
+    margin-bottom: 18px;
+  }
+  .twf-materials-label {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.05em; color: #C24A0A; margin-bottom: 2px;
+  }
+  .twf-material {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: #FF7A1A; text-decoration: none;
+  }
+  .twf-material:hover { color: #C24A0A; text-decoration: underline; }
+  .twf-gallery {
+    padding-top: 16px; border-top: 1px dashed #E4E4E7; margin-top: 8px;
+  }
+  .twf-gallery-title {
+    font-size: 14px; font-weight: 800; color: #2C2C2C; margin-bottom: 4px;
+  }
+  .twf-gallery-intro {
+    font-size: 12px; color: #52525B; margin-bottom: 12px; line-height: 1.6;
+  }
+  .twf-gallery-grid {
+    display: grid; gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .twf-gallery-item {
+    display: block; position: relative; aspect-ratio: 16/9;
+    background: #F4F4F5; border-radius: 5px; overflow: hidden;
+    border: 1px solid #E4E4E7;
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+  }
+  .twf-gallery-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+  .twf-gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .twf-feature-back {
+    text-align: center; margin-top: 28px;
+  }
+  .twf-feature-back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 11px 26px;
+    background: #FF7A1A; color: #fff;
+    border-radius: 6px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    box-shadow: 0 4px 6px rgba(255,122,26,0.18);
+  }
+  .twf-feature-back-link:hover { background: #C24A0A; color: #fff; text-decoration: none; }
+
+  @media (max-width: 720px) {
+    .twf-feature { padding: 36px 0 44px; }
+    .twf-feature-inner { padding: 0 18px; }
+    .twf-feature-title { font-size: 22px; }
+    .twf-product { padding: 20px 18px 24px; }
+    .twf-product-name { font-size: 18px; }
+    .twf-improvement-row { grid-template-columns: 1fr; }
+    .twf-improvement-arrow { transform: rotate(90deg); margin: -6px 0; }
+    .twf-videos.multi { grid-template-columns: 1fr; }
+    .twf-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<section class="twf-feature">
+  <div class="twf-feature-inner">
+    <header class="twf-feature-header">
+      <span class="twf-feature-eyebrow">🤖 TWF2026 みどころ特集</span>
+      <h2 class="twf-feature-title">生産性向上ソリューションコーナー 出展</h2>
+      <p class="twf-feature-intro">本メーカーは「生産性向上ソリューションコーナー」に出展しています。会場での見どころと、現場改善の効果を予習。</p>
+    </header>
+
+    <article class="twf-product">
+<div class="twf-product-section-label">④ 教示・周辺機器</div>      <h3 class="twf-product-name">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</h3>
+<div class="twf-product-tagline">ロボットを止めずに教示、ティーチング時間1/10</div>
+      <div class="twf-what-is">PC 上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。FANUC/YASKAWA/NACHI/DAIHEN/KAWASAKI など 17 社のロボット、コントローラ 40 社以上に対応。</div>
+
+      <div class="twf-improvement">
+        <div class="twf-improvement-headline">ティーチング時間90%削減 / ロボット止めずに教示</div>
+        <div class="twf-improvement-row">
+          <div class="twf-improvement-col before">
+            <span class="twf-improvement-col-label">BEFORE</span>
+            ティーチングのたびに本番ロボットを停止し、熟練ティーチングマンがペンダント片手に長時間つきっきり。多品種少量や段取り替え時は毎回の教示工数が利益を圧迫。メーカー別に教示方法が異なり属人化が深刻。
+          </div>
+          <div class="twf-improvement-arrow">→</div>
+          <div class="twf-improvement-col after">
+            <span class="twf-improvement-col-label">AFTER</span>
+            従来のティーチング時間を約 1/10 以下に短縮 (90% 削減)。ソフト上で現場再現するため、本番ロボットは止めずに生産継続。17 社統一インターフェイスで多メーカー混在工場の属人化を解消。Python等の知識不要のドラッグ&amp;ドロップ操作。
+          </div>
+        </div>
+      </div>
+
+      <div class="twf-scenarios">
+        <div class="twf-scenarios-label">💡 こんな現場で</div>
+        <div class="twf-scenarios-list">
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">多品種少量生産工場</span>
+ — <span class="twf-scenario-detail">段取り替えのたびの教示工数を激減</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">多メーカーロボット混在ライン</span>
+ — <span class="twf-scenario-detail">17社統一UIで教示・運用標準化</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">溶接ロボット導入企業</span>
+ — <span class="twf-scenario-detail">アーク/レーザー/TIG/スポット溶接の教示を事前検証</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">研磨/トリミング/塗装ライン</span>
+ — <span class="twf-scenario-detail">工程シミュレーションで干渉/サイクルタイム最適化</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">自動化を進めたい中小製造業</span>
+ — <span class="twf-scenario-detail">ティーチングマン不足/省人化が課題の現場</span>            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </article>
+
+    <div class="twf-feature-back">
+      <a class="twf-feature-back-link" href="../../topics/productivity-solutions/">← 生産性向上ソリューションコーナー に戻る</a>
+    </div>
+  </div>
+</section>
+
   <p class="pamphlet-note">
     本社からの個別回答はまだ届いていません。公式パンフレットの該当ページを以下に掲載しています。詳細回答が届き次第、フル詳細ページに自動で更新されます。
   </p>

@@ -254,6 +254,381 @@
     </div>
   </header>
 
+<style>
+  .twf-feature {
+    background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);
+    border-top: 4px solid #FF7A1A;
+    padding: 56px 0 64px;
+    margin-bottom: 48px;
+  }
+  .twf-feature-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .twf-feature-header {
+    margin-bottom: 36px;
+  }
+  .twf-feature-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: #FF7A1A;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    margin-bottom: 12px;
+  }
+  .twf-feature-title {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+  }
+  .twf-feature-intro {
+    font-size: 14px;
+    color: #52525B;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+  .twf-product {
+    background: #fff;
+    border: 1px solid #E4E4E7;
+    border-left: 6px solid #FF7A1A;
+    border-radius: 12px;
+    padding: 28px 32px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .twf-product-section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #C24A0A;
+    padding: 3px 10px;
+    background: #FFF7ED;
+    border: 1px solid #FCD9B0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .twf-product-name {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.35;
+    color: #2C2C2C;
+    margin: 0 0 6px;
+  }
+  .twf-product-tagline {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF7A1A;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .twf-what-is {
+    padding: 14px 18px;
+    background: #FAFAFA;
+    border-left: 4px solid #A1A1AA;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #2C2C2C;
+    margin-bottom: 18px;
+  }
+  .twf-improvement {
+    margin-bottom: 18px;
+  }
+  .twf-improvement-headline {
+    display: block;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #FF7A1A 0%, #C24A0A 100%);
+    color: #fff;
+    border-radius: 10px;
+    font-size: clamp(18px, 2.6vw, 26px);
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(255,122,26,0.22);
+    margin-bottom: 14px;
+  }
+  .twf-improvement-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .twf-improvement-col {
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .twf-improvement-col.before {
+    background: #F4F4F5;
+    border: 1px solid #E4E4E7;
+    color: #52525B;
+  }
+  .twf-improvement-col.after {
+    background: #FFF7ED;
+    border: 1px solid #FF7A1A;
+    color: #2C2C2C;
+  }
+  .twf-improvement-col-label {
+    display: inline-block;
+    padding: 2px 9px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .twf-improvement-col.before .twf-improvement-col-label { background: #A1A1AA; color: #fff; }
+  .twf-improvement-col.after  .twf-improvement-col-label { background: #FF7A1A; color: #fff; }
+  .twf-improvement-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #FF7A1A;
+    font-weight: 900;
+    padding: 0 4px;
+  }
+  .twf-scenarios {
+    padding: 14px 18px;
+    background: #FFFBEB;
+    border: 1px dashed #FDE68A;
+    border-radius: 8px;
+    margin-bottom: 18px;
+  }
+  .twf-scenarios-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #C24A0A;
+    margin-bottom: 10px;
+  }
+  .twf-scenarios-list { display: flex; flex-direction: column; gap: 8px; }
+  .twf-scenario {
+    display: flex; align-items: baseline; gap: 10px;
+    font-size: 13px; line-height: 1.7;
+  }
+  .twf-scenario::before {
+    content: '▶'; color: #FF7A1A; font-size: 10px; flex-shrink: 0;
+  }
+  .twf-scenario-industry { font-weight: 800; color: #2C2C2C; }
+  .twf-scenario-detail   { color: #52525B; }
+  .twf-videos {
+    display: grid; gap: 12px; margin-bottom: 18px;
+    grid-template-columns: 1fr;
+  }
+  .twf-videos.multi { grid-template-columns: repeat(2, 1fr); }
+  .twf-video-embed {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    border-radius: 10px; overflow: hidden; background: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  }
+  .twf-video-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+  .twf-video-caption {
+    font-size: 12px; color: #52525B; margin-top: 6px; font-weight: 600;
+  }
+  .twf-materials {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 14px 16px;
+    background: #FFF7ED;
+    border-left: 3px solid #FF7A1A;
+    border-radius: 6px;
+    margin-bottom: 18px;
+  }
+  .twf-materials-label {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.05em; color: #C24A0A; margin-bottom: 2px;
+  }
+  .twf-material {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: #FF7A1A; text-decoration: none;
+  }
+  .twf-material:hover { color: #C24A0A; text-decoration: underline; }
+  .twf-gallery {
+    padding-top: 16px; border-top: 1px dashed #E4E4E7; margin-top: 8px;
+  }
+  .twf-gallery-title {
+    font-size: 14px; font-weight: 800; color: #2C2C2C; margin-bottom: 4px;
+  }
+  .twf-gallery-intro {
+    font-size: 12px; color: #52525B; margin-bottom: 12px; line-height: 1.6;
+  }
+  .twf-gallery-grid {
+    display: grid; gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .twf-gallery-item {
+    display: block; position: relative; aspect-ratio: 16/9;
+    background: #F4F4F5; border-radius: 5px; overflow: hidden;
+    border: 1px solid #E4E4E7;
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+  }
+  .twf-gallery-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+  .twf-gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .twf-feature-back {
+    text-align: center; margin-top: 28px;
+  }
+  .twf-feature-back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 11px 26px;
+    background: #FF7A1A; color: #fff;
+    border-radius: 6px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    box-shadow: 0 4px 6px rgba(255,122,26,0.18);
+  }
+  .twf-feature-back-link:hover { background: #C24A0A; color: #fff; text-decoration: none; }
+
+  @media (max-width: 720px) {
+    .twf-feature { padding: 36px 0 44px; }
+    .twf-feature-inner { padding: 0 18px; }
+    .twf-feature-title { font-size: 22px; }
+    .twf-product { padding: 20px 18px 24px; }
+    .twf-product-name { font-size: 18px; }
+    .twf-improvement-row { grid-template-columns: 1fr; }
+    .twf-improvement-arrow { transform: rotate(90deg); margin: -6px 0; }
+    .twf-videos.multi { grid-template-columns: 1fr; }
+    .twf-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<section class="twf-feature">
+  <div class="twf-feature-inner">
+    <header class="twf-feature-header">
+      <span class="twf-feature-eyebrow">🤖 TWF2026 みどころ特集</span>
+      <h2 class="twf-feature-title">生産性向上ソリューションコーナー 出展</h2>
+      <p class="twf-feature-intro">本メーカーは「生産性向上ソリューションコーナー」に出展しています。会場での見どころと、現場改善の効果を予習。</p>
+    </header>
+
+    <article class="twf-product">
+<div class="twf-product-section-label">② AMR・搬送自動化</div>      <h3 class="twf-product-name">AMR 自律走行(協働)搬送ロボット StarLift シリーズ</h3>
+<div class="twf-product-tagline">150〜600kg、段差・傾斜OK、SLAMで即日稼働</div>
+      <div class="twf-what-is">SLAM 自律走行 AMR 搬送ロボット。磁気テープ・Wi-Fi・床面工事不要で、CAD データから地図を作り経路を自動生成。可搬重量別に StarLift150/300/300E/600 の 4 機種、最大 600kg まで対応。傾斜 8°・段差 20mm まで走破。</div>
+
+      <div class="twf-improvement">
+        <div class="twf-improvement-headline">搬送量+200% / 搬送員2名削減 / 導入1ヶ月→2日</div>
+        <div class="twf-improvement-row">
+          <div class="twf-improvement-col before">
+            <span class="twf-improvement-col-label">BEFORE</span>
+            搬送専任のオペレーター複数名が手押し台車で繰り返し往復。新人教育に約20時間の研修が必要。磁気テープAGVは床面工事に約1ヶ月、レイアウト変更のたび再施工。
+          </div>
+          <div class="twf-improvement-arrow">→</div>
+          <div class="twf-improvement-col after">
+            <span class="twf-improvement-col-label">AFTER</span>
+            食品加工工場で搬送量200%向上、自動車部品メーカーで搬送員2名削減、システム導入が最短2日 (従来1ヶ月)。操作習得は30分研修でOK、10時間バッテリーで24時間ローテーション運用可能。最大10万㎡ (東京ドーム約2個分) のマップを記憶。
+          </div>
+        </div>
+      </div>
+
+      <div class="twf-scenarios">
+        <div class="twf-scenarios-label">💡 こんな現場で</div>
+        <div class="twf-scenarios-list">
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">自動車部品製造</span>
+ — <span class="twf-scenario-detail">重量物のライン間搬送、夜勤の人員確保が困難な現場</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">食品加工工場</span>
+ — <span class="twf-scenario-detail">衛生区画をまたぐ繰り返し搬送、交差汚染リスク削減</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">高機能材料加工</span>
+ — <span class="twf-scenario-detail">重量ワークの多品種少量搬送、人手不足ライン</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">物流倉庫</span>
+ — <span class="twf-scenario-detail">多層階拠点でのエレベーター連携搬送</span>            </div>
+          </div>
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">レイアウト変更頻度の高い工場</span>
+ — <span class="twf-scenario-detail">磁気テープ再敷設の手戻りを避けたい現場</span>            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="twf-materials">
+        <div class="twf-materials-label">📚 メーカー配布資料</div>
+        <a class="twf-material" href="/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf" target="_blank" rel="noopener">📄 AMR導入事例集 (11ページ) ↗</a>
+      </div>
+
+      <div class="twf-gallery">
+        <div class="twf-gallery-title">ロボットバンク 製品・導入事例ハイライト (14スライド)</div>
+<div class="twf-gallery-intro">AMRの強み・市場課題・3つの理由・他社性能比較・導入事例まで、来場前にハイライト把握。</div>        <div class="twf-gallery-grid">
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S01.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S01.png" alt="ロボットバンク 商品説明資料 表紙" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S02.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S02.png" alt="AGVとAMRの違い" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S03.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S03.png" alt="「変化に強い現場」AMR導入のメリット" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S04.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S04.png" alt="最先端マッピング技術" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S05.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S05.png" alt="AIディープラーニング" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S06.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S06.png" alt="充実した導入フォロー × サービス体制" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S07.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S07.png" alt="製品スペック比較表" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S10.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S10.png" alt="導入事例 (自動車メーカー/部品製造)" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S03.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S03.png" alt="RobotBank AMRの強み" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S04.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S04.png" alt="市場が抱える3大課題" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S05.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S05.png" alt="Star-Liftが選ばれる3つの理由" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S11.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S11.png" alt="展示会の様子 (OWF・NWF)" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S12.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S12.png" alt="採用を左右する共通要因" loading="lazy" />
+          </a>
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S13.png" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S13.png" alt="「物を運ぶ」すべての現場がターゲット" loading="lazy" />
+          </a>
+        </div>
+      </div>
+    </article>
+
+    <div class="twf-feature-back">
+      <a class="twf-feature-back-link" href="../../topics/productivity-solutions/">← 生産性向上ソリューションコーナー に戻る</a>
+    </div>
+  </div>
+</section>
+
   <p class="pamphlet-note">
     本社からの個別回答はまだ届いていません。公式パンフレットの該当ページを以下に掲載しています。詳細回答が届き次第、フル詳細ページに自動で更新されます。
   </p>

@@ -59,7 +59,7 @@
           {
             "maker_no": 106,
             "maker_name": "ファナック",
-            "maker_slug": "fanakku",
+            "maker_slug": "fanuc",
             "product_name": "安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)",
             "tagline": "安全柵不要、ハンド交換ワンタッチ",
             "image_url": null,
@@ -510,7 +510,7 @@
           {
             "maker_no": 52,
             "maker_name": "シンテック",
-            "maker_slug": "shintekku",
+            "maker_slug": "shintech",
             "product_name": "3arm + T-Arm シリーズ (バランスアーム)",
             "tagline": "3アーム構造で重量物を「無重力化」、トヨタ約5000箇所採用",
             "image_url": null,

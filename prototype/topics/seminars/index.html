@@ -630,177 +630,59 @@
       }
     }
 
-    /* ===== Phase 2-C: 製品中心リファクタ (what_is / improvement / scenarios) ===== */
-    /* ヒーロー縮小: トーン控えめに */
+    /* ===== Phase 2-D: 軽量カード (詳細は個別ページの partial へ) ===== */
+    /* ヒーロー縮小 */
     .topic-wrap .topic-hero {
       padding-bottom: 24px;
       margin-bottom: 28px;
     }
-    .topic-wrap .topic-hero-flyer {
-      max-height: 280px;
-    }
-    .topic-wrap .topic-hero-flyer img {
-      max-height: 280px;
-    }
-    .topic-wrap .topic-title {
-      font-size: 30px;
-    }
-    .topic-wrap .topic-eyebrow {
-      font-size: 11px;
-      padding: 4px 11px;
-    }
-    .topic-wrap .topic-hero-video {
-      margin-top: -4px;
-      margin-bottom: 44px;
-    }
+    .topic-wrap .topic-hero-flyer { max-height: 280px; }
+    .topic-wrap .topic-hero-flyer img { max-height: 280px; }
+    .topic-wrap .topic-title { font-size: 30px; }
+    .topic-wrap .topic-eyebrow { font-size: 11px; padding: 4px 11px; }
+    .topic-wrap .topic-hero-video { margin-top: -4px; margin-bottom: 44px; }
 
-    /* 製品カード: what_is/improvement/scenarios を持つ場合は縦長1カラム */
-    .topic-product-grid.deep {
-      grid-template-columns: 1fr;
-      gap: 36px;
-    }
-    .topic-product-card.deep .tpc-body {
-      padding: 22px 28px 26px;
-      gap: 12px;
-    }
-    .topic-product-card.deep .tpc-product {
-      font-size: 22px;
-    }
-    .topic-product-card.deep .tpc-tagline {
-      font-size: 15px;
-    }
-
-    /* これは何 (what_is) */
+    /* これは何 (1〜2文サマリー) */
     .tpc-what-is {
-      margin-top: 8px;
-      padding: 14px 18px;
+      margin-top: 6px;
+      padding: 10px 14px;
       background: #FAFAFA;
-      border-left: 4px solid var(--gray-400);
-      border-radius: 0 6px 6px 0;
-      font-size: 14px;
-      line-height: 1.8;
+      border-left: 3px solid var(--gray-200);
+      border-radius: 0 4px 4px 0;
+      font-size: 12.5px;
+      line-height: 1.7;
       color: var(--gray-800);
     }
 
-    /* 改善効果 Before/After */
-    .tpc-improvement {
-      margin-top: 8px;
-    }
+    /* 改善ヘッドライン (大文字バナー) */
     .tpc-improvement-headline {
       display: block;
-      padding: 18px 22px;
+      padding: 12px 16px;
+      margin-top: 6px;
       background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
       color: #fff;
-      border-radius: 10px;
-      font-size: clamp(18px, 2.6vw, 26px);
+      border-radius: 8px;
+      font-size: clamp(14px, 1.6vw, 17px);
       font-weight: 900;
       line-height: 1.4;
       letter-spacing: -0.01em;
       text-align: center;
-      box-shadow: 0 8px 22px rgba(255, 122, 26, 0.22);
-      margin-bottom: 14px;
-    }
-    .tpc-improvement-row {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      gap: 10px;
-      align-items: stretch;
-    }
-    .tpc-improvement-col {
-      padding: 14px 16px;
-      border-radius: 8px;
-      font-size: 13px;
-      line-height: 1.75;
-    }
-    .tpc-improvement-col.before {
-      background: #F4F4F5;
-      border: 1px solid var(--gray-200);
-      color: var(--gray-600);
-    }
-    .tpc-improvement-col.after {
-      background: #FFF7ED;
-      border: 1px solid var(--accent);
-      color: var(--gray-800);
-    }
-    .tpc-improvement-col-label {
-      display: inline-block;
-      padding: 2px 9px;
-      font-size: 10px;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      border-radius: 3px;
-      margin-bottom: 8px;
-    }
-    .tpc-improvement-col.before .tpc-improvement-col-label {
-      background: var(--gray-400);
-      color: #fff;
-    }
-    .tpc-improvement-col.after .tpc-improvement-col-label {
-      background: var(--accent);
-      color: #fff;
-    }
-    .tpc-improvement-arrow {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      color: var(--accent);
-      font-weight: 900;
-      padding: 0 4px;
+      box-shadow: 0 4px 12px rgba(255, 122, 26, 0.18);
     }
 
-    /* 適用現場リスト (こんな現場で) */
-    .tpc-scenarios {
-      margin-top: 6px;
-      padding: 14px 18px;
-      background: #FFFBEB;
-      border: 1px dashed #FDE68A;
-      border-radius: 8px;
-    }
-    .tpc-scenarios-label {
-      font-size: 12px;
+    /* 動画サムネ用 play badge */
+    .tpc-image { position: relative; }
+    .tpc-play-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 4px 10px;
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 0.06em;
-      color: var(--accent-dark);
-      margin-bottom: 10px;
-    }
-    .tpc-scenarios-list {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .tpc-scenario {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      font-size: 13px;
-      line-height: 1.7;
-    }
-    .tpc-scenario::before {
-      content: '▶';
-      color: var(--accent);
-      font-size: 10px;
-      flex-shrink: 0;
-    }
-    .tpc-scenario-industry {
-      font-weight: 800;
-      color: var(--gray-800);
-    }
-    .tpc-scenario-detail {
-      color: var(--gray-600);
-    }
-
-    @media (max-width: 720px) {
-      .tpc-improvement-row {
-        grid-template-columns: 1fr;
-      }
-      .tpc-improvement-arrow {
-        transform: rotate(90deg);
-        margin: -6px 0;
-      }
-      .topic-product-card.deep .tpc-body {
-        padding: 18px 18px 22px;
-      }
+      letter-spacing: 0.05em;
     }
 
     .maker-footer {
@@ -878,18 +760,11 @@
             <span class="tpc-meta-name">スリーエムジャパン</span>
           </div>
           <div class="tpc-product">フルハーネスデモンストレーション</div>
-<div class="tpc-tagline">墜落防止実験 + 吊り下げ体験 (参加無料)</div><div class="tpc-desc">高所作業の安全を支えるフルハーネスを、実際に装着・吊り下げて体感できる体験型デモンストレーション。</div>
-
-
-
-
-
-          <div class="tpc-links">
+<div class="tpc-tagline">墜落防止実験 + 吊り下げ体験 (参加無料)</div><div class="tpc-desc">高所作業の安全を支えるフルハーネスを、実際に装着・吊り下げて体感できる体験型デモンストレーション。</div>          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/3m-japan/">メーカー詳細 →</a>
             <a class="tpc-link-flyer" href="../../attachments/%E3%82%B9%E3%83%AA%E3%83%BC%E3%82%A8%E3%83%A0%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E5%AE%89%E5%85%A8%E8%A1%9B%E7%94%9F%E8%A3%BD%E5%93%81%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%80%902026WF%E3%80%91%E5%A2%9C%E8%90%BD%E8%90%BD%E4%B8%8B%E3%83%87%E3%83%A2%EF%BC%BF%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A9%E3%82%B7_v5.pdf" target="_blank" rel="noopener">📄 TWF2026 3M 墜落制止デモ + 特価キャンペーンチラシ ↗</a>
             <a class="tpc-link-external" href="https://www.3mcompany.jp/3M/ja_JP/fall-protection/training/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
-
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -906,18 +781,11 @@
           <div class="tpc-product">AXELARC™ 新ワイヤ送給制御プロセス</div>
 <div class="tpc-tagline">建機向け、安定アーク × 低スパッタの実演</div><div class="tpc-desc">建設機械の溶接で求められる安定アークとスパッタ低減を、新ワイヤ送給制御プロセスで実現。実機実演で違いを体感できます。</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-new">🆕 新商品</span>          </div>
-
-
-
-
-
-
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/kami-kou-tokoro/">メーカー詳細 →</a>
             <a class="tpc-link-flyer" href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/26TWF_%E7%A5%9E%E9%8B%BCAXELARC%E3%83%81%E3%83%A9%E3%82%B70414.pdf" target="_blank" rel="noopener">📄 TWF2026 AXELARC 4プログラムまとめチラシ ↗</a>
             <a class="tpc-link-external" href="https://www.kobelco.co.jp/products/welding/axelarc/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
-
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -932,17 +800,10 @@
             <span class="tpc-meta-name">ダイヘン</span>
           </div>
           <div class="tpc-product">プラズマ切断パッケージ</div>
-<div class="tpc-tagline">高速・高精度のプラズマ切断を実演</div><div class="tpc-desc">薄板から厚板までの幅広い対応と、高速・高精度な切断を両立するパッケージ。会場で動く実機を確認できます。</div>
-
-
-
-
-
-          <div class="tpc-links">
+<div class="tpc-tagline">高速・高精度のプラズマ切断を実演</div><div class="tpc-desc">薄板から厚板までの幅広い対応と、高速・高精度な切断を両立するパッケージ。会場で動く実機を確認できます。</div>          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/daihen/">メーカー詳細 →</a>
             <a class="tpc-link-external" href="https://www.daihen-robot.com/items/plazma_cutting_pkg" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
-
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -957,17 +818,10 @@
             <span class="tpc-meta-name">三菱電機</span>
           </div>
           <div class="tpc-product">二次元ファイバレーザ加工機 ML3015GX-F60</div>
-<div class="tpc-tagline">F60 のハイパワー × 高速ファイバレーザ加工</div><div class="tpc-desc">60kW クラスのハイパワーファイバレーザで、厚板から薄板まで高速加工。実演で加工速度と仕上がりを確認できます。</div>
-
-
-
-
-
-          <div class="tpc-links">
+<div class="tpc-tagline">F60 のハイパワー × 高速ファイバレーザ加工</div><div class="tpc-desc">60kW クラスのハイパワーファイバレーザで、厚板から薄板まで高速加工。実演で加工速度と仕上がりを確認できます。</div>          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/mitsubishidenki/">メーカー詳細 →</a>
             <a class="tpc-link-external" href="https://www.mitsubishielectric.co.jp/fa/products/faspec/point.page?kisyu=/laser&amp;formNm=ML3015GX-F60" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
-
         </div>
       </article>
     </div>

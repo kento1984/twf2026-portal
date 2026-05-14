@@ -623,6 +623,9 @@
     </div>
   </header>
 
+  {# Phase 2-D: TWF みどころ特集 (該当topicに出展しているメーカーのみ表示) #}
+  {% if twf_topic_products %}{% include '_twf_topic_section.html.j2' %}{% endif %}
+
   <div class="maker-content-wrap">
 
     {# サマリーセクション: ページ開いた瞬間の概要として 📌みどころ / 🎁セール企画 / 🆕新製品・新技術

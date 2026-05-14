@@ -36,6 +36,9 @@
     {% endif %}
   </header>
 
+  {# Phase 2-D: TWF みどころ特集 (該当topicに出展しているメーカーのみ表示) #}
+  {% if twf_topic_products %}{% include '_twf_topic_section.html.j2' %}{% endif %}
+
   <div class="skeleton-msg">
     <strong>{{ maker.name }} の詳細情報は準備中です。</strong>
     メーカー回答が届き次第、または公式パンフレットの掲載ページが特定でき次第、本ページを更新します。

@@ -1,0 +1,364 @@
+{# Phase 2-D: TWF みどころ特集 partial — メーカー個別ページに該当topicの詳細情報を表示
+   期待 context: twf_topic_products (list)
+     [{topic_slug, topic_title, section_title, product_name, tagline, what_is,
+       improvement {headline, before, after}, target_scenarios [{industry, detail}],
+       video / videos, materials, slide_gallery, ...}, ...]
+   - 12メーカー以外は twf_topic_products が空配列なので何も出力されない (呼出側 if-guard も推奨) #}
+{% if twf_topic_products %}
+<style>
+  .twf-feature {
+    background: linear-gradient(180deg, #FFF7ED 0%, #FFFFFF 100%);
+    border-top: 4px solid #FF7A1A;
+    padding: 56px 0 64px;
+    margin-bottom: 48px;
+  }
+  .twf-feature-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+  .twf-feature-header {
+    margin-bottom: 36px;
+  }
+  .twf-feature-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 14px;
+    background: #FF7A1A;
+    color: #fff;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    margin-bottom: 12px;
+  }
+  .twf-feature-title {
+    font-size: 28px;
+    font-weight: 900;
+    line-height: 1.25;
+    color: #2C2C2C;
+    margin-bottom: 8px;
+  }
+  .twf-feature-intro {
+    font-size: 14px;
+    color: #52525B;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+  .twf-product {
+    background: #fff;
+    border: 1px solid #E4E4E7;
+    border-left: 6px solid #FF7A1A;
+    border-radius: 12px;
+    padding: 28px 32px 32px;
+    margin-bottom: 28px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+  .twf-product-section-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #C24A0A;
+    padding: 3px 10px;
+    background: #FFF7ED;
+    border: 1px solid #FCD9B0;
+    border-radius: 4px;
+    margin-bottom: 12px;
+  }
+  .twf-product-name {
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1.35;
+    color: #2C2C2C;
+    margin: 0 0 6px;
+  }
+  .twf-product-tagline {
+    font-size: 14px;
+    font-weight: 700;
+    color: #FF7A1A;
+    line-height: 1.55;
+    margin-bottom: 14px;
+  }
+  .twf-what-is {
+    padding: 14px 18px;
+    background: #FAFAFA;
+    border-left: 4px solid #A1A1AA;
+    border-radius: 0 6px 6px 0;
+    font-size: 14px;
+    line-height: 1.85;
+    color: #2C2C2C;
+    margin-bottom: 18px;
+  }
+  .twf-improvement {
+    margin-bottom: 18px;
+  }
+  .twf-improvement-headline {
+    display: block;
+    padding: 18px 22px;
+    background: linear-gradient(135deg, #FF7A1A 0%, #C24A0A 100%);
+    color: #fff;
+    border-radius: 10px;
+    font-size: clamp(18px, 2.6vw, 26px);
+    font-weight: 900;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    text-align: center;
+    box-shadow: 0 8px 22px rgba(255,122,26,0.22);
+    margin-bottom: 14px;
+  }
+  .twf-improvement-row {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 10px;
+    align-items: stretch;
+  }
+  .twf-improvement-col {
+    padding: 14px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .twf-improvement-col.before {
+    background: #F4F4F5;
+    border: 1px solid #E4E4E7;
+    color: #52525B;
+  }
+  .twf-improvement-col.after {
+    background: #FFF7ED;
+    border: 1px solid #FF7A1A;
+    color: #2C2C2C;
+  }
+  .twf-improvement-col-label {
+    display: inline-block;
+    padding: 2px 9px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+  .twf-improvement-col.before .twf-improvement-col-label { background: #A1A1AA; color: #fff; }
+  .twf-improvement-col.after  .twf-improvement-col-label { background: #FF7A1A; color: #fff; }
+  .twf-improvement-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    color: #FF7A1A;
+    font-weight: 900;
+    padding: 0 4px;
+  }
+  .twf-scenarios {
+    padding: 14px 18px;
+    background: #FFFBEB;
+    border: 1px dashed #FDE68A;
+    border-radius: 8px;
+    margin-bottom: 18px;
+  }
+  .twf-scenarios-label {
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #C24A0A;
+    margin-bottom: 10px;
+  }
+  .twf-scenarios-list { display: flex; flex-direction: column; gap: 8px; }
+  .twf-scenario {
+    display: flex; align-items: baseline; gap: 10px;
+    font-size: 13px; line-height: 1.7;
+  }
+  .twf-scenario::before {
+    content: '▶'; color: #FF7A1A; font-size: 10px; flex-shrink: 0;
+  }
+  .twf-scenario-industry { font-weight: 800; color: #2C2C2C; }
+  .twf-scenario-detail   { color: #52525B; }
+  .twf-videos {
+    display: grid; gap: 12px; margin-bottom: 18px;
+    grid-template-columns: 1fr;
+  }
+  .twf-videos.multi { grid-template-columns: repeat(2, 1fr); }
+  .twf-video-embed {
+    position: relative; width: 100%; aspect-ratio: 16/9;
+    border-radius: 10px; overflow: hidden; background: #000;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  }
+  .twf-video-embed iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+  .twf-video-caption {
+    font-size: 12px; color: #52525B; margin-top: 6px; font-weight: 600;
+  }
+  .twf-materials {
+    display: flex; flex-direction: column; gap: 6px;
+    padding: 14px 16px;
+    background: #FFF7ED;
+    border-left: 3px solid #FF7A1A;
+    border-radius: 6px;
+    margin-bottom: 18px;
+  }
+  .twf-materials-label {
+    font-size: 11px; font-weight: 800;
+    letter-spacing: 0.05em; color: #C24A0A; margin-bottom: 2px;
+  }
+  .twf-material {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 13px; font-weight: 700; color: #FF7A1A; text-decoration: none;
+  }
+  .twf-material:hover { color: #C24A0A; text-decoration: underline; }
+  .twf-gallery {
+    padding-top: 16px; border-top: 1px dashed #E4E4E7; margin-top: 8px;
+  }
+  .twf-gallery-title {
+    font-size: 14px; font-weight: 800; color: #2C2C2C; margin-bottom: 4px;
+  }
+  .twf-gallery-intro {
+    font-size: 12px; color: #52525B; margin-bottom: 12px; line-height: 1.6;
+  }
+  .twf-gallery-grid {
+    display: grid; gap: 8px;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  .twf-gallery-item {
+    display: block; position: relative; aspect-ratio: 16/9;
+    background: #F4F4F5; border-radius: 5px; overflow: hidden;
+    border: 1px solid #E4E4E7;
+    transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+  }
+  .twf-gallery-item:hover {
+    transform: translateY(-2px) scale(1.02);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  }
+  .twf-gallery-item img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .twf-feature-back {
+    text-align: center; margin-top: 28px;
+  }
+  .twf-feature-back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 11px 26px;
+    background: #FF7A1A; color: #fff;
+    border-radius: 6px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    box-shadow: 0 4px 6px rgba(255,122,26,0.18);
+  }
+  .twf-feature-back-link:hover { background: #C24A0A; color: #fff; text-decoration: none; }
+
+  @media (max-width: 720px) {
+    .twf-feature { padding: 36px 0 44px; }
+    .twf-feature-inner { padding: 0 18px; }
+    .twf-feature-title { font-size: 22px; }
+    .twf-product { padding: 20px 18px 24px; }
+    .twf-product-name { font-size: 18px; }
+    .twf-improvement-row { grid-template-columns: 1fr; }
+    .twf-improvement-arrow { transform: rotate(90deg); margin: -6px 0; }
+    .twf-videos.multi { grid-template-columns: 1fr; }
+    .twf-gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+
+<section class="twf-feature">
+  <div class="twf-feature-inner">
+    <header class="twf-feature-header">
+      <span class="twf-feature-eyebrow">🤖 TWF2026 みどころ特集</span>
+      <h2 class="twf-feature-title">{{ twf_topic_products[0].topic_title }} 出展</h2>
+      <p class="twf-feature-intro">本メーカーは「{{ twf_topic_products[0].topic_title }}」に出展しています。会場での見どころと、現場改善の効果を予習。</p>
+    </header>
+
+    {% for p in twf_topic_products %}
+    <article class="twf-product">
+      {% if p.section_title %}<div class="twf-product-section-label">{{ p.section_title }}</div>{% endif %}
+      <h3 class="twf-product-name">{{ p.product_name }}</h3>
+      {% if p.tagline %}<div class="twf-product-tagline">{{ p.tagline }}</div>{% endif %}
+
+      {% if p.what_is %}
+      <div class="twf-what-is">{{ p.what_is }}</div>
+      {% endif %}
+
+      {% if p.improvement %}
+      <div class="twf-improvement">
+        {% if p.improvement.headline %}
+        <div class="twf-improvement-headline">{{ p.improvement.headline }}</div>
+        {% endif %}
+        {% if p.improvement.before and p.improvement.after %}
+        <div class="twf-improvement-row">
+          <div class="twf-improvement-col before">
+            <span class="twf-improvement-col-label">BEFORE</span>
+            {{ p.improvement.before }}
+          </div>
+          <div class="twf-improvement-arrow">→</div>
+          <div class="twf-improvement-col after">
+            <span class="twf-improvement-col-label">AFTER</span>
+            {{ p.improvement.after }}
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      {% if p.target_scenarios %}
+      <div class="twf-scenarios">
+        <div class="twf-scenarios-label">💡 こんな現場で</div>
+        <div class="twf-scenarios-list">
+          {% for s in p.target_scenarios %}
+          <div class="twf-scenario">
+            <div>
+              <span class="twf-scenario-industry">{{ s.industry }}</span>
+              {% if s.detail %} — <span class="twf-scenario-detail">{{ s.detail }}</span>{% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+
+      {% set _videos = [] %}
+      {% if p.video %}{% set _videos = [p.video] %}{% endif %}
+      {% if p.videos %}{% set _videos = p.videos %}{% endif %}
+      {% if _videos %}
+      <div class="twf-videos{% if _videos|length > 1 %} multi{% endif %}">
+        {% for v in _videos %}
+        <div>
+          <div class="twf-video-embed">
+            <iframe src="https://www.youtube.com/embed/{{ v.youtube_id }}" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="twf-video-caption">{{ v.title }}{% if v.duration %} ({{ v.duration }}){% endif %}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if p.materials %}
+      <div class="twf-materials">
+        <div class="twf-materials-label">📚 メーカー配布資料</div>
+        {% for m in p.materials %}
+        <a class="twf-material" href="{{ m.url }}" target="_blank" rel="noopener">{{ m.icon or '📄' }} {{ m.label }} ↗</a>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if p.slide_gallery %}
+      <div class="twf-gallery">
+        <div class="twf-gallery-title">{{ p.slide_gallery.title }}</div>
+        {% if p.slide_gallery.intro %}<div class="twf-gallery-intro">{{ p.slide_gallery.intro }}</div>{% endif %}
+        <div class="twf-gallery-grid">
+          {% for img in p.slide_gallery.images %}
+          <a class="twf-gallery-item" href="{{ img.src }}" target="_blank" rel="noopener">
+            <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" />
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </article>
+    {% endfor %}
+
+    <div class="twf-feature-back">
+      <a class="twf-feature-back-link" href="../../topics/{{ twf_topic_products[0].topic_slug }}/">← {{ twf_topic_products[0].topic_title }} に戻る</a>
+    </div>
+  </div>
+</section>
+{% endif %}

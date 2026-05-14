@@ -265,12 +265,44 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
     return rec
 
 
-def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products):
+def build_twf_topic_index(topics, target_topic_slugs=None):
+    """Phase 2-D: topics.json から maker_slug 逆引き辞書を作る。
+    {maker_slug: [{topic_slug, topic_title, section_title, ...product fields}, ...]}
+    1メーカーが複数製品を持つ場合 (例: ダイヘン066 が ①②2セクション) は配列に複数積む。
+
+    target_topic_slugs: 対象 topic slug の set。None なら "productivity-solutions" のみ。
+    これにより work-environment / seminars の製品データは個別ページに展開されない。
+    """
+    if target_topic_slugs is None:
+        target_topic_slugs = {"productivity-solutions"}
+    by_slug = {}
+    for topic_slug, topic in (topics or {}).items():
+        if topic_slug not in target_topic_slugs:
+            continue
+        topic_title = topic.get("title")
+        for section in topic.get("sections", []):
+            section_title = section.get("section_title")
+            for product in section.get("products", []):
+                slug = product.get("maker_slug")
+                if not slug:
+                    continue
+                entry = {
+                    "topic_slug": topic_slug,
+                    "topic_title": topic_title,
+                    "section_title": section_title,
+                }
+                entry.update(product)
+                by_slug.setdefault(slug, []).append(entry)
+    return by_slug
+
+
+def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None):
     tpl_for = {
         "A": env.get_template("maker_full.html.j2"),
         "B": env.get_template("maker_pamphlet.html.j2"),
         "C": env.get_template("maker_skeleton.html.j2"),
     }
+    twf_by_slug = build_twf_topic_index(topics)
     counts = Counter()
     for m in makers:
         no = int(m["no"])
@@ -281,7 +313,12 @@ def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pd
         counts[tier] += 1
         out_dir = MAKER_OUT / rec["slug"]
         out_dir.mkdir(parents=True, exist_ok=True)
-        html = tpl_for[tier].render(maker=rec, slug=rec["slug"], tier=tier)
+        html = tpl_for[tier].render(
+            maker=rec,
+            slug=rec["slug"],
+            tier=tier,
+            twf_topic_products=twf_by_slug.get(rec["slug"], []),
+        )
         (out_dir / "index.html").write_text(html, encoding="utf-8")
     return counts
 
@@ -383,7 +420,7 @@ def main():
     products = load_products()
 
     topics = load_topics()
-    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
+    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics)
     n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics)
     n_topics = render_topics(env, topics)
 
