@@ -2,147 +2,239 @@
   "productivity-solutions": {
     "slug": "productivity-solutions",
     "title": "生産性向上ソリューションコーナー",
-    "card_count_label": "11製品が集結",
-    "card_keywords": "協働ロボット・AMR・3Dレーダー・溶接カメラ",
-    "subtitle": "協働ロボット・AMR・3Dレーダー・溶接カメラ — 11製品が会場で集結",
+    "card_count_label": "12製品 × 5テーマで集結",
+    "card_keywords": "協働ロボット・AMR・3Dレーダー・溶接カメラ・レーザークリーナー",
+    "subtitle": "協働ロボット × AMR × 安全 × 教示 × レーザークリーナー — 5テーマで会場の目玉に",
     "icon": "🤖",
     "accent_color": "#FF7A1A",
     "accent_color_dark": "#C24A0A",
     "hero_image": "/assets/topics/productivity-solutions-front.png",
     "pdf_url": "/assets/topics/productivity-solutions-front.pdf",
-    "intro": "TWF2026 で初公開となる協働ロボット・AMR(自律走行搬送)・3D レーダー安全システム・溶接カメラなど、生産性向上に直結する 11 製品を 1 コーナーに集約。実機を目の前で確認できる絶好の機会です。",
-    "products": [
+    "intro": "TWF2026 メイン企画。協働ロボット・AMR(自律走行搬送)・3Dレーダー安全システム・溶接カメラ・最新レーザークリーナーまで、生産性向上に直結する 12 製品を 5 テーマに整理して 1 コーナーに集約。会場の動く実機 + 限定動画 + メーカー資料で「みどころ」を徹底解説。",
+    "hero_video": {
+      "youtube_id": "G9GQE1IQBCU",
+      "title": "ダイヘン｜協働溶接ロボット FD-VC8 × AiTran500 デモ",
+      "duration": "2:29"
+    },
+    "sections": [
       {
-        "maker_no": 66,
-        "maker_name": "ダイヘン",
-        "maker_slug": "daihen",
-        "product_name": "協働ロボットパッケージ (TIG/MAG兼用仕様)",
-        "tagline": "高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式",
-        "description": "ダイヘン独自の制御技術により、難易度の高い TIG ワイヤー溶接でも安定した高品質溶接を実現。1 台の架台に CO2・TIG 溶接機を搭載し、簡単な段取り替えで使い分けが可能。",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": false,
-        "is_new_product": false
+        "section_title": "① 協働ロボット — 1台で完結する自動化",
+        "section_intro": "TIG/MAG 兼用、安全柵不要、CMT 低スパッタ、防爆塗装まで。1 セクションで「ロボットの今」が分かる 4 製品。",
+        "products": [
+          {
+            "maker_no": 66,
+            "maker_name": "ダイヘン",
+            "maker_slug": "daihen",
+            "product_name": "協働ロボットパッケージ (TIG/MAG兼用仕様)",
+            "tagline": "高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式",
+            "description": "ダイヘン独自の制御技術により、難易度の高い TIG ワイヤー溶接でも安定した高品質溶接を実現。1 台の架台に CO2・TIG 溶接機を搭載し、簡単な段取り替えで使い分けが可能。",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 106,
+            "maker_name": "ファナック",
+            "maker_slug": "fanakku",
+            "product_name": "安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)",
+            "tagline": "安全柵不要、ハンド交換ワンタッチ",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 114,
+            "maker_name": "フロニウスジャパン",
+            "maker_slug": "furoniusujapan",
+            "product_name": "TPS400i CMT低スパッタ溶接×協働ロボット",
+            "tagline": "CMT 低スパッタ × 協働ロボット連携",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 129,
+            "maker_name": "メサック",
+            "maker_slug": "mesakku",
+            "product_name": "スプレーガン×防爆協働ロボット",
+            "tagline": "防爆対応、塗装の自動化に",
+            "description": "防爆対応の協働ロボットで塗装ラインを自動化。1台で30分/min の処理能力、ロボットつかみ方式で1m対応の塗装ブースも展示。",
+            "image_url": "/assets/topics/productivity-solutions/mesack/mesack_robot_painting.jpg",
+            "official_url": "https://www.mesac.co.jp/",
+            "is_first_exhibit": true,
+            "is_new_product": false,
+            "materials": [
+              {"url": "/assets/topics/productivity-solutions/mesack/mesack_business.pdf", "label": "事業紹介ポスター", "icon": "📄"},
+              {"url": "/assets/topics/productivity-solutions/mesack/mesack_system_engineering.pdf", "label": "システムエンジニアリング", "icon": "📄"},
+              {"url": "/assets/topics/productivity-solutions/mesack/mesack_robot_painting.pdf", "label": "ロボットつかみ塗装ブース", "icon": "📄"}
+            ]
+          }
+        ]
       },
       {
-        "maker_no": 106,
-        "maker_name": "ファナック",
-        "maker_slug": "fanakku",
-        "product_name": "安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)",
-        "tagline": "安全柵不要、ハンド交換ワンタッチ",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": false,
-        "is_new_product": false
+        "section_title": "② AMR・搬送自動化 — 工場の「物を運ぶ」を自動化",
+        "section_intro": "段差・傾斜OKのAMR、AGV連携の搬送→溶接ライン。デモ動画で動きを確認、導入事例で効果を把握。",
+        "products": [
+          {
+            "maker_no": 145,
+            "maker_name": "ロボットバンク",
+            "maker_slug": "robottobanku",
+            "product_name": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+            "tagline": "150〜600kg、段差・傾斜OK、SLAMで即日稼働",
+            "description": "古い工場特有の段差や傾斜も難なく突破。磁気テープ不要、空間スキャンするだけで当日から搬送開始。150kg〜600kg まで 1 台から導入可能、現場規模を問わず柔軟対応。",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false,
+            "materials": [
+              {"url": "/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf", "label": "AMR導入事例集 (11ページ)", "icon": "📄"}
+            ],
+            "slide_gallery": {
+              "title": "ロボットバンク 製品・導入事例ハイライト (14スライド)",
+              "intro": "AMRの強み・市場課題・3つの理由・他社性能比較・導入事例まで、来場前にハイライト把握。",
+              "images": [
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S01.png", "alt": "ロボットバンク 商品説明資料 表紙"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S02.png", "alt": "AGVとAMRの違い"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S03.png", "alt": "「変化に強い現場」AMR導入のメリット"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S04.png", "alt": "最先端マッピング技術"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S05.png", "alt": "AIディープラーニング"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S06.png", "alt": "充実した導入フォロー × サービス体制"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S07.png", "alt": "製品スペック比較表"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/manual_S10.png", "alt": "導入事例 (自動車メーカー/部品製造)"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/kanto_S03.png", "alt": "RobotBank AMRの強み"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/kanto_S04.png", "alt": "市場が抱える3大課題"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/kanto_S05.png", "alt": "Star-Liftが選ばれる3つの理由"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/kanto_S11.png", "alt": "展示会の様子 (OWF・NWF)"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/kanto_S12.png", "alt": "採用を左右する共通要因"},
+                {"src": "/assets/topics/productivity-solutions/robotbank/kanto_S13.png", "alt": "「物を運ぶ」すべての現場がターゲット"}
+              ]
+            }
+          },
+          {
+            "maker_no": 66,
+            "maker_name": "ダイヘン",
+            "maker_slug": "daihen",
+            "product_name": "協働ロボット × AiTran (AGV連携)",
+            "tagline": "AGV 連携で搬送 → 溶接の完全自動化",
+            "description": "搬送ロボット AiTran500 と協働溶接ロボット FD-VC8 を組み合わせ、Short Arc 制御で搬送から溶接までを一気通貫で完全自動化。",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false,
+            "video": {
+              "youtube_id": "G9GQE1IQBCU",
+              "title": "ダイヘン FD-VC8 × AiTran500 デモ",
+              "duration": "2:29"
+            }
+          }
+        ]
       },
       {
-        "maker_no": 114,
-        "maker_name": "フロニウスジャパン",
-        "maker_slug": "furoniusujapan",
-        "product_name": "TPS400i CMT低スパッタ溶接×協働ロボット",
-        "tagline": "CMT 低スパッタ × 協働ロボット連携",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": false,
-        "is_new_product": false
+        "section_title": "③ 安全・センシング — 世界水準のセーフティと可視化",
+        "section_intro": "世界初の SIL2/PLd 準拠 3D レーダー、溶融池リアルタイム可視化カメラなど、生産現場の「見える化」と安全をアップグレード。",
+        "products": [
+          {
+            "maker_no": 35,
+            "maker_name": "小森安全機研究所",
+            "maker_slug": "komori-anzen-ki-kenkyuusho",
+            "product_name": "3D レーダー安全システム SRD シリーズ (世界初 SIL2/PLd 準拠)",
+            "tagline": "世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG",
+            "description": "イタリア Inxpect 社の 3D レーダー SRD は煙・ほこり・水滴・光・油など環境外乱に強く、屋内・屋外両用。AI カメラ KAG は 1 万パターン超学習済の人体シルエット検出機能。",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false,
+            "materials": [
+              {"url": "/assets/topics/productivity-solutions/komori/komori_srd.pdf", "label": "SRD + KAG 製品案内 (13ページ)", "icon": "📄"}
+            ]
+          },
+          {
+            "maker_no": 19,
+            "maker_name": "オートスイング (OTOS)",
+            "maker_slug": "ootosuingu-otos",
+            "product_name": "溶接カメラ Ray-X WGC-200/400",
+            "tagline": "高精度溶接カメラで遠隔監視",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 97,
+            "maker_name": "ノビテック",
+            "maker_slug": "nobitekku",
+            "product_name": "Cavitar Welding Camera",
+            "tagline": "溶融池をリアルタイム可視化",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false
+          }
+        ]
       },
       {
-        "maker_no": 129,
-        "maker_name": "メサック",
-        "maker_slug": "mesakku",
-        "product_name": "スプレーガン×防爆協働ロボット",
-        "tagline": "防爆対応、塗装の自動化に",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": true,
-        "is_new_product": false
+        "section_title": "④ 教示・周辺機器 — 自動化を支える「縁の下」",
+        "section_intro": "オフライン教示で立ち上げ時間短縮、国産バランスアームで作業負荷を軽減。自動化システムを支える周辺技術。",
+        "products": [
+          {
+            "maker_no": 59,
+            "maker_name": "ゼネテック",
+            "maker_slug": "zenetekku",
+            "product_name": "オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)",
+            "tagline": "オフライン教示で立ち上げ時間を大幅短縮",
+            "description": "",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false
+          },
+          {
+            "maker_no": 52,
+            "maker_name": "シンテック",
+            "maker_slug": "shintekku",
+            "product_name": "3arm 新しいバランスアームのカタチ + T-Arm シリーズ",
+            "tagline": "3 アーム構造でバランスアーム新世代へ (Tecnospiro 社日本総代理店)",
+            "description": "スペイン Tecnospiro 社製 3arm の日本総代理店。バランスアーム T-Arm シリーズは耐荷重 40〜550kg の純国産品。トヨタ・日野・ダイハツのレールシステム納入実績、安全対策で他社を上回る。",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": false,
+            "is_new_product": false,
+            "materials": [
+              {"url": "/assets/topics/productivity-solutions/shintech/3arm_catalog.pdf", "label": "3arm カタログ (Series 1-6 仕様)", "icon": "📄"},
+              {"url": "/assets/topics/productivity-solutions/shintech/shintech_products_2025.pdf", "label": "製品プレゼン 2025 (T-Arm/サーボバランサー/レール)", "icon": "📄"},
+              {"url": "/assets/topics/productivity-solutions/shintech/shintech_company_excerpt.pdf", "label": "営業2課製品紹介 (S15-25 抜粋)", "icon": "📄"}
+            ]
+          }
+        ]
       },
       {
-        "maker_no": 145,
-        "maker_name": "ロボットバンク",
-        "maker_slug": "robottobanku",
-        "product_name": "AMR 自律走行(協働)搬送ロボット StarLift",
-        "tagline": "AMR で工場内搬送を完全自律化",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": true,
-        "is_new_product": false
-      },
-      {
-        "maker_no": 66,
-        "maker_name": "ダイヘン",
-        "maker_slug": "daihen",
-        "product_name": "協働ロボット × AiTran",
-        "tagline": "AGV 連携で搬送 → 溶接の完全自動化",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": true,
-        "is_new_product": false
-      },
-      {
-        "maker_no": 59,
-        "maker_name": "ゼネテック",
-        "maker_slug": "zenetekku",
-        "product_name": "オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)",
-        "tagline": "オフライン教示で立ち上げ時間を大幅短縮",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": true,
-        "is_new_product": false
-      },
-      {
-        "maker_no": 19,
-        "maker_name": "オートスイング (OTOS)",
-        "maker_slug": "ootosuingu-otos",
-        "product_name": "溶接カメラ Ray-X WGC-200/400",
-        "tagline": "高精度溶接カメラで遠隔監視",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": false,
-        "is_new_product": false
-      },
-      {
-        "maker_no": 52,
-        "maker_name": "シンテック",
-        "maker_slug": "shintekku",
-        "product_name": "3arm 新しいバランスアームのカタチ",
-        "tagline": "3 アーム構造でバランスアーム新世代へ",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": false,
-        "is_new_product": false
-      },
-      {
-        "maker_no": 35,
-        "maker_name": "小森安全機研究所",
-        "maker_slug": "komori-anzen-ki-kenkyuusho",
-        "product_name": "3D レーダー安全システム SRD シリーズ (世界初 SIL2/PLd 準拠)",
-        "tagline": "世界初の SIL2/PLd 準拠 3D レーダー",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": true,
-        "is_new_product": false
-      },
-      {
-        "maker_no": 97,
-        "maker_name": "ノビテック",
-        "maker_slug": "nobitekku",
-        "product_name": "Cavitar Welding Camera",
-        "tagline": "溶融池をリアルタイム可視化",
-        "description": "",
-        "image_url": null,
-        "official_url": null,
-        "is_first_exhibit": false,
-        "is_new_product": false
+        "section_title": "⑤ レーザークリーナー — 塗膜・サビ・酸化皮膜を瞬時に除去 (初TWF出展)",
+        "section_intro": "現場見学必須。CW (連続波) × Pulse (パルス) の使い分けで、用途に応じたレーザークリーニングを実現。動画でブースと製品を予習。",
+        "products": [
+          {
+            "maker_no": 21,
+            "maker_name": "オプティレーザーソリューションズ",
+            "maker_slug": "oputeireezaasoryuushonzu",
+            "product_name": "最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300",
+            "tagline": "CW × Pulse、用途に応じて選べるレーザー",
+            "description": "国産レーザークリーナーで塗膜・サビ・酸化皮膜を瞬時に除去。連続波 (CW) と高出力パルスの 2 系統で用途を選択可能。TWF2026 初出展、会場ブースで実機デモ。",
+            "image_url": null,
+            "official_url": null,
+            "is_first_exhibit": true,
+            "is_new_product": false,
+            "videos": [
+              {"youtube_id": "ViEdcGC_GkM", "title": "オプティレーザー｜国産レーザークリーナー 製品紹介", "duration": "0:59"},
+              {"youtube_id": "sxgggipcgL4", "title": "オプティレーザー｜出展ブースのご案内", "duration": "0:54"}
+            ]
+          }
+        ]
       }
     ]
   },

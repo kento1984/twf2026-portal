@@ -454,6 +454,182 @@
     }
     .topic-back-cta a:hover { background: #000; text-decoration: none; color: #fff; }
 
+    /* ===== Phase 2-B 拡張: ヒーロー動画 / 製品内動画 / 資料リンク / スライドギャラリー ===== */
+    .topic-hero-video {
+      max-width: var(--container-max);
+      margin: -20px auto 56px;
+      padding: 0 32px;
+    }
+    .topic-hero-video-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .topic-hero-video-label::before {
+      content: '▶';
+      display: inline-block;
+    }
+    .topic-hero-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+      background: #000;
+    }
+    .topic-hero-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .topic-hero-video-caption {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: var(--gray-600);
+      font-weight: 600;
+    }
+
+    /* 製品カード: 動画埋め込み (single / multiple) */
+    .tpc-videos {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+      grid-template-columns: 1fr;
+    }
+    .tpc-videos.multi {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tpc-video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow-md);
+    }
+    .tpc-video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .tpc-video-caption {
+      font-size: 11.5px;
+      color: var(--gray-600);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .tpc-videos.multi { grid-template-columns: 1fr; }
+    }
+
+    /* 製品カード: 配布資料リスト (複数 PDF対応) */
+    .tpc-materials {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 12px 14px;
+      background: #FFF7ED;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+    }
+    .tpc-materials-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .tpc-material {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .tpc-material:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    /* 製品カード: スライドギャラリー (画像 grid + lightbox-style) */
+    .tpc-gallery {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--gray-200);
+    }
+    .tpc-gallery-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+    .tpc-gallery-intro {
+      font-size: 12px;
+      color: var(--gray-600);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .tpc-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+    }
+    .tpc-gallery-item {
+      display: block;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-100);
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+    }
+    .tpc-gallery-item:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .tpc-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 製品カード: 画像 (image_url) も画像onlyではない場合に表示 */
+    /* (既存の .tpc-image を 16:9 にしているが、写真サムネ用に縮小可) */
+
+    /* セクションタイトル装飾強化 (テーマ別セクション用) */
+    .topic-section-title {
+      font-size: 24px;
+    }
+
+    /* レスポンシブ: スマホ対応 */
+    @media (max-width: 720px) {
+      .topic-hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .topic-title { font-size: 28px; }
+      .topic-hero-video { padding: 0 16px; }
+      .topic-product-grid {
+        grid-template-columns: 1fr;
+      }
+      .tpc-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .maker-footer {
       margin-top: 64px;
       padding: 24px 32px;
@@ -518,6 +694,7 @@
     </div>
   </section>
 
+
   <section class="topic-section">
     <h2 class="topic-section-title">作業環境向上ブース</h2>
 <p class="topic-section-intro">現場の熱・粉じん・防災にまつわる 8 製品。実演・体験あり、参加無料の企画も。</p>    <div class="topic-product-grid">
@@ -533,10 +710,14 @@
             <span class="tpc-meta-name">スリーエムジャパン</span>
           </div>
           <div class="tpc-product">フルハーネスデモンストレーション</div>
-<div class="tpc-tagline">墜落防止実験 + 吊り下げ体験 (参加無料)</div>          <div class="tpc-links">
+<div class="tpc-tagline">墜落防止実験 + 吊り下げ体験 (参加無料)</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/3m-japan/">メーカー詳細 →</a>
             <a class="tpc-link-flyer" href="../../attachments/%E3%82%B9%E3%83%AA%E3%83%BC%E3%82%A8%E3%83%A0%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E5%AE%89%E5%85%A8%E8%A1%9B%E7%94%9F%E8%A3%BD%E5%93%81%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%80%902026WF%E3%80%91%E5%A2%9C%E8%90%BD%E8%90%BD%E4%B8%8B%E3%83%87%E3%83%A2%EF%BC%BF%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A9%E3%82%B7_v5.pdf" target="_blank" rel="noopener">📄 TWF2026 3M 墜落制止デモ + 特価キャンペーンチラシ ↗</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -553,10 +734,14 @@
           <div class="tpc-product">AXELARC™ 新ワイヤ送給制御プロセス</div>
 <div class="tpc-tagline">建機向け、安定アーク × 低スパッタ (実演、参加無料)</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-new">🆕 新商品</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/kami-kou-tokoro/">メーカー詳細 →</a>
             <a class="tpc-link-flyer" href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/26TWF_%E7%A5%9E%E9%8B%BCAXELARC%E3%83%81%E3%83%A9%E3%82%B70414.pdf" target="_blank" rel="noopener">📄 TWF2026 AXELARC 4プログラムまとめチラシ ↗</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -573,9 +758,13 @@
           <div class="tpc-product">フォークリフト接近警報システム IPAS (UWB 技術)</div>
 <div class="tpc-tagline">UWB 技術でフォークリフト事故を防ぐ</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/akasakatekku/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -590,9 +779,13 @@
             <span class="tpc-meta-name">サイシュウテクノ</span>
           </div>
           <div class="tpc-product">大型冷風機 (現場の熱中症対策)</div>
-<div class="tpc-tagline">現場全体を冷やす大型冷風機</div>          <div class="tpc-links">
+<div class="tpc-tagline">現場全体を冷やす大型冷風機</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/saishuutekuno/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -609,9 +802,13 @@
           <div class="tpc-product">瞬間氷結スプレー CBA</div>
 <div class="tpc-tagline">現場の救急処置に、瞬間冷却</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/touyoukagaku-shoukai/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -628,9 +825,13 @@
           <div class="tpc-product">電動台車 (乗れる電動台車)</div>
 <div class="tpc-tagline">乗れる電動台車で運搬の負荷ゼロへ</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/gojou/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -645,9 +846,13 @@
             <span class="tpc-meta-name">東横サポート</span>
           </div>
           <div class="tpc-product">クールミストファン</div>
-<div class="tpc-tagline">気化冷却で広範囲を涼しく</div>          <div class="tpc-links">
+<div class="tpc-tagline">気化冷却で広範囲を涼しく</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/touyoko-sapooto/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -662,9 +867,13 @@
             <span class="tpc-meta-name">LA・PITA</span>
           </div>
           <div class="tpc-product">防災セット (内閣府・防災推進協議会・防災安全協会認定)</div>
-<div class="tpc-tagline">三機関認定の本格防災セット</div>          <div class="tpc-links">
+<div class="tpc-tagline">三機関認定の本格防災セット</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/la-pita/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
     </div>
@@ -686,9 +895,13 @@
           <div class="tpc-product">マスクフィットテスター 3000-JG2、アネモマスターライト 6006-D0、ピエゾバランス式粉じん計 Model 3521</div>
 <div class="tpc-tagline">計測の専門メーカー、3 製品を一気に展示</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/nippon-kanomakkusu/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -705,9 +918,13 @@
           <div class="tpc-product">ファイバーレーザークリーナー KZ-2000、ファイバーレーザーパイプ切断機 KCFX-3000 VX</div>
 <div class="tpc-tagline">クリーニング × パイプ切断、レーザー新世代</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/ks-s/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -724,9 +941,13 @@
           <div class="tpc-product">屋内用遮熱シート はるクール</div>
 <div class="tpc-tagline">貼るだけで屋内が涼しくなる遮熱シート</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/bx-tenparu/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -743,9 +964,13 @@
           <div class="tpc-product">最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300</div>
 <div class="tpc-tagline">CW × Pulse、用途に応じて選べるレーザー</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/oputeireezaasoryuushonzu/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -762,9 +987,13 @@
           <div class="tpc-product">コードレス塗装機 SprayPack 18V、FC4000 18V</div>
 <div class="tpc-tagline">コードレスで現場の塗装を機動的に</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/nippon-wagunaa-supureetekku/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
     </div>

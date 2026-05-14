@@ -454,6 +454,182 @@
     }
     .topic-back-cta a:hover { background: #000; text-decoration: none; color: #fff; }
 
+    /* ===== Phase 2-B 拡張: ヒーロー動画 / 製品内動画 / 資料リンク / スライドギャラリー ===== */
+    .topic-hero-video {
+      max-width: var(--container-max);
+      margin: -20px auto 56px;
+      padding: 0 32px;
+    }
+    .topic-hero-video-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .topic-hero-video-label::before {
+      content: '▶';
+      display: inline-block;
+    }
+    .topic-hero-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+      background: #000;
+    }
+    .topic-hero-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .topic-hero-video-caption {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: var(--gray-600);
+      font-weight: 600;
+    }
+
+    /* 製品カード: 動画埋め込み (single / multiple) */
+    .tpc-videos {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+      grid-template-columns: 1fr;
+    }
+    .tpc-videos.multi {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tpc-video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow-md);
+    }
+    .tpc-video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .tpc-video-caption {
+      font-size: 11.5px;
+      color: var(--gray-600);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .tpc-videos.multi { grid-template-columns: 1fr; }
+    }
+
+    /* 製品カード: 配布資料リスト (複数 PDF対応) */
+    .tpc-materials {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 12px 14px;
+      background: #FFF7ED;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+    }
+    .tpc-materials-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .tpc-material {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .tpc-material:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    /* 製品カード: スライドギャラリー (画像 grid + lightbox-style) */
+    .tpc-gallery {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--gray-200);
+    }
+    .tpc-gallery-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+    .tpc-gallery-intro {
+      font-size: 12px;
+      color: var(--gray-600);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .tpc-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+    }
+    .tpc-gallery-item {
+      display: block;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-100);
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+    }
+    .tpc-gallery-item:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .tpc-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 製品カード: 画像 (image_url) も画像onlyではない場合に表示 */
+    /* (既存の .tpc-image を 16:9 にしているが、写真サムネ用に縮小可) */
+
+    /* セクションタイトル装飾強化 (テーマ別セクション用) */
+    .topic-section-title {
+      font-size: 24px;
+    }
+
+    /* レスポンシブ: スマホ対応 */
+    @media (max-width: 720px) {
+      .topic-hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .topic-title { font-size: 28px; }
+      .topic-hero-video { padding: 0 16px; }
+      .topic-product-grid {
+        grid-template-columns: 1fr;
+      }
+      .tpc-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .maker-footer {
       margin-top: 64px;
       padding: 24px 32px;
@@ -506,8 +682,8 @@
     <div class="topic-hero-text">
       <span class="topic-eyebrow">🤖 みどころ3選 / TWF2026 メイン企画</span>
       <h1 class="topic-title">生産性向上ソリューションコーナー</h1>
-      <p class="topic-subtitle">協働ロボット・AMR・3Dレーダー・溶接カメラ — 11製品が会場で集結</p>
-      <p class="topic-intro">TWF2026 で初公開となる協働ロボット・AMR(自律走行搬送)・3D レーダー安全システム・溶接カメラなど、生産性向上に直結する 11 製品を 1 コーナーに集約。実機を目の前で確認できる絶好の機会です。</p>
+      <p class="topic-subtitle">協働ロボット × AMR × 安全 × 教示 × レーザークリーナー — 5テーマで会場の目玉に</p>
+      <p class="topic-intro">TWF2026 メイン企画。協働ロボット・AMR(自律走行搬送)・3Dレーダー安全システム・溶接カメラ・最新レーザークリーナーまで、生産性向上に直結する 12 製品を 5 テーマに整理して 1 コーナーに集約。会場の動く実機 + 限定動画 + メーカー資料で「みどころ」を徹底解説。</p>
       <div class="topic-cta-row">
         <a class="btn-topic" href="/assets/topics/productivity-solutions-front.pdf" target="_blank" rel="noopener">📄 公式チラシをダウンロード</a>
         <a class="btn-topic btn-topic-outline" href="../../index.html#makerlist">出展メーカー一覧へ</a>
@@ -518,8 +694,17 @@
     </div>
   </section>
 
+  <section class="topic-hero-video">
+    <div class="topic-hero-video-label">会場前にまず予習: メインデモ動画</div>
+    <div class="topic-hero-video-frame">
+      <iframe src="https://www.youtube.com/embed/G9GQE1IQBCU" title="ダイヘン｜協働溶接ロボット FD-VC8 × AiTran500 デモ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="topic-hero-video-caption">ダイヘン｜協働溶接ロボット FD-VC8 × AiTran500 デモ (2:29)</div>
+  </section>
+
   <section class="topic-section">
-    <div class="topic-product-grid">
+    <h2 class="topic-section-title">① 協働ロボット — 1台で完結する自動化</h2>
+<p class="topic-section-intro">TIG/MAG 兼用、安全柵不要、CMT 低スパッタ、防爆塗装まで。1 セクションで「ロボットの今」が分かる 4 製品。</p>    <div class="topic-product-grid">
       <article class="topic-product-card no-image">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
@@ -532,9 +717,13 @@
             <span class="tpc-meta-name">ダイヘン</span>
           </div>
           <div class="tpc-product">協働ロボットパッケージ (TIG/MAG兼用仕様)</div>
-<div class="tpc-tagline">高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式</div><div class="tpc-desc">ダイヘン独自の制御技術により、難易度の高い TIG ワイヤー溶接でも安定した高品質溶接を実現。1 台の架台に CO2・TIG 溶接機を搭載し、簡単な段取り替えで使い分けが可能。</div>          <div class="tpc-links">
+<div class="tpc-tagline">高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式</div><div class="tpc-desc">ダイヘン独自の制御技術により、難易度の高い TIG ワイヤー溶接でも安定した高品質溶接を実現。1 台の架台に CO2・TIG 溶接機を搭載し、簡単な段取り替えで使い分けが可能。</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/daihen/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -549,9 +738,13 @@
             <span class="tpc-meta-name">ファナック</span>
           </div>
           <div class="tpc-product">安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)</div>
-<div class="tpc-tagline">安全柵不要、ハンド交換ワンタッチ</div>          <div class="tpc-links">
+<div class="tpc-tagline">安全柵不要、ハンド交換ワンタッチ</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/fanakku/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -566,30 +759,46 @@
             <span class="tpc-meta-name">フロニウスジャパン</span>
           </div>
           <div class="tpc-product">TPS400i CMT低スパッタ溶接×協働ロボット</div>
-<div class="tpc-tagline">CMT 低スパッタ × 協働ロボット連携</div>          <div class="tpc-links">
+<div class="tpc-tagline">CMT 低スパッタ × 協働ロボット連携</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/furoniusujapan/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">129</span>
-          <span class="tpc-decor-maker">メサック</span>
-        </div>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/mesack/mesack_robot_painting.jpg');"></div>
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.129</span>
             <span class="tpc-meta-name">メサック</span>
           </div>
           <div class="tpc-product">スプレーガン×防爆協働ロボット</div>
-<div class="tpc-tagline">防爆対応、塗装の自動化に</div>          <div class="tpc-badges">
+<div class="tpc-tagline">防爆対応、塗装の自動化に</div><div class="tpc-desc">防爆対応の協働ロボットで塗装ラインを自動化。1台で30分/min の処理能力、ロボットつかみ方式で1m対応の塗装ブースも展示。</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+          <div class="tpc-materials">
+            <div class="tpc-materials-label">📚 メーカー配布資料</div>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/mesack/mesack_business.pdf" target="_blank" rel="noopener">📄 事業紹介ポスター ↗</a>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/mesack/mesack_system_engineering.pdf" target="_blank" rel="noopener">📄 システムエンジニアリング ↗</a>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/mesack/mesack_robot_painting.pdf" target="_blank" rel="noopener">📄 ロボットつかみ塗装ブース ↗</a>
+          </div>
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/mesakku/">メーカー詳細 →</a>
+            <a class="tpc-link-external" href="https://www.mesac.co.jp/" target="_blank" rel="noopener">公式ページ ↗</a>
           </div>
+
         </div>
       </article>
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2 class="topic-section-title">② AMR・搬送自動化 — 工場の「物を運ぶ」を自動化</h2>
+<p class="topic-section-intro">段差・傾斜OKのAMR、AGV連携の搬送→溶接ライン。デモ動画で動きを確認、導入事例で効果を把握。</p>    <div class="topic-product-grid">
       <article class="topic-product-card no-image">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
@@ -601,11 +810,66 @@
             <span class="tpc-meta-no">No.145</span>
             <span class="tpc-meta-name">ロボットバンク</span>
           </div>
-          <div class="tpc-product">AMR 自律走行(協働)搬送ロボット StarLift</div>
-<div class="tpc-tagline">AMR で工場内搬送を完全自律化</div>          <div class="tpc-badges">
+          <div class="tpc-product">AMR 自律走行(協働)搬送ロボット StarLift シリーズ</div>
+<div class="tpc-tagline">150〜600kg、段差・傾斜OK、SLAMで即日稼働</div><div class="tpc-desc">古い工場特有の段差や傾斜も難なく突破。磁気テープ不要、空間スキャンするだけで当日から搬送開始。150kg〜600kg まで 1 台から導入可能、現場規模を問わず柔軟対応。</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+          <div class="tpc-materials">
+            <div class="tpc-materials-label">📚 メーカー配布資料</div>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf" target="_blank" rel="noopener">📄 AMR導入事例集 (11ページ) ↗</a>
+          </div>
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/robottobanku/">メーカー詳細 →</a>
+          </div>
+
+          <div class="tpc-gallery">
+            <div class="tpc-gallery-title">ロボットバンク 製品・導入事例ハイライト (14スライド)</div>
+<div class="tpc-gallery-intro">AMRの強み・市場課題・3つの理由・他社性能比較・導入事例まで、来場前にハイライト把握。</div>            <div class="tpc-gallery-grid">
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S01.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S01.png" alt="ロボットバンク 商品説明資料 表紙" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S02.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S02.png" alt="AGVとAMRの違い" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S03.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S03.png" alt="「変化に強い現場」AMR導入のメリット" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S04.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S04.png" alt="最先端マッピング技術" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S05.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S05.png" alt="AIディープラーニング" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S06.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S06.png" alt="充実した導入フォロー × サービス体制" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S07.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S07.png" alt="製品スペック比較表" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S10.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/manual_S10.png" alt="導入事例 (自動車メーカー/部品製造)" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S03.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/kanto_S03.png" alt="RobotBank AMRの強み" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S04.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/kanto_S04.png" alt="市場が抱える3大課題" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S05.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/kanto_S05.png" alt="Star-Liftが選ばれる3つの理由" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S11.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/kanto_S11.png" alt="展示会の様子 (OWF・NWF)" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S12.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/kanto_S12.png" alt="採用を左右する共通要因" loading="lazy" />
+              </a>
+              <a class="tpc-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S13.png" target="_blank" rel="noopener">
+                <img src="/assets/topics/productivity-solutions/robotbank/kanto_S13.png" alt="「物を運ぶ」すべての現場がターゲット" loading="lazy" />
+              </a>
+            </div>
           </div>
         </div>
       </article>
@@ -620,31 +884,56 @@
             <span class="tpc-meta-no">No.066</span>
             <span class="tpc-meta-name">ダイヘン</span>
           </div>
-          <div class="tpc-product">協働ロボット × AiTran</div>
-<div class="tpc-tagline">AGV 連携で搬送 → 溶接の完全自動化</div>          <div class="tpc-badges">
+          <div class="tpc-product">協働ロボット × AiTran (AGV連携)</div>
+<div class="tpc-tagline">AGV 連携で搬送 → 溶接の完全自動化</div><div class="tpc-desc">搬送ロボット AiTran500 と協働溶接ロボット FD-VC8 を組み合わせ、Short Arc 制御で搬送から溶接までを一気通貫で完全自動化。</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-videos">
+            <div>
+              <div class="tpc-video-embed">
+                <iframe src="https://www.youtube.com/embed/G9GQE1IQBCU" title="ダイヘン FD-VC8 × AiTran500 デモ" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="tpc-video-caption">ダイヘン FD-VC8 × AiTran500 デモ (2:29)</div>
+            </div>
+          </div>
+
+
           <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/daihen/">メーカー詳細 →</a>
           </div>
+
         </div>
       </article>
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2 class="topic-section-title">③ 安全・センシング — 世界水準のセーフティと可視化</h2>
+<p class="topic-section-intro">世界初の SIL2/PLd 準拠 3D レーダー、溶融池リアルタイム可視化カメラなど、生産現場の「見える化」と安全をアップグレード。</p>    <div class="topic-product-grid">
       <article class="topic-product-card no-image">
         <div class="tpc-accent-bar"></div>
         <div class="tpc-decor-header">
-          <span class="tpc-decor-no">059</span>
-          <span class="tpc-decor-maker">ゼネテック</span>
+          <span class="tpc-decor-no">035</span>
+          <span class="tpc-decor-maker">小森安全機研究所</span>
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
-            <span class="tpc-meta-no">No.059</span>
-            <span class="tpc-meta-name">ゼネテック</span>
+            <span class="tpc-meta-no">No.035</span>
+            <span class="tpc-meta-name">小森安全機研究所</span>
           </div>
-          <div class="tpc-product">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</div>
-<div class="tpc-tagline">オフライン教示で立ち上げ時間を大幅短縮</div>          <div class="tpc-badges">
+          <div class="tpc-product">3D レーダー安全システム SRD シリーズ (世界初 SIL2/PLd 準拠)</div>
+<div class="tpc-tagline">世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG</div><div class="tpc-desc">イタリア Inxpect 社の 3D レーダー SRD は煙・ほこり・水滴・光・油など環境外乱に強く、屋内・屋外両用。AI カメラ KAG は 1 万パターン超学習済の人体シルエット検出機能。</div>          <div class="tpc-badges">
 <span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
-          <div class="tpc-links">
-            <a class="tpc-link-internal" href="../../m/zenetekku/">メーカー詳細 →</a>
+
+
+          <div class="tpc-materials">
+            <div class="tpc-materials-label">📚 メーカー配布資料</div>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/komori/komori_srd.pdf" target="_blank" rel="noopener">📄 SRD + KAG 製品案内 (13ページ) ↗</a>
           </div>
+
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/komori-anzen-ki-kenkyuusho/">メーカー詳細 →</a>
+          </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -659,45 +948,13 @@
             <span class="tpc-meta-name">オートスイング (OTOS)</span>
           </div>
           <div class="tpc-product">溶接カメラ Ray-X WGC-200/400</div>
-<div class="tpc-tagline">高精度溶接カメラで遠隔監視</div>          <div class="tpc-links">
+<div class="tpc-tagline">高精度溶接カメラで遠隔監視</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/ootosuingu-otos/">メーカー詳細 →</a>
           </div>
-        </div>
-      </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">052</span>
-          <span class="tpc-decor-maker">シンテック</span>
-        </div>
-        <div class="tpc-body">
-          <div class="tpc-meta">
-            <span class="tpc-meta-no">No.052</span>
-            <span class="tpc-meta-name">シンテック</span>
-          </div>
-          <div class="tpc-product">3arm 新しいバランスアームのカタチ</div>
-<div class="tpc-tagline">3 アーム構造でバランスアーム新世代へ</div>          <div class="tpc-links">
-            <a class="tpc-link-internal" href="../../m/shintekku/">メーカー詳細 →</a>
-          </div>
-        </div>
-      </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">035</span>
-          <span class="tpc-decor-maker">小森安全機研究所</span>
-        </div>
-        <div class="tpc-body">
-          <div class="tpc-meta">
-            <span class="tpc-meta-no">No.035</span>
-            <span class="tpc-meta-name">小森安全機研究所</span>
-          </div>
-          <div class="tpc-product">3D レーダー安全システム SRD シリーズ (世界初 SIL2/PLd 準拠)</div>
-<div class="tpc-tagline">世界初の SIL2/PLd 準拠 3D レーダー</div>          <div class="tpc-badges">
-<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
-          <div class="tpc-links">
-            <a class="tpc-link-internal" href="../../m/komori-anzen-ki-kenkyuusho/">メーカー詳細 →</a>
-          </div>
+
         </div>
       </article>
       <article class="topic-product-card no-image">
@@ -712,9 +969,110 @@
             <span class="tpc-meta-name">ノビテック</span>
           </div>
           <div class="tpc-product">Cavitar Welding Camera</div>
-<div class="tpc-tagline">溶融池をリアルタイム可視化</div>          <div class="tpc-links">
+<div class="tpc-tagline">溶融池をリアルタイム可視化</div>
+
+
+          <div class="tpc-links">
             <a class="tpc-link-internal" href="../../m/nobitekku/">メーカー詳細 →</a>
           </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2 class="topic-section-title">④ 教示・周辺機器 — 自動化を支える「縁の下」</h2>
+<p class="topic-section-intro">オフライン教示で立ち上げ時間短縮、国産バランスアームで作業負荷を軽減。自動化システムを支える周辺技術。</p>    <div class="topic-product-grid">
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">059</span>
+          <span class="tpc-decor-maker">ゼネテック</span>
+        </div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.059</span>
+            <span class="tpc-meta-name">ゼネテック</span>
+          </div>
+          <div class="tpc-product">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</div>
+<div class="tpc-tagline">オフライン教示で立ち上げ時間を大幅短縮</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+
+
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/zenetekku/">メーカー詳細 →</a>
+          </div>
+
+        </div>
+      </article>
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">052</span>
+          <span class="tpc-decor-maker">シンテック</span>
+        </div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.052</span>
+            <span class="tpc-meta-name">シンテック</span>
+          </div>
+          <div class="tpc-product">3arm 新しいバランスアームのカタチ + T-Arm シリーズ</div>
+<div class="tpc-tagline">3 アーム構造でバランスアーム新世代へ (Tecnospiro 社日本総代理店)</div><div class="tpc-desc">スペイン Tecnospiro 社製 3arm の日本総代理店。バランスアーム T-Arm シリーズは耐荷重 40〜550kg の純国産品。トヨタ・日野・ダイハツのレールシステム納入実績、安全対策で他社を上回る。</div>
+
+          <div class="tpc-materials">
+            <div class="tpc-materials-label">📚 メーカー配布資料</div>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/shintech/3arm_catalog.pdf" target="_blank" rel="noopener">📄 3arm カタログ (Series 1-6 仕様) ↗</a>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/shintech/shintech_products_2025.pdf" target="_blank" rel="noopener">📄 製品プレゼン 2025 (T-Arm/サーボバランサー/レール) ↗</a>
+            <a class="tpc-material" href="/assets/topics/productivity-solutions/shintech/shintech_company_excerpt.pdf" target="_blank" rel="noopener">📄 営業2課製品紹介 (S15-25 抜粋) ↗</a>
+          </div>
+
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/shintekku/">メーカー詳細 →</a>
+          </div>
+
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="topic-section">
+    <h2 class="topic-section-title">⑤ レーザークリーナー — 塗膜・サビ・酸化皮膜を瞬時に除去 (初TWF出展)</h2>
+<p class="topic-section-intro">現場見学必須。CW (連続波) × Pulse (パルス) の使い分けで、用途に応じたレーザークリーニングを実現。動画でブースと製品を予習。</p>    <div class="topic-product-grid">
+      <article class="topic-product-card no-image">
+        <div class="tpc-accent-bar"></div>
+        <div class="tpc-decor-header">
+          <span class="tpc-decor-no">021</span>
+          <span class="tpc-decor-maker">オプティレーザーソリューションズ</span>
+        </div>
+        <div class="tpc-body">
+          <div class="tpc-meta">
+            <span class="tpc-meta-no">No.021</span>
+            <span class="tpc-meta-name">オプティレーザーソリューションズ</span>
+          </div>
+          <div class="tpc-product">最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300</div>
+<div class="tpc-tagline">CW × Pulse、用途に応じて選べるレーザー</div><div class="tpc-desc">国産レーザークリーナーで塗膜・サビ・酸化皮膜を瞬時に除去。連続波 (CW) と高出力パルスの 2 系統で用途を選択可能。TWF2026 初出展、会場ブースで実機デモ。</div>          <div class="tpc-badges">
+<span class="tpc-badge tpc-badge-first">★ 初TWF出展</span>          </div>
+
+          <div class="tpc-videos multi">
+            <div>
+              <div class="tpc-video-embed">
+                <iframe src="https://www.youtube.com/embed/ViEdcGC_GkM" title="オプティレーザー｜国産レーザークリーナー 製品紹介" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="tpc-video-caption">オプティレーザー｜国産レーザークリーナー 製品紹介 (0:59)</div>
+            </div>
+            <div>
+              <div class="tpc-video-embed">
+                <iframe src="https://www.youtube.com/embed/sxgggipcgL4" title="オプティレーザー｜出展ブースのご案内" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="tpc-video-caption">オプティレーザー｜出展ブースのご案内 (0:54)</div>
+            </div>
+          </div>
+
+
+          <div class="tpc-links">
+            <a class="tpc-link-internal" href="../../m/oputeireezaasoryuushonzu/">メーカー詳細 →</a>
+          </div>
+
         </div>
       </article>
     </div>

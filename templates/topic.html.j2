@@ -298,6 +298,182 @@
       box-shadow: var(--shadow-md);
     }
     .topic-back-cta a:hover { background: #000; text-decoration: none; color: #fff; }
+
+    /* ===== Phase 2-B 拡張: ヒーロー動画 / 製品内動画 / 資料リンク / スライドギャラリー ===== */
+    .topic-hero-video {
+      max-width: var(--container-max);
+      margin: -20px auto 56px;
+      padding: 0 32px;
+    }
+    .topic-hero-video-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--accent);
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+    }
+    .topic-hero-video-label::before {
+      content: '▶';
+      display: inline-block;
+    }
+    .topic-hero-video-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 14px 32px rgba(0,0,0,0.12);
+      background: #000;
+    }
+    .topic-hero-video-frame iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .topic-hero-video-caption {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: var(--gray-600);
+      font-weight: 600;
+    }
+
+    /* 製品カード: 動画埋め込み (single / multiple) */
+    .tpc-videos {
+      display: grid;
+      gap: 12px;
+      margin-top: 6px;
+      grid-template-columns: 1fr;
+    }
+    .tpc-videos.multi {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .tpc-video-embed {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border-radius: 8px;
+      overflow: hidden;
+      background: #000;
+      box-shadow: var(--shadow-md);
+    }
+    .tpc-video-embed iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .tpc-video-caption {
+      font-size: 11.5px;
+      color: var(--gray-600);
+      margin-top: 4px;
+      font-weight: 600;
+    }
+    @media (max-width: 640px) {
+      .tpc-videos.multi { grid-template-columns: 1fr; }
+    }
+
+    /* 製品カード: 配布資料リスト (複数 PDF対応) */
+    .tpc-materials {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 6px;
+      padding: 12px 14px;
+      background: #FFF7ED;
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+    }
+    .tpc-materials-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-dark);
+      letter-spacing: 0.05em;
+      margin-bottom: 2px;
+    }
+    .tpc-material {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .tpc-material:hover { color: var(--accent-dark); text-decoration: underline; }
+
+    /* 製品カード: スライドギャラリー (画像 grid + lightbox-style) */
+    .tpc-gallery {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px dashed var(--gray-200);
+    }
+    .tpc-gallery-title {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin-bottom: 4px;
+    }
+    .tpc-gallery-intro {
+      font-size: 12px;
+      color: var(--gray-600);
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    .tpc-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 8px;
+    }
+    .tpc-gallery-item {
+      display: block;
+      position: relative;
+      aspect-ratio: 16 / 9;
+      background: var(--gray-100);
+      border-radius: 5px;
+      overflow: hidden;
+      border: 1px solid var(--gray-200);
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out, border-color 200ms ease-out;
+    }
+    .tpc-gallery-item:hover {
+      transform: translateY(-2px) scale(1.02);
+      border-color: var(--accent);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .tpc-gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* 製品カード: 画像 (image_url) も画像onlyではない場合に表示 */
+    /* (既存の .tpc-image を 16:9 にしているが、写真サムネ用に縮小可) */
+
+    /* セクションタイトル装飾強化 (テーマ別セクション用) */
+    .topic-section-title {
+      font-size: 24px;
+    }
+
+    /* レスポンシブ: スマホ対応 */
+    @media (max-width: 720px) {
+      .topic-hero {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .topic-title { font-size: 28px; }
+      .topic-hero-video { padding: 0 16px; }
+      .topic-product-grid {
+        grid-template-columns: 1fr;
+      }
+      .tpc-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 {% endblock %}
 
 {% block content %}
@@ -323,6 +499,17 @@
     </div>
     {% endif %}
   </section>
+
+  {# Phase 2-B: ヒーロー直下にメイン動画 (productivity-solutions用) #}
+  {% if topic.hero_video %}
+  <section class="topic-hero-video">
+    <div class="topic-hero-video-label">会場前にまず予習: メインデモ動画</div>
+    <div class="topic-hero-video-frame">
+      <iframe src="https://www.youtube.com/embed/{{ topic.hero_video.youtube_id }}" title="{{ topic.hero_video.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="topic-hero-video-caption">{{ topic.hero_video.title }}{% if topic.hero_video.duration %} ({{ topic.hero_video.duration }}){% endif %}</div>
+  </section>
+  {% endif %}
 
   {# 単一products と sections (work-environmentのみ) どちらにも対応 #}
   {% set _blocks = topic.sections if topic.sections else [{"section_title": none, "section_intro": none, "products": topic.products}] %}
@@ -358,6 +545,34 @@
             {% if p.is_new_product %}<span class="tpc-badge tpc-badge-new">🆕 新商品</span>{% endif %}
           </div>
           {% endif %}
+
+          {# Phase 2-B: 製品カード内動画 (単数 video / 複数 videos どちらも対応) #}
+          {% set _videos = [] %}
+          {% if p.video %}{% set _videos = [p.video] %}{% endif %}
+          {% if p.videos %}{% set _videos = p.videos %}{% endif %}
+          {% if _videos %}
+          <div class="tpc-videos{% if _videos|length > 1 %} multi{% endif %}">
+            {% for v in _videos %}
+            <div>
+              <div class="tpc-video-embed">
+                <iframe src="https://www.youtube.com/embed/{{ v.youtube_id }}" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+              <div class="tpc-video-caption">{{ v.title }}{% if v.duration %} ({{ v.duration }}){% endif %}</div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+          {# Phase 2-B: 配布資料リスト (複数 PDF 対応) #}
+          {% if p.materials %}
+          <div class="tpc-materials">
+            <div class="tpc-materials-label">📚 メーカー配布資料</div>
+            {% for m in p.materials %}
+            <a class="tpc-material" href="{{ m.url }}" target="_blank" rel="noopener">{{ m.icon or '📄' }} {{ m.label }} ↗</a>
+            {% endfor %}
+          </div>
+          {% endif %}
+
           <div class="tpc-links">
             {% if p.maker_slug %}
             <a class="tpc-link-internal" href="../../m/{{ p.maker_slug }}/">メーカー詳細 →</a>
@@ -369,6 +584,21 @@
             <a class="tpc-link-external" href="{{ p.official_url }}" target="_blank" rel="noopener">公式ページ ↗</a>
             {% endif %}
           </div>
+
+          {# Phase 2-B: スライドギャラリー (Robotbank 14枚など) #}
+          {% if p.slide_gallery %}
+          <div class="tpc-gallery">
+            <div class="tpc-gallery-title">{{ p.slide_gallery.title }}</div>
+            {% if p.slide_gallery.intro %}<div class="tpc-gallery-intro">{{ p.slide_gallery.intro }}</div>{% endif %}
+            <div class="tpc-gallery-grid">
+              {% for img in p.slide_gallery.images %}
+              <a class="tpc-gallery-item" href="{{ img.src }}" target="_blank" rel="noopener">
+                <img src="{{ img.src }}" alt="{{ img.alt }}" loading="lazy" />
+              </a>
+              {% endfor %}
+            </div>
+          </div>
+          {% endif %}
         </div>
       </article>
       {% endfor %}
