@@ -475,7 +475,7 @@
       }
     }
 
-    /* ===== Phase 2-D: 軽量カード (詳細は個別ページの partial へ) ===== */
+    /* ===== Phase 2-D/E: 軽量カード+画像統一 (詳細は個別ページの partial へ) ===== */
     /* ヒーロー縮小 */
     .topic-wrap .topic-hero {
       padding-bottom: 24px;
@@ -486,6 +486,32 @@
     .topic-wrap .topic-title { font-size: 30px; }
     .topic-wrap .topic-eyebrow { font-size: 11px; padding: 4px 11px; }
     .topic-wrap .topic-hero-video { margin-top: -4px; margin-bottom: 44px; }
+
+    /* Phase 2-E: カード高さ統一 — グリッドの auto-rows 1fr で全カード同じ行高さ */
+    .topic-product-grid {
+      grid-auto-rows: 1fr;
+    }
+    /* カード本体は縦方向に均等にflex、画像は固定比率 */
+    .topic-product-card {
+      height: 100%;
+    }
+    /* 画像枠 (image_url or 動画サムネ) は全カード共通 16:9 */
+    .tpc-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--gray-100);
+    }
+    /* 画像なしカード: アクセント色グラデーションのプレースホルダー (現状 decor-header 維持) */
+    .topic-product-card.no-image .tpc-accent-bar {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      height: 8px;
+    }
+    .topic-product-card.no-image .tpc-decor-no {
+      font-size: 44px;
+    }
 
     /* これは何 (1〜2文サマリー) */
     .tpc-what-is {
@@ -516,7 +542,6 @@
     }
 
     /* 動画サムネ用 play badge */
-    .tpc-image { position: relative; }
     .tpc-play-badge {
       position: absolute;
       top: 10px;

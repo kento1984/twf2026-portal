@@ -864,6 +864,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -1066,7 +1095,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">③ 安全・センシング</div>      <h3 class="twf-product-name">溶接カメラ Ray-X WGC-200/400</h3>
+<div class="twf-product-section-label">③ 安全・センシング</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg');" role="img" aria-label="溶接カメラ Ray-X WGC-200/400"></div>
+
+      <h3 class="twf-product-name">溶接カメラ Ray-X WGC-200/400</h3>
 <div class="twf-product-tagline">アーク光の壁を超え、溶融池をクリア観察</div>
       <div class="twf-what-is">アーク光・ヒュームの影響を受けずに、アーク・溶融池・溶接線・周辺をリアルタイムで観察できる超小型産業用溶接カメラ。WGC-200 は有線、WGC-400 は有線+Wi-Fi 同時伝送 (1920×1080)。ヘルメット内蔵型と自動化用の 2 タイプ。</div>
 
@@ -1114,6 +1146,15 @@
  — <span class="twf-scenario-detail">アーク現象の可視化教材</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/otos/otos_hero.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/otos/otos_hero.jpg');"
+           aria-label="OTOS 製品ラインアップ"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/otos/otos_main.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/otos/otos_main.jpg');"
+           aria-label="OTOS 公式メイン画像"></a>
       </div>
 
 

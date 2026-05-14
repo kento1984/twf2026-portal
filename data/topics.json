@@ -27,7 +27,7 @@
             "maker_slug": "daihen",
             "product_name": "協働ロボットパッケージ (TIG/MAG兼用仕様)",
             "tagline": "高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc4.jpg",
             "official_url": "https://www.daihen-robot.com/items/fd_vc4",
             "is_first_exhibit": false,
             "is_new_product": false,
@@ -54,6 +54,16 @@
                 "industry": "産業機械・建機部品",
                 "detail": "TIG仕上げとMAG能率溶接を1台で使い分け"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc4_sub.jpg",
+                "alt": "FD-VC4 サブカット"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg",
+                "alt": "FD-VC8 関連カット"
+              }
             ]
           },
           {
@@ -62,7 +72,7 @@
             "maker_slug": "fanuc",
             "product_name": "安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)",
             "tagline": "安全柵不要、ハンド交換ワンタッチ",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/fanuc/fanuc_crx.jpg",
             "official_url": "https://www.fanuc.co.jp/ja/product/robot/f_r_collabo.html",
             "is_first_exhibit": false,
             "is_new_product": false,
@@ -89,6 +99,20 @@
                 "industry": "現場移設運用",
                 "detail": "2人で運べる軽量性を活かしたい現場"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/fanuc/fanuc_crx_paint.jpg",
+                "alt": "CRX-10iA/L Paint 防爆塗装モデル"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/fanuc/fanuc_crx7ia.jpg",
+                "alt": "CR-7iA"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/fanuc/fanuc_cr15ia.jpg",
+                "alt": "CR-15iA"
+              }
             ]
           },
           {
@@ -97,7 +121,7 @@
             "maker_slug": "furoniusujapan",
             "product_name": "TPS400i CMT低スパッタ溶接×協働ロボット",
             "tagline": "CMT 低スパッタ × 協働ロボット連携",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/furoniusujapan/fronius_tps400i.jpg",
             "official_url": "https://www.fronius.com/ja-jp/japan",
             "is_first_exhibit": false,
             "is_new_product": false,
@@ -123,6 +147,16 @@
               {
                 "industry": "MIG ブレージング",
                 "detail": "外装パネルの美観仕上げ"
+              }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_cmt.jpg",
+                "alt": "CMT 機能図"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_cmt_arc.jpg",
+                "alt": "CMTアーク補正"
               }
             ]
           },
@@ -190,7 +224,7 @@
             "maker_slug": "robottobanku",
             "product_name": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
             "tagline": "150〜600kg、段差・傾斜OK、SLAMで即日稼働",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg",
             "official_url": "https://www.robotbank.jp/lp/starlift/a-001/",
             "is_first_exhibit": true,
             "is_new_product": false,
@@ -234,63 +268,77 @@
               "intro": "AMRの強み・市場課題・3つの理由・他社性能比較・導入事例まで、来場前にハイライト把握。",
               "images": [
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S01.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S01.jpg",
                   "alt": "ロボットバンク 商品説明資料 表紙"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S02.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S02.jpg",
                   "alt": "AGVとAMRの違い"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S03.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S03.jpg",
                   "alt": "「変化に強い現場」AMR導入のメリット"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S04.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S04.jpg",
                   "alt": "最先端マッピング技術"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S05.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S05.jpg",
                   "alt": "AIディープラーニング"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S06.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S06.jpg",
                   "alt": "充実した導入フォロー × サービス体制"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S07.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S07.jpg",
                   "alt": "製品スペック比較表"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S10.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/manual_S10.jpg",
                   "alt": "導入事例 (自動車メーカー/部品製造)"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S03.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S03.jpg",
                   "alt": "RobotBank AMRの強み"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S04.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S04.jpg",
                   "alt": "市場が抱える3大課題"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S05.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S05.jpg",
                   "alt": "Star-Liftが選ばれる3つの理由"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S11.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S11.jpg",
                   "alt": "展示会の様子 (OWF・NWF)"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S12.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S12.jpg",
                   "alt": "採用を左右する共通要因"
                 },
                 {
-                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S13.png",
+                  "src": "/assets/topics/productivity-solutions/robotbank/kanto_S13.jpg",
                   "alt": "「物を運ぶ」すべての現場がターゲット"
                 }
               ]
-            }
+            },
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg",
+                "alt": "Star-Lift メインビジュアル"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600_2.jpg",
+                "alt": "Star シリーズ全体"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift_wrap05.jpg",
+                "alt": "Star-Lift LP"
+              }
+            ]
           },
           {
             "maker_no": 66,
@@ -298,7 +346,7 @@
             "maker_slug": "daihen",
             "product_name": "協働ロボット × AiTran (AGV連携)",
             "tagline": "AGV 連携で搬送 → 溶接の完全自動化",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/daihen/daihen_aitran.jpg",
             "official_url": "https://www.daihen-robot.com/items/Aitran",
             "is_first_exhibit": true,
             "is_new_product": false,
@@ -330,7 +378,21 @@
               "youtube_id": "G9GQE1IQBCU",
               "title": "ダイヘン FD-VC8 × AiTran500 デモ",
               "duration": "2:29"
-            }
+            },
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/daihen/daihen_aitran_trailer.jpg",
+                "alt": "AiTran トレーラー"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg",
+                "alt": "FD-VC8 協働ロボット"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8_sub.jpg",
+                "alt": "FD-VC8 詳細"
+              }
+            ]
           }
         ]
       },
@@ -344,7 +406,7 @@
             "maker_slug": "komori-anzen-ki-kenkyuusho",
             "product_name": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
             "tagline": "世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/komori/komori_srd.jpg",
             "official_url": "https://www.komorisafety.co.jp/products/cn9/pg999.html",
             "is_first_exhibit": true,
             "is_new_product": false,
@@ -382,6 +444,20 @@
                 "label": "SRD + KAG 製品案内 (13ページ)",
                 "icon": "📄"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/komori/komori_srd_sensor.jpg",
+                "alt": "SRD センサー単体"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/komori/komori_kag.jpg",
+                "alt": "KAG AIカメラ"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/komori/komori_kag_camera.jpg",
+                "alt": "KAG AIカメラ単体"
+              }
             ]
           },
           {
@@ -390,7 +466,7 @@
             "maker_slug": "ootosuingu-otos",
             "product_name": "溶接カメラ Ray-X WGC-200/400",
             "tagline": "アーク光の壁を超え、溶融池をクリア観察",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg",
             "official_url": "https://otos.tech/",
             "is_first_exhibit": false,
             "is_new_product": false,
@@ -421,6 +497,16 @@
                 "industry": "溶接訓練校",
                 "detail": "アーク現象の可視化教材"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/otos/otos_hero.jpg",
+                "alt": "OTOS 製品ラインアップ"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/otos/otos_main.jpg",
+                "alt": "OTOS 公式メイン画像"
+              }
             ]
           },
           {
@@ -429,7 +515,7 @@
             "maker_slug": "nobitekku",
             "product_name": "Cavitar Welding Camera",
             "tagline": "溶接中の溶融池を計測、破壊検査ゼロへ",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg",
             "official_url": "https://www.nobby-tech.co.jp/welding/weldingcamera",
             "is_first_exhibit": false,
             "is_new_product": false,
@@ -460,6 +546,16 @@
                 "industry": "金属3Dプリンタ/溶断ライン",
                 "detail": "プロセス安定性の可視化計測"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_arc.jpg",
+                "alt": "アーク可視化"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_setup.jpg",
+                "alt": "設置例"
+              }
             ]
           }
         ]
@@ -474,7 +570,7 @@
             "maker_slug": "zenetekku",
             "product_name": "オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)",
             "tagline": "ロボットを止めずに教示、ティーチング時間1/10",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/zenetekku/zenetekku_screenshot.jpg",
             "official_url": "https://vcolp.jp/",
             "is_first_exhibit": true,
             "is_new_product": false,
@@ -505,6 +601,16 @@
                 "industry": "自動化を進めたい中小製造業",
                 "detail": "ティーチングマン不足/省人化が課題の現場"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/zenetekku/zenetekku_vc-olp.jpg",
+                "alt": "Visual Components OLP"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/zenetekku/zenetekku_robots.jpg",
+                "alt": "対応ロボット17社一覧"
+              }
             ]
           },
           {
@@ -513,7 +619,7 @@
             "maker_slug": "shintech",
             "product_name": "3arm + T-Arm シリーズ (バランスアーム)",
             "tagline": "3アーム構造で重量物を「無重力化」、トヨタ約5000箇所採用",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/shintech/shintech_3arm.jpg",
             "official_url": "https://thing-tech.com/arm/t-arm/",
             "is_first_exhibit": false,
             "is_new_product": false,
@@ -561,6 +667,16 @@
                 "label": "営業2課製品紹介 (S15-25 抜粋)",
                 "icon": "📄"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/shintech/shintech_t-arm.jpg",
+                "alt": "T-Arm 純国産バランスアーム"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/shintech/shintech_rail.jpg",
+                "alt": "Knight レールシステム"
+              }
             ]
           }
         ]
@@ -575,7 +691,7 @@
             "maker_slug": "oputeireezaasoryuushonzu",
             "product_name": "最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300",
             "tagline": "CW × Pulse、用途に応じて選べる国産レーザー",
-            "image_url": null,
+            "image_url": "/assets/topics/productivity-solutions/optilaser/optilaser_cw2000.jpg",
             "official_url": "https://ult-laser.com/ultlaser/",
             "is_first_exhibit": true,
             "is_new_product": false,
@@ -621,6 +737,16 @@
                 "youtube_id": "sxgggipcgL4",
                 "title": "オプティレーザー｜出展ブースのご案内",
                 "duration": "0:54"
+              }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/optilaser/optilaser_pulse300.jpg",
+                "alt": "Pulse300 (100V電源・本体24kg)"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/optilaser/optilaser_cleaning.png",
+                "alt": "レーザークリーニング原理図"
               }
             ]
           }

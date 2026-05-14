@@ -316,6 +316,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -518,7 +547,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">② AMR・搬送自動化</div>      <h3 class="twf-product-name">AMR 自律走行(協働)搬送ロボット StarLift シリーズ</h3>
+<div class="twf-product-section-label">② AMR・搬送自動化</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg');" role="img" aria-label="AMR 自律走行(協働)搬送ロボット StarLift シリーズ"></div>
+
+      <h3 class="twf-product-name">AMR 自律走行(協働)搬送ロボット StarLift シリーズ</h3>
 <div class="twf-product-tagline">150〜600kg、段差・傾斜OK、SLAMで即日稼働</div>
       <div class="twf-what-is">SLAM 自律走行 AMR 搬送ロボット。磁気テープ・Wi-Fi・床面工事不要で、CAD データから地図を作り経路を自動生成。可搬重量別に StarLift150/300/300E/600 の 4 機種、最大 600kg まで対応。傾斜 8°・段差 20mm まで走破。</div>
 
@@ -568,6 +600,18 @@
         </div>
       </div>
 
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg');"
+           aria-label="Star-Lift メインビジュアル"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/robotbank/robotbank_starlift600_2.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/robotbank/robotbank_starlift600_2.jpg');"
+           aria-label="Star シリーズ全体"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/robotbank/robotbank_starlift_wrap05.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/robotbank/robotbank_starlift_wrap05.jpg');"
+           aria-label="Star-Lift LP"></a>
+      </div>
+
 
       <div class="twf-materials">
         <div class="twf-materials-label">📚 メーカー配布資料</div>
@@ -577,47 +621,47 @@
       <div class="twf-gallery">
         <div class="twf-gallery-title">ロボットバンク 製品・導入事例ハイライト (14スライド)</div>
 <div class="twf-gallery-intro">AMRの強み・市場課題・3つの理由・他社性能比較・導入事例まで、来場前にハイライト把握。</div>        <div class="twf-gallery-grid">
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S01.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S01.png" alt="ロボットバンク 商品説明資料 表紙" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S01.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S01.jpg" alt="ロボットバンク 商品説明資料 表紙" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S02.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S02.png" alt="AGVとAMRの違い" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S02.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S02.jpg" alt="AGVとAMRの違い" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S03.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S03.png" alt="「変化に強い現場」AMR導入のメリット" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S03.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S03.jpg" alt="「変化に強い現場」AMR導入のメリット" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S04.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S04.png" alt="最先端マッピング技術" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S04.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S04.jpg" alt="最先端マッピング技術" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S05.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S05.png" alt="AIディープラーニング" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S05.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S05.jpg" alt="AIディープラーニング" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S06.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S06.png" alt="充実した導入フォロー × サービス体制" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S06.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S06.jpg" alt="充実した導入フォロー × サービス体制" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S07.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S07.png" alt="製品スペック比較表" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S07.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S07.jpg" alt="製品スペック比較表" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S10.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/manual_S10.png" alt="導入事例 (自動車メーカー/部品製造)" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/manual_S10.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/manual_S10.jpg" alt="導入事例 (自動車メーカー/部品製造)" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S03.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S03.png" alt="RobotBank AMRの強み" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S03.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S03.jpg" alt="RobotBank AMRの強み" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S04.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S04.png" alt="市場が抱える3大課題" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S04.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S04.jpg" alt="市場が抱える3大課題" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S05.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S05.png" alt="Star-Liftが選ばれる3つの理由" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S05.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S05.jpg" alt="Star-Liftが選ばれる3つの理由" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S11.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S11.png" alt="展示会の様子 (OWF・NWF)" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S11.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S11.jpg" alt="展示会の様子 (OWF・NWF)" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S12.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S12.png" alt="採用を左右する共通要因" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S12.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S12.jpg" alt="採用を左右する共通要因" loading="lazy" />
           </a>
-          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S13.png" target="_blank" rel="noopener">
-            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S13.png" alt="「物を運ぶ」すべての現場がターゲット" loading="lazy" />
+          <a class="twf-gallery-item" href="/assets/topics/productivity-solutions/robotbank/kanto_S13.jpg" target="_blank" rel="noopener">
+            <img src="/assets/topics/productivity-solutions/robotbank/kanto_S13.jpg" alt="「物を運ぶ」すべての現場がターゲット" loading="lazy" />
           </a>
         </div>
       </div>

@@ -865,6 +865,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -1067,7 +1096,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">⑤ レーザークリーナー (初TWF出展)</div>      <h3 class="twf-product-name">最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300</h3>
+<div class="twf-product-section-label">⑤ レーザークリーナー (初TWF出展)</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/optilaser/optilaser_cw2000.jpg');" role="img" aria-label="最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300"></div>
+
+      <h3 class="twf-product-name">最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300</h3>
 <div class="twf-product-tagline">CW × Pulse、用途に応じて選べる国産レーザー</div>
       <div class="twf-what-is">国産レーザークリーナー ULT LASER シリーズ。CW2000 (連続波・水冷・出力200〜2000W調整・最大照射幅300mm) と Pulse300 (パルス・空冷・出力30〜300W・100V電源・本体24kg・12モード) の2系統で、塗膜/サビ/酸化皮膜/油膜/黒皮を光のエネルギーで瞬時に除去。</div>
 
@@ -1120,6 +1152,15 @@
  — <span class="twf-scenario-detail">鋼橋・コンクリート壁のサビ除去</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/optilaser/optilaser_pulse300.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/optilaser/optilaser_pulse300.jpg');"
+           aria-label="Pulse300 (100V電源・本体24kg)"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/optilaser/optilaser_cleaning.png" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/optilaser/optilaser_cleaning.png');"
+           aria-label="レーザークリーニング原理図"></a>
       </div>
 
       <div class="twf-videos multi">

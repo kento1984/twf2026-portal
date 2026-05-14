@@ -316,6 +316,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -518,7 +547,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">③ 安全・センシング</div>      <h3 class="twf-product-name">3D レーダー安全システム SRD シリーズ + AIカメラ KAG</h3>
+<div class="twf-product-section-label">③ 安全・センシング</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/komori/komori_srd.jpg');" role="img" aria-label="3D レーダー安全システム SRD シリーズ + AIカメラ KAG"></div>
+
+      <h3 class="twf-product-name">3D レーダー安全システム SRD シリーズ + AIカメラ KAG</h3>
 <div class="twf-product-tagline">世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG</div>
       <div class="twf-what-is">Inxpect 社製の世界初 SIL2/PLd 準拠 3D レーダー SRD (24GHz/60GHz FMCW) と自社 AI カメラ KAG (Komori Area Guardman) を組合せた、協働ロボット・AGV・移動クレーン用ガード一体ソリューション。検知距離 4〜9m、応答 100ms 以下、1 コントローラで最大 6 センサ。</div>
 
@@ -566,6 +598,18 @@
  — <span class="twf-scenario-detail">雨・粉塵に晒されるエリアでの安全確保</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/komori/komori_srd_sensor.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/komori/komori_srd_sensor.jpg');"
+           aria-label="SRD センサー単体"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/komori/komori_kag.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/komori/komori_kag.jpg');"
+           aria-label="KAG AIカメラ"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/komori/komori_kag_camera.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/komori/komori_kag_camera.jpg');"
+           aria-label="KAG AIカメラ単体"></a>
       </div>
 
 

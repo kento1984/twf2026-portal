@@ -864,6 +864,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -1066,7 +1095,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">① 協働ロボット</div>      <h3 class="twf-product-name">協働ロボットパッケージ (TIG/MAG兼用仕様)</h3>
+<div class="twf-product-section-label">① 協働ロボット</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_fd-vc4.jpg');" role="img" aria-label="協働ロボットパッケージ (TIG/MAG兼用仕様)"></div>
+
+      <h3 class="twf-product-name">協働ロボットパッケージ (TIG/MAG兼用仕様)</h3>
 <div class="twf-product-tagline">高軌跡精度 × TIG/MAG 兼用、1 台の架台で 2 方式</div>
       <div class="twf-what-is">1 台の架台に CO2/MAG溶接機と TIG溶接機を搭載した協働ロボットパッケージ。タブレットでワークを撮影するだけで教示プログラムを自動生成、専門知識なしで段取り可能。</div>
 
@@ -1111,11 +1143,23 @@
         </div>
       </div>
 
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/daihen/daihen_fd-vc4_sub.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_fd-vc4_sub.jpg');"
+           aria-label="FD-VC4 サブカット"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg');"
+           aria-label="FD-VC8 関連カット"></a>
+      </div>
+
 
 
     </article>
     <article class="twf-product">
-<div class="twf-product-section-label">② AMR・搬送自動化</div>      <h3 class="twf-product-name">協働ロボット × AiTran (AGV連携)</h3>
+<div class="twf-product-section-label">② AMR・搬送自動化</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_aitran.jpg');" role="img" aria-label="協働ロボット × AiTran (AGV連携)"></div>
+
+      <h3 class="twf-product-name">協働ロボット × AiTran (AGV連携)</h3>
 <div class="twf-product-tagline">AGV 連携で搬送 → 溶接の完全自動化</div>
       <div class="twf-what-is">自律搬送台車 AiTran と協働溶接ロボット FD-VC8 を組み合わせ、「ワーク搬送→治具固定→協働ロボット溶接」を完全無人化するソリューション。AiTran は独自オムニホイールで全方位移動、D-Broad ワイヤレス給電で 24 時間連続稼働。</div>
 
@@ -1158,6 +1202,18 @@
  — <span class="twf-scenario-detail">移設容易なコンパクト協働ロボット</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/daihen/daihen_aitran_trailer.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_aitran_trailer.jpg');"
+           aria-label="AiTran トレーラー"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg');"
+           aria-label="FD-VC8 協働ロボット"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/daihen/daihen_fd-vc8_sub.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_fd-vc8_sub.jpg');"
+           aria-label="FD-VC8 詳細"></a>
       </div>
 
       <div class="twf-videos">

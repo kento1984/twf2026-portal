@@ -316,6 +316,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -518,7 +547,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">① 協働ロボット</div>      <h3 class="twf-product-name">スプレーガン×防爆協働ロボット</h3>
+<div class="twf-product-section-label">① 協働ロボット</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/mesack/mesack_robot_painting.jpg');" role="img" aria-label="スプレーガン×防爆協働ロボット"></div>
+
+      <h3 class="twf-product-name">スプレーガン×防爆協働ロボット</h3>
 <div class="twf-product-tagline">防爆対応、塗装の自動化に</div>
       <div class="twf-what-is">静電気応用技術専門メーカーのメサックが、防爆対応の協働ロボットと自社製自動スプレーガンを組み合わせた塗装の自動化パッケージ。作業者がアームを直接動かすダイレクトティーチで教示可能。</div>
 
@@ -562,6 +594,7 @@
           </div>
         </div>
       </div>
+
 
 
       <div class="twf-materials">

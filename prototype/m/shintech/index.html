@@ -295,6 +295,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -497,7 +526,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">④ 教示・周辺機器</div>      <h3 class="twf-product-name">3arm + T-Arm シリーズ (バランスアーム)</h3>
+<div class="twf-product-section-label">④ 教示・周辺機器</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/shintech/shintech_3arm.jpg');" role="img" aria-label="3arm + T-Arm シリーズ (バランスアーム)"></div>
+
+      <h3 class="twf-product-name">3arm + T-Arm シリーズ (バランスアーム)</h3>
 <div class="twf-product-tagline">3アーム構造で重量物を「無重力化」、トヨタ約5000箇所採用</div>
       <div class="twf-what-is">スペイン Tecnospiro 社製 3arm (3アーム構造で工具を無重力化、最大70kgまで対応) と、自社開発の純国産オートバランスアーム T-Arm (耐荷重40〜650kg、最大1000kg特注可) を組合せた、重量物・工具の持上/移載/位置決め支援システム。</div>
 
@@ -545,6 +577,15 @@
  — <span class="twf-scenario-detail">コンサル〜アフター自社完結</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/shintech/shintech_t-arm.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/shintech/shintech_t-arm.jpg');"
+           aria-label="T-Arm 純国産バランスアーム"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/shintech/shintech_rail.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/shintech/shintech_rail.jpg');"
+           aria-label="Knight レールシステム"></a>
       </div>
 
 

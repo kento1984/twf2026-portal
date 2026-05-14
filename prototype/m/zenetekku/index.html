@@ -316,6 +316,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -518,7 +547,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">④ 教示・周辺機器</div>      <h3 class="twf-product-name">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</h3>
+<div class="twf-product-section-label">④ 教示・周辺機器</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/zenetekku/zenetekku_screenshot.jpg');" role="img" aria-label="オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)"></div>
+
+      <h3 class="twf-product-name">オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)</h3>
 <div class="twf-product-tagline">ロボットを止めずに教示、ティーチング時間1/10</div>
       <div class="twf-what-is">PC 上で現場を高精度に再現し、産業用ロボットのプログラムをオフラインで作成・検証できる次世代オフラインティーチングソフト (フィンランド Visual Components 社製、ゼネテック国内販売)。FANUC/YASKAWA/NACHI/DAIHEN/KAWASAKI など 17 社のロボット、コントローラ 40 社以上に対応。</div>
 
@@ -566,6 +598,15 @@
  — <span class="twf-scenario-detail">ティーチングマン不足/省人化が課題の現場</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/zenetekku/zenetekku_vc-olp.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/zenetekku/zenetekku_vc-olp.jpg');"
+           aria-label="Visual Components OLP"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/zenetekku/zenetekku_robots.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/zenetekku/zenetekku_robots.jpg');"
+           aria-label="対応ロボット17社一覧"></a>
       </div>
 
 

@@ -316,6 +316,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -518,7 +547,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">① 協働ロボット</div>      <h3 class="twf-product-name">TPS400i CMT低スパッタ溶接×協働ロボット</h3>
+<div class="twf-product-section-label">① 協働ロボット</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/furoniusujapan/fronius_tps400i.jpg');" role="img" aria-label="TPS400i CMT低スパッタ溶接×協働ロボット"></div>
+
+      <h3 class="twf-product-name">TPS400i CMT低スパッタ溶接×協働ロボット</h3>
 <div class="twf-product-tagline">CMT 低スパッタ × 協働ロボット連携</div>
       <div class="twf-what-is">デジタル溶接電源 TPS/i (400Aクラス) と CMT (Cold Metal Transfer) プロセスを組み合わせた低スパッタ・低入熱溶接システム。協働ロボットと連結し、薄板・異材接合など従来のMAG/MIGでは難しかった領域を自動化。</div>
 
@@ -561,6 +593,15 @@
  — <span class="twf-scenario-detail">外装パネルの美観仕上げ</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/furoniusujapan/fronius_cmt.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/furoniusujapan/fronius_cmt.jpg');"
+           aria-label="CMT 機能図"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/furoniusujapan/fronius_cmt_arc.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/furoniusujapan/fronius_cmt_arc.jpg');"
+           aria-label="CMTアーク補正"></a>
       </div>
 
 

@@ -864,6 +864,35 @@
     border-radius: 4px;
     margin-bottom: 12px;
   }
+  .twf-product-hero {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 16px;
+    background: #F4F4F5 center/cover no-repeat;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+  .twf-product-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .twf-product-image {
+    display: block;
+    aspect-ratio: 4 / 3;
+    background: #F4F4F5 center/cover no-repeat;
+    border: 1px solid #E4E4E7;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 200ms ease-out, border-color 200ms ease-out, box-shadow 200ms ease-out;
+  }
+  .twf-product-image:hover {
+    transform: translateY(-2px);
+    border-color: #FF7A1A;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.10);
+  }
   .twf-product-name {
     font-size: 22px;
     font-weight: 900;
@@ -1066,7 +1095,10 @@
     </header>
 
     <article class="twf-product">
-<div class="twf-product-section-label">③ 安全・センシング</div>      <h3 class="twf-product-name">Cavitar Welding Camera</h3>
+<div class="twf-product-section-label">③ 安全・センシング</div>
+      <div class="twf-product-hero" style="background-image: url('/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg');" role="img" aria-label="Cavitar Welding Camera"></div>
+
+      <h3 class="twf-product-name">Cavitar Welding Camera</h3>
 <div class="twf-product-tagline">溶接中の溶融池を計測、破壊検査ゼロへ</div>
       <div class="twf-what-is">レーザー照明とバンドパスフィルタの組合せで、アーク光・ヒュームを遮断し溶融池・ビード・周辺加工状況をクリアに撮影できる溶接モニターカメラ (フィンランド Cavitar 社製)。C300 モデルは 30×45×99mm・300g と超小型、解像度 1,440×1,080px、最大 70fps、画素分解能 0.027mm/pixel。</div>
 
@@ -1114,6 +1146,15 @@
  — <span class="twf-scenario-detail">プロセス安定性の可視化計測</span>            </div>
           </div>
         </div>
+      </div>
+
+      <div class="twf-product-images">
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/nobitekku/nobitekku_arc.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/nobitekku/nobitekku_arc.jpg');"
+           aria-label="アーク可視化"></a>
+        <a class="twf-product-image" href="/assets/topics/productivity-solutions/nobitekku/nobitekku_setup.jpg" target="_blank" rel="noopener"
+           style="background-image: url('/assets/topics/productivity-solutions/nobitekku/nobitekku_setup.jpg');"
+           aria-label="設置例"></a>
       </div>
 
 

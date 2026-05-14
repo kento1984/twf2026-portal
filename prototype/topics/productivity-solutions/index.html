@@ -630,7 +630,7 @@
       }
     }
 
-    /* ===== Phase 2-D: 軽量カード (詳細は個別ページの partial へ) ===== */
+    /* ===== Phase 2-D/E: 軽量カード+画像統一 (詳細は個別ページの partial へ) ===== */
     /* ヒーロー縮小 */
     .topic-wrap .topic-hero {
       padding-bottom: 24px;
@@ -641,6 +641,32 @@
     .topic-wrap .topic-title { font-size: 30px; }
     .topic-wrap .topic-eyebrow { font-size: 11px; padding: 4px 11px; }
     .topic-wrap .topic-hero-video { margin-top: -4px; margin-bottom: 44px; }
+
+    /* Phase 2-E: カード高さ統一 — グリッドの auto-rows 1fr で全カード同じ行高さ */
+    .topic-product-grid {
+      grid-auto-rows: 1fr;
+    }
+    /* カード本体は縦方向に均等にflex、画像は固定比率 */
+    .topic-product-card {
+      height: 100%;
+    }
+    /* 画像枠 (image_url or 動画サムネ) は全カード共通 16:9 */
+    .tpc-image {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background-size: cover;
+      background-position: center;
+      background-color: var(--gray-100);
+    }
+    /* 画像なしカード: アクセント色グラデーションのプレースホルダー (現状 decor-header 維持) */
+    .topic-product-card.no-image .tpc-accent-bar {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-dark) 100%);
+      height: 8px;
+    }
+    .topic-product-card.no-image .tpc-decor-no {
+      font-size: 44px;
+    }
 
     /* これは何 (1〜2文サマリー) */
     .tpc-what-is {
@@ -671,7 +697,6 @@
     }
 
     /* 動画サムネ用 play badge */
-    .tpc-image { position: relative; }
     .tpc-play-badge {
       position: absolute;
       top: 10px;
@@ -760,11 +785,8 @@
   <section class="topic-section">
     <h2 class="topic-section-title">① 協働ロボット</h2>
 <p class="topic-section-intro">1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">066</span>
-          <span class="tpc-decor-maker">ダイヘン</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_fd-vc4.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -779,11 +801,8 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">106</span>
-          <span class="tpc-decor-maker">ファナック</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/fanuc/fanuc_crx.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -798,11 +817,8 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">114</span>
-          <span class="tpc-decor-maker">フロニウスジャパン</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/furoniusujapan/fronius_tps400i.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -840,11 +856,8 @@
   <section class="topic-section">
     <h2 class="topic-section-title">② AMR・搬送自動化</h2>
 <p class="topic-section-intro">「人が物を運ぶ」現場をロボットへ。段差・傾斜OKのAMR、AGV連携で搬送→溶接を一気通貫。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">145</span>
-          <span class="tpc-decor-maker">ロボットバンク</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -862,7 +875,7 @@
         </div>
       </article>
       <article class="topic-product-card">
-        <div class="tpc-image" style="background-image: url('https://i.ytimg.com/vi/G9GQE1IQBCU/maxresdefault.jpg');">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/daihen/daihen_aitran.jpg');">
 <span class="tpc-play-badge" aria-hidden="true">▶ 動画</span>        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -884,11 +897,8 @@
   <section class="topic-section">
     <h2 class="topic-section-title">③ 安全・センシング</h2>
 <p class="topic-section-intro">世界初の SIL2/PLd 準拠 3D レーダー、溶融池可視化カメラ。生産現場の「見える化」と安全を一段上に。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">035</span>
-          <span class="tpc-decor-maker">小森安全機研究所</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/komori/komori_srd.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -905,11 +915,8 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">019</span>
-          <span class="tpc-decor-maker">オートスイング (OTOS)</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -924,11 +931,8 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">097</span>
-          <span class="tpc-decor-maker">ノビテック</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -948,11 +952,8 @@
   <section class="topic-section">
     <h2 class="topic-section-title">④ 教示・周辺機器</h2>
 <p class="topic-section-intro">オフライン教示で立ち上げ時間 90% 削減、国産バランスアームで腰痛ゼロへ。自動化を支える「縁の下」。</p>    <div class="topic-product-grid">
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">059</span>
-          <span class="tpc-decor-maker">ゼネテック</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/zenetekku/zenetekku_screenshot.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -969,11 +970,8 @@
           </div>
         </div>
       </article>
-      <article class="topic-product-card no-image">
-        <div class="tpc-accent-bar"></div>
-        <div class="tpc-decor-header">
-          <span class="tpc-decor-no">052</span>
-          <span class="tpc-decor-maker">シンテック</span>
+      <article class="topic-product-card">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/shintech/shintech_3arm.jpg');">
         </div>
         <div class="tpc-body">
           <div class="tpc-meta">
@@ -994,7 +992,7 @@
     <h2 class="topic-section-title">⑤ レーザークリーナー (初TWF出展)</h2>
 <p class="topic-section-intro">塗膜・サビ・酸化皮膜を光で瞬時に除去。粉塵・廃液・薬品ゼロ、クリーニング時間1/10以上の革新。</p>    <div class="topic-product-grid">
       <article class="topic-product-card">
-        <div class="tpc-image" style="background-image: url('https://i.ytimg.com/vi/ViEdcGC_GkM/maxresdefault.jpg');">
+        <div class="tpc-image" style="background-image: url('/assets/topics/productivity-solutions/optilaser/optilaser_cw2000.jpg');">
 <span class="tpc-play-badge" aria-hidden="true">▶ 動画</span>        </div>
         <div class="tpc-body">
           <div class="tpc-meta">
