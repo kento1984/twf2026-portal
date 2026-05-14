@@ -210,6 +210,12 @@
                 "label": "ロボットつかみ塗装ブース",
                 "icon": "📄"
               }
+            ],
+            "gallery_images": [
+              {
+                "src": "/assets/topics/productivity-solutions/mesack/mesack_dimension.jpg",
+                "alt": "塗装ブース寸法図 (650mm×1100mm×378mm、ロボットアーム付き省スペース設計)"
+              }
             ]
           }
         ]
