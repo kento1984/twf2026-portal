@@ -490,7 +490,7 @@
         {% for v in _videos %}
         <div>
           <div class="twf-video-embed">
-            <iframe src="https://www.youtube.com/embed/{{ v.youtube_id }}" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/{{ v.youtube_id }}?autoplay=1&mute=1&rel=0&modestbranding=1" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="twf-video-caption">{{ v.title }}{% if v.duration %} ({{ v.duration }}){% endif %}</div>
         </div>

@@ -585,7 +585,7 @@
   <section class="topic-hero-video">
     <div class="topic-hero-video-label">会場前にまず予習: メインデモ動画</div>
     <div class="topic-hero-video-frame">
-      <iframe src="https://www.youtube.com/embed/{{ topic.hero_video.youtube_id }}" title="{{ topic.hero_video.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/{{ topic.hero_video.youtube_id }}?autoplay=1&mute=1&rel=0&modestbranding=1" title="{{ topic.hero_video.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
     <div class="topic-hero-video-caption">{{ topic.hero_video.title }}{% if topic.hero_video.duration %} ({{ topic.hero_video.duration }}){% endif %}</div>
   </section>
