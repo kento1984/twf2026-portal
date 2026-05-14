@@ -631,6 +631,35 @@
     height: 700px;
     background: var(--gray-100);
   }
+  .pdf-mobile-open {
+    display: none;
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none !important;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .pdf-mobile-open .pdf-mobile-icon {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+  .pdf-mobile-open .pdf-mobile-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    word-break: break-all;
+  }
+  @media (max-width: 760px) {
+    .pdf-iframe { display: none; }
+    .pdf-mobile-open { display: block; }
+  }
   .video-player {
     display: block;
     width: 100%;
@@ -831,6 +860,11 @@
           <a href="../../attachments/%E5%B1%B1%E6%9C%AC%E5%85%89%E5%AD%A6%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/YSL-01_leaflet_2.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         <iframe src="../../attachments/%E5%B1%B1%E6%9C%AC%E5%85%89%E5%AD%A6%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/YSL-01_leaflet_2.pdf" class="pdf-iframe" title="YSL-01_leaflet_2.pdf のプレビュー"></iframe>
+        <a href="../../attachments/%E5%B1%B1%E6%9C%AC%E5%85%89%E5%AD%A6%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/YSL-01_leaflet_2.pdf" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">YSL-01_leaflet_2.pdf</span>
+        </a>
       </div>
       <div class="pdf-card">
         <div class="pdf-card-header">
@@ -838,6 +872,11 @@
           <a href="../../attachments/%E5%B1%B1%E6%9C%AC%E5%85%89%E5%AD%A6%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/PAF_SN-610-G_YG-1100_leaflet_20241226.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         <iframe src="../../attachments/%E5%B1%B1%E6%9C%AC%E5%85%89%E5%AD%A6%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/PAF_SN-610-G_YG-1100_leaflet_20241226.pdf" class="pdf-iframe" title="PAF_SN-610-G_YG-1100_leaflet_20241226.pdf のプレビュー"></iframe>
+        <a href="../../attachments/%E5%B1%B1%E6%9C%AC%E5%85%89%E5%AD%A6%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/PAF_SN-610-G_YG-1100_leaflet_20241226.pdf" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">PAF_SN-610-G_YG-1100_leaflet_20241226.pdf</span>
+        </a>
       </div>
       <p class="attach-path">保管先: <code>attachments/山本光学株式会社/</code></p>
     </section>

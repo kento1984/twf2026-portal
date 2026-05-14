@@ -631,6 +631,35 @@
     height: 700px;
     background: var(--gray-100);
   }
+  .pdf-mobile-open {
+    display: none;
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none !important;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .pdf-mobile-open .pdf-mobile-icon {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+  .pdf-mobile-open .pdf-mobile-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    word-break: break-all;
+  }
+  @media (max-width: 760px) {
+    .pdf-iframe { display: none; }
+    .pdf-mobile-open { display: block; }
+  }
   .video-player {
     display: block;
     width: 100%;
@@ -867,6 +896,11 @@
           <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/AX-1C_%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/AX-1C_%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" class="pdf-iframe" title="AX-1C_カタログ.pdf のプレビュー"></iframe>
+        <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/AX-1C_%E3%82%AB%E3%82%BF%E3%83%AD%E3%82%B0.pdf" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">AX-1C 技術詳細カタログ</span>
+        </a>
       </div>
       <div class="pdf-card">
         <div class="pdf-card-header">
@@ -874,6 +908,11 @@
           <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/26TWF_%E7%A5%9E%E9%8B%BCAXELARC%E3%83%81%E3%83%A9%E3%82%B70414.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         <iframe src="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/26TWF_%E7%A5%9E%E9%8B%BCAXELARC%E3%83%81%E3%83%A9%E3%82%B70414.pdf" class="pdf-iframe" title="26TWF_神鋼AXELARCチラシ0414.pdf のプレビュー"></iframe>
+        <a href="../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/26TWF_%E7%A5%9E%E9%8B%BCAXELARC%E3%83%81%E3%83%A9%E3%82%B70414.pdf" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">TWF2026 当日企画チラシ (4プログラム)</span>
+        </a>
       </div>
       <p class="attach-path">保管先: <code>attachments/株式会社神戸製鋼所/</code></p>
     </section>

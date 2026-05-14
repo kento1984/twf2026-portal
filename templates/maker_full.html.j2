@@ -480,6 +480,35 @@
     height: 700px;
     background: var(--gray-100);
   }
+  .pdf-mobile-open {
+    display: none;
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none !important;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .pdf-mobile-open .pdf-mobile-icon {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+  .pdf-mobile-open .pdf-mobile-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    word-break: break-all;
+  }
+  @media (max-width: 760px) {
+    .pdf-iframe { display: none; }
+    .pdf-mobile-open { display: block; }
+  }
   .video-player {
     display: block;
     width: 100%;
@@ -754,6 +783,11 @@
         </div>
         {% if is_pdf %}
         <iframe src="{{ href }}" class="pdf-iframe" title="{{ f }} のプレビュー"></iframe>
+        <a href="{{ href }}" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">{{ label or f }}</span>
+        </a>
         {% elif is_video %}
         <video controls preload="metadata" class="video-player" title="{{ label or f }}">
           <source src="{{ href }}" type="video/{{ 'quicktime' if ext == 'mov' else ext }}">

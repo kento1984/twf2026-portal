@@ -631,6 +631,35 @@
     height: 700px;
     background: var(--gray-100);
   }
+  .pdf-mobile-open {
+    display: none;
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none !important;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .pdf-mobile-open .pdf-mobile-icon {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+  .pdf-mobile-open .pdf-mobile-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    word-break: break-all;
+  }
+  @media (max-width: 760px) {
+    .pdf-iframe { display: none; }
+    .pdf-mobile-open { display: block; }
+  }
   .video-player {
     display: block;
     width: 100%;
@@ -829,6 +858,11 @@
           <a href="../../attachments/%E4%B8%8D%E4%BA%8C%E7%A9%BA%E6%A9%9F%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FA-20-4_Fuji_A4flyer_WEB_202604.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         <iframe src="../../attachments/%E4%B8%8D%E4%BA%8C%E7%A9%BA%E6%A9%9F%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FA-20-4_Fuji_A4flyer_WEB_202604.pdf" class="pdf-iframe" title="FA-20-4_Fuji_A4flyer_WEB_202604.pdf のプレビュー"></iframe>
+        <a href="../../attachments/%E4%B8%8D%E4%BA%8C%E7%A9%BA%E6%A9%9F%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/FA-20-4_Fuji_A4flyer_WEB_202604.pdf" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">FA-20-4_Fuji_A4flyer_WEB_202604.pdf</span>
+        </a>
       </div>
       <p class="attach-path">保管先: <code>attachments/不二空機株式会社/</code></p>
     </section>

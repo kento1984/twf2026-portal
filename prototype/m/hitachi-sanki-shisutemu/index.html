@@ -631,6 +631,35 @@
     height: 700px;
     background: var(--gray-100);
   }
+  .pdf-mobile-open {
+    display: none;
+    padding: 28px 20px;
+    text-align: center;
+    text-decoration: none !important;
+    color: var(--gray-800);
+    background: var(--gray-50);
+    border-top: 1px solid var(--gray-200);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.5;
+  }
+  .pdf-mobile-open .pdf-mobile-icon {
+    display: block;
+    font-size: 40px;
+    margin-bottom: 6px;
+  }
+  .pdf-mobile-open .pdf-mobile-hint {
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-600);
+    word-break: break-all;
+  }
+  @media (max-width: 760px) {
+    .pdf-iframe { display: none; }
+    .pdf-mobile-open { display: block; }
+  }
   .video-player {
     display: block;
     width: 100%;
@@ -833,6 +862,11 @@
           <a href="../../attachments/%E4%BF%A1%E4%BA%95%E9%9B%BB%E6%A9%9F%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AA%E3%82%A4%E3%83%AB%E3%83%95%E3%83%AA%E3%83%BC%E3%83%99%E3%83%93%E3%82%B3%E3%83%B3%E3%80%80R%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA.pdf" download class="pdf-download-btn">📥 ダウンロード</a>
         </div>
         <iframe src="../../attachments/%E4%BF%A1%E4%BA%95%E9%9B%BB%E6%A9%9F%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AA%E3%82%A4%E3%83%AB%E3%83%95%E3%83%AA%E3%83%BC%E3%83%99%E3%83%93%E3%82%B3%E3%83%B3%E3%80%80R%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA.pdf" class="pdf-iframe" title="オイルフリーベビコン　Rシリーズ.pdf のプレビュー"></iframe>
+        <a href="../../attachments/%E4%BF%A1%E4%BA%95%E9%9B%BB%E6%A9%9F%E5%B7%A5%E6%A5%AD%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE/%E3%82%AA%E3%82%A4%E3%83%AB%E3%83%95%E3%83%AA%E3%83%BC%E3%83%99%E3%83%93%E3%82%B3%E3%83%B3%E3%80%80R%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA.pdf" class="pdf-mobile-open" target="_blank" rel="noopener">
+          <span class="pdf-mobile-icon">📄</span>
+          タップしてPDFを開く
+          <span class="pdf-mobile-hint">オイルフリーベビコン　Rシリーズ.pdf</span>
+        </a>
       </div>
       <p class="attach-path">保管先: <code>attachments/信井電機工業株式会社/</code></p>
     </section>
