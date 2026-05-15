@@ -139,11 +139,11 @@ no,name,name_short,category,has_answer,pamphlet_page
 138,ヨコタ工業㈱,YOKOTA,,true,
 139,㈱LA・PITA,,作業環境向上ブース,false,2
 140,㈱理研オプテック,,,false,
-141,理研機器,,,false,
+141,理研機器,,,true,
 142,㈱ルッドスパンセットジャパン,,リフティング機器,true,
 143,㈱レヂトン,RESITON,切断・電動工具,true,3
 144,レッキス工業㈱,,,false,
 145,ロボットバンク㈱,,協働ロボット,false,2
 146,ワーナーケミカル㈱,,,false,
 147,㈱ワキタ,,,true,
-148,三共㈱,SANKYO,,true,
+148,三共㈱,,,false,
