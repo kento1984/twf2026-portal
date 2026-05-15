@@ -3924,6 +3924,825 @@ memory に登録済の運用補強:
 
 ---
 
+# Part 18: 2026-05-15 (金) フル作業ログ (HANDOFF 作成後の追記)
+
+本パートは 5/15 (金) HANDOFF_PORTAL_FULL_v1.md (commit `90f1f6c`、00:46 JST) を作成した「後」に発生した全作業を、git log を一次ソースとして時系列に記録する。Phase 2-X 後退 / Phase 2-U OTOS / Phase 2-T ファナック / F 分類修正依頼 8 社のうち 3 社処理 / 理研機器 hero 画像 / attachment 同期 が含まれる。
+
+## 18.1 本日の commit 一覧 (時系列、HANDOFF 後 10 commit)
+
+```
+90f1f6c 2026-05-15 00:46  docs: HANDOFF_PORTAL_FULL_v1.md 新規 (3929 行) ← 本ファイル自身
+62ae62f 2026-05-15 02:33  fix(productivity-solutions): Phase 2-X 誇張表現の営業安全化
+75269b3 2026-05-15 02:49  fix(productivity-solutions): Phase 2-X 追補 (ダイヘン AiTran 全面後退)
+f97f00f 2026-05-15 15:10  feat(productivity-solutions): Phase 2-U OTOS (019) 充実化 + partial mp4_videos[] 追加 (amend 後の確定)
+0c3cf5a 2026-05-15 20:41  feat(productivity-solutions): Phase 2-T ファナック (106) 充実化 (amend 後の確定)
+78a4f17 2026-05-15 21:41  fix(makers): F 分類追補 - シャープMJ アイススラリー注意書き
+947d34b 2026-05-15 21:49  fix(makers): F 分類追補 - エクシード (No.015) official_url
+8c2d25e 2026-05-16 00:03  fix(makers): F 分類追補 - 三共 → 理研機器統合 (No.148 → No.141)
+82df587 2026-05-16 00:17  feat(maker-illustrations): 理研機器 (No.141) TOP card 用シネマヒーロー画像
+9375339 2026-05-16 00:31  chore: add F-class correction PDFs and YUASA 3 社 attachments
+29d989b 2026-05-16 00:45  chore: add F-class attachments (3M 安全衛生/3M 研磨材/重松/エクセル貿易) + フジ rename
+```
+
+統計:
+- 1 日で 11 commit (HANDOFF 自身を除けば 10 commit)
+- 主要セッションは 3 つ: 02:30 帯 (Phase 2-X 後退) / 15:00-20:40 帯 (Phase 2-U/2-T) / 21:40-00:45 帯 (F 分類 + 画像生成 + attachments)
+- 純粋実装コードは f97f00f / 0c3cf5a / 78a4f17 / 947d34b / 8c2d25e / 82df587 の 6 件、データ後退は 62ae62f / 75269b3、attachment 同期は 9375339 / 29d989b
+- 全 commit が origin/main に push 済 (HEAD = 29d989b、CF Pages 反映確認済)
+
+## 18.2 Phase 2-X 誇張表現の営業安全化 [62ae62f / 75269b3]
+
+### 経緯
+
+5/14 (木) 〜 5/15 (金) 早朝、生産性向上ページの誇大表現を「営業安全側」に後退させる Phase 2-X が必要と判断。柏原 Claude.ai 側の事前 review で「完全無人」「24 時間連続稼働」「2 名以上削減」等の断定形容詞が問題と確定。
+
+### 62ae62f: 本体 (02:33)
+
+- 対象: `data/topics.json` + 3 社 m/ ページ (daihen / furoniusujapan / zenetekku) + topic 軽量カード
+- 削除/後退対象キーワード: 「完全無人化」「24 時間連続稼働」「2 名以上削減」「自律補正」
+- 後退語: 「自動化提案」「省人化を支援」「位置補正」
+- `.gitignore` も 3 行追加 (作業ファイル除外)
+- diff: 6 files / +20 / -17
+
+### 75269b3: 追補 (02:49)
+
+検証 grep で「ダイヘン AiTran (066-2)」の誇張表現が広範囲に残存していたことが判明 → 追補で 12 箇所を一括後退。
+
+- tagline / improvement.headline / improvement.after / twf_highlights[1] / target_scenarios×6
+- product_name 「完全無人化ライン」→「連携自動化システム」
+- what_is 「完全無人化するソリューション」→「連携自動化を提案するソリューション」
+- Welbee The Short Arc「スパッタ最大 80% 抑制」は公式確認済のため **保持**
+- diff: 3 files / +27 / -27
+
+### push 戦略
+
+前 commit `62ae62f` が既に origin/main に反映されていたため **force-push を回避**、追補 `75269b3` を **新規コミットとして積む** 判断 (柏原 Q2 判定)。
+
+### 検証 grep (Phase 2-X 終了時点)
+
+```
+prototype/m/daihen/index.html:        「完全無人」 = 0
+prototype/m/furoniusujapan/index.html:「完全無人」 = 0
+prototype/m/zenetekku/index.html:     「完全無人」 = 0
+prototype/topics/productivity-solutions/index.html: 「完全無人」 = 0
+prototype/index.html:                 「完全無人」 = 0
+```
+
+5 ファイルすべてゼロ達成、本 Phase 後 OTOS / ファナック / F 分類など後続タスクでもこの「業界一般で見られる課題：」プレフィックス + 断定形容詞禁止 + 数値訴求 D 出典要件は継承された。
+
+## 18.3 Phase 2-U OTOS (019) 充実化 [f97f00f]
+
+### 経緯
+
+15:00 帯に着手。OTOS (株式会社オートスイング、maker_no=19) は中野学支社長から **5/10 に Q1-Q4 全 + 動画 5 本 + リーフレット PDF** を受領済 (A 分類豊富)。これを topics.json で充実化する。
+
+### 18.3.1 着手前データ抽出
+
+`data/maker_details.json` "019" 全フィールド + `prototype/attachments/株式会社オートスイング/` の動画 5 本 (合計 56.57 MB) + リーフレット PDF (250704_OTOSWING_リーフレット.pdf) を確認。
+
+動画 5 本のサイズ:
+```
+OTOSWING_demo_01.mp4    8.54 MB
+OTOSWING_demo_02.mp4   11.20 MB
+OTOSWING_demo_03.mp4   12.51 MB
+OTOSWING_demo_04.mp4   13.31 MB
+OTOSWING_demo_05.mp4   11.01 MB
+TOTAL (5 mp4)          56.57 MB
+```
+
+個別ページ (`prototype/m/ootosuingu-otos/index.html`) は **mp4 直接埋め込み** (HTML5 `<video>` タグ、YouTube ではない) で 5 本すべて配置済。topic ページの軽量カードのみ簡素な状態 → Phase 2-U で twf-feature セクションを拡張する。
+
+### 18.3.2 Codex CLI adversarial-review 事前
+
+製品単位設計の 3 候補 (A/B/C) を提示して Codex に判断仰ぐ:
+- **A 案**: 1 製品束ね (Ray-X WGC200/400 + WG3+ 統合 product_name)
+- **B 案**: 2 製品分離 (WG3+ と WGC 別エントリ)
+- **C 案**: WGC のみ topic 掲載、WG3+ は `other_products[]` or `what_is` 内 1 行
+
+Codex 推奨: **C 案**。根拠:
+- Q1-Q4 主語が一貫して OTOSWING / 溶接カメラ
+- 添付動画 5 本すべて OTOSWING_demo (WG3+ 用デモ資産なし)
+- 個別ページ slug が `ootosuingu-otos`、現行 topics.json の `image_url` も `otos_wgc-200.jpg` 主体
+- ゴールデンサンプル zenetekku / furoniusujapan も 1 主 topic + 補助。daihen の 2 製品分離は「証拠密度が支えている」から成立、OTOS では支えが薄い
+- 「PDF に WG3+ と WGC が並んでいる」を根拠に同格化するのは brochure の見た目過大評価、Q1-Q4 と展示導線の重みを過小評価
+
+### 18.3.3 partial スキーマ拡張 (`templates/_twf_topic_section.html.j2`)
+
+mp4 直接埋め込みのため `mp4_videos[]` スキーマを新設。既存の `p.video` / `p.videos[]` (YouTube iframe) と独立した別ループを追加。
+
+```jinja
+{# Phase 2-U: mp4 直接埋め込み (出展者提供デモ動画用) #}
+{% if p.mp4_videos %}
+<div class="twf-videos{% if p.mp4_videos|length > 1 %} multi{% endif %}">
+  {% for v in p.mp4_videos %}
+  <div>
+    <div class="twf-video-embed">
+      <video controls preload="metadata" playsinline
+             title="{{ v.label }}"
+             {% if v.poster %}poster="{{ v.poster }}"{% endif %}>
+        <source src="{{ v.src }}" type="video/mp4">
+        お使いのブラウザは動画再生に対応していません。
+      </video>
+    </div>
+    <div class="twf-video-caption">{{ v.label }}{% if v.duration %} ({{ v.duration }}){% endif %}</div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+```
+
+CSS 追加 (1 ブロック):
+```css
+.twf-video-embed video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain;
+  background: #000;
+}
+```
+
+設計判断:
+- `controls` / `preload="metadata"` / `playsinline` 固定 (autoplay / muted / loop はオフ、ユーザクリック前提)
+- `object-fit: contain` (溶接ビードを切らないため `cover` ではなく `contain`)
+- `title` 属性は Codex 実装後 review 指摘 (a11y) で追加された
+- `poster` はオプション、データ側で省略可能
+- ダウンロードボタンは付けない (topic は予習用、ダウンロードは個別 m/ ページに任せる)
+
+副次産物: 12 メーカー全 m/ ページに CSS +7 行が反映 (mp4_videos[] を持たないメーカーも空のままで CSS だけ追加される)。
+
+### 18.3.4 topics.json "019" 全面差し替え
+
+主な変更:
+- `product_name`: 「Ray-X 溶接カメラ WGC-200/400」→「**OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)**」
+- `tagline`: 「アーク光の壁を超え、溶融池をクリア観察」→「**アーク光下でも溶接箇所をクリア観察、品質検証と遠隔監視を支援**」
+- `improvement.headline`: 「Wi-Fi で複数人同時閲覧 / 初心者でもベテランの『見え方』を再現」→「**アーク光下での溶接観察を実現 / フルHD 1920×1080 鮮明可視化 / 152g〜274g 超小型でロボット搭載可**」
+- `improvement.before`: **「業界一般で見られる課題：」プレフィックス付与** (E 分類最小化)
+- `improvement.after`: リーフレット p2 由来の数値訴求 (1920×1080 / -10〜60℃ / 3W / 152g / 274g / WVMS-A) は D 分類として保持
+- `target_scenarios[]`: リーフレット p2「適用分野」直引用 4 件 (溶接モニタリング / 自動化 / 品質検査 / 技能教育)
+- `twf_highlights[]` **新規 3 件**: Q3 直引用 (実機デモ / 撮影サンプル動画 / F2i 保護具同時展示)
+- `mp4_videos[]` **新規 2 件**: OTOSWING_demo_01/02 (5 本中 2 本に絞る、柏原判断)
+- `materials[]` **新規 1 件**: OTOSWING リーフレット PDF
+- `maker_name`: 「オートスイング (OTOS)」→「**㈱オートスイング (OTOS)**」(㈱ プレフィックス付与)
+- `official_url`: https 化
+
+詳細フィールドの差分は 60+ 行に及ぶため、commit `f97f00f` の diff を参照。
+
+ただし draft で柏原が `maker_name_display` という新規フィールドを提案したが、template (`p.maker_name` を 3 箇所で参照) との互換性のため `maker_name` に修正して反映 (Claude 判断、報告で flag)。
+
+### 18.3.5 Codex 実装後 review
+
+実装直後に Codex を別途投入 (commit `2514d59` 時点の repo) → 指摘 2 件:
+
+1. **「設置場所を選ばない」が出典欠陥**: リーフレット p2 原文は「設置場所自由」。修正必要。
+2. **`<video>` に `title` / `aria-label` が無い** (a11y): partial 改修必要。
+
+Codex は 3 件目として「pamphlet note の『ワンタッチハンドチェンジャー仕様』が残っている」を flag したが、これは公式パンフレット p.2 のキャプション (別データソース、改修対象外) のため観察事項に格下げ。
+
+「GMAW / FCAW / Orbital GTAW」のプロセス名列挙は Codex 「false positive」と判定 (柏原がリーフレット p2 で記載確認済)。
+
+### 18.3.6 amend 試行: broken amend 事件 (`9e80e48`) → 復旧 (`f97f00f`)
+
+**重大トラップ発見**: PowerShell の `$prev = git log -1 --format=%B` で改行 (LF) が空白に変換され、`--amend -F <file>` で書き戻すと **commit message が改行なしの 1 行コミット** になる。
+
+経過:
+1. 初コミット `2514d59` (15:01) — 多行構造の整った message で commit 成功
+2. broken amend `9e80e48` (15:09) — PowerShell 経由で message を取り回し、改行喪失 → subject 行に body 全部が詰まる
+3. 復旧 amend `f97f00f` (15:10) — Bash で `git show -s --format=%B 2514d59 > /tmp/orig_msg.txt` → bash heredoc で修正セクション追記 → `git commit --amend -F /tmp/orig_msg.txt` で正常 amend
+
+復旧後の commit body は 33 行で正しく整形済。
+
+教訓 (memory に追記済、`feedback_powershell_git_log_newlines.md`):
+- PowerShell で git log の出力を変数経由で渡すのは禁忌
+- commit message の取得・加工・amend は Bash で行う
+- 失敗検知の目安: `git log --oneline -1` で subject 行が異常に長い場合 (body が混入)
+
+reflog で `9e80e48` は今も追跡可能、復旧可能性を保持。
+
+### 18.3.7 push + CF Pages 反映
+
+`75269b3..f97f00f` を push、CF Pages 反映 **31 秒**。本番 grep 7/7 PASS:
+```
+設置場所自由 = 1, OTOSWING = 36, 業界一般で見られる課題 = 1,
+完全無人 = 0, OTOSWING_demo_01/02.mp4 = 4 each, title="実機デモ = 2
+```
+
+本番 URL: https://twf2026-portal.pages.dev/m/ootosuingu-otos/
+
+## 18.4 Phase 2-T ファナック (106) 充実化 [0c3cf5a]
+
+### 経緯
+
+20:00 帯に着手。ファナック (maker_no=106) は **A 分類ゼロ** (出展者直接回答なし、Q1-Q4 すべて空、本田次長メール返信待ち)。マツモト産業の協働ロボットコーナー展示資料 (`tmp_phase2t_fanuc/` 配下、過去 2025 年大阪 OWF / 神奈川 WF、ファナック関連計 6 ページ) のみが追加情報源。
+
+「機種は変わってもやることは似てる」の柏原方針:
+- 過去 PDF の「展示構成パターン」「マツモト機械連携箇所」「用途方向性」を骨格化
+- 機種型番は「TWF2026 出展機種 (本田次長確認後に確定)」プレースホルダーで OK
+- C 分類 (公式 + 過去 PDF) + F 分類 (本田次長メール返信) 追補待ち
+
+### 18.4.1 着手前データ抽出
+
+`data/maker_details.json` "106" は **完全に空** (Q1-Q4 空、has_answer=false、status=unknown、attachments[] 空)。
+`prototype/attachments/` に fanuc / ファナック / FANUC 関連ディレクトリは **存在しない** (添付物理ファイル無し)。
+既存 `data/topics.json` の 106 エントリは Phase 2-X 教訓未適用 (「20%/2日→1日 タカノ社事例」「ワンタッチ切替」など断定形容詞・出典不明な数値訴求が残存)。
+既存画像 4 枚 (合計 235 KB、すべて 16:9 or 4:3 で aspect 一致):
+```
+fanuc_crx.jpg       2044×1150  45.6 KB  (image_url, hero)
+fanuc_crx_paint.jpg 973×730    43.0 KB  (gallery[0])
+fanuc_crx7ia.jpg    1800×1350  76.3 KB  (gallery[1])
+fanuc_cr15ia.jpg    1867×1400  71.5 KB  (gallery[2])
+```
+
+過去 PDF で確認できた 5 仕様 (柏原把握):
+| 仕様 | 大阪WF | 神奈川WF |
+|---|---|---|
+| ワンタッチハンドチェンジャー (CO2/グラインダー切替) | p1 | p1 |
+| TIG フィラー仕様 | (なし) | p2 |
+| マグネット式高電圧タッチセンサー (5kg 可搬) | (なし) | p3 |
+| サーボロボ・ジャパン ATC™ オートティーチコボット | p8 | (なし) |
+| PENTA・LASER 連携 (HW1000 + CRX) | p12 | (なし) |
+
+両 PDF p1 で「マツモト機械フローティングユニット + 内蔵力覚センサでグラインダー使用可能」「安全柵がいらない溶接用協働ロボット」と記載 = マツモト機械独自の組合せ。
+
+### 18.4.2 Codex CLI adversarial-review 事前
+
+候補 3 案を提示:
+- **A 案**: 1 製品束ね「ファナック CRX シリーズ — 多仕様対応協働ロボット」
+- **B 案**: 2 製品分離 (CRX 本体機能 + 外部連携製品)
+- **C 案**: 4-5 製品分離 (ハンドチェンジャー / TIG / タッチセンサー / ATC / PENTA を各エントリ)
+
+Codex 推奨: **A 案、ただし「CRX プラットフォーム」として再構築**。指摘要点:
+1. 既存「20%/2日→1日 (タカノ社事例)」は出典欠陥、最初に削除すべき
+2. 既存 `product_name`/`tagline` は「ハンドチェンジャー」専用に絞りすぎ、TIG/タッチセンサー/ATC/PENTA を捨てている
+3. 既存画像セットはプラットフォーム表現に十分、ただし 4-5 製品分離 (C 案) を支えるには弱い
+4. パートナー連携 (ATC=Servo Robot Japan / PENTA=HW1000+CRX / マツモト機械) を独立製品化すると所有権を誇大表示、後で防御困難
+
+Codex 提案の defensible shape:
+- `product_name`: 「FANUC CRX シリーズ — 溶接・自動化用協働ロボット」(英語原案、和訳して採用)
+- `tagline`: 「過去 WF 資料に見られる CRX ベース構成 (溶接 / ツールチェンジ / センサ連携など)」
+- `target_scenarios`: 客側の課題文だけ
+- `twf_highlights`: 過去 WF 事例として明記、F 出典確認まで non-committal
+
+### 18.4.3 初コミット e428fb4 (実装)
+
+draft 通り反映 + 1 点逸脱 (`maker_name_display` → `maker_name` template 互換性のため再修正)。
+
+主な変更:
+- `product_name`: 「安全柵がいらない溶接用協働ロボット (ワンタッチハンドチェンジャー仕様)」→「**ファナック CRX シリーズ — 溶接・自動化用協働ロボット**」
+- `tagline`: 「安全柵不要、ハンド交換ワンタッチ」→「**安全柵不要の協働ロボットで溶接・ツールチェンジ・センサ教示を提案**」
+- `improvement.headline`: 「段取り時間 20% 短縮 / 2 日→1 日 (タカノ社事例)」→「**CRX プラットフォームによる多仕様対応 / 安全柵不要で省スペース設置 / 用途別ツール構成を提案**」
+- `improvement.before` に「業界一般で見られる課題：」プレフィックス
+- `improvement.after` を C 分類 + 過去 PDF 6 ページの展示構成説明に再構築 (連携メーカー名: サーボロボ・ジャパン / PENTA・LASER / マツモト機械)
+- `target_scenarios[]` 4 件 (省スペース工場の溶接自動化 / 多工程対応 / TIG 溶接の自動化 / ティーチング作業の負担軽減)
+- `twf_highlights[]` **新規 4 件** (うち 1-3 は過去 WF 事例、4 は「TWF2026 出展機種・構成は現在最終調整中」プレースホルダー)
+- `maker_name`: 「ファナック」→「**ファナック㈱**」(Phase 2-U OTOS の流儀に統一)
+- `official_url`: `/f_r_collabo.html` → `/p_collabo.html` ← **後の Codex review で「根拠なし変更」と指摘、撤回**
+
+twf_highlights[3] / what_is 末尾は **「本田次長確認中」→「現在最終調整中」** に修正 (柏原判断、社内人名をサイト公開面から除去)。
+
+### 18.4.4 Codex 実装後 review
+
+commit `e428fb4` 時点で投入。集計: **致命 3 件 / 中程度 4 件 / 軽微 2 件**。
+
+致命 (push blocker):
+
+1. **CRX と CR の系列混同**: `what_is` で「CRX-10iA/L、CR-7iA、CR-15iA など複数機種」と書いたが、FANUC 公式では **CRX (CRX-3/5/10/10L/20L/30) と CR (CR-4iA/CR-7iA/L)** は別シリーズ。`product_name: 「ファナック CRX シリーズ」` も CR を含んでいないのに gallery には CR-7iA/CR-15iA がある。事実誤認。
+2. **`official_url` 差し替えがリンク切れリスク**: 元の `/f_r_collabo.html` は Codex 側で公式存在確認済、変更後の `/p_collabo.html` は未確認。コミット message に「現行公式 URL」と書いたのは **Claude の独断変更で根拠なし**。
+3. **`maker_details.json` 106 の Q1-Q4 が空のまま、topics 側だけ更新で同期未達** → 観察事項に格下げ (Phase 2-T の前提通り、A 分類なし F 分類追補待ち)。
+
+中程度 4 件 (後追い OK だが同 amend で混ぜる判断):
+- `improvement.after` が長すぎ、過去展示実績 + 現行製品特性 + 周辺連携を 1 段落で混在
+- `target_scenarios[2]` TIG / `target_scenarios[3]` ATC™ は「検討」表現に慎重化推奨
+- `improvement.headline` の 3 要素を 1 つ削って焦点絞る
+- partial の「🎯 TWF2026 ブース情報」見出しで `twf_highlights[0-2]` (過去 WF 実績) も今年確定と誤読される → ブロック分割か見出し変更が必要 (※ partial 改修は全メーカー影響、別 Phase 推奨で**保留**)
+
+### 18.4.5 amend `0c3cf5a` (修正 7 件統合反映)
+
+| # | フィールド | 変更 |
+|---|---|---|
+| 1 | `product_name` | `CRX シリーズ` → `CRX / CR シリーズ` |
+| 2 | `what_is` | CRX (CRX-10iA/L Paint) と CR (CR-7iA/CR-15iA) を別系列として明示 |
+| 3 | `official_url` | `/p_collabo.html` → `/f_r_collabo.html` (公式確認済 URL に復帰) |
+| 4 | `improvement.headline` | 3 要素 → 2 要素 (「CRX プラットフォームによる多仕様対応」削除) |
+| 5 | `improvement.after` | 連携メーカー部分を 1 文に圧縮 |
+| 6 | `target_scenarios[2]` | TIG「検討」表現に慎重化 |
+| 7 | `target_scenarios[3]` | ATC™「検討」表現に慎重化 |
+
+PowerShell 改行喪失を教訓に、amend message 取得は **Bash 経由** で実行:
+```bash
+git show -s --format=%B e428fb4 > /tmp/fanuc_msg.txt   # LF 保持
+cat >> /tmp/fanuc_msg.txt <<'EOF'
+修正:
+- Codex CLI adversarial-review 指摘反映 (致命 2 件 + 修正推奨 3 件)
+...
+EOF
+git commit --amend -F /tmp/fanuc_msg.txt
+```
+
+注意点 (commit message): 上半分は旧 `e428fb4` の本文をそのまま保持 (経緯ログ目的)、よって本文中に矛盾点が 1 つ残る:
+- 上 (旧本文): `official_url 更新: /f_r_collabo.html → /p_collabo.html (現行公式 URL)`
+- 下 (修正セクション): `official_url: /p_collabo.html → /f_r_collabo.html (根拠なし変更を撤回)`
+
+最終状態は **修正セクション側の通り `/f_r_collabo.html`**。Codex 指摘を反映した経緯として残存。
+
+### 18.4.6 push + CF Pages 反映
+
+`f97f00f..0c3cf5a` を push、CF Pages 反映 **37 秒**。本番 grep 8/8 PASS:
+```
+CRX / CR シリーズ = 2, 業界一般で見られる課題 = 1, 現在最終調整中 = 2,
+タカノ = 0, 20% = 0, 本田次長 = 0, 完全 = 0, TIG 溶接の自動化検討 = 1
+```
+
+本番 URL: https://twf2026-portal.pages.dev/m/fanuc/
+
+## 18.5 F 分類修正依頼 8 社の段階別処理 [78a4f17 / 947d34b / 8c2d25e]
+
+21:00 帯から着手。出展者からの修正依頼 (F 分類 = 出展者直接連絡) 8 社の処理計画を立案。
+
+### 18.5.1 Codex CLI 計画 review (前提誤認 3 件発見)
+
+8 社の修正依頼概要:
+| # | メーカー | slug 想定 | 内容 | 添付 |
+|---|---|---|---|---|
+| 1 | エクシード | exceed | URL 修正 (s 追加) | なし |
+| 2 | 3M (研磨材) | 3m-japan | 研磨材事業部に全面差し替え | 未受領 |
+| 3 | ヨコタ工業 | yokota-kougyou | 5 点誤表記 | リーフレット未受領 |
+| 4 | フジ | fuji | スペック訂正 (赤文字訂正原稿) | 修正原稿.pdf 受領済 |
+| 5 | 重松製作所 | shigematsu | 型番 -IV 追加 + 1 文削除 | 訂正箇所.pdf 受領済 |
+| 6 | シャープMJ | sharp-marketing-japan | アイススラリー注意書き 1 文修正 | なし |
+| 7 | 三共→理研機器 | sankyou | maker_name 全面変更 | なし |
+| 8 | エクセル貿易 | matsumoto-excel | 多数の赤入れ | 赤入れ PDF 受領済 |
+
+Codex の致命 blocker 3 件発見:
+
+1. **3M (#2)** — 現状の安全衛生コンテンツが既に `topics.json` の seminar/work-environment 導線に張られている。「全面差し替え」は導線を壊すか元回答を踏み潰すかの二択。**先に「1 社 1 ページか事業部分けか」を決定する必要**。
+2. **三共→理研機器 (#7)** — **No.148 (slug=sankyou)** と **No.141 (slug=riken-kiki)** が既に併存。No.148 の表示名を理研機器に変えると **理研機器が 2 件並ぶ**。単純な maker_name 差し替えではなく、データ設計変更レベル。
+3. **エクシード (#1)** — 柏原の slug 前提が間違っている。公開 slug は `exceed` ではなく **No.015 の `ekushiido`**。さらに repo 内では `exceed.co.jp` で一貫しており、`exceeds.co.jp` への変更可否は環境制限で未検証。
+
+加えて Codex は「Q 文以外も触る必要」を指摘:
+- Fuji / Shigematsu / Yokota / Matsumoto Excel は **PDF 抽出由来の表 / パンフ要約も公開済**。Q1-Q5 修正だけでは整合しない (公開ページ内で齟齬が出る)。
+
+### 18.5.2 柏原判断確定 (新計画)
+
+1. Sharp MJ (#6) のみ単独先行 (修正範囲明確、副作用なし)
+2. Exceed (#1) slug を `ekushiido` 前提で再計画、URL は柏原 WebFetch で `exceeds.co.jp` (Vercel ホスト、`EXCEED CO.,LTD.` 正規サイト) を確認、旧 `exceed.co.jp` は WebFetch エラー (危険サイト or 別社の可能性)
+3. 三共→理研機器 (#7) は **No.141 (riken-kiki) に統合、No.148 (sankyou) は空エントリ化**
+4. 3M (#2) は段階 A (No.058 既存ページに今村さん修正 7 点反映) + 段階 B (研磨材事業部 新 No 新規エントリ) に分割、本日は着手保留
+5. Fuji / Shigematsu / Yokota / Matsumoto Excel (#3,4,5,8) は各社ごとの全出現箇所 grep リスト化を経て、柏原指示書到着後着手 — **本日は着手保留**
+
+### 18.5.3 Sharp MJ アイススラリー注意書き [78a4f17]
+
+#### 修正内容
+
+出展者修正依頼 (松下祐輝主任 5/14):
+- 旧: 「レンタル品ではございません。」
+- 新: 「当機種は販売を行っておらずレンタルサービス専用となります。」
+
+#### 想定外発見
+
+該当文言は **`data/maker_details.json` ではなく `data/pdf_extracts.json` + `data/_pdf_extract_groups/group_3.json`** に存在 (PDF 抽出由来データ)。さらに warnings 配列内で **2 メッセージが「。」で結合された 1 文字列**:
+```json
+"warnings": [
+  "当機種は出荷代行を行っておりません。レンタル品ではございません",
+  ...
+]
+```
+
+柏原指示の単純置換では「出荷代行」部分の扱いが未指定 → AskUserQuestion で 3 オプション提示:
+- A: 2 エントリに分割 (推奨)
+- B: 1 文字列のままレンタル部分のみ置換
+- C: 出荷代行部分を削除してレンタル新文のみ
+
+柏原選択: **A 案 (2 エントリ分割)**。
+
+#### 実装
+
+両ソース JSON を Edit:
+```json
+"warnings": [
+  "当機種は出荷代行を行っておりません",
+  "当機種は販売を行っておらずレンタルサービス専用となります",
+  ...
+]
+```
+
+レンダリング結果 (`<div class="product-warning">` 内、" / " 区切り):
+```
+⚠️ 当機種は出荷代行を行っておりません / 当機種は販売を行っておらずレンタルサービス専用となります / 詳細はお問い合わせください / ...
+```
+
+#### diff
+
+3 files / +5 / -3:
+- `data/_pdf_extract_groups/group_3.json` + `data/pdf_extracts.json` (両方同期、各 1 行 → 2 行)
+- `prototype/m/sharp-marketing-japan/index.html` (rebuild output)
+
+#### 検証 grep
+
+```
+レンタル品ではございません = 0 ✓
+販売を行っておらずレンタルサービス専用 = 1 ✓
+出荷代行を行っておりません = 1 ✓ (既存情報保持)
+```
+
+### 18.5.4 Exceed URL [947d34b]
+
+#### 修正内容
+
+出展者修正依頼 (柏原確認 5/15):
+- 旧: `https://exceed.co.jp/` (現在の到達先は危険サイト or 別社の可能性、柏原 WebFetch でエラー)
+- 新: `https://www.exceeds.co.jp/` (EXCEED CO.,LTD. 正規サイト、Vercel ホスト、柏原 WebFetch で確認済)
+
+#### 着手前調査
+
+repo 全体 grep で `exceed.co.jp` の出現は **`data/maker_brand.json:371` の 1 箇所のみ** (`data/maker_details.json` には URL フィールド無し、`prototype/m/ekushiido/index.html:801` は生成物で自動連動)。
+
+#### 実装
+
+`data/maker_brand.json` の 015 ブランド entry の `source` フィールド 1 行のみ修正:
+```json
+"015": {
+  "source": "https://exceed.co.jp/",      → "https://www.exceeds.co.jp/",
+  "primary": "#666666",
+  ...
+}
+```
+
+#### diff
+
+2 files / +2 / -2 (data/maker_brand.json 1 行修正 + ekushiido/index.html ヒーロー CTA リンク自動連動)。
+
+#### 検証 grep
+
+```
+prototype/m/ekushiido/index.html:
+  exceeds.co.jp = 1 ✓
+  https://exceed.co.jp = 0 ✓
+全 repo 残存 = tmp_codex_f_class_plan.log のみ (作業ファイル、対象外) ✓
+```
+
+#### 注意点
+
+Codex 事前 review の slug 前提誤認 (公開 slug は `exceed` ではなく `ekushiido`) を反映、修正は ekushiido で完結。`data/maker_brand.json:015` の source 1 行のみ。
+
+### 18.5.5 三共→理研機器統合 [8c2d25e]
+
+#### 経緯
+
+出展者修正依頼 (飯塚太一様 5/14): 「出店者は三共名義だが展示は理研機器の油圧機器、理研機器を主体表示に」。Codex 計画 review で「No.148 と No.141 の二重化問題」が blocker と指摘されており、データ設計変更レベルの慎重な対応が必要。
+
+#### 着手前調査 4 件 (合計 5 ラウンド)
+
+調査ラウンド 1 (柏原指示):
+- `data/maker_details.json` で 3M / Sankyou / Riken 系列のエントリ確認
+- `prototype/attachments/` で物理 attachment 確認
+- `data/topics.json` での参照
+
+結果: maker_no 058 (スリーエムジャパン), 140 (理研オプテック), 141 (理研機器, has_answer=false), 148 (三共, has_answer=true) を確認。三共/理研系列の physical attachment dir は存在せず。
+
+調査ラウンド 2 (柏原指示):
+- 既存空エントリ 001/004/013 が TOP に出ているか
+- build_html.py の空エントリスキップロジック
+- maker_brand.json の No.148 確認
+
+結果:
+- 「001 むらかみテック / 004 アデリアル / 013 RIDIKAN」で grep → 全て 0 → **「空エントリは TOP 非表示」と誤認 (←後に覆る)**
+- build_html.py の 3-tier policy: A=has_answer / B=has_answer=false+pamphlet_page / C=otherwise、すべて C tier skeleton 個別ページを生成
+- maker_brand.json:294 に「三共㈱」固有のブランド entry (青 #0B3D91 + 金 #D4A24C、source=`https://id-sankyo.co.jp/`、notes=「HAL-TEC 貼合機メーカー+油圧機器商社、大阪西区立売堀」)
+
+調査ラウンド 3 (柏原指示):
+- attachments 物理確認 (三共/sankyou/理研/riken の attachment ディレクトリ)
+- maker_details_rewritten.json の既存規約調査
+- maker_brand.json の No.141 確認
+
+結果:
+- 三共/sankyou/理研/riken の attachment ディレクトリ 0 件
+- maker_details.json は 148 entries で **keys 001..148 連番、欠番 0**
+- has_answer:false は 59/148 件、空エントリの category は混在 (001 は category 有、004/013 は category 空)
+- maker_brand.json の No.141 (riken-kiki) entry は **存在しない** → 新規追加が必要
+
+調査ラウンド 4 (柏原指示):
+- maker_details_rewritten.json の 148/141 詳細 + build_html.py での扱い
+- rewritten 自動生成か手動か
+
+結果:
+- **maker_details_rewritten.json は手動編集ファイル** (`scripts/` 配下に rewriter スクリプト無し)
+- 47 entries のみ (has_answer=true のメーカーだけ rewritten 化済)
+- 既存空エントリ 001/004/013 は rewritten に **含まれない** (空化メーカーは rewritten から完全削除が筋)
+- No.148 の rewritten 内容: q1「理研機器の油圧機器展示」、q3「展示用の油圧機器は分解品があり...70MPa〜400MPa...」、web_sources=`[id-sankyo.co.jp/service-cat/riken/]`
+- No.141 rewritten entry は存在しない
+
+調査ラウンド 5 (実装中の想定外発見):
+- 実装後 TOP grep で「三共 = 2、sankyou = 1」が**残った**
+- 原因 1: 既存空エントリ 001/004/013 も実は TOP に C tier「情報準備中」カードで残存していた (Claude の初期 grep で柏原参照と csv name の取り違えで誤判定 — 「むらかみテック」「アデリアル」「RIDIKAN」で grep したが実際の name は「㈱アカサカテック」「アデリア㈱」「㈱ＡＩＲＭＡＮ」)
+- 原因 2: `data/makers.csv` 側にも `has_answer` / `name_short` が **独立管理**、 maker_details.json だけ修正しても csv の has_answer=true のため TOP に出る
+- 原因 3: `data/maker_details_rewritten.json` の No.148 が「理研機器の油圧機器展示...70MPa〜400MPa」を **まだ保持**、これが TOP の三共カード `data-search-text` に混入
+
+#### 18.5.5.1 ブランドカラー方針 (柏原 WebFetch 確認後)
+
+No.148 の三共ブランド (青+金、`id-sankyo.co.jp/`) は **三共固有** (HAL-TEC 貼合機メーカー + 油圧機器商社) で、理研機器とは別。流用は **ブランド整合性違反**。
+
+柏原 WebFetch で `rikenkiki.co.jp` を確認、理研機器固有のブランド情報を取得:
+- 1955 年創業、超高圧油圧機器メーカー
+- 70MPa / 200MPa / 300MPa / 400MPa クラス
+- 油圧シリンダー / ポンプ / バルブ / サーボシステム
+- 国内生産・国内修理
+
+新 No.141 maker_brand entry:
+```json
+"141": {
+  "name": "理研機器株式会社",
+  "primary": "#1B3A6B",          // 深いインダストリアルネイビー
+  "secondary": "#0F2347",
+  "accent": "#C9A961",            // ゴールド
+  "text_on_primary": "#FFFFFF",
+  "source": "https://www.rikenkiki.co.jp/",
+  "notes": "1955 年創業、超高圧油圧機器メーカー (70MPa/200MPa/300MPa/400MPa)、油圧シリンダー/ポンプ/バルブ/サーボシステム、国内生産・国内修理"
+}
+```
+
+#### 18.5.5.2 実装 (6 操作)
+
+1. **`data/maker_details.json`**:
+   - No.141 (riken-kiki) に No.148 の Q1-Q5 + reply_date + has_answer + status を Python script で移植 (name は既存「理研機器」維持)
+   - No.148 (sankyou) を空エントリ化 (name「三共㈱」維持、001/004/013 パターンに揃える)
+2. **`data/maker_brand.json`**:
+   - No.148 (三共㈱) entry 削除
+   - No.141 (理研機器株式会社) entry 新規追加
+3. **`data/maker_slugs.json`**:
+   - No.148 キー手動削除 (`  "147": "wakita",\n  "148": "sankyou"` → `  "147": "wakita"`)
+   - **→ ビルドで自動復活する (build_html.py は空エントリでも slug 生成、手動削除無意味)**
+4. **`prototype/m/sankyou/`**:
+   - 物理削除 (`rm -rf`)
+   - **→ ビルドで C tier skeleton として自動再生成 (8.6 KB)**
+5. **`data/makers.csv`** (想定外、ラウンド 5 で判明):
+   - No.141: `141,理研機器,,,false,` → `141,理研機器,,,true,`
+   - No.148: `148,三共㈱,SANKYO,,true,` → `148,三共㈱,,,false,` (name_short 空、has_answer false)
+6. **`data/maker_details_rewritten.json`** (想定外、ラウンド 5 で判明、**B 案として柏原採用**):
+   - No.148 を完全削除
+   - No.141 を新規追加 (148 の q1/q3/web_sources を移植)
+
+#### 18.5.5.3 重大トラップ整理
+
+1. **空エントリでも TOP に C tier カード「情報準備中」表示**: 柏原+Claude の前提「has_answer=false なら TOP 非表示」は誤り。既存空エントリ 001/004/013 も実際は TOP に出ていた (Claude の初期 grep で誤判定)。これは規約上の前例あり、許容パターン。
+2. **maker_slugs.json の手動編集は無意味**: build_html.py が空エントリでも slug を自動生成、毎回ビルドで `"148": "sankyou"` が復活 (git diff にも出ない、毎回同じ slug が再生成される)。
+3. **`data/maker_details_rewritten.json` は手動編集ファイル**: `scripts/` に rewriter なし。Q1-Q4 を移植/削除する時は手動同期が必要。
+4. **`data/makers.csv` の has_answer / name_short は独立管理**: maker_details.json と csv の両方を更新しないと TOP 表示判定が誤動作。
+
+これら 4 トラップは memory に追記済 (`feedback_maker_entry_sync.md`):
+> メーカーエントリの追加/削除/空化は 4 ファイル同期 + 2 ファイル自動再生成を理解した上で進める。1 ファイル編集では絶対に完結しない
+
+#### diff
+
+7 files / +706 / -707:
+```
+data/maker_brand.json             |  17 +-
+data/maker_details.json           |  36 +-
+data/maker_details_rewritten.json |  24 +-
+data/makers.csv                   |   4 +-
+prototype/index.html              |  32 +-
+prototype/m/riken-kiki/index.html | 650 ++++
+prototype/m/sankyou/index.html    | 650 ----  (旧三共内容 → 空 skeleton への置換)
+```
+
+#### 検証 grep (実装後)
+
+```
+TOP「理研機器」    = 3  (A tier カード)
+TOP「三共」        = 2  (C tier「情報準備中」カード、規約準拠の許容パターン)
+TOP「70MPa〜400MPa」 = 1  (No.141 search-text のみ、No.148 から消去成功)
+TOP「理研機器の油圧機器を展示」 = 1  (No.141 search-text のみ)
+m/riken-kiki: 理研機器=6, 70MPa〜400MPa=3, rikenkiki.co.jp=1
+m/sankyou (空 skeleton): 理研機器=0, 70MPa=0
+```
+
+#### 残置 / 未処理
+
+- `data/maker_brand.json:141.notes` で web_sources `https://id-sankyo.co.jp/service-cat/riken/` のまま移植済。これは「三共サイト内の理研機器商品ページ」、本来は `rikenkiki.co.jp` 公式が筋だが元データ尊重で残置。後で柏原最終承認時に修正可能。
+
+### 18.5.6 push + CF Pages 反映 (3 commit 一括)
+
+`0c3cf5a..8c2d25e` (78a4f17 / 947d34b / 8c2d25e の 3 commit 一括) を push、CF Pages 反映 **42 秒**。本番 grep 10/10 PASS:
+
+```
+Sharp MJ:
+  販売を行っておらずレンタルサービス専用 = 1 ✓
+  レンタル品ではございません = 0 ✓
+  出荷代行を行っておりません = 1 ✓
+
+Exceed:
+  exceeds.co.jp = 1 ✓
+  https://exceed.co.jp = 0 ✓
+
+Sankyou → 理研機器:
+  m/riken-kiki: 理研機器=6, 70MPa=3, rikenkiki.co.jp=1 ✓
+  m/sankyou: 理研機器=0 ✓ (空 skeleton)
+  TOP: 理研機器=3 ✓ (A tier カード)
+```
+
+本番 URL:
+- https://twf2026-portal.pages.dev/m/sharp-marketing-japan/
+- https://twf2026-portal.pages.dev/m/ekushiido/
+- https://twf2026-portal.pages.dev/m/riken-kiki/
+- https://twf2026-portal.pages.dev/m/sankyou/ (空 C tier skeleton)
+
+## 18.6 理研機器 (No.141) TOP card 用シネマヒーロー画像生成 [82df587]
+
+### 経緯
+
+8c2d25e で No.141 が A tier (has_answer=true) 化された結果、TOP card に hero illustration が必要となった。直前の Sankyou → 理研機器統合で `prototype/index.html:2552` に `<img class="maker-card-illust" src="assets/maker-illustrations/141.png" alt="理研機器 製品イメージ" onerror="...">` が埋め込まれたが、141.png 不在のため onerror で画像が削除されていた状態。
+
+### 既存 hero 画像生成スキル
+
+`scripts/generate_maker_illustrations.py` の A 層シネマティック工業シーン画像生成スクリプトを使用。
+- モデル: gpt-image-1
+- サイズ: 1024×1024 正方形 (quality=medium)
+- 出力先: `prototype/assets/maker-illustrations/{maker_no}.png`
+- スタイル: シネマティック写真風、暗い工業背景、暖色オレンジアクセント (溶接アーク / 火花 / 遠方炉火)、文字・ロゴなし
+- 単独生成: `python scripts/generate_maker_illustrations.py --only 141`
+
+### PRODUCTS dict 追加 (1 行)
+
+`scripts/generate_maker_illustrations.py` の PRODUCTS dict に "141" エントリ追加 (140 と 142 の間):
+
+```python
+"141": "Cinematic close-up of an ultra-high-pressure industrial hydraulic cylinder with a polished chrome piston rod extending from a heavy steel housing, a compact high-pressure hydraulic hand pump (400MPa class) on a thick steel workbench beside it, precision-machined stainless steel high-pressure valves and braided hydraulic hoses arrayed around them, oil sheen catching warm orange light from distant furnace fires, dark industrial workshop atmosphere, dramatic spotlight on the chrome surfaces, professional industrial photography",
+```
+
+理研機器の brand notes (「1955 年創業、超高圧油圧機器メーカー、70MPa/200MPa/300MPa/400MPa、油圧シリンダー/ポンプ/バルブ/サーボシステム」) を反映。
+
+### 生成結果
+
+- 1.35 MB (1,354,207 bytes、142.png 1.31MB と同等)
+- 1 回試行で成功 (`GEN 141 [gpt-image-1] (attempt 1/3)` → `OK`)
+- 視覚確認: 油圧シリンダー (クロームピストン) + ハンドポンプ + バルブ + 暖色アクセント、文字/ロゴなし、規約遵守
+
+### diff
+
+2 files / +1:
+- `scripts/generate_maker_illustrations.py` PRODUCTS dict +1 行
+- `prototype/assets/maker-illustrations/141.png` 新規
+
+`prototype/index.html` 変更なし (直前の 8c2d25e で `<img>` 要素は既に埋め込み済、画像ファイル新規作成で onerror から復帰)。
+
+### push + CF Pages 反映
+
+`8c2d25e..82df587` を push、CF Pages 反映 **36 秒**。本番確認:
+```
+HEAD https://twf2026-portal.pages.dev/assets/maker-illustrations/141.png
+HTTP/1.1 200 OK
+Content-Type: image/png
+ETag: "fc0423b26c3820b9b7ba9489b132f729"
+```
+
+理研機器カードに hero 画像表示が反映。
+
+## 18.7 attachment 同期 (柏原ローカル作業) [9375339 / 29d989b]
+
+### 9375339 (00:31): F-class correction PDFs and YUASA 3 社 attachments for cross-PC sync
+
+- F 分類修正対応 PDF 受領 + 配置: フジ訂正箇所 / 重松訂正箇所 / エクセル貿易赤入れ等
+- YUASA 関連 3 社の attachments (2604_JHC1630KAL_A4.pdf 等、別社の受領分も同期)
+- 8 files / +58,143 insertions (PDF テキスト bin 経由)
+- chore コミットで cross-PC sync 目的
+
+### 29d989b (00:45): add F-class attachments with 社名プレフィックス
+
+- 3M 安全衛生 / 3M 研磨材 / 重松 / エクセル貿易の attachments を **社名プレフィックス付き** で配置
+- フジ訂正箇所を rename
+- 8 files / +5,236 insertions
+- F 分類 Task 3-8 の指示書作成準備段階の attachment 整理
+
+これらは柏原のローカル作業 (Claude チャット外) として実行。本日完結タスクではないが、明日以降の F 分類 Task 3-8 (3M 段階 A+B / Fuji / Shigematsu / Yokota / Matsumoto Excel) の準備として完了。
+
+## 18.8 本日の重大トラップと回避策 (memory に追記済)
+
+### 18.8.1 PowerShell の git log で改行喪失 [`feedback_powershell_git_log_newlines.md`]
+
+**事象**: PowerShell で `$prev = git log -1 --format=%B` のように commit message を変数取得すると、改行 (LF) が空白に変換されて 1 行に潰れる。その変数を `--amend -F <file>` 経由で書き戻すと、commit message が改行なしの 1 行コミットになる。
+
+**発生 commit**: `9e80e48` (Phase 2-U OTOS broken amend)
+
+**回避**: commit message の取得・加工・amend は **Bash 経由** で行う:
+```bash
+git show -s --format=%B HEAD > /tmp/msg.txt   # Bash なら LF 保持
+cat >> /tmp/msg.txt <<'EOF'
+追記行...
+EOF
+git commit --amend -F /tmp/msg.txt
+```
+
+**失敗検知の目安**: `git log --oneline -1` の出力で subject 行が異常に長い (本来 body だった部分が subject に混入している)。
+
+### 18.8.2 メーカーエントリ操作は 4 ファイル同期 + 2 ファイル自動再生成 [`feedback_maker_entry_sync.md`]
+
+**事象**: 三共→理研機器統合で、当初 maker_details.json だけ編集 → ビルド後に「TOP に三共カードが残る」「rewritten が引き継がれない」「maker_slugs.json 手動削除が毎回復活」の 3 連続トラブル発生。
+
+**手動同期が必要な 4 ファイル**:
+1. `data/makers.csv` (canonical 147-maker list、列: no/name/name_short/category/has_answer/pamphlet_page) — **TOP 表示の最終判定**
+2. `data/maker_details.json` (出展者回答 merge データ)
+3. `data/maker_details_rewritten.json` (手動編集ファイル、`scripts/` に rewriter なし、47 entries のみ)
+4. `data/maker_brand.json` (ブランドカラー + source URL — official_url の出力元)
+
+**自動再生成される 2 ファイル — 手動編集無意味**:
+1. `data/maker_slugs.json` (ビルド時に csv 全エントリから slug 生成、空エントリ含む。手動削除しても次のビルドで復活)
+2. `prototype/m/<slug>/index.html` (build_html.py の 3-tier ポリシーで空エントリも C tier skeleton 生成、`rm -rf` しても再生成)
+
+### 18.8.3 空エントリも TOP に C tier カードで表示 (前例あり)
+
+**事象**: `has_answer=false` の空エントリ (001 ㈱アカサカテック / 004 アデリア㈱ / 013 ㈱ＡＩＲＭＡＮ 等) も TOP に C tier「情報準備中」カードとして残存している。「TOP 非表示」を目指す要求は build_html.py 改修なしには達成不可能。
+
+**判断**: 空 C tier カード残存は規約準拠の許容パターン。検証 grep の期待値は「0 ではなく ≥1」が正解。
+
+### 18.8.4 Codex CLI adversarial-review の有効性
+
+本日 5 回投入 (Phase 2-U 事前 / Phase 2-U 実装後 / Phase 2-T 事前 / Phase 2-T 実装後 / F 分類計画) で **すべて致命指摘を発見**:
+- Phase 2-U 事前 → C 案推奨 (柏原 A 案傾倒を否定)
+- Phase 2-U 実装後 → a11y title 不足 + 「設置場所自由」原文乖離
+- Phase 2-T 事前 → A 案推奨だが「CRX プラットフォーム再構築」(柏原原案を再構築)
+- Phase 2-T 実装後 → CRX/CR 系列混同 + official_url 撤回 (Claude 独断変更を 1 件発見)
+- F 分類計画 → 3 件の前提誤認 (slug `exceed` ではなく `ekushiido` / 三共と理研機器の二重化 / 3M 事業部分け未確定)
+
+**結論**: Codex adversarial review は実装着手前 + 実装後の両タイミングで必須化が望ましい。コスト < 防げた回帰の損害。
+
+### 18.8.5 `tmp_codex_*.log` のエンコーディング
+
+PowerShell `[Console]::OutputEncoding=UTF-8` が ConstrainedLanguage で弾かれ、Codex log の冒頭〜中盤がコンソール出力残骸の mojibake になる。**実 Codex 出力は末尾 (`tokens used` の直前)** のみ有効。読む時は `tail` か後半オフセット指定で。
+
+## 18.9 残タスク (Task 3-8、明日以降)
+
+### F 分類 Task 3-8 (本日未着手)
+
+| # | メーカー | 状態 |
+|---|---|---|
+| 3 | Fuji | スペック訂正、修正原稿.pdf 受領済、表まで含めた grep リスト化 → 柏原指示書作成待ち |
+| 4 | Shigematsu | 型番 -IV 追加、訂正箇所.pdf 受領済、全出現箇所 grep 必要 |
+| 5 | Yokota | 5 点誤表記、リーフレット入手後着手 |
+| 6 | Matsumoto Excel | 多数の赤入れ、PDF 受領済、価格表・型番表・PDF ラベル同期必要 |
+| 7 | 3M 段階 A | 既存ページに今村さん修正 7 点反映 (柏原指示書作成待ち) |
+| 8 | 3M 段階 B | 研磨材事業部 新 No 新規エントリ (空き maker_no 確認 + 青柳さん Q1-Q4 で構築) |
+
+### Phase 2-V〜 (TWF みどころ特集の他メーカー追加 hero / その他充実化)
+
+- 残 8 社のうち F 分類で対応した 3 社以外の充実化判断
+- 本田次長メール返信受領後、ファナック (No.106) の TWF2026 出展機種・連携メーカーを追補予定
+
+## 18.10 本日のセッション運用メモ
+
+### 主要セッション 3 つの時間配分
+
+| セッション | 時間帯 | 内容 | commit |
+|---|---|---|---|
+| Phase 2-X 後退 (前日 → 早朝) | 02:30-02:50 | ダイヘン AiTran 誇張後退 + 検証 | 62ae62f, 75269b3 |
+| Phase 2-U / Phase 2-T | 15:00-20:50 | OTOS + ファナック topics.json 充実化 + Codex review × 4 | f97f00f, 0c3cf5a |
+| F 分類 + 画像生成 + sync | 21:40-00:45 | Sharp MJ + Exceed + 三共→理研機器 + hero 画像 + attachment 同期 | 78a4f17, 947d34b, 8c2d25e, 82df587, 9375339, 29d989b |
+
+### Claude / Codex 役割分担
+
+- **柏原 Claude.ai** (claude.ai 側): 戦略・JSON 原案・判断確定・出展者意図解釈
+- **CC (Claude Code)**: 実装・grep 検証・ビルド・commit・push・本番反映確認・memory 維持
+- **Codex CLI**: adversarial review (実装前 + 実装後の両 phase、計 5 回投入で 11 件の致命指摘発見)
+
+### 並列 Agent 起動回数
+
+本日の並列 PowerShell + Bash 同時起動: 計 ~30 回 (主に CF Pages polling のバックグラウンド実行 + 並列 grep 調査)。
+
+### 動画/画像投入量
+
+- mp4 動画: 2 本 (OTOS demo_01/02、合計 19.7 MB、partial 経由埋め込み)
+- PNG 画像: 1 枚 (理研機器 hero、1.35 MB、gpt-image-1 生成)
+- PDF (attachment): 多数 (柏原ローカル sync、計 ~70 MB)
+
+### memory 追記
+
+- `feedback_powershell_git_log_newlines.md` 新規 (Phase 2-U amend 失敗で発見)
+- `feedback_maker_entry_sync.md` 新規 (三共→理研機器統合で発見、4 ファイル同期 + 2 ファイル自動再生成)
+- `MEMORY.md` インデックス 2 行追加
+
+## 18.11 commit ハッシュサマリ (HANDOFF 後の 10 commit)
+
+```
+29d989b 2026-05-16 00:45  chore: F 分類 attachments (3M 安全衛生/3M 研磨材/重松/エクセル貿易) + フジ rename
+9375339 2026-05-16 00:31  chore: F 分類 correction PDFs + YUASA 3 社 attachments cross-PC sync
+82df587 2026-05-16 00:17  feat: 理研機器 (No.141) TOP card hero illustration (gpt-image-1)
+8c2d25e 2026-05-16 00:03  fix: F 分類 - 三共 → 理研機器統合 (No.148 → No.141、7 files / +706/-707)
+947d34b 2026-05-15 21:49  fix: F 分類 - エクシード (No.015) official_url 修正
+78a4f17 2026-05-15 21:41  fix: F 分類 - シャープMJ アイススラリー注意書き
+0c3cf5a 2026-05-15 20:41  feat: Phase 2-T ファナック (106) 充実化 (Codex CRX/CR 系列混同 + URL 撤回反映)
+f97f00f 2026-05-15 15:10  feat: Phase 2-U OTOS (019) 充実化 + partial に mp4_videos[] スキーマ (a11y title 反映)
+75269b3 2026-05-15 02:49  fix: Phase 2-X 追補 (ダイヘン AiTran 全面後退)
+62ae62f 2026-05-15 02:33  fix: Phase 2-X 誇張表現の営業安全化
+```
+
+全 commit が origin/main 反映済 (HEAD = 29d989b、CF Pages 反映確認済 / 本番 grep 全件 PASS)。
+
+---
+
+**5/15 (金) フル作業ログ追記終了。Phase 2-U / 2-T / F 分類 3 社 / hero 画像生成 + 重大トラップ 4 件の learning は本パートと memory に保存済。明日の Task 3-8 への引き継ぎ準備完了。**
+
+— 2026-05-16 (土) 01:30 JST、自宅 PC (`D:\repos\twf2026-portal\`)
+
+---
+
 **お疲れ様。これ 1 本で TWF2026 ポータルの全領域が把握できるはず。何か質問あれば柏原に直接聞いて。**
 
 — 5/15 (金) 00:30 JST、自宅 PC (`C:\repos\twf2026-portal\`)
