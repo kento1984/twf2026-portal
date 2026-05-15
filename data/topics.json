@@ -475,50 +475,63 @@
           },
           {
             "maker_no": 19,
-            "maker_name": "オートスイング (OTOS)",
             "maker_slug": "ootosuingu-otos",
-            "product_name": "溶接カメラ Ray-X WGC-200/400",
-            "tagline": "アーク光の壁を超え、溶融池をクリア観察",
+            "maker_name": "㈱オートスイング (OTOS)",
+            "product_name": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+            "tagline": "アーク光下でも溶接箇所をクリア観察、品質検証と遠隔監視を支援",
             "image_url": "/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg",
-            "official_url": "https://otos.tech/",
+            "official_url": "https://www.otos.tech/",
             "is_first_exhibit": false,
             "is_new_product": false,
-            "what_is": "アーク光・ヒュームの影響を受けずに、アーク・溶融池・溶接線・周辺をリアルタイムで観察できる超小型産業用溶接カメラ。WGC-200 は有線、WGC-400 は有線+Wi-Fi 同時伝送 (1920×1080)。ヘルメット内蔵型と自動化用の 2 タイプ。",
+            "what_is": "OTOSWING は溶接アークを鮮明に可視化する独自カメラ技術を持つ韓国 OTOS 社のソリューション。Ray-X シリーズ (WGC200: 有線 HD-SDI / WGC400: Wi-Fi6 無線対応) は超小型・軽量で、ロボット溶接機やキャリッジ溶接機に取付可能。同シリーズには遮光面内蔵型のヘルメット型 WG3+ もラインアップ。手溶接・自動溶接いずれにも対応し、品質検証・技能教育・遠隔監視に活用できる。",
             "improvement": {
-              "headline": "Wi-Fiで複数人同時閲覧 / 初心者でもベテランの『見え方』を再現",
-              "before": "アークが眩しすぎて溶融池・ビード形成が肉眼で見えず、ベテランの勘と経験頼り。新人教育は手元の再現に時間がかかり、不具合発生時も「なぜ起きたか」を後追いできない。",
-              "after": "Wi-Fi 動画をサーバー保存・複数人同時リアルタイム閲覧で、現場と事務所/教育担当が同じ映像を共有。初心者でもアーク・溶融池を見ながら作業可能。ロボット搭載時は溶融池サイズ/アーク長/シーム位置をリアルタイム抽出。"
+              "headline": "アーク光下での溶接観察を実現 / フルHD 1920×1080 鮮明可視化 / 152g〜274g 超小型でロボット搭載可",
+              "before": "業界一般で見られる課題：アーク光が強くて溶接箇所の状態が肉眼で確認しにくく、品質検証・技能教育・遠隔監視のいずれも難しい。映像記録の手段が限られ、技能伝承や原因究明にも時間がかかる。",
+              "after": "OTOSWING のフォトセンサー機能で溶接光を認識し、アーク光下でも溶融池やビードを鮮明に観察可能。WGC200 は 152g・HD-SDI 出力、WGC400 は 274g・Wi-Fi6 で無線伝送に対応。動作温度 -10〜60℃、消費電力 MAX 3W、強制冷却不要・補助照明不要で設置場所自由 (リーフレット原文)。オプション WVMS-A 採用時はアーク長・溶接シム位置・ビード幅などの計測も可能。"
             },
             "target_scenarios": [
               {
-                "industry": "中小溶接事業所",
-                "detail": "ベテラン引退で技能伝承が急務、新人教育を映像で効率化"
+                "industry": "溶接モニタリング",
+                "detail": "作業者による機器制御、または完全自動化段階での映像確認に対応"
               },
               {
-                "industry": "ロボット溶接ライン",
-                "detail": "溶融池リアルタイム計測でアダプティブ制御"
+                "industry": "溶接自動化 (測定)",
+                "detail": "ロボット溶接・キャリッジ溶接の映像モニタリングに活用可能"
               },
               {
-                "industry": "遠隔監視/多拠点支援",
-                "detail": "本社/熟練者が複数現場の溶接品質を同時確認"
+                "industry": "溶接品質検査",
+                "detail": "リアルタイムで溶接品質の客観評価を支援"
               },
               {
-                "industry": "厚板/構造物溶接",
-                "detail": "大型ワークで作業者から見えない部位をモニタで確認"
+                "industry": "技能教育・技能伝承",
+                "detail": "熟練溶接者の目線を動画記録、後継者教育や品質トレーニングに活用可能"
+              }
+            ],
+            "twf_highlights": [
+              "🎯 ブース内体験: OTOSWING 溶接カメラの実機デモを随時実施",
+              "🎬 撮影サンプル動画: GMAW / FCAW / Orbital GTAW など複数の溶接プロセスでの可視化映像を会場で展示",
+              "🔗 保護具同時展示: F2i 溶接ヘルメット (保護具) も合わせて展示"
+            ],
+            "mp4_videos": [
+              {
+                "src": "/attachments/株式会社オートスイング/OTOSWING_demo_01.mp4",
+                "label": "実機デモ① アーク溶接の鮮明可視化"
               },
               {
-                "industry": "溶接訓練校",
-                "detail": "アーク現象の可視化教材"
+                "src": "/attachments/株式会社オートスイング/OTOSWING_demo_02.mp4",
+                "label": "実機デモ② 溶接ビード観察"
+              }
+            ],
+            "materials": [
+              {
+                "label": "OTOSWING 溶接カメラ ご紹介リーフレット",
+                "url": "/attachments/株式会社オートスイング/250704_OTOSWING_リーフレット.pdf"
               }
             ],
             "gallery_images": [
               {
-                "src": "/assets/topics/productivity-solutions/otos/otos_hero.jpg",
-                "alt": "OTOS 製品ラインアップ"
-              },
-              {
-                "src": "/assets/topics/productivity-solutions/otos/otos_main.jpg",
-                "alt": "OTOS 公式メイン画像"
+                "src": "/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg",
+                "alt": "Ray-X WGC200 / WGC400 製品外観"
               }
             ]
           },

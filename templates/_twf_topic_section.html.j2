@@ -251,6 +251,12 @@
   .twf-video-embed iframe {
     position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
   }
+  .twf-video-embed video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: contain;
+    background: #000;
+  }
   .twf-video-caption {
     font-size: 12px; color: #52525B; margin-top: 6px; font-weight: 600;
   }
@@ -493,6 +499,25 @@
             <iframe src="https://www.youtube.com/embed/{{ v.youtube_id }}?autoplay=1&mute=1&rel=0&modestbranding=1" title="{{ v.title }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
           </div>
           <div class="twf-video-caption">{{ v.title }}{% if v.duration %} ({{ v.duration }}){% endif %}</div>
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {# Phase 2-U: mp4 直接埋め込み (出展者提供デモ動画用) #}
+      {% if p.mp4_videos %}
+      <div class="twf-videos{% if p.mp4_videos|length > 1 %} multi{% endif %}">
+        {% for v in p.mp4_videos %}
+        <div>
+          <div class="twf-video-embed">
+            <video controls preload="metadata" playsinline
+                   title="{{ v.label }}"
+                   {% if v.poster %}poster="{{ v.poster }}"{% endif %}>
+              <source src="{{ v.src }}" type="video/mp4">
+              お使いのブラウザは動画再生に対応していません。
+            </video>
+          </div>
+          <div class="twf-video-caption">{{ v.label }}{% if v.duration %} ({{ v.duration }}){% endif %}</div>
         </div>
         {% endfor %}
       </div>
