@@ -1287,14 +1287,14 @@
       </div>
 
       <div class="filter-chips" role="list" aria-label="クイックフィルタ">
-        <button type="button" class="filter-chip" data-filter="ロボット|自動化|ロボメイト"><span class="filter-chip-icon">🤖</span>ロボット・自動化</button>
-        <button type="button" class="filter-chip" data-filter="保護|安全|防じん|墜落|ハーネス|ランヤード|遮光"><span class="filter-chip-icon">🛡️</span>保護具・安全</button>
-        <button type="button" class="filter-chip" data-filter="冷却|冷風|空調|スポットクーラー|暑熱|気化"><span class="filter-chip-icon">❄️</span>冷却・空調</button>
-        <button type="button" class="filter-chip" data-filter="溶接|アーク|レーザー|スポット溶接|スタッド|電源"><span class="filter-chip-icon">🔥</span>溶接・電源</button>
-        <button type="button" class="filter-chip" data-filter="切断|グラインダ|セーバーソー|チップソー|ランス|サンダー"><span class="filter-chip-icon">🪚</span>切断・電動工具</button>
-        <button type="button" class="filter-chip" data-filter="油圧|空圧|エアー|コンプレッサ|減圧弁"><span class="filter-chip-icon">⚙️</span>油圧・空圧</button>
-        <button type="button" class="filter-chip" data-filter="運搬|ハンドカー|ボンベ|スタンド|クレーン|クランプ|吊|スリング"><span class="filter-chip-icon">📦</span>物流・運搬</button>
-        <button type="button" class="filter-chip" data-filter="ドリル|研磨|バリ取り|測定|工具|ケーブル|ライト|照明"><span class="filter-chip-icon">🔧</span>工具・消耗品</button>
+        <button type="button" class="filter-chip" data-nav-category="ロボット・自動化" data-filter="ロボット|自動化|ロボメイト"><span class="filter-chip-icon">🤖</span>ロボット・自動化</button>
+        <button type="button" class="filter-chip" data-nav-category="保護具・安全" data-filter="保護|安全|防じん|墜落|ハーネス|ランヤード|遮光"><span class="filter-chip-icon">🛡️</span>保護具・安全</button>
+        <button type="button" class="filter-chip" data-nav-category="冷却・空調" data-filter="冷却|冷風|空調|スポットクーラー|暑熱|気化"><span class="filter-chip-icon">❄️</span>冷却・空調</button>
+        <button type="button" class="filter-chip" data-nav-category="溶接・電源" data-filter="溶接|アーク|レーザー|スポット溶接|スタッド|電源"><span class="filter-chip-icon">🔥</span>溶接・電源</button>
+        <button type="button" class="filter-chip" data-nav-category="切断・電動工具" data-filter="切断|グラインダ|セーバーソー|チップソー|ランス|サンダー"><span class="filter-chip-icon">🪚</span>切断・電動工具</button>
+        <button type="button" class="filter-chip" data-nav-category="油圧・空圧" data-filter="油圧|空圧|エアー|コンプレッサ|減圧弁"><span class="filter-chip-icon">⚙️</span>油圧・空圧</button>
+        <button type="button" class="filter-chip" data-nav-category="物流・運搬" data-filter="運搬|ハンドカー|ボンベ|スタンド|クレーン|クランプ|吊|スリング"><span class="filter-chip-icon">📦</span>物流・運搬</button>
+        <button type="button" class="filter-chip" data-nav-category="工具・消耗品" data-filter="ドリル|研磨|バリ取り|測定|工具|ケーブル|ライト|照明"><span class="filter-chip-icon">🔧</span>工具・消耗品</button>
       </div>
 
       <p class="search-empty" id="search-empty" hidden>該当するメーカーが見つかりませんでした。検索ワードを変えて再度お試しください。</p>
@@ -1308,14 +1308,19 @@
 
       <div class="maker-grid">
         {% for m in makers %}
-        {# data-search-text: メーカー名 + display_name + name_short + category + No.付番 + Q1〜Q3 リライト本文。
-           JS 側で toLowerCase + indexOf で部分一致絞り込み。q1-q3 が冷却/切断/溶接など業界キーワード検索を成立させる。 #}
-        {% set _search_blob = (m.name or '') ~ ' ' ~ (m.display_name or '') ~ ' ' ~ (m.name_short or '') ~ ' ' ~ (m.category or '') ~ ' No.' ~ ('%03d' | format(m.no)) ~ ' No' ~ ('%03d' | format(m.no)) ~ ' ' ~ (m.q1 or '') ~ ' ' ~ (m.q2 or '') ~ ' ' ~ (m.q3 or '') %}
+        {# data-search-text: メーカー名 + display_name + name_short + category + No.付番 + Q1〜Q3 + facets。
+           JS 側で toLowerCase + indexOf で部分一致絞り込み (検索ボックス用)。
+           data-nav-categories: 8 ボタン語彙 (pipe 区切り)、JS 厳密一致モードで使用。
+           data-facets: finer concept (pipe 区切り)、検索 blob にも合流し全文検索 hit。 #}
+        {% set _facets_str = (m.facets or []) | join(' ') %}
+        {% set _search_blob = (m.name or '') ~ ' ' ~ (m.display_name or '') ~ ' ' ~ (m.name_short or '') ~ ' ' ~ (m.category or '') ~ ' No.' ~ ('%03d' | format(m.no)) ~ ' No' ~ ('%03d' | format(m.no)) ~ ' ' ~ (m.q1 or '') ~ ' ' ~ (m.q2 or '') ~ ' ' ~ (m.q3 or '') ~ ' ' ~ _facets_str %}
         {% set _logo_text = m.name_short if m.name_short else m.display_name %}
         {% set _logo_long = (m.name_short and (m.name_short | length) > 8) or (not m.name_short and (m.display_name | length) > 8) %}
         <article class="maker-card maker-card-tier-{{ m.tier|lower }}"
                  data-tier="{{ m.tier }}"
                  data-search-text="{{ _search_blob }}"
+                 data-nav-categories="{{ m.nav_categories or '' }}"
+                 data-facets="{{ (m.facets or []) | join('|') }}"
                  {% if m.tier == 'A' and m.brand %}style="--brand-primary: {{ m.brand.primary }}; --brand-secondary: {{ m.brand.secondary }}; --brand-text: {{ m.brand.text_on_primary or '#FFFFFF' }};"{% endif %}>
           {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
           {% if m.tier == 'A' or m.tier == 'B' %}
@@ -1418,9 +1423,9 @@
       const totalDefault = totalSpan ? totalSpan.textContent : '';
       const chips = Array.from(document.querySelectorAll('.filter-chip'));
 
+      // 検索ボックス入力時の OR 部分一致 (旧ロジック維持、facets も検索対象)
       function applyQuery(raw) {
         const q = (raw || '').trim().toLowerCase();
-        // OR マッチ: q を '|' で分割して、いずれかにヒットすれば match
         const parts = q.split('|').map(s => s.trim()).filter(Boolean);
         let visible = 0;
         cards.forEach(c => {
@@ -1435,6 +1440,23 @@
         }
       }
 
+      // Step 7: 8 ボタン押下時の nav_categories 厳密一致モード
+      // data-nav-categories="ロボット・自動化|溶接・電源" を split して category と厳密一致するか判定。
+      // Codex policy 厳守: substring match ではなく == 一致のみ (偶発 recall を排除)。
+      function applyNavCategoryFilter(category) {
+        let visible = 0;
+        cards.forEach(c => {
+          const navs = (c.dataset.navCategories || '').split('|').map(s => s.trim()).filter(Boolean);
+          const match = navs.includes(category);
+          c.hidden = !match;
+          if (match) visible++;
+        });
+        if (empty) empty.hidden = (visible !== 0);
+        if (totalSpan) {
+          totalSpan.textContent = '絞り込み ' + visible + '/' + cards.length + '社 (' + category + ')';
+        }
+      }
+
       input.addEventListener('input', () => {
         // ユーザーが手入力に切り替えたらチップの選択を解除
         chips.forEach(c => c.classList.remove('is-active'));
@@ -1443,7 +1465,7 @@
 
       chips.forEach(chip => {
         chip.addEventListener('click', () => {
-          const filter = chip.dataset.filter || '';
+          const navCat = chip.dataset.navCategory || '';
           const wasActive = chip.classList.contains('is-active');
           chips.forEach(c => c.classList.remove('is-active'));
           if (wasActive) {
@@ -1451,8 +1473,15 @@
             applyQuery('');
           } else {
             chip.classList.add('is-active');
-            input.value = filter;
-            applyQuery(filter);
+            input.value = '';
+            if (navCat) {
+              applyNavCategoryFilter(navCat);
+            } else {
+              // フォールバック: data-nav-category が無い場合は旧 keyword 検索
+              const filter = chip.dataset.filter || '';
+              input.value = filter;
+              applyQuery(filter);
+            }
           }
           // スクロール位置を絞り込み結果の頭に
           const grid = document.querySelector('.maker-grid');
