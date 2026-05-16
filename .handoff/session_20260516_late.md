@@ -15,17 +15,48 @@
 
 ### 本セッション完了
 - 3d48445 feat(topics): ロボットバンク + 小森 D 根拠化 (Phase 2-V/2-W)
+- fae5d89 feat(topics): メサック D 根拠での再構築 (Phase 2-X 完了、新 session) ★
 
 ## 生産性向上コーナー 進捗 (11 社中)
 - ✅ OTOS/ファナック/ゼネテック/フロニウス/ダイヘン (前回まで)
 - ✅ ノビテック (Phase 2-U、本日朝着手 → 夜完了)
 - ✅ ロボットバンク (Phase 2-V、深夜完了)
 - ✅ 小森安全機研究所 (Phase 2-W、深夜完了)
-- ⏳ メサック (Phase 2-X、重大発見で新 session 持越し)
+- ✅ メサック (Phase 2-X、深夜 → 翌 00:00 完了、fae5d89)
 - ⛔ オプティレーザー (021、素材ゼロ、ヒアリング待ち別日)
 - ⛔ シンテック (052、素材ゼロ、ヒアリング待ち別日)
 
-**8 社完成、残 1 社 (新 session) + 2 社 (別日)**
+**9 社完成 (82%)、残 2 社 (別日アンケート待ち)**
+
+## Phase 2-X (129 メサック) 完了内容
+
+### 修正版 entry (data/topics.json L229-285)
+- product_name: 「ロボットつかみ方式塗装ブース」(PDF 主題一本化)
+- tagline: 「設置面積約 1 ㎡、省スペースな塗装ブース提案」
+- what_is: 静電気応用技術専門メーカー + PDF 主題 + 補助情報 (SIer / G05-G08 / ARG/RBG)
+- improvement: PDF 数値 (約 1 ㎡ / 30 ㎥/min / ホース 約 1m) で訴求
+- target_scenarios 4 → 3 件 (用途寄り、業界一般論削除)
+- twf_highlights 新規 3 件 (📐/💨/🎯、(PDF カタログ) 出典明示)
+
+### maker_details.json / makers.csv 同期
+- L2395 / L130 category: 「協働ロボット」→ 空欄
+- No.95 ワグナー前例採用、新規孤立 taxonomy 回避 (D 案)
+- nav_categories=ロボット・自動化 維持 (8 ボタン whitelist 不変)
+
+### E 創作 4 件全削除
+- ダイレクトティーチで教示可能 / 教示時間短縮
+- 自動車ドア 1 枚分の大面積を 1 台でカバー
+- 「防爆協働ロボット」表記 (公式は「防爆塗装ロボット SIer」のみ、「協働」未明示)
+
+### Codex 神回 7 連発 (事前 6 + 事後 1)
+- 事前 review 判定 C → PDF 主題一本化採用 (Codex 推奨 100%)
+- 事後 review 判定 B → maker_details.category 空欄化採用 (D 案、Codex 「freeze taxonomy なら別タスク OK」明示活用)
+- 公式 HP 補足発見: 試験施設 EPX1250/KF262 (協働ではない産業用塗装ロボット)、電界Power 90% 使用効率
+
+### Phase 2-X 教訓追加 (本日累計 8 件)
+6. メサック PDF と既存 entry が別ソリューション (Phase 2-H 整備時の品質チェック漏れ)
+7. taxonomy ノイズ (category 値 vs entry 主題の整合性、Codex 事後 review 発見)
+8. category 値の D 案 (空欄化) は No.95 ワグナー前例で安全に通る
 
 ## 新 session 即着手: Phase 2-X (129 メサック)
 
@@ -94,7 +125,10 @@ PDF (mesack_robot_painting.pdf) D 出典と既存 topics.json L230 entry が
 - CLAUDE.md 本書き込み (ドラフト C:/Users/boxeo/AppData/Local/Temp/CLAUDE_md_draft.md)
 - HANDOFF Part 19 本書き込み
 - C-Tier トグル方式高度化 (Codex 案 B、将来)
-- メサック PDF 残 2 本完全抽出
+- メサック PDF 残 2 本完全抽出 (mesack_business.pdf / mesack_system_engineering.pdf、画像のみ判定済、OCR or 画像化要)
+- 塗装メーカー taxonomy 整理 (005 アネスト岩田 / 095 日本ワグナー / 129 メサック、C 案「塗装ライン」採用検討、Codex facets_master 既存値あり)
+- メサック what_is 短縮版 (Codex 事後 review 推奨案、SKU 列挙簡素化、別日 polish 候補)
+- 生産性向上特集セクション見出し「① 協働ロボット」と entry 主題の整合 (taxonomy normalization と同時実施候補)
 
 ## 環境
 - repo: C:\repos\twf2026-portal\
