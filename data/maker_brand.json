@@ -732,5 +732,15 @@
     "source": "https://www.yamadacorp.co.jp/",
     "notes": "東京都大田区に本社を置くメーカー。エア駆動ポンプ、給油・潤滑機器、自動車整備機器、作業環境改善機器を展開。YUASA 経由 2026-05-15 受領。",
     "_group": "manual"
+  },
+  "149": {
+    "name": "スリーエムジャパン㈱ (研磨材製品事業部)",
+    "primary": "#DA291C",
+    "secondary": "#9E1B11",
+    "accent": "#FFCD00",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.3mcompany.jp/3M/ja_JP/abrasives-jp/",
+    "notes": "3M公式ブランドガイドライン上のコーポレートレッドは PANTONE 185 C 系で、Web/印刷で広く使用される PANTONE 485 C 相当の #DA291C を採用。3Mビジュアルアイデンティティでは赤を主軸に黄色をサブとする組み合わせが定番。研磨材事業部 (青柳様回答 2026-04-27 受領)。",
+    "_group": "group_b"
   }
 }
