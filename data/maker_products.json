@@ -2134,5 +2134,36 @@
       }
     ],
     "fetched_ok": false
+  },
+  "133": {
+    "name": "㈱ヤマダコーポレーション",
+    "_doc": "YUASA 経由 2 PDF (FBM + EG-400) + 公式サイト確認。主力 4 枠で構成。画像は未調達のためテキストオンリーカード初期投入。",
+    "products": [
+      {
+        "name": "局所排気装置 FBM-105 / FBM-205 / FBM-206",
+        "category": "新製品・移動式ポータブル集塵ユニット",
+        "image_url": "",
+        "source_page": "https://www.yamadacorp.co.jp/"
+      },
+      {
+        "name": "電動グリースガン EG-400BⅡ",
+        "category": "リチウムイオン DC-10.8V (40 MPa / 51 g/min)",
+        "image_url": "",
+        "source_page": "https://www.yamadacorp.co.jp/"
+      },
+      {
+        "name": "電動グリースガン EG-400AⅡ",
+        "category": "家庭用 AC-100V (40 MPa / 72 g/min)",
+        "image_url": "",
+        "source_page": "https://www.yamadacorp.co.jp/"
+      },
+      {
+        "name": "エア駆動ポンプ・ダイアフラムポンプ",
+        "category": "主力製品ライン",
+        "image_url": "",
+        "source_page": "https://www.yamadacorp.co.jp/"
+      }
+    ],
+    "fetched_ok": false
   }
 }

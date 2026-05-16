@@ -2451,19 +2451,27 @@
   "133": {
     "no": 133,
     "name": "㈱ヤマダコーポレーション",
-    "name_short": "",
-    "category": "",
-    "has_answer": false,
-    "status": "unknown",
-    "reply_date": null,
-    "q1": "",
-    "q2": "",
-    "q3": "",
-    "q4": "",
-    "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "name_short": "YAMADA",
+    "category": "作業環境向上ブース",
+    "has_answer": true,
+    "status": "answered",
+    "reply_date": "2026-05-15",
+    "q1": "局所排気装置 FBM シリーズのデモ展示を実施いたします。展示予定の主力機種は FBM-105 と EG-400BⅡです。",
+    "q2": "2 本アーム構成の移動式集塵ユニット FBM-205/206 を展示予定です。",
+    "q3": "局所排気装置 FBM シリーズのデモ展示を実施。FBM-105、EG-400BⅡをメインに計画しております。",
+    "q4": "会期中 (6 月中) の展示会場でお引合いいただいたご注文を対象とした特別キャンペーンを企画予定。",
+    "q5": "展示会用チラシは別途用意中 (来週火曜頃のご提供予定)。先行して製品単体のチラシを 2 種類掲載しております。",
+    "attachments": [
+      "チラシ_FBMシリーズ.pdf",
+      "チラシ_EG-400シリーズ.pdf"
+    ],
+    "attachment_dir": "株式会社ヤマダコーポレーション",
+    "company_dir": "株式会社ヤマダコーポレーション",
+    "attachment_labels": {
+      "チラシ_FBMシリーズ.pdf": "局所排気装置 FBM シリーズ ご紹介リーフレット",
+      "チラシ_EG-400シリーズ.pdf": "電動グリースガン EG-400 シリーズ (AC 100V / DC 10.8V リチウム)"
+    },
+    "_doc": "YUASA 牧野様経由で 5/15 夜に Q1-Q5 + 2 PDF 受領。pamphlet 非掲載 (C-Tier → A-Tier 格上げ)。Q2 出展者原文「業界高機能、唯一の移動式 2 本アームポータブル集塵ユニット」から、強い形容「業界高機能」「唯一」を削除して中立化、型番 FBM-205/206 を明示。Codex review 反映: brand notes 圧縮 + maker_products「発売 50 年」削除。"
   },
   "134": {
     "no": 134,

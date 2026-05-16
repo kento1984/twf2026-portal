@@ -722,5 +722,15 @@
     "source": "https://www.supertool.co.jp/",
     "notes": "大阪府堺市に本社を置く揚重・吊具メーカー。スクリューカムクランプ・ビームクランプ・アルミ製ジブクレーン/門型クレーン・S・M・A・Я・T (RFID 吊クランプ管理アプリ、国内初) を展開。コーポレートカラーは赤系。YUASA 経由 5/15 夜受領。",
     "_group": "manual"
+  },
+  "133": {
+    "name": "㈱ヤマダコーポレーション",
+    "primary": "#003F7F",
+    "secondary": "#001F4F",
+    "accent": "#E60012",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.yamadacorp.co.jp/",
+    "notes": "東京都大田区に本社を置くメーカー。エア駆動ポンプ、給油・潤滑機器、自動車整備機器、作業環境改善機器を展開。YUASA 経由 2026-05-15 受領。",
+    "_group": "manual"
   }
 }
