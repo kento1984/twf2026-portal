@@ -294,6 +294,32 @@
     background: rgba(255,255,255,0.28);
     transform: translateX(2px);
   }
+  .maker-hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    margin-top: 22px;
+  }
+  .maker-hero-cta-row .maker-hero-cta {
+    margin-top: 0;
+  }
+  .hero-related-link {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255,255,255,0.18);
+    color: #fff !important;
+    text-decoration: none !important;
+    border: 1.5px solid rgba(255,255,255,0.6);
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: background 0.15s;
+  }
+  .hero-related-link:hover {
+    background: rgba(255,255,255,0.32);
+  }
 
   /* === Properties panel (Notion風 metadata) === */
   .maker-props {
@@ -814,7 +840,9 @@
 <p class="maker-hero-cat">即売に力を入れて現品を多数出品。各コンプレッサの実サイズ感、設置スペースに対するイメージ、稼働時の音まで現場目線でご確認いただけます。</p>      <div class="maker-hero-badges">
         <span class="badge badge-special">限定特典あり</span>
       </div>
-      <a class="maker-hero-cta" href="https://www.anest-iwata.co.jp/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+      <div class="maker-hero-cta-row">
+        <a class="maker-hero-cta" href="https://www.anest-iwata.co.jp/" target="_blank" rel="noopener">公式サイトを見る ↗</a>
+      </div>
     </div>
   </header>
 
