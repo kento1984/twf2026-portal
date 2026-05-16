@@ -72,6 +72,7 @@ PRODUCTS = {
     "029": "Industrial stainless steel weld electrolytic cleaning machine",
     "031": "Industrial cordless angle grinder and reciprocating saw with sparks",
     "033": "Industrial welding robot performing arc welding on thick steel plate with bright orange sparks",
+    "035": "Cinematic industrial scene featuring a 3D safety radar sensor (compact mounted unit with FMCW antenna face) installed near a collaborative robot arm work cell, AI-powered safety camera mounted on overhead bracket monitoring the work zone, subtle blue scan beams visualizing safety detection zones, factory environment with safety floor markings and protective railings, dramatic warm overhead industrial lighting, dark factory atmosphere, professional industrial photography",
     "038": "Industrial cooling vest and air-conditioned workwear in hot factory environment",
     "039": "Industrial angle grinder and circular saw cutting metal with sparks",
     "040": "Industrial oxygen lance cutting steel with intense flames and molten sparks",
