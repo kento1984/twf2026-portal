@@ -773,6 +773,27 @@
     }
     .maker-card[hidden] { display: none !important; }
 
+    /* Step D-3b: A+B (詳細掲載中) と C (情報準備中) を別セクションで分離 */
+    .maker-section { margin-top: 32px; }
+    .maker-section:first-of-type { margin-top: 0; }
+    .maker-section-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--ink, #1F2937);
+      margin: 0 0 8px;
+      padding: 4px 0 4px 12px;
+      border-left: 4px solid var(--accent, #FF7A1A);
+    }
+    .maker-section-pending .maker-section-title {
+      border-left-color: var(--gray-300, #D1D5DB);
+      color: var(--gray-600, #4B5563);
+    }
+    .maker-section-intro {
+      font-size: 13px;
+      color: var(--gray-600, #4B5563);
+      margin: 0 0 16px 16px;
+    }
+
     .maker-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1306,16 +1327,11 @@
         <span class="tier-key tier-key-total">合計 {{ makers|length }}社</span>
       </div>
 
-      <div class="maker-grid">
-        {% for m in makers %}
-        {# data-search-text: メーカー名 + display_name + name_short + category + No.付番 + Q1〜Q3 + facets。
-           JS 側で toLowerCase + indexOf で部分一致絞り込み (検索ボックス用)。
-           data-nav-categories: 8 ボタン語彙 (pipe 区切り)、JS 厳密一致モードで使用。
-           data-facets: finer concept (pipe 区切り)、検索 blob にも合流し全文検索 hit。 #}
+      {# Step D-3b (Codex 推奨 (C) 案、2026-05-16): A+B と C を別セクションに分離。
+         macro 化で重複回避、検索 + 8 ボタンフィルタは両セクション横断のまま (JS 側で .maker-card 一括取得)。 #}
+      {% macro render_maker_card(m) %}
         {% set _facets_str = (m.facets or []) | join(' ') %}
         {% set _search_blob = (m.name or '') ~ ' ' ~ (m.display_name or '') ~ ' ' ~ (m.name_short or '') ~ ' ' ~ (m.category or '') ~ ' No.' ~ ('%03d' | format(m.no)) ~ ' No' ~ ('%03d' | format(m.no)) ~ ' ' ~ (m.q1 or '') ~ ' ' ~ (m.q2 or '') ~ ' ' ~ (m.q3 or '') ~ ' ' ~ _facets_str %}
-        {% set _logo_text = m.name_short if m.name_short else m.display_name %}
-        {% set _logo_long = (m.name_short and (m.name_short | length) > 8) or (not m.name_short and (m.display_name | length) > 8) %}
         <article class="maker-card maker-card-tier-{{ m.tier|lower }}"
                  data-tier="{{ m.tier }}"
                  data-search-text="{{ _search_blob }}"
@@ -1340,8 +1356,26 @@
             <a href="m/{{ m.slug }}/" class="maker-card-link is-link-block">{% if m.tier == 'A' %}詳細を見る{% elif m.tier == 'B' %}パンフを見る{% else %}情報準備中{% endif %}</a>
           </div>
         </article>
-        {% endfor %}
-      </div>
+      {% endmacro %}
+
+      {% if makers_main %}
+      <section class="maker-section maker-section-main">
+        <h3 class="maker-section-title">詳細掲載中 / パンフ掲載中 ({{ makers_main|length }}社)</h3>
+        <div class="maker-grid">
+          {% for m in makers_main %}{{ render_maker_card(m) }}{% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if makers_pending %}
+      <section class="maker-section maker-section-pending">
+        <h3 class="maker-section-title">情報準備中の出展メーカー ({{ makers_pending|length }}社)</h3>
+        <p class="maker-section-intro">ブース出展はあります。詳細情報は順次公開予定です。</p>
+        <div class="maker-grid">
+          {% for m in makers_pending %}{{ render_maker_card(m) }}{% endfor %}
+        </div>
+      </section>
+      {% endif %}
     </div>
   </section>
 

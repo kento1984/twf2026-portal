@@ -490,8 +490,20 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
     # furigana 列 (149 社投入済) を主、漢字 fallback で安定化
     cards.sort(key=make_sort_key)
 
+    # Step D-3b (Codex 推奨 (C) 案、2026-05-16): A+B と C を別セクションに分離
+    # A+B = 上段「詳細掲載中 / パンフ掲載中」、C = 下段「情報準備中の出展メーカー」
+    # 各セクション内で 50 音順維持、検索 + 8 ボタンフィルタは両セクション横断
+    makers_main = [c for c in cards if c["tier"] in ("A", "B")]
+    makers_pending = [c for c in cards if c["tier"] == "C"]
+
     tpl = env.get_template("top.html.j2")
-    html = tpl.render(makers=cards, counts=counts, topics=topics or {})
+    html = tpl.render(
+        makers=cards,
+        makers_main=makers_main,
+        makers_pending=makers_pending,
+        counts=counts,
+        topics=topics or {},
+    )
     (OUT_DIR / "index.html").write_text(html, encoding="utf-8")
     return len(cards)
 
