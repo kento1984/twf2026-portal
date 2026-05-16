@@ -546,48 +546,64 @@
             "maker_no": 97,
             "maker_name": "ノビテック",
             "maker_slug": "nobitekku",
-            "product_name": "Cavitar Welding Camera",
-            "tagline": "溶接中の溶融池を計測、破壊検査ゼロへ",
+            "product_name": "Cavitar Welding Camera (C350 / C400)",
+            "tagline": "アーク光の中で、溶融池がはっきり見える",
             "image_url": "/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg",
             "official_url": "https://www.nobby-tech.co.jp/welding/weldingcamera",
             "is_first_exhibit": false,
             "is_new_product": false,
-            "what_is": "レーザー照明とバンドパスフィルタの組合せで、アーク光・ヒュームを遮断し溶融池・ビード・周辺加工状況をクリアに撮影できる溶接モニターカメラ (フィンランド Cavitar 社製)。C300 モデルは 30×45×99mm・300g と超小型、解像度 1,440×1,080px、最大 70fps、画素分解能 0.027mm/pixel。",
+            "what_is": "フィンランド Cavitar 社製のレーザー光源付き溶接観察カメラ。バンドパスフィルターとレーザー波長を組み合わせ、アーク光・スパッタ・ヒュームの中でも溶融池や開先、ワイヤ突出長を高コントラストで撮影。現行は C350 (30×45×99mm/300g) と C400 (38×48.2×99.3mm/360g) の 2 モデル、最大解像度 1,440×1,080 px。フル解像度時の撮影速度は C400 70 fps / C350 200 fps、最高撮影速度は C400 100 fps / C350 500 fps (2×2 ビニング時)。日本国内では ㈱ノビテック が代理店として扱う。",
             "improvement": {
-              "headline": "破壊検査ゼロ化 / 不良その場で発見",
-              "before": "接合不良の原因がアーク中に直接見えず、製品を切断する破壊検査でしか確認できない。被覆アーク手溶接の「スラグが追いかけてくる」といった現象は言葉で伝えるしかなく、技能伝承が困難。検査工程に渡ってから不良発見→手戻り発生。",
-              "after": "溶接中にリアルタイムで溶融池面積・ビード幅を計測し、不具合をその瞬間に検出。検査工程に送る前の工程内で不良を捕捉でき、工数削減と不良流出防止を両立。発生メカニズムが映像で理解でき、手溶接技術者の育成システムとしても活用可能。"
+              "headline": "見えない溶接を、見える溶接へ",
+              "before": "アーク光やヒュームの影響で溶接中の状態を直接確認しにくく、不具合の発生要因や条件差の把握に時間がかかる。教育も溶接面越しの見学に頼りやすく、共有できる情報が限られる。",
+              "after": "Cavitar Welding Camera で溶融部や周辺状態を可視化し、条件確認や不具合要因の把握を行いやすくする。映像や数値として記録を残せるため、工程の振り返りや教育資料化にも活用できる。"
             },
             "target_scenarios": [
               {
-                "industry": "自動車部品メーカー",
-                "detail": "アルミ部品アーク溶接の溶融池面積・ビード幅をリアルタイム計測"
+                "industry": "溶接不具合の監視と原因確認",
+                "detail": "公式アプリケーションの「溶接不具合監視」「リアルタイム計測」に対応。アーク発生から終端まで溶融池を観察記録し、不良発生の瞬間を捕捉。"
               },
               {
-                "industry": "建築/構造物厚板",
-                "detail": "突合せ溶接のモニタリング"
+                "industry": "長時間記録による工程の振り返り",
+                "detail": "公式の「長時間記録システム」用途。映像を残して後工程での原因確認や条件比較に活用。"
               },
               {
-                "industry": "手溶接技能伝承現場",
-                "detail": "被覆アーク溶接の現象を映像化、ベテランのコツを可視化教材に"
+                "industry": "TIG 手溶接の可視化・教育",
+                "detail": "公式メディア記事 (TIG 事例) より、30 fps / 1,440×1,080 px でウィービング動作や溶化棒の動きを可視化、モニター教育に活用。"
               },
               {
-                "industry": "研究/品質保証部門",
-                "detail": "TIG/MAG/MIG/プラズマクラッド/レーザー溶接の解析"
+                "industry": "被覆アーク溶接のスラグ/プール可視化",
+                "detail": "公式メディア記事 (被覆アーク事例) より、30 fps で被覆アーク溶接全工程を可視化、スラグとプールの区別を確認しやすくし、記録・比較に活用。"
               },
               {
-                "industry": "金属3Dプリンタ/溶断ライン",
-                "detail": "プロセス安定性の可視化計測"
+                "industry": "AI 画像判定による自動判定",
+                "detail": "公式アプリケーション「リアルタイム判定 (AI 画像判定システム)」。Cavitar の高コントラスト映像を AI 解析と組合せ、不良検知の自動化に活用。"
               }
+            ],
+            "twf_highlights": [
+              "👀 みどころ: 溶接の「視える化」 — バンドパスフィルター + レーザー照明で、アーク光・ヒュームの中でも溶融池をクリアに撮影 (Q3 + 公式 HP)",
+              "🤖 可視化方式: バンドパスフィルターで不要光をカットし、レーザー照明の当たった部分を高コントラストで撮影 (公式 HP)",
+              "🎯 出展予定機種: Cavitar Welding Camera C350 / C400 (Q1 出展予定品より)"
             ],
             "gallery_images": [
               {
+                "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg",
+                "alt": "Cavitar Welding Camera C シリーズ製品本体"
+              },
+              {
                 "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_arc.jpg",
-                "alt": "アーク可視化"
+                "alt": "アーク光下での溶融池撮影サンプル"
               },
               {
                 "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_setup.jpg",
-                "alt": "設置例"
+                "alt": "ロボットアーム搭載例 — トーチ近傍に C シリーズを設置"
+              }
+            ],
+            "materials": [
+              {
+                "url": "/attachments/株式会社ノビテック/CavitarWeldingCameraカタログPDF.pdf",
+                "label": "ノビテック Cavitar Welding Camera 詳細カタログ (6 ページ)",
+                "icon": "📄"
               }
             ]
           }
