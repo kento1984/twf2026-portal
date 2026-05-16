@@ -42,6 +42,7 @@ STATUS_PATH = ROOT / "data" / "maker_status.json"
 PDF_EXTRACTS_PATH = ROOT / "data" / "pdf_extracts.json"
 PRODUCTS_PATH = ROOT / "data" / "maker_products.json"
 TOPICS_PATH = ROOT / "data" / "topics.json"
+TAXONOMY_PATH = ROOT / "data" / "maker_taxonomy.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
 TOPICS_OUT = OUT_DIR / "topics"
@@ -234,17 +235,51 @@ def load_products() -> dict:
     return _load_kv_json(PRODUCTS_PATH)
 
 
+def load_taxonomy() -> dict:
+    """data/maker_taxonomy.json — nav_categories whitelist + facets master + maker entries.
+
+    Structure:
+      {"vocab": {"nav_categories": [...8値...], "facets_master": [...controlled...]},
+       "makers": {"NNN": {"facets": [...], "confidence": "high|medium|low", "evidence": "..."}}}
+    """
+    if not TAXONOMY_PATH.exists():
+        return {"vocab": {"nav_categories": [], "facets_master": []}, "makers": {}}
+    with TAXONOMY_PATH.open(encoding="utf-8") as f:
+        return json.load(f)
+
+
+def validate_nav_categories(makers: list[dict], taxonomy: dict) -> list[str]:
+    """makers.csv の nav_categories 値が taxonomy.vocab.nav_categories 8 値の whitelist 内か検証。
+
+    違反は warning として返す (build 続行)。Step 6/Codex policy 厳守: 厳密一致のみ許可。
+    """
+    allowed = set((taxonomy.get("vocab") or {}).get("nav_categories") or [])
+    errors: list[str] = []
+    for m in makers:
+        nc = (m.get("nav_categories") or "").strip()
+        if not nc:
+            continue
+        for tag in nc.split("|"):
+            t = tag.strip()
+            if t and t not in allowed:
+                errors.append(f"No.{m['no']:>3} {m.get('name', '?')}: 不正な nav_categories 値 '{t}'")
+    return errors
+
+
 def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None,
                  rewrites: dict | None = None,
                  brand: dict | None = None, status: dict | None = None,
-                 pdf_extracts: dict | None = None, products: dict | None = None) -> dict:
-    """Combine csv row + json detail (+ pamphlet index + rewrites + brand/status/pdf/products)."""
+                 pdf_extracts: dict | None = None, products: dict | None = None,
+                 taxonomy: dict | None = None) -> dict:
+    """Combine csv row + json detail (+ pamphlet index + rewrites + brand/status/pdf/products + taxonomy)."""
     no = int(csv_row["no"])
     rec = dict(json_rec)  # has_answer, q1-q5, attachments, attachment_dir, reply_date, ...
     rec["no"] = no
     rec["name"] = csv_row["name"]
     rec["name_short"] = csv_row.get("name_short", "")
     rec["category"] = csv_row.get("category", "")
+    # Step 6: 8 ボタン nav_categories (pipe 区切り、whitelist 検証は呼出側で実施)
+    rec["nav_categories"] = csv_row.get("nav_categories", "")
     pp = csv_row.get("pamphlet_page", "")
     rec["pamphlet_page"] = int(pp) if pp.strip().isdigit() else (pp if pp else "")
 
@@ -280,6 +315,12 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
     rec["status_badges"] = ((status or {}).get(key) or {}).get("badges") or []
     rec["pdf_extract"] = (pdf_extracts or {}).get(key) or None
     rec["products"] = (products or {}).get(key) or None
+
+    # Step 6: maker_taxonomy.json から facets + confidence + evidence を注入
+    tax_entry = ((taxonomy or {}).get("makers") or {}).get(key) or {}
+    rec["facets"] = tax_entry.get("facets") or []
+    rec["taxonomy_confidence"] = tax_entry.get("confidence", "")
+    rec["taxonomy_evidence"] = tax_entry.get("evidence", "")
     return rec
 
 
@@ -314,7 +355,7 @@ def build_twf_topic_index(topics, target_topic_slugs=None):
     return by_slug
 
 
-def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None):
+def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None):
     tpl_for = {
         "A": env.get_template("maker_full.html.j2"),
         "B": env.get_template("maker_pamphlet.html.j2"),
@@ -324,7 +365,7 @@ def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pd
     counts = Counter()
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products, taxonomy=taxonomy)
         rec["slug"] = m["__slug"]
         tier = tier_for(rec)
         rec["tier"] = tier
@@ -348,11 +389,11 @@ def load_topics():
         return json.load(f)
 
 
-def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None):
+def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None):
     cards = []
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products, taxonomy=taxonomy)
         rec["slug"] = m["__slug"]
         rec["tier"] = tier_for(rec)
         rec["display_name"] = (rec["name_short"] or rec["name"]).strip()
@@ -439,8 +480,20 @@ def main():
     products = load_products()
 
     topics = load_topics()
-    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics)
-    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics)
+    taxonomy = load_taxonomy()
+
+    # Step 6: nav_categories whitelist 検証 (Codex policy 厳守: 8 ボタン語彙以外は build warning)
+    nav_errors = validate_nav_categories(makers, taxonomy)
+    if nav_errors:
+        print(f"WARNING: nav_categories whitelist 違反 {len(nav_errors)} 件:")
+        for e in nav_errors:
+            print(f"  {e}")
+    else:
+        allowed_n = len((taxonomy.get('vocab') or {}).get('nav_categories') or [])
+        print(f"nav_categories whitelist 検証: OK ({allowed_n} 種許可)")
+
+    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy)
     n_topics = render_topics(env, topics)
 
     final_used = Counter(slugs.values())
