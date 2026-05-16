@@ -248,6 +248,28 @@ def load_taxonomy() -> dict:
         return json.load(f)
 
 
+def derive_card_category_display(rec: dict) -> str:
+    """TOP カード meta 表示用カテゴリ文言を 1 本化。
+
+    Codex 設計レビュー指摘 (2026-05-16): フィルタ用 (nav_categories) と
+    カード表示 (display) は責務分離。Jinja で分岐を増やすのではなく Python 側で集約。
+
+    優先順位:
+      1. category (出展者ヒアリングフレーズ、表示用の自由記述 = 表示の正本)
+      2. nav_categories の先頭値 (category 空の社のフォールバック)
+      3. 空文字 (両方なし、未分類社は No. のみ)
+
+    132 社が nav_categories あり、17 社未分類。category は一部社で空。
+    """
+    cat = (rec.get("category") or "").strip()
+    if cat:
+        return cat
+    nav = (rec.get("nav_categories") or "").strip()
+    if nav:
+        return nav.split("|")[0].strip()
+    return ""
+
+
 def validate_nav_categories(makers: list[dict], taxonomy: dict) -> list[str]:
     """makers.csv の nav_categories 値が taxonomy.vocab.nav_categories 8 値の whitelist 内か検証。
 
@@ -321,6 +343,9 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
     rec["facets"] = tax_entry.get("facets") or []
     rec["taxonomy_confidence"] = tax_entry.get("confidence", "")
     rec["taxonomy_evidence"] = tax_entry.get("evidence", "")
+
+    # Step A: カード meta 表示用カテゴリ文言 (Codex 設計レビュー反映、責務分離)
+    rec["card_category_display"] = derive_card_category_display(rec)
     return rec
 
 

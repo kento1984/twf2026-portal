@@ -1336,7 +1336,7 @@
           <div class="maker-card-body">
             <h3 class="maker-card-name">{{ m.name }}</h3>
             {% if m.name_short and m.name_short != m.name %}<div class="maker-card-name-sub">{{ m.name_short }}</div>{% endif %}
-            <div class="maker-card-cat">No.{{ '%03d' | format(m.no) }}{% if m.category %} · {{ m.category }}{% endif %}{% if m.tier == 'B' and m.pamphlet_page %} · 公式パンフ p.{{ m.pamphlet_page }}{% endif %}</div>
+            <div class="maker-card-cat">No.{{ '%03d' | format(m.no) }}{% if m.card_category_display %} · {{ m.card_category_display }}{% endif %}{% if m.tier == 'B' and m.pamphlet_page %} · 公式パンフ p.{{ m.pamphlet_page }}{% endif %}</div>
             <a href="m/{{ m.slug }}/" class="maker-card-link is-link-block">{% if m.tier == 'A' %}詳細を見る{% elif m.tier == 'B' %}パンフを見る{% else %}情報準備中{% endif %}</a>
           </div>
         </article>
