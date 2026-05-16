@@ -248,6 +248,54 @@ def load_taxonomy() -> dict:
         return json.load(f)
 
 
+# Step B: 50音順ソート用キー算出 (Codex 推奨厳密版)
+_LEGAL_FORMS = [
+    '㈱', '㈲', '㈳', '(株)', '(有)', '(社)', '(株)', '(有)',
+    '株式会社', '有限会社', '合同会社', '合資会社', '合名会社',
+]
+
+
+def normalize_kana_sort_key(s: str) -> str:
+    """50音順ソート用キーの正規化。Codex 設計レビュー (2026-05-16) 厳守:
+    NFKC + 法人格除去 + 全角英数半角化 + カタカナ→ひらがな + 記号除去。
+
+    生 name には ㈱/株式会社、全角英数、カナ/ひら混在、括弧付き事業部、
+    数字始まり、英字ブランドが混在する。これを統一形式に寄せる。
+    """
+    if not s:
+        return ''
+    s = unicodedata.normalize('NFKC', s)
+    for lf in _LEGAL_FORMS:
+        s = s.replace(lf, '')
+    # カタカナ → ひらがな (U+30A1〜U+30F6 → U+3041〜U+3096)
+    result = []
+    for c in s:
+        cp = ord(c)
+        if 0x30A1 <= cp <= 0x30F6:
+            result.append(chr(cp - 0x60))
+        else:
+            result.append(c)
+    s = ''.join(result)
+    # 記号 + 空白除去
+    s = re.sub(r'[・\s\(\)（）,，、。.\-_/]+', '', s)
+    return s.strip().lower()  # 英字は小文字寄せ
+
+
+def make_sort_key(rec: dict) -> tuple:
+    """50音順ソート用キー。
+    優先: furigana 列 (柏原投入) → 推定 fallback (name から正規化)
+    no で安定化。漢字残存社は furigana 投入前は完全 50 音にならない。
+    """
+    furigana = (rec.get('furigana') or '').strip()
+    if furigana:
+        kana = normalize_kana_sort_key(furigana)
+    else:
+        # furigana なし社は name から fallback (漢字残存はそのまま比較、暫定)
+        kana = normalize_kana_sort_key(rec.get('name') or '')
+    no = int(rec.get('no') or 0)
+    return (kana, no)
+
+
 def derive_card_category_display(rec: dict) -> str:
     """TOP カード meta 表示用カテゴリ文言を 1 本化。
 
@@ -422,6 +470,8 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
         rec["slug"] = m["__slug"]
         rec["tier"] = tier_for(rec)
         rec["display_name"] = (rec["name_short"] or rec["name"]).strip()
+        # Step B: makers.csv の furigana 列を rec に注入 (50音順ソート用)
+        rec["furigana"] = (m.get("furigana") or "").strip()
         cards.append(rec)
 
     # placeholder image rotation across A-tier cards (5 placeholders available)
@@ -435,13 +485,10 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
             c["placeholder_idx"] = 0
             c["is_recent"] = False
 
-    # ordering: A (by reply_date desc, then no), then B (by pamphlet_page asc, then no), then C (by no)
-    tier_order = {"A": 0, "B": 1, "C": 2}
-    cards.sort(key=lambda c: (
-        tier_order[c["tier"]],
-        -(int((c.get("reply_date") or "").replace("-", "").replace(":", "").replace(" ", "") or 0)) if c["tier"] == "A" else c["no"],
-        c["no"],
-    ))
+    # Step B (Codex 推奨 b 案、2026-05-16): 全社 50 音順ソート、Tier 区別は解除
+    # findability 最優先、Tier は NEW バッジ / 詳細リンク有無 / パンフ有無で視覚化
+    # furigana 列 (149 社投入済) を主、漢字 fallback で安定化
+    cards.sort(key=make_sort_key)
 
     tpl = env.get_template("top.html.j2")
     html = tpl.render(makers=cards, counts=counts, topics=topics or {})
