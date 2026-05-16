@@ -504,39 +504,32 @@
     "name": "ヨコタ工業㈱",
     "products": [
       {
-        "name": "ヨコタ工業 主要製品 1",
-        "category": "",
-        "image_url": "../../assets/maker-products/138/1.png",
-        "source_page": "https://www.yokota-kogyo.co.jp/_product/series_バッテリ シャットオフレンチ.html",
-        "remote_url": "https://www.yokota-kogyo.co.jp/_product/productimg/YZ-T600A[400].png",
-        "bytes": 140324
-      },
-      {
-        "name": "ヨコタ工業 主要製品 2",
-        "category": "",
+        "name": "高性能ディスクグラインダ G400H シリーズ (G400H-S / G400H)",
+        "category": "ディスクグラインダ (105×6×15、12,500rpm、スピンドルロック搭載)",
         "image_url": "../../assets/maker-products/138/2.png",
-        "source_page": "https://www.yokota-kogyo.co.jp/_product/series_新型アングルグラインダ.html",
-        "remote_url": "https://www.yokota-kogyo.co.jp/_product/productimg/G400H-S-0003pass[300].png",
-        "bytes": 73031
+        "source_page": "https://www.yokota-kogyo.co.jp/_product/series_新型アングルグラインダ.html"
       },
       {
-        "name": "ヨコタ工業 主要製品 3",
-        "category": "",
+        "name": "高性能ディスクグラインダ G700H (大径対応)",
+        "category": "ディスクグラインダ (180×6×22、7,500rpm、スピンドルロック搭載)",
         "image_url": "../../assets/maker-products/138/3.png",
-        "source_page": "https://www.yokota-kogyo.co.jp/_product/series_新型アングルグラインダ.html",
-        "remote_url": "https://www.yokota-kogyo.co.jp/_product/productimg/G400H-S-0002pass[400].png",
-        "bytes": 111882
+        "source_page": "https://www.yokota-kogyo.co.jp/_product/series_新型アングルグラインダ.html"
       },
       {
-        "name": "ヨコタ工業 主要製品 4",
-        "category": "",
-        "image_url": "../../assets/maker-products/138/4.png",
-        "source_page": "https://www.yokota-kogyo.co.jp/_product/series_バッテリ システムレンチ.html",
-        "remote_url": "https://www.yokota-kogyo.co.jp/_product/productimg/DS-1[210].png",
-        "bytes": 53929
+        "name": "ストレートグラインダ GS-65 シリーズ",
+        "category": "ストレートグラインダ (平砥石 65×13×9.53 / 軸付き φ6、14,500rpm、長軸仕様あり)",
+        "image_url": "",
+        "source_page": "https://www.yokota-kogyo.co.jp/"
+      },
+      {
+        "name": "高性能ミゼットグラインダ MG-OA シリーズ",
+        "category": "ミゼットグラインダ (10 型式、芯ブレ精度 0.05mm 以下、24,000rpm、φ6 軸付き砥石対応)",
+        "image_url": "",
+        "source_page": "https://www.yokota-kogyo.co.jp/"
       }
     ],
-    "fetched_ok": true
+    "fetched_ok": true,
+    "source": "リーフレット (Disc Grinders + Straight GS-65 + Midget MG-OA) の主力 4 シリーズで再構成、画像はディスクグラインダのみ既存 138/2.png + 138/3.png 再利用、GS-65/MG-OA は後追い"
   },
   "033": {
     "name": "㈱神戸製鋼所",
