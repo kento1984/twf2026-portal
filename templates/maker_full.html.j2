@@ -413,6 +413,19 @@
     color: var(--gray-800);
     white-space: pre-wrap;
   }
+  .cross-maker-link {
+    display: inline-block;
+    color: #1a73e8;
+    font-weight: bold;
+    text-decoration: underline;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(26, 115, 232, 0.08);
+    transition: background 0.15s;
+  }
+  .cross-maker-link:hover {
+    background: rgba(26, 115, 232, 0.16);
+  }
   .q5-only-notice {
     background: #fff8e1;
     border: 1px solid #f0c36d;
@@ -763,7 +776,7 @@
         <article class="q-card">
           <div class="q-label">{{ code }} / {{ title }}</div>
           <h3 class="q-title">{{ title }}</h3>
-          <div class="q-body">{{ body }}</div>
+          <div class="q-body">{{ body | autolink_maker }}</div>
         </article>
         {% endif %}
       {% endfor %}

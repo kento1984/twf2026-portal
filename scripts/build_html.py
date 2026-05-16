@@ -28,6 +28,7 @@ from pathlib import Path
 from urllib.parse import quote as urlquote
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
+from markupsafe import Markup, escape
 
 ROOT = Path(__file__).resolve().parents[1]
 TEMPLATES = ROOT / "templates"
@@ -46,6 +47,23 @@ MAKER_OUT = OUT_DIR / "m"
 TOPICS_OUT = OUT_DIR / "topics"
 
 LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳)")
+
+MAKER_PATH_RE = re.compile(r"(/m/[a-z0-9-]+/)")
+
+
+def autolink_maker_path(text: str) -> Markup:
+    """Q-list 内の /m/xxx/ パスを <a class="cross-maker-link"> に自動変換。
+
+    同一企業の二事業部出展 (例: 058 安全衛生 ↔ 149 研磨材) の相互ナビ用。
+    Q-list 全フィールド (q1-q5) で有効。Markup 経由で二重 escape を回避。
+    """
+    if not text:
+        return Markup("")
+    safe = str(escape(text))
+    return Markup(MAKER_PATH_RE.sub(
+        r'<a href="\1" class="cross-maker-link">\1</a>',
+        safe,
+    ))
 
 # Q2〜Q5 の空・テンプレ残骸判定用トークン
 # Q1 は骨格として常に表示するため、この判定は適用しない
@@ -411,6 +429,7 @@ def main():
     # 添付パス用 URL エンコード (日本語フォルダ名 + 全角空白 　 をブラウザで安全に開けるように)
     env.filters["urlquote"] = lambda s: urlquote(str(s or ""), safe="")
     env.filters["is_empty_q"] = is_empty_q
+    env.filters["autolink_maker"] = autolink_maker_path
 
     pamphlet_idx = load_pamphlet_index()
     rewrites = load_rewrites()
