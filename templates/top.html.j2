@@ -1318,17 +1318,15 @@
                  data-search-text="{{ _search_blob }}"
                  {% if m.tier == 'A' and m.brand %}style="--brand-primary: {{ m.brand.primary }}; --brand-secondary: {{ m.brand.secondary }}; --brand-text: {{ m.brand.text_on_primary or '#FFFFFF' }};"{% endif %}>
           {% if m.tier == 'A' and m.is_recent %}<div class="maker-card-new"></div>{% endif %}
-          {% if m.tier == 'A' %}
+          {% if m.tier == 'A' or m.tier == 'B' %}
           <div class="maker-card-hero">
             <img class="maker-card-illust" src="assets/maker-illustrations/{{ '%03d' | format(m.no) }}.png" alt="{{ m.name }} 製品イメージ" loading="lazy" onerror="this.parentElement.classList.add('maker-card-hero-blank'); this.remove();" />
-            {% if m.status_badges %}
+            {% if m.tier == 'A' and m.status_badges %}
             <div class="maker-card-badges">
               {% for b in m.status_badges %}<span class="mb-pill mb-{{ b.type }}">{{ b.label }}</span>{% endfor %}
             </div>
             {% endif %}
           </div>
-          {% elif m.tier == 'B' %}
-          <div class="maker-card-hero maker-card-hero-blank"></div>
           {% endif %}
           <div class="maker-card-body">
             <h3 class="maker-card-name">{{ m.name }}</h3>
