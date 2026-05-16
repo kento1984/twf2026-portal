@@ -755,48 +755,44 @@
       },
       {
         "section_title": "⑤ レーザークリーナー (初TWF出展)",
-        "section_intro": "塗膜・サビ・酸化皮膜を光で瞬時に除去。粉塵・廃液・薬品ゼロ、クリーニング時間1/10以上の革新。",
+        "section_intro": "塗膜・サビ・酸化皮膜を光で除去。化学薬品・研磨材を使わない非接触クリーニング。",
         "products": [
           {
             "maker_no": 21,
             "maker_name": "オプティレーザーソリューションズ",
             "maker_slug": "oputeireezaasoryuushonzu",
-            "product_name": "最新型レーザークリーナー ULT LASER CW2000、ULT LASER Pulse300",
-            "tagline": "CW × Pulse、用途に応じて選べる国産レーザー",
+            "product_name": "ULT LASER シリーズ (レーザークリーナー)",
+            "tagline": "鉄骨工場で作業員負担を 4 分の 1 に削減。国内生産のレーザークリーナー専門メーカー。",
             "image_url": "/assets/topics/productivity-solutions/optilaser/optilaser_cw2000.jpg",
-            "official_url": "https://ult-laser.com/ultlaser/",
+            "official_url": "https://ult-laser.com/",
             "is_first_exhibit": true,
             "is_new_product": false,
-            "what_is": "国産レーザークリーナー ULT LASER シリーズ。CW2000 (連続波・水冷・出力200〜2000W調整・最大照射幅300mm) と Pulse300 (パルス・空冷・出力30〜300W・100V電源・本体24kg・12モード) の2系統で、塗膜/サビ/酸化皮膜/油膜/黒皮を光のエネルギーで瞬時に除去。",
+            "what_is": "ULT LASER は、高エネルギーのレーザー光を対象物に照射し、母材と付着物のエネルギー吸収差を利用して錆・塗装・油汚れ・酸化皮膜・樹脂などの表面付着物を蒸発・剥離させる非接触クリーニング装置。化学薬品・研磨材を使わず、二次廃棄物が発生しない。連続波 (CW) と断続波 (Pulse) の 2 系統、9 機種のラインナップを展開し、大阪本社で国内生産。ULTL-P300BP はリチウムイオンバッテリー駆動で、電源の取りにくい現場にも対応する。",
             "improvement": {
-              "headline": "クリーニング時間1/10以上 / 廃液・粉塵・薬品ゼロ",
-              "before": "グラインダー/サンドブラスト/ケミカル剥離では、大量の粉塵・研磨カス、薬品廃液と二次廃棄物の処理コスト、騒音、研磨材ランニングコスト、母材へのダメージリスク、熟練工依存、作業時間が長いといった多重課題。",
-              "after": "公式記載「グラインダーと比較して10分の1以上の時短効果」。非接触・非破壊で母材ダメージほぼゼロ、粉塵・廃液・薬品・二次廃棄物すべてゼロ、ランニングコストは電気代のみ。専門技術不要で誰でも操作可能。Pulse300は100V電源+24kgで一人現場運用可、CW2000はキャスター付きで一人移動可。"
+              "headline": "鉄骨工場で 4 人/1 週間 → 1 人/1 日、作業員負担 4 分の 1 に削減 (元古鉄工事例)",
+              "before": "化学薬品や研磨材を用いる従来工法では、粉じん、廃棄物処理、騒音、施工時間が課題になりやすい。",
+              "after": "非接触でダメージレスにクリーニング可能。化学薬品・研磨材を使わないため二次廃棄物が発生せず、環境負荷を低減。連続照射時間は空冷式 6 時間以上、水冷式 10 時間以上、起動時間は最短 5 秒。メンテナンスは保護レンズ交換のみ、故障時は代替機貸出にも対応。"
             },
             "target_scenarios": [
               {
-                "industry": "自動車製造",
-                "detail": "溶接焼け跡除去 (Pulse300 導入実績あり)"
+                "industry": "製鉄・鉄鋼・鋳物",
+                "detail": "Hグレード鉄骨ファブリケーターの黒皮・塗料・錆除去、溶接前後の下地処理に対応。"
               },
               {
-                "industry": "プラント/重工",
-                "detail": "塗料・黒皮・サビ除去 (CW2000 導入実績あり)"
+                "industry": "鉄道・鉄道部品",
+                "detail": "旧塗膜の剥離による再塗装下地処理、油汚れ・すす汚れの除去。"
               },
               {
-                "industry": "原子力発電所",
-                "detail": "サビ・塗装・黒皮・油除去 (CW2000PX 導入実績)"
+                "industry": "自動車・自動車部品",
+                "detail": "溶接焼け跡除去、部品の離型剤・カーボン除去。"
               },
               {
-                "industry": "鉄道/船舶/航空機",
-                "detail": "旧塗膜剥離による再塗装下地処理"
+                "industry": "道路・橋梁・インフラ",
+                "detail": "鋼橋・鉄塔・コンクリート構造物の錆・塗装除去。"
               },
               {
-                "industry": "金型製造",
-                "detail": "離型剤・カーボン除去で金型寿命延長"
-              },
-              {
-                "industry": "インフラ補修",
-                "detail": "鋼橋・コンクリート壁のサビ除去"
+                "industry": "モニュメント・文化財",
+                "detail": "屋外彫像・歴史的建造物の表面処理。非接触ダメージレスで意匠を損なわない。"
               }
             ],
             "videos": [
@@ -814,11 +810,28 @@
             "gallery_images": [
               {
                 "src": "/assets/topics/productivity-solutions/optilaser/optilaser_pulse300.jpg",
-                "alt": "Pulse300 (100V電源・本体24kg)"
+                "alt": "ULTL-P300 (空冷、コンパクト機種)"
               },
               {
                 "src": "/assets/topics/productivity-solutions/optilaser/optilaser_cleaning.png",
                 "alt": "レーザークリーニング原理図"
+              }
+            ],
+            "twf_highlights": [
+              "🇯🇵 国内生産: 大阪本社のレーザークリーナー専門メーカー、日本レーザークリーナー協会加盟 (公式カタログ)",
+              "🛡️ 熱影響を抑えたクリーニング: 800mm 超の照射距離での比較デモ実績あり (社内セールスレポート)",
+              "🏭 元古鉄工事例: 鉄骨工場で 4 人/1 週間 → 1 人/1 日に削減、CW2000 採用 (鋼構造ジャーナル 2026/2/2)"
+            ],
+            "materials": [
+              {
+                "url": "/assets/topics/productivity-solutions/optilaser/optilaser_catalog_2025.pdf",
+                "label": "ULT LASER 公式カタログ (8 ページ)",
+                "icon": "📄"
+              },
+              {
+                "url": "/assets/topics/productivity-solutions/optilaser/optilaser_motoko_steel_article.pdf",
+                "label": "鋼構造ジャーナル 元古鉄工事例 (2026/2/2)",
+                "icon": "📄"
               }
             ]
           }
