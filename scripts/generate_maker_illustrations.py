@@ -85,7 +85,7 @@ PRODUCTS = {
     "054": "Cinematic close-up of industrial digital calipers, welding magnets (magnetic ON/OFF type), and measurement tools on a steel workbench, dramatic warm task lighting, dark industrial workshop atmosphere, professional industrial photography",
     "055": "Cinematic close-up of industrial pneumatic impact wrenches, welding clamps, and chain blocks arrayed on a steel workbench, dramatic warm lighting with orange welding glow in background, dark factory atmosphere, professional industrial photography",
     "056": "Cinematic warehouse logistics scene featuring an industrial blue scissor table lift loaded with steel pallets, a narrow-frame table lift positioned beside a transport cart, and a hand pallet jack in foreground, factory floor with safety lines, warm overhead lighting with dramatic shadows, professional industrial photography",
-    "058": "Industrial grinding wheel and cutting disc with sparks flying from angle grinder",
+    "058": "Cinematic close-up of industrial safety equipment featuring full-body fall protection harness, professional auto-darkening welding helmet (Speedglas type), and respirator dust mask laid out on dark workshop background, dramatic warm lighting with subtle orange glow from distant welding arcs, industrial safety atmosphere, professional product photography",
     "059": "Cinematic industrial scene featuring a collaborative robot arm performing welding simulation with bright orange arc, computer screen showing 3D simulation overlay in background, dark factory atmosphere, professional industrial photography",
     "060": "Welding tools and steel chipping hammers laid out on workbench in workshop",
     "061": "Industrial electric chain hoist and lever block with heavy chains from crane",
