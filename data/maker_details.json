@@ -1010,19 +1010,31 @@
   "055": {
     "no": 55,
     "name": "㈱スーパーツール",
-    "name_short": "",
-    "category": "切断・電動工具",
-    "has_answer": false,
-    "status": "unknown",
-    "reply_date": null,
-    "q1": "",
-    "q2": "",
-    "q3": "",
+    "name_short": "SUPER TOOL",
+    "category": "揚送機器",
+    "has_answer": true,
+    "status": "answered",
+    "reply_date": "2026-05-15",
+    "q1": "吊クランプ・シャコ万力を中心に、手工具・溶接関連製品を展示いたします。",
+    "q2": "新製品として以下 3 機種を展示予定です。\n・ビームクランプ SBC-S シリーズ (1〜5 ton、H 型鋼/I 型鋼固定式)\n・アルミ製ポータブル門型クレーン (伸縮型) PMC2000AN (2 ton タイプ)\n・アルミ H 鋼式ジブクレーン JHC1630KAL (床固定型、160 kg、360°回転)",
+    "q3": "吊クランプ実機各種の展示と、RFID 連携の S・M・A・Я・T 管理システムを体感いただけます。",
     "q4": "",
-    "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "q5": "新製品チラシ等 計 4 種類を会場でも配布予定 (本ポータルには事前掲載済)。",
+    "attachments": [
+      "2403_ＳＭＡЯＴ管理アプリ_リーフレット.pdf",
+      "2602_SBC-S_ビームクランプ_A4_両面FN_7B.pdf",
+      "2604_JHC1630KAL_A4.pdf",
+      "PMC2000AN_アルミ製門型クレーン_A4.pdf"
+    ],
+    "attachment_dir": "株式会社スーパーツール",
+    "company_dir": "株式会社スーパーツール",
+    "attachment_labels": {
+      "2403_ＳＭＡЯＴ管理アプリ_リーフレット.pdf": "S・M・A・Я・T 管理アプリ ご紹介リーフレット (RFID 吊クランプ管理システム)",
+      "2602_SBC-S_ビームクランプ_A4_両面FN_7B.pdf": "ビームクランプ SBC-S 新シリーズ (1〜5 ton)",
+      "2604_JHC1630KAL_A4.pdf": "アルミ H 鋼式ジブクレーン JHC1630KAL (床固定型、360°回転)",
+      "PMC2000AN_アルミ製門型クレーン_A4.pdf": "アルミ製ポータブル門型クレーン PMC2000AN (伸縮型、2 ton)"
+    },
+    "_doc": "YUASA 牧野様経由で 5/15 夜に Q1-Q5 + 4 PDF 受領。公式パンフ p.3「切断・電動工具」掲載だが、出展アピール主軸 (4 PDF) が揚重・吊具系のためポータル category は「揚送機器」に再分類。"
   },
   "056": {
     "no": 56,

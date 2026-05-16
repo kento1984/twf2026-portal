@@ -2103,5 +2103,36 @@
       }
     ],
     "fetched_ok": true
+  },
+  "055": {
+    "name": "㈱スーパーツール",
+    "_doc": "YUASA 経由 4 PDF を主軸に、新製品 4 枠で構成。画像は未調達のためテキストオンリーカード初期投入、後追いで公式 CDN から取得予定。",
+    "products": [
+      {
+        "name": "ビームクランプ SBC-S シリーズ",
+        "category": "新製品・H 型鋼/I 型鋼固定式 (1〜5 ton)",
+        "image_url": "",
+        "source_page": "https://www.supertool.co.jp/"
+      },
+      {
+        "name": "アルミ製ポータブル門型クレーン PMC2000AN",
+        "category": "新製品・伸縮型 2 ton (5 段階揚程調節)",
+        "image_url": "",
+        "source_page": "https://www.supertool.co.jp/"
+      },
+      {
+        "name": "アルミ H 鋼式ジブクレーン JHC1630KAL",
+        "category": "新製品・床固定型 160 kg (360°回転)",
+        "image_url": "",
+        "source_page": "https://www.supertool.co.jp/"
+      },
+      {
+        "name": "S・M・A・Я・T 管理アプリ",
+        "category": "RFID 吊クランプ管理システム (国内初サービス)",
+        "image_url": "",
+        "source_page": "https://www.supertool.co.jp/lifting-clamp/smart-rfid/"
+      }
+    ],
+    "fetched_ok": false
   }
 }

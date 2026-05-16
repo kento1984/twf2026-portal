@@ -712,5 +712,15 @@
     "source": "http://www.tokinarc.co.jp/",
     "notes": "公式サイト未調査につき暫定。溶接トーチ・集塵機メーカーとして重厚ネイビー＋溶接アーク色オレンジを採用。柏原確認後に公式色へ差替予定。",
     "_group": "group_b"
+  },
+  "055": {
+    "name": "㈱スーパーツール",
+    "primary": "#C8102E",
+    "secondary": "#8B0000",
+    "accent": "#1B3A6B",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://www.supertool.co.jp/",
+    "notes": "大阪府堺市に本社を置く揚重・吊具メーカー。スクリューカムクランプ・ビームクランプ・アルミ製ジブクレーン/門型クレーン・S・M・A・Я・T (RFID 吊クランプ管理アプリ、国内初) を展開。コーポレートカラーは赤系。YUASA 経由 5/15 夜受領。",
+    "_group": "manual"
   }
 }
