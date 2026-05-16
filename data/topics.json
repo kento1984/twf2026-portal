@@ -290,64 +290,36 @@
             "maker_name": "ロボットバンク",
             "maker_slug": "robottobanku",
             "product_name": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
-            "tagline": "150〜600kg、段差・傾斜OK、SLAMで即日稼働",
-            "image_url": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg",
+            "tagline": "150kg〜600kg 積載に対応する AMR 搬送ロボット",
+            "image_url": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg",
             "official_url": "https://www.robotbank.jp/lp/starlift/a-001/",
             "is_first_exhibit": true,
             "is_new_product": false,
-            "what_is": "SLAM 自律走行 AMR 搬送ロボット。磁気テープ・Wi-Fi・床面工事不要で、CAD データから地図を作り経路を自動生成。可搬重量別に StarLift150/300/300E/600 の 4 機種、最大 600kg まで対応。傾斜 8°・段差 20mm まで走破。",
+            "what_is": "AMR (Autonomous Mobile Robot、自律走行搬送ロボット) の StarLift シリーズは、150kg〜600kg の積載に対応した協働搬送ロボット。自律走行で工場・倉庫内の運搬作業を行う。StarLift 150 (積載 150kg) / 300 (300kg) / 600 (600kg) の機種をラインナップし、段差 20mm までの走行、登坂 8°、最小通過幅 60cm、連続稼働約 10 時間に対応する。",
             "improvement": {
-              "headline": "搬送量+200% / 搬送員2名削減 / 導入1ヶ月→2日",
-              "before": "搬送専任のオペレーター複数名が手押し台車で繰り返し往復。新人教育に約20時間の研修が必要。磁気テープAGVは床面工事に約1ヶ月、レイアウト変更のたび再施工。",
-              "after": "食品加工工場で搬送量200%向上、自動車部品メーカーで搬送員2名削減、システム導入が最短2日 (従来1ヶ月)。操作習得は30分研修でOK、10時間バッテリーで24時間ローテーション運用可能。最大10万㎡ (東京ドーム約2個分) のマップを記憶。"
+              "headline": "搬送量 +200% / 操作教育 30 分 / 導入期間 2 日 / 搬送員 2 名削減",
+              "before": "工場内の運搬作業は人手に頼ることが多く、搬送量の拡大には人員増、自動化機器の導入には長い設計・施工期間が必要となりやすい。",
+              "after": "公式 LP 事例として『食品工場で搬送量 200% 向上』『修理工場で操作教育 30 分で即戦力化』『部品製造工場で導入期間 2 日で完了』『自動車部品製造で搬送員 2 名削減・24 時間体制運用』が報告されている。連続稼働約 10 時間、段差 20mm、登坂 8°、最小通過幅 60cm に対応。"
             },
             "target_scenarios": [
-              {
-                "industry": "自動車部品製造",
-                "detail": "重量物のライン間搬送、夜勤の人員確保が困難な現場"
-              },
-              {
-                "industry": "食品加工工場",
-                "detail": "衛生区画をまたぐ繰り返し搬送、交差汚染リスク削減"
-              },
-              {
-                "industry": "高機能材料加工",
-                "detail": "重量ワークの多品種少量搬送、人手不足ライン"
-              },
-              {
-                "industry": "物流倉庫",
-                "detail": "多層階拠点でのエレベーター連携搬送"
-              },
-              {
-                "industry": "レイアウト変更頻度の高い工場",
-                "detail": "磁気テープ再敷設の手戻りを避けたい現場"
-              }
+              { "industry": "食品工場での搬送自動化", "detail": "公式事例より、搬送量 200% 向上を達成。" },
+              { "industry": "修理工場・整備工場での運搬", "detail": "公式事例より、操作教育 30 分で即戦力化。" },
+              { "industry": "部品製造工場での導入", "detail": "公式事例より、導入期間 2 日で運用開始。" },
+              { "industry": "自動車部品製造での搬送員削減", "detail": "公式事例より、搬送員 2 名削減、24 時間体制で運用。" },
+              { "industry": "高機能材料工場での作業効率向上", "detail": "公式事例より、作業効率 2 倍を達成。" }
             ],
-            "materials": [
-              {
-                "url": "/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf",
-                "label": "AMR導入事例集 (11ページ)",
-                "icon": "📄"
-              },
-              {
-                "url": "/assets/topics/productivity-solutions/robotbank/robotbank_product_highlights.pdf",
-                "label": "ロボットバンク 製品・導入事例ハイライト (14ページ)",
-                "icon": "📄"
-              }
+            "twf_highlights": [
+              "🤖 ラインナップ: StarLift 150 / 300 / 600 の機種、積載 150kg〜600kg をカバー (公式 HP)",
+              "🎯 動作仕様: 段差 20mm、登坂 8°、最小通過幅 60cm、連続稼働約 10 時間 (公式 HP)",
+              "👀 公式事例: 食品工場で搬送量 200% 向上 / 修理工場で操作教育 30 分 / 部品製造工場で導入期間 2 日 / 自動車部品製造で搬送員 2 名削減・24 時間体制 (公式 LP)"
             ],
             "gallery_images": [
-              {
-                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg",
-                "alt": "Star-Lift メインビジュアル"
-              },
-              {
-                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600_2.jpg",
-                "alt": "Star シリーズ全体"
-              },
-              {
-                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift_wrap05.jpg",
-                "alt": "Star-Lift LP"
-              }
+              { "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg", "alt": "StarLift シリーズ製品本体" },
+              { "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg", "alt": "StarLift 600 (積載 600kg) 製品" }
+            ],
+            "materials": [
+              { "url": "/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf", "label": "ロボットバンク StarLift 導入事例集", "icon": "📄" },
+              { "url": "/assets/topics/productivity-solutions/robotbank/robotbank_product_highlights.pdf", "label": "ロボットバンク StarLift 製品ハイライト (14 スライド統合 PDF)", "icon": "📄" }
             ]
           },
           {
@@ -418,7 +390,7 @@
         "products": [
           {
             "maker_no": 35,
-            "maker_name": "小森安全機研究所",
+            "maker_name": "㈱小森安全機研究所",
             "maker_slug": "komori-anzen-ki-kenkyuusho",
             "product_name": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
             "tagline": "世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG",
@@ -426,38 +398,43 @@
             "official_url": "https://www.komorisafety.co.jp/products/cn9/pg999.html",
             "is_first_exhibit": true,
             "is_new_product": false,
-            "what_is": "Inxpect 社製の世界初 SIL2/PLd 準拠 3D レーダー SRD (24GHz/60GHz FMCW) と自社 AI カメラ KAG (Komori Area Guardman) を組合せた、協働ロボット・AGV・移動クレーン用ガード一体ソリューション。検知距離 4〜9m、応答 100ms 以下、1 コントローラで最大 6 センサ。",
+            "what_is": "Inxpect の SRD (Safety Radar Detector) シリーズと、AI カメラ KAG (Komori Area Guardman) を組合せた産業用安全システム。SRD は世界初 SIL2/PLd 準拠の 3D 安全レーダーで、60GHz FMCW 方式、200 シリーズは検知距離 5m / 9m、100 シリーズは 4m、応答 100ms 以下、1 制御ユニットで最大 6 個のスマートレーダーセンサーに対応。動的検知ゾーンは最大 32 種類、降雨量 45mm/h まで対応。KAG は数万件の人の姿形・動作・骨格を認識させたアルゴリズムを搭載し、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応。",
             "improvement": {
-              "headline": "煙・油・水滴でも誤検知激減 / 応答<100ms",
-              "before": "光学式セーフティセンサーは煙・粉塵・切粉・水しぶき・油・強光で誤検知頻発し、ライン停止→現場確認→再起動のロス時間が積み重なる。塗装ライン・溶接ライン・屋外環境では実質使えないケースも。",
-              "after": "SRD は煙・ほこり・切粉・しぶき・降雨 45mm/h まで影響を受けず、塗装/溶接/油環境でも安定動作。動的検知ゾーン最大 32 パターンをリアルタイム切替。KAG は数万件の人体シルエットを学習し、立位/しゃがみ/横向き/部分隠蔽までカバーして誤検知を大幅低減。"
+              "headline": "煙・粉塵・水滴環境に対応 / 応答 100ms 以下",
+              "before": "煙・粉塵・切粉・水しぶきのある現場では、光学式センサーの運用調整や確認負荷が課題になる場合がある。",
+              "after": "SRD は 60GHz FMCW 方式を採用し、煙・ほこり・切粉・しぶき・降雨 45mm/h の環境に対応。動的検知ゾーン最大 32 種類の設定に対応。KAG は数万件の人の姿形・動作・骨格を認識させたアルゴリズム搭載、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応。"
             },
             "target_scenarios": [
               {
-                "industry": "協働ロボットセル",
-                "detail": "安全柵レス運用で人接近時のみ減速・停止"
+                "industry": "モバイルロボット周辺の安全",
+                "detail": "SRD は SIL2/PLd 準拠の 3D 安全レーダーで、動的検知ゾーン (最大 32) と最大 6 個のスマートレーダーセンサーで広範囲をカバー。"
               },
               {
-                "industry": "塗装・溶接ライン",
-                "detail": "ミストや粉塵で光学センサーが使えない環境"
+                "industry": "塗装・溶接ラインの侵入検知",
+                "detail": "煙・ミスト・粉塵で光学センサーが使いにくい環境でも、60GHz FMCW レーダーで侵入検知が可能。"
               },
               {
-                "industry": "AGV/AMR走行エリア",
-                "detail": "油・水のある屋内外通路での進入検知"
+                "industry": "屋外・粉塵環境での自動装置",
+                "detail": "降雨 45mm/h まで影響を受けず、屋外設置の自動機械や倉庫の安全確保に対応。"
               },
               {
-                "industry": "移動クレーン/積込ステーション",
-                "detail": "死角の多い大型機械周辺の人検知"
+                "industry": "移動クレーン・積込ステーションの人検知",
+                "detail": "応答 100ms 以下、複数センサで死角の多い大型機械周辺の人検知。"
               },
               {
-                "industry": "屋外設置の自動機械",
-                "detail": "雨・粉塵に晒されるエリアでの安全確保"
+                "industry": "AI カメラによる姿勢検知 (KAG)",
+                "detail": "数万件の人の姿形・動作・骨格を認識させたアルゴリズムで、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応。"
               }
+            ],
+            "twf_highlights": [
+              "🤖 構成: Inxpect SRD 200/100 シリーズ (世界初 SIL2/PLd 準拠の 3D 安全レーダー) + KAG AI カメラ画像認識システムの組合せ (公式 HP)",
+              "🎯 SRD 仕様: 60GHz FMCW、200 シリーズ 5m/9m・100 シリーズ 4m、応答 100ms 以下、最大 6 センサ、動的検知ゾーン最大 32、降雨量最大 45mm 対応 (公式 HP)",
+              "👀 KAG 仕様: 数万件の人の姿形・動作・骨格を認識させたアルゴリズム搭載、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応 (公式 KAG ページ + カタログ)"
             ],
             "materials": [
               {
                 "url": "/assets/topics/productivity-solutions/komori/komori_srd.pdf",
-                "label": "SRD + KAG 製品案内 (13ページ)",
+                "label": "㈱小森安全機研究所 SRD + KAG 製品案内 (13ページ)",
                 "icon": "📄"
               }
             ],
@@ -476,7 +453,7 @@
               },
               {
                 "src": "/assets/topics/productivity-solutions/komori/komori_dust_env.jpg",
-                "alt": "粉塵環境での製品設置 (SRD/KAGの耐環境性アピール)"
+                "alt": "粉塵環境での製品設置 (SRD/KAGの耐環境性)"
               }
             ]
           },
