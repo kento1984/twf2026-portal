@@ -42,6 +42,23 @@
     align-self: center;
     line-height: 1.5;
   }
+  .maker-header-cta {
+    margin-top: 16px;
+  }
+  .maker-header-cta a {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--blue-500);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: background 0.2s;
+  }
+  .maker-header-cta a:hover {
+    background: var(--blue-700);
+  }
 {% endblock %}
 
 {% block content %}
@@ -53,6 +70,11 @@
       {% if maker.category %}<span>カテゴリ: {{ maker.category }}</span>{% endif %}
       <span>公式パンフレット p.{{ maker.pamphlet_page }}</span>
     </div>
+    {% if twf_topic_products and twf_topic_products[0].official_url %}
+    <div class="maker-header-cta">
+      <a href="{{ twf_topic_products[0].official_url }}" target="_blank" rel="noopener">公式ページを見る ↗</a>
+    </div>
+    {% endif %}
   </header>
 
   {# Phase 2-D: TWF みどころ特集 (該当topicに出展しているメーカーのみ表示) #}
