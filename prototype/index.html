@@ -43,6 +43,7 @@
       --gray-100: #F4F4F5;
       --gray-200: #E4E4E7;
       --gray-400: #A1A1AA;
+      --gray-500: #71717A;
       --gray-600: #52525B;
       --gray-800: #2C2C2C;
 
@@ -912,6 +913,17 @@
     }
     .filter-chip-icon { font-size: 15px; line-height: 1; }
 
+    /* Codex 推奨 #1: 二層設計の語彙橋渡し注記 (カード表記 ↔ フィルタ名の不一致を明示) */
+    .filter-bridge-note {
+      max-width: 720px;
+      margin: -8px auto 20px;
+      padding: 0 16px;
+      font-size: 12px;
+      line-height: 1.6;
+      color: var(--gray-500);
+      text-align: center;
+    }
+
     .search-empty {
       max-width: 600px;
       margin: 8px auto 24px;
@@ -1504,19 +1516,20 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
         </svg>
-        <input id="maker-search" type="text" placeholder="メーカー名・カテゴリ・製品名で検索 (例: ロボット, 保護具, 冷却)" autocomplete="off" />
+        <input id="maker-search" type="text" placeholder="メーカー名・製品名・細分類で検索 (例: 照明, 測定器, カメラ)" autocomplete="off" />
       </div>
 
       <div class="filter-chips" role="list" aria-label="クイックフィルタ">
-        <button type="button" class="filter-chip" data-nav-category="ロボット・自動化" data-filter="ロボット|自動化|ロボメイト"><span class="filter-chip-icon">🤖</span>ロボット・自動化</button>
-        <button type="button" class="filter-chip" data-nav-category="保護具・安全" data-filter="保護|安全|防じん|墜落|ハーネス|ランヤード|遮光"><span class="filter-chip-icon">🛡️</span>保護具・安全</button>
-        <button type="button" class="filter-chip" data-nav-category="冷却・空調" data-filter="冷却|冷風|空調|スポットクーラー|暑熱|気化"><span class="filter-chip-icon">❄️</span>冷却・空調</button>
         <button type="button" class="filter-chip" data-nav-category="溶接・電源" data-filter="溶接|アーク|レーザー|スポット溶接|スタッド|電源"><span class="filter-chip-icon">🔥</span>溶接・電源</button>
         <button type="button" class="filter-chip" data-nav-category="切断・電動工具" data-filter="切断|グラインダ|セーバーソー|チップソー|ランス|サンダー"><span class="filter-chip-icon">🪚</span>切断・電動工具</button>
-        <button type="button" class="filter-chip" data-nav-category="油圧・空圧" data-filter="油圧|空圧|エアー|コンプレッサ|減圧弁"><span class="filter-chip-icon">⚙️</span>油圧・空圧</button>
-        <button type="button" class="filter-chip" data-nav-category="物流・運搬" data-filter="運搬|ハンドカー|ボンベ|スタンド|クレーン|クランプ|吊|スリング"><span class="filter-chip-icon">📦</span>物流・運搬</button>
         <button type="button" class="filter-chip" data-nav-category="工具・消耗品" data-filter="ドリル|研磨|バリ取り|測定|工具|ケーブル|ライト|照明"><span class="filter-chip-icon">🔧</span>工具・消耗品</button>
+        <button type="button" class="filter-chip" data-nav-category="保護具・安全" data-filter="保護|安全|防じん|墜落|ハーネス|ランヤード|遮光"><span class="filter-chip-icon">🛡️</span>保護具・安全</button>
+        <button type="button" class="filter-chip" data-nav-category="ロボット・自動化" data-filter="ロボット|自動化|ロボメイト"><span class="filter-chip-icon">🤖</span>ロボット・自動化</button>
+        <button type="button" class="filter-chip" data-nav-category="油圧・空圧" data-filter="油圧|空圧|エアー|コンプレッサ|減圧弁"><span class="filter-chip-icon">⚙️</span>油圧・空圧</button>
+        <button type="button" class="filter-chip" data-nav-category="冷却・空調" data-filter="冷却|冷風|空調|スポットクーラー|暑熱|気化"><span class="filter-chip-icon">❄️</span>冷却・空調</button>
+        <button type="button" class="filter-chip" data-nav-category="物流・運搬" data-filter="運搬|ハンドカー|ボンベ|スタンド|クレーン|クランプ|吊|スリング"><span class="filter-chip-icon">📦</span>物流・運搬</button>
       </div>
+      <p class="filter-bridge-note">カード表記とフィルタ名は一部統合しています。例: 「安全機器」→「保護具・安全」、「照明・電気機器」→「工具・消耗品」</p>
 
       <p class="search-empty" id="search-empty" hidden>該当するメーカーが見つかりませんでした。検索ワードを変えて再度お試しください。</p>
 

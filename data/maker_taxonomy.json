@@ -3,14 +3,14 @@
   "schema_doc": "TWF2026 メーカー taxonomy. nav_categories は makers.csv に格納 (8 ボタン語彙のみ、whitelist 厳守)、facets はこのファイル (finer concept、controlled vocabulary)。",
   "vocab": {
     "nav_categories": [
-      "ロボット・自動化",
-      "保護具・安全",
-      "冷却・空調",
       "溶接・電源",
       "切断・電動工具",
+      "工具・消耗品",
+      "保護具・安全",
+      "ロボット・自動化",
       "油圧・空圧",
-      "物流・運搬",
-      "工具・消耗品"
+      "冷却・空調",
+      "物流・運搬"
     ],
     "facets_master": [
       "協働ロボット",
