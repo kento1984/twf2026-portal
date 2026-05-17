@@ -133,6 +133,7 @@ PRODUCTS = {
     "126": "Industrial carbide rotary bur and pneumatic die grinder with sparks",
     "127": "Industrial fiber laser cutting machine processing steel plate with bright beam",
     "128": "Industrial fiber lifting slings and synthetic rigging straps",
+    "129": "Cinematic industrial paint booth scene featuring a robotic arm gripping the workpiece while a stationary automatic spray gun mounted overhead coats it (reverse robot-holds-workpiece system), compact small-footprint spray booth interior with the gun fixed downward and limited paint mist spread, paint atomization particles caught in dramatic warm spotlight, dark factory atmosphere with electrostatic spray equipment in background, professional industrial photography",
     "130": "Industrial circular saw blade cutting metal with bright sparks",
     "132": "Industrial belt sander and pneumatic die grinder with sparks",
     "133": "Cinematic industrial scene featuring air-driven diaphragm pumps and lubrication equipment with steel cylinders and air hoses, factory floor with safety lines, dramatic warm lighting, dark industrial atmosphere, professional industrial photography",
