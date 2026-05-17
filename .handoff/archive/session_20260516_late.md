@@ -1,3 +1,6 @@
+> **Note**: 本ファイルの内容は `HANDOFF_PORTAL_FULL_v1.md` の Part 19 (5/16 後半) + Part 20 (5/17) に統合済 (2026-05-17 14:00 起こし)。
+> archive 化のため `.handoff/archive/` に移動。
+
 # 引き継ぎ: TWF2026 ポータル 深夜セッション (2026-05-16)
 
 ## 完了 (本日 10 commit、全 push 済)

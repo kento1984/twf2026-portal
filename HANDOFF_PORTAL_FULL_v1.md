@@ -12,6 +12,8 @@
 
 ## 目次
 
+### 正本 (Part 1-17)
+
 - Part 1: portal 全体アーキテクチャ
 - Part 2: portal 全体のページ構成
 - Part 3: メーカー個別ページ 3 テンプレ仕様
@@ -29,6 +31,12 @@
 - Part 15: ファイルパス・URL・アカウント一覧
 - Part 16: コミット履歴 (主要マイルストーン)
 - Part 17: skill / MCP / CC 環境
+
+### 日次ログ (Part 18+、HANDOFF 作成後の追記)
+
+- Part 18: 2026-05-15 (金) フル作業ログ (HANDOFF 作成後の追記)
+- Part 19: 2026-05-16 (土) フル作業ログ (Max20 約 12 時間 session)
+- Part 20: 2026-05-17 (日) フル作業ログ (約 30 時間 2 session 連続、API 障害含む、生産性向上 11/11 100% 達成 🎉)
 
 ---
 
@@ -3538,6 +3546,148 @@ build_html.py の `strip_legal()` でも NFKC 適用済。
 
 **学び**: メーカー要望は柏原目視で個別対応、5-6 回試行錯誤前提。`generate_maker_illustrations.py` の `make_prompt(product, no)` に `no` 引数を追加して社別 override 対応 (5/13 拡張)。
 
+## 14.18 related_maker フィールド (二事業部出展メーカー対応) [5/16 `b49437d` / `455b181`]
+
+**経緯**: 5/16 の F 分類で 3M が 058 (安全衛生事業部) + 149 (研磨材事業部) の二事業部分離となり、両ページから相互参照の hero CTA を生やす必要が発生。
+
+**スキーマ**:
+```json
+"related_maker": {
+  "slug": "<相手社の slug>",
+  "label": "関連事業部 →"
+}
+```
+
+**配置**: `data/maker_details.json` の各 maker entry 内 (現状 058 / 149 のみ)。
+
+**テンプレ側 (templates/maker_full.html.j2 hero CTA ブロック)**:
+- `display: flex + gap` で既存「公式サイトを見る」隣にボタン並列
+- モバイル幅 375px でも `flex-wrap` で自然に折返
+- Q1 末尾の autolink 文面は二段構えで残す (`46ddfcd` の autolink フィルタと併存)
+
+**Playwright 検証**: デスクトップ横並び / モバイル 2 行折返 / 他社誤動作なし。
+
+**将来の同種ケース**: 二事業部出展メーカー (例: 化学品 + 設備、エレクトロニクス + 機械) が出てきた際、`related_maker` を生やすだけで自動対応。
+
+## 14.19 B-Tier 画像表示 onerror fallback パターン [5/16 `2bdf001`]
+
+**経緯**: 旧運用では A-Tier のみ画像表示、B-Tier は blank hero 固定だった。本日 Phase 2-Y' 系列で 7 件の TOP カード画像を B-Tier 含む全 Tier に展開後、表示拡張要求が発生。
+
+**実装パターン**:
+
+```jinja
+{% if c.tier in ('A', 'B') %}
+  <img src="/assets/maker-illustrations/{{ '%03d' % c.no }}.png"
+       alt="{{ c.name }}"
+       onerror="this.style.display='none'; this.parentElement.classList.add('blank-hero');">
+{% else %}
+  <div class="blank-hero"></div>
+{% endif %}
+```
+
+**ポイント**:
+- 画像未配置 B 社は `onerror` で blank fallback、副作用 0
+- `status_badges` 表示は A-Tier のみ維持 (B に最優先 badge 等が誤付着しないよう)
+- 配置率は 90/149 → 100/149 (5/17 のメサック追加で 100% 達成)
+
+**Playwright JS 検証コード例**:
+```javascript
+const cards = document.querySelectorAll('.maker-card');
+cards.forEach(c => {
+  const img = c.querySelector('img');
+  const tier = c.dataset.tier;
+  console.log(`${c.dataset.no} ${tier}: ${img ? img.complete : 'no-img'}`);
+});
+```
+
+## 14.20 PDF 2 層配置規約 (説明素材 + DL チラシ) [5/17 `fa94c82`]
+
+**経緯**: Phase 2-Collab (ダイヘン × やまびこコラボ) で、コラボ詳細ページに表示する PDF と、ユーザがダウンロードするチラシ PDF を **2 層に分離配置**する規約を確立。
+
+**配置先**:
+
+| 種別 | パス | 用途 | サイズ目安 |
+|---|---|---|---|
+| 説明素材 (inline 表示用) | `prototype/assets/topics/twf-features/collab/<slug>.pdf` | iframe 埋込 / PNG 化 / 高解像度版 | 〜25 MB (CF Pages 上限) |
+| DL チラシ (ダウンロード用) | `prototype/attachments/<カテゴリ名>/<slug>.pdf` | ユーザの DL ボタン参照先 | 〜10 MB 推奨 |
+
+**理由**:
+- inline 表示用は PDF→PNG 変換 (PyMuPDF 200dpi) の元素材として高解像度を保持
+- DL チラシは画面遷移なしで保存できる UX を提供
+- カテゴリ名フォルダ (`コラボキャンペーン/` 等) でユーザの DL 管理を支援
+
+**詳細ページの DL ボタン**:
+```html
+<a href="/attachments/コラボキャンペーン/daihen_yamabiko_collab_2026.pdf"
+   class="download-btn" download>
+  PDF をダウンロード ↓
+</a>
+```
+
+**将来の同種ケース**: 他のコラボキャンペーン、特集チラシ、業界紙記事 PDF 等、すべて本規約を適用。
+
+## 14.21 maker-header--with-cta modifier class [5/17 `fa94c82`]
+
+**経緯**: Phase 2-Link で Tier B 5 社に hero CTA「公式ページを見る ↗」を追加した際、デスクトップで meta 情報と CTA を**同行右寄せ**にする UX が必要となった。CTA の有無で表示構造を切り替える条件付きスタイリングが必須。
+
+**実装パターン (BEM modifier)**:
+
+```jinja
+<header class="maker-header{% if has_cta %} maker-header--with-cta{% endif %}">
+  <div class="maker-meta">...</div>
+  {% if has_cta %}
+    <a class="maker-hero-cta">公式ページを見る ↗</a>
+  {% endif %}
+</header>
+```
+
+**CSS**:
+```css
+.maker-header--with-cta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 767px) {
+  .maker-header--with-cta {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+```
+
+**副作用 0 ポイント**:
+- CTA なし 84 社は modifier class 非付与で現状維持
+- CTA あり社のみ flex 適用、レイアウト変更は局所化
+
+**検証**: シンテックの ctaRight 1470.5 = headerRight 1470.5 (完全右寄せ、Playwright `getBoundingClientRect()`)。
+
+## 14.22 招待制リンク仕様 (事前来場登録動線) [5/17 `17804ec`]
+
+**経緯**: Phase 2-PreRegister で TWF2026 (招待制) の事前来場登録動線を確立。来場者「で、申し込みは?」となる致命的 UX 欠陥を解消。
+
+**仕様**:
+
+| 項目 | 値 | 理由 |
+|---|---|---|
+| URL | `https://mac-exe.co.jp/welding/welding_new/tokyo/` | マツモト産業特設、招待制対応、自社経由でブランド整合 |
+| 文言 | 「事前来場登録はこちら ↗」 | マツモト産業表記準拠 |
+| 色 | オレンジグラデ `#FF7A1A → #C24A0A` | warm な外部行動色、既存特集/コラボと統一 |
+| 注記 | 「この展示会は招待制です。公式特設ページから事前来場登録へ進めます。」 | CTA 直下 1 行、ボタン本体に挿入せず |
+| target | `_blank` + `rel="noopener"` | Tier A 既存と統一 |
+
+**配備バランス (Codex 案 G 推奨)**:
+- TOP 1 強 (countdown 直下、会期 + 会場 → 登録判断の最短経路、`Section 2.5: registration band`)
+- コラボ末尾 1 補助 (興味 → 後押し、`collab-register` section)
+- footer 1 補助 (既存リンク維持)
+- 計 1 主 + 2 補助、1 画面内連打回避
+
+**maker 個別ページには追加なし** (Codex 厳守、149 ページ regression なし、メーカー閲覧意図を保護)。
+
+**レスポンシブ**: ≤720px で CTA 幅広 max 360px、`:focus-visible` 対応 + `aria-labelledby`。
+
+**将来の同種ケース**: 別の招待制イベント / 限定キャンペーン / 締切付き登録動線、すべて本パターン (Section/CTA/注記/3 配備) を適用。
+
 ---
 
 # Part 15: ファイルパス・URL・アカウント一覧
@@ -4740,6 +4890,1013 @@ f97f00f 2026-05-15 15:10  feat: Phase 2-U OTOS (019) 充実化 + partial に mp4
 **5/15 (金) フル作業ログ追記終了。Phase 2-U / 2-T / F 分類 3 社 / hero 画像生成 + 重大トラップ 4 件の learning は本パートと memory に保存済。明日の Task 3-8 への引き継ぎ準備完了。**
 
 — 2026-05-16 (土) 01:30 JST、自宅 PC (`D:\repos\twf2026-portal\`)
+
+---
+
+# Part 19: 2026-05-16 (土) フル作業ログ (Max20 約 12 時間 session)
+
+本パートは 5/16 (土) 朝 7:00 着手 〜 23:18 handoff 切替までの 1 セッション 12 時間 + 深夜延長を、git log を一次ソースとして時系列に記録する。F 分類 Task 3-7 一気完遂 / YUASA 経由 3 社 + シンワ測定 充実化 / taxonomy 3 層構造新規導入 / 8 ボタン nav_categories 厳密一致モード / UI 改善複数 / TOP カード画像 9 件生成 / category 監査 7 社修正 / Phase 2-U/V/W 深夜 deep dive が含まれる。Part 18 の `29d989b` (5/16 00:45) 以降の続き。
+
+## 19.1 本日の commit 一覧 (時系列、Part 18 後 22 commit)
+
+```
+72e982d 2026-05-16 11:48  feat(supertool): YUASA 経由 3 社 1 件目 - スーパーツール (055) 充実化
+3761e12 2026-05-16 12:29  feat(yamada): YUASA 経由 3 社 2 件目 - ヤマダコーポレーション (133) 充実化
+6513d0f 2026-05-16 13:08  fix(3m-safety): 058 F 分類修正 - 今村様 7 点反映、研磨材→安全衛生整理
+b49437d 2026-05-16 13:21  feat(3m): F 分類段階 A+B - 058 安全衛生 + 149 研磨材 二事業部分離
+46ddfcd 2026-05-16 13:35  feat(template): Q-list 内 /m/xxx/ パスの自動リンク化フィルタ追加
+455b181 2026-05-16 13:48  feat(hero): related_maker フィールド + hero CTA 拡張で関連事業部リンク
+c2138b0 2026-05-16 14:01  feat(shinwa): 5 件目 - シンワ測定 (054) 新製品情報チラシ反映、A-Tier 化
+82da7e3 2026-05-16 14:12  fix(fuji): 107 F 分類修正 - 福永様訂正 13 点反映 (拡販チラシ + 快適削除)
+ad8145a 2026-05-16 14:19  fix(shigematsu): 047 F 分類修正 - 森田様修正原稿 4 点反映 (品番ローマ数字 + 注釈削除)
+009d5c9 2026-05-16 14:23  fix(shigematsu): 047 q4 商標表記修正 - クーレットR → クーレット®
+4e5fe02 2026-05-16 14:47  fix(matsumoto-excel): 121 F 分類修正 - 若林様訂正 70+ 点 (ALPHA16/ALPHA テーブル 5 サイズ全面)
+036ff9d 2026-05-16 15:04  fix(yokota): 138 F 分類修正 - 佐久間様 5 点 + リーフレット正規データ全面差替
+6cbddec 2026-05-16 15:19  feat(images): TOP カード画像 7 件生成 (Phase 2-Y' 完走)
+f9cc5ad 2026-05-16 15:28  fix(images): 058 TOP カード画像を安全衛生事業部向けに差替
+2bdf001 2026-05-16 15:32  feat(template): B-Tier でも画像配置済なら TOP カードに表示
+edc7d31 2026-05-16 15:33  chore: remove temp playwright screenshot (verification only)
+17a068f 2026-05-16 15:46  feat(images): 145 ロボットバンク画像生成 (AMR 搬送ロボット系)
+5d39e92 2026-05-16 16:11  feat(images): 035 小森安全機研究所 画像生成 (Phase 2-Y' 追加)
+5a17786 2026-05-16 16:22  fix(category): 7 社 category 誤分類修正 (監査タスク 1)
+01832f0 2026-05-16 18:08  feat(taxonomy): メーカー taxonomy 3 層構造を新規導入
+dde4aaa 2026-05-16 18:09  feat(data): makers.csv に nav_categories 列追加 + 全 149 社投入 + 個別ページ再生成
+388ded7 2026-05-16 18:09  feat(build): build_html.py に taxonomy 読込 + whitelist 検証追加
+8911e0b 2026-05-16 18:10  feat(template): top.html.j2 に 8 ボタン nav_categories 厳密一致モード追加
+fff6314 2026-05-16 18:10  chore: Step 4 投入用の一時スクリプト 13 件削除 (untracked)
+939e864 2026-05-16 18:33  feat(display): TOP カード meta に card_category_display 導入
+d19d280 2026-05-16 19:23  feat(sort): furigana 列追加 + 全社 50 音順ソート (Codex b 案、Tier 解除)
+36539f5 2026-05-16 22:22  feat(topics): ノビテック Cavitar の JSON v3 を投入 (Phase 2-U)
+cc979b9 2026-05-16 22:22  feat(top): C-Tier を情報準備中セクションへ分離 (UX 改善)
+3d48445 2026-05-16 23:13  feat(topics): ロボットバンク + 小森安全機 D 根拠での中位完成度化 (Phase 2-V/2-W)
+1671439 2026-05-16 23:18  chore(handoff): セッション切替用引継ぎメモ (2026-05-16 深夜)
+```
+
+統計:
+- 1 日で **30 commit** (handoff 含む、純粋実装は 29)
+- 主要セッションは 4 つ: 11:48-14:01 (YUASA + シンワ) / 13:08-15:04 (F 分類 6 件) / 15:19-16:22 (画像生成 + category 監査) / 18:08-23:18 (taxonomy + UI/UX + Phase 2-U/V/W)
+- Max20 plan で約 12 時間ぶっ通し session (朝 7:00 着手 〜 19:23 中食、19:30-23:18 後半)
+- 全 commit が origin/main に push 済 (HEAD = `1671439`、CF Pages 反映確認済)
+
+## 19.2 F 分類 Task 3-7 一気完遂 [`6513d0f` / `b49437d` / `82da7e3` / `ad8145a` / `009d5c9` / `4e5fe02` / `036ff9d`]
+
+### 経緯
+
+5/15 (金) に F 分類 Task 1-2 (Sharp MJ + Exceed) と Task 1' (三共→理研機器統合) を Part 18.5 で完遂。本日 5/16 朝の業界関係者からの修正原稿受領を受け、Task 3-7 を朝の 1.5 時間 (13:08-15:04) で一気に完遂。HANDOFF Part 18.9 の残タスクから 5 件消化。
+
+### 19.2.1 F 分類 Task 6 + 7: 3M 二事業部分離 (`6513d0f` / `b49437d`)
+
+**受領**: 今村様 (3M 安全衛生事業部) 修正 7 点 + 青柳様 (3M 研磨材事業部) Q1-Q4 回答
+
+**修正内容**:
+- 058 (3M スリーエム ジャパン) の category を「研磨材→安全衛生」に整理
+- 149 を新規エントリ化 (3M 研磨材事業部)、青柳様 Q1-Q4 で構築
+- `data/maker_details.json` に `related_maker` フィールド新規導入 (058 ↔ 149 相互参照)
+- → **F 分類 Task 7 (3M 段階 A + 段階 B) 同時完遂**
+
+**diff (b49437d)**: 4 files / +144 / -41
+
+### 19.2.2 F 分類 Task 3: フジ (`82da7e3`)
+
+**受領**: 福永様 (フジ) 訂正 13 点
+
+- 拡販チラシ表記訂正
+- 「快適」表現削除 (法務観点)
+- diff: 5 files / +52 / -38
+
+### 19.2.3 F 分類 Task 4: 重松 (`ad8145a` + `009d5c9`)
+
+**受領**: 森田様 (重松) 修正原稿 4 点
+
+- 品番ローマ数字訂正 + 注釈削除 (`ad8145a`)
+- q4 商標表記: 「クーレットR」(R 右上添字) → 「クーレット®」(`009d5c9`)
+- diff (合計): 3 files / +29 / -29
+
+### 19.2.4 F 分類 Task 6 (大型): 松本貿易 (`4e5fe02`)
+
+**受領**: 若林様 (松本貿易) 訂正 **70+ 点** (本日最大規模)
+
+- ALPHA16 / ALPHA テーブル 5 サイズ全面訂正
+- 価格表・型番表・PDF ラベル同期完遂
+- diff: 6 files / +156 / -180
+
+### 19.2.5 F 分類 Task 5: 横田 (`036ff9d`)
+
+**受領**: 佐久間様 (横田) 訂正 5 点 + **リーフレット正規データ全面差替**
+
+- HANDOFF Part 18.9 で「リーフレット入手後着手」だったタスクが本日解消
+- リーフレット正規データで全面差替
+- diff: 4 files / +88 / -54
+
+### 19.2.6 完遂サマリ
+
+| Task | メーカー | 受領元 | 反映 commit |
+|---|---|---|---|
+| 3 | フジ (107) | 福永様 | `82da7e3` |
+| 4 | 重松 (047) | 森田様 | `ad8145a` + `009d5c9` |
+| 5 | 横田 (138) | 佐久間様 | `036ff9d` |
+| 6 (3M 安全) | 058 | 今村様 | `6513d0f` + `b49437d` |
+| 6 (松本貿易) | 121 | 若林様 | `4e5fe02` |
+| 7 (3M 研磨) | 149 (新規) | 青柳様 | `b49437d` |
+
+→ HANDOFF Part 18.9 の F 分類残タスク **5/5 完全消化**。
+
+## 19.3 YUASA 経由 3 社 + シンワ測定 充実化 [`72e982d` / `3761e12` / `c2138b0`]
+
+### 経緯
+
+YUASA 牧野様経由で 5/15 に受領した 3 社 Q1-Q5 アンケート (スーパーツール / ヤマダコーポレーション / 3 社目は別日へ) + シンワ測定の新製品情報チラシ単発受領を充実化。
+
+### 19.3.1 スーパーツール (055) — `72e982d`
+
+- B-Tier → A-Tier 格上げ (B=20→19, A=89→90)
+- 新製品 4 PDF 配置 (SBC-S / PMC2000AN / JHC1630KAL / SMART RFID)
+- category: 切断・電動工具 → 揚送機器に再分類
+- brand 追加 (`#C8102E` SUPER 赤系)
+- Phase 2-U OTOS 流儀準拠、Codex review (gpt-5.4) で観点 1-4 PASS
+- diff: 10 files / +754 / -50
+
+### 19.3.2 ヤマダコーポレーション (133) — `3761e12`
+
+- C-Tier → A-Tier 格上げ
+- 新製品 2 PDF 配置 (FBM 局所排気装置 + EG-400 電動グリースガン)
+- category 新設: **作業環境向上ブース** (FBM 主軸でブース企画整合)
+- brand 追加 (`#003F7F` YAMADA 紺基調)
+- Codex review で 3 点吸収
+- diff: 8 files / +742 / -53
+
+### 19.3.3 シンワ測定 (054) — `c2138b0`
+
+**特異点**: 出展者よりチラシ 1 PDF のみ提供 (Q1-Q5 直接回答なし)。
+
+- PDF (D 出典) から Q1-Q5 ベタ反映 (E 分類混入回避)
+- 主力新製品: 溶接マグネット 磁力 ON/OFF 切替 / STRONG-MAG / デュアルマグ
+- brand 追加 (`#003F7F` SHINWA 紺基調 + 赤アクセント、新潟県三条市本社)
+- category 新設「測定機器」(既存に近接なしのため)
+- **pamphlet 非掲載のため B-Tier 不可、A-Tier 待遇で運用**
+- Playwright 検証: hero / Q1-Q4 / 配布 PDF / 禁止語 0 件 全 PASS
+- diff: 8 files / +774 / -53
+
+## 19.4 taxonomy 3 層構造 + 8 ボタン nav_categories 厳密一致モード [`01832f0` / `dde4aaa` / `388ded7` / `8911e0b` / `939e864`]
+
+### 経緯
+
+夕方 18:00 から夜 18:33 までの約 30 分で **Codex 設計レビュー (gpt-5.4 adversarial review) 基盤の taxonomy 3 層構造を新規導入**。Codex が「適当推定しない」「whitelist + 厳密一致」「Python 側で責務 1 本化」と一貫して指摘し、5 commit で完走。本日最大規模のアーキテクチャ変更。
+
+### 19.4.1 設計レビューの 3 層構造
+
+| 層 | 格納先 | 用途 | 制約 |
+|---|---|---|---|
+| primary_category | `makers.csv` の `category` 列 | カード表示用 (1 値) | 自由記述 (旧運用) |
+| nav_categories | `makers.csv` 新列 (pipe 区切り) | 8 ボタン専用 | **whitelist 厳密一致**、未分類社は空 |
+| facets | `data/maker_taxonomy.json` | finer concept 検索用 | controlled vocabulary 85 種 |
+
+各 maker entry に `confidence` (high/medium/low) + `evidence` (Q1-3 引用または公式 HP) を付与し監査可能性を確保。
+
+### 19.4.2 各 commit の内訳
+
+**`01832f0` taxonomy 新規** (18:08):
+- `data/maker_taxonomy.json` 新規 (1331 行)
+- 149 社 entry 投入完了 (Step 2-4 で段階的に整備)
+- Step 4 中の再点検で evidence priority 違反 5 件を Q1 ベースに修正済
+
+**`dde4aaa` makers.csv 拡張** (18:09):
+- `nav_categories` 列追加、全 149 社の値確定 (132 社設定 + 17 社未分類確定)
+- 同時に 2 社の category 誤分類修正:
+  - 051 シンクス: 協働ロボット (誤) → 切断・電動工具 (根拠: 公式 HP = パネルソー国内 No.1)
+  - 060 セブンティ・エイト: 切断・電動工具 (誤) → 溶接・電源 (根拠: Q1 = 溶接作業用工具)
+- 旧 nav_categories 投入で発見した evidence priority 違反 8 社を Q1 ベースに修正 (003/015/016/063/088/107/109/141/147)
+- **141 理研機器 取り違い修正**: CC は別社「理研計器」ガス検知器と誤適用 → Q1「理研機器の油圧展示品」で油圧機器メーカーと確定
+- diff: 3 files / +152 / -152
+
+**`388ded7` build_html.py 拡張** (18:09):
+- `TAXONOMY_PATH` 定数 + `load_taxonomy()` + `validate_nav_categories()` 追加
+- `merge_record()` に taxonomy 引数追加、rec に注入: `nav_categories` / `facets` / `taxonomy_confidence` / `taxonomy_evidence`
+- `main()` で `validate_nav_categories()` → 違反あれば warning (build 続行)、なければ OK 表示
+- diff: 1 file / +61 / -8
+
+**`8911e0b` top.html.j2 拡張** (18:10):
+- 8 フィルタ chip に `data-nav-category="<8 ボタン語彙>"` 属性追加
+- article (`.maker-card`) に `data-nav-categories` (pipe 区切り) + `data-facets` (pipe 区切り) 属性追加
+- `data-search-text` に facets を連結 (検索ボックスで facets hit 可能)
+- JS `applyNavCategoryFilter()`: chip クリック時 `.includes()` で**厳密一致判定**
+- substring match の偶発 recall を排除 (Codex 警告: 「偶然の recall は taxonomy ではない」)
+- diff: 2 files / +529 / -178
+
+**Playwright 検証 (全項目 PASS)**:
+```
+8 ボタン: visible == expected 完全一致 (8/8 PASS)
+  ロボット・自動化 7 / 保護具・安全 20 / 冷却・空調 10 / 溶接・電源 39 /
+  切断・電動工具 38 / 油圧・空圧 13 / 物流・運搬 22 / 工具・消耗品 39
+検索ボックス facets hit (8 テスト全 PASS):
+  協働ロボット → 5 社 / CDスタッド → 日本フラッシュ /
+  パネルソー → シンクス / 集塵 → 4 社 / 溶接カメラ → OTOS+ノビテック /
+  電動モビリティ → 長谷川工業 /
+  GNSS → アカサカテック (未分類社、facets 経由で hit) /
+  CAD/CAM → キャドマック (未分類社、facets 経由で hit)
+```
+
+**18 社の盲点バグ** (作業環境向上ブース等が 8 ボタンキーワード substring match しない問題) も nav_categories 厳密一致モードで完全解消。
+
+### 19.4.3 card_category_display (`939e864`, 18:33)
+
+**課題**: 旧 `m.category` 直描画は出展者ヒアリング自由記述列のため、149 社中 32 社のみ「・ カテゴリ」表示、117 社は「No. のみ」 → UX 不統一。本日整備の nav_categories (132 社設定) は活用されていなかった。
+
+**Codex レビュー結論 (D 案、A/B/C 不採用)**:
+- A: nav_categories 直描画 → whitelist 語彙が UX 文言に直結し責務混在
+- B: テンプレで分岐拡大 → 表示ロジック分散
+- C: data 側で表示用列追加 → 二重管理
+- **D 案 (採用)**: Python 側で `card_category_display` を 1 本化
+
+実装: `build_html.py` で nav_categories[0] か primary_category かを優先度判定し `card_category_display` として注入、Jinja は表示のみ。
+
+## 19.5 UI/UX 改善 [`46ddfcd` / `455b181` / `2bdf001` / `d19d280` / `cc979b9`]
+
+朝〜深夜にかけて UI/UX 改善が 5 commit。いずれも Codex review もしくは Playwright 検証を通過。
+
+### 19.5.1 Q-list 内 `/m/xxx/` パスの自動リンク化 (`46ddfcd`, 13:35)
+
+Jinja2 フィルタ `autolink_maker_paths` を新規追加。Q1-Q4 本文中の `/m/<slug>/` 表記を自動で `<a href>` 化、関連メーカーへの相互送客を実現。
+
+### 19.5.2 related_maker フィールド + hero CTA 拡張 (`455b181`, 13:48)
+
+**Part 14 永続知見対象** (後述 14.18)。
+
+- `data/maker_details.json` に `related_maker` フィールド追加 (058 / 149 のみ)
+- `templates/maker_full.html.j2` hero CTA ブロックに条件付きで追加リンク表示
+- 既存「公式サイトを見る」隣にボタン並列 (`display: flex + gap`)
+- モバイル幅 (375px) でも `flex-wrap` で自然に折返
+- 058 / 149 で「関連事業部 → 別ページ」が hero 直下で即視認
+- 将来の同種ケース (二事業部出展メーカー) に自動対応
+- diff: 大規模 (148 maker page 再生成)
+
+### 19.5.3 B-Tier 画像表示拡張 (`2bdf001`, 15:32)
+
+**Part 14 永続知見対象** (後述 14.19)。
+
+**旧**: A-Tier のみ画像表示、B-Tier blank hero 固定
+**新**: A or B Tier で `<img>` 試行、画像未配置時は `onerror` で blank fallback
+
+- `status_badges` 表示は A-Tier のみ維持 (B に最優先 badge 等が誤付着しないよう)
+- 059 ゼネテック / 106 ファナック / 114 フロニウス・ジャパンが画像付き表示に
+- **副作用 0** (画像未配置 B 社は `onerror` で従来 blank と同じ見た目)
+- Playwright JS 検証: 058(A)/066(A)/019(A) 画像維持 + 059(B)/106(B)/114(B) 画像新規表示 + 108(C) 画像なし維持 全 PASS
+
+### 19.5.4 furigana 列追加 + 全社 50 音順ソート (`d19d280`, 19:23)
+
+Codex b 案採用 (Tier 別ソート解除、全社統一 50 音順)。`makers.csv` に `furigana` 列追加、build 時にソート key 化。**ただし直後に問題発覚** (19.5.5 へ)。
+
+### 19.5.5 C-Tier 別セクション分離 (`cc979b9`, 22:22)
+
+**柏原ゲートキープ救出** (本パート 19.8.1 参照): 50 音順で先頭近くに C-Tier (情報準備中、画像なし、リンクなし) カードが出現 → 空っぽカードが前面に並ぶ UX 悪。
+
+**Codex 検討案** (A 非表示 / B トグル / **C 別セクション** / D 透明度 / E Tier 順):
+- A: 出展者プレゼンス削りすぎ
+- B: 状態管理で QA 面積大
+- D: 4 番目に薄カード問題残存
+- E: findability 後退
+- **C 案採用**: A+B 上段 / C 下段で UX とプレゼンスの折衷
+
+実装:
+- `render_top` で `makers_main = [tier in (A,B)]` + `makers_pending = [tier == C]` に分離
+- 上段: 「詳細掲載中 / パンフ掲載中 (112 社)」
+- 下段: 「情報準備中の出展メーカー (37 社)」 + intro「ブース出展はあります。詳細情報は順次公開予定です。」
+- 検索 + 8 ボタンフィルタは `.maker-card` 一括取得のため変更不要
+
+**Playwright 検証**: main 112 + pending 37 = 149、フィルタ「保護具・安全」横断 main 16 + pending 4 = 20 (expected 20、完全一致)。
+
+## 19.6 TOP カード画像 9 件生成 + category 監査 [`6cbddec` / `f9cc5ad` / `17a068f` / `5d39e92` / `5a17786`]
+
+### 19.6.1 画像生成 9 件
+
+`scripts/generate_maker_illustrations.py` の `PRODUCTS` dict に追加し、gpt-image-1 で生成 (各 1024×1024 PNG、1.2-1.7 MB、`docs/image-prompts.md` スタイルガイド準拠、既存 143.png 系統 = シネマティック工業 + 暗背景 + オレンジ火花)。
+
+| No. | メーカー | commit |
+|---|---|---|
+| 054 | シンワ測定 | `6cbddec` |
+| 055 | スーパーツール | `6cbddec` |
+| 059 | ゼネテック | `6cbddec` |
+| 106 | ファナック | `6cbddec` |
+| 114 | フロニウス・ジャパン | `6cbddec` |
+| 133 | ヤマダ | `6cbddec` |
+| 149 | 3M 研磨材 | `6cbddec` |
+| 058 | 3M 安全衛生 (差替) | `f9cc5ad` |
+| 145 | ロボットバンク | `17a068f` |
+| 035 | 小森安全機研究所 | `5d39e92` |
+
+**配置率**: 90/149 (60.4%) → **99/149 (66.4%)**
+
+### 19.6.2 category 監査 7 社誤分類修正 (`5a17786`, 16:22)
+
+| No. | メーカー | 旧 → 新 | 根拠 |
+|---|---|---|---|
+| 035 | 小森安全機 | 協働ロボット → 安全機器 (新規) | SRD/KAG が安全機器 |
+| 145 | ロボットバンク | 協働ロボット → 物流・運搬 (新規) | AMR 搬送 |
+| 007 | アルインコ | 切断・電動工具 → 作業環境向上ブース | 脚立・足場系 |
+| 046 | ジェントス | 保護具 → 照明・電気機器 (新規) | LED ライト系 |
+| 097 | ノビテック | 協働ロボット → 溶接カメラ・保護具 | Cavitar Welding Camera |
+| 114 | フロニウスジャパン | 協働ロボット → 溶接・電源 | 溶接電源メーカー |
+| 119 | マイト工業 | 保護具 → 溶接・電源 | TIG/MIG 溶接機 |
+
+新規 category 3 件: 安全機器 / 物流・運搬 / 照明・電気機器
+協働ロボット: 9 社 → 5 社 (51/59/66/106/129、純粋系のみ残)
+溶接・電源: 1 社 → 3 社 (114/119 追加)
+保護具: 3 社 → 1 社 (58 のみ残)
+
+**据置 2 社**: 051 シンクス (Q1「展示機なし」、実態不明、協働ロボット据置) / 129 メサック (防爆協働ロボット で OK、据置)
+
+## 19.7 Phase 2-U/V/W 深夜 deep dive [`36539f5` / `3d48445`]
+
+### 19.7.1 Phase 2-U ノビテック Cavitar (`36539f5`, 22:22)
+
+OTOS パターン 6 ステップ厳守で 097 ノビテック生産性向上 entry v3 完全置換 (D 根拠中位完成度化)。Codex 設計レビュー 2 回 + 事後 review。
+
+**変更内容**:
+- `product_name`: "Cavitar Welding Camera" → "**Cavitar Welding Camera (C350 / C400)**"
+- `what_is`: C300 (存在しない型番) 削除、現行 C350/C400 のみで再構成、寸法重量・fps をフル解像度時/最高撮影速度の両方明記
+- `improvement.before/after`: 「品質トレース」「技能伝承教育」等の効用断定を中立化 (Codex 警告「機能説明から効用断定への一歩」回避)
+- `target_scenarios` 5 件: **E 創作 4 件** (自動車/厚板/QA/3D プリンタ) を撤回、公式 HP 用途リスト + 公式メディア記事 (TIG/被覆アーク事例) ベースに再構成
+- `twf_highlights` 3 件新規追加 (👀 みどころ / 🤖 可視化方式 / 🎯 出展予定機種)
+- `materials` 1 件新規追加 (CavitarWeldingCamera カタログ PDF、6 ページ、画像化 PDF のため本文引用せず materials リンクのみ)
+
+**Codex 事後 review 指摘 2 件も修正**:
+- twf_highlights「視える化で品質向上」→「視える化」(効用要約削除)
+- target_scenarios「社内ノウハウ蓄積」→「記録・比較に活用」(自然推論削除)
+
+**完成度位置づけ**: 「OTOS 級超え」名目は取り下げ (Codex 推奨)、「情報量より根拠密度で勝つ」中位完成度。
+
+**Phase 2-X 教訓本日 3 回目実証**:
+- 1 回目原案で C300 (存在しない型番) と 70 fps (根拠不明) を E 創作
+- target_scenarios 5 件中 4 件が公式 HP 記載なしの E 創作
+- 柏原ゲートキープ + CC 公式 HP 裏取り + Codex 二重 review で全排除
+
+### 19.7.2 Phase 2-V ロボットバンク + Phase 2-W 小森安全機 (`3d48445`, 23:13)
+
+**Phase 2-V**: 145 ロボットバンク (StarLift) 旧 entry に E 創作疑惑 3-4 件発見、Codex 再確認で復活 2 件 + 削除 2 件:
+- 「自動車部品メーカーで搬送員 2 名削減」: 当初 E 創作判定 → **Codex 再確認で公式 LP D 出典 OK と判明、復活**
+- 「最大 10 万㎡ (東京ドーム約 2 個分)」: **E 創作確定、削除**
+- 「300E (拡張モデル)」: **E 創作確定**、現行は 150/300/600 の 3 機種、削除
+- 「24 時間ローテーション」: 当初 E 創作判定 → **Codex 再確認で公式 LP D 出典 OK と判明、復活**
+
+**Phase 2-W**: 035 小森安全機 (SRD + KAG) は構造変更 NG 4 件 + E 創作 4 件発見、訂正反映。CC ファインプレー: 「KAG が D 出典 OK」を Codex review で確認、E 創作ではなかった。
+
+## 19.8 本日の重大トラップと回避策 + 柏原ゲートキープ救出
+
+### 19.8.1 柏原ゲートキープ救出 4 件 (本日累計 1-4 回目)
+
+| # | 内容 | 対応 commit / 場面 |
+|---|---|---|
+| 1 | Co-Authored-By 朝検出 (Cursor 自動 commit) | 着手前確認で発見、Cursor 閉じる + index.lock 確認の SOP 確立 |
+| 2 | シンテック「結構あると思う」(素材ゼロ誤判定 → 実態 PDF 3 + 画像 3 完備) | 翌日 Phase 2-Y で救出 (Part 20 へ) |
+| 3 | Cursor 誤作動察知 (commit `982927b`) | 着手前 git log 確認で発見、index.lock 削除で復旧 |
+| 4 | C-Tier 50 音順問題 (空っぽカードが先頭近くに) | `cc979b9` で C 別セクション分離 (Codex C 案) |
+
+### 19.8.2 evidence priority 違反 8 社の発見と修正
+
+`dde4aaa` の nav_categories 投入時、Codex「evidence priority 厳守」(Q1-3 + 添付資料 > 公式パンフ > 既存 topic > 会社 HP) に従って 8 社の category 修正:
+
+- 003 旭産業 (Q1: スパッタシート + 溶接保護具)
+- 015 エクシード (Q1: TIG トーチ専門)
+- 016 エスカディア (Q1: 3 本/2 本ロール機のみ、ロボット記載なし)
+- 063 大同興業 (Q1: スポット溶接機 + スタッド溶接機)
+- 088 日本アイ・エス・ケイ (Q3: 溶接工具・測定器管理ロッカー)
+- 107 フジ (Q1: ボンベスタンド・ハンドカー)
+- 109 不二空機 (Q1: グラインダー等切断・電動工具も該当)
+- 141 理研機器 取り違い修正 (CC は別社「理研計器」ガス検知器と誤適用 → Q1「理研機器の油圧展示品」で油圧機器メーカーと確定)
+- 147 ワキタ (Q2: ノンドレン式スポットクーラー追加)
+
+**教訓**: 公式 HP / 業界既知の知識を Q1 より優先するクセが残存。Codex evidence priority チェックで毎回フィルタリング要。
+
+### 19.8.3 外部メーカードメインの推測禁止 [`feedback_domain_guessing.md`]
+
+5/16 着手前の調査時、旭産業 / ニューレジストンの外部 URL 推測で誤参照が発生。柏原に確認 → 確定ドメインのみ使用するルール確立。memory に新規追加 (本日 4 件目)。
+
+### 19.8.4 50 音順全社統一 → C-Tier UX 問題 → 別セクション分離の連鎖
+
+本日 19:23 で全社 50 音順ソート (`d19d280`) を本番反映 → 22:22 で C-Tier 問題が UX 観察で発覚 → 同 22:22 で別セクション分離 (`cc979b9`) で解決。**約 3 時間の本番運用で気づく → 即修正のサイクル**を確立。
+
+### 19.8.5 E 創作の再発 (本日 3 件)
+
+| メーカー | E 創作内容 | 発見方法 |
+|---|---|---|
+| ノビテック | C300 (存在しない型番) / 70fps (根拠不明) / target_scenarios 4 件 | Codex 事前 review |
+| ロボットバンク | 300E (拡張モデル) / 最大 10 万㎡ | Codex 事前 review |
+| 小森安全機 | 構造変更 NG 4 件 (Codex で発覚) | Codex 事前 review |
+
+**教訓 (本日累計 5 件発覚、訂正含)**:
+1. 141 理研機器取り違え (柏原朝指摘で発覚)
+2. 8 社 evidence priority 違反 (003/015/016/063/088/107/109/147)
+3. ノビテック C300/70fps E 創作 (Codex で発覚)
+4. ロボットバンク (3 件指摘、Codex 再確認で 2 件は D 出典 OK、1 件のみ E 創作)
+5. 小森 KAG (D 出典 OK、E 創作ではなかった、CC ファインプレー)
+
+### 19.8.6 Claude.ai (web) の限界 (本日実証)
+
+- 業界知識ベース推測は危険 (C300、300E、イタリア等を勝手に E 創作)
+- 既存 slug 変更 NG ルール把握不足 (komori-safety で発見)
+- 存在しないアセットファイル指定 (`komori_srd_field.jpg`)
+- Phase 2-X 教訓判定そのものを誤判定 (3 件中 2 件)
+
+**推奨**: Claude.ai (web) は原案作成役 → 判定/統合役に専念。
+
+### 19.8.7 Codex 神回パターン (本日 5 連発 = 連発 1-5)
+
+| # | Phase | 内容 |
+|---|---|---|
+| 1 | Phase 2-U ノビテック 1 回目 | ハイブリッド否定 → 3 層構造 |
+| 2 | Phase 2-U ノビテック 2 回目 | 修正版で C-Tier 設計 (C) 案推奨 |
+| 3 | Phase 2-U ノビテック 3 回目 (事後) | 微修正 2 箇所で営業安全性確保 |
+| 4 | Phase 2-V ロボットバンク (174K) | CC の E 創作判定誤りを Codex が訂正 |
+| 5 | Phase 2-W 小森安全機 | 構造変更 NG 4 件 + E 創作 4 件発見 |
+
+## 19.9 残タスク (5/17 以降)
+
+### Phase 2-X〜2-ZZ (生産性向上 残 4 社)
+
+| Phase | 対象 | 状態 |
+|---|---|---|
+| 2-X | 129 メサック | 5/17 00:00 着手予定、PDF と既存 entry 別ソリューション疑惑あり |
+| 2-Y | 052 シンテック | 「素材ゼロ」誤判定で別日扱いだったが、PDF 3 + 画像 3 完備発覚、Phase 2-G 整備済 |
+| 2-Z | 059 ゼネテック | 既存 entry に E 創作疑い箇所 12 件 (トヨタ約 5000 箇所 / 落下事故ゼロ / 腰痛 72.4% / 600-900 人休業 / 強度 1.8 倍 等)、再検証要 |
+| 2-ZZ | 021 オプティレーザー | 「ヒアリング待ち別日」誤判定だが、アンケート Q1-Q3 + Q5 回答済 |
+
+### 別日タスク (本日新規追加)
+
+- メサック PDF 残 2 本完全抽出 (`mesack_business.pdf` / `mesack_system_engineering.pdf`、画像のみ判定済、OCR or 画像化要)
+- 塗装メーカー taxonomy 整理 (005 アネスト岩田 / 095 日本ワグナー / 129 メサック、C 案「塗装ライン」採用検討)
+- メサック what_is 短縮版 (Codex 事後 review 推奨案、SKU 列挙簡素化)
+- 生産性向上特集セクション見出し「① 協働ロボット」と entry 主題の整合 (taxonomy normalization と同時実施候補)
+
+### 法務・誇張系既存表現 (Codex 14 連発目で別日タスク化)
+
+- L38 ダイヘン「業界最高水準」
+- L592 ゼネテック section_intro「腰痛ゼロへ」
+- L669 ゼネテック Mastercam tagline「世界 No.1」(FlexSim description の世界 No.1 は表現維持、メタ動詞のみ削除済)
+
+### 業界一般論前置き (Phase 2-Style 対象外、別日)
+
+- フロニウス L160「業界一般で見られる課題:」
+- ダイヘン L338「業界一般で見られる課題:」
+
+### Cursor 誤作動注意 [`feedback_git_index_lock.md`]
+
+- 5/16 朝の Phase 2-Y 着手時に Cursor 誤作動歴 (Co-Authored-By: cursoragent@cursor.com 自動追加)
+- 着手前: `ls -la .git/index.lock` 確認 + `git log -1` 確認 + Cursor 閉じる の SOP 確立
+
+## 19.10 本日のセッション運用メモ
+
+### 主要セッション 4 つの時間配分
+
+| セッション | 時間帯 | 内容 | commit |
+|---|---|---|---|
+| YUASA 経由 + シンワ | 11:48-14:01 | 3 社充実化 (スーパーツール / ヤマダ / シンワ) | 3 |
+| F 分類 Task 3-7 | 13:08-15:04 | 6 commit、Task 3-7 完遂、Yokota リーフレット解消 | 6 |
+| 画像生成 + UI 改善 + category 監査 | 13:35-16:22 | hero CTA 拡張 / 画像 9 件 / 7 社 category 修正 | 7 |
+| taxonomy + UX 改善 + Phase 2-U/V/W | 18:08-23:18 | 3 層 taxonomy / nav_categories / 50 音順 / C-Tier 分離 / ノビテック / ロボットバンク / 小森 | 14 (handoff 含む) |
+
+### Claude / Codex 役割分担 (継続)
+
+- **柏原 Claude.ai** (claude.ai 側): 戦略・JSON 原案・判断確定・出展者意図解釈・C-Tier UX 観察
+- **CC (Claude Code)**: 実装・grep 検証・ビルド・commit・push・本番反映確認・memory 維持
+- **Codex CLI**: adversarial review (本日 5 回投入で 5 件の致命指摘発見)
+
+### 並列 Agent 起動回数
+
+本日の並列 PowerShell + Bash 同時起動: 計 ~35 回 (主に CF Pages polling のバックグラウンド実行 + 並列 grep 調査 + Playwright 検証)。
+
+### 動画/画像投入量
+
+- PNG 画像: 10 枚 (Phase 2-Y' 系列 9 枚 + 058 差替 1 枚、合計 13.0 MB、gpt-image-1 生成)
+- PDF (新規): 7 件 (スーパーツール 4 + ヤマダ 2 + シンワ 1)
+
+### memory 追記
+
+- `feedback_domain_guessing.md` 新規 (外部メーカードメイン推測禁止、旭産業/ニューレジストン誤参照を教訓)
+- `MEMORY.md` インデックス 1 行追加
+
+## 19.11 commit ハッシュサマリ (Part 18 後の 30 commit)
+
+```
+1671439 2026-05-16 23:18  chore: セッション切替用引継ぎメモ (handoff)
+3d48445 2026-05-16 23:13  feat: Phase 2-V/W ロボットバンク + 小森 D 根拠化
+cc979b9 2026-05-16 22:22  feat: TOP C-Tier 別セクション分離 (UX 改善)
+36539f5 2026-05-16 22:22  feat: ノビテック Cavitar v3 投入 (Phase 2-U)
+d19d280 2026-05-16 19:23  feat: furigana + 50 音順ソート (Codex b 案、Tier 解除)
+939e864 2026-05-16 18:33  feat: TOP カード card_category_display 導入 (Codex D 案)
+fff6314 2026-05-16 18:10  chore: 一時スクリプト 13 件削除
+8911e0b 2026-05-16 18:10  feat: top.html.j2 nav_categories 厳密一致モード
+388ded7 2026-05-16 18:09  feat: build_html.py taxonomy 読込 + whitelist 検証
+dde4aaa 2026-05-16 18:09  feat: makers.csv nav_categories 列追加 + 149 社投入
+01832f0 2026-05-16 18:08  feat: maker taxonomy 3 層構造新規導入 (1331 行)
+5a17786 2026-05-16 16:22  fix: 7 社 category 誤分類修正 (監査タスク 1)
+5d39e92 2026-05-16 16:11  feat: 035 小森安全機 hero illustration
+17a068f 2026-05-16 15:46  feat: 145 ロボットバンク hero illustration
+edc7d31 2026-05-16 15:33  chore: temp playwright screenshot 削除
+2bdf001 2026-05-16 15:32  feat: B-Tier 画像表示拡張 (onerror fallback)
+f9cc5ad 2026-05-16 15:28  fix: 058 TOP カード画像差替 (安全衛生事業部)
+6cbddec 2026-05-16 15:19  feat: TOP カード画像 7 件生成 (Phase 2-Y' 完走)
+036ff9d 2026-05-16 15:04  fix: 138 横田 F 分類 - 佐久間様 5 点 + リーフレット差替
+4e5fe02 2026-05-16 14:47  fix: 121 松本貿易 F 分類 - 若林様 70+ 点
+009d5c9 2026-05-16 14:23  fix: 047 重松 q4 商標表記 ® 修正
+ad8145a 2026-05-16 14:19  fix: 047 重松 F 分類 - 森田様 4 点
+82da7e3 2026-05-16 14:12  fix: 107 フジ F 分類 - 福永様 13 点
+c2138b0 2026-05-16 14:01  feat: 054 シンワ測定 A-Tier 化
+455b181 2026-05-16 13:48  feat: related_maker フィールド + hero CTA 拡張
+46ddfcd 2026-05-16 13:35  feat: Q-list /m/xxx/ 自動リンク化フィルタ
+b49437d 2026-05-16 13:21  feat: 3M 二事業部分離 (058 + 149)
+6513d0f 2026-05-16 13:08  fix: 058 3M 安全衛生 F 分類 - 今村様 7 点
+3761e12 2026-05-16 12:29  feat: 133 ヤマダコーポレーション A-Tier 化
+72e982d 2026-05-16 11:48  feat: 055 スーパーツール A-Tier 化
+```
+
+全 commit が origin/main 反映済 (HEAD = `1671439`、CF Pages 反映確認済)。
+
+---
+
+**5/16 (土) Max20 約 12 時間 session 追記終了。F 分類 Task 3-7 全消化 / YUASA 経由 + シンワ / taxonomy 3 層 / UI/UX 改善複数 / Phase 2-U/V/W + 重大トラップ 6 件の learning は本パートと memory に保存済。深夜 23:18 で session 切替 handoff、翌 5/17 Phase 2-X 着手予定。**
+
+— 2026-05-17 (日) 02:00 JST、自宅 PC (`D:\repos\twf2026-portal\`)
+
+---
+
+# Part 20: 2026-05-17 (日) フル作業ログ (29-31 時間 2 session 連続、API 障害含む)
+
+本パートは 5/17 (日) 00:00 〜 13:03 (本セッション末尾、CC 14:00 起こし) の作業を、git log を一次ソースとして時系列に記録する。Phase 2-X (メサック) → 2-Y (シンテック) → 2-Z (ゼネテック) → 2-ZZ (オプティレーザー) の生産性向上特集 4 連走で **11/11 (100%) 達成 🎉**、深夜 3:00 頃 Anthropic API 500 障害で約 7 時間中断、朝 10:00 復旧で Phase 2-Style / 2-Y' / 2-Link 完遂、本セッション (12:00-) で Phase 2-Collab + 2-Link-UI / 2-Collab-Visual / 2-PreRegister 追加完遂が含まれる。Part 19 の `1671439` (5/16 23:18) 以降の続き。
+
+## 20.1 本日の commit 一覧 (時系列、Part 19 後 16 commit)
+
+```
+fae5d89 2026-05-17 00:00  feat(topics): メサック D 根拠での再構築 (Phase 2-X 完了)
+d7908e3 2026-05-17 00:05  chore(handoff): Phase 2-X (メサック) 完了 + 別日 taxonomy normalization タスク追記
+6dbd7fd 2026-05-17 00:49  feat(topics): シンテック D 出典再検証 (Phase 2-Y 完了)
+8744462 2026-05-17 01:48  feat(topics): ゼネテック D 出典再検証 (Phase 2-Z 完了)
+452c49f 2026-05-17 02:28  feat(topics): オプティレーザー D 出典構築 (Phase 2-ZZ 完了、🎉 生産性向上 11/11 100% 達成)
+28a5ef9 2026-05-17 02:41  fix(topics): 顧客視点リスクの社内資料表記を削除 (hotfix)
+★ 02:50-09:50 頃 Anthropic API 500 障害で中断 (約 7 時間) ★
+757c26f 2026-05-17 09:56  feat(topics): 生産性向上特集 5 社の文体統一 (Phase 2-Style 完了)
+3817f09 2026-05-17 10:33  feat(topics): シンテック ドローン点検新サービス追記 (Phase 2-Y')
+c4ad2bb 2026-05-17 10:36  chore(handoff): 本日完全完遂報告 + 別日タスク追記 (2026/5/16-17)
+bfc1434 2026-05-17 10:45  fix(topics): シンテック materials label の内部組織表記削除 (hotfix 2)
+c2f57fa 2026-05-17 11:35  feat(template): 生産性向上特集の個別ページに公式ページリンク追加 (Phase 2-Link 完了)
+678c585 2026-05-17 11:38  chore(handoff): 本日真の完遂 (Phase 2-Link + 別日タスク追記)
+fa94c82 2026-05-17 12:15  feat(top+template): TWF2026 注目情報 + コラボ詳細 + Tier B/C hero CTA UI 改善 (Phase 2-Collab + 2-Link-UI 統合)
+e2521c72 2026-05-17 12:48  feat(visual): コラボ詳細視覚要素強化 + メサック illustration 生成 (Phase 2-Collab-Visual + メサック画像)
+17804ec 2026-05-17 13:03  feat(top+collab): TWF2026 事前来場登録動線追加 (Phase 2-PreRegister)
+```
+
+統計:
+- 1 日で **16 commit** (handoff 3 件含む、純粋実装 13 件)
+- 主要セッションは 3 つ:
+  - **深夜セッション** (00:00-02:50): Phase 2-X/Y/Z/ZZ + hotfix、生産性向上 100% 達成
+  - **API 障害中断** (02:50-09:50 頃、約 7 時間): Anthropic API 500、自動継続なし、朝復旧で再開
+  - **朝〜本セッション前** (09:56-11:38): Phase 2-Style / 2-Y' / hotfix 2 / 2-Link
+  - **本セッション** (12:15-13:03): Phase 2-Collab + 2-Link-UI / 2-Collab-Visual / 2-PreRegister
+- 5/16 朝 7:00 + 5/17 13:03 = **約 30 時間 (2 session 連続、間に API 障害 + 仮眠 7 時間)**
+- 全 commit が origin/main に push 済 (HEAD = `17804ec`、CF Pages 反映確認済)
+
+## 20.2 Phase 2-X メサック (`fae5d89`, 00:00)
+
+### 経緯
+
+session_20260516_late.md に Phase 2-X 着手契機が記録 (L1-100): メサック PDF (`mesack_robot_painting.pdf`) と既存 topics.json L230 entry が**別ソリューション**だったことが Phase 2-G 整備時の品質チェック漏れで本日まで未発覚 (柏原ゲートキープ救出につながった、Part 20 末で集計)。
+
+### 20.2.1 重大発見
+
+**PDF 内容 (D 出典確定、Phase 2-H 整備済)**:
+- 「ロボットつかみ方式塗装ブース」
+- 「ガン固定 + ロボットがワーク掴む」(逆方式)
+- 塗装ブース設置面積 約 1 ㎡ / 排気風量 30 ㎥/min / ポンプ〜ガン間ホース 約 1m
+
+**既存 entry 内容 (再構築前)**:
+- 「スプレーガン × 防爆協働ロボット」(別製品)
+- 「防爆協働ロボット + 自社製スプレーガン」(ガン搭載通常方式)
+- 「ダイレクトティーチで教示時間短縮」← PDF に記載なし
+- 「自動車ドア 1 枚分の大面積を 1 台でカバー」← PDF に記載なし
+
+### 20.2.2 Codex 神回 7 連発 (連発 6-12、本セッション内 7 連発)
+
+| 連発 | 局面 | 内容 |
+|---|---|---|
+| 6 (事前 1) | 判断選択肢 (a/b/c/d) | (d) Codex 算入で判定推奨 |
+| 7 (事前 2) | 主題選定 | PDF 主題一本化採用 (Codex 推奨 100%) |
+| 8 (事前 3) | category 整合 | maker_details.category 空欄化採用 (D 案、No.95 ワグナー前例採用) |
+| 9 (事前 4) | scenarios 構造 | 4 → 3 件、用途寄り、業界一般論削除 |
+| 10 (事前 5) | twf_highlights | 3 件新規 (📐/💨/🎯、(PDF カタログ) 出典明示) |
+| 11 (事前 6) | E 創作 4 件 | ダイレクトティーチ / ティーチ短縮 / 自動車ドア / 「防爆協働」表記 全削除 |
+| 12 (事後 1) | 判定 B → C 修正 | 公式 HP 補足発見 (試験施設 EPX1250/KF262、電界 Power 90%) |
+
+### 20.2.3 修正版 entry
+
+- `product_name`: 「ロボットつかみ方式塗装ブース」(PDF 主題一本化)
+- `tagline`: 「設置面積約 1 ㎡、省スペースな塗装ブース提案」
+- `what_is`: 静電気応用技術専門メーカー + PDF 主題 + 補助情報 (SIer / G05-G08 / ARG/RBG)
+- `improvement`: PDF 数値 (約 1 ㎡ / 30 ㎥/min / ホース 約 1m) で訴求
+- `target_scenarios` 4 → 3 件 (用途寄り、業界一般論削除)
+- `twf_highlights` 新規 3 件 (📐/💨/🎯、(PDF カタログ) 出典明示)
+
+### 20.2.4 maker_details.json / makers.csv 同期
+
+- L2395 / L130 category: 「協働ロボット」→ 空欄
+- No.95 ワグナー前例採用、新規孤立 taxonomy 回避 (D 案)
+- nav_categories=ロボット・自動化 維持 (8 ボタン whitelist 不変)
+
+### 20.2.5 Phase 2-X 教訓追加 (本日累計 8 件)
+
+6. メサック PDF と既存 entry が別ソリューション (Phase 2-H 整備時の品質チェック漏れ)
+7. taxonomy ノイズ (category 値 vs entry 主題の整合性、Codex 事後 review 発見)
+8. category 値の D 案 (空欄化) は No.95 ワグナー前例で安全に通る
+
+## 20.3 Phase 2-Y/Z/ZZ 深夜 3 連走 (生産性向上 11/11 100% 達成 🎉)
+
+### 20.3.1 Phase 2-Y シンテック (`6dbd7fd`, 00:49)
+
+**着手契機 (柏原ゲートキープ救出 5 回目)**:
+- 引き継ぎ「素材ゼロ」誤判定 → 柏原指摘「資料はレポの中にあるし、結構あると思う」で発覚
+- 実態: PDF 3 本 + 画像 3 枚完備、Phase 2-G で海外画像差し替えまで実施済
+- `maker_details.json` L052 q1-q5 全空のみを見て誤判定 (PDF/画像/entry 存在確認不足)
+
+**既存 entry の E 創作疑い箇所 12 件**:
+- トヨタ約 5000 箇所 / 落下事故ゼロ継続 / 腰痛 72.4% / 600-900 人休業 / 強度 1.8 倍 など
+
+**Codex review**:
+- 事前 B+ / 事後 B → Series 1/2/3/4/6 微修正で確定
+
+### 20.3.2 Phase 2-Z ゼネテック (`8744462`, 01:48)
+
+**着手契機 (柏原ゲートキープ救出 6 回目)**:
+- 「残ってる」(整備済 E 創作疑い箇所) 柏原指摘で再検証
+
+**修正内容**:
+- VCOLP 5.0 業界紙記事の活用 (Part 10.4 で既存記録)
+- E 創作疑い箇所を D 出典で再構築
+- 残メタ表現「世界 No.1」は Mastercam tagline で削除、FlexSim description は表現維持 (公式記載あり)
+
+### 20.3.3 Phase 2-ZZ オプティレーザー (`452c49f`, 02:28、🎉 100% 達成)
+
+**着手契機 (柏原ゲートキープ救出 7 回目)**:
+- 「ヒアリング待ち別日」誤判定 → 柏原 PDF 提示でアンケート Q1-Q3 + Q5 回答済が発覚
+
+**修正内容**:
+- ULT LASER の D 出典構築
+- maker_details Q2 はアンケート原文のため改変禁止 (memory に追記候補)
+
+**🎉 生産性向上特集 11/11 (100%) 達成**
+
+| Phase | 対象 | commit |
+|---|---|---|
+| 2-A〜2-O | 既存 6 社 (5/14 以前) | (Part 5.7 既存記録) |
+| 2-P〜2-T | 4 社 + ファナック (5/14-15) | Part 18 既存記録 |
+| 2-U | ノビテック | `36539f5` (5/16 22:22) |
+| 2-V | ロボットバンク | `3d48445` (5/16 23:13) |
+| 2-W | 小森安全機 | `3d48445` (5/16 23:13) |
+| 2-X | メサック | `fae5d89` (5/17 00:00) |
+| 2-Y | シンテック | `6dbd7fd` (5/17 00:49) |
+| 2-Z | ゼネテック | `8744462` (5/17 01:48) |
+| 2-ZZ | オプティレーザー | `452c49f` (5/17 02:28) |
+
+→ 5/14 時点 5/11 (45%) → 5/17 02:28 で **11/11 (100%) 完全制覇**。
+
+## 20.4 hotfix + API 障害 + 復旧 [`28a5ef9`]
+
+### 20.4.1 hotfix: 社内資料表記削除 (`28a5ef9`, 02:41)
+
+**柏原ゲートキープ救出 8 回目**:
+- 「顧客視点リスク」(社内セールスレポート / 営業資料の内部組織表記) を発見
+- ポータル公開資料に内部表現混入 → 即修正
+
+修正対象: 複数社の Q1-Q4 内文中で「営業 2 課」「セールスレポート」等の表記を一般化。
+
+### 20.4.2 API 障害 (深夜 02:50-09:50 頃、約 7 時間)
+
+- **2026-05-17 02:50 頃**: Anthropic API 500 で中断
+- 自動継続なし、CC は再起動できず
+- 柏原は仮眠 (約 6 時間)
+- **09:50 頃復旧**: Claude.ai 側で復旧確認 → CC で再開
+- 5/17 09:56 (`757c26f`) で次の commit に着手
+
+**教訓**: 深夜帯の API 障害は仮眠の好機。再起動コストは低い (session resume で context 保持)。
+
+## 20.5 Phase 2-Style + 2-Y' + hotfix 2 [`757c26f` / `3817f09` / `bfc1434`]
+
+### 20.5.1 Phase 2-Style 5 社文体統一 (`757c26f`, 09:56)
+
+**柏原ゲートキープ救出 7 回目 (再掲、文体問題発見)**:
+- 5 社の生産性向上 entry でメタ表現 (「〜という観点で」「〜と考えられます」等) が混在
+- 統一感欠如 → 即修正
+
+**修正対象**: 29 件のメタ表現を 5 社 (ノビテック / ロボットバンク / 小森 / メサック / シンテック / ゼネテック / オプティ) で統一。
+
+### 20.5.2 Phase 2-Y' シンテックドローン点検新サービス追記 (`3817f09`, 10:33)
+
+**柏原ゲートキープ救出 (シンテック新事業発覚、Phase 2-Y 救出の派生)**:
+- 公式 HP `/news/250805/` + `/service/` で新事業ドローン点検 (Liberaware IBIS2 連携) を発見
+- TWF 2026 出展機種への波及確認
+
+**修正内容**:
+- `twf_highlights` 3 件 → 4 件 (🚁 ドローン追加)
+- `target_scenarios` 5 件 → 6 件 (プラント機内点検追加)
+- バランスアーム主題完全維持
+- 公式 HP /news/250805/ + /service/ + Liberaware IBIS2 D 出典確定
+
+**Codex 16 連発** (本日 16 回目、判定 B → A、Concrete Fix 2 件)
+
+### 20.5.3 hotfix 2: シンテック materials label 内部組織表記削除 (`bfc1434`, 10:45)
+
+**柏原ゲートキープ救出 9 回目**:
+- 「営業 2 課製品紹介 (S15-25 抜粋)」→「営業資料 (S15-25 抜粋)」
+- 公式 HP リンク欠如も同時に発覚 (Phase 2-Link 着手契機)
+
+## 20.6 Phase 2-Link Tier B 5 社 hero CTA (`c2f57fa`, 11:35)
+
+### 20.6.1 経緯
+
+hotfix 2 で公式 HP リンク欠如を発見 → Tier B 5 社全体に「公式ページを見る ↗」CTA 追加を判断。
+
+### 20.6.2 実装
+
+- `maker_skeleton.html.j2` + `maker_pamphlet.html.j2` 拡張
+- `twf_topic_products[0].official_url` 経由
+- ラベル分岐: Tier B 「公式ページを見る ↗」、Tier A 「公式サイトを見る ↗」維持
+- 対象: シンテック / メサック / ゼネテック / ロボットバンク / 小森安全機 (Tier B 5 社)
+
+**Codex 17 連発** (本日 17 回目、判定 B → A、Concrete Fix 2 件)
+
+### 20.6.3 別日タスク追加
+
+- 案 A: 全 149 社展開 (URL 整備要)
+- 案 2: corporate URL データ源統一 (Tier B/C 全社の maker 単位)
+
+## 20.7 本セッション (12:00-13:03): Phase 2-Collab + 2-Link-UI / 2-Collab-Visual / 2-PreRegister
+
+### 20.7.1 fa94c82 (12:15): Phase 2-Collab + 2-Link-UI 統合
+
+**契機 (受領情報)**:
+- **2026/5/15 田中支店長 (関東支店、マツモト産業) メール**: TWF2026 ダイヘン × やまびこジャパン コラボ企画展開
+- 主力機組合せ + 会場限定特典プレゼント
+
+**Codex 神回 18-20 連発**:
+| 連発 | 局面 | 結果 |
+|---|---|---|
+| 18 | Phase 2-Link UI 案 D | A 判定 (推奨) |
+| 19 | Phase 2-Collab 案 4 | A 判定 (推奨) |
+| 20 | 事後 review | A 判定、残留リスクは別日タスク化 |
+
+**実装**:
+- 新規共通詳細ページ: `prototype/topics/twf-features/daihen-yamabiko-collab/index.html`
+  - **唯一の本編**、TOP + Hero CTA は teaser のみ (重複管理回避)
+  - セット 1: 溶接機 × ディーゼル発電機 + リチウムイオン蓄電池 **SLG1800B** プレゼント
+  - セット 2: TIG × ガソリン発電機 + ギフトカード **15,000 円**
+  - 機種名: WB-M500F / インバータオート 600G / DGM600MK / DGM1000MI-D / DTM-200P / EGW200MC-IST
+- **PDF 2 層配置** (Part 14 永続知見対象、後述 14.20):
+  - 説明素材: `prototype/assets/topics/twf-features/collab/daihen_yamabiko_collab_2026.pdf`
+  - DL チラシ: `prototype/attachments/コラボキャンペーン/daihen_yamabiko_collab_2026.pdf`
+- TOP テンプレ拡張: `Section 3.2: TWF2026 注目情報` 軽量 1-card rail (auto-fit grid で将来コラボ追加可能)
+- ダイヘン (066) + やまびこ (135) hero CTA 追加 (相互リンク、🎁 アイコン)
+- **Phase 2-Link UI 改善** (Codex 18 案 D、Part 14 永続知見対象、後述 14.21):
+  - `maker-header--with-cta` modifier class
+  - CTA がある時のみ meta/CTA を同行化 (デスクトップ右寄せ)
+  - モバイル (max-width: 767px) で縦積み revert
+  - CTA なし 84 社は現状維持 (副作用 0)
+  - **シンテック検証**: ctaRight 1470.5 = headerRight 1470.5 (完全右寄せ)
+
+**価格情報の absolute 除外** (本日確立、Part 14 永続知見候補):
+- ¥988,000 / ¥341,000 / 配布部数 (500/300/100) は全フィールドで混入 0
+- 「会場限定 1 セット」「会場でご案内」表現は OK (柏原指示)
+
+**別日タスク追加** (Codex 20 残留リスク指摘):
+- ダイヘン詳細本文「業界最高水準」(法務棚卸し対象)
+- Phase 2-Link 案 A: 全 149 社展開 (URL 整備要)
+- Phase 2-Link 案 2: corporate URL データ源統一
+
+### 20.7.2 e2521c7 (12:48): Phase 2-Collab-Visual + メサック illustration
+
+**柏原ゲートキープ救出 10 + 11 回目** (commit message 表記準拠):
+- 10: コラボ詳細ページ (fa94c82) が文字のみで寂しい
+- 11: メサック (No.129) のみ TOP メーカー一覧でグレー化 (illustration 未配置)
+
+**Codex 神回 21-22 連発**:
+| 連発 | 局面 | 結果 |
+|---|---|---|
+| 21 | Phase 2-Collab-Visual 案 F | B+/A- 判定 |
+| 22 | 事後 review | B → Concrete Fix 2 件で A |
+
+**Phase 2-Collab-Visual (Codex 案 F + Concrete Fix)**:
+- PDF → 200dpi PNG 変換 (PyMuPDF): `daihen_yamabiko_collab_p1.png` + `p2.png` (1654×2339)
+- 詳細ページ案 F: hero DL ボタン + セット別カード式 + 画像クリック PDF + 特典強調
+- **Concrete Fix 2 件**:
+  - caption を画像外に移動 (価格注記を隠さない)
+  - img width/height 属性追加 (CLS 改善)
+  - `:focus-visible` 対応
+- レスポンシブ: ≥820px 2 カラム / <820px 1 カラム
+- 旧 collab-pdf section 削除 (hero に統合)
+
+**メサック illustration (柏原 C 案、image-1 API)**:
+- `PRODUCTS["129"]` プロンプト追加 (Phase 2-X 確定の主力製品反映: ロボットつかみ方式塗装ブース / 設置面積約 1 ㎡)
+- gpt-image-1 で生成: 1024×1024 RGB、1.3 MB
+- 他 99 illustrations と統一感確保
+- TOP メーカー一覧でグレー化解消 (画像配置率 99/149 → **100/149**)
+
+**価格情報の判断**:
+- チラシ画像内の定価: **公開可** (柏原確認済)
+- entry テキスト: absolute 除外を継続厳守
+
+### 20.7.3 17804ec (13:03): Phase 2-PreRegister
+
+**柏原ゲートキープ救出 12 回目** (commit message 表記準拠):
+- ポータルから事前登録への動線不在
+- 来場者「で、申し込みは?」となる致命的 UX 欠陥
+
+**Codex 神回 23-24 連発**:
+| 連発 | 局面 | 結果 |
+|---|---|---|
+| 23 | Phase 2-PreRegister 案 G | A 判定 (推奨) |
+| 24 | 事後 review | A 判定、重大指摘なし |
+
+**実装 (Codex 案 G 完全採用、Part 14 永続知見対象、後述 14.22)**:
+- TOP テンプレ `Section 2.5: registration band`
+  - countdown 直後・pickup-section 直前に配置
+  - CSS: オレンジグラデ `#FF7A1A → #C24A0A`
+  - レスポンシブ: ≤720px で CTA 幅広 max 360px
+  - `:focus-visible` 対応 + `aria-labelledby`
+- コラボ詳細ページ `collab-register` section
+  - collab-note 直後・collab-footer 直前
+  - TOP より控えめサイズ (再掲)
+  - 同 URL + 同文言 + 同注記
+- footer 既存リンク維持 (案 C 補助)
+- **maker 個別ページには追加なし** (Codex 厳守、149 ページ regression なし)
+
+**配置・文言・色**:
+- URL: `https://mac-exe.co.jp/welding/welding_new/tokyo/` (マツモト産業特設、招待制対応、自社経由でブランド整合)
+- 文言: 「事前来場登録はこちら ↗」(マツモト産業表記準拠)
+- 色: オレンジ系 (warm 外部行動色、既存特集/コラボと統一)
+- 注記: 「この展示会は招待制です。公式特設ページから事前来場登録へ進めます。」(CTA 直下 1 行、ボタン本体に挿入せず)
+- `target="_blank"` + `rel="noopener"` (Tier A 既存と統一)
+
+**配備バランス**:
+- TOP 1 強 (countdown 直下、会期 + 会場 → 登録判断の最短経路)
+- コラボ末尾 1 補助 (興味 → 後押し)
+- footer 1 補助 (既存)
+- 計 1 主 + 2 補助、1 画面内連打回避 (Codex 推奨)
+
+## 20.8 本日の重大トラップと回避策 + 柏原ゲートキープ救出
+
+### 20.8.1 柏原ゲートキープ救出 8 件 (本日累計 5-12 回目)
+
+| # | 内容 | 対応 commit / 場面 |
+|---|---|---|
+| 5 | シンテック「結構あると思う」(素材ゼロ誤判定救出、Phase 2-Y) | `6dbd7fd` |
+| 6 | ゼネテック「残ってる」(整備済 E 創作疑い、Phase 2-Z) | `8744462` |
+| 7 | オプティレーザー PDF 提示 (ヒアリング待ち誤判定救出、Phase 2-ZZ) + 文体問題発見 (5 社メタ表現、Phase 2-Style) | `452c49f` / `757c26f` |
+| 8 | 社内資料表記発見 (営業 2 課/セールスレポート、hotfix) | `28a5ef9` |
+| 9 | 営業 2 課製品紹介 + 公式 HP リンク欠如 (Phase 2-Y' hotfix 2 + Phase 2-Link 着手契機) | `bfc1434` / `c2f57fa` |
+| 10 | コラボ詳細寂しい問題 (Phase 2-Collab-Visual hero ボタン強化) | `e2521c7` |
+| 11 | メサックグレー化 (TOP メーカー一覧で illustration 未配置 1 社のみ) | `e2521c7` |
+| 12 | 事前登録動線不在「で、申し込みは?」(Phase 2-PreRegister) | `17804ec` |
+
+**本日累計 (Part 19 1-4 + Part 20 5-12) = 12 回**。
+
+> **注**: session_20260516_late.md L218 の「朝 12:00 累計 8 回」は Part 19 の C-Tier 50 音順問題 (4 回目) を含まない CC 集計だった。Part 19/20 では C-Tier を 4 回目として組み込み、本日 12 回 (5/16 4 + 5/17 8) で統一。
+
+### 20.8.2 引き継ぎ誤判定 4 件救出 (柏原ゲートキープ功績)
+
+| # | メーカー | 誤判定内容 | 実態 | 救出 Phase |
+|---|---|---|---|---|
+| 1 | 052 シンテック | 「素材ゼロ」 | PDF 3 本 + 画像 3 枚完備、Phase 2-G 整備済 | 2-Y |
+| 2 | 021 オプティレーザー | 「ヒアリング待ち別日」 | アンケート Q1-Q3 + Q5 回答済 | 2-ZZ |
+| 3 | 129 メサック | PDF と既存 entry が同一前提 | 別ソリューション (Phase 2-H 整備時の品質チェック漏れ) | 2-X |
+| 4 | 052 シンテック | (新事業見落とし) | 新事業ドローン点検 (Liberaware IBIS2) | 2-Y' |
+
+### 20.8.3 Codex 神回パターン (本日 19 連発 = 連発 6-24)
+
+連発 1-5 は Part 19.8.7 (5/16 分)。本日 5/17 は連発 6-24 で**19 連発**:
+
+| 連発 | Phase | 内容 |
+|---|---|---|
+| 6-12 | 2-X メサック | 7 連発、PDF 主題一本化 + category 空欄化 + 4 件 E 創作削除 |
+| 13 (推定) | 2-Y シンテック | 事前 B+ / 事後 B → Series 1/2/3/4/6 微修正 |
+| 14 (推定) | 法務・誇張系 | 別日タスク化判定 |
+| 15 (推定) | 2-Z ゼネテック | 「世界 No.1」削除判定 |
+| 16 | 2-Y' シンテックドローン | 判定 B → A、Concrete Fix 2 件 |
+| 17 | 2-Link Tier B 5 社 hero CTA | 判定 B → A、Concrete Fix 2 件 |
+| 18 | 2-Link UI 案 D | A 判定 |
+| 19 | 2-Collab 案 4 | A 判定 |
+| 20 | 2-Collab 事後 | A 判定、残留リスクは別日タスク化 |
+| 21 | 2-Collab-Visual 案 F | B+/A- |
+| 22 | 2-Collab-Visual 事後 | B → Concrete Fix 2 件で A |
+| 23 | 2-PreRegister 案 G | A 判定 |
+| 24 | 2-PreRegister 事後 | A 判定、重大指摘なし |
+
+**本日累計 (Part 19 1-5 + Part 20 6-24) = 24 連発**、全 A / B+ 判定、Concrete Fix は 22 連発の 2 件のみ (軽微)。
+
+### 20.8.4 API 障害耐性
+
+- 深夜 02:50 → 朝 09:50 復旧で自動継続
+- session resume で context 保持、再起動コスト低
+- 教訓: 深夜帯 API 500 は仮眠の好機 (1 人運用)
+
+### 20.8.5 価格情報の absolute 除外ルール確立
+
+本日の Phase 2-Collab + 2-Collab-Visual で確立:
+- entry テキスト (`product_name` / `tagline` / `what_is` / `improvement` / `target_scenarios` / `twf_highlights` 等) で価格・配布部数の絶対除外
+- 「会場限定 1 セット」「会場でご案内」のような相対表現は OK
+- チラシ画像内の定価は公開可 (柏原確認済)
+
+## 20.9 残タスク (5/18 以降)
+
+### 法務・誇張系既存表現 (Codex 14 連発目で別日タスク化、継続)
+
+- L38 ダイヘン「業界最高水準」(Phase 2-Collab で再指摘)
+- L592 ゼネテック section_intro「腰痛ゼロへ」
+- L669 ゼネテック Mastercam tagline「世界 No.1」(削除済、再確認要)
+
+### 業界一般論前置き (Phase 2-Style 対象外、別日)
+
+- フロニウス L160「業界一般で見られる課題:」
+- ダイヘン L338「業界一般で見られる課題:」
+
+### Phase 2-Link 拡張 (案 A + 案 2)
+
+- 案 A: **全 149 社** hero CTA 展開 (URL 整備要)
+- 案 2: corporate URL データ源統一 (Tier B/C 全社の maker 単位)
+
+### 6 社社名問題
+
+032 / 047 / 124 / 142 等、出展者へのヒアリング待ち。
+
+### 継続課題
+
+- CLAUDE.md 本書き込み (ドラフト: `C:/Users/boxeo/AppData/Local/Temp/CLAUDE_md_draft.md`)
+- taxonomy normalization (生産性向上特集セクション見出し「① 協働ロボット」と entry 主題の整合)
+- メサック PDF 残 2 本完全抽出 (`mesack_business.pdf` / `mesack_system_engineering.pdf`、OCR or 画像化要)
+- pending-only スクロール改善 (Codex low severity)
+- C-Tier トグル方式高度化 (Codex 案 B、将来)
+- 塗装メーカー taxonomy 整理 (005 アネスト岩田 / 095 日本ワグナー / 129 メサック)
+
+### Cursor 誤作動注意 [`feedback_git_index_lock.md` 継続]
+
+- 着手前: `ls -la .git/index.lock` 確認 + `git log -1` 確認 + Cursor 閉じる の SOP 厳守
+
+## 20.10 本日のセッション運用メモ
+
+### 主要セッション 3 つの時間配分
+
+| セッション | 時間帯 | 内容 | commit |
+|---|---|---|---|
+| 深夜セッション (5/16 から連続) | 00:00-02:50 | Phase 2-X/Y/Z/ZZ + hotfix、生産性向上 100% 達成 🎉 | 6 |
+| API 障害中断 | 02:50-09:50 (約 7 時間) | Anthropic API 500、仮眠 | 0 |
+| 朝〜本セッション前 | 09:56-11:38 | Phase 2-Style / 2-Y' / hotfix 2 / 2-Link / handoff | 7 |
+| 本セッション (12:00-) | 12:15-13:03 | Phase 2-Collab + 2-Link-UI / 2-Collab-Visual / 2-PreRegister | 3 |
+
+**累計時間**: 5/16 朝 7:00 着手 + 5/17 13:03 = **約 30 時間 (2 session 連続)**、API 障害 7 時間中断含む。
+
+### Claude / Codex 役割分担 (継続)
+
+- **柏原 Claude.ai**: 戦略・JSON 原案・判断確定・出展者意図解釈・ゲートキープ救出 (本日 8 回)
+- **CC (Claude Code)**: 実装・grep 検証・ビルド・commit・push・本番反映確認・memory 維持
+- **Codex CLI**: adversarial review (本日 19 回投入で 19 件の致命指摘 + 8 件の Concrete Fix 発見)
+
+### 並列 Agent 起動回数
+
+本日の並列 PowerShell + Bash 同時起動: 計 ~25 回 (深夜は控えめ、朝〜本セッションで集中)。
+
+### 動画/画像投入量
+
+- PNG 画像: 3 件 (collab p1/p2 PDF→PNG 変換 + メサック illustration、合計 ~4 MB)
+- 新規 entry: メサック (Phase 2-X 再構築) / シンテック (Phase 2-Y 再検証) / ゼネテック (Phase 2-Z 再検証) / オプティレーザー (Phase 2-ZZ 構築)
+- 新規ページ: コラボ詳細ページ 1 件
+
+### memory 追記
+
+- (継続課題、本セッション内で新規 memory 追記なし、5/17 中の継続作業として handoff にのみ追記)
+
+## 20.11 commit ハッシュサマリ (Part 19 後の 16 commit)
+
+```
+17804ec 2026-05-17 13:03  feat: Phase 2-PreRegister 事前来場登録動線 (TOP + コラボ末尾)
+e2521c72 2026-05-17 12:48  feat: Phase 2-Collab-Visual + メサック illustration
+fa94c82 2026-05-17 12:15  feat: Phase 2-Collab + 2-Link-UI 統合
+678c585 2026-05-17 11:38  chore: handoff 本日真の完遂 (Phase 2-Link)
+c2f57fa 2026-05-17 11:35  feat: Phase 2-Link Tier B 5 社 hero CTA
+bfc1434 2026-05-17 10:45  fix: シンテック materials 内部組織表記削除 (hotfix 2)
+c4ad2bb 2026-05-17 10:36  chore: handoff 本日完全完遂報告
+3817f09 2026-05-17 10:33  feat: Phase 2-Y' シンテックドローン点検追記
+757c26f 2026-05-17 09:56  feat: Phase 2-Style 5 社文体統一 29 件
+★ API 障害 02:50-09:50 (約 7 時間) ★
+28a5ef9 2026-05-17 02:41  fix: 社内資料表記削除 (hotfix)
+452c49f 2026-05-17 02:28  feat: Phase 2-ZZ オプティレーザー (🎉 11/11 100% 達成)
+8744462 2026-05-17 01:48  feat: Phase 2-Z ゼネテック D 出典再検証
+6dbd7fd 2026-05-17 00:49  feat: Phase 2-Y シンテック D 出典再検証
+d7908e3 2026-05-17 00:05  chore: handoff Phase 2-X + taxonomy normalization 別日追記
+fae5d89 2026-05-17 00:00  feat: Phase 2-X メサック D 根拠再構築
+```
+
+全 commit が origin/main 反映済 (HEAD = `17804ec`、CF Pages 反映確認済 / 本番 grep 全件 PASS)。
+
+---
+
+**5/17 (日) 約 13 時間 session (API 障害 7 時間挟む) 追記終了。生産性向上特集 11/11 (100%) 達成 🎉 + 文体統一 + シンテックドローン + Phase 2-Link / 2-Collab / 2-PreRegister + 重大トラップ 5 件 + 柏原ゲートキープ救出 8 回 + Codex 神回 19 連発の learning は本パートと memory に保存済。TWF2026 本番 (6/12-13) まで残 26 日、ポータルは全 11 社品質統一 + UX 改善 + コラボ + 事前登録動線完備の状態で本番待ち。**
+
+— 2026-05-17 (日) 14:00 JST、自宅 PC (`D:\repos\twf2026-portal\`)
 
 ---
 
