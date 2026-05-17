@@ -273,6 +273,75 @@
     }
 
     /* ===========================================================
+       Section 2.5: 事前来場登録 band (Codex 23 連発案 G)
+       countdown 直後で来場判断 → 登録までを最短導線化。
+       =========================================================== */
+    .registration-band {
+      width: 100%;
+      padding: 48px 32px 56px;
+      background:
+        radial-gradient(900px 360px at 50% 0%, rgba(255, 122, 26, 0.16) 0%, transparent 70%),
+        linear-gradient(180deg, #FFF8F1 0%, #FFFFFF 100%);
+      border-top: 1px solid var(--gray-200);
+      border-bottom: 1px solid var(--gray-200);
+      text-align: center;
+    }
+    .registration-band-inner {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .registration-eyebrow {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #FF7A1A;
+      margin: 0 0 10px;
+    }
+    .registration-title {
+      font-size: clamp(20px, 2.6vw, 26px);
+      font-weight: 900;
+      color: var(--gray-800);
+      margin: 0 0 24px;
+      letter-spacing: 0.02em;
+    }
+    .registration-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 36px;
+      background: linear-gradient(135deg, #FF7A1A 0%, #C24A0A 100%);
+      color: #fff;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 17px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 12px 28px rgba(255, 122, 26, 0.28), 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .registration-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(255, 122, 26, 0.36), 0 6px 14px rgba(0, 0, 0, 0.12);
+      color: #fff;
+      text-decoration: none;
+    }
+    .registration-cta:focus-visible {
+      outline: 3px solid #C24A0A;
+      outline-offset: 3px;
+    }
+    .registration-note {
+      margin: 18px auto 0;
+      max-width: 520px;
+      font-size: 13px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    @media (max-width: 720px) {
+      .registration-band { padding: 36px 18px 40px; }
+      .registration-cta { padding: 16px 28px; font-size: 15px; width: 100%; max-width: 360px; justify-content: center; }
+    }
+
+    /* ===========================================================
        Section 3: みどころ3選 ───── 3スポット演出 + 直下カード接続
        柏原生成の3スポット背景画像 (top-pickup-3spots-pc.png) と整合
        =========================================================== */
@@ -1293,6 +1362,20 @@
     </div>
     <div class="countdown-status" id="countdown-status" hidden></div>
     <p class="countdown-venue">2026.06.12 (FRI) 〜 06.13 (SAT)　幕張メッセ No.9 ホール</p>
+  </section>
+
+  <!-- ============================================================
+       Section 2.5: 事前来場登録 (Codex 23 連発案 G 採用)
+       countdown 直後で来場判断 → 登録までを最短導線化。
+       URL: マツモト産業特設 (招待制対応、自社経由でブランド整合)。
+       ============================================================ -->
+  <section class="registration-band" aria-labelledby="registration-title">
+    <div class="registration-band-inner">
+      <p class="registration-eyebrow">VISITOR REGISTRATION</p>
+      <h2 id="registration-title" class="registration-title">来場ご予定の方へ</h2>
+      <a class="registration-cta" href="https://mac-exe.co.jp/welding/welding_new/tokyo/" target="_blank" rel="noopener">事前来場登録はこちら ↗</a>
+      <p class="registration-note">この展示会は招待制です。公式特設ページから事前来場登録へ進めます。</p>
+    </div>
   </section>
 
   <!-- ============================================================

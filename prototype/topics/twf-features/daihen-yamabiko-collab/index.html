@@ -212,6 +212,52 @@
       color: var(--gray-600);
       line-height: 1.7;
     }
+    .collab-register {
+      margin-top: 40px;
+      padding: 32px 28px;
+      background:
+        radial-gradient(700px 280px at 50% 0%, rgba(255, 122, 26, 0.14) 0%, transparent 70%),
+        linear-gradient(180deg, #FFF8F1 0%, #FFFFFF 100%);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      text-align: center;
+    }
+    .collab-register-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--gray-800);
+      margin: 0 0 16px;
+    }
+    .collab-register-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: linear-gradient(135deg, #FF7A1A 0%, #C24A0A 100%);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      box-shadow: 0 10px 22px rgba(255, 122, 26, 0.26);
+      transition: transform 0.15s;
+    }
+    .collab-register-cta:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      text-decoration: none;
+    }
+    .collab-register-cta:focus-visible {
+      outline: 3px solid var(--collab-accent-dark);
+      outline-offset: 3px;
+    }
+    .collab-register-note {
+      margin: 14px auto 0;
+      max-width: 460px;
+      font-size: 12.5px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
     .collab-footer {
       margin-top: 48px;
       padding-top: 24px;
@@ -309,6 +355,12 @@
     <div class="collab-note">
       詳細仕様・対象セットの最新情報は会場でご案内します。コラボ参加メーカーの個別ページからもアクセス可能。
     </div>
+
+    <section class="collab-register" aria-labelledby="collab-register-title">
+      <h2 id="collab-register-title" class="collab-register-title">来場ご予定の方へ</h2>
+      <a class="collab-register-cta" href="https://mac-exe.co.jp/welding/welding_new/tokyo/" target="_blank" rel="noopener">事前来場登録はこちら ↗</a>
+      <p class="collab-register-note">この展示会は招待制です。公式特設ページから事前来場登録へ進めます。</p>
+    </section>
 
     <footer class="collab-footer">
       マツモト産業㈱ 京葉営業所 / TEL 047-358-1121 ・
