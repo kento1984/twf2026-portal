@@ -35,6 +35,7 @@ data/_pdf_pages/
 !.env.example
 
 scripts/_*.py
+!scripts/_extract_koike_slide_data.py
 
 # 検証スクリプトのワンショットレポート (再生成可、追跡不要)
 docs/_*.md
