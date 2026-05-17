@@ -3789,6 +3789,112 @@ cards.forEach(c => {
 
 ---
 
+## 14.27 出展者提供 PDF 内 3 列価格表の SECURITY パターン [5/17 `d26a6a9` → 削除 `d4c5c89`]
+
+**事案**: 育良精機 (009) `TWF2026拡販特典商材(育良精機㈱）.pdf` が portal `attachments/` で公開中、3 列価格表 (定価 / 仕切 55% 一律 / 販売店価格 70% 一律) が 30+ 製品で完全露出。pdftotext で本文テキスト抽出可、列ヘッダは画像 (テキスト抽出不能) だが数値構造から B2B 流通の中間 2 段価格構成と確定。
+
+**5/13 事案 (`3aa0025`、3 社 Q4 仕切率削除) との差**: 今回は表形式 30+ 製品 = **規模 10 倍**。`scripts/_inspect_pricing_leak.py` 既存スキャナーは `貴社通常仕切 / 代理店仕切 / 定価のN% / 仕切.*N%.*対応 / 販売店卸` 中心で、「定価 / 仕切 55% 一律 / 販売店価格 70% 一律」型は取りこぼす。
+
+### 確定 SOP (Codex A + B 神回 27-28 で確立)
+
+1. **受領時にファイル名で一次隔離**: `拡販|特典|販売店|主催店|業販|卸|御中|セール案` を含む PDF は公開前レビュー必須
+2. **`pdftotext` で本文抽出 + 価格表ヘッダ共起判定**: 定価系 + 中間流通価格系 + エンド価格系の 3 ヘッダ + 数値列 ≥3 の同一ページ共起で `critical`
+3. **抽出空 PDF は OCR キューへ** (画像化チラシ系の盲点対策)
+4. **問題 PDF は `private_review/` へ退避**、公開ディレクトリに入れない
+5. **削除後は CF Pages cache purge** (HTML 経路遮断後も PDF 直 URL はエッジキャッシュ TTL 残存、Cloudflare dashboard で purge)
+
+### 検出スコアリング (Codex A Concrete Fix)
+
+```python
+RETAIL = r"(?:定価|上代|標準価格|希望小売価格|参考価格)"
+CHANNEL = r"(?:仕切(?:率|価格)?|卸(?:価格)?|掛率|販売店価格|代理店価格|特約店価格|貴社価格|御社価格|主催店価格|NET(?:価格)?|業販価格)"
+ENDUSER = r"(?:販売価格|売価|実売価格|エンド価格|ユーザー価格)"
+RATE = r"(?:[1-9]\d?(?:\.\d+)?\s*%|0\.\d{1,3})"
+FALSE_POSITIVE = r"(?:間仕切|仕切板|仕切り板|仕切弁|区仕切|仕切材)"
+```
+
+### 想定読者転換の根本ルール (Codex B 結論)
+
+> **公開 URL に載る素材は、意図が主催店向けでも、認証が無い限りエンドユーザー公開物として審査する**
+
+Phase 2-PreRegister (`17804ec`) で招待制エンドユーザー転換確定済、`docs/concept.md` 等の「主催店向け」記述と矛盾するが、認証なしの公開 URL である以上、エンドユーザー前提が法務リスク最小の運用方針。
+
+---
+
+## 14.28 CSS cascade 順序: `@media` は `</style>` 直前配置で元定義に勝つ [5/17 `bef3ce9`]
+
+**事案**: Phase 1 (`8a14c69`) で Codex C 神回 29 ★★★ #2 のスマホ崩壊修正 `@media (max-width: 760px)` を line 831 (元 `.flyer-cards-grid` 直後) に追加。本番反映後、`.pickup-cards` は 1 列化したが `.maker-grid` と `.hero-inner` は変化なし。
+
+**原因**: CSS 同 specificity (単一 class) 同士は **ソース順で後が勝つ**。`@media` 内のルールも cascade 順序の影響を受ける。
+- `.pickup-cards` 元定義 line 401 (= @media line 831 より前) → @media が後で勝つ ✓
+- `.maker-grid` 元定義 line 964 (= @media line 831 より後) → 元定義が勝ち、@media 無効 ❌
+- `.hero-inner` 元定義 line 129 → 一見 @media 後だが、子要素 `.hero-cta-wrap { grid-column: 2 }` で `grid-auto-columns` 暗黙 2 列生成 (14.29 参照)
+
+**確定対処** (`bef3ce9`):
+- `@media (max-width: 760px)` ブロックを `</style>` 直前 (CSS 末尾) に集約配置
+- これで全要素の元定義より後 = cascade 勝利確定
+- 副次効果: ビジュアル監査系の hotfix も同 @media に追記する規約化 (`2a6e604` で .section-title-light、`b0ef942` で filter-chip 44px 等)
+
+**Codex C の指摘漏れ**: Concrete Fix で grid-template-columns 修正ルールは提示したが、**挿入位置 (どの行に追加するか) を指定しなかった**。CC が「既存 @media 直近 (line 829 直後)」に配置した結果 cascade 負け。今後の Codex 系修正受領時は、配置場所も明示的に判定する。
+
+**実装規約 (今後)**:
+- スマホ向け mobile-first override は **`</style>` 直前の集約 @media ブロックに追記**
+- 元定義より前に新規 @media を作らない (特に CSS 中盤 line 800 周辺は危険)
+- 既存集約 @media が無いテンプレ (`maker_full.html.j2` 等) では、`</style>` 直前に新規作成
+
+---
+
+## 14.29 hero 子要素の `grid-column` が `grid-auto-columns` で 2 列暗黙生成 [5/17 `bef3ce9`]
+
+**事案**: `.hero-inner { grid-template-columns: 1fr }` (mobile @media) で 1 列化指定したのに、computed style は `148.359px 171.641px` の 2 列のまま。
+
+**原因**: 子要素の grid-column 指定により暗黙的に列が生成される。
+- `.hero-title-block { grid-column: 1 / span 2 }` (line 140) → 1-2 列をスパン要求
+- `.hero-cta-wrap { grid-column: 2 }` (line 167) → 2 列目に配置
+
+CSS Grid 仕様: `grid-template-columns: 1fr` で **明示** 1 列定義しても、子が `grid-column: 2` 等で範囲外を指定すると、`grid-auto-columns` (デフォルト `auto`) で **暗黙列**が生成される。結果として grid は 2 列。
+
+**確定対処**:
+```css
+@media (max-width: 760px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-title-block { grid-column: 1; }
+  .hero-cta-wrap {
+    grid-column: 1;
+    grid-row: auto;
+    justify-self: stretch;
+  }
+}
+```
+
+子要素の grid-column を明示的に 1 列目に戻す + grid-row も auto に。これで暗黙列生成抑止、`grid-template-columns: 1fr` が完全に効く。
+
+**応用ルール**: 「mobile で grid 列数を変える際は、**子要素の grid-column / grid-row 指定もセットで mobile @media 内に書き直す**」。`grid-template-columns` 単体修正は罠。
+
+---
+
+## 14.30 iOS Safari UI と固定セクション見出しの重なり対策 [5/17 `2a6e604`]
+
+**事案**: Phase 1 (`bef3ce9`) スマホ崩壊修正後、柏原 iPhone 実機確認で「2大コーナー × 実演セミナー」見出し (`.section-title-light`) が **iOS Safari の Web Share UI 円ボタン**と重なって読みづらい状態を確認 (テキスト「ナー」「ミナー」が分断表示)。
+
+**原因**: iOS Safari は下部ナビゲーションバー (戻る / 共有 / タブ等) を画面下端に固定表示する。fullscreen 系の section 見出しが Safari UI の Z 軸下に潜り込むと、重なって読めなくなる。`viewport-fit=cover` + `env(safe-area-inset-*)` 未対応の section で発生。
+
+**確定対処** (`templates/top.html.j2` 末尾 @media):
+```css
+@media (max-width: 760px) {
+  .section-title-light {
+    padding-top: 30px;
+    font-size: clamp(22px, 6vw, 32px);
+  }
+}
+```
+
+`padding-top: 30px` で UI 下端からの余白確保、`font-size: clamp(22px, 6vw, 32px)` で見出し縮小して 1 行に収める。
+
+**他テンプレへの応用**: PC で見栄え重視の section 見出し (`.section-title-light` 等の hero-overlap 系) は、mobile でも `padding-top` + `font-size clamp` で UI 重なり回避を組み込む。`env(safe-area-inset-bottom)` の本格対応は別 PR で検討。
+
+---
+
 # Part 15: ファイルパス・URL・アカウント一覧
 
 ## 15.1 リポジトリ
