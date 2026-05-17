@@ -216,6 +216,26 @@
   .maker-header-cta a:hover {
     background: var(--blue-700);
   }
+  /* Codex 18: 案 D modifier — CTA ある時だけ meta/CTA を同行化 */
+  .maker-header--with-cta .maker-meta {
+    width: auto;
+    flex: 1 1 320px;
+  }
+  .maker-header--with-cta .maker-header-cta {
+    margin-top: 0;
+    margin-left: auto;
+    align-self: center;
+  }
+  @media (max-width: 767px) {
+    .maker-header--with-cta .maker-meta,
+    .maker-header--with-cta .maker-header-cta {
+      width: 100%;
+      margin-left: 0;
+    }
+    .maker-header--with-cta .maker-header-cta {
+      margin-top: 16px;
+    }
+  }
 
     .maker-footer {
       margin-top: 64px;
@@ -262,7 +282,7 @@
     </a>
   </header>
   <main class="maker-page">
-  <header class="maker-header">
+  <header class="maker-header maker-header--with-cta">
     <span class="tier-badge tier-b">パンフ簡易</span>
     <span class="maker-no">No.145</span>
     <h1>ロボットバンク㈱</h1>

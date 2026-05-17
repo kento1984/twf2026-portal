@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ダイヘン × やまびこジャパン 限定コラボセット | TWF2026 みどころポータル</title>
+  <meta name="description" content="TWF2026 会場限定の主力機コラボセット 2 種類。リチウムイオン蓄電池プレゼントや選べるギフトカード特典付。" />
+  <link rel="icon" type="image/png" href="../../../assets/favicon.png" />
+  <link rel="stylesheet" href="../../../assets/global.css" />
+  <style>
+    :root {
+      --collab-accent: #FF7A1A;
+      --collab-accent-dark: #C24A0A;
+    }
+    .collab-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+    .collab-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      color: var(--gray-600);
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .collab-back:hover { color: var(--collab-accent); }
+    .collab-hero {
+      padding: 36px 32px 32px;
+      background: linear-gradient(135deg, #FFF8F1 0%, #FFFFFF 100%);
+      border-left: 6px solid var(--collab-accent);
+      border-radius: 14px;
+      margin-bottom: 40px;
+      box-shadow: 0 14px 36px rgba(255, 122, 26, 0.10);
+    }
+    .collab-eyebrow {
+      display: inline-block;
+      padding: 5px 14px;
+      background: var(--collab-accent);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      margin-bottom: 16px;
+    }
+    .collab-title {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--gray-800);
+      margin-bottom: 12px;
+    }
+    .collab-sub {
+      font-size: 16px;
+      color: var(--gray-700);
+      line-height: 1.75;
+      margin-bottom: 0;
+    }
+    .collab-makers {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .collab-maker-link {
+      display: inline-flex;
+      align-items: center;
+      padding: 10px 18px;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      text-decoration: none;
+      color: var(--gray-800);
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .collab-maker-link:hover {
+      border-color: var(--collab-accent);
+      color: var(--collab-accent);
+    }
+    .collab-set {
+      padding: 32px;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      margin-bottom: 32px;
+    }
+    .collab-set-eyebrow {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--gray-100);
+      color: var(--gray-700);
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .collab-set-title {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--gray-800);
+      margin-bottom: 18px;
+      line-height: 1.4;
+    }
+    .collab-items {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 24px;
+    }
+    .collab-items li {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-100);
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--gray-800);
+    }
+    .collab-items li:last-child { border-bottom: 0; }
+    .collab-items strong { color: var(--gray-900); margin-right: 8px; }
+    .collab-bonus {
+      padding: 18px 22px;
+      background: #FFF8F1;
+      border-left: 4px solid var(--collab-accent);
+      border-radius: 6px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--gray-800);
+    }
+    .collab-bonus strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--collab-accent-dark);
+      letter-spacing: 0.06em;
+      margin-bottom: 6px;
+    }
+    .collab-pdf {
+      padding: 28px;
+      background: var(--gray-50);
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .collab-pdf-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--collab-accent);
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 15px;
+      transition: background 0.2s;
+    }
+    .collab-pdf-btn:hover { background: var(--collab-accent-dark); }
+    .collab-note {
+      padding: 20px;
+      background: #fff;
+      border: 1px dashed var(--gray-300);
+      border-radius: 8px;
+      font-size: 14px;
+      color: var(--gray-600);
+      line-height: 1.7;
+    }
+    .collab-footer {
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      color: var(--gray-500);
+      font-size: 13px;
+    }
+    @media (max-width: 720px) {
+      .collab-wrap { padding: 24px 18px 64px; }
+      .collab-title { font-size: 24px; }
+      .collab-set-title { font-size: 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="collab-wrap">
+    <a class="collab-back" href="../../../index.html">← TWF2026 みどころポータル トップへ</a>
+
+    <header class="collab-hero">
+      <span class="collab-eyebrow">🎁 TWF2026 注目情報</span>
+      <h1 class="collab-title">ダイヘン × やまびこジャパン 限定コラボセット</h1>
+      <p class="collab-sub">TWF2026 会場限定で、ダイヘンとやまびこジャパンの主力機を組み合わせたコラボセットを 2 種類実施。コラボ企画購入で限定特典をプレゼント。</p>
+      <div class="collab-makers">
+        <a class="collab-maker-link" href="../../../m/daihen/">㈱ダイヘン (No.066) のページ →</a>
+        <a class="collab-maker-link" href="../../../m/yamabiko-japan/">やまびこジャパン㈱ (No.135) のページ →</a>
+      </div>
+    </header>
+
+    <section class="collab-set">
+      <span class="collab-set-eyebrow">セット 1</span>
+      <h2 class="collab-set-title">大物コラボ: 溶接機 × ディーゼル発電機</h2>
+      <ul class="collab-items">
+        <li><strong>ダイヘン:</strong> Welbee The Short Arc 500 (WB-M500F) — デジタルインバータ制御 CO2/MAG 自動溶接機</li>
+        <li><strong>ダイヘン:</strong> インバータオート 600G — インバータ制御式多目的自動溶接機 (トーチ 3m / 延長ケーブル 10m / リモコン付)</li>
+        <li><strong>やまびこジャパン:</strong> DGM600MK — 可搬形ディーゼル発電機 (三相 50/60kVA / 単相 30/36kVA)</li>
+        <li><strong>やまびこジャパン:</strong> DGM1000MI-D — 可搬形ディーゼル発電機 (三相 80/100kVA / 単相 47/58kVA)</li>
+      </ul>
+      <div class="collab-bonus">
+        <strong>会場限定特典</strong>
+        リチウムイオン蓄電池 SLG1800B プレゼント (会場限定 1 セット)<br>
+        単相 100V × 4 口、定格容量 1536Wh、急速充電 1.8 時間、UPS 機能付 (電源切替時間 0.01 秒)、災害時の非常電源としても活用可能。
+      </div>
+    </section>
+
+    <section class="collab-set">
+      <span class="collab-set-eyebrow">セット 2</span>
+      <h2 class="collab-set-title">小物コラボ: TIG 溶接機 × ガソリン発電機</h2>
+      <ul class="collab-items">
+        <li><strong>ダイヘン:</strong> デジタルティグミニ 200P (DTM-200P) — ポータブル直流パルス TIG 溶接機</li>
+        <li><strong>やまびこジャパン:</strong> EGW200MC-IST — ガソリンエンジン発電機兼用溶接機 (新製品)</li>
+      </ul>
+      <div class="collab-bonus">
+        <strong>会場限定特典</strong>
+        選べるギフトカード 15,000 円相当プレゼント (会場限定セット)
+      </div>
+    </section>
+
+    <section class="collab-pdf">
+      <p style="margin: 0 0 16px; font-size: 15px; color: var(--gray-700);">セット詳細・対象機種のチラシを PDF でご覧いただけます。</p>
+      <a class="collab-pdf-btn" href="../../../attachments/コラボキャンペーン/daihen_yamabiko_collab_2026.pdf" target="_blank" rel="noopener">📥 コラボセット案内 PDF を開く</a>
+    </section>
+
+    <div class="collab-note">
+      詳細仕様・対象セットの最新情報は会場でご案内します。コラボ参加メーカーの個別ページからもアクセス可能。
+    </div>
+
+    <footer class="collab-footer">
+      マツモト産業㈱ 京葉営業所 / TEL 047-358-1121 ・
+      <a href="../../../index.html" style="color: var(--gray-600);">TWF2026 みどころポータル トップへ</a>
+    </footer>
+  </main>
+</body>
+</html>

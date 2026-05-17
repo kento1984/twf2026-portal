@@ -655,7 +655,7 @@
         {% endfor %}
       </div>
       {% endif %}
-      {% if brand.source or maker.related_maker %}
+      {% if brand.source or maker.related_maker or maker.no in [66, 135] %}
       <div class="maker-hero-cta-row">
         {% if brand.source %}
         {% set hero_src = brand.source[0] if (brand.source is iterable and brand.source is not string) else brand.source %}
@@ -663,6 +663,11 @@
         {% endif %}
         {% if maker.related_maker %}
         <a class="hero-related-link" href="/m/{{ maker.related_maker.slug }}/">{{ maker.related_maker.label }} →</a>
+        {% endif %}
+        {% if maker.no == 66 %}
+        <a class="hero-related-link" href="/topics/twf-features/daihen-yamabiko-collab/">🎁 やまびこジャパンとの限定コラボ →</a>
+        {% elif maker.no == 135 %}
+        <a class="hero-related-link" href="/topics/twf-features/daihen-yamabiko-collab/">🎁 ダイヘンとの限定コラボ →</a>
         {% endif %}
       </div>
       {% endif %}

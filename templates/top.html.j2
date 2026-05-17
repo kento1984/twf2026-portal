@@ -415,6 +415,90 @@
     }
 
     /* ===========================================================
+       Section 3.2: TWF2026 注目情報 (軽量 1-card rail)
+       みどころ3選 → 注目情報 → 当日限定セール の順で
+       単発の特集案件 (コラボ/限定特典) を恒常導線と分けて訴求。
+       Codex 19 連発目案 4 採用 (構造変更最小、将来拡張可能)。
+       =========================================================== */
+    .twf-features-rail {
+      width: 100%;
+      padding: 48px 32px 32px;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F1 100%);
+    }
+    .twf-features-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .twf-features-eyebrow {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #FF7A1A;
+      margin-bottom: 10px;
+    }
+    .twf-features-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+    }
+    .twf-feature-card {
+      display: block;
+      padding: 24px 26px 22px;
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      border-left: 5px solid #FF7A1A;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--gray-800);
+      box-shadow: 0 8px 20px rgba(255, 122, 26, 0.08);
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .twf-feature-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 28px rgba(255, 122, 26, 0.16);
+      text-decoration: none;
+      color: var(--gray-800);
+    }
+    .twf-feature-card-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: #FF7A1A;
+      color: #fff;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+    .twf-feature-card-title {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.4;
+      margin: 0 0 10px;
+      color: var(--gray-900);
+    }
+    .twf-feature-card-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--gray-600);
+      margin: 0 0 14px;
+    }
+    .twf-feature-card-cta {
+      display: inline-flex;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 800;
+      color: #C24A0A;
+    }
+    @media (max-width: 720px) {
+      .twf-features-rail { padding: 36px 18px 24px; }
+      .twf-feature-card-title { font-size: 16px; }
+    }
+
+    /* ===========================================================
        Section 3.5: 当日限定・特価セール (PDFチラシ TOP配置)
        みどころ3選 (暗) → このセクション (暖色) → メーカー一覧 (明) という
        ビジュアル遷移。来場前の「特価をまず確認」導線を一目で訴求。
@@ -1235,6 +1319,29 @@
         <span class="pickup-card-cta">詳しく見る →</span>
       </a>
       {% endfor %}
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Section 3.2: TWF2026 注目情報 (軽量 1-card rail)
+       みどころ3選 と 当日限定セール の間に配置。
+       単発の特集案件 (コラボ/限定特典等) を恒常導線と分けて訴求。
+       Codex 19 連発目案 4 採用 (構造変更最小、将来拡張可能)。
+       ============================================================ -->
+  <section class="twf-features-rail" id="twf-features" aria-labelledby="twf-features-title">
+    <div class="twf-features-inner">
+      <div class="section-header">
+        <span class="twf-features-eyebrow">🆕 SPECIAL FEATURE</span>
+        <h2 id="twf-features-title" class="section-title double-underline double-underline-center">TWF2026 注目情報</h2>
+      </div>
+      <div class="twf-features-cards">
+        <a class="twf-feature-card" href="topics/twf-features/daihen-yamabiko-collab/">
+          <span class="twf-feature-card-badge">🎁 会場限定特典</span>
+          <h3 class="twf-feature-card-title">ダイヘン × やまびこジャパン 限定コラボセット</h3>
+          <p class="twf-feature-card-desc">主力機の組合せで会場限定特典をプレゼント。対象セットあり、詳細は現地でご案内。</p>
+          <span class="twf-feature-card-cta">詳細を見る →</span>
+        </a>
+      </div>
     </div>
   </section>
 
