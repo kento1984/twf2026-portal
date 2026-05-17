@@ -46,6 +46,11 @@ TAXONOMY_PATH = ROOT / "data" / "maker_taxonomy.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
 TOPICS_OUT = OUT_DIR / "topics"
+ILLUSTRATIONS_DIR = OUT_DIR / "assets" / "maker-illustrations"
+
+
+def has_illustration(no: int) -> bool:
+    return (ILLUSTRATIONS_DIR / f"{int(no):03d}.png").exists()
 
 LEGAL_RE = re.compile(r"(株式会社|有限会社|合同会社|合資会社|合名会社|\(株\)|\(有\)|㈱|㈲|㈳)")
 
@@ -495,6 +500,11 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
     # 各セクション内で 50 音順維持、検索 + 8 ボタンフィルタは両セクション横断
     makers_main = [c for c in cards if c["tier"] in ("A", "B")]
     makers_pending = [c for c in cards if c["tier"] == "C"]
+
+    # Step Z (柏原指摘、2026-05-17): A+B 上段内で画像配置済を先に、未配置を後に。
+    # 50 音順は各グループ内で維持。blank hero card (B-Tier 画像未配置 13 社) が
+    # 上段先頭に出る見栄え問題を解消。section 構造は不変。
+    makers_main.sort(key=lambda c: (0 if has_illustration(c["no"]) else 1, make_sort_key(c)))
 
     tpl = env.get_template("top.html.j2")
     html = tpl.render(
