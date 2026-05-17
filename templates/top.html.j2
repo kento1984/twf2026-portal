@@ -828,21 +828,6 @@
       }
     }
 
-    /* Codex C 神回 29 ★★★ #2: TOP スマホ崩壊修正 (375px で maker card 60px 化を解消) */
-    @media (max-width: 760px) {
-      .pickup-cards,
-      .maker-grid,
-      .footer-inner { grid-template-columns: 1fr; }
-      .hero-inner {
-        grid-template-columns: 1fr;
-        padding: 96px 20px 40px;
-      }
-      .pickup-cards {
-        padding: 0 18px;
-        margin: -32px auto 0;
-      }
-    }
-
     /* ===========================================================
        Section 4: メーカー一覧  ───────  flex height  /  明
        =========================================================== */
@@ -1342,6 +1327,36 @@
     .maker-card[data-tier="A"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--red-500); }
     .maker-card[data-tier="B"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--blue-500); }
     .maker-card[data-tier="C"] { box-shadow: var(--shadow-md), inset 4px 0 0 var(--gray-400); }
+
+    /* ===========================================================
+       Codex C 神回 29 ★★★ #2 + hotfix (5/17): スマホ崩壊修正
+       CSS cascade 末尾配置で .maker-grid / .hero-inner 等の元定義より
+       後にして勝つようにする (Phase 1 で line 831 配置時は .maker-grid
+       line 964 元定義に cascade 負けしていた)。
+       =========================================================== */
+    @media (max-width: 760px) {
+      .pickup-cards,
+      .maker-grid,
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 130px 20px 40px;
+      }
+      /* 子要素の grid-column を解除しないと grid-auto-columns で暗黙的に 2 列目が生成される */
+      .hero-title-block { grid-column: 1; }
+      .hero-cta-wrap {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: stretch;
+      }
+      .hero-h1 {
+        font-size: clamp(28px, 7vw, 44px);
+      }
+      .pickup-cards {
+        padding: 0 18px;
+        margin: -32px auto 0;
+      }
+    }
   </style>
 </head>
 <body>
