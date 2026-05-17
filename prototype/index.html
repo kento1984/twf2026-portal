@@ -828,6 +828,21 @@
       }
     }
 
+    /* Codex C 神回 29 ★★★ #2: TOP スマホ崩壊修正 (375px で maker card 60px 化を解消) */
+    @media (max-width: 760px) {
+      .pickup-cards,
+      .maker-grid,
+      .footer-inner { grid-template-columns: 1fr; }
+      .hero-inner {
+        grid-template-columns: 1fr;
+        padding: 96px 20px 40px;
+      }
+      .pickup-cards {
+        padding: 0 18px;
+        margin: -32px auto 0;
+      }
+    }
+
     /* ===========================================================
        Section 4: メーカー一覧  ───────  flex height  /  明
        =========================================================== */

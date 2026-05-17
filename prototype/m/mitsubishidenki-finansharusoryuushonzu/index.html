@@ -200,7 +200,8 @@
     pointer-events: none;
   }
   @media (max-width: 760px) {
-    .maker-hero { padding-top: 260px; }
+    /* Codex C 神回 29 ★★★ #3: A 層 mobile hero / property-row 窮屈解消 */
+    .maker-hero { padding: 132px 20px 40px; }
     .maker-hero-logo {
       top: 24px;
       right: 50%;
@@ -208,6 +209,9 @@
       max-width: 220px;
       width: 62%;
     }
+    .maker-hero-name { font-size: clamp(28px, 8.5vw, 40px); }
+    .maker-props { padding: 18px 16px; margin: -20px 0 32px; }
+    .property-row { grid-template-columns: 1fr; gap: 6px; }
   }
   .maker-hero-inner {
     position: relative;
