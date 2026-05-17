@@ -187,3 +187,55 @@ PDF (mesack_robot_painting.pdf) D 出典と既存 topics.json L230 entry が
 
 ### API 障害メモ
 2026/5/17 深夜 3:00 頃 Anthropic API 500 で中断、朝 10:00 復旧で再開、自動継続。
+
+## 朝 10:00-12:00 追加完遂 (5/17 朝)
+
+### Phase 2-Y' シンテック ドローン点検新サービス追記 (3817f09)
+- 公式 HP /news/250805/ + /service/ + Liberaware IBIS2 D 出典確定
+- twf_highlights 3 件 → 4 件 (🚁 ドローン追加)
+- target_scenarios 5 件 → 6 件 (プラント機内点検追加)
+- バランスアーム主題完全維持
+- Codex 16 連発 (判定 B → A、Concrete Fix 2 件)
+
+### hotfix 2 (bfc1434): シンテック materials label 内部組織表記削除
+- 「営業2課製品紹介 (S15-25 抜粋)」→「営業資料 (S15-25 抜粋)」
+- 柏原ゲートキープ 8 回目
+
+### Phase 2-Link 完了 (c2f57fa): 生産性向上特集の個別ページに公式ページリンク追加
+- Tier B 5 社 (シンテック / メサック / ゼネテック / ロボットバンク / 小森安全機) に hero cta 追加
+- maker_skeleton.html.j2 + maker_pamphlet.html.j2 拡張
+- twf_topic_products[0].official_url 経由
+- ラベル: Tier B「公式ページを見る ↗」、Tier A「公式サイトを見る ↗」維持
+- Codex 17 連発 (判定 B → A、Concrete Fix 2 件)
+- 別日タスク (案 A): 全 149 社展開、案 2: corporate URL データ源統一
+
+## 本日真の完全完遂 (5/17 12:00 頃、29 時間 2 session 連続)
+
+### 成果サマリー
+- **生産性向上特集**: 5/11 (45%) → **11/11 (100%) 完全制覇 + 文体統一 + シンテックドローン + 公式ページリンク**
+- **本日累計 commit 23 件**
+- **Codex 神回 17 連発記録**
+- **Phase 2-X 教訓発覚 9 件**
+- **柏原ゲートキープ救出 8 回**
+- **API 障害耐性** (深夜 500 → 朝復旧で自動継続)
+
+### 柏原ゲートキープ 8 回 詳細
+1. Co-Authored-By 朝検出 (Cursor 自動 commit)
+2. シンテック「結構あると思う」(素材ゼロ誤判定)
+3. Cursor 誤作動察知 (commit 982927b)
+4. ゼネテック「残ってる」(整備済 E 創作疑い)
+5. オプティレーザー PDF 提示 (ヒアリング待ち誤判定)
+6. 文体問題発見 (メタ表現、ゲートキープ 6 回目)
+7. 社内資料表記発見 (社内セールスレポート / 営業資料、ゲートキープ 7 回目)
+8. 営業2課製品紹介 + 公式 HP リンク欠如 (ゲートキープ 8 回目)
+
+### 別日タスク (handoff 追記済)
+- 法務・誇張系既存表現 (L38 業界最高水準 / L592 腰痛ゼロへ / L669 世界 No.1)
+- 業界一般論前置き (フロニウス L160 / ダイヘン L338)
+- Phase 2-Link 案 2 (Tier B/C 全社の maker 単位 corporate URL データ源統一)
+- 全 149 社への hero cta 展開 (URL 整備、案 A 伏線)
+- 6 社社名問題 (032/047/124/142 等)
+- CLAUDE.md 本書き込み / HANDOFF Part 19 / taxonomy normalization
+- Cursor 誤作動注意 (着手前 git log + index.lock 確認)
+
+TWF2026 本番 (6/12-13) 前に、ポータルが全 11 社品質統一 + UX 改善された状態で完成。
