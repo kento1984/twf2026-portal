@@ -363,9 +363,10 @@
       "OTOSWING_demo_02.mp4",
       "OTOSWING_demo_03.mp4",
       "OTOSWING_demo_04.mp4",
-      "OTOSWING_demo_05.mp4"
+      "OTOSWING_demo_05.mp4",
+      "TWF2026公式パネル_オートスイング.pdf"
     ],
-    "attachment_dir": "株式会社オートスイング",
+    "attachment_dir": "attachments/株式会社オートスイング/",
     "company_dir": "株式会社オートスイング",
     "attachment_labels": {
       "250704_OTOSWING_リーフレット.pdf": "OTOSWING 溶接カメラ ご紹介リーフレット",
@@ -673,7 +674,8 @@
     "q4": "",
     "q5": "",
     "attachments": [
-      "komori_srd.pdf"
+      "komori_srd.pdf",
+      "TWF2026公式パネル_小森安全機研究所.pdf"
     ],
     "attachment_dir": "attachments/株式会社小森安全機研究所/",
     "company_dir": "株式会社小森安全機研究所"
@@ -978,7 +980,8 @@
     "attachments": [
       "3arm_catalog.pdf",
       "shintech_company_excerpt.pdf",
-      "shintech_products_2025.pdf"
+      "shintech_products_2025.pdf",
+      "TWF2026公式パネル_シンテック.pdf"
     ],
     "attachment_dir": "attachments/シンテック株式会社/",
     "company_dir": "シンテック株式会社"
@@ -1129,7 +1132,8 @@
     "q4": "",
     "q5": "",
     "attachments": [
-      "vcolp_brochure.pdf"
+      "vcolp_brochure.pdf",
+      "TWF2026公式パネル_ゼネテック.pdf"
     ],
     "attachment_dir": "attachments/株式会社ゼネテック/",
     "company_dir": "株式会社ゼネテック"
@@ -1259,7 +1263,9 @@
     "q3": "",
     "q4": "",
     "q5": "添付あり(　点) / なし",
-    "attachments": [],
+    "attachments": [
+      "TWF2026公式パネル_ダイヘン.pdf"
+    ],
     "attachment_dir": "attachments/株式会社ダイヘン/",
     "company_dir": "株式会社ダイヘン"
   },
@@ -1831,7 +1837,8 @@
     "q4": "なし",
     "q5": "添付あり（1点）\n\n以上、よろしくお願い申し上げます。",
     "attachments": [
-      "CavitarWeldingCameraカタログPDF.pdf"
+      "CavitarWeldingCameraカタログPDF.pdf",
+      "TWF2026公式パネル_ノビテック.pdf"
     ],
     "attachment_dir": "attachments/株式会社ノビテック/",
     "company_dir": "株式会社ノビテック"
@@ -1995,9 +2002,12 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "TWF2026公式パネル_ファナック.pdf",
+      "3kg可搬仕様.pdf"
+    ],
+    "attachment_dir": "attachments/ファナック株式会社/",
+    "company_dir": "ファナック株式会社"
   },
   "107": {
     "no": 107,
@@ -2144,7 +2154,8 @@
     "q4": "",
     "q5": "",
     "attachments": [
-      "fronius_manual_brochure.pdf"
+      "fronius_manual_brochure.pdf",
+      "TWF2026公式パネル_フロニウスジャパン.pdf"
     ],
     "attachment_dir": "attachments/フロニウスジャパン株式会社/",
     "company_dir": "フロニウスジャパン株式会社"
@@ -2422,7 +2433,8 @@
       "コンパクト塗装ブースちらし(2).pdf",
       "mesack_business.pdf",
       "mesack_robot_painting.pdf",
-      "mesack_system_engineering.pdf"
+      "mesack_system_engineering.pdf",
+      "TWF2026公式パネル_メサック.pdf"
     ],
     "attachment_dir": "attachments/メサック株式会社/",
     "company_dir": "メサック株式会社"
@@ -2733,7 +2745,8 @@
     "attachments": [
       "ロボットバンク搬送ロボットカタログ.pdf",
       "robotbank_cases.pdf",
-      "robotbank_product_highlights.pdf"
+      "robotbank_product_highlights.pdf",
+      "TWF2026公式パネル_ロボットバンク.pdf"
     ],
     "attachment_dir": "attachments/ロボットバンク株式会社/",
     "company_dir": "ロボットバンク株式会社"
