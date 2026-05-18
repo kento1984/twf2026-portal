@@ -1,0 +1,341 @@
+/* 共通 CSS — 16:9 720pt × 405pt、web-safe fonts、portal オレンジ + ネイビー */
+* { box-sizing: border-box; }
+html { background: #ffffff; }
+body {
+  width: 720pt;
+  height: 405pt;
+  margin: 0;
+  padding: 0;
+  font-family: "Yu Gothic", "Meiryo", "Tahoma", "Arial", sans-serif;
+  color: #051C2C;
+  display: flex;
+  background: #ffffff;
+}
+.page {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* 左端オレンジ縦バー (全スライド共通 motif) */
+.left-stripe {
+  position: absolute;
+  left: 0; top: 0;
+  width: 12pt; height: 100%;
+  background: #F97316;
+}
+
+/* ヘッダ部 */
+.page-no {
+  position: absolute;
+  left: 24pt; top: 16pt;
+  color: #6B7280;
+  font-weight: bold;
+  font-size: 9pt;
+}
+.kicker {
+  position: absolute;
+  left: 24pt; top: 32pt;
+  color: #C2570C;
+  font-weight: bold;
+  font-size: 9pt;
+  letter-spacing: 1pt;
+}
+.title {
+  position: absolute;
+  left: 24pt; top: 50pt;
+  right: 24pt;
+  color: #051C2C;
+  font-weight: bold;
+  font-size: 22pt;
+  line-height: 1.15;
+}
+.subtitle {
+  position: absolute;
+  left: 24pt; top: 84pt;
+  right: 24pt;
+  color: #4B5563;
+  font-size: 12pt;
+  line-height: 1.4;
+}
+
+/* フッタ */
+.footer {
+  position: absolute;
+  left: 24pt; right: 24pt; bottom: 18pt;
+  border-top: 0.5pt solid #D1D5DB;
+  padding-top: 6pt;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #6B7280;
+}
+.footer .url {
+  color: #C2570C;
+  font-weight: bold;
+}
+
+/* ROI stat callout (大数字 60-72pt) */
+.stat-card {
+  background: #ffffff;
+  border: 0.75pt solid #D1D5DB;
+  border-top: 6pt solid #F97316;
+  padding: 12pt;
+}
+.stat-number {
+  color: #051C2C;
+  font-weight: bold;
+  font-size: 56pt;
+  text-align: center;
+  line-height: 1.0;
+  margin: 4pt 0;
+}
+.stat-label {
+  color: #C2570C;
+  font-weight: bold;
+  font-size: 13pt;
+  text-align: center;
+  margin: 4pt 0;
+}
+.stat-evidence {
+  color: #4B5563;
+  font-size: 9pt;
+  text-align: center;
+  line-height: 1.35;
+  margin: 2pt 0;
+}
+.stat-source {
+  color: #C2570C;
+  font-weight: bold;
+  font-size: 8pt;
+  text-align: center;
+  margin-top: 4pt;
+}
+
+/* メーカースライド: 左 message card / 右 bullets */
+.maker-msg-card {
+  background: #F7F8FA;
+  border-top: 6pt solid #F97316;
+  padding: 12pt;
+}
+.maker-msg-eyebrow {
+  color: #C2570C;
+  font-weight: bold;
+  font-size: 8pt;
+  letter-spacing: 0.5pt;
+  margin: 0 0 6pt 0;
+}
+.maker-msg-body {
+  color: #051C2C;
+  font-weight: bold;
+  font-size: 11pt;
+  line-height: 1.5;
+  margin: 0;
+}
+.bullets-eyebrow {
+  color: #C2570C;
+  font-weight: bold;
+  font-size: 8pt;
+  letter-spacing: 0.5pt;
+  margin: 0 0 6pt 0;
+}
+.bullets {
+  list-style: disc;
+  padding-left: 16pt;
+  margin: 0;
+}
+.bullets li {
+  color: #051C2C;
+  font-size: 10pt;
+  line-height: 1.4;
+  margin-bottom: 4pt;
+}
+
+/* 動画プレースホルダ */
+.video-frame {
+  background: #051C2C;
+  border: 1.5pt solid #F97316;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.video-icon {
+  color: #F97316;
+  font-weight: bold;
+  font-size: 16pt;
+  margin: 0;
+  text-align: center;
+}
+.video-label {
+  color: #FFFFFF;
+  font-size: 8pt;
+  margin: 4pt 0 0 0;
+  text-align: center;
+}
+
+/* 下部情報バー */
+.info-row {
+  font-size: 8pt;
+  color: #6B7280;
+  margin: 0;
+}
+.info-row.url {
+  color: #C2570C;
+  font-weight: bold;
+}
+
+/* 6 工程マトリクス用 */
+.process-card {
+  background: #ffffff;
+  border: 0.75pt solid #D1D5DB;
+  border-top: 5pt solid #F97316;
+  padding: 10pt;
+}
+.process-num {
+  color: #C2570C;
+  font-weight: bold;
+  font-size: 8pt;
+  margin: 0;
+}
+.process-icon {
+  color: #051C2C;
+  font-size: 20pt;
+  text-align: right;
+  margin: 0;
+}
+.process-head {
+  color: #051C2C;
+  font-weight: bold;
+  font-size: 16pt;
+  margin: 2pt 0;
+}
+.process-makers {
+  color: #4B5563;
+  font-size: 9pt;
+  line-height: 1.35;
+  margin: 4pt 0 0 0;
+}
+
+/* 表紙・クロージング: dark sandwich */
+.cover {
+  background: #051C2C;
+  width: 100%; height: 100%;
+  position: relative;
+}
+.cover .left-stripe-thick {
+  position: absolute;
+  left: 0; top: 0;
+  width: 24pt; height: 100%;
+  background: #F97316;
+}
+.cover-kicker {
+  position: absolute;
+  left: 48pt; top: 84pt;
+  color: #F97316;
+  font-weight: bold;
+  font-size: 10pt;
+  letter-spacing: 1pt;
+}
+.cover-title {
+  position: absolute;
+  left: 48pt; top: 110pt;
+  right: 48pt;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 36pt;
+  line-height: 1.1;
+}
+.cover-sub {
+  position: absolute;
+  left: 48pt; top: 215pt;
+  right: 48pt;
+  color: #F97316;
+  font-weight: bold;
+  font-size: 14pt;
+}
+.cover-divider {
+  position: absolute;
+  left: 48pt; top: 250pt;
+  width: 30pt; height: 2pt;
+  background: #F97316;
+}
+.cover-prep-label {
+  position: absolute;
+  left: 48pt; top: 265pt;
+  color: #F97316;
+  font-weight: bold;
+  font-size: 8pt;
+  letter-spacing: 0.5pt;
+}
+.cover-prep {
+  position: absolute;
+  left: 48pt; top: 280pt;
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 16pt;
+}
+.cover-presenter {
+  position: absolute;
+  left: 48pt; top: 310pt;
+  color: #FFFFFF;
+  font-size: 10pt;
+}
+.cover-mini {
+  position: absolute;
+  right: 48pt; top: 36pt;
+  text-align: right;
+}
+.cover-mini-bar {
+  background: #F97316;
+  width: 90pt; height: 4pt;
+}
+.cover-mini-text {
+  color: #FFFFFF;
+  font-weight: bold;
+  font-size: 8pt;
+  margin: 4pt 0 0 0;
+  letter-spacing: 1pt;
+  text-align: right;
+}
+
+/* アジェンダ用 */
+.agenda-row {
+  position: absolute;
+  display: flex;
+  align-items: center;
+}
+.agenda-num {
+  color: #F97316;
+  font-weight: bold;
+  font-size: 36pt;
+  line-height: 1;
+  margin: 0;
+  width: 60pt;
+}
+.agenda-text {
+  flex: 1;
+  margin-left: 8pt;
+}
+.agenda-head {
+  color: #051C2C;
+  font-weight: bold;
+  font-size: 14pt;
+  margin: 0;
+}
+.agenda-body {
+  color: #4B5563;
+  font-size: 10pt;
+  line-height: 1.35;
+  margin: 3pt 0 0 0;
+}
+
+/* 共通カード */
+.card {
+  background: #ffffff;
+  border: 0.75pt solid #D1D5DB;
+  padding: 10pt;
+}
+.card-accent {
+  border-top: 4pt solid #F97316;
+}

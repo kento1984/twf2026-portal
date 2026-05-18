@@ -1,0 +1,1880 @@
+{
+  "_doc": "5/21 コイケ酸商事業部長会議向け 11 社データ集約。生産性向上ソリューションコーナー (12 製品) の元データ・書き直しデータ・topics.json プロダクト詳細・公式 mac-exe.co.jp 訴求文言を統合。",
+  "generated_for": "2026-05-21 コイケ酸商 元倉社長/常務/各出先責任者向け 30-60 分プレゼン",
+  "source_files": [
+    "data/maker_details.json",
+    "data/maker_details_rewritten.json",
+    "data/topics.json (productivity-solutions)",
+    "data/maker_taxonomy.json",
+    "data/maker_status.json",
+    "data/makers.csv",
+    "data/pamphlet_index.json",
+    "data/pdf_extracts.json"
+  ],
+  "summary": {
+    "total_makers": 11,
+    "total_products": 12,
+    "sections": [
+      {
+        "title": "① 協働ロボット",
+        "intro": "1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。",
+        "product_count": 4
+      },
+      {
+        "title": "② AMR・搬送自動化",
+        "intro": "「人が物を運ぶ」現場をロボットへ。段差・傾斜OKのAMR、AGV連携で搬送→溶接を一気通貫。",
+        "product_count": 2
+      },
+      {
+        "title": "③ 安全・センシング",
+        "intro": "世界初の SIL2/PLd 準拠 3D レーダー、溶融池可視化カメラ。生産現場の「見える化」と安全を一段上に。",
+        "product_count": 3
+      },
+      {
+        "title": "④ 教示・周辺機器",
+        "intro": "オフライン教示で立ち上げ時間 90% 削減、国産バランスアームで腰痛ゼロへ。自動化を支える「縁の下」。",
+        "product_count": 2
+      },
+      {
+        "title": "⑤ レーザークリーナー (初TWF出展)",
+        "intro": "塗膜・サビ・酸化皮膜を光で除去。化学薬品・研磨材を使わない非接触クリーニング。",
+        "product_count": 1
+      }
+    ],
+    "hero_video": {
+      "youtube_id": "-ydKdIio5es",
+      "title": "ダイヘン｜協働溶接ロボット FD-VC8 × AiTran500 デモ",
+      "duration": "2:29"
+    },
+    "topic_metadata": {
+      "title": "生産性向上ソリューションコーナー",
+      "card_count_label": "12製品が集結",
+      "card_keywords": "協働ロボット・AMR・3Dレーダー・溶接カメラ・レーザークリーナー",
+      "subtitle": "人手不足の時代に、現場の作業性を上げる12製品",
+      "intro": "人手不足・働き方改革・景況感悪化の時代。現場の作業性アップ・生産性向上に直結する 12 製品を集めました。",
+      "accent_color": "#FF7A1A"
+    }
+  },
+  "mac_exe_official": {
+    "page_url": "https://mac-exe.co.jp/welding/welding_new/tokyo/",
+    "page_title": "2026東京ウェルディングフェスタ",
+    "page_subtitle": "溶接機材・産業機器展示会",
+    "sections_relevant": [
+      {
+        "heading": "日々進化し続ける協働ロボットをご紹介！",
+        "makers_listed": [
+          "ダイヘン",
+          "ファナック",
+          "メサック",
+          "フロニウスジャパン",
+          "シンテック",
+          "ロボットバンク"
+        ],
+        "note": "6 社のうち 5 社が portal 生産性向上 11 社と一致 (シンテックは AMR でなく教示・周辺機器枠で portal 掲載)"
+      },
+      {
+        "heading": "注目のレーザー溶接機",
+        "makers_listed": [
+          "育良精機",
+          "マイト工業",
+          "KS・S",
+          "日本ウエルディング"
+        ],
+        "note": "レーザー溶接機系。生産性向上 11 社のレーザークリーナー (オプティ) とは別ジャンル"
+      },
+      {
+        "heading": "AXELARC 新ワイヤ送給制御プロセス (建機向け)",
+        "maker": "神戸製鋼所",
+        "caption": "溶接自動化を検討されているすべてのお客様にご紹介します！"
+      }
+    ],
+    "global_keywords": [
+      "ご参加無料の実演セミナー！！",
+      "来場抽選会 空くじなし",
+      "安定した高品質溶接を実現！",
+      "止まらない加工機！"
+    ],
+    "notes_for_slide": [
+      "公式ページは概要・キーフレーズ中心、詳細な訴求文章は portal 側 (topics.json + maker_details) が主体",
+      "「人手不足」「生産性向上」「省人化」キーワードは公式ページに直接記載なし → portal の subtitle『人手不足の時代に、現場の作業性を上げる12製品』が独自訴求",
+      "コイケ酸商向けスライドでは portal の表現 (人手不足・働き方改革・景況感悪化) と公式の表現 (協働ロボット/レーザー/自動化) が矛盾しないため両立可"
+    ]
+  },
+  "makers": [
+    {
+      "no": 19,
+      "slug": "ootosuingu-otos",
+      "name": "㈱オートスイング（OTOS）",
+      "name_official": "㈱オートスイング（OTOS）",
+      "name_short": "",
+      "furigana": "おーとすいんぐ",
+      "portal_url": "https://twf2026-portal.pages.dev/m/ootosuingu-otos/",
+      "tier_guess": "A",
+      "has_answer": true,
+      "pamphlet_page": "2",
+      "category_csv": "溶接カメラ・保護具",
+      "nav_categories": [
+        "溶接・電源",
+        "保護具・安全"
+      ],
+      "facets_taxonomy": [
+        "溶接カメラ",
+        "アーク溶接",
+        "遮光保護"
+      ],
+      "taxonomy_evidence": "Q1: OTOSWING 溶接カメラ、アーク溶接/ガウジング/ガス溶接対応",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "溶接カメラ「OTOSWING」を実機展示。溶接アークを鮮明に \"見える化\" できる独自カメラで、アーク溶接 / ガウジング / ガス溶接・溶断まで幅広く対応。手溶接・自動溶接ともに品質検証と向上にお役立ていただけます。",
+        "q2_rewritten": "見どころは OTOSWING の鮮明可視化技術。他社カメラでは難しいアーク溶接の発光環境下でも、溶融池・ビード形状を明瞭に映します。WiFi 経由でモバイル / サーバー / モニター へ配信でき、現場での教育・遠隔監視・品質検証に直結します。",
+        "q3_rewritten": "会期中は OTOSWING 実機デモを随時実施。撮影サンプル動画もブースでご覧いただけます。あわせて HDV / ClearLight 2 / Flex Tech 搭載の F2i 溶接ヘルメットなど主力保護具も展示します。",
+        "q4_rewritten": "新技術: 溶接アークの \"見える化\" によって溶接品質の客観評価を可能にする、現場の生産性向上ソリューションです。",
+        "q5_rewritten": "株式会社オートスイング (OTOS) 日本支社\n支社長 中野 学\n〒101-0043 東京都千代田区神田富山町 7 番地 BizSmart 神田富山町 802\nTEL: 080-2925-6991 / Email: otosjapan@otos.co.kr"
+      },
+      "q_original": {
+        "q1": "溶接カメラ「OTOSWING」を実機展示。溶接アークを鮮明に「見える化」する独自カメラ技術で、アーク溶接 / ガウジング / ガス溶接・溶断まで幅広く対応。手溶接・自動溶接の品質検証と向上を支援します。",
+        "q2": "溶接アークを鮮明に可視化できるカメラ「OTOSWING」。手溶接・自動溶接どちらにも対応し、品質検証・教育・遠隔監視に活用可能。",
+        "q3": "会期中は OTOSWING 溶接カメラの実機デモを随時実施。撮影サンプル動画もブースでご覧いただけます。F2i 溶接ヘルメットなどの保護具も展示。",
+        "q4": "アーク溶接の見える化技術。溶接品質の客観評価が可能となる新しいソリューションです。",
+        "q5": "株式会社オートスイング (OTOS) 日本支社\n支社長 中野 学\n〒101-0043 東京都千代田区神田富山町7番地 BizSmart神田富山町802\nTEL: 080-2925-6991\nEmail: otosjapan@otos.co.kr"
+      },
+      "topics_products": [
+        {
+          "section_title": "③ 安全・センシング",
+          "section_intro": "世界初の SIL2/PLd 準拠 3D レーダー、溶融池可視化カメラ。生産現場の「見える化」と安全を一段上に。",
+          "maker_no": 19,
+          "maker_slug": "ootosuingu-otos",
+          "maker_name": "㈱オートスイング (OTOS)",
+          "product_name": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "tagline": "アーク光下でも溶接箇所をクリア観察、品質検証と遠隔監視を支援",
+          "image_url": "/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg",
+          "official_url": "https://www.otos.tech/",
+          "is_first_exhibit": false,
+          "is_new_product": false,
+          "what_is": "OTOSWING は溶接アークを鮮明に可視化する独自カメラ技術を持つ韓国 OTOS 社のソリューション。Ray-X シリーズ (WGC200: 有線 HD-SDI / WGC400: Wi-Fi6 無線対応) は超小型・軽量で、ロボット溶接機やキャリッジ溶接機に取付可能。同シリーズには遮光面内蔵型のヘルメット型 WG3+ もラインアップ。手溶接・自動溶接いずれにも対応し、品質検証・技能教育・遠隔監視に活用できる。",
+          "improvement": {
+            "headline": "アーク光下での溶接観察を実現 / フルHD 1920×1080 鮮明可視化 / 152g〜274g 超小型でロボット搭載可",
+            "before": "業界一般で見られる課題：アーク光が強くて溶接箇所の状態が肉眼で確認しにくく、品質検証・技能教育・遠隔監視のいずれも難しい。映像記録の手段が限られ、技能伝承や原因究明にも時間がかかる。",
+            "after": "OTOSWING のフォトセンサー機能で溶接光を認識し、アーク光下でも溶融池やビードを鮮明に観察可能。WGC200 は 152g・HD-SDI 出力、WGC400 は 274g・Wi-Fi6 で無線伝送に対応。動作温度 -10〜60℃、消費電力 MAX 3W、強制冷却不要・補助照明不要で設置場所自由 (リーフレット原文)。オプション WVMS-A 採用時はアーク長・溶接シム位置・ビード幅などの計測も可能。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "溶接モニタリング",
+              "detail": "作業者による機器制御、または完全自動化段階での映像確認に対応"
+            },
+            {
+              "industry": "溶接自動化 (測定)",
+              "detail": "ロボット溶接・キャリッジ溶接の映像モニタリングに活用可能"
+            },
+            {
+              "industry": "溶接品質検査",
+              "detail": "リアルタイムで溶接品質の客観評価を支援"
+            },
+            {
+              "industry": "技能教育・技能伝承",
+              "detail": "熟練溶接者の目線を動画記録、後継者教育や品質トレーニングに活用可能"
+            }
+          ],
+          "twf_highlights": [
+            "🎯 ブース内体験: OTOSWING 溶接カメラの実機デモを随時実施",
+            "🎬 撮影サンプル動画: GMAW / FCAW / Orbital GTAW など複数の溶接プロセスでの可視化映像を会場で展示",
+            "🔗 保護具同時展示: F2i 溶接ヘルメット (保護具) も合わせて展示"
+          ],
+          "mp4_videos": [
+            {
+              "src": "/attachments/株式会社オートスイング/OTOSWING_demo_01.mp4",
+              "label": "実機デモ① アーク溶接の鮮明可視化"
+            },
+            {
+              "src": "/attachments/株式会社オートスイング/OTOSWING_demo_02.mp4",
+              "label": "実機デモ② 溶接ビード観察"
+            }
+          ],
+          "materials": [
+            {
+              "label": "OTOSWING 溶接カメラ ご紹介リーフレット",
+              "url": "/attachments/株式会社オートスイング/250704_OTOSWING_リーフレット.pdf"
+            }
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg",
+              "alt": "Ray-X WGC200 / WGC400 製品外観"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "highlight": "🎯 ブース内体験: OTOSWING 溶接カメラの実機デモを随時実施"
+        },
+        {
+          "product": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "highlight": "🎬 撮影サンプル動画: GMAW / FCAW / Orbital GTAW など複数の溶接プロセスでの可視化映像を会場で展示"
+        },
+        {
+          "product": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "highlight": "🔗 保護具同時展示: F2i 溶接ヘルメット (保護具) も合わせて展示"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "label": "OTOSWING 溶接カメラ ご紹介リーフレット",
+          "url": "/attachments/株式会社オートスイング/250704_OTOSWING_リーフレット.pdf"
+        }
+      ],
+      "gallery_total": 1,
+      "videos_all": [
+        {
+          "product": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "kind": "mp4_local",
+          "src": "/attachments/株式会社オートスイング/OTOSWING_demo_01.mp4",
+          "label": "実機デモ① アーク溶接の鮮明可視化"
+        },
+        {
+          "product": "OTOSWING (Ray-X 溶接カメラ WGC200 / WGC400)",
+          "kind": "mp4_local",
+          "src": "/attachments/株式会社オートスイング/OTOSWING_demo_02.mp4",
+          "label": "実機デモ② 溶接ビード観察"
+        }
+      ],
+      "has_youtube": false,
+      "has_mp4_local": true,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "㈱オートスイング（OTOS）",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "溶接カラ Ray-X WGC2"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "③ 安全・センシング"
+      ]
+    },
+    {
+      "no": 21,
+      "slug": "oputeireezaasoryuushonzu",
+      "name": "オプティレーザーソリューションズ㈱",
+      "name_official": "オプティレーザーソリューションズ㈱",
+      "name_short": "",
+      "furigana": "おぷてぃれーざーそりゅーしょんず",
+      "portal_url": "https://twf2026-portal.pages.dev/m/oputeireezaasoryuushonzu/",
+      "tier_guess": "A",
+      "has_answer": true,
+      "pamphlet_page": "",
+      "category_csv": "",
+      "nav_categories": [
+        "溶接・電源",
+        "切断・電動工具"
+      ],
+      "facets_taxonomy": [
+        "レーザークリーナー",
+        "ファイバーレーザー"
+      ],
+      "taxonomy_evidence": "公式 HP ult-laser.com: ULT LASER レーザークリーナー (錆取り・塗装除去・最大2000W)",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "展示予定製品：CW2000、Pulse300\nデモンストレーション有",
+        "q2": "・CWシリーズ\n持続的かつパワフルなレーザー照射で CWシリーズ広範囲のクリーニングを驚異的なスピードで実現するために設計されました。比較的薄い層の錆や塗膜を広範囲に効率的に除去したい場合や、「とにかく速く、効率的に」という現場のニーズに、最高のコストパフォーマンスでお応えします。\n\n・Pulseシリーズ\n熱影響を極限まで抑え込み、マイクロメートル単位の精密なクリーニングを実現す津ために開発された最先端の技術です。「母材へのダメージは許されない」という、プロの厳しい要求にお応えします。",
+        "q3": "デモンストレーションをその場で実際に行っています。\n直接触ることもできるため、効果を生で実感して頂ければと思います。",
+        "q4": "なし",
+        "q5": "添付あり(　点) / なし"
+      },
+      "topics_products": [
+        {
+          "section_title": "⑤ レーザークリーナー (初TWF出展)",
+          "section_intro": "塗膜・サビ・酸化皮膜を光で除去。化学薬品・研磨材を使わない非接触クリーニング。",
+          "maker_no": 21,
+          "maker_name": "オプティレーザーソリューションズ",
+          "maker_slug": "oputeireezaasoryuushonzu",
+          "product_name": "ULT LASER シリーズ (レーザークリーナー)",
+          "tagline": "鉄骨工場で作業員負担を 4 分の 1 に削減。国内生産のレーザークリーナー専門メーカー。",
+          "image_url": "/assets/topics/productivity-solutions/optilaser/optilaser_cw2000.jpg",
+          "official_url": "https://ult-laser.com/",
+          "is_first_exhibit": true,
+          "is_new_product": false,
+          "what_is": "ULT LASER は、高エネルギーのレーザー光を対象物に照射し、母材と付着物のエネルギー吸収差を利用して錆・塗装・油汚れ・酸化皮膜・樹脂などの表面付着物を蒸発・剥離させる非接触クリーニング装置。化学薬品・研磨材を使わず、二次廃棄物が発生しない。連続波 (CW) と断続波 (Pulse) の 2 系統、9 機種のラインナップを展開し、大阪本社で国内生産。ULTL-P300BP はリチウムイオンバッテリー駆動で、電源の取りにくい現場にも対応する。",
+          "improvement": {
+            "headline": "鉄骨工場で 4 人/1 週間 → 1 人/1 日、作業員負担 4 分の 1 に削減 (元古鉄工事例)",
+            "before": "化学薬品や研磨材を用いる従来工法では、粉じん、廃棄物処理、騒音、施工時間が課題になりやすい。",
+            "after": "非接触でダメージレスにクリーニング可能。化学薬品・研磨材を使わないため二次廃棄物が発生せず、環境負荷を低減。連続照射時間は空冷式 6 時間以上、水冷式 10 時間以上、起動時間は最短 5 秒。メンテナンスは保護レンズ交換のみ、故障時は代替機貸出にも対応。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "製鉄・鉄鋼・鋳物",
+              "detail": "Hグレード鉄骨ファブリケーターの黒皮・塗料・錆除去、溶接前後の下地処理に対応。"
+            },
+            {
+              "industry": "鉄道・鉄道部品",
+              "detail": "旧塗膜の剥離による再塗装下地処理、油汚れ・すす汚れの除去。"
+            },
+            {
+              "industry": "自動車・自動車部品",
+              "detail": "溶接焼け跡除去、部品の離型剤・カーボン除去。"
+            },
+            {
+              "industry": "道路・橋梁・インフラ",
+              "detail": "鋼橋・鉄塔・コンクリート構造物の錆・塗装除去。"
+            },
+            {
+              "industry": "モニュメント・文化財",
+              "detail": "屋外彫像・歴史的建造物の表面処理。非接触ダメージレスで意匠を損なわない。"
+            }
+          ],
+          "videos": [
+            {
+              "youtube_id": "ypxAtVayQxQ",
+              "title": "オプティレーザー｜国産レーザークリーナー 製品紹介",
+              "duration": "0:59"
+            },
+            {
+              "youtube_id": "E_xVgJPkbsE",
+              "title": "オプティレーザー｜出展ブースのご案内",
+              "duration": "0:54"
+            }
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/optilaser/optilaser_pulse300.jpg",
+              "alt": "ULTL-P300 (空冷、コンパクト機種)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/optilaser/optilaser_cleaning.png",
+              "alt": "レーザークリーニング原理図"
+            }
+          ],
+          "twf_highlights": [
+            "🇯🇵 国内生産: 大阪本社のレーザークリーナー専門メーカー、日本レーザークリーナー協会加盟 (公式カタログ)",
+            "🛡️ 熱影響を抑えたクリーニング: 800mm 超の照射距離での比較デモ実績あり",
+            "🏭 元古鉄工事例: 鉄骨工場で 4 人/1 週間 → 1 人/1 日に削減、CW2000 採用 (鋼構造ジャーナル 2026/2/2)"
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/optilaser/optilaser_catalog_2025.pdf",
+              "label": "ULT LASER 公式カタログ (8 ページ)",
+              "icon": "📄"
+            },
+            {
+              "url": "/assets/topics/productivity-solutions/optilaser/optilaser_motoko_steel_article.pdf",
+              "label": "鋼構造ジャーナル 元古鉄工事例 (2026/2/2)",
+              "icon": "📄"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "highlight": "🇯🇵 国内生産: 大阪本社のレーザークリーナー専門メーカー、日本レーザークリーナー協会加盟 (公式カタログ)"
+        },
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "highlight": "🛡️ 熱影響を抑えたクリーニング: 800mm 超の照射距離での比較デモ実績あり"
+        },
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "highlight": "🏭 元古鉄工事例: 鉄骨工場で 4 人/1 週間 → 1 人/1 日に削減、CW2000 採用 (鋼構造ジャーナル 2026/2/2)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "url": "/assets/topics/productivity-solutions/optilaser/optilaser_catalog_2025.pdf",
+          "label": "ULT LASER 公式カタログ (8 ページ)",
+          "icon": "📄"
+        },
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "url": "/assets/topics/productivity-solutions/optilaser/optilaser_motoko_steel_article.pdf",
+          "label": "鋼構造ジャーナル 元古鉄工事例 (2026/2/2)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 2,
+      "videos_all": [
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "kind": "youtube",
+          "youtube_id": "ypxAtVayQxQ",
+          "embed_url": "https://www.youtube.com/embed/ypxAtVayQxQ",
+          "watch_url": "https://www.youtube.com/watch?v=ypxAtVayQxQ",
+          "title": "オプティレーザー｜国産レーザークリーナー 製品紹介",
+          "duration": "0:59"
+        },
+        {
+          "product": "ULT LASER シリーズ (レーザークリーナー)",
+          "kind": "youtube",
+          "youtube_id": "E_xVgJPkbsE",
+          "embed_url": "https://www.youtube.com/embed/E_xVgJPkbsE",
+          "watch_url": "https://www.youtube.com/watch?v=E_xVgJPkbsE",
+          "title": "オプティレーザー｜出展ブースのご案内",
+          "duration": "0:54"
+        }
+      ],
+      "has_youtube": true,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": [],
+      "security_notes": [],
+      "section_titles": [
+        "⑤ レーザークリーナー (初TWF出展)"
+      ]
+    },
+    {
+      "no": 35,
+      "slug": "komori-anzen-ki-kenkyuusho",
+      "name": "㈱小森安全機研究所",
+      "name_official": "㈱小森安全機研究所",
+      "name_short": "",
+      "furigana": "こもりあんぜんきけんきゅうしょ",
+      "portal_url": "https://twf2026-portal.pages.dev/m/komori-anzen-ki-kenkyuusho/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "安全機器",
+      "nav_categories": [
+        "保護具・安全"
+      ],
+      "facets_taxonomy": [
+        "安全機器",
+        "プレスガード",
+        "AIカメラ監視"
+      ],
+      "taxonomy_evidence": "公式 HP komorisafety.co.jp: プレス機械用安全装置(光線式/レーザー式)、エリアセンサー、AIカメラ監視",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "③ 安全・センシング",
+          "section_intro": "世界初の SIL2/PLd 準拠 3D レーダー、溶融池可視化カメラ。生産現場の「見える化」と安全を一段上に。",
+          "maker_no": 35,
+          "maker_name": "㈱小森安全機研究所",
+          "maker_slug": "komori-anzen-ki-kenkyuusho",
+          "product_name": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
+          "tagline": "世界初の SIL2/PLd 準拠 3D レーダー × AIカメラ KAG",
+          "image_url": "/assets/topics/productivity-solutions/komori/komori_srd.jpg",
+          "official_url": "https://www.komorisafety.co.jp/products/cn9/pg999.html",
+          "is_first_exhibit": true,
+          "is_new_product": false,
+          "what_is": "Inxpect の SRD (Safety Radar Detector) シリーズと、AI カメラ KAG (Komori Area Guardman) を組合せた産業用安全システム。SRD は世界初 SIL2/PLd 準拠の 3D 安全レーダーで、60GHz FMCW 方式、200 シリーズは検知距離 5m / 9m、100 シリーズは 4m、応答 100ms 以下、1 制御ユニットで最大 6 個のスマートレーダーセンサーに対応。動的検知ゾーンは最大 32 種類、降雨量 45mm/h まで対応。KAG は数万件の人の姿形・動作・骨格を認識させたアルゴリズムを搭載し、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応。",
+          "improvement": {
+            "headline": "煙・粉塵・水滴環境に対応 / 応答 100ms 以下",
+            "before": "煙・粉塵・切粉・水しぶきのある現場では、光学式センサーの運用調整や確認負荷が課題になる場合がある。",
+            "after": "SRD は 60GHz FMCW 方式を採用し、煙・ほこり・切粉・しぶき・降雨 45mm/h の環境に対応。動的検知ゾーン最大 32 種類の設定に対応。KAG は数万件の人の姿形・動作・骨格を認識させたアルゴリズム搭載、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "モバイルロボット周辺の安全",
+              "detail": "SRD は SIL2/PLd 準拠の 3D 安全レーダーで、動的検知ゾーン (最大 32) と最大 6 個のスマートレーダーセンサーで広範囲をカバー。"
+            },
+            {
+              "industry": "塗装・溶接ラインの侵入検知",
+              "detail": "煙・ミスト・粉塵で光学センサーが使いにくい環境でも、60GHz FMCW レーダーで侵入検知が可能。"
+            },
+            {
+              "industry": "屋外・粉塵環境での自動装置",
+              "detail": "降雨 45mm/h まで影響を受けず、屋外設置の自動機械や倉庫の安全確保に対応。"
+            },
+            {
+              "industry": "移動クレーン・積込ステーションの人検知",
+              "detail": "応答 100ms 以下、複数センサで死角の多い大型機械周辺の人検知。"
+            },
+            {
+              "industry": "AI カメラによる姿勢検知 (KAG)",
+              "detail": "数万件の人の姿形・動作・骨格を認識させたアルゴリズムで、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応。"
+            }
+          ],
+          "twf_highlights": [
+            "🤖 構成: Inxpect SRD 200/100 シリーズ (世界初 SIL2/PLd 準拠の 3D 安全レーダー) + KAG AI カメラ画像認識システムの組合せ (公式 HP)",
+            "🎯 SRD 仕様: 60GHz FMCW、200 シリーズ 5m/9m・100 シリーズ 4m、応答 100ms 以下、最大 6 センサ、動的検知ゾーン最大 32、降雨量最大 45mm 対応 (公式 HP)",
+            "👀 KAG 仕様: 数万件の人の姿形・動作・骨格を認識させたアルゴリズム搭載、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応 (公式 KAG ページ + カタログ)"
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/komori/komori_srd.pdf",
+              "label": "㈱小森安全機研究所 SRD + KAG 製品案内 (13ページ)",
+              "icon": "📄"
+            }
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/komori/komori_srd_sensor.jpg",
+              "alt": "SRD センサー単体"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/komori/komori_kag.jpg",
+              "alt": "KAG AIカメラ"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/komori/komori_kag_camera.jpg",
+              "alt": "KAG AIカメラ単体"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/komori/komori_dust_env.jpg",
+              "alt": "粉塵環境での製品設置 (SRD/KAGの耐環境性)"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
+          "highlight": "🤖 構成: Inxpect SRD 200/100 シリーズ (世界初 SIL2/PLd 準拠の 3D 安全レーダー) + KAG AI カメラ画像認識システムの組合せ (公式 HP)"
+        },
+        {
+          "product": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
+          "highlight": "🎯 SRD 仕様: 60GHz FMCW、200 シリーズ 5m/9m・100 シリーズ 4m、応答 100ms 以下、最大 6 センサ、動的検知ゾーン最大 32、降雨量最大 45mm 対応 (公式 HP)"
+        },
+        {
+          "product": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
+          "highlight": "👀 KAG 仕様: 数万件の人の姿形・動作・骨格を認識させたアルゴリズム搭載、立位/しゃがみ/横向き/後ろ向き/一部隠れに対応 (公式 KAG ページ + カタログ)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "3D レーダー安全システム SRD シリーズ + AIカメラ KAG",
+          "url": "/assets/topics/productivity-solutions/komori/komori_srd.pdf",
+          "label": "㈱小森安全機研究所 SRD + KAG 製品案内 (13ページ)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 4,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "㈱小森安全機研究所",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "3D レーザー安全システム SRD シリーズ (世界初の IP12 PL4 規格対応)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "③ 安全・センシング"
+      ]
+    },
+    {
+      "no": 52,
+      "slug": "shintech",
+      "name": "シンテック㈱",
+      "name_official": "シンテック㈱",
+      "name_short": "",
+      "furigana": "しんてっく",
+      "portal_url": "https://twf2026-portal.pages.dev/m/shintech/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "",
+      "nav_categories": [
+        "物流・運搬",
+        "ロボット・自動化"
+      ],
+      "facets_taxonomy": [
+        "ロボットアーム"
+      ],
+      "taxonomy_evidence": "HANDOFF L1293: 3arm + T-Arm シリーズ (バランスアーム) みどころ特集④メンバー",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "④ 教示・周辺機器",
+          "section_intro": "オフライン教示で立ち上げ時間 90% 削減、国産バランスアームで腰痛ゼロへ。自動化を支える「縁の下」。",
+          "maker_no": 52,
+          "maker_name": "シンテック",
+          "maker_slug": "shintech",
+          "product_name": "3arm + T-Arm シリーズ (バランスアーム)",
+          "tagline": "3アーム構造で重量物・工具の操作を支援、トヨタ 6000+ / 日野 3000+ / ダイハツ 500+ セットのレール実績",
+          "image_url": "/assets/topics/productivity-solutions/shintech/shintech_3arm.jpg",
+          "official_url": "https://thing-tech.com/arm/t-arm/",
+          "is_first_exhibit": false,
+          "is_new_product": false,
+          "what_is": "スペイン・バルセロナ製の 3arm シリーズと、自社開発の純国産オートバランスアーム T-Arm を組み合わせ、重量物・工具の持上げ・移載・位置決めを支援するバランスアームシステム。3arm は Series 1/2/3/4/6 を展開し、最大荷重 35kg に対応。T-Arm は耐荷重 40〜650kg に対応する。2025 年 9 月開始の新サービスとして、Liberaware 社製の機内点検ドローン IBIS2 を活用したプラント機内点検も展開。",
+          "improvement": {
+            "headline": "T-Arm は引張・圧縮強度 1.8 倍 / レールは自動車メーカーで採用実績",
+            "before": "重量物や工具の持上げ・移載・位置決めでは、作業負荷の大きさや反力、搬送系の安全性が課題になりやすい。",
+            "after": "3arm はバリ取り・磨き・切断・リベット止め・溶接・ポジショニング・ナットランナー用途に対応。T-Arm は引張・圧縮強度を 1.8 倍に再設計し、オートバランスを標準装備、ワーク重量が変わっても再設定不要。レールはトヨタ自動車 6000 セット以上、日野自動車 3000 セット以上、ダイハツ工業 500 セット以上の採用実績。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "自動車組立",
+              "detail": "タイヤ・重量部品の移載や締付け工程向け"
+            },
+            {
+              "industry": "ナットランナー作業",
+              "detail": "ナットランナー等の反力を伴う工具操作を 3arm で支援。"
+            },
+            {
+              "industry": "バリ取り・磨き・切断",
+              "detail": "工具の保持と位置決めを支援"
+            },
+            {
+              "industry": "溶接・リベット止め・ポジショニング",
+              "detail": "工程内での保持・移載・姿勢補助に対応"
+            },
+            {
+              "industry": "レール搬送ライン",
+              "detail": "トヨタ・日野・ダイハツ向け採用実績あり"
+            },
+            {
+              "industry": "プラント機内点検",
+              "detail": "ダクトや配管などの狭小空間で IBIS2 ドローンによる映像取得、点検記録・予防保全データに活用。"
+            }
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/shintech/3arm_catalog.pdf",
+              "label": "3arm カタログ (Series 1/2/3/4/6 仕様)",
+              "icon": "📄"
+            },
+            {
+              "url": "/assets/topics/productivity-solutions/shintech/shintech_products_2025.pdf",
+              "label": "製品プレゼン 2025 (T-Arm/サーボバランサー/レール)",
+              "icon": "📄"
+            },
+            {
+              "url": "/assets/topics/productivity-solutions/shintech/shintech_company_excerpt.pdf",
+              "label": "営業資料 (S15-25 抜粋)",
+              "icon": "📄"
+            }
+          ],
+          "twf_highlights": [
+            "🏭 自動車メーカー実績: トヨタ自動車 6000 セット以上 / 日野自動車 3000 セット以上 / ダイハツ工業 500 セット以上",
+            "💪 T-Arm: 引張・圧縮強度 1.8 倍に再設計、オートバランスを標準装備でワーク重量変化に再設定不要 (公式 HP / カタログ)",
+            "⚙️ 3arm: スペイン・バルセロナ製、カタログ掲載の Series 1/2/3/4/6 を展開。バリ取り・磨き・切断・リベット止め・溶接・ポジショニング・ナットランナー用途 (公式 HP / カタログ)",
+            "🚁 機内点検ドローン: IBIS2 (Liberaware 社製、20cm/243g の業界最小クラス) でプラント内の機械・ダクト・配管の機内点検、TWF2026 デモ実施 (公式 HP / Liberaware 公式 / アンケート回答)"
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/shintech/shintech_t-arm.jpg",
+              "alt": "T-Arm 純国産バランスアーム"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/shintech/shintech_rail.jpg",
+              "alt": "Knight レールシステム"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "highlight": "🏭 自動車メーカー実績: トヨタ自動車 6000 セット以上 / 日野自動車 3000 セット以上 / ダイハツ工業 500 セット以上"
+        },
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "highlight": "💪 T-Arm: 引張・圧縮強度 1.8 倍に再設計、オートバランスを標準装備でワーク重量変化に再設定不要 (公式 HP / カタログ)"
+        },
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "highlight": "⚙️ 3arm: スペイン・バルセロナ製、カタログ掲載の Series 1/2/3/4/6 を展開。バリ取り・磨き・切断・リベット止め・溶接・ポジショニング・ナットランナー用途 (公式 HP / カタログ)"
+        },
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "highlight": "🚁 機内点検ドローン: IBIS2 (Liberaware 社製、20cm/243g の業界最小クラス) でプラント内の機械・ダクト・配管の機内点検、TWF2026 デモ実施 (公式 HP / Liberaware 公式 / アンケート回答)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "url": "/assets/topics/productivity-solutions/shintech/3arm_catalog.pdf",
+          "label": "3arm カタログ (Series 1/2/3/4/6 仕様)",
+          "icon": "📄"
+        },
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "url": "/assets/topics/productivity-solutions/shintech/shintech_products_2025.pdf",
+          "label": "製品プレゼン 2025 (T-Arm/サーボバランサー/レール)",
+          "icon": "📄"
+        },
+        {
+          "product": "3arm + T-Arm シリーズ (バランスアーム)",
+          "url": "/assets/topics/productivity-solutions/shintech/shintech_company_excerpt.pdf",
+          "label": "営業資料 (S15-25 抜粋)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 2,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "シンテック㈱",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "バランスアーム 3arm + T-Arm シリーズ / IBIS2 機内点検ドローン (Liberaware)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "④ 教示・周辺機器"
+      ]
+    },
+    {
+      "no": 59,
+      "slug": "zenetekku",
+      "name": "ゼネテック",
+      "name_official": "㈱ゼネテック",
+      "name_short": "",
+      "furigana": "ぜねてっく",
+      "portal_url": "https://twf2026-portal.pages.dev/m/zenetekku/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "協働ロボット",
+      "nav_categories": [
+        "ロボット・自動化"
+      ],
+      "facets_taxonomy": [
+        "ロボットアーム",
+        "協働ロボット"
+      ],
+      "taxonomy_evidence": "社名 + 現 category 協働ロボット (具体情報なし)",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "④ 教示・周辺機器",
+          "section_intro": "オフライン教示で立ち上げ時間 90% 削減、国産バランスアームで腰痛ゼロへ。自動化を支える「縁の下」。",
+          "maker_no": 59,
+          "maker_name": "ゼネテック",
+          "maker_slug": "zenetekku",
+          "product_name": "Visual Components OLP (VCOLP 5.0)",
+          "tagline": "ロボットを止めずに教示、ティーチング時間 1/10 (VC 社調査データ)",
+          "image_url": "/assets/topics/productivity-solutions/zenetekku/vcolp_ui.jpg",
+          "official_url": "https://vcolp.jp/",
+          "is_first_exhibit": true,
+          "is_new_product": false,
+          "what_is": "産業用ロボットの加工プログラムを PC 上で作成するオフラインティーチング (OLP) ソフトウェア。ABB / FANUC / KUKA / Yaskawa / Kawasaki / Mitsubishi Electric / Denso / Yamaha Motor のロボットに対応。2026 年 3 月 18 日提供開始の VCOLP 5.0 では、自動ツールパス生成と自動化機能を強化。アーク・レーザー・TIG・スポット溶接、ポリッシング・研磨・サンディング・バリ取り・切断、湿式・クリア・スプレー塗装などの用途に対応する。",
+          "improvement": {
+            "headline": "ティーチング時間 90% 削減 / ロボット止めずに教示 (VC 社調査データ)",
+            "before": "ロボットの教示工程では、実機停止によるライン稼働ロスや、メーカーごとに異なる教示方法への対応が課題になりやすい。",
+            "after": "PC 上で教示プログラムを作成し、実機へ転送できる。VC 社調査では、ティーチング時間を 90% 削減。連続溶接パス自動生成、ジョブ管理、Mastercam 連動にも対応する。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "01 アーク・レーザー溶接",
+              "detail": "アーク・レーザー・TIG 溶接の用途に対応。"
+            },
+            {
+              "industry": "02 スポット溶接",
+              "detail": "スポット溶接の用途に対応。"
+            },
+            {
+              "industry": "03 切断・バリ取り",
+              "detail": "バリ取り・切断の用途に対応。"
+            },
+            {
+              "industry": "04 研磨加工",
+              "detail": "ポリッシング・研磨・サンディング・グラインディングの用途に対応。"
+            },
+            {
+              "industry": "05 塗装",
+              "detail": "湿式・クリア・スプレー塗装の用途に対応。"
+            }
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/zenetekku/vcolp_scene01_arc.jpg",
+              "alt": "01 アーク・レーザー溶接 (黄色ロボ+トーチ、ターンテーブル協調)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/zenetekku/vcolp_scene02_spot.jpg",
+              "alt": "02 スポット溶接 (ロボ+ピンクスポットガン、車体パネル)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/zenetekku/vcolp_scene03_cut.jpg",
+              "alt": "03 切断・バリ取り (青ロボ+カメラセンサー、エッジ加工)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/zenetekku/vcolp_scene04_polish.jpg",
+              "alt": "04 研磨加工 (黄色ロボ+ポリッシングディスク、表面処理)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/zenetekku/vcolp_scene05_paint.jpg",
+              "alt": "05 塗装 (4ロボ協調、グリーン塗装の自動車ボディ)"
+            }
+          ],
+          "twf_highlights": [
+            "🎯 ティーチング時間 1/10: VC 社調査で 90% 削減 (公式 HP)",
+            "🤖 対応ロボットメーカー: ABB / FANUC / KUKA / Yaskawa / Kawasaki / Mitsubishi Electric / Denso / Yamaha Motor (公式 HP)",
+            "🆕 VCOLP 5.0: 2026 年 3 月 18 日提供開始、自動ツールパス生成と自動化機能強化を案内 (公式 news)"
+          ],
+          "other_products": [
+            {
+              "name": "FlexSim (シミュレーションソフト)",
+              "tagline": "離散事象解析 3D シミュレーションソフト",
+              "description": "「世界 No.1」を掲げる 3D シミュレーター。グローバル 60,000 ライセンス以上、自動車・食品・医療・3PL・建設・教育の各業界で利用されている。",
+              "url": "https://simulation.genetec.co.jp/",
+              "image": "/assets/topics/productivity-solutions/zenetekku/flexsim_hero.jpg"
+            },
+            {
+              "name": "Mastercam (3D CAD/CAM)",
+              "tagline": "世界 No.1 のオールラウンド 3 次元 CAD/CAM システム",
+              "description": "3D CAD/CAM で加工プログラムを作成。VCOLP とも連動可能。",
+              "url": "https://www.mastercam.co.jp/",
+              "image": null
+            }
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/zenetekku/vcolp_brochure.pdf",
+              "label": "Visual Components Robotics OLP 公式パンフレット (2ページ)",
+              "icon": "📄"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "Visual Components OLP (VCOLP 5.0)",
+          "highlight": "🎯 ティーチング時間 1/10: VC 社調査で 90% 削減 (公式 HP)"
+        },
+        {
+          "product": "Visual Components OLP (VCOLP 5.0)",
+          "highlight": "🤖 対応ロボットメーカー: ABB / FANUC / KUKA / Yaskawa / Kawasaki / Mitsubishi Electric / Denso / Yamaha Motor (公式 HP)"
+        },
+        {
+          "product": "Visual Components OLP (VCOLP 5.0)",
+          "highlight": "🆕 VCOLP 5.0: 2026 年 3 月 18 日提供開始、自動ツールパス生成と自動化機能強化を案内 (公式 news)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "Visual Components OLP (VCOLP 5.0)",
+          "url": "/assets/topics/productivity-solutions/zenetekku/vcolp_brochure.pdf",
+          "label": "Visual Components Robotics OLP 公式パンフレット (2ページ)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 5,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "㈱ゼネテック",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "オフラインティーチングソフト Visual Components Robotics OLP (Ver5.0)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "④ 教示・周辺機器"
+      ]
+    },
+    {
+      "no": 66,
+      "slug": "daihen",
+      "name": "ダイヘン",
+      "name_official": "㈱ダイヘン",
+      "name_short": "DAIHEN",
+      "furigana": "だいへん",
+      "portal_url": "https://twf2026-portal.pages.dev/m/daihen/",
+      "tier_guess": "A",
+      "has_answer": true,
+      "pamphlet_page": "2",
+      "category_csv": "協働ロボット",
+      "nav_categories": [
+        "ロボット・自動化",
+        "溶接・電源"
+      ],
+      "facets_taxonomy": [
+        "ロボットアーム",
+        "協働ロボット",
+        "アーク溶接",
+        "MIG溶接",
+        "TIG溶接"
+      ],
+      "taxonomy_evidence": "社名: DAIHEN (産業ロボット・溶接電源大手、業界確立)",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": "添付あり(　点) / なし"
+      },
+      "topics_products": [
+        {
+          "section_title": "① 協働ロボット",
+          "section_intro": "1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。",
+          "maker_no": 66,
+          "maker_name": "ダイヘン",
+          "maker_slug": "daihen",
+          "product_name": "協働ロボット VC4 / VC4L / VC8 + FD19-B6 シンクロフィードIII — マルチタスク溶接ファミリー",
+          "tagline": "溶接・研磨用途に対応する協働ロボットを、タブレットTPで直感操作",
+          "image_url": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg",
+          "official_url": "https://www.daihen-robot.com/items/fd_vc4",
+          "is_first_exhibit": false,
+          "is_new_product": false,
+          "what_is": "ダイヘンの協働ロボットファミリー (VC4 / VC4L / VC8) と高機能溶接機 FD19-B6 シンクロフィードIII。タブレットTP での直感操作、TIG/MAG兼用、溶接 + 研磨のツール持ち替え、厚板薄板自在の溶接まで対応する「1台で複数役」のマルチタスク溶接システム。",
+          "improvement": {
+            "headline": "溶接＋研磨用途に対応 / タブレットTP＋ARで直感教示 / 厚板・薄板の幅広いワークに対応",
+            "before": "業界一般で見られる課題：従来は溶接機・研磨機・教示装置が別、ツール切替に時間、教示は高度な専門知識・経験が必要。厚板薄板の溶接条件切替もアーク安定のためノウハウが必要だった。",
+            "after": "VC4 は溶接後ツール持ち替えで研磨まで1台完結 (後工程削減)。VC8はタブレットTPによる直感操作とAR教示支援により、教示・操作の負担軽減に貢献。FD19-B6 シンクロフィードIII は厚板薄板の自在切替で板厚問わず対応、業界最高水準のモーション速度でサイクルタイム短縮。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "協働ロボット溶接 (VC8 + タブレットTP)",
+              "detail": "CO2仕様、タブレット撮影で段取り自動、初心者でも溶接可能、操作体験デモ実施"
+            },
+            {
+              "industry": "TIG溶接 (VC4L)",
+              "detail": "TIG仕様、難姿勢溶接の自動化、薄板ステンレス対応"
+            },
+            {
+              "industry": "溶接+研磨マルチタスク (VC4)",
+              "detail": "溶接後ツール持ち替えで研磨まで1台完結、後工程削減・人件費圧縮"
+            },
+            {
+              "industry": "厚板薄板溶接 (FD19-B6 シンクロフィードIII)",
+              "detail": "CO2仕様、板厚自在、シンクロフィードIIIで安定アーク・高速モーション"
+            }
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc4.jpg",
+              "alt": "VC4 協働ロボット (溶接+グラインダー研磨対応)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc4_sub.jpg",
+              "alt": "VC4 詳細カット"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fdb6_hero.jpg",
+              "alt": "FD19-B6 シンクロフィードIII (厚板薄板自在)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fdb6_detail1.jpg",
+              "alt": "FD-B6 詳細 (アーム内蔵ケーブル設計)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fdb6_detail2.jpg",
+              "alt": "FD-B6 詳細 (IP64防塵防水・6kgペイロード)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8_sub.jpg",
+              "alt": "VC8 詳細カット (タブレットTP対応)"
+            }
+          ],
+          "twf_highlights": [
+            "🎯 ブース内体験: VC8 タブレットTP 操作体験コーナー",
+            "🔥 実演メニュー: VC4 溶接+研磨ツール持ち替えデモ",
+            "🔥 実演メニュー: FD19-B6 厚薄板溶接デモ (シンクロフィードIII)",
+            "🆕 マルチタスク化: 1台で MIG/MAG / TIG / 研磨まで対応"
+          ]
+        },
+        {
+          "section_title": "② AMR・搬送自動化",
+          "section_intro": "「人が物を運ぶ」現場をロボットへ。段差・傾斜OKのAMR、AGV連携で搬送→溶接を一気通貫。",
+          "maker_no": 66,
+          "maker_name": "ダイヘン",
+          "maker_slug": "daihen",
+          "product_name": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+          "tagline": "搬送→位置補正→協働ロボット溶接の自動化を提案 (マツモト産業ブース連動)",
+          "image_url": "/assets/topics/productivity-solutions/daihen/daihen_aitran.jpg",
+          "official_url": "https://www.daihen-robot.com/items/Aitran",
+          "is_first_exhibit": true,
+          "is_new_product": false,
+          "what_is": "ダイヘンの自律搬送台車 AiTran と協働ロボット VC8 をレーザーセンサーで連携し、ワーク搬送から溶接までの連携自動化を提案するソリューション。マツモト産業 自動化推進コーナーで実機展示・デモ。iREX2025 でも同構成 (AiTran500 + VC8 + The Short Arc) のデモを展開、ダイヘン公式 YouTube でデモ映像を公開中。",
+          "improvement": {
+            "headline": "搬送と溶接の連携自動化 / 省人化を支援 / Short Arcによるスパッタ最大80%抑制",
+            "before": "業界一般で見られる課題：従来は搬送員・治具セット作業員・溶接工が分業、夜間休日の稼働限界。段取り替えに人手が必要で多品種少量対応が困難。",
+            "after": "AiTranが自律搬送、治具で位置決め後、VC8がShort Arc制御で溶接、レーザーセンサーで位置補正。Welbee The Short Arc採用時、低電流〜中高電流域でスパッタ発生を最大80%抑制。マツモト産業 自動化推進コーナーで実機デモを目の前で確認可能。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "自律移動溶接の自動化提案",
+              "detail": "搬送・位置補正・溶接を連携させた自動化提案"
+            },
+            {
+              "industry": "多品種少量生産",
+              "detail": "レイアウト変更やワーク移動を伴う工程の柔軟化に貢献"
+            },
+            {
+              "industry": "人手不足現場",
+              "detail": "搬送・溶接工程の自動化により、省人化を支援"
+            },
+            {
+              "industry": "鋼構造物・大型ワーク",
+              "detail": "自律移動ロボットと協働ロボットによる溶接自動化を提案"
+            }
+          ],
+          "video": {
+            "youtube_id": "-ydKdIio5es",
+            "title": "ダイヘン FD-VC8 × AiTran500 デモ",
+            "duration": "2:29"
+          },
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_aitran_trailer.jpg",
+              "alt": "AiTran トレーラー (重量物搬送対応)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8.jpg",
+              "alt": "VC8 協働溶接ロボット"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/daihen/daihen_fd-vc8_sub.jpg",
+              "alt": "VC8 詳細カット"
+            }
+          ],
+          "twf_highlights": [
+            "🚀 マツモト産業ブース連動: 自動化推進コーナーで実機デモ",
+            "🤖 AiTran+VC8+レーザーセンサーの連携自動化提案",
+            "🎬 デモ動画: ヒーロー直下に 2:29 YouTube埋込済 (-ydKdIio5es)",
+            "🔗 iREX2025 同構成展開中: ダイヘン公式特設ページにも掲載"
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "協働ロボット VC4 / VC4L / VC8 + FD19-B6 シンクロフィードIII — マルチタスク溶接ファミリー",
+          "highlight": "🎯 ブース内体験: VC8 タブレットTP 操作体験コーナー"
+        },
+        {
+          "product": "協働ロボット VC4 / VC4L / VC8 + FD19-B6 シンクロフィードIII — マルチタスク溶接ファミリー",
+          "highlight": "🔥 実演メニュー: VC4 溶接+研磨ツール持ち替えデモ"
+        },
+        {
+          "product": "協働ロボット VC4 / VC4L / VC8 + FD19-B6 シンクロフィードIII — マルチタスク溶接ファミリー",
+          "highlight": "🔥 実演メニュー: FD19-B6 厚薄板溶接デモ (シンクロフィードIII)"
+        },
+        {
+          "product": "協働ロボット VC4 / VC4L / VC8 + FD19-B6 シンクロフィードIII — マルチタスク溶接ファミリー",
+          "highlight": "🆕 マルチタスク化: 1台で MIG/MAG / TIG / 研磨まで対応"
+        },
+        {
+          "product": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+          "highlight": "🚀 マツモト産業ブース連動: 自動化推進コーナーで実機デモ"
+        },
+        {
+          "product": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+          "highlight": "🤖 AiTran+VC8+レーザーセンサーの連携自動化提案"
+        },
+        {
+          "product": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+          "highlight": "🎬 デモ動画: ヒーロー直下に 2:29 YouTube埋込済 (-ydKdIio5es)"
+        },
+        {
+          "product": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+          "highlight": "🔗 iREX2025 同構成展開中: ダイヘン公式特設ページにも掲載"
+        }
+      ],
+      "materials_all": [],
+      "gallery_total": 9,
+      "videos_all": [
+        {
+          "product": "AiTran (自律搬送台車) + VC8 + レーザーセンサー — 連携自動化システム",
+          "kind": "youtube",
+          "youtube_id": "-ydKdIio5es",
+          "embed_url": "https://www.youtube.com/embed/-ydKdIio5es",
+          "watch_url": "https://www.youtube.com/watch?v=-ydKdIio5es",
+          "title": "ダイヘン FD-VC8 × AiTran500 デモ",
+          "duration": "2:29"
+        }
+      ],
+      "has_youtube": true,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "㈱ダイヘン",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "協働ロボットパッケージ (TIG/MAG 兼用仕様) / 高軌跡精度 FD-V8 系 / Welbee The ShortArc"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "① 協働ロボット",
+        "② AMR・搬送自動化"
+      ]
+    },
+    {
+      "no": 97,
+      "slug": "nobitekku",
+      "name": "ノビテック",
+      "name_official": "㈱ノビテック",
+      "name_short": "",
+      "furigana": "のびてっく",
+      "portal_url": "https://twf2026-portal.pages.dev/m/nobitekku/",
+      "tier_guess": "A",
+      "has_answer": true,
+      "pamphlet_page": "2",
+      "category_csv": "溶接カメラ・保護具",
+      "nav_categories": [
+        "溶接・電源",
+        "保護具・安全"
+      ],
+      "facets_taxonomy": [
+        "溶接カメラ"
+      ],
+      "taxonomy_evidence": "Q1: Cavitar Welding Camera C350/C400 (溶接観察カメラ)",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "溶接カメラ：①Cavitar Welding Camera C350、\n②Cavitar Welding Camera C400\n※デモンストレーションはございません。",
+        "q2": "なし",
+        "q3": "溶接の『視える化』で品質向上！",
+        "q4": "なし",
+        "q5": "添付あり（1点）\n\n以上、よろしくお願い申し上げます。"
+      },
+      "topics_products": [
+        {
+          "section_title": "③ 安全・センシング",
+          "section_intro": "世界初の SIL2/PLd 準拠 3D レーダー、溶融池可視化カメラ。生産現場の「見える化」と安全を一段上に。",
+          "maker_no": 97,
+          "maker_name": "ノビテック",
+          "maker_slug": "nobitekku",
+          "product_name": "Cavitar Welding Camera (C350 / C400)",
+          "tagline": "アーク光の中で、溶融池がはっきり見える",
+          "image_url": "/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg",
+          "official_url": "https://www.nobby-tech.co.jp/welding/weldingcamera",
+          "is_first_exhibit": false,
+          "is_new_product": false,
+          "what_is": "フィンランド Cavitar 社製のレーザー光源付き溶接観察カメラ。バンドパスフィルターとレーザー波長を組み合わせ、アーク光・スパッタ・ヒュームの中でも溶融池や開先、ワイヤ突出長を高コントラストで撮影。現行は C350 (30×45×99mm/300g) と C400 (38×48.2×99.3mm/360g) の 2 モデル、最大解像度 1,440×1,080 px。フル解像度時の撮影速度は C400 70 fps / C350 200 fps、最高撮影速度は C400 100 fps / C350 500 fps (2×2 ビニング時)。日本国内では ㈱ノビテック が代理店として扱う。",
+          "improvement": {
+            "headline": "見えない溶接を、見える溶接へ",
+            "before": "アーク光やヒュームの影響で溶接中の状態を直接確認しにくく、不具合の発生要因や条件差の把握に時間がかかる。教育も溶接面越しの見学に頼りやすく、共有できる情報が限られる。",
+            "after": "Cavitar Welding Camera で溶融部や周辺状態を可視化し、条件確認や不具合要因の把握を行いやすくする。映像や数値として記録を残せるため、工程の振り返りや教育資料化にも活用できる。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "溶接不具合の監視と原因確認",
+              "detail": "「溶接不具合監視」「リアルタイム計測」に対応。アーク発生から終端まで溶融池を観察記録し、不良発生の瞬間を捕捉できる。"
+            },
+            {
+              "industry": "長時間記録による工程の振り返り",
+              "detail": "「長時間記録システム」用途に対応。映像を残して後工程での原因確認や条件比較に活用できる。"
+            },
+            {
+              "industry": "TIG 手溶接の可視化・教育",
+              "detail": "TIG 溶接でウィービング動作や溶化棒の動きを 30 fps / 1,440×1,080 px で可視化、モニター教育に活用できる。"
+            },
+            {
+              "industry": "被覆アーク溶接のスラグ/プール可視化",
+              "detail": "被覆アーク溶接の全工程を 30 fps で可視化、スラグとプールの区別を確認しやすく、記録・比較に活用できる。"
+            },
+            {
+              "industry": "AI 画像判定による自動判定",
+              "detail": "「リアルタイム判定 (AI 画像判定システム)」に対応。Cavitar の高コントラスト映像を AI 解析と組合せ、不良検知の自動化に活用できる。"
+            }
+          ],
+          "twf_highlights": [
+            "👀 みどころ: 溶接の「視える化」 — バンドパスフィルター + レーザー照明で、アーク光・ヒュームの中でも溶融池をクリアに撮影 (Q3 + 公式 HP)",
+            "🤖 可視化方式: バンドパスフィルターで不要光をカットし、レーザー照明の当たった部分を高コントラストで撮影 (公式 HP)",
+            "🎯 出展予定機種: Cavitar Welding Camera C350 / C400 (Q1 出展予定品より)"
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg",
+              "alt": "Cavitar Welding Camera C シリーズ製品本体"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_arc.jpg",
+              "alt": "アーク光下での溶融池撮影サンプル"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/nobitekku/nobitekku_setup.jpg",
+              "alt": "ロボットアーム搭載例 — トーチ近傍に C シリーズを設置"
+            }
+          ],
+          "materials": [
+            {
+              "url": "/attachments/株式会社ノビテック/CavitarWeldingCameraカタログPDF.pdf",
+              "label": "ノビテック Cavitar Welding Camera 詳細カタログ (6 ページ)",
+              "icon": "📄"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "Cavitar Welding Camera (C350 / C400)",
+          "highlight": "👀 みどころ: 溶接の「視える化」 — バンドパスフィルター + レーザー照明で、アーク光・ヒュームの中でも溶融池をクリアに撮影 (Q3 + 公式 HP)"
+        },
+        {
+          "product": "Cavitar Welding Camera (C350 / C400)",
+          "highlight": "🤖 可視化方式: バンドパスフィルターで不要光をカットし、レーザー照明の当たった部分を高コントラストで撮影 (公式 HP)"
+        },
+        {
+          "product": "Cavitar Welding Camera (C350 / C400)",
+          "highlight": "🎯 出展予定機種: Cavitar Welding Camera C350 / C400 (Q1 出展予定品より)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "Cavitar Welding Camera (C350 / C400)",
+          "url": "/attachments/株式会社ノビテック/CavitarWeldingCameraカタログPDF.pdf",
+          "label": "ノビテック Cavitar Welding Camera 詳細カタログ (6 ページ)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 3,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "㈱ノビテック",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "Cavitar Welding Camera (アーク光下でも視認)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "③ 安全・センシング"
+      ]
+    },
+    {
+      "no": 106,
+      "slug": "fanuc",
+      "name": "ファナック㈱",
+      "name_official": "ファナック㈱",
+      "name_short": "",
+      "furigana": "ふぁなっく",
+      "portal_url": "https://twf2026-portal.pages.dev/m/fanuc/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "協働ロボット",
+      "nav_categories": [
+        "ロボット・自動化"
+      ],
+      "facets_taxonomy": [
+        "ロボットアーム",
+        "協働ロボット"
+      ],
+      "taxonomy_evidence": "業界既知: ファナック = 産業用ロボット世界大手",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "① 協働ロボット",
+          "section_intro": "1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。",
+          "maker_no": 106,
+          "maker_slug": "fanuc",
+          "maker_name": "ファナック㈱",
+          "product_name": "ファナック CRX / CR シリーズ — 溶接・自動化用協働ロボット",
+          "tagline": "安全柵不要の協働ロボットで溶接・ツールチェンジ・センサ教示を提案",
+          "image_url": "/assets/topics/productivity-solutions/fanuc/fanuc_crx.jpg",
+          "official_url": "https://www.fanuc.co.jp/ja/product/robot/f_r_collabo.html",
+          "is_first_exhibit": false,
+          "is_new_product": false,
+          "what_is": "ファナックの協働ロボット CRX シリーズ (CRX-10iA/L Paint 仕様含む) および CR シリーズ (CR-7iA、CR-15iA) は、安全柵不要で人と協働可能な溶接・自動化プラットフォーム。用途に応じて複数機種から選択可能。マツモト産業ブースでは、過去 WF (大阪 / 神奈川) でハンドチェンジャー仕様、TIG フィラー仕様、マグネット式タッチセンサー仕様、サーボロボ・ジャパン社の ATC™ オートティーチコボット、PENTA・LASER 社の HW1000 連携などを展示してきた実績がある。TWF2026 出展機種・構成は現在最終調整中。",
+          "improvement": {
+            "headline": "安全柵不要で省スペース設置 / 用途別ツール構成を提案",
+            "before": "業界一般で見られる課題：溶接・研削・塗装・センサ教示などの工程ごとに専用ロボットを導入するとコストとスペースが増大、安全柵設置でレイアウト自由度も低下。新規ティーチングには熟練者の手作業が必要。",
+            "after": "ファナック CRX シリーズは安全柵不要 (リスクアセスメント実施を前提) で限られた工場スペースでも設置可能な協働ロボット。1 台のロボットで手動ツールチェンジャーによる溶接トーチとグラインダーの切替、TIG フィラー溶接、マグネット式タッチセンサーでの溶接位置自動検知などに対応。周辺連携製品 (サーボロボ・ジャパン社 ATC™、PENTA・LASER 社 HW1000、マツモト機械フローティングユニット 等) との組合せ展示を、過去の大阪 WF / 神奈川 WF で実演してきた実績がある。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "省スペース工場の溶接自動化",
+              "detail": "敷地面積の限られた工場でも、安全柵不要の協働ロボットで溶接工程の自動化を支援"
+            },
+            {
+              "industry": "多工程対応",
+              "detail": "1 台の協働ロボットで溶接トーチとグラインダーなどの切替に対応、用途別ツール構成を提案"
+            },
+            {
+              "industry": "TIG 溶接の自動化検討",
+              "detail": "TIG フィラー溶接の自動化を検討する現場 (過去 WF 展示実績あり)"
+            },
+            {
+              "industry": "ティーチング作業の負担軽減検討",
+              "detail": "教示工程の負担軽減を検討する現場 (過去 WF でサーボロボ・ジャパン社 ATC™ 等の連携展示実績あり)"
+            }
+          ],
+          "twf_highlights": [
+            "🎯 過去 WF 事例 (大阪 / 神奈川): ハンドチェンジャー仕様で CO2 トーチとグラインダーを切替、1 台で溶接+研削研磨を実演",
+            "🤖 過去 WF 事例 (神奈川): マグネット式高電圧タッチセンサー仕様 (5kg 可搬)、溶接テーブルへマグネット着脱で持ち運び容易",
+            "🔗 連携展示の実績: サーボロボ・ジャパン社 ATC™ (レーザセンサ・オートティーチング)、PENTA・LASER 社 HW1000 (ハンディファイバーレーザ溶接機)",
+            "📋 TWF2026 出展機種・構成は現在最終調整中"
+          ],
+          "materials": [],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/fanuc/fanuc_crx_paint.jpg",
+              "alt": "CRX-10iA/L Paint 防爆塗装モデル"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/fanuc/fanuc_crx7ia.jpg",
+              "alt": "CR-7iA"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/fanuc/fanuc_cr15ia.jpg",
+              "alt": "CR-15iA"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "ファナック CRX / CR シリーズ — 溶接・自動化用協働ロボット",
+          "highlight": "🎯 過去 WF 事例 (大阪 / 神奈川): ハンドチェンジャー仕様で CO2 トーチとグラインダーを切替、1 台で溶接+研削研磨を実演"
+        },
+        {
+          "product": "ファナック CRX / CR シリーズ — 溶接・自動化用協働ロボット",
+          "highlight": "🤖 過去 WF 事例 (神奈川): マグネット式高電圧タッチセンサー仕様 (5kg 可搬)、溶接テーブルへマグネット着脱で持ち運び容易"
+        },
+        {
+          "product": "ファナック CRX / CR シリーズ — 溶接・自動化用協働ロボット",
+          "highlight": "🔗 連携展示の実績: サーボロボ・ジャパン社 ATC™ (レーザセンサ・オートティーチング)、PENTA・LASER 社 HW1000 (ハンディファイバーレーザ溶接機)"
+        },
+        {
+          "product": "ファナック CRX / CR シリーズ — 溶接・自動化用協働ロボット",
+          "highlight": "📋 TWF2026 出展機種・構成は現在最終調整中"
+        }
+      ],
+      "materials_all": [],
+      "gallery_total": 3,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "ファナック㈱",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "安全柵がいらない溶接用協働ロボット / ワンタッチハンドチェンジャー仕様"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "① 協働ロボット"
+      ]
+    },
+    {
+      "no": 114,
+      "slug": "furoniusujapan",
+      "name": "フロニウスジャパン",
+      "name_official": "フロニウスジャパン㈱",
+      "name_short": "",
+      "furigana": "ふろにうすじゃぱん",
+      "portal_url": "https://twf2026-portal.pages.dev/m/furoniusujapan/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "溶接・電源",
+      "nav_categories": [
+        "溶接・電源"
+      ],
+      "facets_taxonomy": [
+        "TIG溶接",
+        "MIG溶接",
+        "アーク溶接"
+      ],
+      "taxonomy_evidence": "業界既知: FRONIUS = TIG/MIG溶接機の世界的メーカー",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "① 協働ロボット",
+          "section_intro": "1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。",
+          "maker_no": 114,
+          "maker_name": "フロニウスジャパン",
+          "maker_slug": "furoniusujapan",
+          "product_name": "Fortis / TPS/i + Velo / CMT 協働ロボット連携 — マニュアル溶接機ファミリー",
+          "tagline": "MIG/MAG + TIG + 手棒 + バッテリー駆動、フロニウス溶接機の全領域",
+          "image_url": "/assets/topics/productivity-solutions/furoniusujapan/fronius_fortis_hero.jpg",
+          "official_url": "https://www.fronius.com/ja-jp/japan",
+          "is_first_exhibit": false,
+          "is_new_product": false,
+          "what_is": "オーストリア・フロニウス社の溶接機ファミリー。MIG/MAG (Fortis/TPS/i)、TIG (Artis/iWave)、手棒アーク (Ignis/Ignis Battery)、協働ロボット連携 (TPS/i + Fanuc CRX + CMT) まで網羅。新製品 Fortis パッケージが2026年販売スタート、TWF2026 で実機展示・体験可能。",
+          "improvement": {
+            "headline": "Wizard機能で経験浅くても溶接条件設定 / CMTで低スパッタ高速 / 12kg バッテリー機で電源なし現場対応",
+            "before": "業界一般で見られる課題：従来は熟練工の経験に依存、現場ごとに電流/電圧/速度の試行錯誤、電源確保できない屋外現場では作業困難。CMT等の高度な溶接プロセスは設定が複雑で導入ハードルが高かった。",
+            "after": "Fortis Wizard機能 = 継手形状/姿勢/板厚/のど厚/ギャップ入力で推奨電流・電圧・速度を自動提案、溶接速度もグラフィック表示。TPS/i + Velo でアシスト機能、CMT (Cold Metal Transfer) で低スパッタ高速溶接。Ignis Battery は本体 12kg + IP23 堅牢設計、フル充電で φ2.5電極棒31本溶接。協働ロボット (Fanuc CRX) + TPS500i + CMT で自動化対応。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "MIG/MAG溶接 (Fortis)",
+              "detail": "Wizard機能で経験浅でも条件設定容易、Duoオプションで1台2種ワイヤ使用可"
+            },
+            {
+              "industry": "MIG/MAG高度溶接 (TPS/i + Velo)",
+              "detail": "全モード選択可能、Veloアシストで難姿勢対応、CMTオプションで超低スパッタ"
+            },
+            {
+              "industry": "TIG溶接 (Artis/iWave)",
+              "detail": "直流TIG (Artis) は高周波スタートでコンパクト、iWaveは交直両用・多様な交流波形"
+            },
+            {
+              "industry": "手棒アーク (Ignis)",
+              "detail": "TrackingArc機能で溶接開始位置認識、トーチ交換でTIGも可"
+            },
+            {
+              "industry": "バッテリー溶接 (Ignis Battery)",
+              "detail": "電源なし現場・屋外で活躍、12kg軽量・IP23堅牢、フル充電で φ2.5電極棒31本"
+            },
+            {
+              "industry": "協働ロボット連携",
+              "detail": "Fanuc CRX + TPS500i + CMT で自動化、安全柵不要・低スパッタ高速溶接"
+            }
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_fortis_series.jpg",
+              "alt": "Fortis シリーズ MIG/MAG 3機種ラインアップ"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_tpsi_velo.jpg",
+              "alt": "TPS/i + Velo フル装備カート (CMT対応)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_artis_iwave.jpg",
+              "alt": "Artis (直流TIG) / iWave (交直両用 TIG)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_ignis_series.jpg",
+              "alt": "Ignis シリーズ 手棒アーク 3機種"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_ignis_battery.jpg",
+              "alt": "Ignis Battery バッテリー溶接機 (12kg、IP23)"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/furoniusujapan/fronius_fortis_duo.jpg",
+              "alt": "Fortis Duo (1台で2種ワイヤ使用可)"
+            }
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/furoniusujapan/fronius_manual_brochure.pdf",
+              "label": "フロニウス Manual溶接機 公式チラシ (2ページ)",
+              "icon": "📄"
+            }
+          ],
+          "twf_highlights": [
+            "🎁 TWF2026 ご注文特典: 自動遮光面 Vizor 4000 Plus プレゼント",
+            "🆕 Fortis パッケージ販売開始 (2026新製品)",
+            "👀 ブースみどころ: マニュアル溶接機を実際に触れる体験コーナー",
+            "🔥 実演メニュー: TPS320i + Velo / Fortis 500C / 協働ロボット CRX + TPS500i + CMT"
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "Fortis / TPS/i + Velo / CMT 協働ロボット連携 — マニュアル溶接機ファミリー",
+          "highlight": "🎁 TWF2026 ご注文特典: 自動遮光面 Vizor 4000 Plus プレゼント"
+        },
+        {
+          "product": "Fortis / TPS/i + Velo / CMT 協働ロボット連携 — マニュアル溶接機ファミリー",
+          "highlight": "🆕 Fortis パッケージ販売開始 (2026新製品)"
+        },
+        {
+          "product": "Fortis / TPS/i + Velo / CMT 協働ロボット連携 — マニュアル溶接機ファミリー",
+          "highlight": "👀 ブースみどころ: マニュアル溶接機を実際に触れる体験コーナー"
+        },
+        {
+          "product": "Fortis / TPS/i + Velo / CMT 協働ロボット連携 — マニュアル溶接機ファミリー",
+          "highlight": "🔥 実演メニュー: TPS320i + Velo / Fortis 500C / 協働ロボット CRX + TPS500i + CMT"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "Fortis / TPS/i + Velo / CMT 協働ロボット連携 — マニュアル溶接機ファミリー",
+          "url": "/assets/topics/productivity-solutions/furoniusujapan/fronius_manual_brochure.pdf",
+          "label": "フロニウス Manual溶接機 公式チラシ (2ページ)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 6,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "フロニウスジャパン㈱",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "TPS400i CMT 低スパッタ溶接プロセス / CMT プロセス (世界一スパッタの少ない溶接プロセス)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "① 協働ロボット"
+      ]
+    },
+    {
+      "no": 129,
+      "slug": "mesakku",
+      "name": "メサック",
+      "name_official": "㈱メサック",
+      "name_short": "",
+      "furigana": "めさっく",
+      "portal_url": "https://twf2026-portal.pages.dev/m/mesakku/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "",
+      "nav_categories": [
+        "ロボット・自動化"
+      ],
+      "facets_taxonomy": [
+        "ロボットアーム",
+        "自動搬送"
+      ],
+      "taxonomy_evidence": "公式: メサック = 自動車塗装ライン(コンベア+ロボット)、トリニティ工業100%子会社",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "① 協働ロボット",
+          "section_intro": "1台で完結する溶接・塗装の自動化。安全柵不要、ハンド交換ワンタッチ、防爆対応まで。",
+          "maker_no": 129,
+          "maker_name": "メサック",
+          "maker_slug": "mesakku",
+          "product_name": "ロボットつかみ方式塗装ブース",
+          "tagline": "設置面積約 1 ㎡、省スペースな塗装ブース提案",
+          "image_url": "/assets/topics/productivity-solutions/mesack/mesack_robot_painting.jpg",
+          "official_url": "https://www.mesac.co.jp/",
+          "is_first_exhibit": true,
+          "is_new_product": false,
+          "what_is": "静電気応用技術専門メーカーのメサックが提案する「ロボットつかみ方式塗装ブース」。スプレーガンを固定配置し、ロボットがワークを持って塗装することで、ロボット動作をガン周辺のみに限定し、塗装ブース・エリアの大幅縮小を図る。メサックは防爆塗装ロボット SIer・フルターンキー対応、自動ガン G05/G07/G08、静電ガン ARG/RBG シリーズも扱う。",
+          "improvement": {
+            "headline": "設置面積約 1 ㎡ / 排気風量 30 ㎥/min で省スペース化",
+            "before": "塗装設備の導入検討では、設置スペース、排気・給気負荷、ブース清掃性、塗料供給経路 (ホース長) が論点になりやすい。",
+            "after": "塗装ブースの設置面積は約 1 ㎡、開口面積約 1 ㎡・排気風量 30 ㎥/min。ガンを常時下向きに配置することで塗料飛散範囲を限定し、ロールフィルターの切断式メンテで清掃を容易化。ポンプ〜ガン間ホースを約 1m に短縮し、塗料供給経路を最適化、小ロット品生産時にも対応する。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "小ロット品生産での塗装自動化",
+              "detail": "ポンプ〜ガン間ホースを約 1m に短縮し、塗料供給経路を最適化。塗料ロスを抑え、小ロット品生産時にも対応する。"
+            },
+            {
+              "industry": "省スペース塗装ブースの新設",
+              "detail": "塗装ブースの設置面積は約 1 ㎡。設置場所を選ばず、省スペースで導入できる。"
+            },
+            {
+              "industry": "清掃メンテ性を重視した塗装工程",
+              "detail": "ガンを常時下向きに配置することで塗料飛散範囲を限定。ロールフィルターは汚れた部分を引き出して切断するだけで、ブース清掃を容易化。"
+            }
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/mesack/mesack_business.pdf",
+              "label": "事業紹介ポスター",
+              "icon": "📄"
+            },
+            {
+              "url": "/assets/topics/productivity-solutions/mesack/mesack_system_engineering.pdf",
+              "label": "システムエンジニアリング",
+              "icon": "📄"
+            },
+            {
+              "url": "/assets/topics/productivity-solutions/mesack/mesack_robot_painting.pdf",
+              "label": "ロボットつかみ塗装ブース",
+              "icon": "📄"
+            }
+          ],
+          "twf_highlights": [
+            "📐 設置面積: 約 1 ㎡で省スペース設置 (PDF カタログ)",
+            "💨 排気風量: 30 ㎥/min、ガン下向きで塗料飛散範囲限定 (PDF カタログ)",
+            "🎯 塗料供給経路: ポンプ〜ガン間ホース 約 1m で短縮化 (PDF カタログ)"
+          ],
+          "gallery_images": []
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "ロボットつかみ方式塗装ブース",
+          "highlight": "📐 設置面積: 約 1 ㎡で省スペース設置 (PDF カタログ)"
+        },
+        {
+          "product": "ロボットつかみ方式塗装ブース",
+          "highlight": "💨 排気風量: 30 ㎥/min、ガン下向きで塗料飛散範囲限定 (PDF カタログ)"
+        },
+        {
+          "product": "ロボットつかみ方式塗装ブース",
+          "highlight": "🎯 塗料供給経路: ポンプ〜ガン間ホース 約 1m で短縮化 (PDF カタログ)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "ロボットつかみ方式塗装ブース",
+          "url": "/assets/topics/productivity-solutions/mesack/mesack_business.pdf",
+          "label": "事業紹介ポスター",
+          "icon": "📄"
+        },
+        {
+          "product": "ロボットつかみ方式塗装ブース",
+          "url": "/assets/topics/productivity-solutions/mesack/mesack_system_engineering.pdf",
+          "label": "システムエンジニアリング",
+          "icon": "📄"
+        },
+        {
+          "product": "ロボットつかみ方式塗装ブース",
+          "url": "/assets/topics/productivity-solutions/mesack/mesack_robot_painting.pdf",
+          "label": "ロボットつかみ塗装ブース",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 0,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "㈱メサック",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "スプレーガン×防爆協働ロボット (塗装機器メーカーだからできる安全で最適なロボット導入)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "① 協働ロボット"
+      ]
+    },
+    {
+      "no": 145,
+      "slug": "robottobanku",
+      "name": "ロボットバンク",
+      "name_official": "ロボットバンク㈱",
+      "name_short": "",
+      "furigana": "ろぼっとばんく",
+      "portal_url": "https://twf2026-portal.pages.dev/m/robottobanku/",
+      "tier_guess": "B",
+      "has_answer": false,
+      "pamphlet_page": "2",
+      "category_csv": "物流・運搬",
+      "nav_categories": [
+        "物流・運搬",
+        "ロボット・自動化"
+      ],
+      "facets_taxonomy": [
+        "AMR",
+        "自動搬送",
+        "ロボットアーム"
+      ],
+      "taxonomy_evidence": "AMR搬送ロボット (commit 17a068f で画像生成済)",
+      "badges": [],
+      "q_rewritten": {
+        "q1_rewritten": "",
+        "q2_rewritten": "",
+        "q3_rewritten": "",
+        "q4_rewritten": "",
+        "q5_rewritten": ""
+      },
+      "q_original": {
+        "q1": "",
+        "q2": "",
+        "q3": "",
+        "q4": "",
+        "q5": ""
+      },
+      "topics_products": [
+        {
+          "section_title": "② AMR・搬送自動化",
+          "section_intro": "「人が物を運ぶ」現場をロボットへ。段差・傾斜OKのAMR、AGV連携で搬送→溶接を一気通貫。",
+          "maker_no": 145,
+          "maker_name": "ロボットバンク",
+          "maker_slug": "robottobanku",
+          "product_name": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+          "tagline": "150kg〜600kg 積載に対応する AMR 搬送ロボット",
+          "image_url": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg",
+          "official_url": "https://www.robotbank.jp/lp/starlift/a-001/",
+          "is_first_exhibit": true,
+          "is_new_product": false,
+          "what_is": "AMR (Autonomous Mobile Robot、自律走行搬送ロボット) の StarLift シリーズは、150kg〜600kg の積載に対応した協働搬送ロボット。自律走行で工場・倉庫内の運搬作業を行う。StarLift 150 (積載 150kg) / 300 (300kg) / 600 (600kg) の機種をラインナップし、段差 20mm までの走行、登坂 8°、最小通過幅 60cm、連続稼働約 10 時間に対応する。",
+          "improvement": {
+            "headline": "搬送量 +200% / 操作教育 30 分 / 導入期間 2 日 / 搬送員 2 名削減",
+            "before": "工場内の運搬作業は人手に頼ることが多く、搬送量の拡大には人員増、自動化機器の導入には長い設計・施工期間が必要となりやすい。",
+            "after": "食品工場で搬送量 200% 向上、修理工場で操作教育 30 分で即戦力化、部品製造工場で導入期間 2 日で完了、自動車部品製造で搬送員 2 名削減・24 時間体制運用などの実績。連続稼働約 10 時間、段差 20mm、登坂 8°、最小通過幅 60cm に対応。"
+          },
+          "target_scenarios": [
+            {
+              "industry": "食品工場での搬送自動化",
+              "detail": "搬送量 200% 向上の実績。"
+            },
+            {
+              "industry": "修理工場・整備工場での運搬",
+              "detail": "操作教育 30 分で即戦力化の実績。"
+            },
+            {
+              "industry": "部品製造工場での導入",
+              "detail": "導入期間 2 日で運用開始の実績。"
+            },
+            {
+              "industry": "自動車部品製造での搬送員削減",
+              "detail": "搬送員 2 名削減、24 時間体制での運用実績。"
+            },
+            {
+              "industry": "高機能材料工場での作業効率向上",
+              "detail": "作業効率 2 倍を達成した実績。"
+            }
+          ],
+          "twf_highlights": [
+            "🤖 ラインナップ: StarLift 150 / 300 / 600 の機種、積載 150kg〜600kg をカバー (公式 HP)",
+            "🎯 動作仕様: 段差 20mm、登坂 8°、最小通過幅 60cm、連続稼働約 10 時間 (公式 HP)",
+            "👀 採用事例: 食品工場で搬送量 200% 向上 / 修理工場で操作教育 30 分 / 部品製造工場で導入期間 2 日 / 自動車部品製造で搬送員 2 名削減・24 時間体制 (公式 LP)"
+          ],
+          "gallery_images": [
+            {
+              "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg",
+              "alt": "StarLift シリーズ製品本体"
+            },
+            {
+              "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg",
+              "alt": "StarLift 600 (積載 600kg) 製品"
+            }
+          ],
+          "materials": [
+            {
+              "url": "/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf",
+              "label": "ロボットバンク StarLift 導入事例集",
+              "icon": "📄"
+            },
+            {
+              "url": "/assets/topics/productivity-solutions/robotbank/robotbank_product_highlights.pdf",
+              "label": "ロボットバンク StarLift 製品ハイライト (14 スライド統合 PDF)",
+              "icon": "📄"
+            }
+          ]
+        }
+      ],
+      "twf_highlights_all": [
+        {
+          "product": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+          "highlight": "🤖 ラインナップ: StarLift 150 / 300 / 600 の機種、積載 150kg〜600kg をカバー (公式 HP)"
+        },
+        {
+          "product": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+          "highlight": "🎯 動作仕様: 段差 20mm、登坂 8°、最小通過幅 60cm、連続稼働約 10 時間 (公式 HP)"
+        },
+        {
+          "product": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+          "highlight": "👀 採用事例: 食品工場で搬送量 200% 向上 / 修理工場で操作教育 30 分 / 部品製造工場で導入期間 2 日 / 自動車部品製造で搬送員 2 名削減・24 時間体制 (公式 LP)"
+        }
+      ],
+      "materials_all": [
+        {
+          "product": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+          "url": "/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf",
+          "label": "ロボットバンク StarLift 導入事例集",
+          "icon": "📄"
+        },
+        {
+          "product": "AMR 自律走行(協働)搬送ロボット StarLift シリーズ",
+          "url": "/assets/topics/productivity-solutions/robotbank/robotbank_product_highlights.pdf",
+          "label": "ロボットバンク StarLift 製品ハイライト (14 スライド統合 PDF)",
+          "icon": "📄"
+        }
+      ],
+      "gallery_total": 2,
+      "videos_all": [],
+      "has_youtube": false,
+      "has_mp4_local": false,
+      "pdf_attachments_from_extracts": [],
+      "pamphlet_entries": {
+        "name": "ロボットバンク㈱",
+        "page": 2,
+        "section": "協働ロボット",
+        "note": "AMR 自動走行台車 (工場・物流の未来を支援する革新的な支援パッケージ)"
+      },
+      "security_notes": [],
+      "section_titles": [
+        "② AMR・搬送自動化"
+      ]
+    }
+  ]
+}
