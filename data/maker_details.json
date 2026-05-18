@@ -406,7 +406,10 @@
     "q3": "デモンストレーションをその場で実際に行っています。\n直接触ることもできるため、効果を生で実感して頂ければと思います。",
     "q4": "なし",
     "q5": "添付あり(　点) / なし",
-    "attachments": [],
+    "attachments": [
+      "optilaser_catalog_2025.pdf",
+      "optilaser_motoko_steel_article.pdf"
+    ],
     "attachment_dir": "attachments/オプティレーザーソリューションズ株式会社/",
     "company_dir": "オプティレーザーソリューションズ株式会社"
   },
@@ -669,9 +672,11 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "komori_srd.pdf"
+    ],
+    "attachment_dir": "attachments/株式会社小森安全機研究所/",
+    "company_dir": "株式会社小森安全機研究所"
   },
   "036": {
     "no": 36,
@@ -970,9 +975,13 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "3arm_catalog.pdf",
+      "shintech_company_excerpt.pdf",
+      "shintech_products_2025.pdf"
+    ],
+    "attachment_dir": "attachments/シンテック株式会社/",
+    "company_dir": "シンテック株式会社"
   },
   "053": {
     "no": 53,
@@ -1119,9 +1128,11 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "vcolp_brochure.pdf"
+    ],
+    "attachment_dir": "attachments/株式会社ゼネテック/",
+    "company_dir": "株式会社ゼネテック"
   },
   "060": {
     "no": 60,
@@ -2132,9 +2143,11 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "fronius_manual_brochure.pdf"
+    ],
+    "attachment_dir": "attachments/フロニウスジャパン株式会社/",
+    "company_dir": "フロニウスジャパン株式会社"
   },
   "115": {
     "no": 115,
@@ -2402,9 +2415,17 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "g05.pdf",
+      "g07.pdf",
+      "G08シリーズ.pdf",
+      "コンパクト塗装ブースちらし(2).pdf",
+      "mesack_business.pdf",
+      "mesack_robot_painting.pdf",
+      "mesack_system_engineering.pdf"
+    ],
+    "attachment_dir": "attachments/メサック株式会社/",
+    "company_dir": "メサック株式会社"
   },
   "130": {
     "no": 130,
@@ -2709,9 +2730,13 @@
     "q3": "",
     "q4": "",
     "q5": "",
-    "attachments": [],
-    "attachment_dir": null,
-    "company_dir": null
+    "attachments": [
+      "ロボットバンク搬送ロボットカタログ.pdf",
+      "robotbank_cases.pdf",
+      "robotbank_product_highlights.pdf"
+    ],
+    "attachment_dir": "attachments/ロボットバンク株式会社/",
+    "company_dir": "ロボットバンク株式会社"
   },
   "146": {
     "no": 146,

@@ -214,7 +214,7 @@
             ],
             "materials": [
               {
-                "url": "/assets/topics/productivity-solutions/furoniusujapan/fronius_manual_brochure.pdf",
+                "url": "/attachments/フロニウスジャパン株式会社/fronius_manual_brochure.pdf",
                 "label": "フロニウス Manual溶接機 公式チラシ (2ページ)",
                 "icon": "📄"
               }
@@ -258,18 +258,38 @@
             ],
             "materials": [
               {
-                "url": "/assets/topics/productivity-solutions/mesack/mesack_business.pdf",
+                "url": "/attachments/メサック株式会社/mesack_business.pdf",
                 "label": "事業紹介ポスター",
                 "icon": "📄"
               },
               {
-                "url": "/assets/topics/productivity-solutions/mesack/mesack_system_engineering.pdf",
+                "url": "/attachments/メサック株式会社/mesack_system_engineering.pdf",
                 "label": "システムエンジニアリング",
                 "icon": "📄"
               },
               {
-                "url": "/assets/topics/productivity-solutions/mesack/mesack_robot_painting.pdf",
+                "url": "/attachments/メサック株式会社/mesack_robot_painting.pdf",
                 "label": "ロボットつかみ塗装ブース",
+                "icon": "📄"
+              },
+              {
+                "url": "/attachments/メサック株式会社/g05.pdf",
+                "label": "G05 シリーズ (低圧力・低風量自動ガン、平吹き/丸吹き)",
+                "icon": "📄"
+              },
+              {
+                "url": "/attachments/メサック株式会社/g07.pdf",
+                "label": "G07 シリーズ (ワイドパターン 200mm、中型用)",
+                "icon": "📄"
+              },
+              {
+                "url": "/attachments/メサック株式会社/G08シリーズ.pdf",
+                "label": "G08 シリーズ (ダイヤフラム構造、2 液塗料対応)",
+                "icon": "📄"
+              },
+              {
+                "url": "/attachments/メサック株式会社/コンパクト塗装ブースちらし(2).pdf",
+                "label": "ロボットつかみ方式塗装ブース ちらし",
                 "icon": "📄"
               }
             ],
@@ -303,11 +323,26 @@
               "after": "食品工場で搬送量 200% 向上、修理工場で操作教育 30 分で即戦力化、部品製造工場で導入期間 2 日で完了、自動車部品製造で搬送員 2 名削減・24 時間体制運用などの実績。連続稼働約 10 時間、段差 20mm、登坂 8°、最小通過幅 60cm に対応。"
             },
             "target_scenarios": [
-              { "industry": "食品工場での搬送自動化", "detail": "搬送量 200% 向上の実績。" },
-              { "industry": "修理工場・整備工場での運搬", "detail": "操作教育 30 分で即戦力化の実績。" },
-              { "industry": "部品製造工場での導入", "detail": "導入期間 2 日で運用開始の実績。" },
-              { "industry": "自動車部品製造での搬送員削減", "detail": "搬送員 2 名削減、24 時間体制での運用実績。" },
-              { "industry": "高機能材料工場での作業効率向上", "detail": "作業効率 2 倍を達成した実績。" }
+              {
+                "industry": "食品工場での搬送自動化",
+                "detail": "搬送量 200% 向上の実績。"
+              },
+              {
+                "industry": "修理工場・整備工場での運搬",
+                "detail": "操作教育 30 分で即戦力化の実績。"
+              },
+              {
+                "industry": "部品製造工場での導入",
+                "detail": "導入期間 2 日で運用開始の実績。"
+              },
+              {
+                "industry": "自動車部品製造での搬送員削減",
+                "detail": "搬送員 2 名削減、24 時間体制での運用実績。"
+              },
+              {
+                "industry": "高機能材料工場での作業効率向上",
+                "detail": "作業効率 2 倍を達成した実績。"
+              }
             ],
             "twf_highlights": [
               "🤖 ラインナップ: StarLift 150 / 300 / 600 の機種、積載 150kg〜600kg をカバー (公式 HP)",
@@ -315,12 +350,31 @@
               "👀 採用事例: 食品工場で搬送量 200% 向上 / 修理工場で操作教育 30 分 / 部品製造工場で導入期間 2 日 / 自動車部品製造で搬送員 2 名削減・24 時間体制 (公式 LP)"
             ],
             "gallery_images": [
-              { "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg", "alt": "StarLift シリーズ製品本体" },
-              { "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg", "alt": "StarLift 600 (積載 600kg) 製品" }
+              {
+                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift.jpg",
+                "alt": "StarLift シリーズ製品本体"
+              },
+              {
+                "src": "/assets/topics/productivity-solutions/robotbank/robotbank_starlift600.jpg",
+                "alt": "StarLift 600 (積載 600kg) 製品"
+              }
             ],
             "materials": [
-              { "url": "/assets/topics/productivity-solutions/robotbank/robotbank_cases.pdf", "label": "ロボットバンク StarLift 導入事例集", "icon": "📄" },
-              { "url": "/assets/topics/productivity-solutions/robotbank/robotbank_product_highlights.pdf", "label": "ロボットバンク StarLift 製品ハイライト (14 スライド統合 PDF)", "icon": "📄" }
+              {
+                "url": "/attachments/ロボットバンク株式会社/robotbank_cases.pdf",
+                "label": "ロボットバンク StarLift 導入事例集",
+                "icon": "📄"
+              },
+              {
+                "url": "/attachments/ロボットバンク株式会社/robotbank_product_highlights.pdf",
+                "label": "ロボットバンク StarLift 製品ハイライト (14 スライド統合 PDF)",
+                "icon": "📄"
+              },
+              {
+                "url": "/attachments/ロボットバンク株式会社/ロボットバンク搬送ロボットカタログ.pdf",
+                "label": "ロボットバンク 搬送ロボットカタログ (全 5 系統スペック)",
+                "icon": "📄"
+              }
             ]
           },
           {
@@ -434,7 +488,7 @@
             ],
             "materials": [
               {
-                "url": "/assets/topics/productivity-solutions/komori/komori_srd.pdf",
+                "url": "/attachments/株式会社小森安全機研究所/komori_srd.pdf",
                 "label": "㈱小森安全機研究所 SRD + KAG 製品案内 (13ページ)",
                 "icon": "📄"
               }
@@ -674,7 +728,7 @@
             ],
             "materials": [
               {
-                "url": "/assets/topics/productivity-solutions/zenetekku/vcolp_brochure.pdf",
+                "url": "/attachments/株式会社ゼネテック/vcolp_brochure.pdf",
                 "label": "Visual Components Robotics OLP 公式パンフレット (2ページ)",
                 "icon": "📄"
               }
@@ -724,17 +778,17 @@
             ],
             "materials": [
               {
-                "url": "/assets/topics/productivity-solutions/shintech/3arm_catalog.pdf",
+                "url": "/attachments/シンテック株式会社/3arm_catalog.pdf",
                 "label": "3arm カタログ (Series 1/2/3/4/6 仕様)",
                 "icon": "📄"
               },
               {
-                "url": "/assets/topics/productivity-solutions/shintech/shintech_products_2025.pdf",
+                "url": "/attachments/シンテック株式会社/shintech_products_2025.pdf",
                 "label": "製品プレゼン 2025 (T-Arm/サーボバランサー/レール)",
                 "icon": "📄"
               },
               {
-                "url": "/assets/topics/productivity-solutions/shintech/shintech_company_excerpt.pdf",
+                "url": "/attachments/シンテック株式会社/shintech_company_excerpt.pdf",
                 "label": "営業資料 (S15-25 抜粋)",
                 "icon": "📄"
               }
@@ -829,12 +883,12 @@
             ],
             "materials": [
               {
-                "url": "/assets/topics/productivity-solutions/optilaser/optilaser_catalog_2025.pdf",
+                "url": "/attachments/オプティレーザーソリューションズ株式会社/optilaser_catalog_2025.pdf",
                 "label": "ULT LASER 公式カタログ (8 ページ)",
                 "icon": "📄"
               },
               {
-                "url": "/assets/topics/productivity-solutions/optilaser/optilaser_motoko_steel_article.pdf",
+                "url": "/attachments/オプティレーザーソリューションズ株式会社/optilaser_motoko_steel_article.pdf",
                 "label": "鋼構造ジャーナル 元古鉄工事例 (2026/2/2)",
                 "icon": "📄"
               }
