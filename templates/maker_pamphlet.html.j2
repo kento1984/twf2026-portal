@@ -100,9 +100,43 @@
   {# Phase 2-D: TWF みどころ特集 (該当topicに出展しているメーカーのみ表示) #}
   {% if twf_topic_products %}{% include '_twf_topic_section.html.j2' %}{% endif %}
 
+  {# Phase 2-D2 (5/18 拡張): Tier B でも rewritten 側に Q1-Q5 が入っていれば編集部再構成版を Q セクションで表示。
+     rewritten が無い場合は従来通り「本社から回答未着」表示。Tier A (maker_full) / Tier C (maker_minimal) は不変更。 #}
+  {% set q1_present = maker.q1 | trim if maker.q1 else false %}
+  {% set q2_present = not (maker.q2 | is_empty_q) %}
+  {% set q3_present = not (maker.q3 | is_empty_q) %}
+  {% set q4_present = not (maker.q4 | is_empty_q) %}
+  {% set q5_present = maker.q5 | trim if maker.q5 else false %}
+  {% set has_any_q_rewritten = maker.is_rewritten and (q1_present or q2_present or q3_present or q4_present or q5_present) %}
+
+  {% if has_any_q_rewritten %}
+  <h2 class="section-h2">📝 メーカー回答 Q1〜Q5 <small style="font-weight:500;font-size:12px;color:var(--gray-600);margin-left:8px;">(本社からの個別回答未着のため、portal 編集部が公開資料から再構成)</small></h2>
+  <section class="q-list">
+    {% set qs = [
+      ('Q1', '企画概要',         maker.q1, q1_present),
+      ('Q2', '新製品・新技術',   maker.q2, q2_present),
+      ('Q3', 'ブースのみどころ', maker.q3, q3_present),
+      ('Q4', 'セール企画・特典', maker.q4, q4_present),
+      ('Q5', '配布資料・備考',   maker.q5, q5_present),
+    ] %}
+    {% for code, title, body, show in qs %}
+      {% if show %}
+      <article class="q-card">
+        <div class="q-label">{{ code }} / {{ title }}</div>
+        <h3 class="q-title">{{ title }}</h3>
+        <div class="q-body">{{ body | autolink_maker }}</div>
+      </article>
+      {% endif %}
+    {% endfor %}
+  </section>
+  <p class="pamphlet-note">
+    上記 Q1-Q5 は portal 編集部が公開資料 (PDF カタログ等) から再構成した参考情報です。本社からの正式回答が届き次第、フル詳細ページに自動で更新されます。以下は公式パンフレット該当ページです。
+  </p>
+  {% else %}
   <p class="pamphlet-note">
     本社からの個別回答はまだ届いていません。公式パンフレットの該当ページを以下に掲載しています。詳細回答が届き次第、フル詳細ページに自動で更新されます。
   </p>
+  {% endif %}
 
   {% if maker.pamphlet_section or maker.pamphlet_note %}
   <div class="pamphlet-meta">
