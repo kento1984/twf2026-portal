@@ -752,5 +752,15 @@
     "source": "https://www.shinwasokutei.co.jp/",
     "notes": "新潟県三条市本社、1971 年創業の測定機器総合メーカー (曲尺・直尺・水平器・温度計など)。新製品情報チラシヘッダーの紺青を primary、価格訴求帯の赤を accent として採用。新製品情報チラシ 2026-05 受領。",
     "_group": "manual"
+  },
+  "095": {
+    "name": "日本ワグナー・スプレーテック㈱",
+    "primary": "#003366",
+    "secondary": "#001F3D",
+    "accent": "#FFD700",
+    "text_on_primary": "#FFFFFF",
+    "source": "https://wagner-group.com/",
+    "notes": "WAGNER 公式コーポレートカラーはダークブルー (#003366)。製品筐体に多用される WAGNER 黄をアクセントに採用。",
+    "_group": "group_a"
   }
 }

@@ -2170,5 +2170,36 @@
     "products": [],
     "fetched_ok": false,
     "source": "新製品情報チラシ (PDF) のみ受領、製品画像は後追い投入予定 (公式サイト or YUASA 経由)"
+  },
+  "095": {
+    "name": "日本ワグナー・スプレーテック㈱",
+    "_doc": "TWF2026 アンケート + 受領 5 PDF から抜粋。デモ機 2 種 (FC4000 / SprayPack) + 電動エアレス HERO21 + 新機能 DSO 搭載の Sprint 2。GM1030 / 液体静電は配布資料・本文で言及。source_page は推測しないため空欄、ローカル抽出画像を使用。",
+    "products": [
+      {
+        "name": "FC4000 18V",
+        "category": "コードレス HVLP 塗装機 (BOSCH バッテリー搭載、市場唯一)",
+        "image_url": "../../assets/maker-products/095/3_fc4000.png",
+        "source_page": ""
+      },
+      {
+        "name": "SprayPack 18V",
+        "category": "コードレスエアレス塗装機 (バックパック型、HEA チップ低飛散)",
+        "image_url": "../../assets/maker-products/095/4_spraypack.png",
+        "source_page": ""
+      },
+      {
+        "name": "HERO21 / HERO23",
+        "category": "電動ダイアフラムポンプエアレス (100V 万能モデル)",
+        "image_url": "../../assets/maker-products/095/5_hero.png",
+        "source_page": ""
+      },
+      {
+        "name": "Sprint 2",
+        "category": "マニュアル粉体塗装機 (新搭載 DSO 機能で塗装品質向上)",
+        "image_url": "../../assets/maker-products/095/6_sprint2.png",
+        "source_page": ""
+      }
+    ],
+    "fetched_ok": true
   }
 }
