@@ -109,6 +109,7 @@ PRODUCTS = {
     "088": "Heavy industrial fireproof safe and secure tool storage cabinets",
     "089": "Industrial fiber laser welding machine with bright laser beam welding metal",
     "090": "Industrial mask fit tester device and air flow measurement instrument",
+    "095": "Cinematic industrial spray painting scene featuring a tradesman wearing a backpack-style cordless airless paint sprayer (with shoulder straps and a flexible hose extending to a hand-held spray gun) actively coating a large steel structural beam with controlled paint mist atomization in mid-air, a yellow and black handheld cordless HVLP paint sprayer with a transparent paint cup resting on a steel workbench in the foreground, factory floor with paint booth equipment visible in background, low-spatter precision atomization, dark industrial atmosphere",
     "096": "Industrial grinding wheels and cutting discs displayed in workshop with sparks",
     "097": "Industrial welding observation camera mounted near welding arc capturing weld pool",
     "098": "Industrial laser cleaning device with bright orange laser beam",
