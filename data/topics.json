@@ -544,6 +544,12 @@
                 "icon": "📄"
               }
             ],
+            "videos": [
+              {
+                "youtube_id": "ypxAtVayQxQ",
+                "title": "㈱小森安全機研究所｜LBK 安全レーザースキャナ デモ"
+              }
+            ],
             "gallery_images": [
               {
                 "src": "/assets/topics/productivity-solutions/komori/komori_srd_sensor.jpg",
@@ -933,11 +939,6 @@
               }
             ],
             "videos": [
-              {
-                "youtube_id": "ypxAtVayQxQ",
-                "title": "オプティレーザー｜国産レーザークリーナー 製品紹介",
-                "duration": "0:59"
-              },
               {
                 "youtube_id": "E_xVgJPkbsE",
                 "title": "オプティレーザー｜出展ブースのご案内",
