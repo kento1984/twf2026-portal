@@ -7,6 +7,30 @@
       "26TWF_HiKOKI_GOGOバッテリーCP.pdf": "TWF2026 HiKOKI GOGOバッテリーキャンペーン (TWF会場・対面販売限定・対象57製品・〜6/30)"
     }
   },
+  "025": {
+    "_remark": "キトー: 5/20 受信メーカー回答 (網代様) を反映。集約Excel未反映の段階で柏原宛メール直受けのため、全フィールドを overrides に保持し excel_mapper.py 再実行時の消失を防ぐ。Gigafile (97.gigafile.nu) からカタログ PDF 3点を DL 完了し prototype/attachments/株式会社キトー/ に配置済み。動画 CEMつり方縦1117.mp4 (455MB) は GitHub max 100MB 超のため commit 不可、YouTube 限定公開ルートで別途配信予定 (柏原手動アップ後に別 commit で youtube_id 埋込)。",
+    "has_answer": true,
+    "status": "answered",
+    "reply_date": "2026-05-20",
+    "q1": "・コードレス電気チェーンブロック (CEM) 2台\n・手動式チェーンブロック (CQ型・斜め操作可) 2台\n・手動式チェーンブロック (M3型・従来品) 1台\n・無線操作式電気チェーンブロック (ER2KM・高機能無線仕様) 1台\n・電動バランサ 2台\n・ポータガントリー (ポータブルクレーン) 1台",
+    "q2": "①コードレス電気チェーンブロック (CEM)\n　・電源確保が不要なバッテリー式を採用\n　・通常つり・逆さつりの両方式に対応\n\n②手動式チェーンブロック (CQ型・斜め操作可)\n　・360°どの方向からでも手引き可能\n　・手引き力を従来品より40%低減\n\n③無線操作式電気チェーンブロック (ER2KM・高機能無線仕様)\n　・送信機にて荷重レベル・エラー表示・設定変更も可能\n　・横行・走行時の荷振れ抑制機能がさらに向上",
+    "q3": "バッテリー駆動・完全コードレスの電気チェーンブロックや、手引き力低減、全方向から引けるチェーンブロックなど、現場での作業負担が軽減できる新製品を数多く展示。また新製品の高機能無線操作式電気チェーンブロックも新登場。弊社ブースで使用感を体感してください。",
+    "q4": "",
+    "q5": "新製品カタログ 3部 (CEM / CQ / ER2K) + CEM 動画。動画は YouTube 限定公開で別途配信予定。",
+    "attachments": [
+      "カタログ-CT-CEM.pdf",
+      "カタログ-CT-CQ.pdf",
+      "カタログ-CT-ER2K.pdf"
+    ],
+    "attachment_dir": "attachments/株式会社キトー/",
+    "company_dir": "株式会社キトー",
+    "attachment_labels": {
+      "カタログ-CT-CEM.pdf": "コードレス電気チェーンブロック CEM カタログ",
+      "カタログ-CT-CQ.pdf": "手動式チェーンブロック CQ型 (斜め操作可) カタログ",
+      "カタログ-CT-ER2K.pdf": "無線操作式電気チェーンブロック ER2KM (高機能無線仕様) カタログ"
+    },
+    "reply_contact": "株式会社キトー 東日本営業部 東京営業グループ 網代和人様"
+  },
   "033": {
     "_remark": "神戸製鋼: (1) sender collector が q5 に濱田様メール署名フッタを混入させてしまうため、q5 を手動値 '添付あり (1点)' に固定。 (2) sender 側 attachments カラムは collector がリネーム後の slug 名 'axelarc_ax-1c.pdf' を返すが、portal の prototype/attachments/ の実体ファイルは元名 'AX-1C_カタログ.pdf'。リンク切れ防止のため attachments を手動指定。 (3) 2026-05-10 追加: 主催店から 26TWF_神鋼AXELARCチラシ0414.pdf (AXELARC 4プログラムまとめ最新版) を受領、attachments に追加。q5 ラベルは「添付あり (2点)」に更新。 (4) attachment_labels で AX-1C_カタログ (技術詳細) と 26TWF_神鋼AXELARCチラシ (当日企画) の役割を明記。q1-q3 は sender の正規化版で OK のため override せず。 (commit d735985 の手動 rich 化の保護)",
     "q5": "添付あり (2点)",
