@@ -67,6 +67,7 @@ PRODUCTS = {
     "020": "Cordless industrial rebar cutter, rebar bender and hydraulic puncher",
     "021": "Industrial laser cleaning device with bright orange laser beam removing rust",
     "023": "Industrial gas welding workshop scene with portable small gas welding set, oxygen and acetylene cylinders on a cylinder hand-truck, cylinder stand with chains in foreground, blue gas flame torch, dark factory background with dramatic spotlight, professional industrial photography",
+    "025": "Cinematic heavy-industry lifting scene featuring a battery-powered cordless electric chain hoist suspended from a yellow overhead crane beam, heavy black hoist chains hanging down with a polished load hook gripping a steel ingot mid-lift, a manual lever chain block on a steel workbench in the foreground with its chain neatly coiled, a wireless remote control pendant resting beside it, large factory workshop background with steel girders and gantry frames, dramatic warm overhead industrial lighting with subtle orange glow from distant welding work, dark atmospheric factory setting, professional industrial lifting equipment photography",
     "027": "Industrial angle grinder with sparks and cordless power tool battery system",
     "028": "Industrial fiber laser pipe cutting machine with bright laser beam",
     "029": "Industrial stainless steel weld electrolytic cleaning machine",
