@@ -94,7 +94,8 @@
                 "label": "TWF2026 公式パネル (生産性向上ソリューションコーナー)",
                 "icon": "📄"
               }
-            ]
+            ],
+            "booth": "E-04, H-03"
           },
           {
             "maker_no": 106,
@@ -163,7 +164,8 @@
                 "src": "/assets/topics/productivity-solutions/fanuc/fanuc_cr15ia.jpg",
                 "alt": "CR-15iA"
               }
-            ]
+            ],
+            "booth": "E-04"
           },
           {
             "maker_no": 114,
@@ -252,7 +254,8 @@
               "🔥 幅広い工法: MIG/MAG 直流・パルス、TIG、手棒、ガウジングまで対応",
               "🤖 自動化連携: ファナック CRX + TPS500i + CMT の協働ロボ連携 (既存 portal)",
               "👀 来場時の体験コーナー: Fortis 500C、TPS320i + Velo、CMT、Ignis Battery を実機で確認 (既存 portal)"
-            ]
+            ],
+            "booth": "E-04"
           },
           {
             "maker_no": 129,
@@ -334,7 +337,8 @@
               "🆕 G05/G07/G08 自動ガン: 塗料使用量 47-64% 節約事例、G08 ダイヤフラム構造で 2 液塗料対応、工具レス分解でメンテ性向上 (PDF + 公式パネル)",
               "👀 来場時の体験ポイント: ロボットつかみ方式塗装ブースを実機・実寸大で確認、G08 工具レス分解の容易さを実演"
             ],
-            "gallery_images": []
+            "gallery_images": [],
+            "booth": "E-04"
           }
         ]
       },
@@ -419,7 +423,8 @@
                 "label": "TWF2026 公式パネル (生産性向上ソリューションコーナー)",
                 "icon": "📄"
               }
-            ]
+            ],
+            "booth": "E-04"
           },
           {
             "maker_no": 66,
@@ -479,7 +484,8 @@
               "🤖 AiTran+VC8+レーザーセンサーの連携自動化提案",
               "🎬 デモ動画: ヒーロー直下に 2:29 YouTube埋込済 (-ydKdIio5es)",
               "🔗 iREX2025 同構成展開中: ダイヘン公式特設ページにも掲載"
-            ]
+            ],
+            "booth": "E-04, H-03"
           }
         ]
       },
@@ -567,7 +573,8 @@
                 "src": "/assets/topics/productivity-solutions/komori/komori_dust_env.jpg",
                 "alt": "粉塵環境での製品設置 (SRD/KAGの耐環境性)"
               }
-            ]
+            ],
+            "booth": "C-13, E-04"
           },
           {
             "maker_no": 19,
@@ -636,7 +643,8 @@
                 "src": "/assets/topics/productivity-solutions/otos/otos_wgc-200.jpg",
                 "alt": "Ray-X WGC200 / WGC400 製品外観"
               }
-            ]
+            ],
+            "booth": "E-04"
           },
           {
             "maker_no": 97,
@@ -708,7 +716,8 @@
                 "label": "TWF2026 公式パネル (生産性向上ソリューションコーナー)",
                 "icon": "📄"
               }
-            ]
+            ],
+            "booth": "E-04"
           }
         ]
       },
@@ -810,7 +819,8 @@
                 "label": "TWF2026 公式パネル (生産性向上ソリューションコーナー)",
                 "icon": "📄"
               }
-            ]
+            ],
+            "booth": "E-04"
           },
           {
             "maker_no": 52,
@@ -892,7 +902,8 @@
                 "src": "/assets/topics/productivity-solutions/shintech/shintech_rail.jpg",
                 "alt": "Knight レールシステム"
               }
-            ]
+            ],
+            "booth": "E-04"
           }
         ]
       },
@@ -973,7 +984,8 @@
                 "label": "鋼構造ジャーナル 元古鉄工事例 (2026/2/2)",
                 "icon": "📄"
               }
-            ]
+            ],
+            "booth": "F-06"
           }
         ]
       }
@@ -1009,7 +1021,8 @@
             "flyer_url": "../../attachments/%E3%82%B9%E3%83%AA%E3%83%BC%E3%82%A8%E3%83%A0%E3%82%B8%E3%83%A3%E3%83%91%E3%83%B3%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E3%80%80%E5%AE%89%E5%85%A8%E8%A1%9B%E7%94%9F%E8%A3%BD%E5%93%81%E4%BA%8B%E6%A5%AD%E9%83%A8/%E3%80%902026WF%E3%80%91%E5%A2%9C%E8%90%BD%E8%90%BD%E4%B8%8B%E3%83%87%E3%83%A2%EF%BC%BF%E3%82%AD%E3%83%A3%E3%83%B3%E3%83%9A%E3%83%BC%E3%83%B3%E3%83%81%E3%83%A9%E3%82%B7_v5.pdf",
             "flyer_label": "TWF2026 3M 墜落制止デモ + 特価キャンペーンチラシ",
             "is_first_exhibit": false,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "H-11"
           },
           {
             "maker_no": 33,
@@ -1023,7 +1036,8 @@
             "flyer_url": "../../attachments/%E6%A0%AA%E5%BC%8F%E4%BC%9A%E7%A4%BE%E7%A5%9E%E6%88%B8%E8%A3%BD%E9%8B%BC%E6%89%80/26TWF_%E7%A5%9E%E9%8B%BCAXELARC%E3%83%81%E3%83%A9%E3%82%B70414.pdf",
             "flyer_label": "TWF2026 AXELARC 4プログラムまとめチラシ",
             "is_first_exhibit": false,
-            "is_new_product": true
+            "is_new_product": true,
+            "booth": "H-01"
           },
           {
             "maker_no": 1,
@@ -1035,7 +1049,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-13"
           },
           {
             "maker_no": 36,
@@ -1047,7 +1062,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": false,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-13"
           },
           {
             "maker_no": 75,
@@ -1059,7 +1075,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-13"
           },
           {
             "maker_no": 34,
@@ -1071,7 +1088,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-13"
           },
           {
             "maker_no": 76,
@@ -1083,7 +1101,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": false,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-13"
           },
           {
             "maker_no": 139,
@@ -1095,7 +1114,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": false,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-13"
           }
         ]
       },
@@ -1113,7 +1133,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "C-12"
           },
           {
             "maker_no": 28,
@@ -1125,7 +1146,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "H-02"
           },
           {
             "maker_no": 102,
@@ -1137,7 +1159,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "B-13"
           },
           {
             "maker_no": 21,
@@ -1149,7 +1172,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "F-06"
           },
           {
             "maker_no": 95,
@@ -1161,7 +1185,8 @@
             "image_url": null,
             "official_url": null,
             "is_first_exhibit": true,
-            "is_new_product": false
+            "is_new_product": false,
+            "booth": "B-01"
           }
         ]
       }

@@ -219,6 +219,17 @@
       letter-spacing: 0.06em;
       font-weight: 700;
     }
+    .tpc-meta-booth {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: #b45309;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      letter-spacing: 0.04em;
+      font-weight: 800;
+      padding: 1px 6px;
+      border-radius: 3px;
+    }
     .tpc-meta-name {
       font-size: 13px;
       color: var(--gray-600);
@@ -619,6 +630,7 @@
         <div class="tpc-body">
           <div class="tpc-meta">
             <span class="tpc-meta-no">No.{{ '%03d' | format(p.maker_no) }}</span>
+            {% if p.booth %}<span class="tpc-meta-booth">小間 {{ p.booth }}</span>{% endif %}
             <span class="tpc-meta-name">{{ p.maker_name }}</span>
           </div>
           <div class="tpc-product">{{ p.product_name }}</div>

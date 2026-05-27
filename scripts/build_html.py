@@ -357,6 +357,7 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
     rec["nav_categories"] = csv_row.get("nav_categories", "")
     pp = csv_row.get("pamphlet_page", "")
     rec["pamphlet_page"] = int(pp) if pp.strip().isdigit() else (pp if pp else "")
+    rec["booth"] = csv_row.get("booth", "") or ""
 
     # pamphlet_index.json から section/note/confidence を注入 (テンプレで「公式パンフレットより」表示に使用)
     if pamphlet_idx is not None:

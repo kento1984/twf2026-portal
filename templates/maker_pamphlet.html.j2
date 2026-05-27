@@ -85,6 +85,7 @@
   <header class="maker-header{% if twf_topic_products and twf_topic_products[0].official_url %} maker-header--with-cta{% endif %}">
     <span class="tier-badge tier-b">パンフ簡易</span>
     <span class="maker-no">No.{{ '%03d' | format(maker.no) }}</span>
+    {% if maker.booth %}<span class="maker-booth">小間 {{ maker.booth }}</span>{% endif %}
     <h1>{{ maker.name }}</h1>
     <div class="maker-meta">
       {% if maker.category %}<span>カテゴリ: {{ maker.category }}</span>{% endif %}
