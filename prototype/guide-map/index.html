@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>公式ガイドマップ | TWF2026 みどころポータル</title>
+  <meta name="description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報を主催店マツモト産業がまとめたポータルサイト。">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/favicon-16.png">
+  <link rel="shortcut icon" href="../../assets/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+
+  <!-- OGP / Twitter Card -->
+  <meta property="og:title" content="TWF2026 みどころポータル">
+  <meta property="og:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ・キャンペーン情報">
+  <meta property="og:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+  <meta property="og:url" content="https://twf2026-portal.pages.dev">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="TWF2026 みどころポータル">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TWF2026 みどころポータル">
+  <meta name="twitter:description" content="2026東京ウェルディングフェスタ - 出展メーカー148社の見どころ">
+  <meta name="twitter:image" content="https://twf2026-portal.pages.dev/assets/twf-logo-horizontal.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Roboto+Mono:wght@500;700;900&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --red-500: #C8102E;
+      --red-700: #8B0B20;
+      --blue-500: #0066CC;
+      --blue-700: #004999;
+      --orange-500: #FF6B35;
+      --gray-50: #FAFAFA;
+      --gray-100: #F4F4F5;
+      --gray-200: #E4E4E7;
+      --gray-300: #D1D5DB;
+      --gray-400: #A1A1AA;
+      --gray-600: #52525B;
+      --gray-700: #3F3F46;
+      --gray-800: #2C2C2C;
+      --gray-900: #18181B;
+      --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 10px 15px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.04);
+      --container-max: 1100px;
+      --font-sans: "Noto Sans JP", -apple-system, BlinkMacSystemFont,
+                   "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      --font-mono: "Roboto Mono", "SFMono-Regular", monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--gray-800);
+      background: var(--gray-50);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--blue-500); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    img { display: block; max-width: 100%; height: auto; }
+
+    .topbar {
+      width: 100%;
+      background: var(--gray-800);
+      color: #fff;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topbar-back {
+      color: rgba(255,255,255,0.85);
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .topbar-back:hover { color: #fff; text-decoration: none; }
+    .topbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+    .topbar-logo {
+      height: 40px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.4));
+    }
+    .topbar-subtitle {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: rgba(255,255,255,0.65);
+      font-weight: 600;
+      padding-left: 12px;
+      border-left: 1px solid rgba(255,255,255,0.25);
+      line-height: 1.2;
+    }
+
+    .maker-page {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 48px 32px 96px;
+    }
+
+    .maker-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 2px solid var(--gray-200);
+    }
+    .maker-no {
+      font-family: var(--font-mono);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gray-400);
+      letter-spacing: 0.1em;
+      align-self: center;
+    }
+    .maker-booth {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      font-weight: 800;
+      color: #b45309;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      letter-spacing: 0.06em;
+      padding: 3px 10px;
+      border-radius: 3px;
+      align-self: center;
+    }
+    .maker-first {
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      padding: 3px 11px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #fff;
+      border: 1px solid #fbbf24;
+      border-radius: 4px;
+      align-self: center;
+      box-shadow: 0 2px 5px rgba(217,119,6,0.30);
+    }
+    .maker-header h1 {
+      font-size: 38px;
+      font-weight: 900;
+      line-height: 1.2;
+      flex: 1 1 100%;
+      margin-top: 4px;
+    }
+    .maker-meta {
+      width: 100%;
+      font-size: 14px;
+      color: var(--gray-600);
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .maker-meta span + span::before {
+      content: '·';
+      margin-right: 16px;
+      color: var(--gray-200);
+    }
+
+    .tier-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: #fff;
+      align-self: center;
+    }
+    .tier-badge.tier-a { background: var(--red-500); }
+    .tier-badge.tier-b { background: var(--blue-500); }
+    .tier-badge.tier-c { background: var(--gray-400); }
+
+<style>
+  .gm-hero {
+    background: linear-gradient(135deg, #1e293b 0%, #1e40af 100%);
+    color: #fff;
+    padding: 56px 32px 48px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .gm-hero-inner { max-width: 1100px; margin: 0 auto; }
+  .gm-hero-eyebrow {
+    display: inline-block;
+    padding: 5px 14px;
+    background: rgba(255,255,255,0.18);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.10em;
+    margin-bottom: 14px;
+  }
+  .gm-hero h1 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    line-height: 1.2;
+    margin: 0 0 12px;
+    letter-spacing: -0.01em;
+  }
+  .gm-hero-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    max-width: 760px;
+    margin: 0 auto 22px;
+    line-height: 1.75;
+  }
+  .gm-hero-cta-row {
+    display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;
+  }
+  .gm-cta-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 22px;
+    background: #fff;
+    color: #1e40af;
+    border-radius: 6px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+  }
+  .gm-cta-btn:hover { background: #fef3c7; text-decoration: none; }
+  .gm-cta-btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.55);
+    box-shadow: none;
+  }
+  .gm-cta-btn-outline:hover { background: rgba(255,255,255,0.12); color: #fff; text-decoration: none; }
+
+  .gm-section { max-width: 1100px; margin: 0 auto 56px; padding: 0 32px; }
+  .gm-section-head {
+    border-bottom: 3px solid #1e40af;
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .gm-section h2 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1e293b;
+    margin: 0;
+  }
+  .gm-section-note {
+    font-size: 12px;
+    color: #64748b;
+  }
+  .gm-section-intro {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.75;
+    margin: 0 0 18px;
+  }
+
+  /* === 会場マップ === */
+  .gm-venue-map-wrap {
+    text-align: center;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 16px;
+  }
+  .gm-venue-map {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+  }
+  .gm-venue-map-cta {
+    margin-top: 12px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e40af;
+  }
+
+  /* === 実演デモ === */
+  .gm-demo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 18px;
+  }
+  .gm-demo-card {
+    --demo-accent: #BE123C;
+    background: #fff;
+    border: 1px solid var(--demo-accent);
+    border-top: 4px solid var(--demo-accent);
+    border-radius: 10px;
+    padding: 18px 20px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+  }
+  .gm-demo-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 8px; margin-bottom: 6px;
+  }
+  .gm-demo-maker { font-size: 17px; font-weight: 900; color: var(--demo-accent); }
+  .gm-demo-booth {
+    font-family: var(--font-mono);
+    font-size: 12px; font-weight: 800;
+    color: #b45309; background: #fef3c7; border: 1px solid #fde68a;
+    padding: 2px 8px; border-radius: 3px;
+    letter-spacing: 0.04em;
+  }
+  .gm-demo-title { font-size: 14px; font-weight: 800; color: #2C2C2C; line-height: 1.4; }
+  .gm-demo-subtitle {
+    font-size: 12px; color: #52525B; font-weight: 600;
+    margin: 2px 0 12px; line-height: 1.55;
+  }
+  .gm-demo-days {
+    display: flex; flex-direction: column; gap: 6px;
+    padding-top: 10px; border-top: 1px dashed #E4E4E7;
+  }
+  .gm-demo-day { display: flex; gap: 14px; align-items: baseline; }
+  .gm-demo-day-label {
+    font-size: 13px; font-weight: 800; color: var(--demo-accent);
+    min-width: 64px; font-family: var(--font-mono);
+  }
+  .gm-demo-times {
+    font-family: var(--font-mono); font-size: 15px;
+    font-weight: 700; color: #2C2C2C; letter-spacing: 0.04em;
+  }
+  .gm-demo-free {
+    display: inline-block;
+    font-size: 11px; font-weight: 800; color: #15803d;
+    background: #dcfce7; border: 1px solid #86efac;
+    padding: 2px 8px; border-radius: 3px;
+    letter-spacing: 0.04em;
+    margin-top: 8px;
+  }
+
+  /* === 主催店テーブル === */
+  .gm-table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px;
+  }
+  .gm-table th, .gm-table td {
+    padding: 9px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+  }
+  .gm-table thead th {
+    background: #1e40af; color: #fff;
+    font-weight: 800; font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+  .gm-table tbody tr:hover { background: #f8fafc; }
+  .gm-table .col-booth {
+    width: 110px;
+    font-family: var(--font-mono);
+    font-weight: 800;
+    color: #b45309;
+    background: #fffbeb;
+    text-align: center;
+  }
+  .gm-table .col-name { font-weight: 700; color: #1e293b; }
+  .gm-table .col-furigana { font-size: 11.5px; color: #64748b; }
+  .gm-table a.gm-link { color: #1e40af; font-weight: 700; text-decoration: none; }
+  .gm-table a.gm-link:hover { text-decoration: underline; }
+  .gm-table .row-overlap td:first-child::before {
+    content: '★ ';
+    color: #d97706;
+  }
+  .gm-overlap-note {
+    font-size: 12px; color: #92400e; background: #fef3c7;
+    border: 1px solid #fde68a; border-radius: 6px;
+    padding: 10px 14px; margin-bottom: 12px;
+  }
+
+  /* === PDF 全体 === */
+  .gm-pdf-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .gm-pdf-card {
+    display: block; text-decoration: none; color: inherit;
+    background: #fff; border: 1px solid #e2e8f0;
+    border-radius: 10px; overflow: hidden;
+    transition: transform 200ms, box-shadow 200ms, border-color 200ms;
+  }
+  .gm-pdf-card:hover {
+    transform: translateY(-2px); border-color: #1e40af;
+    box-shadow: 0 10px 24px rgba(30,64,175,0.14);
+    text-decoration: none;
+  }
+  .gm-pdf-card img {
+    width: 100%; height: auto; display: block;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .gm-pdf-card-body { padding: 14px 18px; }
+  .gm-pdf-card-title { font-size: 14px; font-weight: 800; color: #1e293b; }
+  .gm-pdf-card-desc { font-size: 12px; color: #64748b; margin-top: 3px; }
+
+  .gm-back {
+    text-align: center; margin: 48px 0 24px;
+  }
+  .gm-back a {
+    display: inline-block; padding: 11px 22px;
+    background: #1e40af; color: #fff; border-radius: 6px;
+    font-size: 14px; font-weight: 800; text-decoration: none;
+  }
+  .gm-back a:hover { background: #1e3a8a; text-decoration: none; }
+
+  @media (max-width: 720px) {
+    .gm-hero { padding: 36px 20px 32px; }
+    .gm-section { padding: 0 18px; margin-bottom: 36px; }
+    .gm-demo-grid { grid-template-columns: 1fr; }
+    .gm-pdf-grid { grid-template-columns: 1fr; }
+    .gm-table { font-size: 12px; }
+    .gm-table th, .gm-table td { padding: 7px 8px; }
+  }
+</style>
+
+    .maker-footer {
+      margin-top: 64px;
+      padding: 24px 32px;
+      border-top: 1px solid var(--gray-200);
+      text-align: center;
+      font-size: 13px;
+      color: var(--gray-600);
+    }
+    .maker-footer a { color: var(--gray-600); }
+    .maker-footer-logo {
+      display: block;
+      margin: 0 auto 12px;
+      height: 32px;
+      width: auto;
+      opacity: 0.75;
+    }
+    .footer-organizer {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--gray-400);
+      letter-spacing: 0.04em;
+    }
+    .footer-twf-square {
+      height: 56px;
+      width: auto;
+      vertical-align: middle;
+      flex-shrink: 0;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      background: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <a class="topbar-back" href="../../index.html">← TOPへ戻る</a>
+    <a class="topbar-brand" href="../../index.html" aria-label="TWF2026 みどころポータル トップへ">
+      <img class="topbar-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
+      <span class="topbar-subtitle">みどころポータル</span>
+    </a>
+  </header>
+  <main class="maker-page">
+<header class="gm-hero">
+  <div class="gm-hero-inner">
+    <span class="gm-hero-eyebrow">🗺️ OFFICIAL GUIDEMAP</span>
+    <h1>公式ガイドマップ</h1>
+    <p class="gm-hero-sub">
+      主催店配布版の公式ガイドマップ (両面A3) を 1 ページに集約。会場の全体像、実演デモ時間、
+      主催店33社、共同小間出展者を来場前に確認できます。
+    </p>
+    <div class="gm-hero-cta-row">
+      <a class="gm-cta-btn" href="../assets/pdf/26TWF_official_guidemap.pdf" target="_blank" rel="noopener">📥 PDF をダウンロード (A3 両面)</a>
+      <a class="gm-cta-btn gm-cta-btn-outline" href="../index.html">← TOP に戻る</a>
+    </div>
+  </div>
+</header>
+
+<!-- 1. 会場マップ -->
+<section class="gm-section" id="venue-map">
+  <div class="gm-section-head">
+    <h2>1. 会場マップ</h2>
+    <span class="gm-section-note">A〜I ブロック、主催店、コーナー、入口/出口の配置図</span>
+  </div>
+  <a class="gm-venue-map-wrap" href="../assets/maps/guidemap_front.png" target="_blank" rel="noopener" style="text-decoration: none; display: block;">
+    <img class="gm-venue-map" src="../assets/maps/venue_map.webp" alt="TWF2026 会場マップ (出展メーカーの小間配置)" loading="lazy" />
+    <div class="gm-venue-map-cta">クリックで原寸表示 / PDF 表面全体を見る →</div>
+  </a>
+</section>
+
+<!-- 2. 実演デモ時間表 -->
+<section class="gm-section" id="demo">
+  <div class="gm-section-head">
+    <h2>2. 実演デモ時間表</h2>
+    <span class="gm-section-note">参加無料・予約不要</span>
+  </div>
+  <p class="gm-section-intro">3M フルハーネスデモと神戸製鋼 AXELARC デモは、両日複数回開催。会場では指定時刻にブースで開始します。</p>
+  <div class="gm-demo-grid">
+    <div class="gm-demo-card" style="--demo-accent: #1e40af;">
+      <div class="gm-demo-head">
+        <div class="gm-demo-maker">スリーエムジャパン</div>
+<span class="gm-demo-booth">小間 H-11</span>      </div>
+      <div class="gm-demo-title">フルハーネスデモンストレーション</div>
+<div class="gm-demo-subtitle">墜落防止実験 + うっ血対策ストラップ吊り下げ体験</div>      <div class="gm-demo-days">
+        <div class="gm-demo-day">
+          <span class="gm-demo-day-label">12日(金)</span>
+          <span class="gm-demo-times">10:40 / 12:00 / 13:20 / 14:45</span>
+        </div>
+        <div class="gm-demo-day">
+          <span class="gm-demo-day-label">13日(土)</span>
+          <span class="gm-demo-times">09:40 / 10:30 / 13:00 / 14:10</span>
+        </div>
+      </div>
+<div class="gm-demo-free">参加無料</div>    </div>
+    <div class="gm-demo-card" style="--demo-accent: #BE123C;">
+      <div class="gm-demo-head">
+        <div class="gm-demo-maker">神戸製鋼所</div>
+<span class="gm-demo-booth">小間 H-01</span>      </div>
+      <div class="gm-demo-title">AXELARC™ デモ実演</div>
+<div class="gm-demo-subtitle">新ワイヤ送給制御プロセス (極低スパッタ・深溶け込み)</div>      <div class="gm-demo-days">
+        <div class="gm-demo-day">
+          <span class="gm-demo-day-label">12日(金)</span>
+          <span class="gm-demo-times">11:30 / 14:00</span>
+        </div>
+        <div class="gm-demo-day">
+          <span class="gm-demo-day-label">13日(土)</span>
+          <span class="gm-demo-times">11:00 / 13:30</span>
+        </div>
+      </div>
+<div class="gm-demo-free">参加無料</div>    </div>
+  </div>
+</section>
+
+<!-- 3. 主催店 33社 + 共同小間 -->
+<section class="gm-section" id="sponsors">
+  <div class="gm-section-head">
+    <h2>3. 主催店・共同小間出展者 (37社)</h2>
+    <span class="gm-section-note">小間番号順</span>
+  </div>
+  <div class="gm-overlap-note">
+    ★ マーク付き (3社) は出展メーカー一覧 (149社) にも登録あり、メーカー側の booth + 主催店 booth を併記済み。
+  </div>
+  <table class="gm-table">
+    <thead>
+      <tr>
+        <th class="col-booth">小間</th>
+        <th>会社名 / 読み</th>
+        <th>備考</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="col-booth">主-01</td>
+        <td>
+          <span class="col-name">京葉帝酸</span>
+<span class="col-furigana"> (けいようていさん)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-02</td>
+        <td>
+          <span class="col-name">三橋機工</span>
+<span class="col-furigana"> (さんきょうきこう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-03</td>
+        <td>
+          <span class="col-name">IKGリテール＆メディカル</span>
+<span class="col-furigana"> (あいけーじーりてーるあんどめでぃかる)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-04</td>
+        <td>
+          <span class="col-name">東ホー</span>
+<span class="col-furigana"> (とうほー)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-05</td>
+        <td>
+          <span class="col-name">千葉産業</span>
+<span class="col-furigana"> (ちばさんぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-06</td>
+        <td>
+          <span class="col-name">東日本イワタニガス</span>
+<span class="col-furigana"> (ひがしにほんいわたにがす)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-07</td>
+        <td>
+          <span class="col-name">コイケ酸商</span>
+<span class="col-furigana"> (こいけさんしょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-08</td>
+        <td>
+          <span class="col-name">ＫＧＫサービス</span>
+<span class="col-furigana"> (けーじーけーさーびす)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-09</td>
+        <td>
+          <span class="col-name">富士見興業</span>
+<span class="col-furigana"> (ふじみこうぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-10</td>
+        <td>
+          <span class="col-name">共栄商工</span>
+<span class="col-furigana"> (きょうえいしょうこう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-11</td>
+        <td>
+          <span class="col-name">ＴＯＫＡI</span>
+<span class="col-furigana"> (とうかい)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-12</td>
+        <td>
+          <span class="col-name">木曽川産業</span>
+<span class="col-furigana"> (きそがわさんぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-13</td>
+        <td>
+          <span class="col-name">共同ガス</span>
+<span class="col-furigana"> (きょうどうがす)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-14</td>
+        <td>
+          <span class="col-name">東進産業</span>
+<span class="col-furigana"> (とうしんさんぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr class="row-overlap">
+        <td class="col-booth">主-15</td>
+        <td>
+          <span class="col-name">マツモト産業㈱エクセル貿易事業部</span>
+<span class="col-furigana"> (まつもとさんぎょうえくせるぼうえきじぎょうぶ)</span>        </td>
+        <td>
+          <a class="gm-link" href="../m/matsumoto-excel/">メーカー詳細 (No.121) →</a>
+        </td>
+      </tr>
+      <tr class="row-overlap">
+        <td class="col-booth">主-16</td>
+        <td>
+          <span class="col-name">㈱フジ</span>
+<span class="col-furigana"> (ふじ)</span>        </td>
+        <td>
+          <a class="gm-link" href="../m/fuji/">メーカー詳細 (No.107) →</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-17</td>
+        <td>
+          <span class="col-name">協和熔材</span>
+<span class="col-furigana"> (きょうわようざい)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-18</td>
+        <td>
+          <span class="col-name">三和高圧</span>
+<span class="col-furigana"> (さんわこうあつ)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-19</td>
+        <td>
+          <span class="col-name">京新</span>
+<span class="col-furigana"> (きょうしん)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-20</td>
+        <td>
+          <span class="col-name">サイサン</span>
+<span class="col-furigana"> (さいさん)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-21</td>
+        <td>
+          <span class="col-name">美義屋</span>
+<span class="col-furigana"> (みぎや)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-22</td>
+        <td>
+          <span class="col-name">明王丸商事</span>
+<span class="col-furigana"> (みょうおうまるしょうじ)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-23</td>
+        <td>
+          <span class="col-name">本多酸素</span>
+<span class="col-furigana"> (ほんださんそ)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-24</td>
+        <td>
+          <span class="col-name">岡安産業</span>
+<span class="col-furigana"> (おかやすさんぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-25</td>
+        <td>
+          <span class="col-name">野村産業</span>
+<span class="col-furigana"> (のむらさんぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-26</td>
+        <td>
+          <span class="col-name">松宮工材</span>
+<span class="col-furigana"> (まつみやこうざい)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-27</td>
+        <td>
+          <span class="col-name">東京酸素</span>
+<span class="col-furigana"> (とうきょうさんそ)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-28 (共同)</td>
+        <td>
+          <span class="col-name">東栄機工</span>
+<span class="col-furigana"> (とうえいきこう)</span>        </td>
+        <td>
+          共同小間
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-28 (共同)</td>
+        <td>
+          <span class="col-name">プロスパー洸洋</span>
+<span class="col-furigana"> (ぷろすぱーこうよう)</span>        </td>
+        <td>
+          共同小間
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-28 (共同)</td>
+        <td>
+          <span class="col-name">リペア・カサハラ</span>
+<span class="col-furigana"> (りぺあかさはら)</span>        </td>
+        <td>
+          共同小間
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-29</td>
+        <td>
+          <span class="col-name">三六商事</span>
+<span class="col-furigana"> (さんろくしょうじ)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-30</td>
+        <td>
+          <span class="col-name">タチバナ</span>
+<span class="col-furigana"> (たちばな)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-31</td>
+        <td>
+          <span class="col-name">信州商工</span>
+<span class="col-furigana"> (しんしゅうしょうこう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">主-32</td>
+        <td>
+          <span class="col-name">細田産業</span>
+<span class="col-furigana"> (ほそださんぎょう)</span>        </td>
+        <td>
+        </td>
+      </tr>
+      <tr class="row-overlap">
+        <td class="col-booth">主-33</td>
+        <td>
+          <span class="col-name">カミマル㈱</span>
+<span class="col-furigana"> (かみまる)</span>        </td>
+        <td>
+          <a class="gm-link" href="../m/kamimaru/">メーカー詳細 (No.023) →</a>
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">共同小間</td>
+        <td>
+          <span class="col-name">コスモ通商</span>
+<span class="col-furigana"> (こすもつうしょう)</span>        </td>
+        <td>
+          共同小間
+        </td>
+      </tr>
+      <tr>
+        <td class="col-booth">共同小間</td>
+        <td>
+          <span class="col-name">新宮電機産業</span>
+<span class="col-furigana"> (しんぐうでんきさんぎょう)</span>        </td>
+        <td>
+          共同小間
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 4. PDF 全体 -->
+<section class="gm-section" id="pdf">
+  <div class="gm-section-head">
+    <h2>4. PDF 全ページ</h2>
+    <span class="gm-section-note">クリックで PDF を開く</span>
+  </div>
+  <div class="gm-pdf-grid">
+    <a class="gm-pdf-card" href="../assets/pdf/26TWF_official_guidemap.pdf" target="_blank" rel="noopener">
+      <img src="../assets/maps/guidemap_front.webp" alt="ガイドマップ表面" loading="lazy" />
+      <div class="gm-pdf-card-body">
+        <div class="gm-pdf-card-title">表面 — 会場マップ + メーカー一覧</div>
+        <div class="gm-pdf-card-desc">A〜I ブロックの全小間、主催店33社、抽選コーナー、入口/出口</div>
+      </div>
+    </a>
+    <a class="gm-pdf-card" href="../assets/pdf/26TWF_official_guidemap.pdf" target="_blank" rel="noopener">
+      <img src="../assets/maps/guidemap_back.webp" alt="ガイドマップ裏面" loading="lazy" />
+      <div class="gm-pdf-card-body">
+        <div class="gm-pdf-card-title">裏面 — 注目商品ショーケース</div>
+        <div class="gm-pdf-card-desc">いちおしメーカー5社、生産性向上・作業環境向上コーナー、実演デモ</div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<div class="gm-back">
+  <a href="../index.html">← TOP ページに戻る</a>
+</div>
+  </main>
+  <footer class="maker-footer">
+    <img class="maker-footer-logo" src="../../assets/twf-logo-horizontal.png" alt="2026 東京ウェルディングフェスタ" />
+    マツモト産業株式会社 京葉営業所 / TEL 047-358-1121 /
+    <a href="../../index.html">TWF2026 みどころポータル トップ</a>
+    <div class="footer-organizer">
+      <img class="footer-twf-square" src="../../assets/twf-logo-square.png" alt="TWF" />
+      <span>主催: 東京ウェルディングフェスタ実行委員会</span>
+    </div>
+  </footer>
+</body>
+</html>

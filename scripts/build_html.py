@@ -584,6 +584,76 @@ def render_topics(env, topics=None):
     return rendered
 
 
+def render_guide_map(env, makers, slugs, demo_schedule=None, guide_only=None):
+    """Phase 5 R-1: 公式ガイドマップ専用ページを生成。
+    prototype/guide-map/index.html に PDF + 会場マップ + 実演デモ + 主催店表を集約。
+    """
+    guide_only = guide_only or []
+
+    # 主催店 + 共同小間出展者を booth 順にソート (主-XX を数値ソート、共同小間は末尾)
+    def sort_key(s):
+        b = s.get("booth", "")
+        if b.startswith("主-"):
+            try:
+                return (0, int(b.split("-")[1].split()[0]))
+            except (ValueError, IndexError):
+                return (0, 999)
+        return (1, 0)  # 共同小間 は末尾
+
+    # 重複 4 社 (現行 csv にあるが PDF 主催店にも出る): No.023, 107, 121 + プロスパー洸洋 (No.113 とは別社)
+    # PDF 主催店リストから抽出された全 sponsor entries の booth 番号を持つ csv 社を検出
+    OVERLAPS = {
+        "主-33": (23, "kamimaru", "カミマル㈱"),
+        "主-16": (107, "fuji", "㈱フジ"),
+        "主-15": (121, "matsumoto-excel", "マツモト産業㈱エクセル貿易事業部"),
+    }
+
+    sponsors_sorted = []
+    # First add the 34 guide-only exhibitors
+    for g in guide_only:
+        e = dict(g)
+        e["overlap_no"] = None
+        e["overlap_slug"] = None
+        booth = e.get("booth") or ""
+        if "共同" in booth or "/" in e.get("name", ""):
+            e["joint_note"] = "共同小間"
+        else:
+            e["joint_note"] = ""
+        sponsors_sorted.append(e)
+    # Then add overlap makers (already in csv) so the table is complete
+    no_to_slug = {int(no): slug for no, slug in slugs.items()} if isinstance(slugs, dict) else dict(slugs)
+    for booth, (no, slug, name) in OVERLAPS.items():
+        slug_actual = no_to_slug.get(no, slug)
+        # find furigana from makers csv
+        furigana = ""
+        for m in makers:
+            if int(m["no"]) == no:
+                furigana = m.get("furigana", "")
+                break
+        sponsors_sorted.append({
+            "name": name,
+            "furigana": furigana,
+            "booth": booth,
+            "overlap_no": no,
+            "overlap_slug": slug_actual,
+            "joint_note": "",
+        })
+
+    sponsors_sorted.sort(key=sort_key)
+
+    out_dir = OUT_DIR / "guide-map"
+    out_dir.mkdir(parents=True, exist_ok=True)
+    tpl = env.get_template("guide_map.html.j2")
+    html = tpl.render(
+        demo_schedule=demo_schedule or {},
+        guide_only=guide_only,
+        overlap=list(OVERLAPS.values()),
+        sponsors_sorted=sponsors_sorted,
+    )
+    (out_dir / "index.html").write_text(html, encoding="utf-8")
+    return 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--clean", action="store_true", help="wipe prototype/m/ before render")
@@ -650,6 +720,7 @@ def main():
     counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule, twf_first_set=twf_first_set)
     n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule, twf_first_set=twf_first_set, guide_only=guide_only)
     n_topics = render_topics(env, topics)
+    n_guide_map = render_guide_map(env, makers, slugs, demo_schedule=demo_schedule, guide_only=guide_only)
 
     final_used = Counter(slugs.values())
     duplicates = sorted(s for s, c in final_used.items() if c > 1)
@@ -657,6 +728,7 @@ def main():
     print(f"Maker pages rendered: A={counts['A']}  B={counts['B']}  C={counts['C']}  total={sum(counts.values())}")
     print(f"TOP cards rendered:   {n_top}  -> {(OUT_DIR / 'index.html').relative_to(ROOT)}")
     print(f"Topic pages rendered: {n_topics}  -> {TOPICS_OUT.relative_to(ROOT)}/{{slug}}/")
+    print(f"Guide map page:       {n_guide_map}  -> {(OUT_DIR / 'guide-map' / 'index.html').relative_to(ROOT)}")
     print(f"Slugs total: {len(slugs)}")
     print(f"  generated this run: {len(generated)}")
     print(f"  collisions resolved (auto-suffix -No): {len(collisions)}")
