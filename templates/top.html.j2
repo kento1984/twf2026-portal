@@ -635,12 +635,6 @@
       max-width: 760px;
       line-height: 1.7;
     }
-    .guidemap-sub-link {
-      color: #1e40af;
-      font-weight: 700;
-      text-decoration: underline;
-    }
-    .guidemap-sub-link:hover { color: #1e3a8a; }
     .guidemap-cards {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -1780,7 +1774,7 @@
       <div class="section-header">
         <span class="guidemap-eyebrow">🗺️ OFFICIAL GUIDEMAP</span>
         <h2 id="guidemap-title" class="section-title double-underline double-underline-center">公式ガイドマップ</h2>
-        <p class="guidemap-sub">主催店配布の公式ガイドマップ。会場の全体像・小間配置・実演デモを来場前に予習。 / <a href="guide-map/" class="guidemap-sub-link">専用ページで主催店33社含む全情報を見る →</a></p>
+        <p class="guidemap-sub">主催店配布の公式ガイドマップ。会場の全体像・小間配置・実演デモを来場前に予習。</p>
       </div>
       <div class="guidemap-cards">
         <a class="guidemap-card guidemap-card-map" href="assets/maps/guidemap_front.png" target="_blank" rel="noopener">
@@ -1978,7 +1972,7 @@
       {% if guide_only %}
       <section class="maker-section maker-section-guide-only" id="guide-only-section" hidden>
         <h3 class="maker-section-title">公式ガイドマップ掲載のみ ({{ guide_only|length }}社)</h3>
-        <p class="maker-section-intro">主催店 / 共同小間出展者で詳細ページはありません。<a href="guide-map/">→ ガイドマップ専用ページで一覧を見る</a></p>
+        <p class="maker-section-intro">主催店 / 共同小間出展者で詳細ページはありません。<a href="assets/pdf/26TWF_official_guidemap.pdf" target="_blank" rel="noopener">→ 公式ガイドマップ PDF で確認</a></p>
         <div class="maker-grid maker-grid-guide-only">
           {% for g in guide_only %}
             {% set _gblob = (g.name or '') ~ ' ' ~ (g.furigana or '') ~ ' ' ~ (g.booth or '') ~ ' 主催店 公式ガイドマップ' %}
@@ -1989,7 +1983,7 @@
               <div class="maker-card-body">
                 <h3 class="maker-card-name">{{ g.name }}</h3>
                 <div class="maker-card-cat">小間 {{ g.booth }} · 公式ガイドマップ掲載のみ</div>
-                <a href="guide-map/" class="maker-card-link">ガイドマップで見る →</a>
+                <a href="assets/pdf/26TWF_official_guidemap.pdf" target="_blank" rel="noopener" class="maker-card-link">公式ガイドマップ PDF →</a>
               </div>
             </article>
           {% endfor %}
