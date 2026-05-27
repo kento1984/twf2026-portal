@@ -1250,6 +1250,19 @@
       margin-bottom: 12px;
       line-height: 1.45;
     }
+    .maker-card-first {
+      display: inline-block;
+      font-size: 10.5px;
+      font-weight: 900;
+      letter-spacing: 0.06em;
+      padding: 2px 9px;
+      margin-bottom: 10px;
+      background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+      color: #fff;
+      border: 1px solid #fbbf24;
+      border-radius: 4px;
+      box-shadow: 0 1px 3px rgba(217,119,6,0.25);
+    }
     .maker-card-link {
       display: inline-flex;
       align-items: center;
@@ -1885,7 +1898,7 @@
          macro 化で重複回避、検索 + 8 ボタンフィルタは両セクション横断のまま (JS 側で .maker-card 一括取得)。 #}
       {% macro render_maker_card(m) %}
         {% set _facets_str = (m.facets or []) | join(' ') %}
-        {% set _search_blob = (m.name or '') ~ ' ' ~ (m.display_name or '') ~ ' ' ~ (m.name_short or '') ~ ' ' ~ (m.category or '') ~ ' No.' ~ ('%03d' | format(m.no)) ~ ' No' ~ ('%03d' | format(m.no)) ~ ' ' ~ (m.booth or '') ~ ' ' ~ (m.q1 or '') ~ ' ' ~ (m.q2 or '') ~ ' ' ~ (m.q3 or '') ~ ' ' ~ _facets_str %}
+        {% set _search_blob = (m.name or '') ~ ' ' ~ (m.display_name or '') ~ ' ' ~ (m.name_short or '') ~ ' ' ~ (m.category or '') ~ ' No.' ~ ('%03d' | format(m.no)) ~ ' No' ~ ('%03d' | format(m.no)) ~ ' ' ~ (m.booth or '') ~ ' ' ~ (m.q1 or '') ~ ' ' ~ (m.q2 or '') ~ ' ' ~ (m.q3 or '') ~ ' ' ~ _facets_str ~ (' 初TWF出展' if m.twf_first_exhibitor else '') %}
         <article class="maker-card maker-card-tier-{{ m.tier|lower }}"
                  data-tier="{{ m.tier }}"
                  data-search-text="{{ _search_blob }}"
@@ -1907,6 +1920,7 @@
             <h3 class="maker-card-name">{{ m.name }}</h3>
             {% if m.name_short and m.name_short != m.name %}<div class="maker-card-name-sub">{{ m.name_short }}</div>{% endif %}
             <div class="maker-card-cat">No.{{ '%03d' | format(m.no) }}{% if m.booth %} · 小間 {{ m.booth }}{% endif %}{% if m.card_category_display %} · {{ m.card_category_display }}{% endif %}{% if m.tier == 'B' and m.pamphlet_page %} · 公式パンフ p.{{ m.pamphlet_page }}{% endif %}</div>
+            {% if m.twf_first_exhibitor %}<div class="maker-card-first">★ 初TWF出展</div>{% endif %}
             <a href="m/{{ m.slug }}/" class="maker-card-link is-link-block">{% if m.tier == 'A' %}詳細を見る{% elif m.tier == 'B' %}パンフを見る{% else %}情報準備中{% endif %}</a>
           </div>
         </article>

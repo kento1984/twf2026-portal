@@ -434,7 +434,7 @@
             "tagline": "搬送→位置補正→協働ロボット溶接の自動化を提案 (マツモト産業ブース連動)",
             "image_url": "/assets/topics/productivity-solutions/daihen/daihen_aitran.jpg",
             "official_url": "https://www.daihen-robot.com/items/Aitran",
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "what_is": "ダイヘンの自律搬送台車 AiTran と協働ロボット VC8 をレーザーセンサーで連携し、ワーク搬送から溶接までの連携自動化を提案するソリューション。マツモト産業 自動化推進コーナーで実機展示・デモ。iREX2025 でも同構成 (AiTran500 + VC8 + The Short Arc) のデモを展開、ダイヘン公式 YouTube でデモ映像を公開中。",
             "improvement": {
@@ -654,7 +654,7 @@
             "tagline": "アーク光の中で、溶融池がはっきり見える",
             "image_url": "/assets/topics/productivity-solutions/nobitekku/nobitekku_cavitar.jpg",
             "official_url": "https://www.nobby-tech.co.jp/welding/weldingcamera",
-            "is_first_exhibit": false,
+            "is_first_exhibit": true,
             "is_new_product": false,
             "what_is": "フィンランド Cavitar 社製のレーザー光源付き溶接観察カメラ。バンドパスフィルターとレーザー波長を組み合わせ、アーク光・スパッタ・ヒュームの中でも溶融池や開先、ワイヤ突出長を高コントラストで撮影。現行は C350 (30×45×99mm/300g) と C400 (38×48.2×99.3mm/360g) の 2 モデル、最大解像度 1,440×1,080 px。フル解像度時の撮影速度は C400 70 fps / C350 200 fps、最高撮影速度は C400 100 fps / C350 500 fps (2×2 ビニング時)。日本国内では ㈱ノビテック が代理店として扱う。",
             "improvement": {
@@ -830,7 +830,7 @@
             "tagline": "3アーム構造で重量物・工具の操作を支援、トヨタ 6000+ / 日野 3000+ / ダイハツ 500+ セットのレール実績",
             "image_url": "/assets/topics/productivity-solutions/shintech/shintech_3arm.jpg",
             "official_url": "https://thing-tech.com/arm/t-arm/",
-            "is_first_exhibit": false,
+            "is_first_exhibit": true,
             "is_new_product": false,
             "what_is": "スペイン・バルセロナ製の 3arm シリーズと、自社開発の純国産オートバランスアーム T-Arm を組み合わせ、重量物・工具の持上げ・移載・位置決めを支援するバランスアームシステム。3arm は Series 1/2/3/4/6 を展開し、最大荷重 35kg に対応。T-Arm は耐荷重 40〜650kg に対応する。2025 年 9 月開始の新サービスとして、Liberaware 社製の機内点検ドローン IBIS2 を活用したプラント機内点検も展開。",
             "improvement": {
@@ -919,7 +919,7 @@
             "tagline": "鉄骨工場で作業員負担を 4 分の 1 に削減。国内生産のレーザークリーナー専門メーカー。",
             "image_url": "/assets/topics/productivity-solutions/optilaser/optilaser_cw2000.jpg",
             "official_url": "https://ult-laser.com/",
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "what_is": "ULT LASER は、高エネルギーのレーザー光を対象物に照射し、母材と付着物のエネルギー吸収差を利用して錆・塗装・油汚れ・酸化皮膜・樹脂などの表面付着物を蒸発・剥離させる非接触クリーニング装置。化学薬品・研磨材を使わず、二次廃棄物が発生しない。連続波 (CW) と断続波 (Pulse) の 2 系統、9 機種のラインナップを展開し、大阪本社で国内生産。ULTL-P300BP はリチウムイオンバッテリー駆動で、電源の取りにくい現場にも対応する。",
             "improvement": {
@@ -1132,7 +1132,7 @@
             "description": "",
             "image_url": null,
             "official_url": null,
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "booth": "C-12"
           },
@@ -1145,7 +1145,7 @@
             "description": "",
             "image_url": null,
             "official_url": null,
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "booth": "H-02"
           },
@@ -1158,7 +1158,7 @@
             "description": "",
             "image_url": null,
             "official_url": null,
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "booth": "B-13"
           },
@@ -1171,7 +1171,7 @@
             "description": "",
             "image_url": null,
             "official_url": null,
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "booth": "F-06"
           },
@@ -1184,7 +1184,7 @@
             "description": "",
             "image_url": null,
             "official_url": null,
-            "is_first_exhibit": true,
+            "is_first_exhibit": false,
             "is_new_product": false,
             "booth": "B-01"
           }

@@ -1,0 +1,18 @@
+{
+  "_doc": "TWF2026 公式ガイドマップ (5/25 受領、5/15 FIX 版) 裏面で「初TWF出展」マークが付いているメーカー。build_html.py が rec.twf_first_exhibitor フラグに変換、テンプレ (maker_full / maker_pamphlet / maker_skeleton / top カード / topic 製品カード) でバッジ表示。キーは zero-padded 出展者No。",
+  "_source": "tmp/26TWF_official_guidemap.pdf page2 (裏面) — bbox抽出後に scripts/_crop_twf_first_badges.py で視覚確認、柏原承認 (2026-05-27)",
+  "_notes": [
+    "ダイヘン (No.066) は PDF 上では『AiTran連携協働ロボット』に『初TWF出展』マーク付きだが、ダイヘン社自体は既存A+メーカーで毎年出展のため『会社初出展』と誤認される懸念から除外 (柏原判断)。AiTran 製品単体の『新製品』訴求は別途検討。",
+    "01_topleft 位置の『初TWF出展!』マークは TWF タイトル装飾 / いちおしメーカー section header の可能性が高く、個社特定不可のため除外。",
+    "いちおしメーカー 5社 (KS・S / 日本カノマックス / BX / オプティ / ワグナー) には PDF 上で『初TWF出展』マーク無し → バッジ非付与。"
+  ],
+  "001": {"name": "㈱アカサカテック", "corner": "作業環境向上", "product": "IPAS (フォークリフト接近警報システム)"},
+  "034": {"name": "五常㈱", "corner": "作業環境向上", "product": "電動台車 (乗れる電動台車)"},
+  "035": {"name": "㈱小森安全機研究所", "corner": "生産性向上", "product": "SRD 3Dレーダー安全システム"},
+  "052": {"name": "シンテック㈱", "corner": "生産性向上", "product": "3arm (バランスアーム)"},
+  "059": {"name": "㈱ゼネテック", "corner": "生産性向上", "product": "Visual Components OLP"},
+  "075": {"name": "㈱東洋化学商会", "corner": "作業環境向上", "product": "瞬間氷結スプレー CBA"},
+  "097": {"name": "㈱ノビテック", "corner": "生産性向上", "product": "Cavitar Welding Camera"},
+  "129": {"name": "メサック㈱", "corner": "生産性向上", "product": "スプレーガン×防爆協働ロボット"},
+  "145": {"name": "ロボットバンク㈱", "corner": "生産性向上", "product": "AMR 自律走行(協働)搬送ロボット StarLift"}
+}
