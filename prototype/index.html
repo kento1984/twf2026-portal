@@ -607,6 +607,120 @@
     }
 
     /* ===========================================================
+       Phase 2 M-3: 公式ガイドマップ rail
+       =========================================================== */
+    .guidemap-rail {
+      width: 100%;
+      padding: 56px 32px 48px;
+      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+    }
+    .guidemap-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+    .guidemap-eyebrow {
+      display: block;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      color: #1e40af;
+      margin-bottom: 8px;
+    }
+    .guidemap-sub {
+      text-align: center;
+      font-size: 14px;
+      color: #475569;
+      margin: 8px auto 28px;
+      max-width: 720px;
+      line-height: 1.7;
+    }
+    .guidemap-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .guidemap-card {
+      display: block;
+      background: #fff;
+      border: 1px solid #E2E8F0;
+      border-radius: 12px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      transition: transform 220ms ease-out, border-color 220ms ease-out, box-shadow 220ms ease-out;
+    }
+    .guidemap-card:hover {
+      transform: translateY(-3px);
+      border-color: #1e40af;
+      box-shadow: 0 14px 32px rgba(30,64,175,0.16);
+      text-decoration: none;
+    }
+    .guidemap-card-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1420 / 1640;
+      background: #F1F5F9;
+      overflow: hidden;
+      max-height: 380px;
+    }
+    .guidemap-card-thumb-pdf {
+      aspect-ratio: 1786 / 1263;
+    }
+    .guidemap-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+    .guidemap-card-thumb-corner {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 4px 10px;
+      background: rgba(30,64,175,0.92);
+      color: #fff;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+    }
+    .guidemap-card-body {
+      padding: 20px 24px 22px;
+    }
+    .guidemap-card-title {
+      font-size: 19px;
+      font-weight: 900;
+      color: #1e293b;
+      margin: 0 0 8px;
+      line-height: 1.35;
+    }
+    .guidemap-card-desc {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.7;
+      margin: 0 0 14px;
+    }
+    .guidemap-card-cta {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 800;
+      color: #1e40af;
+      letter-spacing: 0.04em;
+    }
+    .guidemap-card:hover .guidemap-card-cta {
+      text-decoration: underline;
+    }
+    @media (max-width: 720px) {
+      .guidemap-rail { padding: 36px 18px 36px; }
+      .guidemap-cards { grid-template-columns: 1fr; gap: 18px; }
+      .guidemap-card-thumb { aspect-ratio: 16/10; max-height: 280px; }
+      .guidemap-card-thumb-pdf { aspect-ratio: 1786/1263; }
+    }
+
+    /* ===========================================================
        Section 3.2: TWF2026 注目情報 (軽量 1-card rail)
        みどころ3選 → 注目情報 → 当日限定セール の順で
        単発の特集案件 (コラボ/限定特典) を恒常導線と分けて訴求。
@@ -1632,6 +1746,45 @@
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       Phase 2 M-3: 公式ガイドマップ導線
+       主催店配布のガイドマップ PDF + 会場マップ画像プレビュー。
+       みどころ3選セクションと注目情報の間に配置 (来場前予習導線として最重要)
+       ============================================================ -->
+  <section class="guidemap-rail" id="guidemap" aria-labelledby="guidemap-title">
+    <div class="guidemap-inner">
+      <div class="section-header">
+        <span class="guidemap-eyebrow">🗺️ OFFICIAL GUIDEMAP</span>
+        <h2 id="guidemap-title" class="section-title double-underline double-underline-center">公式ガイドマップ</h2>
+        <p class="guidemap-sub">主催店配布の公式ガイドマップ。会場の全体像・小間配置・実演デモを来場前に予習。</p>
+      </div>
+      <div class="guidemap-cards">
+        <a class="guidemap-card guidemap-card-map" href="assets/maps/guidemap_front.png" target="_blank" rel="noopener">
+          <div class="guidemap-card-thumb">
+            <img src="assets/maps/venue_map.webp" alt="TWF2026 会場マップ (出展メーカー約230社の小間配置図)" loading="lazy" />
+            <span class="guidemap-card-thumb-corner">クリックで拡大 →</span>
+          </div>
+          <div class="guidemap-card-body">
+            <h3 class="guidemap-card-title">🗺️ 会場マップを見る</h3>
+            <p class="guidemap-card-desc">A〜I ブロックの全小間配置、主催店33社、生産性向上 / 作業環境向上コーナー、抽選コーナー、入口/出口の位置を一目で確認。</p>
+            <span class="guidemap-card-cta">画像を拡大表示 →</span>
+          </div>
+        </a>
+        <a class="guidemap-card guidemap-card-pdf" href="assets/pdf/26TWF_official_guidemap.pdf" target="_blank" rel="noopener">
+          <div class="guidemap-card-thumb guidemap-card-thumb-pdf">
+            <img src="assets/maps/guidemap_back.webp" alt="TWF2026 公式ガイドマップ 裏面 (注目商品ショーケース)" loading="lazy" />
+            <span class="guidemap-card-thumb-corner">PDF / A3 両面</span>
+          </div>
+          <div class="guidemap-card-body">
+            <h3 class="guidemap-card-title">📥 公式ガイドマップ PDF</h3>
+            <p class="guidemap-card-desc">表面: 出展メーカー約230社の小間番号一覧 + 会場マップ。裏面: いちおしメーカー、生産性向上ソリューション、作業環境向上、実演デモ時間表。</p>
+            <span class="guidemap-card-cta">PDF を開く / ダウンロード →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
