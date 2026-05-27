@@ -43,6 +43,7 @@ PDF_EXTRACTS_PATH = ROOT / "data" / "pdf_extracts.json"
 PRODUCTS_PATH = ROOT / "data" / "maker_products.json"
 TOPICS_PATH = ROOT / "data" / "topics.json"
 TAXONOMY_PATH = ROOT / "data" / "maker_taxonomy.json"
+DEMO_SCHEDULE_PATH = ROOT / "data" / "demo_schedule.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
 TOPICS_OUT = OUT_DIR / "topics"
@@ -240,6 +241,20 @@ def load_products() -> dict:
     return _load_kv_json(PRODUCTS_PATH)
 
 
+def load_demo_schedule() -> dict:
+    """data/demo_schedule.json — 公式ガイドマップ由来の実演デモ時間表。
+
+    Structure: {"NNN": {maker_no, maker_name, demo_title, demo_subtitle, booth,
+                        schedule: [{date, label, times: [...]}, ...],
+                        participation, source}}
+    `_` prefixed keys are treated as doc fields and skipped.
+    """
+    if not DEMO_SCHEDULE_PATH.exists():
+        return {}
+    raw = json.loads(DEMO_SCHEDULE_PATH.read_text(encoding="utf-8"))
+    return {k: v for k, v in raw.items() if not k.startswith("_")}
+
+
 def load_taxonomy() -> dict:
     """data/maker_taxonomy.json — nav_categories whitelist + facets master + maker entries.
 
@@ -345,7 +360,8 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
                  rewrites: dict | None = None,
                  brand: dict | None = None, status: dict | None = None,
                  pdf_extracts: dict | None = None, products: dict | None = None,
-                 taxonomy: dict | None = None) -> dict:
+                 taxonomy: dict | None = None,
+                 demo_schedule: dict | None = None) -> dict:
     """Combine csv row + json detail (+ pamphlet index + rewrites + brand/status/pdf/products + taxonomy)."""
     no = int(csv_row["no"])
     rec = dict(json_rec)  # has_answer, q1-q5, attachments, attachment_dir, reply_date, ...
@@ -400,6 +416,10 @@ def merge_record(csv_row: dict, json_rec: dict, pamphlet_idx: dict | None = None
 
     # Step A: カード meta 表示用カテゴリ文言 (Codex 設計レビュー反映、責務分離)
     rec["card_category_display"] = derive_card_category_display(rec)
+
+    # Phase 2 M-2: 公式ガイドマップ由来の実演デモ時間表 (該当社のみ)
+    rec["demo_schedule"] = (demo_schedule or {}).get(key) or None
+
     return rec
 
 
@@ -434,7 +454,7 @@ def build_twf_topic_index(topics, target_topic_slugs=None):
     return by_slug
 
 
-def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None):
+def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None, demo_schedule=None):
     tpl_for = {
         "A": env.get_template("maker_full.html.j2"),
         "B": env.get_template("maker_pamphlet.html.j2"),
@@ -444,7 +464,7 @@ def render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pd
     counts = Counter()
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products, taxonomy=taxonomy)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products, taxonomy=taxonomy, demo_schedule=demo_schedule)
         rec["slug"] = m["__slug"]
         tier = tier_for(rec)
         rec["tier"] = tier
@@ -468,11 +488,11 @@ def load_topics():
         return json.load(f)
 
 
-def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None):
+def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None, demo_schedule=None):
     cards = []
     for m in makers:
         no = int(m["no"])
-        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products, taxonomy=taxonomy)
+        rec = merge_record(m, details[f"{no:03d}"], pamphlet_idx, rewrites, brand, status, pdf_extracts, products, taxonomy=taxonomy, demo_schedule=demo_schedule)
         rec["slug"] = m["__slug"]
         rec["tier"] = tier_for(rec)
         rec["display_name"] = (rec["name_short"] or rec["name"]).strip()
@@ -514,6 +534,7 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
         makers_pending=makers_pending,
         counts=counts,
         topics=topics or {},
+        demo_schedule=demo_schedule or {},
     )
     (OUT_DIR / "index.html").write_text(html, encoding="utf-8")
     return len(cards)
@@ -576,6 +597,18 @@ def main():
 
     topics = load_topics()
     taxonomy = load_taxonomy()
+    demo_schedule = load_demo_schedule()
+
+    # Phase 2 M-2: 実演デモ時間表を seminars topic の products に注入
+    if demo_schedule and topics.get("seminars"):
+        for section in topics["seminars"].get("sections", []) or []:
+            for product in section.get("products", []) or []:
+                no = product.get("maker_no")
+                if no is None:
+                    continue
+                key = f"{int(no):03d}"
+                if key in demo_schedule:
+                    product["demo_schedule"] = demo_schedule[key]
 
     # Step 6: nav_categories whitelist 検証 (Codex policy 厳守: 8 ボタン語彙以外は build warning)
     nav_errors = validate_nav_categories(makers, taxonomy)
@@ -587,8 +620,8 @@ def main():
         allowed_n = len((taxonomy.get('vocab') or {}).get('nav_categories') or [])
         print(f"nav_categories whitelist 検証: OK ({allowed_n} 種許可)")
 
-    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy)
-    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy)
+    counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule)
     n_topics = render_topics(env, topics)
 
     final_used = Counter(slugs.values())

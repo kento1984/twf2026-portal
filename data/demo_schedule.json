@@ -1,0 +1,30 @@
+{
+  "_doc": "TWF2026 実演デモ時間表。公式ガイドマップ (両面A3, 0515FIX版) 表面下部・裏面上部より抽出。キーは zero-padded 出展者No。build_html.py が seminars topic の products[].demo_schedule と maker rec.demo_schedule に注入する。参加無料・予約不要 (主催店配布版に記載)。",
+  "_source": "tmp/26TWF_official_guidemap.pdf (5/25 受領、5/15 FIX 版)",
+  "058": {
+    "maker_no": 58,
+    "maker_name": "スリーエムジャパン",
+    "demo_title": "フルハーネスデモンストレーション",
+    "demo_subtitle": "墜落防止実験 + うっ血対策ストラップ吊り下げ体験",
+    "booth": "H-11",
+    "schedule": [
+      {"date": "2026-06-12", "label": "12日(金)", "times": ["10:40", "12:00", "13:20", "14:45"]},
+      {"date": "2026-06-13", "label": "13日(土)", "times": ["09:40", "10:30", "13:00", "14:10"]}
+    ],
+    "participation": "参加無料",
+    "source": "公式ガイドマップ 表面下部"
+  },
+  "033": {
+    "maker_no": 33,
+    "maker_name": "神戸製鋼所",
+    "demo_title": "AXELARC™ デモ実演",
+    "demo_subtitle": "新ワイヤ送給制御プロセス (極低スパッタ・深溶け込み)",
+    "booth": "H-01",
+    "schedule": [
+      {"date": "2026-06-12", "label": "12日(金)", "times": ["11:30", "14:00"]},
+      {"date": "2026-06-13", "label": "13日(土)", "times": ["11:00", "13:30"]}
+    ],
+    "participation": "参加無料",
+    "source": "公式ガイドマップ 表面下部"
+  }
+}

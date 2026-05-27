@@ -485,6 +485,128 @@
     }
 
     /* ===========================================================
+       Phase 2 M-2: 実演デモタイムテーブル (TOP / 既存実演セミナーセクション内)
+       pickup-cards 下部に追加表示、ガイドマップ準拠の時刻一覧
+       =========================================================== */
+    .demo-timetable {
+      max-width: 1280px;
+      margin: 36px auto 0;
+      padding: 0 60px;
+      position: relative;
+      z-index: 3;
+    }
+    .demo-timetable-head {
+      text-align: center;
+      margin-bottom: 18px;
+      color: #fff;
+    }
+    .demo-timetable-eyebrow {
+      display: inline-block;
+      padding: 4px 14px;
+      background: linear-gradient(135deg, #1e40af 0%, #BE123C 100%);
+      color: #fff;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.10em;
+      margin-bottom: 8px;
+    }
+    .demo-timetable-title {
+      font-size: 22px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      margin: 0 0 4px;
+      color: #fff;
+    }
+    .demo-timetable-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.78);
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
+    .demo-timetable-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 18px;
+    }
+    .demo-timetable-card {
+      --demo-accent: #BE123C;
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--demo-accent);
+      border-top: 4px solid var(--demo-accent);
+      border-radius: 10px;
+      padding: 18px 20px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+    }
+    .demo-timetable-card-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+    .demo-timetable-maker {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--demo-accent);
+    }
+    .demo-timetable-booth {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 800;
+      color: #b45309;
+      background: #fef3c7;
+      border: 1px solid #fde68a;
+      padding: 2px 8px;
+      border-radius: 3px;
+      letter-spacing: 0.04em;
+    }
+    .demo-timetable-demo {
+      font-size: 14px;
+      font-weight: 800;
+      color: #2C2C2C;
+      line-height: 1.4;
+    }
+    .demo-timetable-subtitle {
+      font-size: 12px;
+      color: #52525B;
+      font-weight: 600;
+      margin: 2px 0 12px;
+      line-height: 1.55;
+    }
+    .demo-timetable-days {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding-top: 10px;
+      border-top: 1px dashed #E4E4E7;
+    }
+    .demo-timetable-day {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+    }
+    .demo-timetable-day-label {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--demo-accent);
+      min-width: 64px;
+      font-family: var(--font-mono);
+    }
+    .demo-timetable-times {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      font-weight: 700;
+      color: #2C2C2C;
+      letter-spacing: 0.04em;
+    }
+    @media (max-width: 720px) {
+      .demo-timetable { padding: 0 18px; }
+      .demo-timetable-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ===========================================================
        Section 3.2: TWF2026 注目情報 (軽量 1-card rail)
        みどころ3選 → 注目情報 → 当日限定セール の順で
        単発の特集案件 (コラボ/限定特典) を恒常導線と分けて訴求。
@@ -1469,6 +1591,48 @@
         <div class="pickup-card-keywords">3M / 神戸製鋼所 / ダイヘン / 三菱電機</div>
         <span class="pickup-card-cta">詳しく見る →</span>
       </a>
+    </div>
+
+    <div class="demo-timetable">
+      <div class="demo-timetable-head">
+        <span class="demo-timetable-eyebrow">🕐 当日タイムテーブル</span>
+        <h3 class="demo-timetable-title">実演デモ 開始時刻</h3>
+        <p class="demo-timetable-sub">公式ガイドマップ準拠 / 参加無料・予約不要</p>
+      </div>
+      <div class="demo-timetable-grid">
+        <div class="demo-timetable-card" style="--demo-accent: #1e40af;">
+          <div class="demo-timetable-card-head">
+            <div class="demo-timetable-maker">スリーエムジャパン</div>
+<span class="demo-timetable-booth">小間 H-11</span>          </div>
+          <div class="demo-timetable-demo">フルハーネスデモンストレーション</div>
+<div class="demo-timetable-subtitle">墜落防止実験 + うっ血対策ストラップ吊り下げ体験</div>          <div class="demo-timetable-days">
+            <div class="demo-timetable-day">
+              <span class="demo-timetable-day-label">12日(金)</span>
+              <span class="demo-timetable-times">10:40 / 12:00 / 13:20 / 14:45</span>
+            </div>
+            <div class="demo-timetable-day">
+              <span class="demo-timetable-day-label">13日(土)</span>
+              <span class="demo-timetable-times">09:40 / 10:30 / 13:00 / 14:10</span>
+            </div>
+          </div>
+        </div>
+        <div class="demo-timetable-card" style="--demo-accent: #BE123C;">
+          <div class="demo-timetable-card-head">
+            <div class="demo-timetable-maker">神戸製鋼所</div>
+<span class="demo-timetable-booth">小間 H-01</span>          </div>
+          <div class="demo-timetable-demo">AXELARC™ デモ実演</div>
+<div class="demo-timetable-subtitle">新ワイヤ送給制御プロセス (極低スパッタ・深溶け込み)</div>          <div class="demo-timetable-days">
+            <div class="demo-timetable-day">
+              <span class="demo-timetable-day-label">12日(金)</span>
+              <span class="demo-timetable-times">11:30 / 14:00</span>
+            </div>
+            <div class="demo-timetable-day">
+              <span class="demo-timetable-day-label">13日(土)</span>
+              <span class="demo-timetable-times">11:00 / 13:30</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
