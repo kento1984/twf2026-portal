@@ -45,6 +45,7 @@ TOPICS_PATH = ROOT / "data" / "topics.json"
 TAXONOMY_PATH = ROOT / "data" / "maker_taxonomy.json"
 DEMO_SCHEDULE_PATH = ROOT / "data" / "demo_schedule.json"
 TWF_FIRST_PATH = ROOT / "data" / "twf_first_exhibitors.json"
+GUIDE_ONLY_PATH = ROOT / "data" / "guide_map_only_exhibitors.json"
 OUT_DIR = ROOT / "prototype"
 MAKER_OUT = OUT_DIR / "m"
 TOPICS_OUT = OUT_DIR / "topics"
@@ -263,6 +264,15 @@ def load_twf_first_exhibitors() -> set:
         return set()
     raw = json.loads(TWF_FIRST_PATH.read_text(encoding="utf-8"))
     return {k for k in raw.keys() if not k.startswith("_")}
+
+
+def load_guide_only_exhibitors() -> list:
+    """data/guide_map_only_exhibitors.json — 主催店33社+共同小間出展者で、現行149社に
+    含まれない 34 社の簡易データ (name/furigana/booth)。TOP 検索のみヒット、詳細ページなし。"""
+    if not GUIDE_ONLY_PATH.exists():
+        return []
+    raw = json.loads(GUIDE_ONLY_PATH.read_text(encoding="utf-8"))
+    return raw.get("exhibitors", []) or []
 
 
 def load_taxonomy() -> dict:
@@ -502,7 +512,7 @@ def load_topics():
         return json.load(f)
 
 
-def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None, demo_schedule=None, twf_first_set=None):
+def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics=None, taxonomy=None, demo_schedule=None, twf_first_set=None, guide_only=None):
     cards = []
     for m in makers:
         no = int(m["no"])
@@ -549,6 +559,7 @@ def render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, stat
         counts=counts,
         topics=topics or {},
         demo_schedule=demo_schedule or {},
+        guide_only=guide_only or [],
     )
     (OUT_DIR / "index.html").write_text(html, encoding="utf-8")
     return len(cards)
@@ -613,6 +624,7 @@ def main():
     taxonomy = load_taxonomy()
     demo_schedule = load_demo_schedule()
     twf_first_set = load_twf_first_exhibitors()
+    guide_only = load_guide_only_exhibitors()
 
     # Phase 2 M-2: 実演デモ時間表を seminars topic の products に注入
     if demo_schedule and topics.get("seminars"):
@@ -636,7 +648,7 @@ def main():
         print(f"nav_categories whitelist 検証: OK ({allowed_n} 種許可)")
 
     counts = render_pages(env, makers, details, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule, twf_first_set=twf_first_set)
-    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule, twf_first_set=twf_first_set)
+    n_top = render_top(env, makers, details, counts, pamphlet_idx, rewrites, brand, status, pdf_extracts, products, topics, taxonomy=taxonomy, demo_schedule=demo_schedule, twf_first_set=twf_first_set, guide_only=guide_only)
     n_topics = render_topics(env, topics)
 
     final_used = Counter(slugs.values())

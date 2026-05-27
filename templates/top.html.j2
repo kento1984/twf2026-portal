@@ -1190,6 +1190,28 @@
       border-left-color: var(--gray-300, #D1D5DB);
       color: var(--gray-600, #4B5563);
     }
+    /* Phase 5 R-2: 公式ガイドマップ掲載のみセクション (default hidden、検索ヒット時表示) */
+    .maker-section-guide-only .maker-section-title {
+      border-left-color: #b45309;
+      color: #92400e;
+    }
+    .maker-section-guide-only .maker-section-intro a {
+      color: #b45309;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+    .maker-card-guide-only {
+      background: linear-gradient(180deg, #FFFBEB 0%, #FFFFFF 100%);
+      border: 1px solid #FDE68A;
+      border-left: 3px solid #b45309;
+    }
+    .maker-card-guide-only .maker-card-cat {
+      color: #b45309;
+      font-weight: 700;
+    }
+    .maker-card-guide-only .maker-card-link {
+      color: #b45309;
+    }
     .maker-section-intro {
       font-size: 13px;
       color: var(--gray-600, #4B5563);
@@ -1944,6 +1966,30 @@
         </div>
       </section>
       {% endif %}
+
+      {# Phase 5 R-2: 公式ガイドマップ掲載のみの主催店/共同小間出展者 (34社)
+         デフォルトでは hidden、検索ヒット時のみ表示。専用詳細ページなし。 #}
+      {% if guide_only %}
+      <section class="maker-section maker-section-guide-only" id="guide-only-section" hidden>
+        <h3 class="maker-section-title">公式ガイドマップ掲載のみ ({{ guide_only|length }}社)</h3>
+        <p class="maker-section-intro">主催店 / 共同小間出展者で詳細ページはありません。<a href="guide-map/">→ ガイドマップ専用ページで一覧を見る</a></p>
+        <div class="maker-grid maker-grid-guide-only">
+          {% for g in guide_only %}
+            {% set _gblob = (g.name or '') ~ ' ' ~ (g.furigana or '') ~ ' ' ~ (g.booth or '') ~ ' 主催店 公式ガイドマップ' %}
+            <article class="maker-card maker-card-tier-guide-only maker-card-guide-only"
+                     data-tier="guide-only"
+                     data-search-text="{{ _gblob }}"
+                     hidden>
+              <div class="maker-card-body">
+                <h3 class="maker-card-name">{{ g.name }}</h3>
+                <div class="maker-card-cat">小間 {{ g.booth }} · 公式ガイドマップ掲載のみ</div>
+                <a href="guide-map/" class="maker-card-link">ガイドマップで見る →</a>
+              </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
     </div>
   </section>
 
@@ -2025,6 +2071,11 @@
       const totalDefault = totalSpan ? totalSpan.textContent : '';
       const chips = Array.from(document.querySelectorAll('.filter-chip'));
 
+      // Phase 5 R-2: 公式ガイドマップ掲載のみセクション (34社) も検索対象に含める。
+      // section.maker-section-guide-only は default hidden、検索でヒット 1 件以上なら表示。
+      const guideOnlySection = document.getElementById('guide-only-section');
+      const guideOnlyCards = guideOnlySection ? Array.from(guideOnlySection.querySelectorAll('.maker-card-guide-only')) : [];
+
       // 検索ボックス入力時の OR 部分一致 (旧ロジック維持、facets も検索対象)
       function applyQuery(raw) {
         const q = (raw || '').trim().toLowerCase();
@@ -2036,9 +2087,24 @@
           c.hidden = !match;
           if (match) visible++;
         });
-        if (empty) empty.hidden = !(q && visible === 0);
+        // guide-only セクション: 検索クエリありで 1 件以上ヒット時のみ表示
+        let guideVisible = 0;
+        guideOnlyCards.forEach(c => {
+          const blob = (c.dataset.searchText || '').toLowerCase();
+          const match = q && parts.some(p => blob.indexOf(p) !== -1);
+          c.hidden = !match;
+          if (match) guideVisible++;
+        });
+        if (guideOnlySection) guideOnlySection.hidden = !(q && guideVisible > 0);
+        if (empty) empty.hidden = !(q && visible === 0 && guideVisible === 0);
         if (totalSpan) {
-          totalSpan.textContent = q ? ('絞り込み ' + visible + '/' + cards.length + '社') : totalDefault;
+          if (q) {
+            const total = visible + guideVisible;
+            const extra = guideVisible > 0 ? (' (うちガイドマップ掲載のみ ' + guideVisible + '社)') : '';
+            totalSpan.textContent = '絞り込み ' + total + '/' + (cards.length + guideOnlyCards.length) + '社' + extra;
+          } else {
+            totalSpan.textContent = totalDefault;
+          }
         }
       }
 
@@ -2053,6 +2119,9 @@
           c.hidden = !match;
           if (match) visible++;
         });
+        // chip フィルタ時は guide-only セクションを隠す (nav_categories 未付与のため)
+        if (guideOnlySection) guideOnlySection.hidden = true;
+        guideOnlyCards.forEach(c => { c.hidden = true; });
         if (empty) empty.hidden = (visible !== 0);
         if (totalSpan) {
           totalSpan.textContent = '絞り込み ' + visible + '/' + cards.length + '社 (' + category + ')';
