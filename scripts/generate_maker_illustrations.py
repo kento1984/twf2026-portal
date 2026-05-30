@@ -96,6 +96,7 @@ PRODUCTS = {
     "063": "Industrial spot welding machine with bright welding arc and sparks",
     "065": "Industrial waste incinerator with smoke stack and intense flames",
     "066": "Yellow industrial collaborative welding robot arm in factory with sparks",
+    "068": "Cinematic close-up of industrial pneumatic air hoses and universal hoses — neatly coiled flexible polyurethane and rubber air hoses in various diameters with polished brass quick-connect couplings and metal hose-band fittings arrayed on a steel workbench, one air hose connected to a pneumatic impact wrench resting in the background, dramatic warm task lighting with subtle orange welding glow at the edge of the frame, dark industrial workshop atmosphere, professional industrial photography",
     "070": "Heavy industrial lifting clamp for flat and round steel bars",
     "071": "Industrial portable diesel generator and welding machine on construction site",
     "072": "Industrial pneumatic tools and air compressor silhouettes in factory",

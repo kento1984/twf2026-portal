@@ -532,6 +532,13 @@
     "secondary": "#444444",
     "text_on_primary": "#FFFFFF"
   },
+  "068": {
+    "source": "http://www.tate-yama.co.jp/",
+    "primary": "#666666",
+    "secondary": "#444444",
+    "text_on_primary": "#FFFFFF",
+    "notes": "ホース専門メーカー (ユニバーサル燃料ガスホース/エアーホース/溶断溶接用ホース、ブリヂストン・NCR代理店)。公式URLは http のみ (https は証明書未整備)。WebSearch で編み上げホース製品ページ確認済。URL は要 柏原 最終確認 (2026-06-01)。シェアビジョン(044) と同じ汎用グレー最小エントリ。"
+  },
   "070": {
     "source": "http://www.tp-mag.com/",
     "primary": "#666666",
